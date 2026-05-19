@@ -23,20 +23,29 @@
     --accent-soft: #f5dada;
     --per: #1f3f8a; --org: #2c6e3e; --loc: #a35c1a; --book: #5f3b8a;
     --txn: #a3296b; --evt: #0e6c75; --ill: #8b1f30; --dis: #6b2e8a; --ofc: #4a4943;
+    /* Fluid type scale */
+    --fs-base: clamp(14px, 0.85vw + 11px, 17px);
+    --fs-sm:   clamp(12px, 0.65vw + 10px, 14px);
+    --fs-xs:   clamp(11px, 0.5vw + 9px, 13px);
+    --fs-h:    clamp(15px, 1vw + 12px, 19px);
+    --fs-bignum: clamp(24px, 1.6vw + 18px, 34px);
+    --container-pad: clamp(14px, 1.5vw, 28px);
   }
+  html { font-size: var(--fs-base) }
   * { box-sizing: border-box }
   body {
     font-family: "Noto Serif SC", "Songti SC", "宋体", "SimSun", "PingFang SC", "Microsoft YaHei", serif;
     margin: 0; background: var(--bg); color: var(--fg);
+    font-size: var(--fs-base);
     background-image:
       radial-gradient(circle at 25% 25%, rgba(155,41,38,0.018) 0%, transparent 50%),
       radial-gradient(circle at 75% 75%, rgba(31,26,20,0.015) 0%, transparent 50%);
   }
-  header { padding: 14px 24px; background: var(--paper); border-bottom: 2px solid var(--border); display: flex; gap: 16px; align-items: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 0 rgba(0,0,0,0.02) }
-  header h1 { margin: 0; font-size: 17px; font-weight: 700; letter-spacing: 0.05em }
-  header .sub { font-size: 11px; color: var(--muted); margin-top: 2px; font-family: ui-monospace, monospace }
+  header { padding: 14px var(--container-pad); background: var(--paper); border-bottom: 2px solid var(--border); display: flex; gap: 16px; align-items: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 0 rgba(0,0,0,0.02) }
+  header h1 { margin: 0; font-size: var(--fs-h); font-weight: 700; letter-spacing: 0.05em }
+  header .sub { font-size: var(--fs-xs); color: var(--muted); margin-top: 2px; font-family: ui-monospace, monospace }
   header .search { margin-left: auto; position: relative }
-  header .search input { width: 280px; padding: 7px 12px; border: 1px solid var(--border); border-radius: 2px; font-size: 13px; background: var(--paper); font-family: inherit }
+  header .search input { width: clamp(200px, 30vw, 360px); padding: 7px 12px; border: 1px solid var(--border); border-radius: 2px; font-size: var(--fs-sm); background: var(--paper); font-family: inherit }
   header .search input:focus { outline: none; border-color: var(--accent) }
   header .search-results { position: absolute; top: 36px; right: 0; width: 400px; max-height: 480px; overflow: auto; background: var(--paper); border: 1px solid var(--border); border-radius: 2px; box-shadow: 0 8px 24px rgba(31,26,20,.12); display: none; z-index: 110 }
   header .search-results.open { display: block }
@@ -44,36 +53,43 @@
   header .search-results .item:hover { background: #f9fafb }
   header .search-results .item .sub { font-size: 11px; color: var(--muted); margin-top: 2px }
 
-  .tabs { display: flex; border-bottom: 1px solid var(--border); background: var(--paper); padding: 0 20px; gap: 2px; position: sticky; top: 55px; z-index: 90 }
-  .tabs button { padding: 11px 18px; border: 0; background: transparent; cursor: pointer; font-size: 14px; color: var(--muted); font-family: inherit; letter-spacing: 0.02em }
+  .tabs { display: flex; border-bottom: 1px solid var(--border); background: var(--paper); padding: 0 var(--container-pad); gap: 2px; position: sticky; top: 55px; z-index: 90; overflow-x: auto }
+  .tabs button { padding: 12px 18px; border: 0; background: transparent; cursor: pointer; font-size: var(--fs-base); color: var(--muted); font-family: inherit; letter-spacing: 0.02em; white-space: nowrap }
   .tabs button:hover { background: rgba(155,41,38,0.05); color: var(--fg) }
   .tabs button.active { color: var(--accent); border-bottom: 2px solid var(--accent); font-weight: 600 }
-  .view { padding: 20px }
+  .view { padding: var(--container-pad) }
   #people-graph, #geo-map { height: calc(100vh - 240px); min-height: 540px; border: 1px solid var(--border); background: var(--paper); border-radius: 2px }
+  @media (max-width: 900px) {
+    .breakdown { grid-template-columns: 1fr !important }
+    .reader-grid { grid-template-columns: 1fr !important; grid-template-rows: 200px 1fr 200px }
+    .index-grid { grid-template-columns: 1fr !important }
+  }
 
   /* Overview cards */
   .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 24px }
   .card { background: var(--paper); border: 1px solid var(--border); border-radius: 2px; padding: 14px 16px; position: relative }
   .card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--accent); opacity: 0.4 }
-  .card .num { font-size: 26px; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; font-family: "Songti SC", "宋体", serif }
-  .card .lbl { font-size: 12px; color: var(--muted); margin-top: 4px }
+  .card .num { font-size: var(--fs-bignum); font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; font-family: "Songti SC", "宋体", serif; line-height: 1.1 }
+  .card .lbl { font-size: var(--fs-xs); color: var(--muted); margin-top: 4px }
   .breakdown { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px }
   .breakdown section { background: var(--paper); border: 1px solid var(--border); border-radius: 2px; padding: 16px 18px }
-  .breakdown h3 { margin: 0 0 10px; font-size: 13px; color: var(--fg); font-weight: 700; padding-bottom: 6px; border-bottom: 1px solid var(--border-soft) }
+  .breakdown h3 { margin: 0 0 10px; font-size: var(--fs-sm); color: var(--fg); font-weight: 700; padding-bottom: 6px; border-bottom: 1px solid var(--border-soft) }
+  .breakdown table td { font-size: var(--fs-sm) }
   .breakdown table { width: 100%; font-size: 13px; border-collapse: collapse }
   .breakdown td { padding: 3px 0 }
   .breakdown td.r { text-align: right; color: var(--accent); font-variant-numeric: tabular-nums }
   .breakdown .bar { height: 4px; background: var(--accent-soft); border-radius: 2px; margin-top: 2px }
   .breakdown .bar span { display: block; height: 100%; background: var(--accent); border-radius: 2px }
 
-  .controls { display: flex; gap: 10px; margin-bottom: 10px; align-items: center; flex-wrap: wrap; font-size: 12px; color: #555 }
-  .controls input, .controls select { padding: 6px 10px; border: 1px solid var(--border); border-radius: 2px; font-size: 13px; background: var(--paper); font-family: inherit }
+  .controls { display: flex; gap: 10px; margin-bottom: 12px; align-items: center; flex-wrap: wrap; font-size: var(--fs-sm); color: var(--muted) }
+  .controls input, .controls select { padding: 6px 10px; border: 1px solid var(--border); border-radius: 2px; font-size: var(--fs-sm); background: var(--paper); font-family: inherit }
   .controls input:focus, .controls select:focus { outline: none; border-color: var(--accent) }
-  .controls button { background: var(--paper); border: 1px solid var(--border); border-radius: 2px; cursor: pointer; font-family: inherit; padding: 6px 14px; font-size: 13px; color: var(--fg) }
+  .controls button { background: var(--paper); border: 1px solid var(--border); border-radius: 2px; cursor: pointer; font-family: inherit; padding: 6px 14px; font-size: var(--fs-sm); color: var(--fg) }
   .controls button:hover { background: var(--accent-soft); border-color: var(--accent); color: var(--accent) }
+  .legend { font-size: var(--fs-xs); color: var(--muted) }
   .controls label { display: flex; gap: 4px; align-items: center }
   .legend { font-size: 11px; color: var(--muted) }
-  .chip { display: inline-block; padding: 1px 6px; border-radius: 10px; font-size: 10px; line-height: 1.4; vertical-align: middle; margin: 0 2px }
+  .chip { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: var(--fs-xs); line-height: 1.5; vertical-align: middle; margin: 0 2px }
   .chip-per { background: #dbeafe; color: var(--per) }
   .chip-org { background: #dcfce7; color: var(--org) }
   .chip-loc { background: #fed7aa; color: var(--loc) }
@@ -96,7 +112,8 @@
   .drawer { position: fixed; top: 0; right: 0; bottom: 0; width: min(580px, 100vw); background: var(--paper); box-shadow: -12px 0 30px rgba(31,26,20,.12); z-index: 1000; overflow-y: auto; transform: translateX(100%); transition: transform .25s ease; border-left: 3px double var(--accent) }
   .drawer.open { transform: translateX(0) }
   .drawer header { position: sticky; top: 0; background: var(--paper); padding: 16px 22px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px }
-  .drawer header h2 { margin: 0; font-size: 19px; font-weight: 700; letter-spacing: 0.04em }
+  .drawer header h2 { margin: 0; font-size: var(--fs-h); font-weight: 700; letter-spacing: 0.04em }
+  .drawer { font-size: var(--fs-sm) }
   .drawer header .close { margin-left: auto; border: 0; background: 0; cursor: pointer; font-size: 22px; color: var(--muted) }
   .drawer .body { padding: 14px 18px }
   .drawer h3 { font-size: 12px; color: var(--muted); margin: 18px 0 6px; text-transform: uppercase; letter-spacing: .04em }
@@ -132,7 +149,7 @@
   .reader-side .day:hover { background: #f3f4f6 }
   .reader-side .day.active { background: var(--accent-soft); color: var(--accent); font-weight: 600 }
   .reader-side .day .count { color: var(--muted); font-size: 11px }
-  .reader-main { background: var(--paper); border: 1px solid var(--border); border-radius: 2px; padding: 36px 48px; overflow-y: auto; font-family: "Noto Serif SC", "Songti SC", "宋体", "SimSun", serif; font-size: 17px; line-height: 2.1; color: var(--fg); position: relative }
+  .reader-main { background: var(--paper); border: 1px solid var(--border); border-radius: 2px; padding: clamp(20px,3vw,48px); overflow-y: auto; font-family: "Noto Serif SC", "Songti SC", "宋体", "SimSun", serif; font-size: clamp(15px, 0.9vw+12px, 19px); line-height: 2.1; color: var(--fg); position: relative }
   .reader-main::before { content: ''; position: absolute; left: 28px; top: 28px; bottom: 28px; border-left: 1px solid var(--border-soft) }
   .reader-main h2 { font-size: 22px; margin: 0 0 8px; color: var(--accent); font-family: "Noto Serif SC", "Songti SC", serif; font-weight: 700; letter-spacing: 0.06em; padding-left: 14px; border-left: 4px solid var(--accent) }
   .reader-main .meta { font-size: 12px; color: var(--muted); margin-bottom: 30px; font-family: ui-monospace, monospace; padding-left: 18px }
