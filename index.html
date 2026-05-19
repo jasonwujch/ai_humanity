@@ -242,6 +242,18 @@
         <div class="card"><div class="num">{{ overview.entity_types['交易'] || 0 }}</div><div class="lbl">交易</div></div>
         <div class="card"><div class="num">{{ overview.totals.batches }}</div><div class="lbl">批次</div></div>
       </div>
+      <div v-if="miscData && Object.keys(miscData).length" style="background:var(--paper);border:1px solid var(--border);padding:16px 18px;border-radius:2px;margin-bottom:20px">
+        <h3 style="margin:0 0 10px;font-size:13px;padding-bottom:6px;border-bottom:1px solid var(--border-soft)">小众实体速览</h3>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;font-size:13px">
+          <div v-for="grp in miscOverviewGroups" :key="grp.type">
+            <div style="font-weight:600;color:var(--muted);margin-bottom:4px"><i class="dot" :class="'dot-'+kindOf(grp.type)"></i>{{ grp.type }} ({{ grp.items.length }})</div>
+            <div v-for="item in grp.items.slice(0,8)" :key="item.id" style="padding:2px 0;cursor:pointer" @click="openProfile({id:item.id, label:item.label, _entity_type:grp.type})">
+              <span class="chip" :class="'chip-'+kindOf(grp.type)">{{ item.label }}</span>
+              <span style="color:var(--muted);font-size:11px">{{ item.mentions }}×</span>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="breakdown">
         <section>
           <h3>实体类型</h3>
@@ -573,6 +585,7 @@ createApp({
     const metroGran = ref('week');
     const metroSource = ref('both');
     const statsData = ref(null);
+    const miscData = ref(null);
     const relationFilter = ref('');
     const confFilter = ref('');
     const visibleNodeCount = ref(0);
@@ -618,7 +631,7 @@ createApp({
     });
 
     onMounted(async () => {
-      const [ov, tx, pp, lc, pr, bk, ck, ev, st] = await Promise.all([
+      const [ov, tx, pp, lc, pr, bk, ck, ev, st, mi] = await Promise.all([
         fetch('data/overview.json').then(r=>r.json()),
         fetch('data/transactions.json').then(r=>r.json()),
         fetch('data/people_graph.json').then(r=>r.json()),
@@ -628,9 +641,10 @@ createApp({
         fetch('data/chunks.json').then(r=>r.json()).catch(() => ({})),
         fetch('data/events.json').then(r=>r.json()).catch(() => []),
         fetch('data/stats.json').then(r=>r.json()).catch(() => null),
+        fetch('data/misc_entities.json').then(r=>r.json()).catch(() => ({})),
       ]);
       overview.value = ov; txnData.value = tx; peopleData.value = pp; locData.value = lc; profiles.value = pr;
-      booksData.value = bk; chunksData.value = ck; eventsData.value = ev; statsData.value = st;
+      booksData.value = bk; chunksData.value = ck; eventsData.value = ev; statsData.value = st; miscData.value = mi;
       const dates = Object.keys(ck).sort();
       if (dates.length && !readerDate.value) readerDate.value = dates[0];
 
@@ -724,6 +738,15 @@ createApp({
       if (n._entity_type === '人' && profiles.value[n.id]) {
         const pr = profiles.value[n.id];
         profile.value = {...pr, _entity_type: '人'};
+      } else if (miscData.value && miscData.value[n.id]) {
+        const m = miscData.value[n.id];
+        profile.value = {
+          id: m.id, label: m.label, canonical: m.canonical, aliases: m.aliases,
+          _entity_type: m.entity_type,
+          _first_seen: m.first_seen, _last_seen: m.last_seen, _mentions: m.mentions,
+          top_neighbours: m.linked_people.map(p => ({id:p.id, label:p.label, count:1, _evidence:p.evidence, _date:p.date, _relation:p.relation})),
+          sample_edges: m.linked_people.map(p => ({other:p.id, direction:'out', relation:p.relation, evidence:p.evidence, date:p.date})),
+        };
       } else if (n._entity_type === '书籍' && n._book) {
         const b = n._book;
         profile.value = {
@@ -883,6 +906,17 @@ createApp({
     function kindOf(entity_type) {
       return ENTITY_KIND_MAP[entity_type]?.kind || 'per';
     }
+
+    const miscOverviewGroups = computed(() => {
+      if (!miscData.value) return [];
+      const groups = {};
+      for (const m of Object.values(miscData.value)) {
+        if (!['疾病','灾害','官职'].includes(m.entity_type)) continue;
+        if (!groups[m.entity_type]) groups[m.entity_type] = [];
+        groups[m.entity_type].push(m);
+      }
+      return ['疾病','灾害','官职'].filter(t => groups[t]).map(t => ({type: t, items: groups[t].sort((a,b)=>b.mentions-a.mentions)}));
+    });
 
     // ── Stats ────────────────────────────────────────────────────────────
     function renderStats() {
@@ -1311,6 +1345,7 @@ createApp({
       eventsData, eventSearch, eventRelation, eventMinMembers, eventRelations, filteredEvents,
       metroGran, metroSource, renderMetro,
       statsData, renderStats,
+      miscData, miscOverviewGroups,
       profile, profileKind, profileKindLabel, openProfile, openProfileById, neighbourLabel,
     };
   }

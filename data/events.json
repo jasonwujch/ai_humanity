@@ -22253,5 +22253,61 @@
         "type": "人"
       }
     ]
+  },
+  {
+    "id": "hyper_li_zhongshuai_yue",
+    "label": "1923-03-12 廿七日三时李仲帅处约 (多人)",
+    "relation": "同席",
+    "confidence": "EXTRACTED",
+    "confidence_score": 0.85,
+    "date": "1923-03-12",
+    "source_file": "1923-03-12.md",
+    "members": [
+      {
+        "id": "per_bo_liewu",
+        "label": "柏烈武",
+        "type": "人"
+      },
+      {
+        "id": "per_xu_jingren",
+        "label": "徐静仁",
+        "type": "人"
+      },
+      {
+        "id": "per_hong_xifu",
+        "label": "洪希甫",
+        "type": "人"
+      },
+      {
+        "id": "per_wang_xiexun",
+        "label": "汪撷荀",
+        "type": "人"
+      },
+      {
+        "id": "per_wang_younong",
+        "label": "汪幼农",
+        "type": "人"
+      },
+      {
+        "id": "per_chen_shaozhou",
+        "label": "陈少舟",
+        "type": "人"
+      },
+      {
+        "id": "per_guan_yunnong",
+        "label": "关云农",
+        "type": "人"
+      },
+      {
+        "id": "per_wang_yucheng",
+        "label": "汪禹丞",
+        "type": "人"
+      },
+      {
+        "id": "per_li_zhongshuai",
+        "label": "李仲帅",
+        "type": "人"
+      }
+    ]
   }
 ]

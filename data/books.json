@@ -9070,6 +9070,814 @@
     "source_file": "1923-03-04.md"
   },
   {
+    "id": "book_buyi",
+    "label": "《补遗》",
+    "canonical": "《补遗》",
+    "aliases": [
+      "《补遗》"
+    ],
+    "first_seen": "1923-03-07",
+    "last_seen": "1923-03-07",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-07.md"
+  },
+  {
+    "id": "book_dabei_tuoluonijing",
+    "label": "《大悲陀罗尼经》",
+    "canonical": "《大悲陀罗尼经》",
+    "aliases": [
+      "《大悲陀罗尼经》"
+    ],
+    "first_seen": "1923-03-07",
+    "last_seen": "1923-03-07",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-07.md"
+  },
+  {
+    "id": "book_shiduo",
+    "label": "《诗铎》",
+    "canonical": "《诗铎》",
+    "aliases": [
+      "《诗铎》"
+    ],
+    "first_seen": "1923-03-07",
+    "last_seen": "1923-03-07",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-07.md"
+  },
+  {
+    "id": "book_kunshan_xinyang",
+    "label": "《昆山新阳合志》",
+    "canonical": "《昆山新阳合志》",
+    "aliases": [
+      "《昆山新阳合志》"
+    ],
+    "first_seen": "1923-03-07",
+    "last_seen": "1923-03-07",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-07.md"
+  },
+  {
+    "id": "book_shuying_loucu",
+    "label": "《疏影楼词》",
+    "canonical": "《疏影楼词》",
+    "aliases": [
+      "《疏影楼词》"
+    ],
+    "first_seen": "1923-03-07",
+    "last_seen": "1923-03-07",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-07.md"
+  },
+  {
+    "id": "book_zhoushi_cibian",
+    "label": "《周氏词辨》",
+    "canonical": "《周氏词辨》",
+    "aliases": [
+      "《周氏词辨》"
+    ],
+    "first_seen": "1923-03-07",
+    "last_seen": "1923-03-07",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-07.md"
+  },
+  {
+    "id": "book_hansongge",
+    "label": "《寒松阁诗》",
+    "canonical": "《寒松阁诗》",
+    "aliases": [
+      "《寒松阁诗》"
+    ],
+    "first_seen": "1923-03-07",
+    "last_seen": "1923-03-07",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-07.md"
+  },
+  {
+    "id": "book_huajianlu",
+    "label": "《花笺录》",
+    "canonical": "《花笺录》",
+    "aliases": [
+      "《花笺录》"
+    ],
+    "first_seen": "1923-03-07",
+    "last_seen": "1923-03-07",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-07.md"
+  },
+  {
+    "id": "book_jixue",
+    "label": "《积学》",
+    "canonical": "《积学》",
+    "aliases": [
+      "《积学》"
+    ],
+    "first_seen": "1923-03-07",
+    "last_seen": "1923-03-07",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-07.md"
+  },
+  {
+    "id": "book_qingzhai",
+    "label": "《卿斋》",
+    "canonical": "《卿斋》",
+    "aliases": [
+      "《卿斋》"
+    ],
+    "first_seen": "1923-03-07",
+    "last_seen": "1923-03-07",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-07.md"
+  },
+  {
+    "id": "book_suian_sizhong",
+    "label": "《随庵四种》",
+    "canonical": "《随庵四种》",
+    "aliases": [
+      "《随庵四种》"
+    ],
+    "first_seen": "1923-03-07",
+    "last_seen": "1923-03-07",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-07.md"
+  },
+  {
+    "id": "book_guixiu_cichao",
+    "label": "《闺秀词钞》",
+    "canonical": "《闺秀词钞》",
+    "aliases": [
+      "《闺秀词钞》"
+    ],
+    "first_seen": "1923-03-07",
+    "last_seen": "1923-03-07",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-07.md"
+  },
+  {
+    "id": "book_aiwu_xianbao",
+    "label": "《爱物现报录》",
+    "canonical": "《爱物现报录》",
+    "aliases": [
+      "《爱物现报录》"
+    ],
+    "first_seen": "1923-03-08",
+    "last_seen": "1923-03-08",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-08.md"
+  },
+  {
+    "id": "book_suzhou_zhinan",
+    "label": "《苏州指南》",
+    "canonical": "《苏州指南》",
+    "aliases": [
+      "《苏州指南》"
+    ],
+    "first_seen": "1923-03-09",
+    "last_seen": "1923-03-09",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-09.md"
+  },
+  {
+    "id": "book_xingjijing",
+    "label": "唐人写《行集经》",
+    "canonical": "唐人写《行集经》",
+    "aliases": [
+      "唐人写《行集经》第二卷"
+    ],
+    "first_seen": "1923-03-09",
+    "last_seen": "1923-03-09",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-09.md"
+  },
+  {
+    "id": "book_fuyuandu",
+    "label": "《辅元度物天尊元元道妙真经法忏》",
+    "canonical": "《辅元度物天尊元元道妙真经法忏》",
+    "aliases": [
+      "《辅元度物天尊元元道妙真经法忏》"
+    ],
+    "first_seen": "1923-03-09",
+    "last_seen": "1923-03-09",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-09.md"
+  },
+  {
+    "id": "book_jiweixianzhi",
+    "label": "《婕为县志》",
+    "canonical": "《婕为县志》",
+    "aliases": [
+      "《婕为县志》"
+    ],
+    "first_seen": "1923-03-10",
+    "last_seen": "1923-03-10",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-10.md"
+  },
+  {
+    "id": "book_wenxuan_zhang",
+    "label": "明藩重刻元张伯颜《文选》",
+    "canonical": "明藩重刻元张伯颜《文选》",
+    "aliases": [
+      "明藩重刻元张伯颜《文选》"
+    ],
+    "first_seen": "1923-03-10",
+    "last_seen": "1923-03-10",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-10.md"
+  },
+  {
+    "id": "book_daqing_dixi",
+    "label": "《大清帝系后妃王子皇女四考附年表》",
+    "canonical": "《大清帝系后妃王子皇女四考附年表》",
+    "aliases": [
+      "《大清帝系后妃王子皇女四考附年表》"
+    ],
+    "first_seen": "1923-03-11",
+    "last_seen": "1923-03-11",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-11.md"
+  },
+  {
+    "id": "book_guci_xiaozhi",
+    "label": "《顾祠小志》",
+    "canonical": "《顾祠小志》",
+    "aliases": [
+      "《顾祠小志》"
+    ],
+    "first_seen": "1923-03-11",
+    "last_seen": "1923-03-11",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-11.md"
+  },
+  {
+    "id": "book_chuanjiaji",
+    "label": "《传家集》",
+    "canonical": "《传家集》",
+    "aliases": [
+      "《传家集》"
+    ],
+    "first_seen": "1923-03-11",
+    "last_seen": "1923-03-11",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-11.md"
+  },
+  {
+    "id": "book_sean_suibi",
+    "label": "《嗇庵随笔》",
+    "canonical": "《嗇庵随笔》",
+    "aliases": [
+      "《嗇庵随笔》"
+    ],
+    "first_seen": "1923-03-11",
+    "last_seen": "1923-03-11",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-11.md"
+  },
+  {
+    "id": "book_luxianshi_xiandelu",
+    "label": "《陆氏先德录》",
+    "canonical": "《陆氏先德录》",
+    "aliases": [
+      "《陆氏先德录》"
+    ],
+    "first_seen": "1923-03-11",
+    "last_seen": "1923-03-11",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-11.md"
+  },
+  {
+    "id": "book_sanyin_jiyi",
+    "label": "宋本《三因极一病证方论》",
+    "canonical": "宋本《三因极一病证方论》",
+    "aliases": [
+      "宋本《三因极一病证方论》"
+    ],
+    "first_seen": "1923-03-13",
+    "last_seen": "1923-03-13",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-13.md"
+  },
+  {
+    "id": "book_lishanzhu_wenxuan",
+    "label": "明成国公朱纯臣本《李善注文选》",
+    "canonical": "明成国公朱纯臣本《李善注文选》",
+    "aliases": [
+      "明成国公朱纯臣本《李善注文选》"
+    ],
+    "first_seen": "1923-03-13",
+    "last_seen": "1923-03-13",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-13.md"
+  },
+  {
+    "id": "book_fanshaoshu",
+    "label": "《樊绍述集》",
+    "canonical": "《樊绍述集》",
+    "aliases": [
+      "《樊绍述集》"
+    ],
+    "first_seen": "1923-03-13",
+    "last_seen": "1923-03-13",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-13.md"
+  },
+  {
+    "id": "book_mingji_yiwen",
+    "label": "《明季遗闻》",
+    "canonical": "《明季遗闻》",
+    "aliases": [
+      "《明季遗闻》"
+    ],
+    "first_seen": "1923-03-13",
+    "last_seen": "1923-03-13",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-13.md"
+  },
+  {
+    "id": "book_jinling_zayong",
+    "label": "《金陵杂咏》",
+    "canonical": "《金陵杂咏》",
+    "aliases": [
+      "《金陵杂咏》"
+    ],
+    "first_seen": "1923-03-13",
+    "last_seen": "1923-03-13",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-13.md"
+  },
+  {
+    "id": "book_yipiaozhai",
+    "label": "《一瓢斋诗存》",
+    "canonical": "《一瓢斋诗存》",
+    "aliases": [
+      "《一瓢斋诗存》"
+    ],
+    "first_seen": "1923-03-13",
+    "last_seen": "1923-03-13",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-13.md"
+  },
+  {
+    "id": "book_fanyi_mingyiji",
+    "label": "《翻译名义集》",
+    "canonical": "《翻译名义集》",
+    "aliases": [
+      "《翻译名义集》"
+    ],
+    "first_seen": "1923-03-13",
+    "last_seen": "1923-03-13",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-13.md"
+  },
+  {
+    "id": "book_dongwenyou",
+    "label": "《董文友文选、诗集、蓉渡词》",
+    "canonical": "《董文友文选、诗集、蓉渡词》",
+    "aliases": [
+      "《董文友文选、诗集、蓉渡词》"
+    ],
+    "first_seen": "1923-03-13",
+    "last_seen": "1923-03-13",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-13.md"
+  },
+  {
+    "id": "book_dingdiao_chenshi",
+    "label": "《鼎雕陈氏家传如宜妙济回生捷录》",
+    "canonical": "《鼎雕陈氏家传如宜妙济回生捷录》",
+    "aliases": [
+      "《鼎雕陈氏家传如宜妙济回生捷录》"
+    ],
+    "first_seen": "1923-03-13",
+    "last_seen": "1923-03-13",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-13.md"
+  },
+  {
+    "id": "book_husheng_jishichao",
+    "label": "《胡绳集诗钞》",
+    "canonical": "《胡绳集诗钞》",
+    "aliases": [
+      "《胡绳集诗钞》"
+    ],
+    "first_seen": "1923-03-13",
+    "last_seen": "1923-03-13",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-13.md"
+  },
+  {
+    "id": "book_chishijing",
+    "label": "《持世经》",
+    "canonical": "《持世经》",
+    "aliases": [
+      "《持世经》"
+    ],
+    "first_seen": "1923-03-13",
+    "last_seen": "1923-03-13",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-13.md"
+  },
+  {
+    "id": "book_dachengxin_dijing",
+    "label": "《大乘心地观经》",
+    "canonical": "《大乘心地观经》",
+    "aliases": [
+      "《大乘心地观经》"
+    ],
+    "first_seen": "1923-03-13",
+    "last_seen": "1923-03-13",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-13.md"
+  },
+  {
+    "id": "book_huachuang_mengying",
+    "label": "《华窗梦影图》",
+    "canonical": "《华窗梦影图》",
+    "aliases": [
+      "《华窗梦影图》"
+    ],
+    "first_seen": "1923-03-13",
+    "last_seen": "1923-03-13",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-13.md"
+  },
+  {
+    "id": "book_baixiaotu",
+    "label": "《百孝图》",
+    "canonical": "《百孝图》",
+    "aliases": [
+      "《百孝图》"
+    ],
+    "first_seen": "1923-03-13",
+    "last_seen": "1923-03-13",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-13.md"
+  },
+  {
+    "id": "book_linchi_xinjie",
+    "label": "《临池心解》",
+    "canonical": "《临池心解》",
+    "aliases": [
+      "《临池心解》"
+    ],
+    "first_seen": "1923-03-13",
+    "last_seen": "1923-03-13",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-13.md"
+  },
+  {
+    "id": "book_santaishilu",
+    "label": "《三台诗录》",
+    "canonical": "《三台诗录》",
+    "aliases": [
+      "《三台诗录》"
+    ],
+    "first_seen": "1923-03-13",
+    "last_seen": "1923-03-13",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-13.md"
+  },
+  {
+    "id": "book_pianzi_leibian",
+    "label": "《骈字类编》",
+    "canonical": "《骈字类编》",
+    "aliases": [
+      "《骈字类编》"
+    ],
+    "first_seen": "1923-03-13",
+    "last_seen": "1923-03-13",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-13.md"
+  },
+  {
+    "id": "book_duobaota",
+    "label": "《多宝塔》",
+    "canonical": "《多宝塔》",
+    "aliases": [
+      "《多宝塔》"
+    ],
+    "first_seen": "1923-03-13",
+    "last_seen": "1923-03-13",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-13.md"
+  },
+  {
+    "id": "book_shengjiaoxu",
+    "label": "《圣教序》",
+    "canonical": "《圣教序》",
+    "aliases": [
+      "《圣教序》"
+    ],
+    "first_seen": "1923-03-13",
+    "last_seen": "1923-03-13",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-13.md"
+  },
+  {
+    "id": "book_zhuyan_lanxuezhai",
+    "label": "《竹烟兰雪斋诗钞》",
+    "canonical": "《竹烟兰雪斋诗钞》",
+    "aliases": [
+      "《竹烟兰雪斋诗钞》"
+    ],
+    "first_seen": "1923-03-13",
+    "last_seen": "1923-03-13",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-13.md"
+  },
+  {
+    "id": "book_dinglin_fangbei",
+    "label": "《定林访碑图》",
+    "canonical": "《定林访碑图》",
+    "aliases": [
+      "《定林访碑图》"
+    ],
+    "first_seen": "1923-03-14",
+    "last_seen": "1923-03-14",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-14.md"
+  },
+  {
+    "id": "book_quanjielu",
+    "label": "《劝戒录》",
+    "canonical": "《劝戒录》",
+    "aliases": [
+      "《劝戒录》"
+    ],
+    "first_seen": "1923-03-14",
+    "last_seen": "1923-03-14",
+    "mentions": 1,
+    "people": [
+      {
+        "id": "per_ren_xinbai",
+        "label": "任心白",
+        "relation": "受赠",
+        "date": "1921-09-15",
+        "evidence": "致任心白书,送《劝戒录类编》"
+      },
+      {
+        "id": "per_li_deng_taifuren",
+        "label": "李邓太夫人",
+        "relation": "受赠",
+        "date": "1921-09-18",
+        "evidence": "赠李邓太夫人、夏辅宜《劝戒录类编》各一部"
+      },
+      {
+        "id": "per_xia_fuyi",
+        "label": "夏辅宜",
+        "relation": "受赠",
+        "date": "1921-09-18",
+        "evidence": "赠李邓太夫人、夏辅宜《劝戒录类编》各一部"
+      }
+    ],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {
+      "受赠": 3
+    },
+    "source_file": "1923-03-14.md"
+  },
+  {
+    "id": "book_baihua_quanxiao",
+    "label": "《白话劝孝文》",
+    "canonical": "《白话劝孝文》",
+    "aliases": [
+      "《白话劝孝文》"
+    ],
+    "first_seen": "1923-03-14",
+    "last_seen": "1923-03-14",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-14.md"
+  },
+  {
+    "id": "book_jingtujinliang",
+    "label": "《净土津梁》",
+    "canonical": "《净土津梁》",
+    "aliases": [
+      "《净土津梁》"
+    ],
+    "first_seen": "1923-03-14",
+    "last_seen": "1923-03-14",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-14.md"
+  },
+  {
+    "id": "book_28jing_tonghan",
+    "label": "《二十八经同函》",
+    "canonical": "《二十八经同函》",
+    "aliases": [
+      "《二十八经同函》"
+    ],
+    "first_seen": "1923-03-14",
+    "last_seen": "1923-03-14",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-14.md"
+  },
+  {
+    "id": "book_yanhua_dongtang",
+    "label": "《烟画东堂小品》",
+    "canonical": "《烟画东堂小品》",
+    "aliases": [
+      "《烟画东堂小品》"
+    ],
+    "first_seen": "1923-03-14",
+    "last_seen": "1923-03-14",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-14.md"
+  },
+  {
     "id": "book_dishan_tang",
     "label": "砥山堂匾额",
     "canonical": "砥山堂",
@@ -9723,46 +10531,6 @@
     "orgs": [],
     "txns": [],
     "relation_counts": {},
-    "source_file": "1920-06-09.md"
-  },
-  {
-    "id": "book_quanjielu",
-    "label": "《劝戒录》",
-    "canonical": "《劝戒录》",
-    "aliases": [
-      "《劝戒录》"
-    ],
-    "first_seen": "1920-06-09",
-    "last_seen": "1920-06-09",
-    "mentions": 1,
-    "people": [
-      {
-        "id": "per_ren_xinbai",
-        "label": "任心白",
-        "relation": "受赠",
-        "date": "1921-09-15",
-        "evidence": "致任心白书,送《劝戒录类编》"
-      },
-      {
-        "id": "per_li_deng_taifuren",
-        "label": "李邓太夫人",
-        "relation": "受赠",
-        "date": "1921-09-18",
-        "evidence": "赠李邓太夫人、夏辅宜《劝戒录类编》各一部"
-      },
-      {
-        "id": "per_xia_fuyi",
-        "label": "夏辅宜",
-        "relation": "受赠",
-        "date": "1921-09-18",
-        "evidence": "赠李邓太夫人、夏辅宜《劝戒录类编》各一部"
-      }
-    ],
-    "orgs": [],
-    "txns": [],
-    "relation_counts": {
-      "受赠": 3
-    },
     "source_file": "1920-06-09.md"
   },
   {
@@ -21270,22 +22038,6 @@
     "source_file": "1921-07-19.md"
   },
   {
-    "id": "book_yanhua_dongtang",
-    "label": "《烟画东堂小品》",
-    "canonical": "《烟画东堂小品》",
-    "aliases": [
-      "《烟画东堂小品》"
-    ],
-    "first_seen": "1921-07-21",
-    "last_seen": "1921-07-21",
-    "mentions": 1,
-    "people": [],
-    "orgs": [],
-    "txns": [],
-    "relation_counts": {},
-    "source_file": "1921-07-21.md"
-  },
-  {
     "id": "book_hanyuan_tuokai",
     "label": "翰苑拓楷八十四片",
     "canonical": "翰苑拓楷八十四片",
@@ -26716,22 +27468,6 @@
     "source_file": "1922-02-10.md"
   },
   {
-    "id": "book_dinglin_fangbei",
-    "label": "《定林访碑图》",
-    "canonical": "《定林访碑图》",
-    "aliases": [
-      "《定林访碑图》"
-    ],
-    "first_seen": "1922-02-11",
-    "last_seen": "1922-02-11",
-    "mentions": 1,
-    "people": [],
-    "orgs": [],
-    "txns": [],
-    "relation_counts": {},
-    "source_file": "1922-02-11.md"
-  },
-  {
     "id": "book_wanli_shenjin",
     "label": "《万历搗绅》",
     "canonical": "《万历搗绅》",
@@ -30224,22 +30960,6 @@
     "source_file": "1922-06-08.md"
   },
   {
-    "id": "book_jingtujinliang",
-    "label": "《净土津梁》",
-    "canonical": "《净土津梁》",
-    "aliases": [
-      "《净土津梁》"
-    ],
-    "first_seen": "1922-06-08",
-    "last_seen": "1922-06-08",
-    "mentions": 1,
-    "people": [],
-    "orgs": [],
-    "txns": [],
-    "relation_counts": {},
-    "source_file": "1922-06-08.md"
-  },
-  {
     "id": "book_jingtuchenzhong",
     "label": "《净土晨钟》",
     "canonical": "《净土晨钟》",
@@ -30357,22 +31077,6 @@
     "canonical": "随盒四种",
     "aliases": [
       "《随盒四种》"
-    ],
-    "first_seen": "1922-06-15",
-    "last_seen": "1922-06-15",
-    "mentions": 1,
-    "people": [],
-    "orgs": [],
-    "txns": [],
-    "relation_counts": {},
-    "source_file": "1922-06-15.md"
-  },
-  {
-    "id": "book_jixue",
-    "label": "积学",
-    "canonical": "积学",
-    "aliases": [
-      "《积学》"
     ],
     "first_seen": "1922-06-15",
     "last_seen": "1922-06-15",
@@ -31258,22 +31962,6 @@
     "txns": [],
     "relation_counts": {},
     "source_file": "1922-08-15.md"
-  },
-  {
-    "id": "book_guixiu_cichao",
-    "label": "《闺秀词钞》",
-    "canonical": "《闺秀词钞》",
-    "aliases": [
-      "《闺秀词钞》"
-    ],
-    "first_seen": "1922-08-19",
-    "last_seen": "1922-08-19",
-    "mentions": 1,
-    "people": [],
-    "orgs": [],
-    "txns": [],
-    "relation_counts": {},
-    "source_file": "1922-08-19.md"
   },
   {
     "id": "book_woxinlu",

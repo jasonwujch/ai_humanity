@@ -506,7 +506,55 @@ for n in per_nodes_deduped:
 (out_dir / 'people_profiles.json').write_text(json.dumps(per_profile, ensure_ascii=False, indent=2), encoding='utf-8')
 
 
-# ── 7) stats (precomputed aggregations) ─────────────────────────────────────
+# ── 7) misc entity profiles (疾病 / 灾害 / 官职 / 团体 / 地) ─────────────
+misc_types = ('疾病', '灾害', '官职', '团体', '地')
+misc_profiles = {}
+for n in src['nodes']:
+    et = n.get('entity_type')
+    if et not in misc_types:
+        continue
+    md = n.get('metadata') or {}
+    surface_forms = md.get('surface_forms') or []
+    dates = sorted({sf.get('date') for sf in surface_forms if sf.get('date')})
+    # Find people / events linked
+    linked = []
+    seen_l = set()
+    for direction, e in edges_by_node.get(n['id'], []):
+        other_id = e['target'] if direction == 'out' else e['source']
+        other_n = nodes_by_id.get(other_id, {})
+        ot = other_n.get('entity_type')
+        if ot == '人':
+            cid = redirect(other_id)
+            cn = nodes_by_id.get(cid, other_n)
+            key = cid
+            if key in seen_l: continue
+            seen_l.add(key)
+            linked.append({'id': cid, 'label': cn.get('label'), 'type': '人', 'relation': e.get('relation'), 'date': e.get('source_location'), 'evidence': (e.get('metadata') or {}).get('evidence_text')})
+    for h in hyper_by_node.get(n['id'], []):
+        for mid in h.get('nodes') or []:
+            if mid == n['id']: continue
+            mn = nodes_by_id.get(mid, {})
+            if mn.get('entity_type') == '人':
+                cid = redirect(mid)
+                cn = nodes_by_id.get(cid, mn)
+                if cid in seen_l: continue
+                seen_l.add(cid)
+                linked.append({'id': cid, 'label': cn.get('label'), 'type': '人', 'relation': h.get('relation'), 'date': None, 'evidence': h.get('label')})
+    misc_profiles[n['id']] = {
+        'id': n['id'],
+        'label': n.get('label'),
+        'entity_type': et,
+        'canonical': md.get('canonical'),
+        'aliases': sorted({sf.get('surface') for sf in surface_forms if sf.get('surface')}),
+        'mentions': len(surface_forms),
+        'first_seen': dates[0] if dates else None,
+        'last_seen': dates[-1] if dates else None,
+        'linked_people': linked[:30],
+    }
+(out_dir / 'misc_entities.json').write_text(json.dumps(misc_profiles, ensure_ascii=False, indent=1), encoding='utf-8')
+
+
+# ── 8) stats (precomputed aggregations) ─────────────────────────────────────
 from collections import defaultdict as _dd
 rel_per_month = _dd(lambda: _dd(int))   # month → relation → count
 for e in src['edges']:

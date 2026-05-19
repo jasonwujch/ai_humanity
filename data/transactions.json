@@ -22368,6 +22368,316 @@
     "direction": null
   },
   {
+    "id": "txn_kunshan_xinyang_5y",
+    "label": "购《昆山新阳合志》五元(原价12元抵换)",
+    "date": "1923-03-07",
+    "source_file": "1923-03-07.md",
+    "evidence": "码洋十二元，实五元",
+    "people": [],
+    "amount": "5元(抵换后4元找1元)",
+    "direction": null
+  },
+  {
+    "id": "txn_shuying_lou_7jiao",
+    "label": "购《疏影楼词》七角",
+    "date": "1923-03-07",
+    "source_file": "1923-03-07.md",
+    "evidence": "姚燮，洋七角",
+    "people": [],
+    "amount": "0.7元",
+    "direction": null
+  },
+  {
+    "id": "txn_zhoushi_cibian_2jiao",
+    "label": "购《周氏词辨》二角",
+    "date": "1923-03-07",
+    "source_file": "1923-03-07.md",
+    "evidence": "周济，洋二角",
+    "people": [],
+    "amount": "0.2元",
+    "direction": null
+  },
+  {
+    "id": "txn_hansongge_6jiao",
+    "label": "购《寒松阁诗》等六角",
+    "date": "1923-03-07",
+    "source_file": "1923-03-07.md",
+    "evidence": "张鸣珂，洋六角",
+    "people": [],
+    "amount": "0.6元",
+    "direction": null
+  },
+  {
+    "id": "txn_huajianlu_1y",
+    "label": "购《花笺录》一元",
+    "date": "1923-03-07",
+    "source_file": "1923-03-07.md",
+    "evidence": "孙兆淮，洋一元",
+    "people": [],
+    "amount": "1元",
+    "direction": null
+  },
+  {
+    "id": "txn_lv_youban_qufu_4y",
+    "label": "送吕幼般娶妇分四元",
+    "date": "1923-03-07",
+    "source_file": "1923-03-07.md",
+    "evidence": "送吕幼般娶子妇分洋四元",
+    "people": [],
+    "amount": "4元",
+    "direction": null
+  },
+  {
+    "id": "txn_zhang_yanyun_dian_4y",
+    "label": "送张砚云奠分四元",
+    "date": "1923-03-07",
+    "source_file": "1923-03-07.md",
+    "evidence": "送张砚云奠分洋四元",
+    "people": [],
+    "amount": "4元",
+    "direction": null
+  },
+  {
+    "id": "txn_li_gengyu_huachuang",
+    "label": "送李耕余花缎素幢",
+    "date": "1923-03-07",
+    "source_file": "1923-03-07.md",
+    "evidence": "送李耕余花缎素幢",
+    "people": [],
+    "amount": null,
+    "direction": null
+  },
+  {
+    "id": "txn_erlin_pingdui_1y",
+    "label": "购二林堂杨氏屏对一元",
+    "date": "1923-03-08",
+    "source_file": "1923-03-08.md",
+    "evidence": "购二林堂杨氏屏对峰，一元",
+    "people": [],
+    "amount": "1元",
+    "direction": null
+  },
+  {
+    "id": "txn_xingjijing_80y",
+    "label": "唐人写经卷子进价八十元(议价)",
+    "date": "1923-03-09",
+    "source_file": "1923-03-09.md",
+    "evidence": "云进价捌拾元",
+    "people": [],
+    "amount": "80元(进价)",
+    "direction": null
+  },
+  {
+    "id": "txn_fuyuandu_purchase",
+    "label": "购《辅元度物》嘉庆庚辰本",
+    "date": "1923-03-09",
+    "source_file": "1923-03-09.md",
+    "evidence": "购《辅元度物天尊元元道妙真经法忏》嘉庆庚辰年刻本",
+    "people": [],
+    "amount": null,
+    "direction": null
+  },
+  {
+    "id": "txn_jiweixianzhi_7jiao",
+    "label": "购《婕为县志》七角",
+    "date": "1923-03-10",
+    "source_file": "1923-03-10.md",
+    "evidence": "购《婕为县志》，价七角",
+    "people": [],
+    "amount": "0.7元",
+    "direction": null
+  },
+  {
+    "id": "txn_wang_ganqing_pucong_3y",
+    "label": "给汪甘卿仆从三元",
+    "date": "1923-03-11",
+    "source_file": "1923-03-11.md",
+    "evidence": "给其仆从三元",
+    "people": [],
+    "amount": "3元",
+    "direction": null
+  },
+  {
+    "id": "txn_lu_zhongying_pucong_2y",
+    "label": "给陆仲英仆从二元",
+    "date": "1923-03-11",
+    "source_file": "1923-03-11.md",
+    "evidence": "给其仆从二元",
+    "people": [],
+    "amount": "2元",
+    "direction": null
+  },
+  {
+    "id": "txn_wang_food_4se",
+    "label": "赠汪甘卿食物四色",
+    "date": "1923-03-11",
+    "source_file": "1923-03-11.md",
+    "evidence": "又赠食物四色",
+    "people": [],
+    "amount": null,
+    "direction": null
+  },
+  {
+    "id": "txn_lishanzhu_wenxuan_24y",
+    "label": "购《李善注文选》二十四元",
+    "date": "1923-03-13",
+    "source_file": "1923-03-13.md",
+    "evidence": "金台汪谅本，洋廿四元",
+    "people": [],
+    "amount": "24元",
+    "direction": null
+  },
+  {
+    "id": "txn_fanshaoshu_15jiao",
+    "label": "购《樊绍述集》一元五角",
+    "date": "1923-03-13",
+    "source_file": "1923-03-13.md",
+    "evidence": "孙之驿注，洋一元五角",
+    "people": [],
+    "amount": "1.5元",
+    "direction": null
+  },
+  {
+    "id": "txn_jinling_zayong_15j",
+    "label": "购《金陵杂咏》一元五角",
+    "date": "1923-03-13",
+    "source_file": "1923-03-13.md",
+    "evidence": "王友亮，洋一元五角",
+    "people": [],
+    "amount": "1.5元",
+    "direction": null
+  },
+  {
+    "id": "txn_yipiaozhai_3y",
+    "label": "购《一瓢斋诗存》三元",
+    "date": "1923-03-13",
+    "source_file": "1923-03-13.md",
+    "evidence": "薛雪，洋三元",
+    "people": [],
+    "amount": "3元",
+    "direction": null
+  },
+  {
+    "id": "txn_huachuang_1y",
+    "label": "购《华窗梦影图》一元",
+    "date": "1923-03-13",
+    "source_file": "1923-03-13.md",
+    "evidence": "陈端本，洋一元",
+    "people": [],
+    "amount": "1元",
+    "direction": null
+  },
+  {
+    "id": "txn_baixiaotu_1y",
+    "label": "购《百孝图》一元",
+    "date": "1923-03-13",
+    "source_file": "1923-03-13.md",
+    "evidence": "俞葆真编，洋一元",
+    "people": [],
+    "amount": "1元",
+    "direction": null
+  },
+  {
+    "id": "txn_santaishilu_18j",
+    "label": "购《三台诗录》一元八角",
+    "date": "1923-03-13",
+    "source_file": "1923-03-13.md",
+    "evidence": "戚学标...洋一元八角",
+    "people": [],
+    "amount": "1.8元",
+    "direction": null
+  },
+  {
+    "id": "txn_pianzi_leibian_7y",
+    "label": "购《骈字类编》七元",
+    "date": "1923-03-13",
+    "source_file": "1923-03-13.md",
+    "evidence": "同文书局印本，洋七元",
+    "people": [],
+    "amount": "7元",
+    "direction": null
+  },
+  {
+    "id": "txn_duobao_shengjiao_6y",
+    "label": "购《多宝塔》《圣教序》帖六元",
+    "date": "1923-03-13",
+    "source_file": "1923-03-13.md",
+    "evidence": "每种廿本，洋六元",
+    "people": [],
+    "amount": "6元",
+    "direction": null
+  },
+  {
+    "id": "txn_hanwuzhu_xixi_32y",
+    "label": "购陈鍼山汉五铢铜洗卅二元",
+    "date": "1923-03-14",
+    "source_file": "1923-03-14.md",
+    "evidence": "购陈鍼山汉五铢铜洗，价洋卅二元",
+    "people": [],
+    "amount": "32元",
+    "direction": null
+  },
+  {
+    "id": "txn_laiqingge_pay_493",
+    "label": "付来青阁书价四十九元三角",
+    "date": "1923-03-14",
+    "source_file": "1923-03-14.md",
+    "evidence": "付来青阁书价四十九元三角",
+    "people": [],
+    "amount": "49.3元",
+    "direction": null
+  },
+  {
+    "id": "txn_caoxinyi_paper_200",
+    "label": "购曹信义料半纸二百元二角",
+    "date": "1923-03-14",
+    "source_file": "1923-03-14.md",
+    "evidence": "料半纸，共洋二百元○二角",
+    "people": [],
+    "amount": "200.2元 + 力洋0.4元",
+    "direction": null
+  },
+  {
+    "id": "txn_qinv_huifeng_5000",
+    "label": "绮女存汇丰五千元年息五厘",
+    "date": "1923-03-14",
+    "source_file": "1923-03-14.md",
+    "evidence": "绮女存汇丰五千元、年息五厘",
+    "people": [],
+    "amount": "5000元 @ 5%",
+    "direction": null
+  },
+  {
+    "id": "txn_qinv_huaqi_2000",
+    "label": "绮女存花旗二千两年息五厘",
+    "date": "1923-03-14",
+    "source_file": "1923-03-14.md",
+    "evidence": "花旗二千两年息五厘",
+    "people": [],
+    "amount": "2000两 @ 5%",
+    "direction": null
+  },
+  {
+    "id": "txn_yanhua_dongtang_20y",
+    "label": "罗子经交《烟画东堂小品》二部廿元",
+    "date": "1923-03-14",
+    "source_file": "1923-03-14.md",
+    "evidence": "交来《烟画东堂小品》书二部，价洋廿元",
+    "people": [],
+    "amount": "20元",
+    "direction": null
+  },
+  {
+    "id": "txn_shuye_96y",
+    "label": "韩子元宋之明本琉璃厂翰文斋书叶价九十六元",
+    "date": "1923-03-14",
+    "source_file": "1923-03-14.md",
+    "evidence": "书叶价九十六元",
+    "people": [],
+    "amount": "96元",
+    "direction": null
+  },
+  {
     "id": "txn_wanwei_mother",
     "label": "送素宁绸挽幃",
     "date": "1923-03-15",

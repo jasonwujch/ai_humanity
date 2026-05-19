@@ -927,6 +927,70 @@
       "label": "新闸路陈家浜太平寺"
     },
     {
+      "id": "loc_yuanmiaoguan",
+      "label": "元妙观"
+    },
+    {
+      "id": "loc_chunxianguan",
+      "label": "春仙观"
+    },
+    {
+      "id": "loc_liuyuan",
+      "label": "留园"
+    },
+    {
+      "id": "loc_jiezhuang_si_xiyuan",
+      "label": "戒幢寺西园"
+    },
+    {
+      "id": "loc_huqiu",
+      "label": "虎邱"
+    },
+    {
+      "id": "loc_huulongjie",
+      "label": "护龙街"
+    },
+    {
+      "id": "loc_zhengshangzhai",
+      "label": "征赏斋"
+    },
+    {
+      "id": "loc_jiyuan",
+      "label": "吉园"
+    },
+    {
+      "id": "loc_zhongyou_jixiang",
+      "label": "中由吉巷"
+    },
+    {
+      "id": "loc_lufu",
+      "label": "陆府"
+    },
+    {
+      "id": "loc_daoqianjie",
+      "label": "道前街"
+    },
+    {
+      "id": "loc_guangfu",
+      "label": "光福"
+    },
+    {
+      "id": "loc_zhongningsi",
+      "label": "重宁寺"
+    },
+    {
+      "id": "loc_tiezuofang",
+      "label": "铁作坊"
+    },
+    {
+      "id": "loc_nantong",
+      "label": "南通"
+    },
+    {
+      "id": "loc_liulichang",
+      "label": "琉璃厂"
+    },
+    {
       "id": "loc_bengbu",
       "label": "蚌埠"
     },
@@ -937,10 +1001,6 @@
     {
       "id": "loc_chongming_2chang",
       "label": "崇明二厂"
-    },
-    {
-      "id": "loc_liulichang",
-      "label": "琉璃厂"
     },
     {
       "id": "loc_chongning_si",
@@ -1011,10 +1071,6 @@
       "label": "静安寺路十号俱乐部"
     },
     {
-      "id": "loc_nantong",
-      "label": "南通"
-    },
-    {
       "id": "loc_xihu_hupaoquan",
       "label": "西湖虎跑泉祠"
     },
@@ -1081,10 +1137,6 @@
     {
       "id": "loc_lvyangcun_chashe",
       "label": "绿杨邨茶社"
-    },
-    {
-      "id": "loc_zhongningsi",
-      "label": "重宁寺"
     },
     {
       "id": "loc_tianxingguan",
@@ -3115,10 +3167,6 @@
       "label": "大马路抛球场西廿号"
     },
     {
-      "id": "loc_huqiu",
-      "label": "虎邱"
-    },
-    {
       "id": "loc_daling",
       "label": "大陵"
     },
@@ -5116,7 +5164,7 @@
       "resolved_city": "南通",
       "evidence": "附大庆轮再至南通",
       "relation": "拜访",
-      "source_file": "1920-06-11.md"
+      "source_file": "1923-03-12.md"
     },
     {
       "date": "1922-05-13",
@@ -5956,6 +6004,69 @@
       "source_file": "1923-02-27.md"
     },
     {
+      "date": "1923-03-08",
+      "location_id": "loc_suzhou",
+      "location_label": "苏州",
+      "resolved_city": "苏州",
+      "evidence": "附沪宁车至苏",
+      "relation": "拜访",
+      "source_file": "1920-02-06.md"
+    },
+    {
+      "date": "1923-03-08",
+      "location_id": "loc_yuanmiaoguan",
+      "location_label": "元妙观",
+      "resolved_city": "苏州",
+      "evidence": "游元妙观",
+      "relation": "拜访",
+      "source_file": "1923-03-08.md"
+    },
+    {
+      "date": "1923-03-08",
+      "location_id": "loc_chunxianguan",
+      "location_label": "春仙观",
+      "resolved_city": null,
+      "evidence": "晚，至春仙观",
+      "relation": "拜访",
+      "source_file": "1923-03-08.md"
+    },
+    {
+      "date": "1923-03-09",
+      "location_id": "loc_liuyuan",
+      "location_label": "留园",
+      "resolved_city": null,
+      "evidence": "午前，游留园并戒幢寺西园",
+      "relation": "拜访",
+      "source_file": "1923-03-09.md"
+    },
+    {
+      "date": "1923-03-09",
+      "location_id": "loc_jiezhuang_si_xiyuan",
+      "location_label": "戒幢寺西园",
+      "resolved_city": null,
+      "evidence": "游留园并戒幢寺西园",
+      "relation": "拜访",
+      "source_file": "1923-03-09.md"
+    },
+    {
+      "date": "1923-03-09",
+      "location_id": "loc_huqiu",
+      "location_label": "虎邱",
+      "resolved_city": null,
+      "evidence": "午后，游虎邱",
+      "relation": "拜访",
+      "source_file": "1923-03-09.md"
+    },
+    {
+      "date": "1923-03-12",
+      "location_id": "loc_shanghai",
+      "location_label": "沪",
+      "resolved_city": "上海",
+      "evidence": "十时，附沪宁车回沪",
+      "relation": "拜访",
+      "source_file": "1920-01-07.md"
+    },
+    {
       "date": "1923-03-25",
       "location_id": "loc_tianchan_wutai",
       "location_label": "天蟾舞台",
@@ -5971,8 +6082,8 @@
     "per_xu_naichang_self"
   ],
   "city_visit_counts": {
-    "上海": 127,
-    "苏州": 23,
+    "上海": 128,
+    "苏州": 25,
     "南通": 15,
     "镇江": 2,
     "松江": 1,
