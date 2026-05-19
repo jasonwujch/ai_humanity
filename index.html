@@ -940,7 +940,46 @@ createApp({
       });
       // Expose for cross-component chip click-through
       window.__vueOpenProfile = openProfileById;
+
+      // — History sync: tab + reader date in URL hash —
+      restoringFromHistory.value = true;
+      const initial = parseHash();
+      if (initial.tab) tab.value = initial.tab;
+      if (initial.date && chunksData.value && chunksData.value[initial.date]) readerDate.value = initial.date;
+      restoringFromHistory.value = false;
+
+      window.addEventListener('popstate', (e) => {
+        restoringFromHistory.value = true;
+        const s = e.state || parseHash();
+        if (s.tab) tab.value = s.tab;
+        if (s.date) readerDate.value = s.date;
+        if (s.profile === null) profile.value = null;
+        restoringFromHistory.value = false;
+      });
     });
+
+    const restoringFromHistory = ref(false);
+    function parseHash() {
+      const h = (location.hash || '').replace(/^#/, '');
+      const out = {};
+      for (const part of h.split('&')) {
+        const [k, v] = part.split('=');
+        if (k) out[k] = decodeURIComponent(v || '');
+      }
+      return out;
+    }
+    function pushHash() {
+      if (restoringFromHistory.value) return;
+      const parts = [];
+      parts.push('tab=' + tab.value);
+      if (tab.value === 'reader' && readerDate.value) parts.push('date=' + readerDate.value);
+      const newHash = '#' + parts.join('&');
+      if (newHash !== location.hash) {
+        history.pushState({tab: tab.value, date: readerDate.value}, '', newHash);
+      }
+    }
+    watch(tab, pushHash);
+    watch(readerDate, () => { if (tab.value === 'reader') pushHash(); });
 
     watch([tab, txnData, peopleData, locData, booksData, statsData], ([t, tx, pp, lc, bk, st]) => {
       if (t === 'txn' && tx && !txnTable) nextTick(() => initTxn(tx));
