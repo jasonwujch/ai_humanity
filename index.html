@@ -1,0 +1,647 @@
+<!doctype html>
+<html lang="zh"><head>
+<meta charset="utf-8">
+<title>徐乃昌日记 知识图谱探索 · alpha</title>
+<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+<script src="https://unpkg.com/cytoscape@3/dist/cytoscape.min.js"></script>
+<script src="https://unpkg.com/tabulator-tables@5/dist/js/tabulator.min.js"></script>
+<link href="https://unpkg.com/tabulator-tables@5/dist/css/tabulator.min.css" rel="stylesheet">
+<script src="https://unpkg.com/leaflet@1/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1/dist/leaflet.css">
+<style>
+  :root {
+    --bg: #fafafa; --fg: #222; --muted: #6b7280; --border: #e5e7eb;
+    --accent: #1d4ed8; --accent-soft: #dbeafe;
+    --per: #1d4ed8; --org: #16a34a; --loc: #d97706; --book: #7c3aed;
+    --txn: #db2777; --evt: #0891b2; --ill: #be123c; --dis: #9333ea; --ofc: #475569;
+  }
+  * { box-sizing: border-box }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; margin: 0; background: var(--bg); color: var(--fg); }
+  header { padding: 12px 24px; background: #fff; border-bottom: 1px solid var(--border); display: flex; gap: 16px; align-items: center; position: sticky; top: 0; z-index: 100; }
+  header h1 { margin: 0; font-size: 16px; font-weight: 600 }
+  header .sub { font-size: 11px; color: var(--muted) }
+  header .search { margin-left: auto; position: relative }
+  header .search input { width: 280px; padding: 6px 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px }
+  header .search-results { position: absolute; top: 32px; right: 0; width: 380px; max-height: 480px; overflow: auto; background: #fff; border: 1px solid var(--border); border-radius: 6px; box-shadow: 0 6px 24px rgba(0,0,0,.08); display: none; z-index: 110 }
+  header .search-results.open { display: block }
+  header .search-results .item { padding: 8px 12px; cursor: pointer; border-bottom: 1px solid #f3f4f6; font-size: 13px }
+  header .search-results .item:hover { background: #f9fafb }
+  header .search-results .item .sub { font-size: 11px; color: var(--muted); margin-top: 2px }
+
+  .tabs { display: flex; border-bottom: 1px solid var(--border); background: #fff; padding: 0 16px; gap: 4px; position: sticky; top: 49px; z-index: 90 }
+  .tabs button { padding: 10px 16px; border: 0; background: transparent; cursor: pointer; font-size: 13px; color: #444; border-radius: 6px 6px 0 0 }
+  .tabs button:hover { background: #f3f4f6 }
+  .tabs button.active { color: var(--accent); border-bottom: 2px solid var(--accent); font-weight: 600 }
+  .view { padding: 18px }
+  #people-graph, #geo-map { height: calc(100vh - 230px); min-height: 540px; border: 1px solid var(--border); background: #fff; border-radius: 6px }
+
+  /* Overview cards */
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 18px }
+  .card { background: #fff; border: 1px solid var(--border); border-radius: 6px; padding: 12px }
+  .card .num { font-size: 22px; font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums }
+  .card .lbl { font-size: 11px; color: var(--muted); margin-top: 4px }
+  .breakdown { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px }
+  .breakdown section { background: #fff; border: 1px solid var(--border); border-radius: 6px; padding: 14px }
+  .breakdown h3 { margin: 0 0 8px; font-size: 13px; color: #555 }
+  .breakdown table { width: 100%; font-size: 13px; border-collapse: collapse }
+  .breakdown td { padding: 3px 0 }
+  .breakdown td.r { text-align: right; color: var(--accent); font-variant-numeric: tabular-nums }
+  .breakdown .bar { height: 4px; background: var(--accent-soft); border-radius: 2px; margin-top: 2px }
+  .breakdown .bar span { display: block; height: 100%; background: var(--accent); border-radius: 2px }
+
+  .controls { display: flex; gap: 10px; margin-bottom: 10px; align-items: center; flex-wrap: wrap; font-size: 12px; color: #555 }
+  .controls input, .controls select { padding: 5px 8px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px }
+  .controls label { display: flex; gap: 4px; align-items: center }
+  .legend { font-size: 11px; color: var(--muted) }
+  .chip { display: inline-block; padding: 1px 6px; border-radius: 10px; font-size: 10px; line-height: 1.4; vertical-align: middle; margin: 0 2px }
+  .chip-per { background: #dbeafe; color: var(--per) }
+  .chip-org { background: #dcfce7; color: var(--org) }
+  .chip-loc { background: #fed7aa; color: var(--loc) }
+  .chip-book { background: #ede9fe; color: var(--book) }
+  .chip-txn { background: #fce7f3; color: var(--txn) }
+  .chip-evt { background: #cffafe; color: var(--evt) }
+
+  /* Profile drawer */
+  .drawer-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.3); z-index: 999; display: none }
+  .drawer-backdrop.open { display: block }
+  .drawer { position: fixed; top: 0; right: 0; bottom: 0; width: min(560px, 100vw); background: #fff; box-shadow: -8px 0 24px rgba(0,0,0,.08); z-index: 1000; overflow-y: auto; transform: translateX(100%); transition: transform .25s ease }
+  .drawer.open { transform: translateX(0) }
+  .drawer header { position: sticky; top: 0; background: #fff; padding: 14px 18px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px }
+  .drawer header h2 { margin: 0; font-size: 17px; font-weight: 600 }
+  .drawer header .close { margin-left: auto; border: 0; background: 0; cursor: pointer; font-size: 22px; color: var(--muted) }
+  .drawer .body { padding: 14px 18px }
+  .drawer h3 { font-size: 12px; color: var(--muted); margin: 18px 0 6px; text-transform: uppercase; letter-spacing: .04em }
+  .drawer .meta { font-size: 13px; color: #444; line-height: 1.6 }
+  .drawer .alias-row { display: flex; flex-wrap: wrap; gap: 4px }
+  .drawer .alias-row .chip { background: #f3f4f6; color: #444; font-size: 11px }
+  .drawer ul { padding-left: 18px; margin: 0; font-size: 13px; line-height: 1.7 }
+  .drawer .neigh { cursor: pointer; color: var(--accent) }
+  .drawer .neigh:hover { text-decoration: underline }
+  .drawer .edge-list { font-size: 12px }
+  .drawer .edge-list .row { padding: 6px 0; border-bottom: 1px solid #f3f4f6 }
+  .drawer .edge-list .row .rel { color: var(--accent); font-weight: 500 }
+  .drawer .edge-list .row .ev { color: #555 }
+  .drawer .edge-list .row .dt { color: var(--muted); font-size: 11px; font-family: ui-monospace, monospace }
+
+  /* Entity index */
+  .index-grid { display: grid; grid-template-columns: 240px 1fr; gap: 16px }
+  .index-side { background: #fff; border: 1px solid var(--border); border-radius: 6px; padding: 10px }
+  .index-side button { display: block; width: 100%; text-align: left; padding: 8px 10px; border: 0; background: transparent; cursor: pointer; border-radius: 4px; font-size: 13px }
+  .index-side button:hover { background: #f3f4f6 }
+  .index-side button.active { background: var(--accent-soft); color: var(--accent); font-weight: 500 }
+  .index-list { background: #fff; border: 1px solid var(--border); border-radius: 6px; padding: 10px; max-height: calc(100vh - 230px); overflow-y: auto }
+  .index-list .row { padding: 6px 8px; border-bottom: 1px solid #f3f4f6; cursor: pointer; display: flex; gap: 10px; font-size: 13px }
+  .index-list .row:hover { background: #f9fafb }
+  .index-list .row .label { flex: 1 }
+  .index-list .row .meta { color: var(--muted); font-size: 11px; font-family: ui-monospace, monospace }
+
+  .empty { color: var(--muted); font-size: 13px; padding: 30px; text-align: center }
+  a.link { color: var(--accent); cursor: pointer; text-decoration: none }
+  a.link:hover { text-decoration: underline }
+</style>
+</head>
+<body>
+<div id="app">
+  <header>
+    <div>
+      <h1>徐乃昌日记 知识图谱 · <span style="color:var(--muted);font-weight:400;font-size:13px">alpha</span></h1>
+      <div class="sub" v-if="overview">
+        {{ overview.totals.nodes_deduped || overview.totals.nodes }} 节点 · {{ overview.totals.edges }} 关系 · {{ overview.date_range?.[0] }} ~ {{ overview.date_range?.[1] }} · {{ overview.totals.batches }} 批
+      </div>
+    </div>
+    <div class="search">
+      <input v-model="globalQ" @input="onSearch" @focus="searchOpen=true" placeholder="全局搜索 (Ctrl+K)" />
+      <div class="search-results" :class="{open: searchOpen && (globalQ || '').trim()}">
+        <div v-if="searchHits.length === 0" class="item" style="color:var(--muted)">无匹配</div>
+        <div v-for="h in searchHits" :key="h.id+h.kind" class="item" @click="selectHit(h)">
+          <div><span class="chip" :class="'chip-'+(h.kind||'per')">{{ h.kindLabel }}</span>{{ h.label }}</div>
+          <div class="sub">{{ h.sub }}</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button :class="{active:tab==='overview'}" @click="tab='overview'">总览</button>
+    <button :class="{active:tab==='txn'}" @click="tab='txn'">账单</button>
+    <button :class="{active:tab==='people'}" @click="tab='people'">人物关系</button>
+    <button :class="{active:tab==='geo'}" @click="tab='geo'">作者行迹</button>
+    <button :class="{active:tab==='index'}" @click="tab='index'">实体索引</button>
+  </div>
+
+  <!-- Overview -->
+  <div class="view" v-show="tab==='overview'">
+    <div v-if="!overview" class="empty">加载中…</div>
+    <template v-else>
+      <div class="cards">
+        <div class="card"><div class="num">{{ overview.totals.nodes_deduped || overview.totals.nodes }}</div><div class="lbl">节点 (去重)</div></div>
+        <div class="card"><div class="num">{{ overview.totals.edges }}</div><div class="lbl">关系</div></div>
+        <div class="card"><div class="num">{{ overview.totals.hyperedges }}</div><div class="lbl">事件 (多元关系)</div></div>
+        <div class="card"><div class="num">{{ overview.entity_types['人 (dedup)'] || '?' }}</div><div class="lbl">人物 (去重)</div></div>
+        <div class="card"><div class="num">{{ overview.entity_types['交易'] || 0 }}</div><div class="lbl">交易</div></div>
+        <div class="card"><div class="num">{{ overview.totals.batches }}</div><div class="lbl">批次</div></div>
+      </div>
+      <div class="breakdown">
+        <section>
+          <h3>实体类型</h3>
+          <table>
+            <tr v-for="(c,k) in sortedEntityTypes" :key="k">
+              <td style="width:36%">{{ k }}</td>
+              <td class="r" style="width:18%">{{ c }}</td>
+              <td><div class="bar"><span :style="{width: (c / maxEntity * 100) + '%'}"></span></div></td>
+            </tr>
+          </table>
+        </section>
+        <section>
+          <h3>关系类型</h3>
+          <table>
+            <tr v-for="(c,k) in sortedRelationTypes" :key="k">
+              <td style="width:36%">{{ k }}</td>
+              <td class="r" style="width:18%">{{ c }}</td>
+              <td><div class="bar"><span :style="{width: (c / maxRelation * 100) + '%'}"></span></div></td>
+            </tr>
+          </table>
+        </section>
+      </div>
+    </template>
+  </div>
+
+  <!-- Transactions -->
+  <div class="view" v-show="tab==='txn'">
+    <div class="controls">
+      <input v-model="txnSearch" @input="applyTxnFilter" placeholder="搜索 人名 / 交易 / 证据" style="width:260px" />
+      <label><input type="checkbox" v-model="txnHasPerson" @change="applyTxnFilter" /> 仅显示有相关人</label>
+      <label>方向
+        <select v-model="txnDirection" @change="applyTxnFilter">
+          <option value="">全部</option>
+          <option value="out">出</option>
+          <option value="in">入</option>
+        </select>
+      </label>
+      <span class="legend" v-if="txnData">共 {{ txnData.length }} 笔</span>
+    </div>
+    <div id="txn-table"></div>
+  </div>
+
+  <!-- People graph -->
+  <div class="view" v-show="tab==='people'">
+    <div class="controls">
+      <input v-model="peopleSearch" @input="applyPeopleFilter" placeholder="搜索 人名 / 别名" style="width:220px" />
+      <label>最小度数 <input type="number" v-model.number="minDegree" min="0" @input="applyPeopleFilter" style="width:56px" /></label>
+      <label>关系
+        <select v-model="relationFilter" @change="applyPeopleFilter">
+          <option value="">全部</option>
+          <option v-for="r in relationOptions" :key="r" :value="r">{{ r }}</option>
+        </select>
+      </label>
+      <label>置信度
+        <select v-model="confFilter" @change="applyPeopleFilter">
+          <option value="">全部</option>
+          <option value="EXTRACTED">仅原文</option>
+          <option value="EXTRACTED_INFERRED">原文+推断</option>
+        </select>
+      </label>
+      <span class="legend" v-if="peopleData">{{ visibleNodeCount }} / {{ peopleData.nodes.length }} 人 · {{ visibleEdgeCount }} 关系</span>
+    </div>
+    <div id="people-graph"></div>
+    <div class="legend" style="margin-top:6px">点击节点 → 打开档案 · 双击边 → 查看证据 · 滚轮缩放</div>
+  </div>
+
+  <!-- Geo -->
+  <div class="view" v-show="tab==='geo'">
+    <div class="controls" v-if="locData">
+      <span class="legend">{{ locData.visits.length }} 次行迹 · {{ locData.visits.length - Object.values(locData.unmapped_top).reduce((a,b)=>a+b,0) }} 已定位 · {{ Object.values(locData.unmapped_top).reduce((a,b)=>a+b,0) }} 未定位</span>
+      <span class="legend" v-if="Object.keys(locData.unmapped_top).length">· 未定位 top: {{ Object.entries(locData.unmapped_top).slice(0,5).map(([k,v])=>k+'('+v+')').join('、') }}</span>
+    </div>
+    <div id="geo-map"></div>
+    <div class="legend" style="margin-top:6px">圆点大小 ∝ 拜访次数 · 颜色按时段 · 点击查看时间与证据</div>
+  </div>
+
+  <!-- Entity index -->
+  <div class="view" v-show="tab==='index'">
+    <div class="index-grid">
+      <div class="index-side">
+        <div style="font-size:12px;color:var(--muted);padding:6px 10px">实体类型</div>
+        <button v-for="t in indexCategories" :key="t.key" :class="{active:indexCat===t.key}" @click="indexCat=t.key">
+          {{ t.label }} <span style="color:var(--muted);float:right">{{ t.count }}</span>
+        </button>
+        <div style="margin-top:8px;padding:0 4px"><input v-model="indexSearch" placeholder="筛选..." style="width:100%;padding:5px 8px;border:1px solid #ccc;border-radius:4px;font-size:13px" /></div>
+      </div>
+      <div class="index-list">
+        <div v-if="indexRows.length === 0" class="empty">无匹配</div>
+        <div v-for="r in indexRows.slice(0,500)" :key="r.id" class="row" @click="openProfile(r)">
+          <span class="label">{{ r.label }}</span>
+          <span v-if="r.aliases && r.aliases.length>1" style="color:var(--muted);font-size:11px">＝ {{ r.aliases.slice(0,3).join('、') }}</span>
+          <span class="meta">{{ r.degree != null ? 'deg '+r.degree : '' }}</span>
+        </div>
+        <div v-if="indexRows.length > 500" style="text-align:center;color:var(--muted);padding:10px;font-size:12px">仅显示前 500 / {{ indexRows.length }}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Profile drawer -->
+  <div class="drawer-backdrop" :class="{open: profile}" @click="profile=null"></div>
+  <div class="drawer" :class="{open: profile}">
+    <header v-if="profile">
+      <span class="chip" :class="'chip-'+profileKind">{{ profileKindLabel }}</span>
+      <h2>{{ profile.label }}</h2>
+      <button class="close" @click="profile=null">&times;</button>
+    </header>
+    <div class="body" v-if="profile">
+      <div class="meta" v-if="profile.canonical && profile.canonical !== profile.label">
+        <strong>规范名：</strong> {{ profile.canonical }}
+      </div>
+      <h3 v-if="profile.aliases?.length">别名 ({{ profile.aliases.length }})</h3>
+      <div class="alias-row">
+        <span v-for="a in profile.aliases" :key="a" class="chip">{{ a }}</span>
+      </div>
+      <h3 v-if="profile.degree != null">度数 / 关系类型</h3>
+      <div class="meta" v-if="profile.degree != null">总度数 <strong>{{ profile.degree }}</strong></div>
+      <div class="meta" v-if="profile.relations">
+        <span v-for="(c,r) in profile.relations" :key="r" class="chip" style="background:#f3f4f6;color:#444">{{ r }} · {{ c }}</span>
+      </div>
+      <h3 v-if="profile.top_neighbours?.length">主要关联人 ({{ profile.top_neighbours.length }})</h3>
+      <ul v-if="profile.top_neighbours?.length">
+        <li v-for="n in profile.top_neighbours" :key="n.id">
+          <span class="neigh" @click="openProfileById(n.id)">{{ n.label }}</span> · {{ n.count }} 次
+        </li>
+      </ul>
+      <h3 v-if="profile.txns?.length">相关交易 ({{ profile.txns.length }})</h3>
+      <div class="edge-list" v-if="profile.txns?.length">
+        <div class="row" v-for="(t,i) in profile.txns" :key="i">
+          <span class="dt">{{ t.date }}</span> <span class="rel">{{ t.relation || '' }}</span> {{ t.label }}<br>
+          <span class="ev">{{ t.evidence }}</span>
+        </div>
+      </div>
+      <h3 v-if="profile.sample_edges?.length">关系证据 ({{ profile.sample_edges.length }})</h3>
+      <div class="edge-list" v-if="profile.sample_edges?.length">
+        <div class="row" v-for="(e,i) in profile.sample_edges" :key="i">
+          <span class="dt">{{ e.date || '?' }}</span>
+          <span class="rel">{{ e.relation }}</span>
+          <span class="neigh" @click="openProfileById(e.other)">{{ neighbourLabel(e.other) }}</span>
+          <div class="ev">{{ e.evidence }}</div>
+        </div>
+      </div>
+      <h3 v-if="profile.merged_ids?.length > 1">合并 ID</h3>
+      <div class="meta" v-if="profile.merged_ids?.length > 1">
+        <span v-for="i in profile.merged_ids" :key="i" class="chip" style="background:#f3f4f6;color:#666;font-family:ui-monospace,monospace;font-size:10px">{{ i }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const { createApp, ref, computed, onMounted, watch, nextTick } = Vue;
+
+const CITY_COORDS_FALLBACK = {};
+
+const ENTITY_KIND_MAP = {
+  '人': { kind: 'per', label: '人' },
+  '团体': { kind: 'org', label: '团体' },
+  '地': { kind: 'loc', label: '地' },
+  '书籍': { kind: 'book', label: '书' },
+  '交易': { kind: 'txn', label: '交易' },
+  '事件': { kind: 'evt', label: '事件' },
+  '疾病': { kind: 'ill', label: '疾病' },
+  '官职': { kind: 'ofc', label: '官职' },
+  '灾害': { kind: 'dis', label: '灾害' },
+};
+const KIND_COLORS = { per: '#1d4ed8', org: '#16a34a', loc: '#d97706', book: '#7c3aed', txn: '#db2777', evt: '#0891b2', ill: '#be123c', ofc: '#475569', dis: '#9333ea' };
+
+let txnTable = null;
+let cyInstance = null;
+let leafletMap = null;
+
+createApp({
+  setup() {
+    const tab = ref('overview');
+    const overview = ref(null);
+    const peopleData = ref(null);
+    const txnData = ref(null);
+    const locData = ref(null);
+    const profiles = ref(null);
+    const allNodes = ref([]);
+
+    const globalQ = ref('');
+    const searchOpen = ref(false);
+    const searchHits = ref([]);
+
+    const txnSearch = ref('');
+    const txnHasPerson = ref(false);
+    const txnDirection = ref('');
+    const peopleSearch = ref('');
+    const minDegree = ref(3);
+    const relationFilter = ref('');
+    const confFilter = ref('');
+    const visibleNodeCount = ref(0);
+    const visibleEdgeCount = ref(0);
+
+    const indexCat = ref('人');
+    const indexSearch = ref('');
+
+    const profile = ref(null);
+    const profileKind = computed(() => profile.value ? (ENTITY_KIND_MAP[profile.value._entity_type]?.kind || 'per') : 'per');
+    const profileKindLabel = computed(() => profile.value ? (ENTITY_KIND_MAP[profile.value._entity_type]?.label || '人') : '');
+
+    const sortedEntityTypes = computed(() =>
+      overview.value ? Object.fromEntries(Object.entries(overview.value.entity_types).sort((a,b)=>b[1]-a[1])) : {});
+    const sortedRelationTypes = computed(() =>
+      overview.value ? Object.fromEntries(Object.entries(overview.value.relation_types).sort((a,b)=>b[1]-a[1])) : {});
+    const maxEntity = computed(() => Math.max(1, ...Object.values(sortedEntityTypes.value)));
+    const maxRelation = computed(() => Math.max(1, ...Object.values(sortedRelationTypes.value)));
+    const relationOptions = computed(() =>
+      peopleData.value ? [...new Set(peopleData.value.edges.map(e=>e.relation).filter(Boolean))].sort() : []);
+
+    const indexCategories = computed(() => {
+      if (!allNodes.value.length) return [];
+      const c = {};
+      for (const n of allNodes.value) c[n._entity_type] = (c[n._entity_type] || 0) + 1;
+      return Object.entries(c).sort((a,b)=>b[1]-a[1]).map(([k,v])=>({key:k, label:k, count:v}));
+    });
+    const indexRows = computed(() => {
+      if (!allNodes.value.length) return [];
+      const q = indexSearch.value.trim();
+      return allNodes.value
+        .filter(n => n._entity_type === indexCat.value)
+        .filter(n => !q || (n.label||'').includes(q) || (n.aliases||[]).some(a=>(a||'').includes(q)))
+        .sort((a,b) => (b.degree||0) - (a.degree||0) || (a.label||'').localeCompare(b.label||''));
+    });
+
+    onMounted(async () => {
+      const [ov, tx, pp, lc, pr] = await Promise.all([
+        fetch('data/overview.json').then(r=>r.json()),
+        fetch('data/transactions.json').then(r=>r.json()),
+        fetch('data/people_graph.json').then(r=>r.json()),
+        fetch('data/locations.json').then(r=>r.json()),
+        fetch('data/people_profiles.json').then(r=>r.json()),
+      ]);
+      overview.value = ov; txnData.value = tx; peopleData.value = pp; locData.value = lc; profiles.value = pr;
+
+      // Build searchable allNodes from people_graph + locations + transactions + (locations as entities)
+      const nodes = [];
+      for (const n of pp.nodes) nodes.push({...n, _entity_type:'人'});
+      for (const l of lc.locations) nodes.push({id:l.id, label:l.label, _entity_type:'地', degree: lc.visits.filter(v=>v.location_id===l.id).length});
+      // De-dup txns by label (they aren't a graph node but useful for index/search)
+      const txnSeen = new Set();
+      for (const t of tx) {
+        if (txnSeen.has(t.label)) continue; txnSeen.add(t.label);
+        nodes.push({id:t.id, label:t.label, _entity_type:'交易', degree:(t.people||[]).length, _date:t.date, _evidence:t.evidence});
+      }
+      allNodes.value = nodes;
+
+      document.addEventListener('keydown', (e) => {
+        if (e.ctrlKey && e.key === 'k') { e.preventDefault(); document.querySelector('.search input').focus(); }
+        if (e.key === 'Escape') { searchOpen.value = false; profile.value = null; }
+      });
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.search')) searchOpen.value = false;
+      });
+      // Expose for cross-component chip click-through
+      window.__vueOpenProfile = openProfileById;
+    });
+
+    watch([tab, txnData, peopleData, locData], ([t, tx, pp, lc]) => {
+      if (t === 'txn' && tx && !txnTable) nextTick(() => initTxn(tx));
+      if (t === 'people' && pp && !cyInstance) nextTick(() => applyPeopleFilter());
+      if (t === 'geo' && lc && !leafletMap) nextTick(() => initGeo(lc));
+    });
+
+    function onSearch() {
+      const q = globalQ.value.trim();
+      if (!q) { searchHits.value = []; return; }
+      const hits = [];
+      for (const n of allNodes.value) {
+        if (hits.length >= 50) break;
+        const labelMatch = (n.label || '').includes(q);
+        const aliasMatch = (n.aliases || []).some(a => (a || '').includes(q));
+        if (!labelMatch && !aliasMatch) continue;
+        const meta = ENTITY_KIND_MAP[n._entity_type] || {kind:'per', label:'?'};
+        let sub = n._entity_type;
+        if (n.degree != null) sub += ` · 度数 ${n.degree}`;
+        if (n.aliases && n.aliases.length > 1) sub += ' · ' + n.aliases.slice(0,4).join('、');
+        if (n._date) sub += ' · ' + n._date;
+        hits.push({id:n.id, label:n.label, kind:meta.kind, kindLabel:meta.label, sub, _entity_type:n._entity_type, _node:n});
+      }
+      searchHits.value = hits;
+      searchOpen.value = true;
+    }
+
+    function selectHit(h) {
+      searchOpen.value = false;
+      globalQ.value = '';
+      openProfile(h._node);
+    }
+
+    function openProfile(n) {
+      if (!n) return;
+      if (n._entity_type === '人' && profiles.value[n.id]) {
+        const pr = profiles.value[n.id];
+        profile.value = {...pr, _entity_type: '人'};
+      } else {
+        // Build a minimal profile from available data
+        profile.value = {
+          id: n.id,
+          label: n.label,
+          aliases: n.aliases || [],
+          canonical: n.canonical,
+          degree: n.degree,
+          _entity_type: n._entity_type,
+          ...(n._date ? {_date:n._date} : {}),
+          ...(n._evidence ? {_evidence:n._evidence} : {}),
+        };
+      }
+    }
+
+    function openProfileById(id) {
+      const n = allNodes.value.find(x => x.id === id);
+      if (n) openProfile(n);
+    }
+
+    function neighbourLabel(id) {
+      if (profiles.value && profiles.value[id]) return profiles.value[id].label;
+      const n = allNodes.value.find(x => x.id === id);
+      return n ? n.label : id;
+    }
+
+    function applyTxnFilter() {
+      if (!txnTable) return;
+      const q = txnSearch.value.trim();
+      txnTable.setFilter((row) => {
+        if (txnHasPerson.value && (!row.people || row.people.length === 0)) return false;
+        if (txnDirection.value && row.direction !== txnDirection.value) return false;
+        if (!q) return true;
+        const blob = [row.label, row.evidence, (row.people||[]).map(p=>p.label).join(' ')].join(' ');
+        return blob.includes(q);
+      });
+    }
+
+    function applyPeopleFilter() {
+      if (!peopleData.value) return;
+      const q = peopleSearch.value.trim();
+      const md = minDegree.value || 0;
+      const rel = relationFilter.value;
+      const cf = confFilter.value;
+      const baseNodes = peopleData.value.nodes
+        .filter(n => n.degree >= md)
+        .filter(n => !q || (n.label||'').includes(q) || (n.aliases||[]).some(a=>(a||'').includes(q)));
+      const baseIds = new Set(baseNodes.map(n => n.id));
+      const edges = peopleData.value.edges.filter(e => {
+        if (!baseIds.has(e.source) || !baseIds.has(e.target)) return false;
+        if (rel && e.relation !== rel) return false;
+        if (cf === 'EXTRACTED' && e.confidence !== 'EXTRACTED') return false;
+        if (cf === 'EXTRACTED_INFERRED' && !['EXTRACTED','INFERRED'].includes(e.confidence)) return false;
+        return true;
+      });
+      let nodeIds = baseIds;
+      if (rel || cf) {
+        const connected = new Set();
+        edges.forEach(e => { connected.add(e.source); connected.add(e.target); });
+        nodeIds = connected;
+      }
+      const nodes = baseNodes.filter(n => nodeIds.has(n.id));
+      visibleNodeCount.value = nodes.length;
+      visibleEdgeCount.value = edges.length;
+      renderPeople(nodes, edges, openProfileById);
+    }
+
+    return {
+      tab, overview, peopleData, txnData, locData, profiles, allNodes,
+      globalQ, searchOpen, searchHits, onSearch, selectHit,
+      txnSearch, txnHasPerson, txnDirection,
+      peopleSearch, minDegree, relationFilter, confFilter,
+      visibleNodeCount, visibleEdgeCount,
+      indexCat, indexSearch, indexCategories, indexRows,
+      sortedEntityTypes, sortedRelationTypes, relationOptions, maxEntity, maxRelation,
+      applyTxnFilter, applyPeopleFilter,
+      profile, profileKind, profileKindLabel, openProfile, openProfileById, neighbourLabel,
+    };
+  }
+}).mount('#app');
+
+function initTxn(data){
+  txnTable = new Tabulator('#txn-table', {
+    data, height:'calc(100vh - 200px)', layout:'fitColumns',
+    initialSort:[{column:'date', dir:'asc'}],
+    columns:[
+      {title:'日期', field:'date', sorter:'string', width:110, headerFilter:'input'},
+      {title:'交易', field:'label', widthGrow:2, headerFilter:'input'},
+      {title:'相关人', field:'people', widthGrow:2,
+        formatter: c => (c.getValue()||[]).map(p => {
+          const kind = ({'人':'per','团体':'org','书籍':'book'})[p.type] || 'per';
+          return `<span class="chip chip-${kind}" data-id="${p.id||''}" title="${p.relation||''}">${p.label||''}</span>`;
+        }).join(' ')},
+      {title:'金额', field:'amount', width:80},
+      {title:'方向', field:'direction', width:70,
+        formatter: c => { const v = c.getValue(); return v === 'out' ? '出' : v === 'in' ? '入' : ''; }},
+      {title:'证据', field:'evidence', widthGrow:3},
+      {title:'出处', field:'source_file', width:120, formatter: c => `<span style="font-family:ui-monospace,monospace;font-size:11px;color:#666">${c.getValue()||''}</span>`},
+    ],
+  });
+  // Click-through on chips → open profile
+  document.getElementById('txn-table').addEventListener('click', (e) => {
+    const chip = e.target.closest('.chip');
+    if (chip && chip.dataset.id) {
+      const evt = new CustomEvent('openProfileById', {detail: chip.dataset.id});
+      document.dispatchEvent(evt);
+    }
+  });
+}
+
+document.addEventListener('openProfileById', (e) => {
+  if (window.__vueOpenProfile) window.__vueOpenProfile(e.detail);
+});
+
+function renderPeople(nodes, edges, onTap){
+  const elements = [
+    ...nodes.map(n => ({data:{id:n.id, label:n.label, degree:n.degree, aliases:(n.aliases||[]).join('、')}})),
+    ...edges.map(e => ({data:{source:e.source, target:e.target, relation:e.relation, confidence:e.confidence, evidence:e.evidence, date:e.date}})),
+  ];
+  if (cyInstance) {
+    cyInstance.elements().remove();
+    cyInstance.add(elements);
+    cyInstance.layout({name:'cose', animate:false, idealEdgeLength:90, nodeRepulsion:6000}).run();
+    return;
+  }
+  cyInstance = cytoscape({
+    container: document.getElementById('people-graph'),
+    elements,
+    style:[
+      {selector:'node', style:{
+        label:'data(label)',
+        'background-color':'#1d4ed8',
+        'width':'mapData(degree,0,80,14,72)',
+        'height':'mapData(degree,0,80,14,72)',
+        'font-size':10,
+        'text-valign':'center', 'text-halign':'center',
+        'color':'#fff',
+        'text-outline-color':'#1d4ed8', 'text-outline-width':1,
+        'border-width':0,
+      }},
+      {selector:'edge', style:{
+        'line-color':'#bbb',
+        'curve-style':'bezier',
+        'width':1,
+        label:'data(relation)',
+        'font-size':8,
+        'color':'#888',
+        'text-rotation':'autorotate',
+        'text-background-color':'#fff',
+        'text-background-opacity':0.7,
+        'text-background-padding':1,
+      }},
+      {selector:'edge[confidence = "INFERRED"]', style:{'line-style':'dashed', 'line-color':'#999'}},
+      {selector:'edge[confidence = "AMBIGUOUS"]', style:{'line-color':'#e57373','line-style':'dotted'}},
+      {selector:':selected', style:{'background-color':'#f59e0b','line-color':'#f59e0b','border-width':3,'border-color':'#fbbf24'}},
+    ],
+    layout:{name:'cose', animate:false, idealEdgeLength:90, nodeRepulsion:6000},
+    wheelSensitivity:0.2,
+  });
+  cyInstance.on('tap', 'node', (evt) => {
+    if (onTap) onTap(evt.target.id());
+  });
+  cyInstance.on('tap', 'edge', (evt) => {
+    const d = evt.target.data();
+    alert(`${d.relation || '关系'}\n证据: ${d.evidence || '(无)'}\n日期: ${d.date || '?'}\n置信度: ${d.confidence || '?'}`);
+  });
+}
+
+function initGeo(data){
+  leafletMap = L.map('geo-map', {preferCanvas: true}).setView([31.5, 119], 6);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap',
+    maxZoom: 18,
+  }).addTo(leafletMap);
+
+  const coords = data.coords || {};
+  const byCity = {};
+  for (const v of data.visits) {
+    const city = v.resolved_city;
+    if (!city || !coords[city]) continue;
+    if (!byCity[city]) byCity[city] = {coord: coords[city], visits: [], venues: new Set()};
+    byCity[city].visits.push(v);
+    if (v.location_label !== city) byCity[city].venues.add(v.location_label);
+  }
+  for (const [name, info] of Object.entries(byCity)) {
+    const r = Math.min(28, 5 + Math.sqrt(info.visits.length) * 2.5);
+    const yearSpan = (() => {
+      const ys = info.visits.map(v => (v.date||'').slice(0,4)).filter(Boolean).sort();
+      return ys.length ? `${ys[0]}~${ys[ys.length-1]}` : '';
+    })();
+    const color = info.visits.length >= 30 ? '#dc2626' : info.visits.length >= 10 ? '#ea580c' : info.visits.length >= 3 ? '#d97706' : '#1d4ed8';
+    const marker = L.circleMarker(info.coord, {
+      radius:r, color, weight:1.5, fillColor:color, fillOpacity:0.4
+    }).addTo(leafletMap);
+    const venueList = [...info.venues].slice(0,12).join('、');
+    const sampleVisits = info.visits.slice(-10).reverse().map(v =>
+      `<div style="margin:3px 0;padding-bottom:3px;border-bottom:1px solid #f3f4f6"><span style="color:#1d4ed8;font-family:ui-monospace,monospace;font-size:11px">${v.date || '?'}</span> <span style="color:#888;font-size:11px">${v.relation||''}</span> <strong>${v.location_label||''}</strong><br><span style="color:#444">${v.evidence || ''}</span></div>`
+    ).join('');
+    marker.bindPopup(
+      `<div style="min-width:260px"><b style="font-size:14px">${name}</b> <span style="color:#888;font-size:11px">${yearSpan}</span><br>`+
+      `<span style="color:#888;font-size:12px">${info.visits.length} 次行迹${info.venues.size ? ' · '+info.venues.size+' 个场所' : ''}</span>`+
+      (venueList ? `<div style="margin-top:6px;font-size:11px;color:#666">${venueList}</div>` : '')+
+      `<div style="max-height:240px;overflow:auto;margin-top:8px;font-size:12px">${sampleVisits}</div></div>`
+    );
+  }
+}
+</script>
+</body></html>
