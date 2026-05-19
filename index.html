@@ -2430,7 +2430,7 @@ createApp({
       hasWikiPage,
       sourcePopup, openSourcePopup,
       flyTo, resetGeoView,
-      trajectoryIdx, trajectoryPlaying, toggleTrajectory, updateTrajectoryFrame,
+      trajectoryIdx, trajectoryPlaying, trajectoryAutoPopup, toggleTrajectory, updateTrajectoryFrame, stepTrajectory,
       profile, profileKind, profileKindLabel, openProfile, openProfileById, openEventProfile, neighbourLabel,
     };
   }
@@ -2629,18 +2629,11 @@ let venueMarkerLayer = null;
 
 function initGeo(data){
   leafletMap = L.map('geo-map', {preferCanvas: true, zoomControl: true}).setView([31.5, 119], 6);
-  // CartoDB Positron (no API key) — clean light grayscale tiles
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
-    attribution: '© OpenStreetMap © CARTO',
-    maxZoom: 19,
-    subdomains: 'abcd',
-  }).addTo(leafletMap);
-  // Optional labels layer on top — very subtle
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png', {
-    attribution: '',
-    maxZoom: 19,
-    subdomains: 'abcd',
-    opacity: 0.75,
+  // 高德地图 灰白底 + 中文标签 (style=7 grayscale, no API key needed for low-volume use)
+  L.tileLayer('https://wprd0{s}.is.autonavi.com/appmaptile?style=7&x={x}&y={y}&z={z}', {
+    attribution: '© 高德地图',
+    maxZoom: 18,
+    subdomains: '1234',
   }).addTo(leafletMap);
 
   const coords = data.coords || {};
