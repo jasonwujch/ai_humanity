@@ -1019,6 +1019,114 @@
       "label": "江都"
     },
     {
+      "id": "loc_ningbo",
+      "label": "宁波"
+    },
+    {
+      "id": "loc_ayuwang_si",
+      "label": "阿育王寺"
+    },
+    {
+      "id": "loc_zhenhai",
+      "label": "镇海"
+    },
+    {
+      "id": "loc_maoshan",
+      "label": "鄮山"
+    },
+    {
+      "id": "loc_wuxiang_bei",
+      "label": "五乡碑"
+    },
+    {
+      "id": "loc_baochuang_jie",
+      "label": "宝幢街"
+    },
+    {
+      "id": "loc_yangzhou_wanshousi",
+      "label": "扬州万寿寺"
+    },
+    {
+      "id": "loc_suzhou_jiechuang_si",
+      "label": "苏州西园戒幢寺"
+    },
+    {
+      "id": "loc_yixing_haihui_si",
+      "label": "宜兴海会寺"
+    },
+    {
+      "id": "loc_lingmangjing",
+      "label": "灵鳗井"
+    },
+    {
+      "id": "loc_chengen_tang",
+      "label": "承恩堂"
+    },
+    {
+      "id": "loc_lingfeng_si",
+      "label": "灵峰寺"
+    },
+    {
+      "id": "loc_yangzhou_longxing_si",
+      "label": "扬州隆兴寺"
+    },
+    {
+      "id": "loc_tiantong_si",
+      "label": "天童寺"
+    },
+    {
+      "id": "loc_xiaobai_ling",
+      "label": "小白岭"
+    },
+    {
+      "id": "loc_yangzhou_chongning_si",
+      "label": "扬州重宁寺"
+    },
+    {
+      "id": "loc_baochuang",
+      "label": "宝幢"
+    },
+    {
+      "id": "loc_daheqiao",
+      "label": "大河桥"
+    },
+    {
+      "id": "loc_xianqian_jie",
+      "label": "县前街"
+    },
+    {
+      "id": "loc_youxin_jie",
+      "label": "又新街"
+    },
+    {
+      "id": "loc_dongjia_hezui",
+      "label": "董家河嘴"
+    },
+    {
+      "id": "loc_guanzong_si",
+      "label": "观宗寺"
+    },
+    {
+      "id": "loc_changjie",
+      "label": "长街管驿巷"
+    },
+    {
+      "id": "loc_rugao",
+      "label": "如皋"
+    },
+    {
+      "id": "loc_daguanlou",
+      "label": "大观楼"
+    },
+    {
+      "id": "loc_longhua",
+      "label": "龙华"
+    },
+    {
+      "id": "loc_ningxing",
+      "label": "宁兴"
+    },
+    {
       "id": "loc_dafengtian",
       "label": "大丰田"
     },
@@ -1083,6 +1191,34 @@
       "label": "上海大戏院"
     },
     {
+      "id": "loc_yichun",
+      "label": "宜春"
+    },
+    {
+      "id": "loc_guxiang_zhai",
+      "label": "古香斋"
+    },
+    {
+      "id": "loc_huai_an",
+      "label": "淮安"
+    },
+    {
+      "id": "loc_huxin_si",
+      "label": "湖心寺"
+    },
+    {
+      "id": "loc_jixi",
+      "label": "绩溪"
+    },
+    {
+      "id": "loc_lingnan_lou",
+      "label": "岭南楼"
+    },
+    {
+      "id": "loc_zhegao",
+      "label": "柘皋"
+    },
+    {
       "id": "loc_qiujiang_qiao",
       "label": "虬江桥"
     },
@@ -1129,6 +1265,70 @@
     {
       "id": "loc_kaifeng",
       "label": "开封"
+    },
+    {
+      "id": "loc_jinhua_qianlinsi",
+      "label": "金华县南钱林寺"
+    },
+    {
+      "id": "loc_jinhua_xiaoshunzhen",
+      "label": "金华县东孝顺镇"
+    },
+    {
+      "id": "loc_jinhua_xueshu",
+      "label": "金华县学署"
+    },
+    {
+      "id": "loc_wuzhou_lanxizhou",
+      "label": "婺州路兰溪州"
+    },
+    {
+      "id": "loc_dahu_lun",
+      "label": "大穀轮"
+    },
+    {
+      "id": "loc_hanmolin",
+      "label": "翰墨林"
+    },
+    {
+      "id": "loc_tangzha",
+      "label": "唐闸"
+    },
+    {
+      "id": "loc_julebu",
+      "label": "俱乐部"
+    },
+    {
+      "id": "loc_riben",
+      "label": "日本"
+    },
+    {
+      "id": "loc_tongsu_juchang",
+      "label": "通俗剧场"
+    },
+    {
+      "id": "loc_cuiyuan",
+      "label": "萃园"
+    },
+    {
+      "id": "loc_daji_lun",
+      "label": "大吉轮"
+    },
+    {
+      "id": "loc_shouxian",
+      "label": "寿县"
+    },
+    {
+      "id": "loc_huaining",
+      "label": "怀宁"
+    },
+    {
+      "id": "loc_shandong",
+      "label": "山东"
+    },
+    {
+      "id": "loc_henan",
+      "label": "河南"
     },
     {
       "id": "loc_xinxiang",
@@ -1347,10 +1547,6 @@
       "label": "柴湾"
     },
     {
-      "id": "loc_rugao",
-      "label": "如皋"
-    },
-    {
       "id": "loc_dongcheng",
       "label": "东城"
     },
@@ -1389,10 +1585,6 @@
     {
       "id": "loc_zhonggongyuan_nanlou",
       "label": "中公园南楼"
-    },
-    {
-      "id": "loc_tongsu_juchang",
-      "label": "通俗剧场"
     },
     {
       "id": "loc_qinyang",
@@ -1591,10 +1783,6 @@
       "label": "四川"
     },
     {
-      "id": "loc_henan",
-      "label": "河南"
-    },
-    {
       "id": "loc_jiangxi",
       "label": "赣"
     },
@@ -1629,10 +1817,6 @@
     {
       "id": "loc_nantong_dongmen",
       "label": "南通东门外"
-    },
-    {
-      "id": "loc_tangzha",
-      "label": "唐闸警区"
     },
     {
       "id": "loc_putuo",
@@ -1899,10 +2083,6 @@
       "label": "千佛寺"
     },
     {
-      "id": "loc_shandong",
-      "label": "山东"
-    },
-    {
       "id": "loc_tangcun",
       "label": "汤村"
     },
@@ -1969,10 +2149,6 @@
     {
       "id": "loc_yuying_tang",
       "label": "育婴堂"
-    },
-    {
-      "id": "loc_jixi",
-      "label": "绩溪"
     },
     {
       "id": "loc_lingze_furen_ci",
@@ -2435,10 +2611,6 @@
       "label": "霞飞路"
     },
     {
-      "id": "loc_ningbo",
-      "label": "宁波"
-    },
-    {
       "id": "loc_hongkou_dahuayuan",
       "label": "虹口大花园"
     },
@@ -2491,16 +2663,8 @@
       "label": "崇明厂分销所"
     },
     {
-      "id": "loc_julebu",
-      "label": "俱乐部"
-    },
-    {
       "id": "loc_daqing_lun",
       "label": "大庆轮"
-    },
-    {
-      "id": "loc_ayuwang_si",
-      "label": "阿育王寺"
     },
     {
       "id": "loc_hayuan",
@@ -2533,10 +2697,6 @@
     {
       "id": "loc_yiwutai",
       "label": "亦舞台"
-    },
-    {
-      "id": "loc_daguanlou",
-      "label": "大观楼"
     },
     {
       "id": "loc_heli",
@@ -3119,10 +3279,6 @@
       "label": "会宾楼"
     },
     {
-      "id": "loc_guxiang_zhai",
-      "label": "古香斋"
-    },
-    {
       "id": "loc_yangzhou_yiling_wulimiao",
       "label": "扬州宜陵五里庙"
     },
@@ -3351,10 +3507,6 @@
       "label": "秋浦"
     },
     {
-      "id": "loc_riben",
-      "label": "日本"
-    },
-    {
       "id": "loc_rengang",
       "label": "任港"
     },
@@ -3537,10 +3689,6 @@
     {
       "id": "loc_songshu_lu",
       "label": "松树路"
-    },
-    {
-      "id": "loc_hanmolin",
-      "label": "翰墨林"
     },
     {
       "id": "loc_san_chang",
@@ -3745,10 +3893,6 @@
     {
       "id": "loc_yixian_tian",
       "label": "一线天"
-    },
-    {
-      "id": "loc_maoshan",
-      "label": "茅山"
     },
     {
       "id": "loc_danyang_gongyuan",
@@ -5417,7 +5561,7 @@
       "resolved_city": null,
       "evidence": "散后，至通俗剧场，观伶工学社评议会",
       "relation": "拜访",
-      "source_file": "1920-07-18.md"
+      "source_file": "1923-04-28.md"
     },
     {
       "date": "1922-08-06",
@@ -5426,7 +5570,7 @@
       "resolved_city": null,
       "evidence": "退老又派汽车迎往午饭，并同至通俗剧场",
       "relation": "拜访",
-      "source_file": "1920-07-18.md"
+      "source_file": "1923-04-28.md"
     },
     {
       "date": "1922-08-06",
@@ -5435,7 +5579,7 @@
       "resolved_city": "上海",
       "evidence": "嗇老邀至俱乐部",
       "relation": "拜访",
-      "source_file": "1921-06-29.md"
+      "source_file": "1923-04-26.md"
     },
     {
       "date": "1922-08-09",
@@ -5471,7 +5615,7 @@
       "resolved_city": null,
       "evidence": "至翰墨林",
       "relation": "拜访",
-      "source_file": "1922-08-21.md"
+      "source_file": "1923-04-26.md"
     },
     {
       "date": "1922-08-23",
@@ -6104,6 +6248,51 @@
       "source_file": "1920-05-15.md"
     },
     {
+      "date": "1923-04-07",
+      "location_id": "loc_guxiang_zhai",
+      "location_label": "古香斋",
+      "resolved_city": "上海",
+      "evidence": "至古香斋",
+      "relation": "拜访",
+      "source_file": "1923-04-07.md"
+    },
+    {
+      "date": "1923-04-11",
+      "location_id": "loc_guxiang_zhai",
+      "location_label": "古香斋",
+      "resolved_city": "上海",
+      "evidence": "至古香斋,晤高敖之",
+      "relation": "拜访",
+      "source_file": "1923-04-07.md"
+    },
+    {
+      "date": "1923-04-11",
+      "location_id": "loc_chanyin_lu",
+      "location_label": "蟬隐庐",
+      "resolved_city": null,
+      "evidence": "至蟬隐庐",
+      "relation": "拜访",
+      "source_file": "1923-01-17.md"
+    },
+    {
+      "date": "1923-04-11",
+      "location_id": "loc_laiqing_ge",
+      "location_label": "来青阁",
+      "resolved_city": null,
+      "evidence": "至来青阁",
+      "relation": "拜访",
+      "source_file": "1920-02-05.md"
+    },
+    {
+      "date": "1923-04-13",
+      "location_id": "loc_xinchang_meishuguan",
+      "location_label": "新昌美术馆",
+      "resolved_city": null,
+      "evidence": "至新昌美术馆,观印《法华经》",
+      "relation": "拜访",
+      "source_file": "1923-02-27.md"
+    },
+    {
       "date": "1923-04-18",
       "location_id": "loc_laiqing_ge",
       "location_label": "来青阁",
@@ -6129,6 +6318,78 @@
       "evidence": "挈崇儿至来青阁",
       "relation": "拜访",
       "source_file": "1920-02-05.md"
+    },
+    {
+      "date": "1923-04-24",
+      "location_id": "loc_duyichu",
+      "location_label": "都益处",
+      "resolved_city": "上海",
+      "evidence": "午刻，赴都益处贞元会",
+      "relation": "拜访",
+      "source_file": "1920-01-03.md"
+    },
+    {
+      "date": "1923-04-24",
+      "location_id": "loc_guxiangzhai",
+      "location_label": "古香斋",
+      "resolved_city": "上海",
+      "evidence": "至古香斋，晤高敖之",
+      "relation": "拜访",
+      "source_file": "1922-12-10.md"
+    },
+    {
+      "date": "1923-04-24",
+      "location_id": "loc_tong",
+      "location_label": "通",
+      "resolved_city": null,
+      "evidence": "晚十时，附大穀轮去通",
+      "relation": "拜访",
+      "source_file": "1923-02-24.md"
+    },
+    {
+      "date": "1923-04-25",
+      "location_id": "loc_tong",
+      "location_label": "通",
+      "resolved_city": null,
+      "evidence": "十二时抵通，寓有斐馆",
+      "relation": "拜访",
+      "source_file": "1923-02-24.md"
+    },
+    {
+      "date": "1923-04-26",
+      "location_id": "loc_hanmolin",
+      "location_label": "翰墨林",
+      "resolved_city": null,
+      "evidence": "同拔可至翰墨林，访李晓夫",
+      "relation": "拜访",
+      "source_file": "1923-04-26.md"
+    },
+    {
+      "date": "1923-04-27",
+      "location_id": "loc_langshan",
+      "location_label": "狼山",
+      "resolved_city": "南通",
+      "evidence": "十时，至狼山，礼大势至菩萨",
+      "relation": "拜访",
+      "source_file": "1920-06-02.md"
+    },
+    {
+      "date": "1923-04-29",
+      "location_id": "loc_cuiyuan",
+      "location_label": "萃园",
+      "resolved_city": null,
+      "evidence": "并游萃园",
+      "relation": "拜访",
+      "source_file": "1923-04-29.md"
+    },
+    {
+      "date": "1923-05-03",
+      "location_id": "loc_shanghai",
+      "location_label": "沪",
+      "resolved_city": "上海",
+      "evidence": "五时抵寓",
+      "relation": "拜访",
+      "source_file": "1920-01-07.md"
     }
   ],
   "xu_ids": [
@@ -6137,9 +6398,9 @@
     "per_xu_naichang_self"
   ],
   "city_visit_counts": {
-    "上海": 128,
+    "上海": 133,
     "苏州": 25,
-    "南通": 15,
+    "南通": 16,
     "镇江": 2,
     "松江": 1,
     "北京": 1,
@@ -6147,12 +6408,15 @@
     "无锡": 1
   },
   "unmapped_top": {
-    "来青阁": 8,
+    "来青阁": 9,
+    "蟬隐庐": 4,
     "忠厚书庄": 3,
-    "蟬隐庐": 3,
+    "通": 3,
     "石竹山房": 2,
     "通俗剧场": 2,
+    "翰墨林": 2,
     "古玩市场": 2,
+    "新昌美术馆": 2,
     "小双珠家": 1,
     "静安寺十号俱乐部": 1,
     "法界吉祥街": 1,
@@ -6183,9 +6447,6 @@
     "大东旅馆": 1,
     "长乐斋": 1,
     "集粹阁": 1,
-    "通": 1,
-    "翰墨林": 1,
-    "松树路": 1,
-    "李紫东处": 1
+    "松树路": 1
   }
 }

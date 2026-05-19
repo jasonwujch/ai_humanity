@@ -118,25 +118,6 @@
     "source_file": "1923-04-18.md"
   },
   {
-    "id": "book_sibu_congkan",
-    "label": "四部丛刊",
-    "canonical": "四部丛刊",
-    "aliases": [
-      "《四部丛刊》",
-      "《四部丛刻》"
-    ],
-    "first_seen": "1920-07-31",
-    "last_seen": "1920-08-02",
-    "mentions": 3,
-    "people": [],
-    "orgs": [],
-    "txns": [],
-    "relation_counts": {
-      "属于": 5
-    },
-    "source_file": "1920-07-31.md"
-  },
-  {
     "id": "book_yu_yuanji_ji",
     "label": "《鱼元机集》",
     "canonical": "《鱼元机集》",
@@ -787,6 +768,39 @@
       "商务": 1
     },
     "source_file": "1923-03-18.md"
+  },
+  {
+    "id": "book_zhengyi_tang",
+    "label": "《正谊堂》",
+    "canonical": "《正谊堂全书》",
+    "aliases": [
+      "《正谊堂》",
+      "《正谊堂全书》"
+    ],
+    "first_seen": "1923-04-07",
+    "last_seen": "1923-04-13",
+    "mentions": 2,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-07.md"
+  },
+  {
+    "id": "book_yishu_congbian",
+    "label": "《艺术丛编》",
+    "canonical": "《艺术丛编》",
+    "aliases": [
+      "《艺术丛编》"
+    ],
+    "first_seen": "1923-04-13",
+    "last_seen": "1923-04-14",
+    "mentions": 2,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-13.md"
   },
   {
     "id": "book_wang_rongfu_quanshu",
@@ -2112,23 +2126,6 @@
     "source_file": "1921-10-17.md"
   },
   {
-    "id": "book_miaofa_lianhua_jing",
-    "label": "妙法莲华经",
-    "canonical": "妙法莲华经",
-    "aliases": [
-      "《妙法莲华经》",
-      "《法华经》"
-    ],
-    "first_seen": "1922-01-07",
-    "last_seen": "1922-01-07",
-    "mentions": 2,
-    "people": [],
-    "orgs": [],
-    "txns": [],
-    "relation_counts": {},
-    "source_file": "1922-01-07.md"
-  },
-  {
     "id": "book_hengyunshanren_ji",
     "label": "横云山人集",
     "canonical": "《横云山人集》",
@@ -2240,8 +2237,8 @@
     "mentions": 2,
     "people": [
       {
-        "id": "per_hua_qing",
-        "label": "吴华卿",
+        "id": "per_huaqing",
+        "label": "华卿",
         "relation": "商务",
         "date": "1922-05-03",
         "evidence": "华卿钞阅南通伤心史"
@@ -3550,10 +3547,20 @@
     "first_seen": "1920-02-04",
     "last_seen": "1920-02-04",
     "mentions": 1,
-    "people": [],
+    "people": [
+      {
+        "id": "per_li_xingzhai",
+        "label": "李醒斋",
+        "relation": "商务",
+        "date": "1923-03-26",
+        "evidence": "假蟬隐庐李醒斋《群雅集》"
+      }
+    ],
     "orgs": [],
     "txns": [],
-    "relation_counts": {},
+    "relation_counts": {
+      "商务": 1
+    },
     "source_file": "1920-02-04.md"
   },
   {
@@ -3906,7 +3913,7 @@
     "txns": [],
     "relation_counts": {
       "赠": 4,
-      "属于": 1,
+      "属于": 2,
       "商务": 1,
       "受赠": 1
     },
@@ -5198,6 +5205,13 @@
         "evidence": "赠恒季申、瑾叔《玉台新咏》"
       },
       {
+        "id": "per_zong_zidai",
+        "label": "宗子戴",
+        "relation": "商务",
+        "date": "1923-04-04",
+        "evidence": "晤宗子戴，商附印《玉台新咏》棉料纸四部"
+      },
+      {
         "id": "per_xu_naichang",
         "label": "徐乃昌",
         "relation": "商务",
@@ -5258,7 +5272,7 @@
       }
     ],
     "relation_counts": {
-      "商务": 6,
+      "商务": 7,
       "受赠": 5,
       "致书": 2
     },
@@ -5511,8 +5525,8 @@
     "mentions": 1,
     "people": [
       {
-        "id": "per_wang_jingan",
-        "label": "王静庵(国维)",
+        "id": "per_wang_jing_an",
+        "label": "王静庵",
         "relation": "商务",
         "date": "1920-04-15",
         "evidence": "王静安为题端忠敏公藏玉刀铭拓本"
@@ -10409,6 +10423,469 @@
     "source_file": "1923-03-25.md"
   },
   {
+    "id": "book_ganquan_xianzhi",
+    "label": "《甘泉县志》",
+    "canonical": "《甘泉县志》",
+    "aliases": [
+      "《甘泉县志》"
+    ],
+    "first_seen": "1923-03-26",
+    "last_seen": "1923-03-26",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [
+      {
+        "id": "txn_buy_ganquan",
+        "label": "购《甘泉县志》洋六元",
+        "relation": "商务",
+        "date": "1923-03-26",
+        "evidence": "购《甘泉县志》廿四卷...洋六元"
+      },
+      {
+        "id": "txn_pay_laiqingge",
+        "label": "付来青阁《正谊堂全书》《甘泉县志》四十元",
+        "relation": "商务",
+        "date": "1923-04-04",
+        "evidence": "付《正谊堂全书》《甘泉县志》价洋四十元"
+      }
+    ],
+    "relation_counts": {
+      "商务": 2
+    },
+    "source_file": "1923-03-26.md"
+  },
+  {
+    "id": "book_hengshan_huaigu",
+    "label": "《横山怀古诗》",
+    "canonical": "《横山怀古诗》",
+    "aliases": [
+      "《横山怀古诗》"
+    ],
+    "first_seen": "1923-03-26",
+    "last_seen": "1923-03-26",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {
+      "属于": 1
+    },
+    "source_file": "1923-03-26.md"
+  },
+  {
+    "id": "book_ruiying_jilu",
+    "label": "《瑞应集录》",
+    "canonical": "《瑞应集录》",
+    "aliases": [
+      "《瑞应集录》"
+    ],
+    "first_seen": "1923-03-31",
+    "last_seen": "1923-03-31",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-03-31.md"
+  },
+  {
+    "id": "book_xishang_shiji",
+    "label": "《溪上诗辑》",
+    "canonical": "《溪上诗辑》",
+    "aliases": [
+      "《溪上诗辑》"
+    ],
+    "first_seen": "1923-04-01",
+    "last_seen": "1923-04-01",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [
+      {
+        "id": "txn_buy_xishang",
+        "label": "购《溪上诗辑》价六角",
+        "relation": "商务",
+        "date": "1923-04-01",
+        "evidence": "购《溪上诗辑》十四卷...价六角"
+      }
+    ],
+    "relation_counts": {
+      "商务": 1
+    },
+    "source_file": "1923-04-01.md"
+  },
+  {
+    "id": "book_chuyuelou_wenchao",
+    "label": "《初月楼文钞》",
+    "canonical": "《初月楼文钞》",
+    "aliases": [
+      "《初月楼文钞》"
+    ],
+    "first_seen": "1923-04-01",
+    "last_seen": "1923-04-01",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [
+      {
+        "id": "txn_buy_chuyuelou",
+        "label": "购《初月楼文钞》《诗钞》价一元四角",
+        "relation": "商务",
+        "date": "1923-04-01",
+        "evidence": "《初月楼文钞》...价一元四角"
+      }
+    ],
+    "relation_counts": {
+      "商务": 1
+    },
+    "source_file": "1923-04-01.md"
+  },
+  {
+    "id": "book_shichao",
+    "label": "《诗钞》",
+    "canonical": "《诗钞》",
+    "aliases": [
+      "《诗钞》"
+    ],
+    "first_seen": "1923-04-01",
+    "last_seen": "1923-04-01",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-01.md"
+  },
+  {
+    "id": "book_jiaoxinge_ci",
+    "label": "《蕉心阁词》",
+    "canonical": "《蕉心阁词》",
+    "aliases": [
+      "《蕉心阁词》"
+    ],
+    "first_seen": "1923-04-01",
+    "last_seen": "1923-04-01",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [
+      {
+        "id": "txn_buy_jiaoxinge",
+        "label": "购《蕉心阁词》价五角",
+        "relation": "商务",
+        "date": "1923-04-01",
+        "evidence": "《蕉心阁词》一卷...价五角"
+      }
+    ],
+    "relation_counts": {
+      "商务": 1
+    },
+    "source_file": "1923-04-01.md"
+  },
+  {
+    "id": "book_yuantian_tushuo",
+    "label": "《圜天图说》",
+    "canonical": "《圜天图说》",
+    "aliases": [
+      "《圜天图说》"
+    ],
+    "first_seen": "1923-04-01",
+    "last_seen": "1923-04-01",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [
+      {
+        "id": "txn_buy_yuantian",
+        "label": "购《圜天图说》价二元",
+        "relation": "商务",
+        "date": "1923-04-01",
+        "evidence": "《圜天图说》三卷《续编》二卷...价二元"
+      }
+    ],
+    "relation_counts": {
+      "商务": 1
+    },
+    "source_file": "1923-04-01.md"
+  },
+  {
+    "id": "book_qianyunlou_shiji",
+    "label": "《茜云楼诗集》",
+    "canonical": "《茜云楼诗集》",
+    "aliases": [
+      "《茜云楼诗集》"
+    ],
+    "first_seen": "1923-04-01",
+    "last_seen": "1923-04-01",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [
+      {
+        "id": "txn_buy_qianyun",
+        "label": "购《茜云楼诗集》价一元",
+        "relation": "商务",
+        "date": "1923-04-01",
+        "evidence": "《茜云楼诗集》十四卷《文存》一卷...价一元"
+      }
+    ],
+    "relation_counts": {
+      "商务": 1
+    },
+    "source_file": "1923-04-01.md"
+  },
+  {
+    "id": "book_zhouyi_zhengshi",
+    "label": "《周易郑氏爻辰》",
+    "canonical": "《周易郑氏爻辰》",
+    "aliases": [
+      "《周易郑氏爻辰》"
+    ],
+    "first_seen": "1923-04-01",
+    "last_seen": "1923-04-01",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [
+      {
+        "id": "txn_buy_zhouyi",
+        "label": "购《周易郑氏爻辰》价五角",
+        "relation": "商务",
+        "date": "1923-04-01",
+        "evidence": "《周易郑氏爻辰》。钱唐谢家禾著，价五角"
+      }
+    ],
+    "relation_counts": {
+      "商务": 1
+    },
+    "source_file": "1923-04-01.md"
+  },
+  {
+    "id": "book_zhengyitang_quanshu",
+    "label": "《正谊堂全书》",
+    "canonical": "《正谊堂全书》",
+    "aliases": [
+      "《正谊堂全书》"
+    ],
+    "first_seen": "1923-04-03",
+    "last_seen": "1923-04-03",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [
+      {
+        "id": "txn_pay_laiqingge",
+        "label": "付来青阁《正谊堂全书》《甘泉县志》四十元",
+        "relation": "商务",
+        "date": "1923-04-04",
+        "evidence": "付《正谊堂全书》《甘泉县志》价洋四十元"
+      }
+    ],
+    "relation_counts": {
+      "商务": 1
+    },
+    "source_file": "1923-04-03.md"
+  },
+  {
+    "id": "book_sibu_congkan",
+    "label": "《四部丛刊》",
+    "canonical": "《四部丛刊》",
+    "aliases": [
+      "《四部丛刊》"
+    ],
+    "first_seen": "1923-04-03",
+    "last_seen": "1923-04-03",
+    "mentions": 1,
+    "people": [
+      {
+        "id": "per_shaowu",
+        "label": "劭吾",
+        "relation": "商务",
+        "date": "1923-04-06",
+        "evidence": "劭吾所定《四部丛刊》六期书"
+      }
+    ],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {
+      "属于": 5,
+      "商务": 1
+    },
+    "source_file": "1923-04-03.md"
+  },
+  {
+    "id": "book_miaofa_lianhua_jing",
+    "label": "《妙法莲华经台宗会义》",
+    "canonical": "《妙法莲华经台宗会义》",
+    "aliases": [
+      "《妙法莲华经台宗会义》"
+    ],
+    "first_seen": "1923-04-03",
+    "last_seen": "1923-04-03",
+    "mentions": 1,
+    "people": [
+      {
+        "id": "per_liu_hanyi",
+        "label": "刘翰怡",
+        "relation": "商务",
+        "date": "1923-04-03",
+        "evidence": "刘翰怡来书，假《妙法莲华经台宗会义》"
+      },
+      {
+        "id": "per_zhixu",
+        "label": "智旭",
+        "relation": "商务",
+        "date": "1923-04-03",
+        "evidence": "《妙法莲华经台宗会义》十六卷。满益智旭述"
+      }
+    ],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {
+      "商务": 2
+    },
+    "source_file": "1923-04-03.md"
+  },
+  {
+    "id": "book_xiangjun_ji",
+    "label": "《湘军记》",
+    "canonical": "《湘军记》",
+    "aliases": [
+      "《湘军记》"
+    ],
+    "first_seen": "1923-04-04",
+    "last_seen": "1923-04-04",
+    "mentions": 1,
+    "people": [
+      {
+        "id": "per_wang_ding_an",
+        "label": "王定安",
+        "relation": "商务",
+        "date": "1923-04-04",
+        "evidence": "又假王定安《湘军记》"
+      }
+    ],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {
+      "商务": 1
+    },
+    "source_file": "1923-04-04.md"
+  },
+  {
+    "id": "book_lanyan_ji",
+    "label": "《兰言集》",
+    "canonical": "《兰言集》",
+    "aliases": [
+      "《兰言集》"
+    ],
+    "first_seen": "1923-04-04",
+    "last_seen": "1923-04-04",
+    "mentions": 1,
+    "people": [
+      {
+        "id": "per_wang_wei",
+        "label": "王暐",
+        "relation": "商务",
+        "date": "1923-04-04",
+        "evidence": "王暐《兰言集》"
+      }
+    ],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {
+      "商务": 1
+    },
+    "source_file": "1923-04-04.md"
+  },
+  {
+    "id": "book_huaining_xianzhi",
+    "label": "《怀宁县志》",
+    "canonical": "《怀宁县志》",
+    "aliases": [
+      "《怀宁县志》"
+    ],
+    "first_seen": "1923-04-04",
+    "last_seen": "1923-04-04",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [
+      {
+        "id": "txn_buy_huaining",
+        "label": "购《怀宁县志》折实二元二角五分",
+        "relation": "商务",
+        "date": "1923-04-04",
+        "evidence": "《怀宁县志》卅卷,...码洋五元，折实二元二角五分"
+      }
+    ],
+    "relation_counts": {
+      "商务": 1
+    },
+    "source_file": "1923-04-04.md"
+  },
+  {
+    "id": "book_suzhou_zhi",
+    "label": "《宿州志》",
+    "canonical": "《宿州志》",
+    "aliases": [
+      "《宿州志》"
+    ],
+    "first_seen": "1923-04-04",
+    "last_seen": "1923-04-04",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [
+      {
+        "id": "txn_buy_suzhou",
+        "label": "购《宿州志》折实二元一角六分",
+        "relation": "商务",
+        "date": "1923-04-04",
+        "evidence": "《宿州志》四十二卷,...码洋四元八角，折实二元一角六分"
+      }
+    ],
+    "relation_counts": {
+      "商务": 1
+    },
+    "source_file": "1923-04-04.md"
+  },
+  {
+    "id": "book_huaijun_pingnian",
+    "label": "《淮军平捻记》",
+    "canonical": "《淮军平捻记》",
+    "aliases": [
+      "《淮军平捻记》"
+    ],
+    "first_seen": "1923-04-04",
+    "last_seen": "1923-04-04",
+    "mentions": 1,
+    "people": [
+      {
+        "id": "per_zhou_shicheng",
+        "label": "周世澄",
+        "relation": "商务",
+        "date": "1923-04-04",
+        "evidence": "《淮军平捻记》十二卷。周世澄著"
+      }
+    ],
+    "orgs": [],
+    "txns": [
+      {
+        "id": "txn_buy_huaijun",
+        "label": "购《淮军平捻记》折实四角五分",
+        "relation": "商务",
+        "date": "1923-04-04",
+        "evidence": "《淮军平捻记》十二卷。周世澄著,...折实四角五分"
+      }
+    ],
+    "relation_counts": {
+      "商务": 2
+    },
+    "source_file": "1923-04-04.md"
+  },
+  {
     "id": "book_mantouan",
     "label": "《馒头庵》",
     "canonical": "《馒头庵》",
@@ -10883,20 +11360,472 @@
     "source_file": "1920-06-13.md"
   },
   {
-    "id": "book_zhengyitang_quanshu",
-    "label": "《正谊堂全书》",
-    "canonical": "正谊堂全书",
+    "id": "book_fahua_taizong",
+    "label": "《法华台宗会义》",
+    "canonical": "《法华台宗会义》",
     "aliases": [
-      "《正谊堂全书》"
+      "《法华台宗会义》"
     ],
-    "first_seen": "1923-04-18",
-    "last_seen": "1923-04-18",
+    "first_seen": "1923-04-05",
+    "last_seen": "1923-04-05",
     "mentions": 1,
     "people": [],
     "orgs": [],
     "txns": [],
     "relation_counts": {},
-    "source_file": "1923-04-18.md"
+    "source_file": "1923-04-05.md"
+  },
+  {
+    "id": "book_qingong_dui",
+    "label": "秦公敦拓本",
+    "canonical": "秦公敦拓本",
+    "aliases": [
+      "秦公敦"
+    ],
+    "first_seen": "1923-04-06",
+    "last_seen": "1923-04-06",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-06.md"
+  },
+  {
+    "id": "book_daliang_yang_liang",
+    "label": "大良鞅量拓本",
+    "canonical": "大良鞅量拓本",
+    "aliases": [
+      "大良鞅量拓本"
+    ],
+    "first_seen": "1923-04-06",
+    "last_seen": "1923-04-06",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-06.md"
+  },
+  {
+    "id": "book_dabei_xin_tuoluo",
+    "label": "《大悲心陀罗尼经》",
+    "canonical": "《大悲心陀罗尼经》",
+    "aliases": [
+      "《大悲心陀罗尼经》"
+    ],
+    "first_seen": "1923-04-06",
+    "last_seen": "1923-04-06",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-06.md"
+  },
+  {
+    "id": "book_hansong_ge_ji",
+    "label": "《寒松阁集》",
+    "canonical": "《寒松阁集》",
+    "aliases": [
+      "《寒松阁集》"
+    ],
+    "first_seen": "1923-04-07",
+    "last_seen": "1923-04-07",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-07.md"
+  },
+  {
+    "id": "book_guiqu_tu",
+    "label": "《鬼趣图》",
+    "canonical": "《鬼趣图》",
+    "aliases": [
+      "《鬼趣图》"
+    ],
+    "first_seen": "1923-04-07",
+    "last_seen": "1923-04-07",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-07.md"
+  },
+  {
+    "id": "book_xu_dingchen_shiji",
+    "label": "《徐鼎臣诗集》",
+    "canonical": "《徐鼎臣诗集》",
+    "aliases": [
+      "《徐鼎臣诗集》"
+    ],
+    "first_seen": "1923-04-07",
+    "last_seen": "1923-04-07",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-07.md"
+  },
+  {
+    "id": "book_sanxu_shishi",
+    "label": "《三徐事实》",
+    "canonical": "《三徐事实》",
+    "aliases": [
+      "《三徐事实》"
+    ],
+    "first_seen": "1923-04-07",
+    "last_seen": "1923-04-07",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-07.md"
+  },
+  {
+    "id": "book_jishen_lu",
+    "label": "《稽神录》",
+    "canonical": "《稽神录》",
+    "aliases": [
+      "《稽神录》"
+    ],
+    "first_seen": "1923-04-07",
+    "last_seen": "1923-04-07",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-07.md"
+  },
+  {
+    "id": "book_chen_zhenshan_hanhu",
+    "label": "陈鍼山汉介壶",
+    "canonical": "陈鍼山汉介壶",
+    "aliases": [
+      "陈鍼山汉介壶"
+    ],
+    "first_seen": "1923-04-08",
+    "last_seen": "1923-04-08",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-08.md"
+  },
+  {
+    "id": "book_conggu_tang",
+    "label": "《从古堂款识学》",
+    "canonical": "《从古堂款识学》",
+    "aliases": [
+      "《从古堂款识学》"
+    ],
+    "first_seen": "1923-04-08",
+    "last_seen": "1923-04-08",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-08.md"
+  },
+  {
+    "id": "book_zhengtang_dushuji",
+    "label": "《郑堂读书记》",
+    "canonical": "《郑堂读书记》",
+    "aliases": [
+      "《郑堂读书记》"
+    ],
+    "first_seen": "1923-04-10",
+    "last_seen": "1923-04-10",
+    "mentions": 1,
+    "people": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "relation": "商务",
+        "date": "1923-04-10",
+        "evidence": "阅周中孚《郑堂读书记》"
+      }
+    ],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {
+      "商务": 1
+    },
+    "source_file": "1923-04-10.md"
+  },
+  {
+    "id": "book_shuoling",
+    "label": "《说铃》",
+    "canonical": "《说铃》",
+    "aliases": [
+      "《说铃》"
+    ],
+    "first_seen": "1923-04-10",
+    "last_seen": "1923-04-10",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-10.md"
+  },
+  {
+    "id": "book_mingbao_lu",
+    "label": "《冥报录》",
+    "canonical": "《冥报录》",
+    "aliases": [
+      "《冥报录》"
+    ],
+    "first_seen": "1923-04-10",
+    "last_seen": "1923-04-10",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-10.md"
+  },
+  {
+    "id": "book_guobao_wenjianlu",
+    "label": "《果报闻见录》",
+    "canonical": "《果报闻见录》",
+    "aliases": [
+      "《果报闻见录》"
+    ],
+    "first_seen": "1923-04-10",
+    "last_seen": "1923-04-10",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-10.md"
+  },
+  {
+    "id": "book_xinzheng_lu",
+    "label": "《信征录》",
+    "canonical": "《信征录》",
+    "aliases": [
+      "《信征录》"
+    ],
+    "first_seen": "1923-04-10",
+    "last_seen": "1923-04-10",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-10.md"
+  },
+  {
+    "id": "book_xianguo_suilu",
+    "label": "《现果随录》",
+    "canonical": "《现果随录》",
+    "aliases": [
+      "《现果随录》"
+    ],
+    "first_seen": "1923-04-10",
+    "last_seen": "1923-04-10",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-10.md"
+  },
+  {
+    "id": "book_kuaixue_tang",
+    "label": "《快雪堂漫录》",
+    "canonical": "《快雪堂漫录》",
+    "aliases": [
+      "《快雪堂漫录》"
+    ],
+    "first_seen": "1923-04-10",
+    "last_seen": "1923-04-10",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-10.md"
+  },
+  {
+    "id": "book_juxue_zaji",
+    "label": "《矩学杂记》",
+    "canonical": "《矩学杂记》",
+    "aliases": [
+      "《矩学杂记》"
+    ],
+    "first_seen": "1923-04-10",
+    "last_seen": "1923-04-10",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-10.md"
+  },
+  {
+    "id": "book_yushan_quanji",
+    "label": "《愚山全集》",
+    "canonical": "《愚山全集》",
+    "aliases": [
+      "《愚山全集》"
+    ],
+    "first_seen": "1923-04-10",
+    "last_seen": "1923-04-10",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-10.md"
+  },
+  {
+    "id": "book_fahua_jing_jujie",
+    "label": "《法华经句解》",
+    "canonical": "《法华经句解》",
+    "aliases": [
+      "《法华经句解》"
+    ],
+    "first_seen": "1923-04-11",
+    "last_seen": "1923-04-11",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-11.md"
+  },
+  {
+    "id": "book_chongming_xianzhi",
+    "label": "《崇明县志》",
+    "canonical": "《崇明县志》",
+    "aliases": [
+      "《崇明县志》"
+    ],
+    "first_seen": "1923-04-11",
+    "last_seen": "1923-04-11",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-11.md"
+  },
+  {
+    "id": "book_jinshan_xianzhi",
+    "label": "《重修金山县志》",
+    "canonical": "《重修金山县志》",
+    "aliases": [
+      "《重修金山县志》"
+    ],
+    "first_seen": "1923-04-11",
+    "last_seen": "1923-04-11",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-11.md"
+  },
+  {
+    "id": "book_mingshi_zongmu",
+    "label": "《明诗综目录》",
+    "canonical": "《明诗综目录》",
+    "aliases": [
+      "《明诗综目录》"
+    ],
+    "first_seen": "1923-04-11",
+    "last_seen": "1923-04-11",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-11.md"
+  },
+  {
+    "id": "book_zhao_shi",
+    "label": "明赵氏刻本",
+    "canonical": "明赵氏刻本",
+    "aliases": [
+      "明赵氏刻本"
+    ],
+    "first_seen": "1923-04-14",
+    "last_seen": "1923-04-14",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-14.md"
+  },
+  {
+    "id": "book_lixu",
+    "label": "《隶续》",
+    "canonical": "曹楝亭刻《隶续》",
+    "aliases": [
+      "《隶续》"
+    ],
+    "first_seen": "1923-04-14",
+    "last_seen": "1923-04-14",
+    "mentions": 1,
+    "people": [
+      {
+        "id": "per_ni_kunfu",
+        "label": "倪昆甫",
+        "relation": "商务",
+        "date": "1921-03-24",
+        "evidence": "已倩倪昆甫过毕《隶续》"
+      }
+    ],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {
+      "商务": 1
+    },
+    "source_file": "1923-04-14.md"
+  },
+  {
+    "id": "book_jingxian_zhi",
+    "label": "《泾县志今正》",
+    "canonical": "乾隆《泾县志今正》",
+    "aliases": [
+      "乾隆《泾县志今正》"
+    ],
+    "first_seen": "1923-04-14",
+    "last_seen": "1923-04-14",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-14.md"
+  },
+  {
+    "id": "book_yutai_zhaji",
+    "label": "《玉台新咏札记》",
+    "canonical": "《玉台新咏札记》",
+    "aliases": [
+      "《玉台新咏札记》"
+    ],
+    "first_seen": "1923-04-14",
+    "last_seen": "1923-04-14",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-14.md"
   },
   {
     "id": "book_zuozhuan",
@@ -11083,6 +12012,208 @@
     "txns": [],
     "relation_counts": {},
     "source_file": "1923-04-23.md"
+  },
+  {
+    "id": "book_tianzhongji",
+    "label": "天中记",
+    "canonical": "天中记",
+    "aliases": [
+      "《天中记》"
+    ],
+    "first_seen": "1923-04-24",
+    "last_seen": "1923-04-24",
+    "mentions": 1,
+    "people": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "relation": "商务",
+        "date": "1923-04-24",
+        "evidence": "取《天中记》，索价卅六元"
+      }
+    ],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {
+      "商务": 1
+    },
+    "source_file": "1923-04-24.md"
+  },
+  {
+    "id": "book_zhuiyizhai_yiqi",
+    "label": "缀遗斋彝器款识",
+    "canonical": "缀遗斋彝器款识",
+    "aliases": [
+      "《缀遗斋彝器款识》"
+    ],
+    "first_seen": "1923-04-24",
+    "last_seen": "1923-04-24",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-24.md"
+  },
+  {
+    "id": "book_tang_dazhong_jingchuang",
+    "label": "唐大中经幢",
+    "canonical": "唐大中经幢",
+    "aliases": [
+      "唐大中经幢"
+    ],
+    "first_seen": "1923-04-24",
+    "last_seen": "1923-04-24",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-24.md"
+  },
+  {
+    "id": "book_xiantong_jingchuang",
+    "label": "咸通经幢",
+    "canonical": "咸通经幢",
+    "aliases": [
+      "咸通经幢"
+    ],
+    "first_seen": "1923-04-24",
+    "last_seen": "1923-04-24",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-24.md"
+  },
+  {
+    "id": "book_taiding_zhong_tizi",
+    "label": "元泰定钟题字",
+    "canonical": "元泰定钟题字",
+    "aliases": [
+      "元泰定钟题字"
+    ],
+    "first_seen": "1923-04-24",
+    "last_seen": "1923-04-24",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-24.md"
+  },
+  {
+    "id": "book_jijintu",
+    "label": "吉金图",
+    "canonical": "吉金图",
+    "aliases": [
+      "《吉金图》"
+    ],
+    "first_seen": "1923-04-24",
+    "last_seen": "1923-04-24",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-24.md"
+  },
+  {
+    "id": "book_huobi_wenzi_kao",
+    "label": "货币文字考",
+    "canonical": "货币文字考",
+    "aliases": [
+      "《货币文字考》"
+    ],
+    "first_seen": "1923-04-24",
+    "last_seen": "1923-04-24",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-24.md"
+  },
+  {
+    "id": "book_wu_tuo",
+    "label": "婺拓两种",
+    "canonical": "婺拓两种",
+    "aliases": [
+      "婺拓两种"
+    ],
+    "first_seen": "1923-04-24",
+    "last_seen": "1923-04-24",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-24.md"
+  },
+  {
+    "id": "book_hongHudie",
+    "label": "红蝴蝶",
+    "canonical": "红蝴蝶 (剧)",
+    "aliases": [
+      "《红蝴蝶》"
+    ],
+    "first_seen": "1923-04-28",
+    "last_seen": "1923-04-28",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-28.md"
+  },
+  {
+    "id": "book_limao_huantaizi",
+    "label": "狸猫换太子",
+    "canonical": "狸猫换太子 (剧)",
+    "aliases": [
+      "《狸猫换太子》"
+    ],
+    "first_seen": "1923-04-30",
+    "last_seen": "1923-04-30",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-30.md"
+  },
+  {
+    "id": "book_yang_naiwu",
+    "label": "杨乃武",
+    "canonical": "杨乃武 (剧)",
+    "aliases": [
+      "《杨乃武》"
+    ],
+    "first_seen": "1923-05-01",
+    "last_seen": "1923-05-01",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-01.md"
+  },
+  {
+    "id": "book_baojingtang_wenji",
+    "label": "抱经堂文集",
+    "canonical": "抱经堂文集 (卷14, 39)",
+    "aliases": [
+      "《抱经堂文集》"
+    ],
+    "first_seen": "1923-05-04",
+    "last_seen": "1923-05-04",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-04.md"
   },
   {
     "id": "book_yuanshi_gezhi",
@@ -11315,22 +12446,6 @@
     "txns": [],
     "relation_counts": {},
     "source_file": "1920-06-24.md"
-  },
-  {
-    "id": "book_lanyan_ji",
-    "label": "兰言集",
-    "canonical": "兰言集",
-    "aliases": [
-      "《兰言集》"
-    ],
-    "first_seen": "1920-06-25",
-    "last_seen": "1920-06-25",
-    "mentions": 1,
-    "people": [],
-    "orgs": [],
-    "txns": [],
-    "relation_counts": {},
-    "source_file": "1920-06-25.md"
   },
   {
     "id": "book_shiji_wu_pingben",
@@ -12165,22 +13280,6 @@
     "canonical": "《小绿天庵遗诗》",
     "aliases": [
       "《小绿天庵遗诗》"
-    ],
-    "first_seen": "1920-08-13",
-    "last_seen": "1920-08-13",
-    "mentions": 1,
-    "people": [],
-    "orgs": [],
-    "txns": [],
-    "relation_counts": {},
-    "source_file": "1920-08-13.md"
-  },
-  {
-    "id": "book_yishu_congbian",
-    "label": "艺术丛编",
-    "canonical": "《艺术丛编》",
-    "aliases": [
-      "《艺术丛编》"
     ],
     "first_seen": "1920-08-13",
     "last_seen": "1920-08-13",
@@ -13398,22 +14497,6 @@
     "source_file": "1920-09-30.md"
   },
   {
-    "id": "book_shuoling",
-    "label": "《说铃》",
-    "canonical": "《说铃》",
-    "aliases": [
-      "《说铃》一卷"
-    ],
-    "first_seen": "1920-09-30",
-    "last_seen": "1920-09-30",
-    "mentions": 1,
-    "people": [],
-    "orgs": [],
-    "txns": [],
-    "relation_counts": {},
-    "source_file": "1920-09-30.md"
-  },
-  {
     "id": "book_cao_wangshen_zaoxiang",
     "label": "曹望慎造象",
     "canonical": "曹望慎造象",
@@ -14089,8 +15172,8 @@
     "mentions": 1,
     "people": [
       {
-        "id": "per_xu_jiyu",
-        "label": "徐积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "relation": "商务",
         "date": "1920-11-18",
         "evidence": "观黄石斋书册，购价四百元"
@@ -17109,32 +18192,6 @@
     "txns": [],
     "relation_counts": {},
     "source_file": "1921-03-17.md"
-  },
-  {
-    "id": "book_lixu",
-    "label": "李南涧校钞本《隶续》",
-    "canonical": "李南涧校钞本《隶续》",
-    "aliases": [
-      "李南涧校钞本《隶续》"
-    ],
-    "first_seen": "1921-03-21",
-    "last_seen": "1921-03-21",
-    "mentions": 1,
-    "people": [
-      {
-        "id": "per_ni_kunfu",
-        "label": "倪昆甫",
-        "relation": "商务",
-        "date": "1921-03-24",
-        "evidence": "已倩倪昆甫过毕《隶续》"
-      }
-    ],
-    "orgs": [],
-    "txns": [],
-    "relation_counts": {
-      "商务": 1
-    },
-    "source_file": "1921-03-21.md"
   },
   {
     "id": "book_xiaoxue_gouchen",
@@ -26259,8 +27316,8 @@
     "mentions": 1,
     "people": [
       {
-        "id": "per_wang_jingan",
-        "label": "王静庵(国维)",
+        "id": "per_wang_jing_an",
+        "label": "王静庵",
         "relation": "受赠",
         "date": "1921-11-29",
         "evidence": "检得《帝王经世图谱》十六卷清吟阁本，为静庵取去"

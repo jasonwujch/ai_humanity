@@ -159,7 +159,7 @@
         "per_chen_shaozhou",
         "per_shaozhou_29"
       ],
-      "degree": 15
+      "degree": 13
     },
     {
       "id": "per_liu_xueqiao",
@@ -450,7 +450,7 @@
       "merged_ids": [
         "per_zheng_taiyi"
       ],
-      "degree": 4
+      "degree": 3
     },
     {
       "id": "per_jigao",
@@ -474,7 +474,7 @@
       "merged_ids": [
         "per_chen_naiqian"
       ],
-      "degree": 28
+      "degree": 30
     },
     {
       "id": "per_wang_peisun",
@@ -583,14 +583,16 @@
       "canonical": "徐乃昌",
       "aliases": [
         "(diarist)",
+        "徐积余",
         "积余"
       ],
       "merged_ids": [
         "per_xu_naichang",
         "per_xu_naichang_self",
+        "per_xu_jiyu",
         "per_jiyu"
       ],
-      "degree": 1978
+      "degree": 2048
     },
     {
       "id": "per_wang_shuyong",
@@ -1012,7 +1014,7 @@
       "merged_ids": [
         "per_liu_jianzhi"
       ],
-      "degree": 12
+      "degree": 11
     },
     {
       "id": "per_muxing",
@@ -1184,7 +1186,7 @@
       "merged_ids": [
         "per_li_mugong"
       ],
-      "degree": 14
+      "degree": 15
     },
     {
       "id": "per_han_yunqing",
@@ -1268,7 +1270,7 @@
       "merged_ids": [
         "per_tao_zilin"
       ],
-      "degree": 12
+      "degree": 10
     },
     {
       "id": "per_zhang_shiming",
@@ -1347,7 +1349,7 @@
       "merged_ids": [
         "per_chen_jiean"
       ],
-      "degree": 11
+      "degree": 12
     },
     {
       "id": "per_hu_puan",
@@ -1373,7 +1375,7 @@
       "merged_ids": [
         "per_wang_ganqing"
       ],
-      "degree": 11
+      "degree": 10
     },
     {
       "id": "per_liang_kegang",
@@ -1654,7 +1656,7 @@
       "merged_ids": [
         "per_kang_gengsheng"
       ],
-      "degree": 11
+      "degree": 10
     },
     {
       "id": "per_zhou_peiyi",
@@ -1691,7 +1693,7 @@
       "merged_ids": [
         "per_chen_shaowu"
       ],
-      "degree": 12
+      "degree": 14
     },
     {
       "id": "per_ji_xuan",
@@ -2429,7 +2431,7 @@
         "per_shun_chen",
         "per_shunchen"
       ],
-      "degree": 28
+      "degree": 26
     },
     {
       "id": "per_song_yantao",
@@ -2751,7 +2753,7 @@
       "merged_ids": [
         "per_zhang_yishan"
       ],
-      "degree": 9
+      "degree": 8
     },
     {
       "id": "per_cao_mb",
@@ -3033,12 +3035,14 @@
       "label": "蒋暇堂",
       "canonical": "蒋暇堂",
       "aliases": [
-        "蒋暇堂"
+        "蒋暇堂",
+        "暇堂"
       ],
       "merged_ids": [
-        "per_jiang_xiatang"
+        "per_jiang_xiatang",
+        "per_xia_tang"
       ],
-      "degree": 11
+      "degree": 12
     },
     {
       "id": "per_sha_shaotang",
@@ -3076,19 +3080,6 @@
         "per_xu_guqing"
       ],
       "degree": 0
-    },
-    {
-      "id": "per_wang_jingan",
-      "label": "王静庵(国维)",
-      "canonical": "王静庵",
-      "aliases": [
-        "王静庵",
-        "王静龛"
-      ],
-      "merged_ids": [
-        "per_wang_jingan"
-      ],
-      "degree": 5
     },
     {
       "id": "per_wang_yitang",
@@ -3295,7 +3286,8 @@
         "寄尘"
       ],
       "merged_ids": [
-        "per_jichen"
+        "per_jichen",
+        "per_jin_cun"
       ],
       "degree": 10
     },
@@ -3471,7 +3463,7 @@
       "merged_ids": [
         "per_yang_zhiqing"
       ],
-      "degree": 3
+      "degree": 2
     },
     {
       "id": "per_yang_xiaochuan",
@@ -4516,7 +4508,7 @@
         "per_shen_yigui",
         "per_shen_yikui"
       ],
-      "degree": 6
+      "degree": 4
     },
     {
       "id": "per_pin_san",
@@ -4608,7 +4600,7 @@
       "merged_ids": [
         "per_zong_zidai"
       ],
-      "degree": 5
+      "degree": 7
     },
     {
       "id": "per_wang_bingshan",
@@ -5266,7 +5258,7 @@
         "per_jiang_zhiyuan",
         "per_zhi_yuan"
       ],
-      "degree": 4
+      "degree": 5
     },
     {
       "id": "per_zhang_xiyuan",
@@ -5395,7 +5387,7 @@
         "per_xiaoruo",
         "per_zhang_jian_xiaoruo"
       ],
-      "degree": 8
+      "degree": 9
     },
     {
       "id": "per_zhang_zuosan",
@@ -5530,7 +5522,7 @@
       "merged_ids": [
         "per_feng_guangjiu"
       ],
-      "degree": 7
+      "degree": 8
     },
     {
       "id": "per_tui_lao",
@@ -5607,7 +5599,7 @@
         "per_sha_jianan",
         "per_sha_jian_an"
       ],
-      "degree": 7
+      "degree": 8
     },
     {
       "id": "per_zhang_jingxuan",
@@ -5977,7 +5969,7 @@
       "merged_ids": [
         "per_yuan_yiqi"
       ],
-      "degree": 3
+      "degree": 2
     },
     {
       "id": "per_zhang_jinghu",
@@ -6327,7 +6319,7 @@
       "merged_ids": [
         "per_jiang_yiyuan"
       ],
-      "degree": 4
+      "degree": 5
     },
     {
       "id": "per_xu_chuanyou",
@@ -6391,7 +6383,7 @@
       "merged_ids": [
         "per_zhu_yantao"
       ],
-      "degree": 9
+      "degree": 8
     },
     {
       "id": "per_shaozhou",
@@ -6480,7 +6472,7 @@
       "merged_ids": [
         "per_zhu_jichen"
       ],
-      "degree": 3
+      "degree": 2
     },
     {
       "id": "per_zibin",
@@ -7261,7 +7253,7 @@
         "per_ji_chen",
         "per_wu_jichen"
       ],
-      "degree": 23
+      "degree": 22
     },
     {
       "id": "per_you_xiaoxi",
@@ -7441,19 +7433,6 @@
       ],
       "merged_ids": [
         "per_hu_fuzhi"
-      ],
-      "degree": 0
-    },
-    {
-      "id": "per_xu_laizhuang",
-      "label": "徐籟庄",
-      "canonical": "徐云巢(籟庄)",
-      "aliases": [
-        "徐籟庄",
-        "徐云巢"
-      ],
-      "merged_ids": [
-        "per_xu_laizhuang"
       ],
       "degree": 0
     },
@@ -7908,7 +7887,7 @@
         "per_yang_yunshi",
         "per_yun_shi"
       ],
-      "degree": 6
+      "degree": 5
     },
     {
       "id": "per_lansheng",
@@ -7942,7 +7921,8 @@
         "次岩"
       ],
       "merged_ids": [
-        "per_ciyan"
+        "per_ciyan",
+        "per_ci_yan"
       ],
       "degree": 2
     },
@@ -8089,7 +8069,7 @@
       "merged_ids": [
         "per_shen_cihu"
       ],
-      "degree": 2
+      "degree": 3
     },
     {
       "id": "per_zhao_yichen",
@@ -8429,6 +8409,18 @@
         "per_fei_jinghan"
       ],
       "degree": 0
+    },
+    {
+      "id": "per_wu_huaqing",
+      "label": "吴华卿",
+      "canonical": "吴华卿",
+      "aliases": [
+        "吴华卿"
+      ],
+      "merged_ids": [
+        "per_wu_huaqing"
+      ],
+      "degree": 6
     },
     {
       "id": "per_miao",
@@ -8973,7 +8965,7 @@
       "merged_ids": [
         "per_liu_gonglu"
       ],
-      "degree": 7
+      "degree": 8
     },
     {
       "id": "per_shang_chengzuo",
@@ -9456,7 +9448,7 @@
       "merged_ids": [
         "per_xu_junren"
       ],
-      "degree": 2
+      "degree": 3
     },
     {
       "id": "per_yequan",
@@ -9580,7 +9572,7 @@
         "per_jiang_ganqing",
         "per_gan_qing"
       ],
-      "degree": 13
+      "degree": 12
     },
     {
       "id": "per_shen_yanmou",
@@ -9883,9 +9875,10 @@
         "淑魄"
       ],
       "merged_ids": [
-        "per_shupo"
+        "per_shupo",
+        "per_shu_po"
       ],
-      "degree": 2
+      "degree": 4
     },
     {
       "id": "per_liu_housheng",
@@ -10053,7 +10046,7 @@
       "merged_ids": [
         "per_ma_lansheng"
       ],
-      "degree": 1
+      "degree": 3
     },
     {
       "id": "per_li_xibai",
@@ -10320,7 +10313,7 @@
       "merged_ids": [
         "per_yu_yaoqu"
       ],
-      "degree": 5
+      "degree": 6
     },
     {
       "id": "per_chen_xifu",
@@ -10747,6 +10740,531 @@
       "degree": 1
     },
     {
+      "id": "per_li_xingzhai",
+      "label": "李醒斋",
+      "canonical": "李醒斋",
+      "aliases": [
+        "李醒斋"
+      ],
+      "merged_ids": [
+        "per_li_xingzhai"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_chen_zhi",
+      "label": "陈鋕",
+      "canonical": "陈鋕",
+      "aliases": [
+        "陈鋕"
+      ],
+      "merged_ids": [
+        "per_chen_zhi"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_chen_qixun",
+      "label": "陈齐荀",
+      "canonical": "陈齐荀",
+      "aliases": [
+        "陈齐荀"
+      ],
+      "merged_ids": [
+        "per_chen_qixun"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_qinu",
+      "label": "绮女",
+      "canonical": "绮女",
+      "aliases": [
+        "绮女"
+      ],
+      "merged_ids": [
+        "per_qinv",
+        "per_qinu",
+        "per_qi_nv",
+        "per_qi_nu"
+      ],
+      "degree": 6
+    },
+    {
+      "id": "per_jisan_yinzhen",
+      "label": "寂三印真",
+      "canonical": "寂三印真",
+      "aliases": [
+        "寂三印真",
+        "寂三"
+      ],
+      "merged_ids": [
+        "per_jisan_yinzhen"
+      ],
+      "degree": 1
+    },
+    {
+      "id": "per_zongliang",
+      "label": "宗亮",
+      "canonical": "宗亮",
+      "aliases": [
+        "宗亮"
+      ],
+      "merged_ids": [
+        "per_zongliang"
+      ],
+      "degree": 1
+    },
+    {
+      "id": "per_yuanyu",
+      "label": "源巘",
+      "canonical": "源巘",
+      "aliases": [
+        "源巘"
+      ],
+      "merged_ids": [
+        "per_yuanyu"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_guanghui",
+      "label": "广慧",
+      "canonical": "广慧",
+      "aliases": [
+        "广慧"
+      ],
+      "merged_ids": [
+        "per_guanghui"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_guoming",
+      "label": "果明",
+      "canonical": "果明",
+      "aliases": [
+        "果明"
+      ],
+      "merged_ids": [
+        "per_guoming"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_miaogong",
+      "label": "妙恭",
+      "canonical": "妙恭",
+      "aliases": [
+        "妙恭"
+      ],
+      "merged_ids": [
+        "per_miaogong"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_ouyi_dashi",
+      "label": "溝益大师",
+      "canonical": "溝益大师",
+      "aliases": [
+        "溝益大师",
+        "溝师"
+      ],
+      "merged_ids": [
+        "per_ouyi_dashi"
+      ],
+      "degree": 1
+    },
+    {
+      "id": "per_lianchi_dashi",
+      "label": "莲池大师",
+      "canonical": "莲池大师",
+      "aliases": [
+        "莲池大师"
+      ],
+      "merged_ids": [
+        "per_lianchi_dashi"
+      ],
+      "degree": 1
+    },
+    {
+      "id": "per_cheng_an",
+      "label": "诚安",
+      "canonical": "诚安",
+      "aliases": [
+        "诚安"
+      ],
+      "merged_ids": [
+        "per_cheng_an"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_miyun_dashi",
+      "label": "密云大师",
+      "canonical": "密云大师",
+      "aliases": [
+        "密云大师"
+      ],
+      "merged_ids": [
+        "per_miyun_dashi"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_zhuchan",
+      "label": "竹禅",
+      "canonical": "竹禅",
+      "aliases": [
+        "竹禅"
+      ],
+      "merged_ids": [
+        "per_zhuchan"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_wei_guilin",
+      "label": "韦桂林",
+      "canonical": "韦桂林",
+      "aliases": [
+        "韦桂林"
+      ],
+      "merged_ids": [
+        "per_wei_guilin"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_yin_yuanwei",
+      "label": "尹元炜",
+      "canonical": "尹元炜",
+      "aliases": [
+        "尹元炜"
+      ],
+      "merged_ids": [
+        "per_yin_yuanwei"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_feng_benhuai",
+      "label": "冯本怀",
+      "canonical": "冯本怀",
+      "aliases": [
+        "冯本怀"
+      ],
+      "merged_ids": [
+        "per_feng_benhuai"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_wu_dexuan",
+      "label": "吴德旋",
+      "canonical": "吴德旋",
+      "aliases": [
+        "吴德旋"
+      ],
+      "merged_ids": [
+        "per_wu_dexuan"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_zhou_jiamei",
+      "label": "周家楣",
+      "canonical": "周家楣",
+      "aliases": [
+        "周家楣"
+      ],
+      "merged_ids": [
+        "per_zhou_jiamei"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_zhou_jixu",
+      "label": "周继煦",
+      "canonical": "周继煦",
+      "aliases": [
+        "周继煦"
+      ],
+      "merged_ids": [
+        "per_zhou_jixu"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_li_mingche",
+      "label": "李明彻",
+      "canonical": "李明彻",
+      "aliases": [
+        "李明彻",
+        "明彻"
+      ],
+      "merged_ids": [
+        "per_li_mingche"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_ruan_yuan",
+      "label": "阮元",
+      "canonical": "阮元",
+      "aliases": [
+        "阮元"
+      ],
+      "merged_ids": [
+        "per_ruan_yuan"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_liu_binhua",
+      "label": "刘彬华",
+      "canonical": "刘彬华",
+      "aliases": [
+        "刘彬华"
+      ],
+      "merged_ids": [
+        "per_liu_binhua"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_cai_yi",
+      "label": "蔡逸",
+      "canonical": "蔡逸",
+      "aliases": [
+        "蔡逸"
+      ],
+      "merged_ids": [
+        "per_cai_yi"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_zhang_wentao",
+      "label": "张问陶",
+      "canonical": "张问陶",
+      "aliases": [
+        "张问陶"
+      ],
+      "merged_ids": [
+        "per_zhang_wentao"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_yao_wentian",
+      "label": "姚文田",
+      "canonical": "姚文田",
+      "aliases": [
+        "姚文田"
+      ],
+      "merged_ids": [
+        "per_yao_wentian"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_dong_shixi",
+      "label": "董士锡",
+      "canonical": "董士锡",
+      "aliases": [
+        "董士锡"
+      ],
+      "merged_ids": [
+        "per_dong_shixi"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_xie_jiahe",
+      "label": "谢家禾",
+      "canonical": "谢家禾",
+      "aliases": [
+        "谢家禾"
+      ],
+      "merged_ids": [
+        "per_xie_jiahe"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_lin_changqing",
+      "label": "林昌清",
+      "canonical": "林昌清",
+      "aliases": [
+        "林昌清"
+      ],
+      "merged_ids": [
+        "per_lin_changqing"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_ni_chunru",
+      "label": "倪春如",
+      "canonical": "倪春如",
+      "aliases": [
+        "倪君春如"
+      ],
+      "merged_ids": [
+        "per_ni_chunru"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_zhang_rangsan",
+      "label": "张让三",
+      "canonical": "张让三",
+      "aliases": [
+        "让三",
+        "张让三"
+      ],
+      "merged_ids": [
+        "per_rangsan",
+        "per_zhang_rangsan"
+      ],
+      "degree": 4
+    },
+    {
+      "id": "per_dixian",
+      "label": "缔闲",
+      "canonical": "缔闲",
+      "aliases": [
+        "缔闲"
+      ],
+      "merged_ids": [
+        "per_dixian"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_chen_xiwen",
+      "label": "陈希文",
+      "canonical": "陈希文",
+      "aliases": [
+        "陈希文"
+      ],
+      "merged_ids": [
+        "per_chen_xiwen"
+      ],
+      "degree": 4
+    },
+    {
+      "id": "per_bake",
+      "label": "拔可",
+      "canonical": "拔可",
+      "aliases": [
+        "拔可"
+      ],
+      "merged_ids": [
+        "per_bake"
+      ],
+      "degree": 8
+    },
+    {
+      "id": "per_zhixu",
+      "label": "智旭",
+      "canonical": "智旭",
+      "aliases": [
+        "满益智旭"
+      ],
+      "merged_ids": [
+        "per_zhixu"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_zhu_fenglin",
+      "label": "朱凤林",
+      "canonical": "朱凤林",
+      "aliases": [
+        "朱凤林"
+      ],
+      "merged_ids": [
+        "per_zhu_fenglin"
+      ],
+      "degree": 3
+    },
+    {
+      "id": "per_guo_lizheng",
+      "label": "郭礼征",
+      "canonical": "郭礼征",
+      "aliases": [
+        "郭礼征"
+      ],
+      "merged_ids": [
+        "per_guo_lizheng"
+      ],
+      "degree": 9
+    },
+    {
+      "id": "per_guo_gangzhong",
+      "label": "郭刚仲毅",
+      "canonical": "郭刚仲毅",
+      "aliases": [
+        "郭刚仲毅"
+      ],
+      "merged_ids": [
+        "per_guo_gangzhong"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_younan",
+      "label": "幼南",
+      "canonical": "幼南",
+      "aliases": [
+        "幼南"
+      ],
+      "merged_ids": [
+        "per_younan",
+        "per_you_nan"
+      ],
+      "degree": 5
+    },
+    {
+      "id": "per_wang_ding_an",
+      "label": "王定安",
+      "canonical": "王定安",
+      "aliases": [
+        "王定安"
+      ],
+      "merged_ids": [
+        "per_wang_ding_an"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_wang_wei",
+      "label": "王暐",
+      "canonical": "王暐",
+      "aliases": [
+        "王暐"
+      ],
+      "merged_ids": [
+        "per_wang_wei"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_zhou_shicheng",
+      "label": "周世澄",
+      "canonical": "周世澄",
+      "aliases": [
+        "周世澄"
+      ],
+      "merged_ids": [
+        "per_zhou_shicheng"
+      ],
+      "degree": 0
+    },
+    {
       "id": "per_jianfu",
       "label": "健甫",
       "canonical": "健甫",
@@ -10903,18 +11421,6 @@
       "degree": 0
     },
     {
-      "id": "per_bake",
-      "label": "拔可",
-      "canonical": "拔可",
-      "aliases": [
-        "拔可"
-      ],
-      "merged_ids": [
-        "per_bake"
-      ],
-      "degree": 10
-    },
-    {
       "id": "per_wang_hanxi",
       "label": "汪汉溪",
       "canonical": "汪汉溪",
@@ -11008,18 +11514,6 @@
       ],
       "merged_ids": [
         "per_wu_yifeng"
-      ],
-      "degree": 0
-    },
-    {
-      "id": "per_ruan_yuan",
-      "label": "阮元",
-      "canonical": "阮元",
-      "aliases": [
-        "阮元"
-      ],
-      "merged_ids": [
-        "per_ruan_yuan"
       ],
       "degree": 0
     },
@@ -11139,7 +11633,8 @@
         "雪澄"
       ],
       "merged_ids": [
-        "per_xuecheng"
+        "per_xuecheng",
+        "per_xue_cheng"
       ],
       "degree": 0
     },
@@ -11267,6 +11762,811 @@
       "degree": 1
     },
     {
+      "id": "per_pu_shi",
+      "label": "蒲师",
+      "canonical": "蒲师",
+      "aliases": [
+        "蒲师"
+      ],
+      "merged_ids": [
+        "per_pu_shi"
+      ],
+      "degree": 1
+    },
+    {
+      "id": "per_wang_jing_an",
+      "label": "王静庵",
+      "canonical": "王静庵",
+      "aliases": [
+        "王静庵",
+        "王静龛",
+        "王静庵征君"
+      ],
+      "merged_ids": [
+        "per_wang_jingan",
+        "per_wang_jing_an"
+      ],
+      "degree": 6
+    },
+    {
+      "id": "per_luo_liangfeng",
+      "label": "罗两峰",
+      "canonical": "罗两峰",
+      "aliases": [
+        "罗两峰"
+      ],
+      "merged_ids": [
+        "per_luo_liangfeng"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_ye_lantai",
+      "label": "叶兰台",
+      "canonical": "叶兰台",
+      "aliases": [
+        "叶兰台"
+      ],
+      "merged_ids": [
+        "per_ye_lantai"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_sima_changqing",
+      "label": "司马长卿",
+      "canonical": "司马长卿",
+      "aliases": [
+        "司马长卿"
+      ],
+      "merged_ids": [
+        "per_sima_changqing"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_wenjun",
+      "label": "文君",
+      "canonical": "文君（卓文君）",
+      "aliases": [
+        "文君"
+      ],
+      "merged_ids": [
+        "per_wenjun"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_xu_zijing",
+      "label": "徐子静",
+      "canonical": "徐子静",
+      "aliases": [
+        "徐子静"
+      ],
+      "merged_ids": [
+        "per_xu_zijing"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_feng_hanchu",
+      "label": "冯涵初",
+      "canonical": "冯涵初(徽)",
+      "aliases": [
+        "冯涵初征君"
+      ],
+      "merged_ids": [
+        "per_feng_hanchu"
+      ],
+      "degree": 2
+    },
+    {
+      "id": "per_chujin",
+      "label": "楚金",
+      "canonical": "楚金",
+      "aliases": [
+        "楚金"
+      ],
+      "merged_ids": [
+        "per_chujin"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_yuan_xishan",
+      "label": "袁宁珍",
+      "canonical": "袁宁珍（席山）",
+      "aliases": [
+        "袁宁珍席山",
+        "袁席山"
+      ],
+      "merged_ids": [
+        "per_yuan_xishan"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_xu_luzhuang",
+      "label": "徐籚庄",
+      "canonical": "徐籚庄",
+      "aliases": [
+        "徐籚庄"
+      ],
+      "merged_ids": [
+        "per_xu_luzhuang"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_xu_yunchao",
+      "label": "徐云巢",
+      "canonical": "徐云巢（秀水）",
+      "aliases": [
+        "徐籟庄",
+        "徐云巢",
+        "秀水徐云巢"
+      ],
+      "merged_ids": [
+        "per_xu_laizhuang",
+        "per_xu_yunchao"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_lu_wenbin",
+      "label": "路文彬",
+      "canonical": "路文彬",
+      "aliases": [
+        "路文彬"
+      ],
+      "merged_ids": [
+        "per_lu_wenbin"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_xu_jilong",
+      "label": "徐季龙",
+      "canonical": "徐季龙",
+      "aliases": [
+        "徐季龙"
+      ],
+      "merged_ids": [
+        "per_xu_jilong"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_li_zhenya",
+      "label": "李振亚",
+      "canonical": "李振亚",
+      "aliases": [
+        "李振亚"
+      ],
+      "merged_ids": [
+        "per_li_zhenya"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_cao_chigong",
+      "label": "曹痴公",
+      "canonical": "曹痴公",
+      "aliases": [
+        "曹痴公"
+      ],
+      "merged_ids": [
+        "per_cao_chigong"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_zheng_jiecheng",
+      "label": "郑介诚",
+      "canonical": "郑介诚（鸛鹄）",
+      "aliases": [
+        "郑鸛鹄介诚",
+        "郑介诚"
+      ],
+      "merged_ids": [
+        "per_zheng_jiecheng"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_cao_zhigong",
+      "label": "曹志功",
+      "canonical": "曹志功",
+      "aliases": [
+        "曹志功"
+      ],
+      "merged_ids": [
+        "per_cao_zhigong"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_huang_lansu",
+      "label": "黄兰蘇",
+      "canonical": "黄兰蘇",
+      "aliases": [
+        "黄兰蘇"
+      ],
+      "merged_ids": [
+        "per_huang_lansu"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_tan_weiyang",
+      "label": "谭维洋",
+      "canonical": "谭维洋",
+      "aliases": [
+        "谭维洋"
+      ],
+      "merged_ids": [
+        "per_tan_weiyang"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_xu_bolong",
+      "label": "许伯龙",
+      "canonical": "许伯龙",
+      "aliases": [
+        "许伯龙"
+      ],
+      "merged_ids": [
+        "per_xu_bolong"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_wang_xingzhai",
+      "label": "汪醒斋",
+      "canonical": "汪醒斋",
+      "aliases": [
+        "汪醒斋"
+      ],
+      "merged_ids": [
+        "per_wang_xingzhai"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_hu_peiru",
+      "label": "胡佩如",
+      "canonical": "胡佩如",
+      "aliases": [
+        "胡佩如"
+      ],
+      "merged_ids": [
+        "per_hu_peiru"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_wang_weiying",
+      "label": "汪维英",
+      "canonical": "汪维英",
+      "aliases": [
+        "汪维\n\n英",
+        "汪维英"
+      ],
+      "merged_ids": [
+        "per_wang_weiying"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_bi_lixin",
+      "label": "毕立信",
+      "canonical": "毕立信",
+      "aliases": [
+        "毕立信"
+      ],
+      "merged_ids": [
+        "per_bi_lixin"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_shao_yiqun",
+      "label": "邵亦群",
+      "canonical": "邵亦群",
+      "aliases": [
+        "邵亦群"
+      ],
+      "merged_ids": [
+        "per_shao_yiqun"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_huang_liansheng",
+      "label": "黄怜生",
+      "canonical": "黄怜生",
+      "aliases": [
+        "黄怜生"
+      ],
+      "merged_ids": [
+        "per_huang_liansheng"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_sun_jinghu",
+      "label": "孙镜湖",
+      "canonical": "孙镜湖",
+      "aliases": [
+        "孙镜湖"
+      ],
+      "merged_ids": [
+        "per_sun_jinghu"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_wang_lizhi",
+      "label": "汪立之",
+      "canonical": "汪立之",
+      "aliases": [
+        "汪立之"
+      ],
+      "merged_ids": [
+        "per_wang_lizhi"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_wu_zhongmou",
+      "label": "吴仲谋",
+      "canonical": "吴仲谋",
+      "aliases": [
+        "吴仲谋"
+      ],
+      "merged_ids": [
+        "per_wu_zhongmou"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_wang_jiantang",
+      "label": "汪鉴堂",
+      "canonical": "汪鉴堂",
+      "aliases": [
+        "汪鉴堂"
+      ],
+      "merged_ids": [
+        "per_wang_jiantang"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_xu_yuliang",
+      "label": "许御良",
+      "canonical": "许御良",
+      "aliases": [
+        "许御良"
+      ],
+      "merged_ids": [
+        "per_xu_yuliang"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_yu_shi",
+      "label": "余时",
+      "canonical": "余时",
+      "aliases": [
+        "余时"
+      ],
+      "merged_ids": [
+        "per_yu_shi"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_cao_weiming",
+      "label": "曹维明",
+      "canonical": "曹维明",
+      "aliases": [
+        "曹维明"
+      ],
+      "merged_ids": [
+        "per_cao_weiming"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_tang_jisheng",
+      "label": "唐吉生",
+      "canonical": "唐吉生",
+      "aliases": [
+        "唐吉生"
+      ],
+      "merged_ids": [
+        "per_tang_jisheng"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_lv_jianyu",
+      "label": "吕筒渔",
+      "canonical": "吕筒渔",
+      "aliases": [
+        "吕筒渔"
+      ],
+      "merged_ids": [
+        "per_lv_jianyu"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_shao_deji",
+      "label": "邵德基",
+      "canonical": "邵德基",
+      "aliases": [
+        "邵德基"
+      ],
+      "merged_ids": [
+        "per_shao_deji"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_yu_quchen",
+      "label": "俞去尘",
+      "canonical": "俞去尘",
+      "aliases": [
+        "俞去尘"
+      ],
+      "merged_ids": [
+        "per_yu_quchen"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_hu_weizhi",
+      "label": "胡苇之",
+      "canonical": "胡苇之",
+      "aliases": [
+        "胡苇之"
+      ],
+      "merged_ids": [
+        "per_hu_weizhi"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_feng_mengzhen",
+      "label": "冯梦桢",
+      "canonical": "冯梦桢",
+      "aliases": [
+        "冯梦桢"
+      ],
+      "merged_ids": [
+        "per_feng_mengzhen"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_shi_runzhang",
+      "label": "施闰章",
+      "canonical": "施闰章",
+      "aliases": [
+        "施闰章"
+      ],
+      "merged_ids": [
+        "per_shi_runzhang"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_liu_baosheng",
+      "label": "刘宝生",
+      "canonical": "刘宝生",
+      "aliases": [
+        "刘宝生"
+      ],
+      "merged_ids": [
+        "per_liu_baosheng"
+      ],
+      "degree": 2
+    },
+    {
+      "id": "per_wu_daquan",
+      "label": "吴达泉",
+      "canonical": "吴达泉",
+      "aliases": [
+        "吴达泉"
+      ],
+      "merged_ids": [
+        "per_wu_daquan"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_zhao_tingjian",
+      "label": "赵廷健",
+      "canonical": "赵廷健",
+      "aliases": [
+        "知县赵廷健"
+      ],
+      "merged_ids": [
+        "per_zhao_tingjian"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_gong_baoqi",
+      "label": "龚宝琦",
+      "canonical": "龚宝琦",
+      "aliases": [
+        "知县龚宝琦"
+      ],
+      "merged_ids": [
+        "per_gong_baoqi"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_cui_tingpu",
+      "label": "崔廷鋪",
+      "canonical": "崔廷鋪",
+      "aliases": [
+        "崔廷鋪"
+      ],
+      "merged_ids": [
+        "per_cui_tingpu"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_sui_qi",
+      "label": "绥祺",
+      "canonical": "绥祺",
+      "aliases": [
+        "绥祺"
+      ],
+      "merged_ids": [
+        "per_sui_qi"
+      ],
+      "degree": 1
+    },
+    {
+      "id": "per_rui_zhu",
+      "label": "蕊珠",
+      "canonical": "蕊珠（徐乃昌长女）",
+      "aliases": [
+        "大女蕊珠"
+      ],
+      "merged_ids": [
+        "per_rui_zhu"
+      ],
+      "degree": 1
+    },
+    {
+      "id": "per_yao_ziliang_furen",
+      "label": "姚子梁夫人",
+      "canonical": "姚子梁夫人",
+      "aliases": [
+        "姚子梁夫人"
+      ],
+      "merged_ids": [
+        "per_yao_ziliang_furen"
+      ],
+      "degree": 2
+    },
+    {
+      "id": "per_cao_kuiyi",
+      "label": "曹夔一",
+      "canonical": "曹夔一",
+      "aliases": [
+        "曹夔一"
+      ],
+      "merged_ids": [
+        "per_cao_kuiyi"
+      ],
+      "degree": 2
+    },
+    {
+      "id": "per_zou_shuqie",
+      "label": "邹树锲",
+      "canonical": "邹树锲",
+      "aliases": [
+        "邹树锲"
+      ],
+      "merged_ids": [
+        "per_zou_shuqie"
+      ],
+      "degree": 2
+    },
+    {
+      "id": "per_jia_yuan",
+      "label": "家源",
+      "canonical": "家源",
+      "aliases": [
+        "家源"
+      ],
+      "merged_ids": [
+        "per_jia_yuan"
+      ],
+      "degree": 2
+    },
+    {
+      "id": "per_shu_yan",
+      "label": "叔颜",
+      "canonical": "叔颜",
+      "aliases": [
+        "叔颜"
+      ],
+      "merged_ids": [
+        "per_shu_yan"
+      ],
+      "degree": 1
+    },
+    {
+      "id": "per_bo_qiyan",
+      "label": "伯企颜",
+      "canonical": "伯企颜",
+      "aliases": [
+        "伯企颜",
+        "企颜"
+      ],
+      "merged_ids": [
+        "per_bo_qiyan"
+      ],
+      "degree": 1
+    },
+    {
+      "id": "per_wang_leixia",
+      "label": "王雷夏",
+      "canonical": "王雷夏",
+      "aliases": [
+        "王雷夏"
+      ],
+      "merged_ids": [
+        "per_wang_leixia"
+      ],
+      "degree": 5
+    },
+    {
+      "id": "per_li_jianren",
+      "label": "李健人",
+      "canonical": "李健人",
+      "aliases": [
+        "李健人"
+      ],
+      "merged_ids": [
+        "per_li_jianren"
+      ],
+      "degree": 1
+    },
+    {
+      "id": "per_xinmin",
+      "label": "信民",
+      "canonical": "汪信民（婺源人）",
+      "aliases": [
+        "信民"
+      ],
+      "merged_ids": [
+        "per_xinmin"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_zhou_bixiang",
+      "label": "周必祥",
+      "canonical": "周必祥",
+      "aliases": [
+        "周必祥"
+      ],
+      "merged_ids": [
+        "per_zhou_bixiang"
+      ],
+      "degree": 2
+    },
+    {
+      "id": "per_chen_gongyu",
+      "label": "陈公雨",
+      "canonical": "陈公雨",
+      "aliases": [
+        "陈公雨"
+      ],
+      "merged_ids": [
+        "per_chen_gongyu"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_yang_pei",
+      "label": "杨霈",
+      "canonical": "杨霈",
+      "aliases": [
+        "杨霈"
+      ],
+      "merged_ids": [
+        "per_yang_pei"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_wang_jixun",
+      "label": "汪挤荀",
+      "canonical": "汪挤荀",
+      "aliases": [
+        "汪 挤荀"
+      ],
+      "merged_ids": [
+        "per_wang_jixun"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_cao_liangting",
+      "label": "曹楝亭",
+      "canonical": "曹楝亭",
+      "aliases": [
+        "曹楝亭氏"
+      ],
+      "merged_ids": [
+        "per_cao_liangting"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_jiang_xun",
+      "label": "江干九",
+      "canonical": "江干九（恂）",
+      "aliases": [
+        "江干九、恂"
+      ],
+      "merged_ids": [
+        "per_jiang_xun"
+      ],
+      "degree": 1
+    },
+    {
+      "id": "per_qiu_shi",
+      "label": "秋史",
+      "canonical": "秋史（德量）",
+      "aliases": [
+        "秋史德量"
+      ],
+      "merged_ids": [
+        "per_qiu_shi"
+      ],
+      "degree": 1
+    },
+    {
+      "id": "per_xu_xianzhang",
+      "label": "徐县长",
+      "canonical": "徐县长",
+      "aliases": [
+        "徐县长"
+      ],
+      "merged_ids": [
+        "per_xu_xianzhang"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_di_zhancheng",
+      "label": "翟展成",
+      "canonical": "翟展成",
+      "aliases": [
+        "翟展成",
+        "展成"
+      ],
+      "merged_ids": [
+        "per_zhai_zhancheng",
+        "per_di_zhancheng",
+        "per_zhan_chengcheng"
+      ],
+      "degree": 19
+    },
+    {
       "id": "per_xu_weng",
       "label": "畜翁",
       "canonical": "畜翁",
@@ -11327,18 +12627,6 @@
       "degree": 0
     },
     {
-      "id": "per_wu_zhongmou",
-      "label": "吴仲谋",
-      "canonical": "吴仲谋",
-      "aliases": [
-        "吴仲谋"
-      ],
-      "merged_ids": [
-        "per_wu_zhongmou"
-      ],
-      "degree": 0
-    },
-    {
       "id": "per_huang_huian",
       "label": "黄晦庵",
       "canonical": "黄晦庵",
@@ -11359,18 +12647,6 @@
       ],
       "merged_ids": [
         "per_wang_zhuru"
-      ],
-      "degree": 0
-    },
-    {
-      "id": "per_xu_jilong",
-      "label": "徐季龙",
-      "canonical": "徐季龙",
-      "aliases": [
-        "徐季龙"
-      ],
-      "merged_ids": [
-        "per_xu_jilong"
       ],
       "degree": 0
     },
@@ -11422,18 +12698,6 @@
         "per_ma_shouguang"
       ],
       "degree": 0
-    },
-    {
-      "id": "per_chen_xiwen",
-      "label": "陈希文",
-      "canonical": "陈希文",
-      "aliases": [
-        "陈希文"
-      ],
-      "merged_ids": [
-        "per_chen_xiwen"
-      ],
-      "degree": 1
     },
     {
       "id": "per_tao_lanquan",
@@ -11548,18 +12812,6 @@
       "degree": 1
     },
     {
-      "id": "per_xu_bolong",
-      "label": "许伯龙",
-      "canonical": "许伯龙",
-      "aliases": [
-        "许伯龙"
-      ],
-      "merged_ids": [
-        "per_xu_bolong"
-      ],
-      "degree": 0
-    },
-    {
       "id": "per_shu_xingsan",
       "label": "舒省三",
       "canonical": "舒省三",
@@ -11610,19 +12862,6 @@
       "degree": 0
     },
     {
-      "id": "per_zheng_jiecheng",
-      "label": "郑介诚",
-      "canonical": "郑介诚",
-      "aliases": [
-        "郑介诚",
-        "介诚"
-      ],
-      "merged_ids": [
-        "per_zheng_jiecheng"
-      ],
-      "degree": 0
-    },
-    {
       "id": "per_zheng_baige",
       "label": "郑百鸽",
       "canonical": "郑百鸽",
@@ -11631,102 +12870,6 @@
       ],
       "merged_ids": [
         "per_zheng_baige"
-      ],
-      "degree": 0
-    },
-    {
-      "id": "per_lu_wenbin",
-      "label": "路文彬",
-      "canonical": "路文彬",
-      "aliases": [
-        "路文彬"
-      ],
-      "merged_ids": [
-        "per_lu_wenbin"
-      ],
-      "degree": 0
-    },
-    {
-      "id": "per_bi_lixin",
-      "label": "毕立信",
-      "canonical": "毕立信",
-      "aliases": [
-        "毕立信"
-      ],
-      "merged_ids": [
-        "per_bi_lixin"
-      ],
-      "degree": 0
-    },
-    {
-      "id": "per_lv_jianyu",
-      "label": "吕箭渔",
-      "canonical": "吕箭渔",
-      "aliases": [
-        "吕箭渔"
-      ],
-      "merged_ids": [
-        "per_lv_jianyu"
-      ],
-      "degree": 0
-    },
-    {
-      "id": "per_li_zhenya",
-      "label": "李振亚",
-      "canonical": "李振亚",
-      "aliases": [
-        "李振亚"
-      ],
-      "merged_ids": [
-        "per_li_zhenya"
-      ],
-      "degree": 0
-    },
-    {
-      "id": "per_wang_xingzhai",
-      "label": "汪醒斋",
-      "canonical": "汪醒斋",
-      "aliases": [
-        "汪醒斋"
-      ],
-      "merged_ids": [
-        "per_wang_xingzhai"
-      ],
-      "degree": 0
-    },
-    {
-      "id": "per_shao_yiqun",
-      "label": "邵亦群",
-      "canonical": "邵亦群",
-      "aliases": [
-        "邵亦群"
-      ],
-      "merged_ids": [
-        "per_shao_yiqun"
-      ],
-      "degree": 0
-    },
-    {
-      "id": "per_hu_peiru",
-      "label": "胡佩如",
-      "canonical": "胡佩如",
-      "aliases": [
-        "胡佩如"
-      ],
-      "merged_ids": [
-        "per_hu_peiru"
-      ],
-      "degree": 0
-    },
-    {
-      "id": "per_cao_zhigong",
-      "label": "曹志功",
-      "canonical": "曹志功",
-      "aliases": [
-        "曹志功"
-      ],
-      "merged_ids": [
-        "per_cao_zhigong"
       ],
       "degree": 0
     },
@@ -11790,6 +12933,535 @@
         "per_zheng_sulong"
       ],
       "degree": 1
+    },
+    {
+      "id": "per_qiu_gaobao",
+      "label": "邱高保",
+      "canonical": "邱高保",
+      "aliases": [
+        "邱高保"
+      ],
+      "merged_ids": [
+        "per_qiu_gaobao"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_jia_hezhang",
+      "label": "嘉禾章",
+      "canonical": "嘉禾章",
+      "aliases": [
+        "嘉禾章"
+      ],
+      "merged_ids": [
+        "per_jia_hezhang"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_wang_xuecen",
+      "label": "王雪岑",
+      "canonical": "王雪岑",
+      "aliases": [
+        "王雪岑"
+      ],
+      "merged_ids": [
+        "per_wang_xuecen"
+      ],
+      "degree": 1
+    },
+    {
+      "id": "per_tan_dingyuan",
+      "label": "谭定远",
+      "canonical": "谭定远",
+      "aliases": [
+        "谭定远"
+      ],
+      "merged_ids": [
+        "per_tan_dingyuan"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_fang_zitin",
+      "label": "方子听",
+      "canonical": "方濬益",
+      "aliases": [
+        "方子听"
+      ],
+      "merged_ids": [
+        "per_fang_zitin"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_li_yangbing",
+      "label": "李阳冰",
+      "canonical": "李阳冰 (唐)",
+      "aliases": [
+        "李阳冰"
+      ],
+      "merged_ids": [
+        "per_li_yangbing"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_zhu_baosan",
+      "label": "朱葆三",
+      "canonical": "朱葆三",
+      "aliases": [
+        "朱葆三"
+      ],
+      "merged_ids": [
+        "per_zhu_baosan"
+      ],
+      "degree": 2
+    },
+    {
+      "id": "per_zhou_weibin",
+      "label": "周渭滨",
+      "canonical": "周渭滨",
+      "aliases": [
+        "周渭滨"
+      ],
+      "merged_ids": [
+        "per_zhou_weibin"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_su_kan",
+      "label": "苏龛",
+      "canonical": "苏龛",
+      "aliases": [
+        "苏龛"
+      ],
+      "merged_ids": [
+        "per_su_kan"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_zhu_jun",
+      "label": "竹君",
+      "canonical": "竹君",
+      "aliases": [
+        "竹君"
+      ],
+      "merged_ids": [
+        "per_zhu_jun"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_li_xiaofu",
+      "label": "李晓夫",
+      "canonical": "李晓夫 (桢, 绍兴)",
+      "aliases": [
+        "李晓夫"
+      ],
+      "merged_ids": [
+        "per_li_xiaofu"
+      ],
+      "degree": 2
+    },
+    {
+      "id": "per_lu_hanpin",
+      "label": "卢汉蘋",
+      "canonical": "卢汉蘋",
+      "aliases": [
+        "卢汉蘋"
+      ],
+      "merged_ids": [
+        "per_lu_hanpin"
+      ],
+      "degree": 1
+    },
+    {
+      "id": "per_wu_xinsheng",
+      "label": "吴欣生",
+      "canonical": "吴欣生",
+      "aliases": [
+        "吴欣生"
+      ],
+      "merged_ids": [
+        "per_wu_xinsheng"
+      ],
+      "degree": 3
+    },
+    {
+      "id": "per_chen_xisheng",
+      "label": "陈习生",
+      "canonical": "陈习生",
+      "aliases": [
+        "陈习生"
+      ],
+      "merged_ids": [
+        "per_chen_xisheng"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_dashizhi_pusa",
+      "label": "大势至菩萨",
+      "canonical": "大势至菩萨 (deity)",
+      "aliases": [
+        "大势至菩萨"
+      ],
+      "merged_ids": [
+        "per_dashizhi_pusa"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_jia_chaosun",
+      "label": "贾巢孙",
+      "canonical": "贾巢孙",
+      "aliases": [
+        "贾巢孙"
+      ],
+      "merged_ids": [
+        "per_jia_chaosun"
+      ],
+      "degree": 1
+    },
+    {
+      "id": "per_jin_weinong",
+      "label": "金慰侬",
+      "canonical": "金慰侬",
+      "aliases": [
+        "金慰侬"
+      ],
+      "merged_ids": [
+        "per_jin_weinong"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_luo_wusen",
+      "label": "骆梧森",
+      "canonical": "骆梧森 (通, 湖南)",
+      "aliases": [
+        "骆梧森"
+      ],
+      "merged_ids": [
+        "per_luo_wusen"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_gao_chuqiu",
+      "label": "高楚秋",
+      "canonical": "高楚秋 (湘, 贵池)",
+      "aliases": [
+        "高楚秋"
+      ],
+      "merged_ids": [
+        "per_gao_chuqiu"
+      ],
+      "degree": 1
+    },
+    {
+      "id": "per_yao_zhongxun",
+      "label": "姚仲勋",
+      "canonical": "姚仲勋",
+      "aliases": [
+        "姚仲勋"
+      ],
+      "merged_ids": [
+        "per_yao_zhongxun"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_yao_zhongba",
+      "label": "姚仲拔",
+      "canonical": "姚仲拔",
+      "aliases": [
+        "姚仲拔"
+      ],
+      "merged_ids": [
+        "per_yao_zhongba"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_wang_wenbo",
+      "label": "王文伯",
+      "canonical": "王文伯 (征, 天津交通副经理)",
+      "aliases": [
+        "王文伯"
+      ],
+      "merged_ids": [
+        "per_wang_wenbo"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_qian_xinzhi",
+      "label": "钱新之",
+      "canonical": "钱新之",
+      "aliases": [
+        "钱新之"
+      ],
+      "merged_ids": [
+        "per_qian_xinzhi"
+      ],
+      "degree": 1
+    },
+    {
+      "id": "per_liu_hongfu",
+      "label": "刘鸿甫",
+      "canonical": "刘鸿甫",
+      "aliases": [
+        "刘鸿甫"
+      ],
+      "merged_ids": [
+        "per_liu_hongfu"
+      ],
+      "degree": 2
+    },
+    {
+      "id": "per_zou_junqie",
+      "label": "邹濬锲",
+      "canonical": "邹濬锲",
+      "aliases": [
+        "邹濬锲"
+      ],
+      "merged_ids": [
+        "per_zou_junqie"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_liu_sili",
+      "label": "刘四立",
+      "canonical": "刘四立 (剧演)",
+      "aliases": [
+        "刘四立"
+      ],
+      "merged_ids": [
+        "per_liu_sili"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_sha_meiyu",
+      "label": "沙美玉",
+      "canonical": "沙美玉 (剧演)",
+      "aliases": [
+        "沙美玉"
+      ],
+      "merged_ids": [
+        "per_sha_meiyu"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_chen_shilu",
+      "label": "陈石庐",
+      "canonical": "陈石庐",
+      "aliases": [
+        "陈石庐"
+      ],
+      "merged_ids": [
+        "per_chen_shilu"
+      ],
+      "degree": 4
+    },
+    {
+      "id": "per_zong_weichuan",
+      "label": "宗渭川",
+      "canonical": "宗渭川",
+      "aliases": [
+        "宗渭川"
+      ],
+      "merged_ids": [
+        "per_zong_weichuan"
+      ],
+      "degree": 4
+    },
+    {
+      "id": "per_zhou_jicheng",
+      "label": "周季诚",
+      "canonical": "周季诚",
+      "aliases": [
+        "周季诚"
+      ],
+      "merged_ids": [
+        "per_zhou_jicheng"
+      ],
+      "degree": 1
+    },
+    {
+      "id": "per_xu_guanxun",
+      "label": "徐贯恂",
+      "canonical": "徐贯恂",
+      "aliases": [
+        "徐贯恂",
+        "贯恂"
+      ],
+      "merged_ids": [
+        "per_xu_guanxun"
+      ],
+      "degree": 5
+    },
+    {
+      "id": "per_yuan_yizhai",
+      "label": "袁亦斋",
+      "canonical": "袁亦斋 (其俊)",
+      "aliases": [
+        "袁亦斋"
+      ],
+      "merged_ids": [
+        "per_yuan_yizhai"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_tian_xianchen",
+      "label": "田献臣",
+      "canonical": "田献臣",
+      "aliases": [
+        "田献臣"
+      ],
+      "merged_ids": [
+        "per_tian_xianchen"
+      ],
+      "degree": 4
+    },
+    {
+      "id": "per_tang_fuzhi",
+      "label": "唐辅之",
+      "canonical": "唐辅之",
+      "aliases": [
+        "唐辅之"
+      ],
+      "merged_ids": [
+        "per_tang_fuzhi"
+      ],
+      "degree": 2
+    },
+    {
+      "id": "per_tao_zichun",
+      "label": "陶子春",
+      "canonical": "陶子春",
+      "aliases": [
+        "陶子春"
+      ],
+      "merged_ids": [
+        "per_tao_zichun"
+      ],
+      "degree": 1
+    },
+    {
+      "id": "per_qian_cean",
+      "label": "钱策安",
+      "canonical": "钱策安",
+      "aliases": [
+        "钱策安"
+      ],
+      "merged_ids": [
+        "per_qian_cean"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_feng_xiaoqing",
+      "label": "冯晓青",
+      "canonical": "冯晓青",
+      "aliases": [
+        "冯晓青"
+      ],
+      "merged_ids": [
+        "per_feng_xiaoqing"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_xia_lianfu",
+      "label": "夏联甫",
+      "canonical": "夏联甫",
+      "aliases": [
+        "夏联甫"
+      ],
+      "merged_ids": [
+        "per_xia_lianfu"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_tao_linshu",
+      "label": "陶琳书",
+      "canonical": "陶琳书 (菊侍, 原籍寿县, 寄居怀宁)",
+      "aliases": [
+        "陶琳书"
+      ],
+      "merged_ids": [
+        "per_tao_linshu"
+      ],
+      "degree": 2
+    },
+    {
+      "id": "per_tao_zidan",
+      "label": "陶子担",
+      "canonical": "陶子担",
+      "aliases": [
+        "陶子担"
+      ],
+      "merged_ids": [
+        "per_tao_zidan"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_tao_linzhang",
+      "label": "陶麟章",
+      "canonical": "陶麟章",
+      "aliases": [
+        "陶麟章"
+      ],
+      "merged_ids": [
+        "per_tao_linzhang"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_yin_canshi",
+      "label": "殷参事",
+      "canonical": "殷参事",
+      "aliases": [
+        "殷参事"
+      ],
+      "merged_ids": [
+        "per_yin_canshi"
+      ],
+      "degree": 0
+    },
+    {
+      "id": "per_wu_fusheng",
+      "label": "吴孚盛",
+      "canonical": "吴孚盛",
+      "aliases": [
+        "吴孚盛"
+      ],
+      "merged_ids": [
+        "per_wu_fusheng"
+      ],
+      "degree": 1
+    },
+    {
+      "id": "per_xie_qideng",
+      "label": "谢启",
+      "canonical": "谢启",
+      "aliases": [
+        "谢启"
+      ],
+      "merged_ids": [
+        "per_xie_qideng"
+      ],
+      "degree": 0
     },
     {
       "id": "per_xiaoxi",
@@ -11895,9 +13567,10 @@
         "象甫"
       ],
       "merged_ids": [
+        "per_xiang_fu",
         "per_xiangfu"
       ],
-      "degree": 1
+      "degree": 2
     },
     {
       "id": "per_cui_fujun",
@@ -13924,9 +15597,10 @@
         "作三"
       ],
       "merged_ids": [
+        "per_zuo_san",
         "per_zuosan"
       ],
-      "degree": 0
+      "degree": 1
     },
     {
       "id": "per_zhang_xiangshu",
@@ -14347,7 +16021,7 @@
       "merged_ids": [
         "per_zou_jingshu"
       ],
-      "degree": 6
+      "degree": 5
     },
     {
       "id": "per_lingsun",
@@ -14517,18 +16191,6 @@
       ],
       "merged_ids": [
         "per_pan_zhenchang"
-      ],
-      "degree": 1
-    },
-    {
-      "id": "per_zhu_baosan",
-      "label": "朱葆三",
-      "canonical": "朱葆三",
-      "aliases": [
-        "朱葆三"
-      ],
-      "merged_ids": [
-        "per_zhu_baosan"
       ],
       "degree": 1
     },
@@ -14922,18 +16584,6 @@
       "degree": 0
     },
     {
-      "id": "per_sun_jinghu",
-      "label": "孙镜湖",
-      "canonical": "孙镜湖",
-      "aliases": [
-        "孙镜湖"
-      ],
-      "merged_ids": [
-        "per_sun_jinghu"
-      ],
-      "degree": 0
-    },
-    {
       "id": "per_yu_chengge",
       "label": "余诚格",
       "canonical": "余诚格",
@@ -15322,13 +16972,14 @@
         "per_li_bake",
         "per_li_baoke",
         "per_baoke",
+        "per_li_baco_ke",
         "per_li_baker",
         "per_li_baco",
         "per_bo_ke",
         "per_ba_ke",
         "per_li_baking"
       ],
-      "degree": 24
+      "degree": 25
     },
     {
       "id": "per_xu_gengqi",
@@ -15388,18 +17039,6 @@
       ],
       "merged_ids": [
         "per_wei_xiaopu"
-      ],
-      "degree": 0
-    },
-    {
-      "id": "per_qian_xinzhi",
-      "label": "钱新之",
-      "canonical": "钱新之",
-      "aliases": [
-        "钱新之"
-      ],
-      "merged_ids": [
-        "per_qian_xinzhi"
       ],
       "degree": 0
     },
@@ -15465,7 +17104,7 @@
         "per_tuilao",
         "per_zhang_tuilao"
       ],
-      "degree": 22
+      "degree": 21
     },
     {
       "id": "per_selao",
@@ -15750,21 +17389,6 @@
       "degree": 0
     },
     {
-      "id": "per_qinu",
-      "label": "绮女",
-      "canonical": "绮女",
-      "aliases": [
-        "绮女"
-      ],
-      "merged_ids": [
-        "per_qinv",
-        "per_qinu",
-        "per_qi_nu",
-        "per_qi_nv"
-      ],
-      "degree": 6
-    },
-    {
       "id": "per_chen_shou_an",
       "label": "陈寿庵",
       "canonical": "陈寿庵",
@@ -15812,18 +17436,6 @@
         "per_zou_shugao"
       ],
       "degree": 3
-    },
-    {
-      "id": "per_tang_fuzhi",
-      "label": "唐辅之",
-      "canonical": "唐辅之",
-      "aliases": [
-        "唐辅之"
-      ],
-      "merged_ids": [
-        "per_tang_fuzhi"
-      ],
-      "degree": 2
     },
     {
       "id": "per_xu_shiying",
@@ -16501,7 +18113,7 @@
         "per_lin_fu",
         "per_linfu"
       ],
-      "degree": 0
+      "degree": 1
     },
     {
       "id": "per_zhangshun",
@@ -18068,18 +19680,6 @@
       "degree": 0
     },
     {
-      "id": "per_xu_jiyu",
-      "label": "徐积余",
-      "canonical": "徐积余",
-      "aliases": [
-        "徐积余"
-      ],
-      "merged_ids": [
-        "per_xu_jiyu"
-      ],
-      "degree": 50
-    },
-    {
       "id": "per_li_bengong",
       "label": "李本公",
       "canonical": "李本公",
@@ -18309,18 +19909,6 @@
       "degree": 1
     },
     {
-      "id": "per_wu_xinsheng",
-      "label": "吴欣生",
-      "canonical": "吴欣生",
-      "aliases": [
-        "吴欣生"
-      ],
-      "merged_ids": [
-        "per_wu_xinsheng"
-      ],
-      "degree": 2
-    },
-    {
       "id": "per_shu_xunyan",
       "label": "束勛俨",
       "canonical": "束勛俨",
@@ -18427,7 +20015,7 @@
         "per_lusheng",
         "per_lu_sheng"
       ],
-      "degree": 2
+      "degree": 1
     },
     {
       "id": "per_fengchi",
@@ -18501,7 +20089,7 @@
         "per_shaozhi",
         "per_shao_zhi"
       ],
-      "degree": 3
+      "degree": 2
     },
     {
       "id": "per_tao_zhihua",
@@ -19079,18 +20667,6 @@
       ],
       "merged_ids": [
         "per_tian_ying"
-      ],
-      "degree": 0
-    },
-    {
-      "id": "per_jia_chaosun",
-      "label": "贾巢孙",
-      "canonical": "贾巢孙",
-      "aliases": [
-        "贾巢孙"
-      ],
-      "merged_ids": [
-        "per_jia_chaosun"
       ],
       "degree": 0
     },
@@ -19790,18 +21366,6 @@
       "degree": 0
     },
     {
-      "id": "per_shu_yan",
-      "label": "叔言",
-      "canonical": "叔言",
-      "aliases": [
-        "叔言"
-      ],
-      "merged_ids": [
-        "per_shu_yan"
-      ],
-      "degree": 1
-    },
-    {
       "id": "per_feng",
       "label": "冯",
       "canonical": "冯",
@@ -20031,19 +21595,6 @@
         "per_zijing"
       ],
       "degree": 14
-    },
-    {
-      "id": "per_younan",
-      "label": "幼南",
-      "canonical": "幼南",
-      "aliases": [
-        "幼南"
-      ],
-      "merged_ids": [
-        "per_younan",
-        "per_you_nan"
-      ],
-      "degree": 5
     },
     {
       "id": "per_sun_shenru",
@@ -20356,18 +21907,6 @@
         "per_rao_sheng"
       ],
       "degree": 8
-    },
-    {
-      "id": "per_zhou_bixiang",
-      "label": "周必祥",
-      "canonical": "周必祥",
-      "aliases": [
-        "周必祥"
-      ],
-      "merged_ids": [
-        "per_zhou_bixiang"
-      ],
-      "degree": 2
     },
     {
       "id": "per_yang_ziqin",
@@ -20849,20 +22388,6 @@
       "degree": 1
     },
     {
-      "id": "per_zhang_rangsan",
-      "label": "张让三",
-      "canonical": "张让三",
-      "aliases": [
-        "让三",
-        "张让三"
-      ],
-      "merged_ids": [
-        "per_rangsan",
-        "per_zhang_rangsan"
-      ],
-      "degree": 4
-    },
-    {
       "id": "per_zhou_tan",
       "label": "周坦",
       "canonical": "周坦",
@@ -20995,18 +22520,6 @@
         "per_mengshao"
       ],
       "degree": 0
-    },
-    {
-      "id": "per_wang_leixia",
-      "label": "王雷夏",
-      "canonical": "王雷夏",
-      "aliases": [
-        "王雷夏"
-      ],
-      "merged_ids": [
-        "per_wang_leixia"
-      ],
-      "degree": 4
     },
     {
       "id": "per_wang_songge",
@@ -21992,30 +23505,6 @@
       "degree": 0
     },
     {
-      "id": "per_wang_xuecen",
-      "label": "王雪岑",
-      "canonical": "王雪岑",
-      "aliases": [
-        "王雪岑"
-      ],
-      "merged_ids": [
-        "per_wang_xuecen"
-      ],
-      "degree": 1
-    },
-    {
-      "id": "per_guo_lizheng",
-      "label": "郭礼征",
-      "canonical": "郭礼征",
-      "aliases": [
-        "郭礼征"
-      ],
-      "merged_ids": [
-        "per_guo_lizheng"
-      ],
-      "degree": 9
-    },
-    {
       "id": "per_gu_heyi",
       "label": "顾鹤逸",
       "canonical": "顾麟士",
@@ -22146,20 +23635,6 @@
         "per_zhang_duban"
       ],
       "degree": 1
-    },
-    {
-      "id": "per_zhu_fenglin",
-      "label": "朱凤林",
-      "canonical": "朱凤林",
-      "aliases": [
-        "朱凤林",
-        "凤林",
-        "朱凤子"
-      ],
-      "merged_ids": [
-        "per_zhu_fenglin"
-      ],
-      "degree": 3
     },
     {
       "id": "per_tang_ziying",
@@ -23023,18 +24498,6 @@
       "degree": 0
     },
     {
-      "id": "per_yang_pei",
-      "label": "杨霈",
-      "canonical": "杨霈",
-      "aliases": [
-        "杨霈"
-      ],
-      "merged_ids": [
-        "per_yang_pei"
-      ],
-      "degree": 0
-    },
-    {
       "id": "per_xie_bangqing",
       "label": "谢邦清",
       "canonical": "谢邦清",
@@ -23620,13 +25083,15 @@
       "label": "陈立炎",
       "canonical": "陈立炎",
       "aliases": [
-        "陈立炎"
+        "陈立炎",
+        "立炎"
       ],
       "merged_ids": [
         "per_chen_liyan",
+        "per_li_yan",
         "per_chen_lihan"
       ],
-      "degree": 7
+      "degree": 8
     },
     {
       "id": "per_xie_jinzhang",
@@ -24117,31 +25582,6 @@
       "degree": 0
     },
     {
-      "id": "per_zhou_jicheng",
-      "label": "周季诚",
-      "canonical": "周季诚",
-      "aliases": [
-        "周季诚"
-      ],
-      "merged_ids": [
-        "per_zhou_jicheng"
-      ],
-      "degree": 0
-    },
-    {
-      "id": "per_liu_hongfu",
-      "label": "刘鸿父",
-      "canonical": "刘鸿父（刘贻忻，贵池）",
-      "aliases": [
-        "刘鸿父",
-        "鸿夫"
-      ],
-      "merged_ids": [
-        "per_liu_hongfu"
-      ],
-      "degree": 2
-    },
-    {
       "id": "per_qu_xinshe",
       "label": "瞿莘畲",
       "canonical": "瞿莘畲（瞿鸿宝，武昌县知事）",
@@ -24150,6 +25590,7 @@
         "鸿宝"
       ],
       "merged_ids": [
+        "per_qu_shenshe",
         "per_qu_xinshe"
       ],
       "degree": 1
@@ -25666,18 +27107,6 @@
       "degree": 0
     },
     {
-      "id": "per_yao_wentian",
-      "label": "姚文田",
-      "canonical": "姚文田",
-      "aliases": [
-        "姚文田"
-      ],
-      "merged_ids": [
-        "per_yao_wentian"
-      ],
-      "degree": 0
-    },
-    {
       "id": "per_sun_xingyan",
       "label": "孙星衍",
       "canonical": "孙星衍",
@@ -25846,7 +27275,7 @@
         "per_lv_gaoyu",
         "per_lu_gaoyu"
       ],
-      "degree": 4
+      "degree": 5
     },
     {
       "id": "per_zhang_xuean",
@@ -25973,12 +27402,16 @@
       "label": "冯梦帅",
       "canonical": "冯梦帅",
       "aliases": [
+        "梦帅",
+        "梦老",
+        "冯梦老",
         "冯梦帅"
       ],
       "merged_ids": [
+        "per_meng_shuai",
         "per_feng_mengshuai"
       ],
-      "degree": 1
+      "degree": 3
     },
     {
       "id": "per_sheng_furen",
@@ -28960,21 +30393,6 @@
       "degree": 2
     },
     {
-      "id": "per_di_zhancheng",
-      "label": "翟展成",
-      "canonical": "翟展成",
-      "aliases": [
-        "翟展成",
-        "展成"
-      ],
-      "merged_ids": [
-        "per_zhai_zhancheng",
-        "per_di_zhancheng",
-        "per_zhan_chengcheng"
-      ],
-      "degree": 20
-    },
-    {
       "id": "per_wang_zuoling",
       "label": "汪作灵",
       "canonical": "汪作灵",
@@ -30146,18 +31564,6 @@
       ],
       "merged_ids": [
         "per_zhang_mozhai"
-      ],
-      "degree": 0
-    },
-    {
-      "id": "per_luo_liangfeng",
-      "label": "罗两峰",
-      "canonical": "罗两峰",
-      "aliases": [
-        "罗两峰"
-      ],
-      "merged_ids": [
-        "per_luo_liangfeng"
       ],
       "degree": 0
     },
@@ -31383,18 +32789,6 @@
       "degree": 0
     },
     {
-      "id": "per_cao_liangting",
-      "label": "曹楝亭",
-      "canonical": "曹楝亭",
-      "aliases": [
-        "曹楝亭"
-      ],
-      "merged_ids": [
-        "per_cao_liangting"
-      ],
-      "degree": 0
-    },
-    {
       "id": "per_guo_shouzheng",
       "label": "郭守正",
       "canonical": "郭守正",
@@ -31835,9 +33229,10 @@
         "华卿"
       ],
       "merged_ids": [
+        "per_hua_qing",
         "per_huaqing"
       ],
-      "degree": 1
+      "degree": 2
     },
     {
       "id": "per_jingli",
@@ -32098,18 +33493,6 @@
       "degree": 3
     },
     {
-      "id": "per_chen_shilu",
-      "label": "陈石庐",
-      "canonical": "陈石庐(劭吾)",
-      "aliases": [
-        "陈石庐"
-      ],
-      "merged_ids": [
-        "per_chen_shilu"
-      ],
-      "degree": 3
-    },
-    {
       "id": "per_wei_yizhou",
       "label": "魏邑周",
       "canonical": "魏邑周",
@@ -32303,18 +33686,6 @@
         "per_dong_diqing"
       ],
       "degree": 0
-    },
-    {
-      "id": "per_zou_shuqie",
-      "label": "邹树锲",
-      "canonical": "邹树锲",
-      "aliases": [
-        "邹树锲"
-      ],
-      "merged_ids": [
-        "per_zou_shuqie"
-      ],
-      "degree": 1
     },
     {
       "id": "per_jiang_nitang",
@@ -32655,32 +34026,6 @@
         "per_zhou_xiaochang"
       ],
       "degree": 0
-    },
-    {
-      "id": "per_wu_daquan",
-      "label": "吴达泉",
-      "canonical": "吴达泉",
-      "aliases": [
-        "吴达泉"
-      ],
-      "merged_ids": [
-        "per_wu_daquan"
-      ],
-      "degree": 0
-    },
-    {
-      "id": "per_hua_qing",
-      "label": "吴华卿",
-      "canonical": "吴华卿",
-      "aliases": [
-        "吴华卿",
-        "华卿"
-      ],
-      "merged_ids": [
-        "per_wu_huaqing",
-        "per_hua_qing"
-      ],
-      "degree": 5
     },
     {
       "id": "per_zhang_yawei",
@@ -33588,18 +34933,6 @@
       "degree": 1
     },
     {
-      "id": "per_li_xiaofu",
-      "label": "李小扶",
-      "canonical": "李小扶",
-      "aliases": [
-        "李小扶"
-      ],
-      "merged_ids": [
-        "per_li_xiaofu"
-      ],
-      "degree": 1
-    },
-    {
       "id": "per_li_yuanhong",
       "label": "黎元洪",
       "canonical": "黎元洪",
@@ -33757,18 +35090,6 @@
       "degree": 0
     },
     {
-      "id": "per_tian_xianchen",
-      "label": "田献臣",
-      "canonical": "田献臣(国)",
-      "aliases": [
-        "田献臣"
-      ],
-      "merged_ids": [
-        "per_tian_xianchen"
-      ],
-      "degree": 4
-    },
-    {
       "id": "per_hu_chaoxuan",
       "label": "胡朝选",
       "canonical": "胡朝选(文楼)",
@@ -33916,19 +35237,6 @@
         "per_tang_shouqing"
       ],
       "degree": 1
-    },
-    {
-      "id": "per_zong_weichuan",
-      "label": "宗渭川",
-      "canonical": "宗之瑜(渭川)",
-      "aliases": [
-        "宗渭川",
-        "宗之瑜"
-      ],
-      "merged_ids": [
-        "per_zong_weichuan"
-      ],
-      "degree": 4
     },
     {
       "id": "per_wu_yunxuan",
@@ -34368,18 +35676,6 @@
       ],
       "merged_ids": [
         "per_chen_jiean_jiean"
-      ],
-      "degree": 0
-    },
-    {
-      "id": "per_ni_chunru",
-      "label": "倪春如",
-      "canonical": "倪春如",
-      "aliases": [
-        "倪春如"
-      ],
-      "merged_ids": [
-        "per_ni_chunru"
       ],
       "degree": 0
     },
@@ -34987,18 +36283,6 @@
         "per_an_songping"
       ],
       "degree": 2
-    },
-    {
-      "id": "per_xu_guanxun",
-      "label": "徐贯恂",
-      "canonical": "徐贯恂",
-      "aliases": [
-        "徐贯恂"
-      ],
-      "merged_ids": [
-        "per_xu_guanxun"
-      ],
-      "degree": 4
     },
     {
       "id": "per_zhao_zifu",
@@ -40639,7 +41923,7 @@
     },
     {
       "source": "per_xu_naichang",
-      "target": "per_hua_qing",
+      "target": "per_wu_huaqing",
       "relation": "致书",
       "confidence": "EXTRACTED",
       "evidence": "覆吴华卿书",
@@ -41695,7 +42979,7 @@
     },
     {
       "source": "per_xu_naichang",
-      "target": "per_wang_jingan",
+      "target": "per_wang_jing_an",
       "relation": "拜访",
       "confidence": "EXTRACTED",
       "evidence": "答拜王静庵,未晤",
@@ -42463,7 +43747,7 @@
     },
     {
       "source": "per_xu_naichang",
-      "target": "per_wang_jingan",
+      "target": "per_wang_jing_an",
       "relation": "致书",
       "confidence": "EXTRACTED",
       "evidence": "函王静庵，赠旧藏殷墟书契拓本三百廿四片",
@@ -42471,7 +43755,7 @@
     },
     {
       "source": "per_xu_naichang",
-      "target": "per_wang_jingan",
+      "target": "per_wang_jing_an",
       "relation": "赠",
       "confidence": "EXTRACTED",
       "evidence": "赠旧藏殷墟书契拓本三百廿四片",
@@ -42524,6 +43808,70 @@
       "confidence": "EXTRACTED",
       "evidence": "假读李元之祖宾嶠先生祖望",
       "date": "1923-03-25"
+    },
+    {
+      "source": "per_chen_naiqian",
+      "target": "per_wu_huaqing",
+      "relation": "拜访",
+      "confidence": "INFERRED",
+      "evidence": "陈乃乾来",
+      "date": "1923-03-27"
+    },
+    {
+      "source": "per_shen_cihu",
+      "target": "per_wu_huaqing",
+      "relation": "拜访",
+      "confidence": "EXTRACTED",
+      "evidence": "昨，沈慈护来，未晤",
+      "date": "1923-03-27"
+    },
+    {
+      "source": "per_jisan_yinzhen",
+      "target": "per_zongliang",
+      "relation": "拜访",
+      "confidence": "EXTRACTED",
+      "evidence": "先一日至，绍介见本寺方丈宗亮监院",
+      "date": "1923-03-28"
+    },
+    {
+      "source": "per_ouyi_dashi",
+      "target": "per_lianchi_dashi",
+      "relation": "师友",
+      "confidence": "EXTRACTED",
+      "evidence": "溝师台宗净土宗莲池大师弟子",
+      "date": "1923-03-29"
+    },
+    {
+      "source": "per_chen_shaowu",
+      "target": "per_chen_xiwen",
+      "relation": "致书",
+      "confidence": "EXTRACTED",
+      "evidence": "陈劭吾来书,汇来《正谊堂全书》价卅五元，属将全书带芜湖",
+      "date": "1923-04-03"
+    },
+    {
+      "source": "per_chen_shaowu",
+      "target": "per_chen_xiwen",
+      "relation": "转交",
+      "confidence": "EXTRACTED",
+      "evidence": "属将全书带芜湖...广裕茶号陈希文收",
+      "date": "1923-04-03"
+    },
+    {
+      "source": "per_yu_yaoqu",
+      "target": "per_chen_jiean",
+      "relation": "拜访",
+      "confidence": "EXTRACTED",
+      "evidence": "访余尧衢、陈戒安谭",
+      "date": "1923-04-04"
+    },
+    {
+      "source": "per_wang_jing_an",
+      "target": "per_lu_gaoyu",
+      "relation": "拜访",
+      "confidence": "EXTRACTED",
+      "evidence": "又访王静庵、吕皋俞，不遇",
+      "date": "1923-04-04"
     },
     {
       "source": "per_xu_naichang",
@@ -42838,6 +44186,262 @@
       "date": "1920-06-06"
     },
     {
+      "source": "per_xu_naichang",
+      "target": "per_pu_shi",
+      "relation": "赠",
+      "confidence": "EXTRACTED",
+      "evidence": "还蒲师《法华台宗会义》",
+      "date": "1923-04-05"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_bo_ke",
+      "relation": "转交",
+      "confidence": "EXTRACTED",
+      "evidence": "仍交大达转寄如皋",
+      "date": "1923-04-06"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_feng_guangjiu",
+      "relation": "致书",
+      "confidence": "EXTRACTED",
+      "evidence": "覆冯光久书",
+      "date": "1923-04-07"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_li_mugong",
+      "relation": "同席",
+      "confidence": "EXTRACTED",
+      "evidence": "晚,赴李木公一品香西餐之约",
+      "date": "1923-04-07"
+    },
+    {
+      "source": "per_liu_baosheng",
+      "target": "per_xu_naichang",
+      "relation": "拜访",
+      "confidence": "EXTRACTED",
+      "evidence": "刘宝生来假款",
+      "date": "1923-04-11"
+    },
+    {
+      "source": "per_liu_baosheng",
+      "target": "per_xu_naichang",
+      "relation": "资助",
+      "confidence": "EXTRACTED",
+      "evidence": "刘宝生来假款,婉言覆之",
+      "date": "1923-04-11"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_ding_zhongku",
+      "relation": "拜访",
+      "confidence": "EXTRACTED",
+      "evidence": "至丁仲枯谭",
+      "date": "1923-04-11"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_zhao_younan",
+      "relation": "拜访",
+      "confidence": "EXTRACTED",
+      "evidence": "晤吕皋俞、赵幼南",
+      "date": "1923-04-11"
+    },
+    {
+      "source": "per_sui_qi",
+      "target": "per_xu_naichang",
+      "relation": "赠",
+      "confidence": "EXTRACTED",
+      "evidence": "绥祺赠《明诗综目录》",
+      "date": "1923-04-11"
+    },
+    {
+      "source": "per_feng_mengshuai",
+      "target": "per_xu_naichang",
+      "relation": "拜访",
+      "confidence": "EXTRACTED",
+      "evidence": "昨梦帅来,未晤",
+      "date": "1923-04-11"
+    },
+    {
+      "source": "per_rui_zhu",
+      "target": "per_xu_naichang",
+      "relation": "亲属",
+      "confidence": "EXTRACTED",
+      "evidence": "大女蕊珠自合肥来电",
+      "date": "1923-04-11"
+    },
+    {
+      "source": "per_yao_ziliang_furen",
+      "target": "per_xu_naichang",
+      "relation": "致书",
+      "confidence": "EXTRACTED",
+      "evidence": "姚子梁夫人 讥至",
+      "date": "1923-04-12"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_yao_ziliang_furen",
+      "relation": "赠",
+      "confidence": "EXTRACTED",
+      "evidence": "送呢布幃",
+      "date": "1923-04-12"
+    },
+    {
+      "source": "per_cao_kuiyi",
+      "target": "per_xu_naichang",
+      "relation": "致书",
+      "confidence": "EXTRACTED",
+      "evidence": "曹夔一 讥书至",
+      "date": "1923-04-12"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_cao_kuiyi",
+      "relation": "赠",
+      "confidence": "EXTRACTED",
+      "evidence": "送呢幃",
+      "date": "1923-04-12"
+    },
+    {
+      "source": "per_sun_xingru",
+      "target": "per_xu_naichang",
+      "relation": "致书",
+      "confidence": "EXTRACTED",
+      "evidence": "孙星如 讥书至",
+      "date": "1923-04-12"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_zou_shuqie",
+      "relation": "赠",
+      "confidence": "EXTRACTED",
+      "evidence": "邹树锲廿九日娶媳,送分洋捌元",
+      "date": "1923-04-12"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_jiang_yiyuan",
+      "relation": "致书",
+      "confidence": "EXTRACTED",
+      "evidence": "复江易园书",
+      "date": "1923-04-12"
+    },
+    {
+      "source": "per_jia_yuan",
+      "target": "per_xu_naichang",
+      "relation": "致书",
+      "confidence": "EXTRACTED",
+      "evidence": "家源覆电,云父叔颜滋事",
+      "date": "1923-04-12"
+    },
+    {
+      "source": "per_wang_leixia",
+      "target": "per_xu_naichang",
+      "relation": "拜访",
+      "confidence": "EXTRACTED",
+      "evidence": "王雷夏来,不晤",
+      "date": "1923-04-12"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_feng_mengshuai",
+      "relation": "拜访",
+      "confidence": "EXTRACTED",
+      "evidence": "答拜冯梦老,未晤",
+      "date": "1923-04-13"
+    },
+    {
+      "source": "per_li_jianren",
+      "target": "per_xu_naichang",
+      "relation": "拜访",
+      "confidence": "EXTRACTED",
+      "evidence": "李健人来谭",
+      "date": "1923-04-13"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_bo_qiyan",
+      "relation": "致书",
+      "confidence": "EXTRACTED",
+      "evidence": "先致书企颜",
+      "date": "1923-04-13"
+    },
+    {
+      "source": "per_liu_gonglu",
+      "target": "per_xu_naichang",
+      "relation": "拜访",
+      "confidence": "EXTRACTED",
+      "evidence": "刘公鲁来,假《艺术丛编》",
+      "date": "1923-04-13"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_liu_gonglu",
+      "relation": "资助",
+      "confidence": "EXTRACTED",
+      "evidence": "刘公鲁来,假《艺术丛编》",
+      "date": "1923-04-13"
+    },
+    {
+      "source": "per_ma_lansheng",
+      "target": "per_xu_naichang",
+      "relation": "拜访",
+      "confidence": "EXTRACTED",
+      "evidence": "马兰生由宁来",
+      "date": "1923-04-13"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_chen_xiwen",
+      "relation": "转交",
+      "confidence": "EXTRACTED",
+      "evidence": "陈劭吾所购《正谊堂全书》今带芜湖交广裕茶号陈希文",
+      "date": "1923-04-13"
+    },
+    {
+      "source": "per_shupo",
+      "target": "per_xu_naichang",
+      "relation": "亲属",
+      "confidence": "INFERRED",
+      "evidence": "淑魄挈绮女附隆和轮至肥",
+      "date": "1923-04-13"
+    },
+    {
+      "source": "per_qinu",
+      "target": "per_xu_naichang",
+      "relation": "亲属",
+      "confidence": "INFERRED",
+      "evidence": "绮女附隆和轮至肥",
+      "date": "1923-04-13"
+    },
+    {
+      "source": "per_qiu_shi",
+      "target": "per_jiang_xun",
+      "relation": "亲属",
+      "confidence": "EXTRACTED",
+      "evidence": "江干九、恂。秋史德量。父子手校也",
+      "date": "1923-04-14"
+    },
+    {
+      "source": "per_liu_gonglu",
+      "target": "per_xu_naichang",
+      "relation": "致书",
+      "confidence": "EXTRACTED",
+      "evidence": "刘公鲁函假《艺术丛编》九期至廿四期",
+      "date": "1923-04-14"
+    },
+    {
+      "source": "per_chongr",
+      "target": "per_xu_naichang",
+      "relation": "亲属",
+      "confidence": "EXTRACTED",
+      "evidence": "命崇儿至陈乃乾家",
+      "date": "1923-04-14"
+    },
+    {
       "source": "per_yang_yongqiu",
       "target": "per_xu_naichang",
       "relation": "拜访",
@@ -43036,6 +44640,358 @@
       "confidence": "EXTRACTED",
       "evidence": "刘葱石来，不遇",
       "date": "1923-04-23"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_li_zhongshuai",
+      "relation": "拜访",
+      "confidence": "EXTRACTED",
+      "evidence": "访李仲帅、李木公，不晤",
+      "date": "1923-04-24"
+    },
+    {
+      "source": "per_zong_zidai",
+      "target": "per_chen_naiqian",
+      "relation": "赠",
+      "confidence": "EXTRACTED",
+      "evidence": "赠陈乃乾唐李阳冰\"天清地宁\"四字",
+      "date": "1923-04-24"
+    },
+    {
+      "source": "per_zong_zidai",
+      "target": "per_xu_naichang",
+      "relation": "赠",
+      "confidence": "EXTRACTED",
+      "evidence": "子戴赠婺拓两种，留存儿子",
+      "date": "1923-04-24"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_wu_jichen",
+      "relation": "同席",
+      "confidence": "EXTRACTED",
+      "evidence": "同行者吴寄尘、李拔可、蒋孟蘋、周渭滨",
+      "date": "1923-04-24"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_zhu_baosan",
+      "relation": "致书",
+      "confidence": "INFERRED",
+      "evidence": "朱葆三十四日娶子妇",
+      "date": "1923-04-24"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_sha_jianan",
+      "relation": "拜访",
+      "confidence": "EXTRACTED",
+      "evidence": "同寄尘、拔可先访沙健庵，适李耆卿在座",
+      "date": "1923-04-25"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_tui_lao",
+      "relation": "拜访",
+      "confidence": "EXTRACTED",
+      "evidence": "先后访退、嗇两老暨孝若兄，略谭",
+      "date": "1923-04-25"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_zhang_xiaoruo",
+      "relation": "拜访",
+      "confidence": "EXTRACTED",
+      "evidence": "先后访退、嗇两老暨孝若兄",
+      "date": "1923-04-25"
+    },
+    {
+      "source": "per_tui_lao",
+      "target": "per_xu_naichang",
+      "relation": "拜访",
+      "confidence": "EXTRACTED",
+      "evidence": "九时，退老来谭",
+      "date": "1923-04-25"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_jiang_zhiyuan",
+      "relation": "同席",
+      "confidence": "EXTRACTED",
+      "evidence": "知源、作三、孟蘋、拔可共晚膳、闲话",
+      "date": "1923-04-25"
+    },
+    {
+      "source": "per_zhang_xiaoruo",
+      "target": "per_xu_naichang",
+      "relation": "拜访",
+      "confidence": "EXTRACTED",
+      "evidence": "张孝若来",
+      "date": "1923-04-25"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_li_xiaofu",
+      "relation": "拜访",
+      "confidence": "EXTRACTED",
+      "evidence": "访李晓夫谭。桢，绍兴",
+      "date": "1923-04-26"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_lu_hanpin",
+      "relation": "拜访",
+      "confidence": "EXTRACTED",
+      "evidence": "又访张孝若、卢汉蘋，不遇",
+      "date": "1923-04-26"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_wu_xinsheng",
+      "relation": "拜访",
+      "confidence": "EXTRACTED",
+      "evidence": "访吴欣生谭，遇孝若、耆卿",
+      "date": "1923-04-26"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_shun_chen",
+      "relation": "资助",
+      "confidence": "EXTRACTED",
+      "evidence": "荐吴舜臣之世兄于芜湖交通行陈习生",
+      "date": "1923-04-26"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_zuosan",
+      "relation": "同席",
+      "confidence": "EXTRACTED",
+      "evidence": "作三约午刻至唐闸酒叙",
+      "date": "1923-04-26"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_jiang_xiatang",
+      "relation": "转交",
+      "confidence": "EXTRACTED",
+      "evidence": "留片交暇堂，转致实业各公司同人",
+      "date": "1923-04-26"
+    },
+    {
+      "source": "per_zhang_xiaoruo",
+      "target": "per_xu_naichang",
+      "relation": "同席",
+      "confidence": "EXTRACTED",
+      "evidence": "孝若约俱乐部西餐",
+      "date": "1923-04-26"
+    },
+    {
+      "source": "per_dan_shaotang",
+      "target": "per_xu_naichang",
+      "relation": "拜访",
+      "confidence": "EXTRACTED",
+      "evidence": "单少堂来，乞书屏联",
+      "date": "1923-04-26"
+    },
+    {
+      "source": "per_li_xiaofu",
+      "target": "per_xu_naichang",
+      "relation": "拜访",
+      "confidence": "EXTRACTED",
+      "evidence": "李晓夫来答拜",
+      "date": "1923-04-26"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_jia_chaosun",
+      "relation": "同席",
+      "confidence": "EXTRACTED",
+      "evidence": "同贾巢孙拜袁南生、束劭直、江知源",
+      "date": "1923-04-28"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_yuan_nansheng",
+      "relation": "拜访",
+      "confidence": "EXTRACTED",
+      "evidence": "同贾巢孙拜袁南生、束劭直、江知源",
+      "date": "1923-04-28"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_shu_shaozhi",
+      "relation": "拜访",
+      "confidence": "EXTRACTED",
+      "evidence": "同贾巢孙拜袁南生、束劭直、江知源",
+      "date": "1923-04-28"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_jiang_zhiyuan",
+      "relation": "拜访",
+      "confidence": "EXTRACTED",
+      "evidence": "同贾巢孙拜袁南生、束劭直、江知源",
+      "date": "1923-04-28"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_xu_junren",
+      "relation": "拜访",
+      "confidence": "EXTRACTED",
+      "evidence": "嗇老晚约许隽人俱乐部西餐，招往作陪。先拜隽人",
+      "date": "1923-04-28"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_qian_xinzhi",
+      "relation": "同席",
+      "confidence": "EXTRACTED",
+      "evidence": "途遇钱新之，晚亦共饭，复以吴事相托",
+      "date": "1923-04-28"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_chen_shilu",
+      "relation": "拜访",
+      "confidence": "EXTRACTED",
+      "evidence": "访陈石庐谭，交联、扇",
+      "date": "1923-04-29"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_feng_guangjiu",
+      "relation": "同席",
+      "confidence": "EXTRACTED",
+      "evidence": "同冯光久访周季诚、徐贯恂、高楚秋",
+      "date": "1923-04-29"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_zhou_jicheng",
+      "relation": "拜访",
+      "confidence": "EXTRACTED",
+      "evidence": "同冯光久访周季诚、徐贯恂、高楚秋",
+      "date": "1923-04-29"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_xu_guanxun",
+      "relation": "拜访",
+      "confidence": "EXTRACTED",
+      "evidence": "同冯光久访周季诚、徐贯恂、高楚秋",
+      "date": "1923-04-29"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_gao_chuqiu",
+      "relation": "拜访",
+      "confidence": "EXTRACTED",
+      "evidence": "同冯光久访周季诚、徐贯恂、高楚秋",
+      "date": "1923-04-29"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_tao_zichun",
+      "relation": "转交",
+      "confidence": "EXTRACTED",
+      "evidence": "交陶子春名条，转致税务所长",
+      "date": "1923-04-30"
+    },
+    {
+      "source": "per_xu_guanxun",
+      "target": "per_xu_naichang",
+      "relation": "同席",
+      "confidence": "EXTRACTED",
+      "evidence": "贯恂约俱乐部西餐",
+      "date": "1923-05-01"
+    },
+    {
+      "source": "per_feng_hanchu",
+      "target": "per_xu_naichang",
+      "relation": "拜访",
+      "confidence": "EXTRACTED",
+      "evidence": "晨冯涵初微。来，未晤",
+      "date": "1923-05-02"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_feng_hanchu",
+      "relation": "拜访",
+      "confidence": "EXTRACTED",
+      "evidence": "答拜冯涵初",
+      "date": "1923-05-02"
+    },
+    {
+      "source": "per_shupo",
+      "target": "per_linfu",
+      "relation": "致书",
+      "confidence": "INFERRED",
+      "evidence": "淑魄先派林福回沪",
+      "date": "1923-05-03"
+    },
+    {
+      "source": "per_tao_linshu",
+      "target": "per_xu_naichang",
+      "relation": "致书",
+      "confidence": "EXTRACTED",
+      "evidence": "陶琳书来，菊侍",
+      "date": "1923-05-04"
+    },
+    {
+      "source": "per_tao_linshu",
+      "target": "per_xu_naichang",
+      "relation": "赠",
+      "confidence": "EXTRACTED",
+      "evidence": "送礼四色",
+      "date": "1923-05-04"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_chen_lihan",
+      "relation": "致书",
+      "confidence": "EXTRACTED",
+      "evidence": "另函立炎完全负责",
+      "date": "1923-05-04"
+    },
+    {
+      "source": "per_chen_lihan",
+      "target": "per_xu_naichang",
+      "relation": "商务",
+      "confidence": "EXTRACTED",
+      "evidence": "立炎假《抱经堂文集》卷十四、卷卅九",
+      "date": "1923-05-04"
+    },
+    {
+      "source": "per_yang_yunshi",
+      "target": "per_xu_naichang",
+      "relation": "致书",
+      "confidence": "EXTRACTED",
+      "evidence": "杨云史来函",
+      "date": "1923-05-04"
+    },
+    {
+      "source": "per_ma_lansheng",
+      "target": "per_xiangfu",
+      "relation": "致书",
+      "confidence": "EXTRACTED",
+      "evidence": "马兰生已函托象甫",
+      "date": "1923-05-04"
+    },
+    {
+      "source": "per_xu_naichang",
+      "target": "per_wu_fusheng",
+      "relation": "致书",
+      "confidence": "EXTRACTED",
+      "evidence": "又函寄吴孚盛",
+      "date": "1923-05-04"
+    },
+    {
+      "source": "per_jia_yuan",
+      "target": "per_xu_naichang",
+      "relation": "亲属",
+      "confidence": "EXTRACTED",
+      "evidence": "挈大女暨外孙家源来沪",
+      "date": "1923-05-03"
     },
     {
       "source": "per_shu_yongzhi",
@@ -44550,7 +46506,7 @@
       "date": "1920-09-09"
     },
     {
-      "source": "per_wang_jingan",
+      "source": "per_wang_jing_an",
       "target": "per_xu_naichang",
       "relation": "拜访",
       "confidence": "EXTRACTED",
@@ -44558,7 +46514,7 @@
       "date": "1920-09-09"
     },
     {
-      "source": "per_wang_jingan",
+      "source": "per_wang_jing_an",
       "target": "per_xu_naichang",
       "relation": "赠",
       "confidence": "EXTRACTED",
@@ -44636,14 +46592,6 @@
       "confidence": "AMBIGUOUS",
       "evidence": "静庵书来,云龟甲拓本雪堂选余之半",
       "date": "1920-09-12"
-    },
-    {
-      "source": "per_xu_naichang",
-      "target": "per_li_zhongshuai",
-      "relation": "拜访",
-      "confidence": "EXTRACTED",
-      "evidence": "拜李仲帅,未晤(by 徐乃昌)",
-      "date": "1920-09-14"
     },
     {
       "source": "per_xu_naichang",
@@ -45446,15 +47394,7 @@
       "date": "1920-11-10"
     },
     {
-      "source": "per_xu_jiyu",
-      "target": "per_jiang_ganqing",
-      "relation": "拜访",
-      "confidence": "EXTRACTED",
-      "evidence": "晨至江幹卿处谈话",
-      "date": "1920-11-11"
-    },
-    {
-      "source": "per_xu_jiyu",
+      "source": "per_xu_naichang",
       "target": "per_xiyuan",
       "relation": "拜访",
       "confidence": "EXTRACTED",
@@ -45462,7 +47402,7 @@
       "date": "1920-11-11"
     },
     {
-      "source": "per_xu_jiyu",
+      "source": "per_xu_naichang",
       "target": "per_lisheng",
       "relation": "拜访",
       "confidence": "EXTRACTED",
@@ -45470,7 +47410,7 @@
       "date": "1920-11-11"
     },
     {
-      "source": "per_xu_jiyu",
+      "source": "per_xu_naichang",
       "target": "per_lusheng",
       "relation": "拜访",
       "confidence": "EXTRACTED",
@@ -45478,7 +47418,7 @@
       "date": "1920-11-11"
     },
     {
-      "source": "per_xu_jiyu",
+      "source": "per_xu_naichang",
       "target": "per_fengchi",
       "relation": "拜访",
       "confidence": "EXTRACTED",
@@ -45486,7 +47426,7 @@
       "date": "1920-11-11"
     },
     {
-      "source": "per_xu_jiyu",
+      "source": "per_xu_naichang",
       "target": "per_yijin",
       "relation": "拜访",
       "confidence": "EXTRACTED",
@@ -45494,7 +47434,7 @@
       "date": "1920-11-11"
     },
     {
-      "source": "per_xu_jiyu",
+      "source": "per_xu_naichang",
       "target": "per_shaozhi",
       "relation": "拜访",
       "confidence": "EXTRACTED",
@@ -45502,7 +47442,7 @@
       "date": "1920-11-11"
     },
     {
-      "source": "per_xu_jiyu",
+      "source": "per_xu_naichang",
       "target": "per_yuan_yiqi",
       "relation": "拜访",
       "confidence": "EXTRACTED",
@@ -45510,15 +47450,7 @@
       "date": "1920-11-11"
     },
     {
-      "source": "per_xu_jiyu",
-      "target": "per_zhang_tuilao",
-      "relation": "拜访",
-      "confidence": "EXTRACTED",
-      "evidence": "向退老告别",
-      "date": "1920-11-11"
-    },
-    {
-      "source": "per_xu_jiyu",
+      "source": "per_xu_naichang",
       "target": "per_zhou_weige",
       "relation": "同席",
       "confidence": "EXTRACTED",
@@ -45526,7 +47458,7 @@
       "date": "1920-11-11"
     },
     {
-      "source": "per_xu_jiyu",
+      "source": "per_xu_naichang",
       "target": "per_shen_kunhe",
       "relation": "拜访",
       "confidence": "EXTRACTED",
@@ -45534,7 +47466,7 @@
       "date": "1920-11-11"
     },
     {
-      "source": "per_xu_jiyu",
+      "source": "per_xu_naichang",
       "target": "per_bao_zijing",
       "relation": "拜访",
       "confidence": "EXTRACTED",
@@ -45542,7 +47474,7 @@
       "date": "1920-11-11"
     },
     {
-      "source": "per_xu_jiyu",
+      "source": "per_xu_naichang",
       "target": "per_zhang_yuchi",
       "relation": "拜访",
       "confidence": "EXTRACTED",
@@ -45550,15 +47482,7 @@
       "date": "1920-11-11"
     },
     {
-      "source": "per_xu_jiyu",
-      "target": "per_di_zhancheng",
-      "relation": "致书",
-      "confidence": "EXTRACTED",
-      "evidence": "函寄翟展成",
-      "date": "1920-11-12"
-    },
-    {
-      "source": "per_xu_jiyu",
+      "source": "per_xu_naichang",
       "target": "per_shen_yigui",
       "relation": "拜访",
       "confidence": "EXTRACTED",
@@ -45566,7 +47490,7 @@
       "date": "1920-11-12"
     },
     {
-      "source": "per_xu_jiyu",
+      "source": "per_xu_naichang",
       "target": "per_zhang_yishan",
       "relation": "拜访",
       "confidence": "EXTRACTED",
@@ -45574,15 +47498,7 @@
       "date": "1920-11-12"
     },
     {
-      "source": "per_xu_jiyu",
-      "target": "per_zheng_taiyi",
-      "relation": "拜访",
-      "confidence": "EXTRACTED",
-      "evidence": "晤章一山、郑太夷、王叔用、刘健之",
-      "date": "1920-11-12"
-    },
-    {
-      "source": "per_xu_jiyu",
+      "source": "per_xu_naichang",
       "target": "per_wang_shuyong",
       "relation": "拜访",
       "confidence": "EXTRACTED",
@@ -45590,15 +47506,7 @@
       "date": "1920-11-12"
     },
     {
-      "source": "per_xu_jiyu",
-      "target": "per_liu_jianzhi",
-      "relation": "拜访",
-      "confidence": "EXTRACTED",
-      "evidence": "晤章一山、郑太夷、王叔用、刘健之",
-      "date": "1920-11-12"
-    },
-    {
-      "source": "per_xu_jiyu",
+      "source": "per_xu_naichang",
       "target": "per_yang_yunshi",
       "relation": "拜访",
       "confidence": "EXTRACTED",
@@ -45606,7 +47514,7 @@
       "date": "1920-11-12"
     },
     {
-      "source": "per_xu_jiyu",
+      "source": "per_xu_naichang",
       "target": "per_shen_zhixian",
       "relation": "同席",
       "confidence": "EXTRACTED",
@@ -45614,23 +47522,15 @@
       "date": "1920-11-14"
     },
     {
-      "source": "per_xu_jiyu",
-      "target": "per_chen_shaozhou",
-      "relation": "拜访",
-      "confidence": "EXTRACTED",
-      "evidence": "访陈少舟，略谭",
-      "date": "1920-11-14"
-    },
-    {
       "source": "per_bake",
-      "target": "per_xu_jiyu",
+      "target": "per_xu_naichang",
       "relation": "拜访",
       "confidence": "EXTRACTED",
       "evidence": "拔可来，不遇",
       "date": "1920-11-14"
     },
     {
-      "source": "per_xu_jiyu",
+      "source": "per_xu_naichang",
       "target": "per_shun_chen",
       "relation": "赠",
       "confidence": "EXTRACTED",
@@ -45646,31 +47546,7 @@
       "date": "1920-11-15"
     },
     {
-      "source": "per_xu_jiyu",
-      "target": "per_tao_zilin",
-      "relation": "致书",
-      "confidence": "EXTRACTED",
-      "evidence": "函复陶子麟",
-      "date": "1920-11-15"
-    },
-    {
-      "source": "per_xu_jiyu",
-      "target": "per_chen_shaozhou",
-      "relation": "致书",
-      "confidence": "EXTRACTED",
-      "evidence": "函陈少舟并洋六十五元",
-      "date": "1920-11-15"
-    },
-    {
-      "source": "per_xu_jiyu",
-      "target": "per_tao_zilin",
-      "relation": "转交",
-      "confidence": "EXTRACTED",
-      "evidence": "托汉口黄陂街义康隆号陈少舟转交",
-      "date": "1920-11-15"
-    },
-    {
-      "source": "per_xu_jiyu",
+      "source": "per_xu_naichang",
       "target": "per_li_kai",
       "relation": "商务",
       "confidence": "INFERRED",
@@ -45678,15 +47554,7 @@
       "date": "1920-11-15"
     },
     {
-      "source": "per_xu_jiyu",
-      "target": "per_wu_jichen",
-      "relation": "拜访",
-      "confidence": "EXTRACTED",
-      "evidence": "晤吴寄尘",
-      "date": "1920-11-16"
-    },
-    {
-      "source": "per_xu_jiyu",
+      "source": "per_xu_naichang",
       "target": "per_xu_changsou",
       "relation": "同席",
       "confidence": "EXTRACTED",
@@ -45694,7 +47562,7 @@
       "date": "1920-11-16"
     },
     {
-      "source": "per_xu_jiyu",
+      "source": "per_xu_naichang",
       "target": "per_shu_yongzhi",
       "relation": "同席",
       "confidence": "EXTRACTED",
@@ -45702,7 +47570,7 @@
       "date": "1920-11-16"
     },
     {
-      "source": "per_xu_jiyu",
+      "source": "per_xu_naichang",
       "target": "per_qian_lvjiu",
       "relation": "同席",
       "confidence": "EXTRACTED",
@@ -45710,7 +47578,7 @@
       "date": "1920-11-17"
     },
     {
-      "source": "per_xu_jiyu",
+      "source": "per_xu_naichang",
       "target": "per_shi_shuqi",
       "relation": "拜访",
       "confidence": "EXTRACTED",
@@ -45718,23 +47586,7 @@
       "date": "1920-11-17"
     },
     {
-      "source": "per_xu_jiyu",
-      "target": "per_zhu_jichen",
-      "relation": "拜访",
-      "confidence": "EXTRACTED",
-      "evidence": "拜杨云史、江幹卿、朱稷臣",
-      "date": "1920-11-17"
-    },
-    {
-      "source": "per_xu_jiyu",
-      "target": "per_shun_chen",
-      "relation": "致书",
-      "confidence": "EXTRACTED",
-      "evidence": "覆舜臣书",
-      "date": "1920-11-17"
-    },
-    {
-      "source": "per_xu_jiyu",
+      "source": "per_xu_naichang",
       "target": "per_yang_zhiqing",
       "relation": "致书",
       "confidence": "EXTRACTED",
@@ -45742,7 +47594,7 @@
       "date": "1920-11-17"
     },
     {
-      "source": "per_xu_jiyu",
+      "source": "per_xu_naichang",
       "target": "per_bake",
       "relation": "同席",
       "confidence": "EXTRACTED",
@@ -45750,16 +47602,8 @@
       "date": "1920-11-18"
     },
     {
-      "source": "per_bake",
-      "target": "per_xu_jiyu",
-      "relation": "赠",
-      "confidence": "EXTRACTED",
-      "evidence": "拔可又赠新刻其尊人次玉先生《双辛夷楼词》",
-      "date": "1920-11-18"
-    },
-    {
       "source": "per_kang_gengsheng",
-      "target": "per_xu_jiyu",
+      "target": "per_xu_naichang",
       "relation": "致书",
       "confidence": "EXTRACTED",
       "evidence": "康更生同年来书",
@@ -45767,14 +47611,14 @@
     },
     {
       "source": "per_kang_gengsheng",
-      "target": "per_xu_jiyu",
+      "target": "per_xu_naichang",
       "relation": "赠",
       "confidence": "EXTRACTED",
       "evidence": "以写近作《西湖丁家山营别业》诗立轴...相贻",
       "date": "1920-11-18"
     },
     {
-      "source": "per_xu_jiyu",
+      "source": "per_xu_naichang",
       "target": "per_kang_gengsheng",
       "relation": "赠",
       "confidence": "EXTRACTED",
@@ -45782,7 +47626,7 @@
       "date": "1920-11-19"
     },
     {
-      "source": "per_xu_jiyu",
+      "source": "per_xu_naichang",
       "target": "per_shen_yigui",
       "relation": "赠",
       "confidence": "EXTRACTED",
@@ -45790,7 +47634,7 @@
       "date": "1920-11-19"
     },
     {
-      "source": "per_xu_jiyu",
+      "source": "per_xu_naichang",
       "target": "per_kang_gengsheng",
       "relation": "同席",
       "confidence": "EXTRACTED",
@@ -45798,15 +47642,7 @@
       "date": "1920-11-19"
     },
     {
-      "source": "per_xu_jiyu",
-      "target": "per_zou_jingshu",
-      "relation": "赠",
-      "confidence": "EXTRACTED",
-      "evidence": "以新得钟铭函赠邹景叔、王倣儁",
-      "date": "1920-11-20"
-    },
-    {
-      "source": "per_xu_jiyu",
+      "source": "per_xu_naichang",
       "target": "per_wang_fangjun",
       "relation": "赠",
       "confidence": "EXTRACTED",
@@ -45814,7 +47650,7 @@
       "date": "1920-11-20"
     },
     {
-      "source": "per_xu_jiyu",
+      "source": "per_xu_naichang",
       "target": "per_deng_mingqian",
       "relation": "致书",
       "confidence": "EXTRACTED",
@@ -45822,24 +47658,8 @@
       "date": "1920-11-20"
     },
     {
-      "source": "per_xu_jiyu",
-      "target": "per_zhu_yantao",
-      "relation": "致书",
-      "confidence": "EXTRACTED",
-      "evidence": "同朱研涛租西票...复书并寄",
-      "date": "1920-11-20"
-    },
-    {
-      "source": "per_xu_jiyu",
-      "target": "per_wang_ganqing",
-      "relation": "致书",
-      "confidence": "EXTRACTED",
-      "evidence": "复汪甘卿书",
-      "date": "1920-11-20"
-    },
-    {
       "source": "per_bake",
-      "target": "per_xu_jiyu",
+      "target": "per_xu_naichang",
       "relation": "致书",
       "confidence": "EXTRACTED",
       "evidence": "昨晚拔可来书",
@@ -46276,14 +48096,6 @@
       "confidence": "EXTRACTED",
       "evidence": "至赵月川家，观自北携来各彝器",
       "date": "1920-12-11"
-    },
-    {
-      "source": "per_xu_naichang",
-      "target": "per_shen_yigui",
-      "relation": "拜访",
-      "confidence": "EXTRACTED",
-      "evidence": "至李仲帅、沈乙簋处一谭",
-      "date": "1920-12-12"
     },
     {
       "source": "per_xu_naichang",
@@ -47791,7 +49603,7 @@
     },
     {
       "source": "per_yu_furen",
-      "target": "per_hua_qing",
+      "target": "per_wu_huaqing",
       "relation": "亲属",
       "confidence": "EXTRACTED",
       "evidence": "南京吴华卿之母于夫人去世",
@@ -47924,14 +49736,6 @@
       "confidence": "EXTRACTED",
       "evidence": "丁仲祐、李紫东来，商购缪书",
       "date": "1921-04-02"
-    },
-    {
-      "source": "per_chen_lihan",
-      "target": "per_xu_naichang",
-      "relation": "商务",
-      "confidence": "EXTRACTED",
-      "evidence": "陈立炎已购定缪书，价二万六千元",
-      "date": "1921-04-03"
     },
     {
       "source": "per_xu_naichang",
@@ -48387,14 +50191,6 @@
       "relation": "赠",
       "confidence": "EXTRACTED",
       "evidence": "蒿老为崇儿书福寿字成",
-      "date": "1921-04-28"
-    },
-    {
-      "source": "per_chongr",
-      "target": "per_xu_naichang",
-      "relation": "亲属",
-      "confidence": "EXTRACTED",
-      "evidence": "崇儿(徐乃昌之子)",
       "date": "1921-04-28"
     },
     {
@@ -49006,14 +50802,6 @@
       "date": "1921-05-18"
     },
     {
-      "source": "per_xu_naichang",
-      "target": "per_ding_zhongku",
-      "relation": "拜访",
-      "confidence": "EXTRACTED",
-      "evidence": "至丁仲枯、古香斋、博远斋",
-      "date": "1921-05-18"
-    },
-    {
       "source": "per_lin_yishu",
       "target": "per_xu_naichang",
       "relation": "拜访",
@@ -49406,14 +51194,6 @@
       "date": "1921-06-18"
     },
     {
-      "source": "per_xu_naichang",
-      "target": "per_shen_yigui",
-      "relation": "赠",
-      "confidence": "EXTRACTED",
-      "evidence": "为乙盒印《吕氏乡约》《酒经》",
-      "date": "1921-06-21"
-    },
-    {
       "source": "per_hu_shoutang",
       "target": "per_xu_naichang",
       "relation": "拜访",
@@ -49635,14 +51415,6 @@
       "relation": "拜访",
       "confidence": "EXTRACTED",
       "evidence": "吴蝶卿来,拟购丁仲枯大藏经",
-      "date": "1921-07-05"
-    },
-    {
-      "source": "per_xu_naichang",
-      "target": "per_feng_guangjiu",
-      "relation": "致书",
-      "confidence": "EXTRACTED",
-      "evidence": "致冯光九书,询南通学堂情形",
       "date": "1921-07-05"
     },
     {
@@ -49940,14 +51712,6 @@
       "confidence": "EXTRACTED",
       "evidence": "为其子颂彬入银行练习生事",
       "date": "1921-07-19"
-    },
-    {
-      "source": "per_xu_naichang",
-      "target": "per_zhang_yishan",
-      "relation": "拜访",
-      "confidence": "EXTRACTED",
-      "evidence": "访章一山，略谭",
-      "date": "1921-07-23"
     },
     {
       "source": "per_gu_dingmei",
@@ -51031,14 +52795,6 @@
     },
     {
       "source": "per_xu_naichang",
-      "target": "per_yang_yunshi",
-      "relation": "拜访",
-      "confidence": "EXTRACTED",
-      "evidence": "访杨云史谭",
-      "date": "1921-09-21"
-    },
-    {
-      "source": "per_xu_naichang",
       "target": "per_xu_huasou",
       "relation": "同席",
       "confidence": "EXTRACTED",
@@ -51323,14 +53079,6 @@
       "relation": "亲属",
       "confidence": "EXTRACTED",
       "evidence": "大女蕊珠",
-      "date": "1921-09-30"
-    },
-    {
-      "source": "per_qinu",
-      "target": "per_xu_naichang",
-      "relation": "亲属",
-      "confidence": "EXTRACTED",
-      "evidence": "三女绮",
       "date": "1921-09-30"
     },
     {
@@ -52223,14 +53971,6 @@
     },
     {
       "source": "per_xu_naichang",
-      "target": "per_shun_chen",
-      "relation": "资助",
-      "confidence": "EXTRACTED",
-      "evidence": "賵吴夫人奠分五十元",
-      "date": "1921-11-18"
-    },
-    {
-      "source": "per_xu_naichang",
       "target": "per_li_mugong",
       "relation": "商务",
       "confidence": "EXTRACTED",
@@ -52551,14 +54291,6 @@
     },
     {
       "source": "per_xu_naichang",
-      "target": "per_zhao_younan",
-      "relation": "拜访",
-      "confidence": "EXTRACTED",
-      "evidence": "至仁济堂，晤戒安、宋廷、幼南、知白",
-      "date": "1921-12-16"
-    },
-    {
-      "source": "per_xu_naichang",
       "target": "per_chen_zhibai",
       "relation": "拜访",
       "confidence": "EXTRACTED",
@@ -52595,14 +54327,6 @@
       "relation": "拜访",
       "confidence": "EXTRACTED",
       "evidence": "至张麟家祝六十寿",
-      "date": "1921-12-19"
-    },
-    {
-      "source": "per_xu_naichang",
-      "target": "per_kang_gengsheng",
-      "relation": "同席",
-      "confidence": "EXTRACTED",
-      "evidence": "康更生同年约在沈乙盒家酒叙",
       "date": "1921-12-19"
     },
     {
@@ -52859,14 +54583,6 @@
       "relation": "致书",
       "confidence": "EXTRACTED",
       "evidence": "函重宁寺雨山，劝请续藏经",
-      "date": "1922-01-07"
-    },
-    {
-      "source": "per_liu_gonglu",
-      "target": "per_xu_naichang",
-      "relation": "拜访",
-      "confidence": "EXTRACTED",
-      "evidence": "汪仲方、刘公鲁来谭",
       "date": "1922-01-07"
     },
     {
@@ -53246,14 +54962,6 @@
       "date": "1922-01-21"
     },
     {
-      "source": "per_xu_naichang",
-      "target": "per_shun_chen",
-      "relation": "赠",
-      "confidence": "EXTRACTED",
-      "evidence": "寄赠吴舜臣哗吼袍料、汤壶",
-      "date": "1922-01-21"
-    },
-    {
       "source": "per_chen_jinyi",
       "target": "per_xu_naichang",
       "relation": "商务",
@@ -53430,14 +55138,6 @@
       "date": "1922-01-31"
     },
     {
-      "source": "per_sun_xingru",
-      "target": "per_xu_naichang",
-      "relation": "致书",
-      "confidence": "EXTRACTED",
-      "evidence": "孙星如来书，交还《敏求记》校本",
-      "date": "1922-02-01"
-    },
-    {
       "source": "per_wang_ganqing",
       "target": "per_xu_naichang",
       "relation": "致书",
@@ -53558,14 +55258,6 @@
       "date": "1922-02-07"
     },
     {
-      "source": "per_bake",
-      "target": "per_xu_naichang",
-      "relation": "致书",
-      "confidence": "AMBIGUOUS",
-      "evidence": "拔可来书",
-      "date": "1922-02-08"
-    },
-    {
       "source": "per_xu_naichang",
       "target": "per_xu_qinxi",
       "relation": "拜访",
@@ -53579,14 +55271,6 @@
       "relation": "资助",
       "confidence": "EXTRACTED",
       "evidence": "李伟侯函送皖振洋壹千元，系太夫人捐助",
-      "date": "1922-02-10"
-    },
-    {
-      "source": "per_xu_jiyu",
-      "target": "per_xu_naichang",
-      "relation": "同_as",
-      "confidence": "EXTRACTED",
-      "evidence": "股票户名宝经堂，股东姓名徐积余",
       "date": "1922-02-10"
     },
     {
@@ -53667,14 +55351,6 @@
       "relation": "亲属",
       "confidence": "EXTRACTED",
       "evidence": "吴为苑甫之子",
-      "date": "1922-02-14"
-    },
-    {
-      "source": "per_liu_gonglu",
-      "target": "per_xu_naichang",
-      "relation": "致书",
-      "confidence": "EXTRACTED",
-      "evidence": "刘公鲁函假《集古印谱》",
       "date": "1922-02-14"
     },
     {
@@ -54735,26 +56411,10 @@
     },
     {
       "source": "per_xu_naichang",
-      "target": "per_tui_lao",
-      "relation": "拜访",
-      "confidence": "EXTRACTED",
-      "evidence": "今先后至退、嗇两老处",
-      "date": "1922-04-07"
-    },
-    {
-      "source": "per_xu_naichang",
       "target": "per_han_fengchi",
       "relation": "拜访",
       "confidence": "EXTRACTED",
       "evidence": "访韩凤池，未晤",
-      "date": "1922-04-07"
-    },
-    {
-      "source": "per_zhang_xiaoruo",
-      "target": "per_xu_naichang",
-      "relation": "拜访",
-      "confidence": "EXTRACTED",
-      "evidence": "张孝若、陈石庐、章希璦、劳吉六、吴华卿送行",
       "date": "1922-04-07"
     },
     {
@@ -54766,7 +56426,7 @@
       "date": "1922-04-07"
     },
     {
-      "source": "per_hua_qing",
+      "source": "per_wu_huaqing",
       "target": "per_xu_naichang",
       "relation": "拜访",
       "confidence": "EXTRACTED",
@@ -54774,7 +56434,7 @@
       "date": "1922-04-07"
     },
     {
-      "source": "per_hua_qing",
+      "source": "per_wu_huaqing",
       "target": "per_xu_naichang",
       "relation": "赠",
       "confidence": "EXTRACTED",
@@ -54998,14 +56658,6 @@
       "date": "1922-04-15"
     },
     {
-      "source": "per_dan_shaotang",
-      "target": "per_xu_naichang",
-      "relation": "拜访",
-      "confidence": "EXTRACTED",
-      "evidence": "单少堂来谭",
-      "date": "1922-04-16"
-    },
-    {
       "source": "per_chen_naiqian",
       "target": "per_feng_shi",
       "relation": "商务",
@@ -55046,7 +56698,7 @@
       "date": "1922-04-29"
     },
     {
-      "source": "per_hua_qing",
+      "source": "per_huaqing",
       "target": "per_zhang_xiaoruo",
       "relation": "致书",
       "confidence": "INFERRED",
@@ -55167,14 +56819,6 @@
     },
     {
       "source": "per_xu_naichang",
-      "target": "per_wu_jichen",
-      "relation": "同席",
-      "confidence": "EXTRACTED",
-      "evidence": "同吴寄尘附大庆轮再至南通",
-      "date": "1922-05-12"
-    },
-    {
-      "source": "per_xu_naichang",
       "target": "per_wang_leixia",
       "relation": "拜访",
       "confidence": "EXTRACTED",
@@ -55252,14 +56896,6 @@
       "confidence": "EXTRACTED",
       "evidence": "吕鹿笙、江幹卿、知源、希媛、光久来谭",
       "date": "1922-05-16"
-    },
-    {
-      "source": "per_xu_naichang",
-      "target": "per_yuan_yiqi",
-      "relation": "拜访",
-      "confidence": "EXTRACTED",
-      "evidence": "至淮海银行王饶生、袁亦齐处",
-      "date": "1922-05-17"
     },
     {
       "source": "per_zhang_tuilao",
@@ -55447,14 +57083,6 @@
     },
     {
       "source": "per_xu_naichang",
-      "target": "per_jiang_zhiyuan",
-      "relation": "拜访",
-      "confidence": "EXTRACTED",
-      "evidence": "至大生，晤江知源、吴蝶卿",
-      "date": "1922-06-10"
-    },
-    {
-      "source": "per_xu_naichang",
       "target": "per_wu_diepin",
       "relation": "拜访",
       "confidence": "EXTRACTED",
@@ -55588,14 +57216,6 @@
       "confidence": "EXTRACTED",
       "evidence": "购美大公司喜缎幢两轴，送...又沈子林",
       "date": "1922-06-14"
-    },
-    {
-      "source": "per_yang_yunshi",
-      "target": "per_xu_naichang",
-      "relation": "致书",
-      "confidence": "EXTRACTED",
-      "evidence": "杨云史北京来电，托代送张嗇老寿幢",
-      "date": "1922-06-15"
     },
     {
       "source": "per_xu_naichang",
@@ -55734,14 +57354,6 @@
       "date": "1922-06-19"
     },
     {
-      "source": "per_xu_naichang",
-      "target": "per_zhang_xiaoruo",
-      "relation": "拜访",
-      "confidence": "EXTRACTED",
-      "evidence": "刘烈卿、唐辅之、陈劭吾、张孝若",
-      "date": "1922-06-19"
-    },
-    {
       "source": "per_jiang_xiaolou",
       "target": "per_xu_naichang",
       "relation": "拜访",
@@ -55868,22 +57480,6 @@
       "confidence": "EXTRACTED",
       "evidence": "至图书馆晤陈保之",
       "date": "1922-06-21"
-    },
-    {
-      "source": "per_xu_naichang",
-      "target": "per_li_xiaofu",
-      "relation": "拜访",
-      "confidence": "EXTRACTED",
-      "evidence": "翰墨林晤李小扶",
-      "date": "1922-06-21"
-    },
-    {
-      "source": "per_xu_naichang",
-      "target": "per_shu_shaozhi",
-      "relation": "拜访",
-      "confidence": "EXTRACTED",
-      "evidence": "访束劭直、江知源、吴蝶卿，不遇",
-      "date": "1922-06-22"
     },
     {
       "source": "per_zou_shugao",
@@ -56326,14 +57922,6 @@
       "date": "1922-07-05"
     },
     {
-      "source": "per_tui_lao",
-      "target": "per_xu_naichang",
-      "relation": "拜访",
-      "confidence": "EXTRACTED",
-      "evidence": "退公来谭，即回城南别业",
-      "date": "1922-07-06"
-    },
-    {
       "source": "per_gao_yunhan",
       "target": "per_xu_naichang",
       "relation": "拜访",
@@ -56707,14 +58295,6 @@
       "relation": "拜访",
       "confidence": "EXTRACTED",
       "evidence": "至城，晤希媛",
-      "date": "1922-08-02"
-    },
-    {
-      "source": "per_xu_naichang",
-      "target": "per_yuan_nansheng",
-      "relation": "拜访",
-      "confidence": "EXTRACTED",
-      "evidence": "又访袁南生、刘烈卿",
       "date": "1922-08-02"
     },
     {
@@ -57103,22 +58683,6 @@
     },
     {
       "source": "per_xu_naichang",
-      "target": "per_shaozhi",
-      "relation": "拜访",
-      "confidence": "EXTRACTED",
-      "evidence": "晤寄尘、劭直、知源",
-      "date": "1922-08-26"
-    },
-    {
-      "source": "per_xu_naichang",
-      "target": "per_lusheng",
-      "relation": "拜访",
-      "confidence": "EXTRACTED",
-      "evidence": "晤鹿笙、春霆、亚威",
-      "date": "1922-08-27"
-    },
-    {
-      "source": "per_xu_naichang",
       "target": "per_chun_ting",
       "relation": "拜访",
       "confidence": "EXTRACTED",
@@ -57164,14 +58728,6 @@
       "confidence": "EXTRACTED",
       "evidence": "园中晤志赞希",
       "date": "1922-08-29"
-    },
-    {
-      "source": "per_xu_naichang",
-      "target": "per_yang_zhiqing",
-      "relation": "致书",
-      "confidence": "EXTRACTED",
-      "evidence": "致杨芷青书。访碑、拓碑",
-      "date": "1922-08-30"
     },
     {
       "source": "per_xu_naichang",
@@ -58172,14 +59728,6 @@
       "confidence": "EXTRACTED",
       "evidence": "李凤池来谭",
       "date": "1922-11-20"
-    },
-    {
-      "source": "per_xu_naichang",
-      "target": "per_xu_guanxun",
-      "relation": "拜访",
-      "confidence": "EXTRACTED",
-      "evidence": "又晤徐贯恂",
-      "date": "1922-11-21"
     },
     {
       "source": "per_xu_guanxun",

@@ -22928,6 +22928,535 @@
     "direction": null
   },
   {
+    "id": "txn_buy_ganquan",
+    "label": "购《甘泉县志》洋六元",
+    "date": "1923-03-26",
+    "source_file": "1923-03-26.md",
+    "evidence": "购《甘泉县志》廿四卷",
+    "people": [
+      {
+        "id": "loc_laiqingge",
+        "label": "来青阁",
+        "type": "团体",
+        "relation": "位于"
+      },
+      {
+        "id": "book_ganquan_xianzhi",
+        "label": "《甘泉县志》",
+        "type": "书籍",
+        "relation": "商务"
+      }
+    ],
+    "amount": "洋六元",
+    "direction": null
+  },
+  {
+    "id": "txn_send_wansa",
+    "label": "送华丝葛挽嶂",
+    "date": "1923-03-26",
+    "source_file": "1923-03-26.md",
+    "evidence": "送华丝葛挽嶂",
+    "people": [],
+    "amount": null,
+    "direction": null
+  },
+  {
+    "id": "txn_join_niepan_hui",
+    "label": "约入江苏涅槃供会会费十元",
+    "date": "1923-03-28",
+    "source_file": "1923-03-28.md",
+    "evidence": "约入江苏涅槃供会，会费十元",
+    "people": [
+      {
+        "id": "org_niepan_gonghui",
+        "label": "江苏涅槃供会",
+        "type": "团体",
+        "relation": "属于"
+      }
+    ],
+    "amount": "十元",
+    "direction": null
+  },
+  {
+    "id": "txn_chant_putongfo",
+    "label": "诵普佛每堂十六元",
+    "date": "1923-03-31",
+    "source_file": "1923-03-31.md",
+    "evidence": "诵普佛。每堂十六元",
+    "people": [],
+    "amount": "十六元",
+    "direction": null
+  },
+  {
+    "id": "txn_buy_xishang",
+    "label": "购《溪上诗辑》价六角",
+    "date": "1923-04-01",
+    "source_file": "1923-04-01.md",
+    "evidence": "购《溪上诗辑》十四卷",
+    "people": [
+      {
+        "id": "book_xishang_shiji",
+        "label": "《溪上诗辑》",
+        "type": "书籍",
+        "relation": "商务"
+      }
+    ],
+    "amount": "六角",
+    "direction": null
+  },
+  {
+    "id": "txn_buy_chuyuelou",
+    "label": "购《初月楼文钞》《诗钞》价一元四角",
+    "date": "1923-04-01",
+    "source_file": "1923-04-01.md",
+    "evidence": "《诗钞》四卷刻本，吴德旋著，周家楣定，价一元四角",
+    "people": [
+      {
+        "id": "book_chuyuelou_wenchao",
+        "label": "《初月楼文钞》",
+        "type": "书籍",
+        "relation": "商务"
+      }
+    ],
+    "amount": "一元四角",
+    "direction": null
+  },
+  {
+    "id": "txn_buy_jiaoxinge",
+    "label": "购《蕉心阁词》价五角",
+    "date": "1923-04-01",
+    "source_file": "1923-04-01.md",
+    "evidence": "《蕉心阁词》一卷。泰和周继煦著，价五角",
+    "people": [
+      {
+        "id": "book_jiaoxinge_ci",
+        "label": "《蕉心阁词》",
+        "type": "书籍",
+        "relation": "商务"
+      }
+    ],
+    "amount": "五角",
+    "direction": null
+  },
+  {
+    "id": "txn_buy_yuantian",
+    "label": "购《圜天图说》价二元",
+    "date": "1923-04-01",
+    "source_file": "1923-04-01.md",
+    "evidence": "《圜天图说》三卷《续编》二卷,...价二元",
+    "people": [
+      {
+        "id": "book_yuantian_tushuo",
+        "label": "《圜天图说》",
+        "type": "书籍",
+        "relation": "商务"
+      }
+    ],
+    "amount": "二元",
+    "direction": null
+  },
+  {
+    "id": "txn_buy_qianyun",
+    "label": "购《茜云楼诗集》价一元",
+    "date": "1923-04-01",
+    "source_file": "1923-04-01.md",
+    "evidence": "《茜云楼诗集》十四卷《文存》一卷,...价一元",
+    "people": [
+      {
+        "id": "book_qianyunlou_shiji",
+        "label": "《茜云楼诗集》",
+        "type": "书籍",
+        "relation": "商务"
+      }
+    ],
+    "amount": "一元",
+    "direction": null
+  },
+  {
+    "id": "txn_buy_zhouyi",
+    "label": "购《周易郑氏爻辰》价五角",
+    "date": "1923-04-01",
+    "source_file": "1923-04-01.md",
+    "evidence": "《周易郑氏爻辰》。钱唐谢家禾著，价五角",
+    "people": [
+      {
+        "id": "book_zhouyi_zhengshi",
+        "label": "《周易郑氏爻辰》",
+        "type": "书籍",
+        "relation": "商务"
+      }
+    ],
+    "amount": "五角",
+    "direction": null
+  },
+  {
+    "id": "txn_yongxing_ticket",
+    "label": "甬兴轮大餐间舱位每人六元六角",
+    "date": "1923-04-02",
+    "source_file": "1923-04-02.md",
+    "evidence": "甬兴轮大餐间舱位，每人六元六角",
+    "people": [],
+    "amount": "每人六元六角",
+    "direction": null
+  },
+  {
+    "id": "txn_zhengyitang_remit",
+    "label": "汇来《正谊堂全书》价卅五元",
+    "date": "1923-04-03",
+    "source_file": "1923-04-03.md",
+    "evidence": "汇来《正谊堂全书》价卅五元",
+    "people": [],
+    "amount": "卅五元",
+    "direction": null
+  },
+  {
+    "id": "txn_wangjiang_relief",
+    "label": "拨望江工振壹千元",
+    "date": "1923-04-04",
+    "source_file": "1923-04-04.md",
+    "evidence": "拟拨望江工振壹千元",
+    "people": [],
+    "amount": "壹千元",
+    "direction": null
+  },
+  {
+    "id": "txn_nanling_relief",
+    "label": "南陵各圩拨平渠壹千元",
+    "date": "1923-04-04",
+    "source_file": "1923-04-04.md",
+    "evidence": "南陵各圩灾重之区拨平渠壹千元",
+    "people": [],
+    "amount": "壹千元",
+    "direction": null
+  },
+  {
+    "id": "txn_buy_bronze_mirrors",
+    "label": "购古香斋铜镜四枚共三十四元",
+    "date": "1923-04-04",
+    "source_file": "1923-04-04.md",
+    "evidence": "购古香斋铜镜四枚...共议定洋三十四元",
+    "people": [
+      {
+        "id": "org_guxiangzhai",
+        "label": "古香斋",
+        "type": "团体",
+        "relation": "位于"
+      }
+    ],
+    "amount": "洋三十四元",
+    "direction": null
+  },
+  {
+    "id": "txn_buy_buddha_beads",
+    "label": "取佛珠一串付洋卅四元",
+    "date": "1923-04-04",
+    "source_file": "1923-04-04.md",
+    "evidence": "又取佛珠一串，廿二日付洋卅四元",
+    "people": [],
+    "amount": "洋卅四元",
+    "direction": null
+  },
+  {
+    "id": "txn_pay_laiqingge",
+    "label": "付来青阁《正谊堂全书》《甘泉县志》四十元",
+    "date": "1923-04-04",
+    "source_file": "1923-04-04.md",
+    "evidence": "付《正谊堂全书》《甘泉县志》价洋四十元",
+    "people": [
+      {
+        "id": "loc_laiqingge",
+        "label": "来青阁",
+        "type": "团体",
+        "relation": "位于"
+      },
+      {
+        "id": "book_zhengyitang_quanshu",
+        "label": "《正谊堂全书》",
+        "type": "书籍",
+        "relation": "商务"
+      },
+      {
+        "id": "book_ganquan_xianzhi",
+        "label": "《甘泉县志》",
+        "type": "书籍",
+        "relation": "商务"
+      }
+    ],
+    "amount": "洋四十元",
+    "direction": null
+  },
+  {
+    "id": "txn_buy_huaining",
+    "label": "购《怀宁县志》折实二元二角五分",
+    "date": "1923-04-04",
+    "source_file": "1923-04-04.md",
+    "evidence": "《怀宁县志》卅卷,...码洋五元，折实二元二角五分",
+    "people": [
+      {
+        "id": "book_huaining_xianzhi",
+        "label": "《怀宁县志》",
+        "type": "书籍",
+        "relation": "商务"
+      }
+    ],
+    "amount": "二元二角五分",
+    "direction": null
+  },
+  {
+    "id": "txn_buy_suzhou",
+    "label": "购《宿州志》折实二元一角六分",
+    "date": "1923-04-04",
+    "source_file": "1923-04-04.md",
+    "evidence": "《宿州志》四十二卷,...折实二元一角六分",
+    "people": [
+      {
+        "id": "book_suzhou_zhi",
+        "label": "《宿州志》",
+        "type": "书籍",
+        "relation": "商务"
+      }
+    ],
+    "amount": "二元一角六分",
+    "direction": null
+  },
+  {
+    "id": "txn_buy_huaijun",
+    "label": "购《淮军平捻记》折实四角五分",
+    "date": "1923-04-04",
+    "source_file": "1923-04-04.md",
+    "evidence": "《淮军平捻记》十二卷。周世澄著，码洋一元，折实四角五分",
+    "people": [
+      {
+        "id": "book_huaijun_pingnian",
+        "label": "《淮军平捻记》",
+        "type": "书籍",
+        "relation": "商务"
+      }
+    ],
+    "amount": "四角五分",
+    "direction": null
+  },
+  {
+    "id": "txn_zhengyi_tang_price",
+    "label": "收《正谊堂》书价卅五元",
+    "date": "1923-04-07",
+    "source_file": "1923-04-07.md",
+    "evidence": "收到《正谊堂》书价卅五元",
+    "people": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人",
+        "relation": "商务"
+      }
+    ],
+    "amount": "卅五元",
+    "direction": "收入"
+  },
+  {
+    "id": "txn_tongjing_price",
+    "label": "付铜镜价洋卅四元",
+    "date": "1923-04-07",
+    "source_file": "1923-04-07.md",
+    "evidence": "付铜镜价洋卅四元",
+    "people": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人",
+        "relation": "商务"
+      }
+    ],
+    "amount": "卅四元",
+    "direction": "支出"
+  },
+  {
+    "id": "txn_hanhu_price",
+    "label": "购陈鍼山汉介壶价卅四元",
+    "date": "1923-04-08",
+    "source_file": "1923-04-08.md",
+    "evidence": "价卅四元",
+    "people": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人",
+        "relation": "商务"
+      }
+    ],
+    "amount": "卅四元",
+    "direction": "支出"
+  },
+  {
+    "id": "txn_chongming_price",
+    "label": "购《崇明县志》二元",
+    "date": "1923-04-11",
+    "source_file": "1923-04-11.md",
+    "evidence": "价二元",
+    "people": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人",
+        "relation": "商务"
+      }
+    ],
+    "amount": "二元",
+    "direction": "支出"
+  },
+  {
+    "id": "txn_jinshan_price",
+    "label": "购《重修金山县志》三元五角",
+    "date": "1923-04-11",
+    "source_file": "1923-04-11.md",
+    "evidence": "价三元五角",
+    "people": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人",
+        "relation": "商务"
+      }
+    ],
+    "amount": "三元五角",
+    "direction": "支出"
+  },
+  {
+    "id": "txn_nibu_wei",
+    "label": "送呢布幃 (姚)",
+    "date": "1923-04-12",
+    "source_file": "1923-04-12.md",
+    "evidence": "送呢布幃",
+    "people": [],
+    "amount": null,
+    "direction": "支出"
+  },
+  {
+    "id": "txn_niwei_cao",
+    "label": "送呢幃 (曹)",
+    "date": "1923-04-12",
+    "source_file": "1923-04-12.md",
+    "evidence": "送呢幃",
+    "people": [],
+    "amount": null,
+    "direction": "支出"
+  },
+  {
+    "id": "txn_huahou_wei",
+    "label": "送哗吼幃 (孙)",
+    "date": "1923-04-12",
+    "source_file": "1923-04-12.md",
+    "evidence": "送哗吼幃",
+    "people": [],
+    "amount": null,
+    "direction": "支出"
+  },
+  {
+    "id": "txn_fenyang_qu",
+    "label": "送分洋捌元 (娶媳)",
+    "date": "1923-04-12",
+    "source_file": "1923-04-12.md",
+    "evidence": "送分洋捌元",
+    "people": [],
+    "amount": "捌元",
+    "direction": "支出"
+  },
+  {
+    "id": "txn_xiaoqian_yinjing",
+    "label": "购小钱银晶烟壶 十二元",
+    "date": "1923-04-12",
+    "source_file": "1923-04-12.md",
+    "evidence": "购小钱银晶烟壶,洋十二元",
+    "people": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人",
+        "relation": "商务"
+      }
+    ],
+    "amount": "十二元",
+    "direction": "支出"
+  },
+  {
+    "id": "txn_dasheng_zhe",
+    "label": "取大生来往折洋五百元",
+    "date": "1923-04-13",
+    "source_file": "1923-04-13.md",
+    "evidence": "取大生来往折洋五百元",
+    "people": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人",
+        "relation": "商务"
+      }
+    ],
+    "amount": "五百元",
+    "direction": "提取"
+  },
+  {
+    "id": "txn_zhou_huishou",
+    "label": "收回周必祥押书洋本250元+息卅七元",
+    "date": "1923-04-13",
+    "source_file": "1923-04-13.md",
+    "evidence": "收回周必祥押书洋本二百五十元、息卅七元",
+    "people": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人",
+        "relation": "商务"
+      }
+    ],
+    "amount": "本二百五十元、息卅七元",
+    "direction": "收入"
+  },
+  {
+    "id": "txn_shoudao",
+    "label": "售稻一百七十石",
+    "date": "1923-04-14",
+    "source_file": "1923-04-14.md",
+    "evidence": "售稻一百七十石,每石三元五角",
+    "people": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人",
+        "relation": "商务"
+      }
+    ],
+    "amount": "170石×3.5元",
+    "direction": "收入"
+  },
+  {
+    "id": "txn_zhenhui_zhuping",
+    "label": "振会助平衅一千元",
+    "date": "1923-04-14",
+    "source_file": "1923-04-14.md",
+    "evidence": "振会助平衅一千元",
+    "people": [],
+    "amount": "一千元",
+    "direction": "资助"
+  },
+  {
+    "id": "txn_taipingcha",
+    "label": "购太平茶二斤",
+    "date": "1923-04-14",
+    "source_file": "1923-04-14.md",
+    "evidence": "太平茶二斤",
+    "people": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人",
+        "relation": "商务"
+      }
+    ],
+    "amount": "二斤",
+    "direction": "支出"
+  },
+  {
     "id": "txn_qiuyuan_jule_di",
     "label": "虬园地五十四亩 二万一千八百元",
     "date": "1923-04-16",
@@ -23035,6 +23564,56 @@
     "evidence": "为淑婉、定君暨儿女辈共捐十元",
     "people": [],
     "amount": "十元",
+    "direction": null
+  },
+  {
+    "id": "txn_nanling_bian_e_40",
+    "label": "南陵送邱匾额 价洋四十元",
+    "date": "1923-04-24",
+    "source_file": "1923-04-24.md",
+    "evidence": "南陵送邱匾额已议定，价洋四十元",
+    "people": [],
+    "amount": "洋四十元",
+    "direction": null
+  },
+  {
+    "id": "txn_tianzhongji_36",
+    "label": "《天中记》索价卅六元",
+    "date": "1923-04-24",
+    "source_file": "1923-04-24.md",
+    "evidence": "取《天中记》，索价卅六元",
+    "people": [],
+    "amount": "卅六元",
+    "direction": null
+  },
+  {
+    "id": "txn_dafeng_shoudi",
+    "label": "售地十二万五千亩还债",
+    "date": "1923-05-01",
+    "source_file": "1923-05-01.md",
+    "evidence": "售地十二万五千亩还债",
+    "people": [],
+    "amount": "调款五十一万余元",
+    "direction": null
+  },
+  {
+    "id": "txn_song_li_4se",
+    "label": "送礼四色",
+    "date": "1923-05-04",
+    "source_file": "1923-05-04.md",
+    "evidence": "送礼四色",
+    "people": [],
+    "amount": null,
+    "direction": null
+  },
+  {
+    "id": "txn_xinwen_dengbao_29_4",
+    "label": "新闻报登三日 廿九元四角",
+    "date": "1923-05-04",
+    "source_file": "1923-05-04.md",
+    "evidence": "登三日，计费廿九元四角",
+    "people": [],
+    "amount": "廿九元四角",
     "direction": null
   }
 ]

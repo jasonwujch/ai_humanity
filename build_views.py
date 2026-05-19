@@ -471,6 +471,26 @@ for t in txns:
                 'amount': t['amount'], 'direction': t['direction'], 'relation': cp.get('relation'),
             })
 
+# Pre-build alias timeline per primary id: walk all merged original nodes' surface_forms
+alias_timeline_by_pid = defaultdict(list)
+for n in src['nodes']:
+    if n.get('entity_type') != '人':
+        continue
+    pid = redirect(n['id'])
+    md = n.get('metadata') or {}
+    for sf in (md.get('surface_forms') or []):
+        if sf.get('date') and sf.get('surface'):
+            alias_timeline_by_pid[pid].append({
+                'date': sf.get('date'),
+                'surface': sf.get('surface'),
+                'rule': sf.get('rule'),
+                'chunk_id': sf.get('chunk_id'),
+                'confidence': sf.get('confidence'),
+                'origin_id': n['id'],
+            })
+for pid in alias_timeline_by_pid:
+    alias_timeline_by_pid[pid].sort(key=lambda x: (x['date'] or '', x['surface'] or ''))
+
 for n in per_nodes_deduped:
     pid = n['id']
     neighbours = Counter()
@@ -490,6 +510,19 @@ for n in per_nodes_deduped:
         nn = next((x for x in per_nodes_deduped if x['id'] == nid), None)
         if nn:
             top_neighbours.append({'id': nid, 'label': nn['label'], 'count': cnt})
+    # Alias-by-surface summary: first/last/count
+    alias_summary = defaultdict(lambda: {'first': None, 'last': None, 'count': 0, 'rule': None})
+    for entry in alias_timeline_by_pid.get(pid, []):
+        s = entry['surface']
+        a = alias_summary[s]
+        a['count'] += 1
+        if a['first'] is None or entry['date'] < a['first']:
+            a['first'] = entry['date']
+            a['rule'] = entry['rule']
+        if a['last'] is None or entry['date'] > a['last']:
+            a['last'] = entry['date']
+    alias_evolution = [{'surface': s, **info} for s, info in sorted(alias_summary.items(), key=lambda x: x[1]['first'] or '')]
+
     per_profile[pid] = {
         'id': pid,
         'label': n['label'],
@@ -501,6 +534,8 @@ for n in per_nodes_deduped:
         'top_neighbours': top_neighbours,
         'sample_edges': sample_edges,
         'txns': txns_by_per.get(pid, [])[:50],
+        'alias_timeline': alias_timeline_by_pid.get(pid, [])[:200],  # cap for size
+        'alias_evolution': alias_evolution,
     }
 
 (out_dir / 'people_profiles.json').write_text(json.dumps(per_profile, ensure_ascii=False, indent=2), encoding='utf-8')

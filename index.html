@@ -608,6 +608,15 @@
       <div class="alias-row">
         <span v-for="a in profile.aliases" :key="a" class="chip">{{ a }}</span>
       </div>
+      <h3 v-if="profile.alias_evolution?.length">别名演化时间线</h3>
+      <div v-if="profile.alias_evolution?.length" style="font-size:var(--fs-sm)">
+        <div v-for="a in profile.alias_evolution" :key="a.surface" style="display:grid;grid-template-columns:auto 1fr auto auto;gap:10px;padding:4px 0;border-bottom:1px solid var(--border-soft);align-items:center">
+          <span class="chip" style="background:#f3f4f6;color:#444">{{ a.surface }}</span>
+          <span style="color:var(--muted);font-family:ui-monospace,monospace;font-size:var(--fs-xs)">{{ a.first }}{{ a.first !== a.last ? ' ~ ' + a.last : '' }}</span>
+          <span style="color:var(--accent);font-weight:600">×{{ a.count }}</span>
+          <span v-if="a.rule" style="color:var(--muted);font-size:10px;font-family:ui-monospace,monospace" :title="'通过规则 ' + a.rule + ' 解析'">{{ a.rule }}</span>
+        </div>
+      </div>
       <h3 v-if="profile.degree != null">度数 / 关系类型</h3>
       <div class="meta" v-if="profile.degree != null">总度数 <strong>{{ profile.degree }}</strong></div>
       <div class="meta" v-if="profile.relations">
