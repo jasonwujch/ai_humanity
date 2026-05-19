@@ -39,6 +39,22 @@ python -m http.server 8000   # serve
 
 Vue 3 · Cytoscape.js · Tabulator · Leaflet (all CDN, no build step).
 
+## Known issues (defer until graphify rerun)
+
+All these stem from the upstream extraction pipeline (`chunk_entries.py` +
+graphify v2.5). FE has been patched where lossless mitigation is possible.
+Full fix requires re-running graphify after the patches and is deferred
+until all batches finish so we only re-extract once.
+
+| # | Issue | FE mitigation | Real fix |
+|---|---|---|---|
+| 1 | Solar-date off-by-one (lunar→solar bug) | `resolveSolar` + ⚠ badge | Patch `chunk_entries.py` lunar lib, re-chunk, re-graphify |
+| 2 | PER recall gaps — graphify misses some person names (e.g. 1923-03-06: 洪希甫, 李伯老, 李仲帅, 李伯耆 in plain text while 李少穆/汪禹丞/柏烈武/张仲昭 are caught) | None — visible only as unhighlighted names in reader | Re-prompt graphify with extra named-entity rules (esp. 老/帅/耆/伯-suffix elder honorifics); re-run extraction |
+| 3 | Some venues unmapped on geo (~50 minor 上海 establishments) | Manual `VENUE_COORDS` additions in `build_views.py` | Crowd-source remaining coordinates |
+| 4 | Some 拜访/位于 edges have wrong source (not Xu) which inflates 行迹 count | None | Tighten graphify prompt for these relations |
+
+When the full graphify rerun is scheduled, walk this table top-to-bottom.
+
 ## Known issue: solar-date off-by-one in chunk filenames
 
 The diary was written by lunar calendar (民国 convention). The OCR/chunking
