@@ -682,6 +682,90 @@ for cid, ch in chunks.items():
 chunks_out = {k: v for k, v in chunks.items() if v['body']}
 (out_dir / 'chunks.json').write_text(json.dumps(chunks_out, ensure_ascii=False, indent=1), encoding='utf-8')
 
+# ── 9) wiki pages (top-N PER + top-N books + top-N events) ───────────────────
+wiki_dir = Path(__file__).parent / 'wiki'
+wiki_dir.mkdir(exist_ok=True)
+
+WIKI_CSS = '''
+body{font-family:"Noto Serif SC","Songti SC","宋体",serif;background:#f5efe4;color:#1f1a14;margin:0;padding:20px;line-height:1.7}
+.container{max-width:880px;margin:0 auto;background:#faf6ed;border:1px solid #d8cdb8;padding:36px 48px}
+h1{font-size:28px;margin:0 0 8px;color:#9b2926;border-left:6px solid #9b2926;padding-left:14px}
+h2{font-size:16px;color:#6b5d4c;margin-top:28px;padding-bottom:6px;border-bottom:1px solid #ece3d0;text-transform:uppercase;letter-spacing:.05em}
+.meta{color:#6b5d4c;font-size:14px;margin-bottom:24px}
+.chip{display:inline-block;padding:2px 8px;border-radius:10px;font-size:12px;margin:2px}
+.chip-per{background:#dbeafe;color:#1f3f8a}
+.chip-book{background:#ede9fe;color:#5f3b8a}
+.chip-loc{background:#fed7aa;color:#a35c1a}
+.chip-org{background:#dcfce7;color:#2c6e3e}
+.chip-txn{background:#fce7f3;color:#a3296b}
+.chip-evt{background:#cffafe;color:#0e6c75}
+a{color:#9b2926;text-decoration:none}
+a:hover{text-decoration:underline}
+.row{padding:6px 0;border-bottom:1px solid #ece3d0;font-size:14px}
+.dt{color:#6b5d4c;font-family:ui-monospace,monospace;font-size:12px;margin-right:8px}
+.rel{color:#9b2926;font-weight:600}
+nav{margin-bottom:18px}
+nav a{margin-right:12px;color:#6b5d4c;font-size:13px}
+.evidence{color:#3b3128;margin-top:4px}
+'''
+
+KIND_MAP = {'人':'per','地':'loc','团体':'org','书籍':'book','交易':'txn','事件':'evt'}
+
+def kind_of(t):
+    return KIND_MAP.get(t, 'per')
+
+def esc(s):
+    if not s: return ''
+    return str(s).replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+
+def render_wiki_per(pid, profile):
+    n = profile
+    body = []
+    body.append(f'<nav><a href="../index.html">← 返回总览</a><a href="../index.html#tab=people">人物关系图</a></nav>')
+    body.append(f'<h1>{esc(n["label"])}</h1>')
+    if n.get('canonical') and n['canonical'] != n['label']:
+        body.append(f'<div class="meta">规范名: <strong>{esc(n["canonical"])}</strong></div>')
+    if n.get('aliases'):
+        body.append('<h2>别名</h2><div>' + ' '.join(f'<span class="chip">{esc(a)}</span>' for a in n['aliases']) + '</div>')
+    body.append(f'<div class="meta">总度数 <strong>{n.get("degree","")}</strong></div>')
+    if n.get('relations'):
+        body.append('<h2>关系类型</h2><div>')
+        for r, c in n['relations'].items():
+            body.append(f'<span class="chip">{esc(r)} · {c}</span>')
+        body.append('</div>')
+    if n.get('top_neighbours'):
+        body.append('<h2>主要关联人</h2><ul>')
+        for nb in n['top_neighbours']:
+            link = f'<a href="{nb["id"]}.html">{esc(nb["label"])}</a>' if isinstance(nb, dict) and nb.get('id') else esc(str(nb))
+            body.append(f'<li>{link} · {nb.get("count","")} 次</li>')
+        body.append('</ul>')
+    if n.get('txns'):
+        body.append('<h2>相关交易</h2>')
+        for t in n['txns']:
+            body.append(f'<div class="row"><span class="dt">{esc(t.get("date"))}</span><span class="rel">{esc(t.get("relation",""))}</span> {esc(t.get("label",""))}<div class="evidence">{esc(t.get("evidence",""))}</div></div>')
+    if n.get('sample_edges'):
+        body.append('<h2>关系证据</h2>')
+        for e in n['sample_edges'][:30]:
+            body.append(f'<div class="row"><span class="dt">{esc(e.get("date"))}</span><span class="rel">{esc(e.get("relation",""))}</span> <a href="{esc(e.get("other"))}.html">{esc(e.get("other"))}</a><div class="evidence">{esc(e.get("evidence",""))}</div></div>')
+    if n.get('merged_ids') and len(n['merged_ids']) > 1:
+        body.append('<h2>合并 ID</h2><div>' + ' '.join(f'<code style="font-family:ui-monospace,monospace;font-size:11px;color:#6b5d4c">{esc(mid)}</code>' for mid in n['merged_ids']) + '</div>')
+    return f'<!doctype html><html lang="zh"><head><meta charset="utf-8"><title>{esc(n["label"])} - 徐乃昌日记 KG</title><style>{WIKI_CSS}</style></head><body><div class="container">{"".join(body)}</div></body></html>'
+
+# Generate top-100 PER pages
+top_per_ids = sorted(per_profile.keys(), key=lambda i: -per_profile[i].get('degree', 0))[:100]
+for pid in top_per_ids:
+    pr = per_profile[pid]
+    (wiki_dir / f'{pid}.html').write_text(render_wiki_per(pid, pr), encoding='utf-8')
+
+# Wiki index
+idx_lines = [f'<nav><a href="../index.html">← 返回总览</a></nav>', '<h1>实体 Wiki 索引</h1>', f'<div class="meta">收录 top {len(top_per_ids)} 人物</div>', '<ul>']
+for pid in top_per_ids:
+    pr = per_profile[pid]
+    idx_lines.append(f'<li><a href="{pid}.html">{esc(pr["label"])}</a> · {pr.get("degree","")} 度</li>')
+idx_lines.append('</ul>')
+(wiki_dir / 'index.html').write_text(f'<!doctype html><html lang="zh"><head><meta charset="utf-8"><title>实体 Wiki · 徐乃昌日记 KG</title><style>{WIKI_CSS}</style></head><body><div class="container">{"".join(idx_lines)}</div></body></html>', encoding='utf-8')
+
+print(f'wrote {len(top_per_ids)} wiki pages + index')
 print(f'wrote {len(chunks_out)} chunks (raw text + entity highlights)')
 print(f'wrote {len(txns)} txns, {len(per_nodes_deduped)} people (was {len(per_ids)}), {len(visits)} visits')
 print(f'mapped: {sum(mapped_cities.values())} / {len(visits)} → top cities: {list(mapped_cities.most_common(5))}')

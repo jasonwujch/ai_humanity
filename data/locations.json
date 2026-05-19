@@ -1083,6 +1083,54 @@
       "label": "上海大戏院"
     },
     {
+      "id": "loc_qiujiang_qiao",
+      "label": "虬江桥"
+    },
+    {
+      "id": "loc_bansong_yuan",
+      "label": "半淞园"
+    },
+    {
+      "id": "loc_liangjin",
+      "label": "梁晋"
+    },
+    {
+      "id": "loc_changbai",
+      "label": "长白"
+    },
+    {
+      "id": "loc_yiyang",
+      "label": "益阳"
+    },
+    {
+      "id": "loc_yixing",
+      "label": "宜兴"
+    },
+    {
+      "id": "loc_tingzhou",
+      "label": "汀州"
+    },
+    {
+      "id": "loc_lingling_lu_16",
+      "label": "崚岭路十六号"
+    },
+    {
+      "id": "loc_tongcheng",
+      "label": "桐城"
+    },
+    {
+      "id": "loc_sanmalu_372",
+      "label": "三马路三七二号"
+    },
+    {
+      "id": "loc_shangyu",
+      "label": "上虞"
+    },
+    {
+      "id": "loc_kaifeng",
+      "label": "开封"
+    },
+    {
       "id": "loc_xinxiang",
       "label": "新乡"
     },
@@ -1627,10 +1675,6 @@
       "label": "赣州"
     },
     {
-      "id": "loc_tongcheng",
-      "label": "桐城"
-    },
-    {
       "id": "loc_heyuezhou",
       "label": "和悦洲"
     },
@@ -2013,10 +2057,6 @@
     {
       "id": "loc_qiuyuan",
       "label": "虬园"
-    },
-    {
-      "id": "loc_qiujiang_qiao",
-      "label": "虬江桥"
     },
     {
       "id": "loc_wusong_haibin",
@@ -2411,10 +2451,6 @@
       "label": "通州"
     },
     {
-      "id": "loc_shangyu",
-      "label": "上虞"
-    },
-    {
       "id": "loc_zhabei_hengfeng",
       "label": "闸北恒丰路南亭里"
     },
@@ -2533,10 +2569,6 @@
     {
       "id": "loc_xin_lushe",
       "label": "新旅社"
-    },
-    {
-      "id": "loc_bansong_yuan",
-      "label": "半淞园"
     },
     {
       "id": "loc_yihong_lou",
@@ -3449,10 +3481,6 @@
     {
       "id": "loc_yizhixiang_westren",
       "label": "一枝香西餐"
-    },
-    {
-      "id": "loc_kaifeng",
-      "label": "开封省城"
     },
     {
       "id": "loc_nanjing_wudingqiao",
@@ -6074,6 +6102,33 @@
       "evidence": "晚，至天蟾舞台，观新排《梁武帝》剧",
       "relation": "拜访",
       "source_file": "1920-05-15.md"
+    },
+    {
+      "date": "1923-04-18",
+      "location_id": "loc_laiqing_ge",
+      "location_label": "来青阁",
+      "resolved_city": null,
+      "evidence": "至来青阁，见桃花纸《康熙字典》",
+      "relation": "拜访",
+      "source_file": "1920-02-05.md"
+    },
+    {
+      "date": "1923-04-19",
+      "location_id": "loc_laiqing_ge",
+      "location_label": "来青阁",
+      "resolved_city": null,
+      "evidence": "至来青阁，同寿祺议定购成《康熙字典》",
+      "relation": "拜访",
+      "source_file": "1920-02-05.md"
+    },
+    {
+      "date": "1923-04-22",
+      "location_id": "loc_laiqing_ge",
+      "location_label": "来青阁",
+      "resolved_city": null,
+      "evidence": "挈崇儿至来青阁",
+      "relation": "拜访",
+      "source_file": "1920-02-05.md"
     }
   ],
   "xu_ids": [
@@ -6092,7 +6147,7 @@
     "无锡": 1
   },
   "unmapped_top": {
-    "来青阁": 5,
+    "来青阁": 8,
     "忠厚书庄": 3,
     "蟬隐庐": 3,
     "石竹山房": 2,

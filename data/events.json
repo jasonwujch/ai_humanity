@@ -22309,5 +22309,239 @@
         "type": "人"
       }
     ]
+  },
+  {
+    "id": "hyp_lvhu_tongxiang_meeting_1923_04_16",
+    "label": "1923-04-16 旅沪同乡会筹备会 莅会者二十余人",
+    "relation": "同席",
+    "confidence": "EXTRACTED",
+    "confidence_score": 0.9,
+    "date": "1923-04-16",
+    "source_file": "1923-04-16.md",
+    "members": [
+      {
+        "id": "per_li_zhongxuan",
+        "label": "李仲轩",
+        "type": "人"
+      },
+      {
+        "id": "per_wang_qingxun",
+        "label": "汪擎荀",
+        "type": "人"
+      },
+      {
+        "id": "per_bo_liewu",
+        "label": "柏烈武",
+        "type": "人"
+      },
+      {
+        "id": "per_dou_jiaren",
+        "label": "窦价人",
+        "type": "人"
+      },
+      {
+        "id": "per_hong_xifu",
+        "label": "洪希甫",
+        "type": "人"
+      },
+      {
+        "id": "per_xu_junren",
+        "label": "许俊人",
+        "type": "人"
+      },
+      {
+        "id": "per_bai_jiesan",
+        "label": "白杰三",
+        "type": "人"
+      },
+      {
+        "id": "per_wang_hanxi",
+        "label": "汪汉溪",
+        "type": "人"
+      },
+      {
+        "id": "per_yu_luqing",
+        "label": "余鲁卿",
+        "type": "人"
+      },
+      {
+        "id": "per_li_shaomu",
+        "label": "李少穆",
+        "type": "人"
+      },
+      {
+        "id": "per_wu_zhongmou",
+        "label": "吴仲谋",
+        "type": "人"
+      },
+      {
+        "id": "per_huang_huian",
+        "label": "黄晦庵",
+        "type": "人"
+      },
+      {
+        "id": "per_wang_zhuru",
+        "label": "王竹如",
+        "type": "人"
+      },
+      {
+        "id": "per_xu_jilong",
+        "label": "徐季龙",
+        "type": "人"
+      },
+      {
+        "id": "per_zhang_yizhen",
+        "label": "张已振",
+        "type": "人"
+      }
+    ]
+  },
+  {
+    "id": "hyp_anhui_choubei_1923_04_21",
+    "label": "1923-04-21 安徽同乡筹备会 at 崚岭路十六号",
+    "relation": "同席",
+    "confidence": "EXTRACTED",
+    "confidence_score": 0.9,
+    "date": "1923-04-21",
+    "source_file": "1923-04-21.md",
+    "members": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人"
+      },
+      {
+        "id": "per_xu_junren",
+        "label": "许俊人",
+        "type": "人"
+      },
+      {
+        "id": "per_li_cishan",
+        "label": "李次山",
+        "type": "人"
+      },
+      {
+        "id": "per_xu_bolong",
+        "label": "许伯龙",
+        "type": "人"
+      },
+      {
+        "id": "per_zhang_yizhen",
+        "label": "张已振",
+        "type": "人"
+      },
+      {
+        "id": "per_huang_huian",
+        "label": "黄晦庵",
+        "type": "人"
+      },
+      {
+        "id": "per_shu_xingsan",
+        "label": "舒省三",
+        "type": "人"
+      },
+      {
+        "id": "per_lu_gaoyu",
+        "label": "吕皋俞",
+        "type": "人"
+      },
+      {
+        "id": "per_wang_yucheng",
+        "label": "汪禹丞",
+        "type": "人"
+      },
+      {
+        "id": "per_li_shaomu",
+        "label": "李少穆",
+        "type": "人"
+      },
+      {
+        "id": "per_chen_shaozhou",
+        "label": "陈少舟",
+        "type": "人"
+      }
+    ]
+  },
+  {
+    "id": "hyp_huining_tongxiang_1923_04_22",
+    "label": "1923-04-22 徽宁同乡会 at 三马路三七二号(部分)",
+    "relation": "同席",
+    "confidence": "EXTRACTED",
+    "confidence_score": 0.85,
+    "date": "1923-04-22",
+    "source_file": "1923-04-22.md",
+    "members": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人"
+      },
+      {
+        "id": "per_hong_xifu",
+        "label": "洪希甫",
+        "type": "人"
+      },
+      {
+        "id": "per_zheng_jiecheng",
+        "label": "郑介诚",
+        "type": "人"
+      },
+      {
+        "id": "per_zheng_baige",
+        "label": "郑百鸽",
+        "type": "人"
+      },
+      {
+        "id": "per_wang_xingzhai",
+        "label": "汪醒斋",
+        "type": "人"
+      },
+      {
+        "id": "per_shao_yiqun",
+        "label": "邵亦群",
+        "type": "人"
+      },
+      {
+        "id": "per_xu_bolong",
+        "label": "许伯龙",
+        "type": "人"
+      },
+      {
+        "id": "per_hu_peiru",
+        "label": "胡佩如",
+        "type": "人"
+      },
+      {
+        "id": "per_cao_zhigong",
+        "label": "曹志功",
+        "type": "人"
+      }
+    ]
+  },
+  {
+    "id": "hyp_dasheng_kaihui_1923_04_23",
+    "label": "1923-04-23 大生纱厂沪开会发起 共谋",
+    "relation": "共谋",
+    "confidence": "EXTRACTED",
+    "confidence_score": 0.9,
+    "date": "1923-04-23",
+    "source_file": "1923-04-23.md",
+    "members": [
+      {
+        "id": "per_zhao_zhujun",
+        "label": "赵竹君",
+        "type": "人"
+      },
+      {
+        "id": "per_zheng_sukan",
+        "label": "郑苏龛",
+        "type": "人"
+      },
+      {
+        "id": "per_zhou_meiquan",
+        "label": "周美权",
+        "type": "人"
+      }
+    ]
   }
 ]

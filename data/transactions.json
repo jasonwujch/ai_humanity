@@ -22926,5 +22926,115 @@
     "people": [],
     "amount": "洋四十五元 (每刀三元)",
     "direction": null
+  },
+  {
+    "id": "txn_qiuyuan_jule_di",
+    "label": "虬园地五十四亩 二万一千八百元",
+    "date": "1923-04-16",
+    "source_file": "1923-04-16.md",
+    "evidence": "虬园地五十四亩，计二万一千八百元",
+    "people": [],
+    "amount": "二万一千八百元",
+    "direction": null
+  },
+  {
+    "id": "txn_song_yuan_gufen",
+    "label": "淞园附股七千元",
+    "date": "1923-04-16",
+    "source_file": "1923-04-16.md",
+    "evidence": "淞园附股七千元",
+    "people": [],
+    "amount": "七千元",
+    "direction": null
+  },
+  {
+    "id": "txn_dazhonghua_houdi",
+    "label": "大中华厂后地约八亩 每亩一千三百元",
+    "date": "1923-04-16",
+    "source_file": "1923-04-16.md",
+    "evidence": "大中华厂后地约八亩，每亩一千三百元",
+    "people": [],
+    "amount": "每亩一千三百元",
+    "direction": null
+  },
+  {
+    "id": "txn_gongsi_fugu",
+    "label": "公司附股二千元",
+    "date": "1923-04-16",
+    "source_file": "1923-04-16.md",
+    "evidence": "此公司曾附股二千元",
+    "people": [],
+    "amount": "二千元",
+    "direction": null
+  },
+  {
+    "id": "txn_renjuan_jingfei",
+    "label": "认捐筹备临时经费一千五百八十元",
+    "date": "1923-04-16",
+    "source_file": "1923-04-16.md",
+    "evidence": "由到会委员认捐一千五百八十元",
+    "people": [],
+    "amount": "一千五百八十元",
+    "direction": null
+  },
+  {
+    "id": "txn_juanzhu_zhashang",
+    "label": "捐助安庆炸伤工人家属一百元",
+    "date": "1923-04-16",
+    "source_file": "1923-04-16.md",
+    "evidence": "捐助安庆炸伤工人家属一百元",
+    "people": [],
+    "amount": "一百元",
+    "direction": null
+  },
+  {
+    "id": "txn_baizi_zuozhuan",
+    "label": "明翻岳板左传+百子全书 二百十五元",
+    "date": "1923-04-18",
+    "source_file": "1923-04-18.md",
+    "evidence": "进价二百十五元",
+    "people": [],
+    "amount": "二百十五元",
+    "direction": null
+  },
+  {
+    "id": "txn_zidian_zijin",
+    "label": "购《字典》《字锦》二百廿元",
+    "date": "1923-04-19",
+    "source_file": "1923-04-19.md",
+    "evidence": "陶兰泉曾议价二百廿元",
+    "people": [],
+    "amount": "二百廿元",
+    "direction": null
+  },
+  {
+    "id": "txn_sinian_gongzhai",
+    "label": "收四年公债四十元",
+    "date": "1923-04-21",
+    "source_file": "1923-04-21.md",
+    "evidence": "收四年公债四十元",
+    "people": [],
+    "amount": "四十元",
+    "direction": null
+  },
+  {
+    "id": "txn_huining_changsheng",
+    "label": "捐徽宁会馆长生愿十元",
+    "date": "1923-04-23",
+    "source_file": "1923-04-23.md",
+    "evidence": "捐徽宁会馆长生愿十元",
+    "people": [],
+    "amount": "十元",
+    "direction": null
+  },
+  {
+    "id": "txn_huining_changsheng_kin",
+    "label": "为淑婉定君儿女辈共捐十元",
+    "date": "1923-04-23",
+    "source_file": "1923-04-23.md",
+    "evidence": "为淑婉、定君暨儿女辈共捐十元",
+    "people": [],
+    "amount": "十元",
+    "direction": null
   }
 ]

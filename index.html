@@ -199,6 +199,7 @@
         {{ overview.totals.nodes_deduped || overview.totals.nodes }} {{ t('nodes_n') }} · {{ overview.totals.edges }} {{ t('edges_n') }} · {{ overview.date_range?.[0] }} ~ {{ overview.date_range?.[1] }} · {{ overview.totals.batches }} {{ t('batches_n') }}
       </div>
     </div>
+    <a href="wiki/index.html" target="_blank" style="font-size:var(--fs-xs);color:var(--accent);text-decoration:none;border:1px solid var(--border);padding:4px 10px;border-radius:2px;background:var(--paper)">Wiki ↗</a>
     <select v-model="locale" style="background:transparent;border:1px solid var(--border);border-radius:2px;font-size:11px;padding:3px 6px;color:var(--muted);font-family:inherit;cursor:pointer">
       <option value="zh">中文</option>
       <option value="en">EN</option>
@@ -571,6 +572,7 @@
     <header v-if="profile">
       <span class="chip" :class="'chip-'+profileKind">{{ profileKindLabel }}</span>
       <h2>{{ profile.label }}</h2>
+      <a v-if="profile._entity_type === '人' && hasWikiPage(profile.id)" :href="`wiki/${profile.id}.html`" target="_blank" style="margin-left:auto;font-size:var(--fs-xs);color:var(--accent);text-decoration:none;border:1px solid var(--border);padding:3px 8px;border-radius:2px">Wiki ↗</a>
       <button class="close" @click="profile=null">&times;</button>
     </header>
     <div class="body" v-if="profile">
@@ -1272,6 +1274,13 @@ createApp({
     function kindOf(entity_type) {
       return ENTITY_KIND_MAP[entity_type]?.kind || 'per';
     }
+    // Top-100 PER ids have static wiki pages — approximated by degree threshold
+    const wikiPagedSet = computed(() => {
+      if (!peopleData.value) return new Set();
+      const top = [...peopleData.value.nodes].sort((a,b)=>(b.degree||0)-(a.degree||0)).slice(0,100);
+      return new Set(top.map(n => n.id));
+    });
+    function hasWikiPage(id) { return wikiPagedSet.value.has(id); }
 
     const miscExpanded = ref({});
     function toggleMiscGroup(type) {
@@ -1975,6 +1984,7 @@ createApp({
       pathFromQ, pathToQ, pathResult, pathError, runPath, swapPath,
       miscExpanded, toggleMiscGroup,
       drawerSnippetClick,
+      hasWikiPage,
       profile, profileKind, profileKindLabel, openProfile, openProfileById, openEventProfile, neighbourLabel,
     };
   }

@@ -83,6 +83,41 @@
     "source_file": "1920-04-17.md"
   },
   {
+    "id": "book_kangxi_zidian",
+    "label": "《康熙字典》",
+    "canonical": "康熙字典",
+    "aliases": [
+      "《字典》",
+      "《康熙字典》",
+      "桃花纸《康熙字典》"
+    ],
+    "first_seen": "1923-04-18",
+    "last_seen": "1923-04-19",
+    "mentions": 3,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-18.md"
+  },
+  {
+    "id": "book_fenlei_zijin",
+    "label": "《分类字锦》",
+    "canonical": "分类字锦",
+    "aliases": [
+      "《分类字锦》",
+      "《字锦》"
+    ],
+    "first_seen": "1923-04-18",
+    "last_seen": "1923-04-19",
+    "mentions": 3,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-18.md"
+  },
+  {
     "id": "book_sibu_congkan",
     "label": "四部丛刊",
     "canonical": "四部丛刊",
@@ -10848,6 +10883,208 @@
     "source_file": "1920-06-13.md"
   },
   {
+    "id": "book_zhengyitang_quanshu",
+    "label": "《正谊堂全书》",
+    "canonical": "正谊堂全书",
+    "aliases": [
+      "《正谊堂全书》"
+    ],
+    "first_seen": "1923-04-18",
+    "last_seen": "1923-04-18",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-18.md"
+  },
+  {
+    "id": "book_zuozhuan",
+    "label": "明翻岳板《左传》",
+    "canonical": "明翻岳板左传",
+    "aliases": [
+      "明翻岳板《左传》"
+    ],
+    "first_seen": "1923-04-18",
+    "last_seen": "1923-04-18",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-18.md"
+  },
+  {
+    "id": "book_baizi_quanshu",
+    "label": "宣纸印湖北局本《百子全书》",
+    "canonical": "百子全书",
+    "aliases": [
+      "宣纸印湖北局本《百子全书》"
+    ],
+    "first_seen": "1923-04-18",
+    "last_seen": "1923-04-18",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-18.md"
+  },
+  {
+    "id": "book_luocheng_jizhu",
+    "label": "明本《骆丞集注》",
+    "canonical": "骆丞集注",
+    "aliases": [
+      "明本《骆丞集注》"
+    ],
+    "first_seen": "1923-04-19",
+    "last_seen": "1923-04-19",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-19.md"
+  },
+  {
+    "id": "book_baoyou_dengkelu",
+    "label": "《宝祐四年登科录》",
+    "canonical": "宝祐四年登科录",
+    "aliases": [
+      "《宝祐四年登科录》"
+    ],
+    "first_seen": "1923-04-20",
+    "last_seen": "1923-04-20",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-20.md"
+  },
+  {
+    "id": "book_nanfeng_liu_wenji",
+    "label": "《南丰刘先生文集》",
+    "canonical": "南丰刘先生文集",
+    "aliases": [
+      "《南丰刘先生文集》"
+    ],
+    "first_seen": "1923-04-21",
+    "last_seen": "1923-04-21",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-21.md"
+  },
+  {
+    "id": "book_yueyun_pianti",
+    "label": "《悦云山房骈体文存、诗存、词存》",
+    "canonical": "悦云山房骈体文存诗存词存",
+    "aliases": [
+      "《悦云山房骈体文存、诗存、词存》"
+    ],
+    "first_seen": "1923-04-21",
+    "last_seen": "1923-04-21",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-21.md"
+  },
+  {
+    "id": "book_nansong_zhifu_biao",
+    "label": "《南宋制抚年表》",
+    "canonical": "南宋制抚年表",
+    "aliases": [
+      "《南宋制抚年表》"
+    ],
+    "first_seen": "1923-04-21",
+    "last_seen": "1923-04-21",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-21.md"
+  },
+  {
+    "id": "book_caozijian_ji",
+    "label": "影宋钞《曹子建集》",
+    "canonical": "曹子建集",
+    "aliases": [
+      "影宋钞《曹子建集》"
+    ],
+    "first_seen": "1923-04-22",
+    "last_seen": "1923-04-22",
+    "mentions": 1,
+    "people": [
+      {
+        "id": "per_yifeng_laoren",
+        "label": "缪荃孙",
+        "relation": "赠",
+        "date": "1921-05-24",
+        "evidence": "明本《曹子建集》，又《说文篆韵谱》"
+      }
+    ],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {
+      "赠": 1
+    },
+    "source_file": "1923-04-22.md"
+  },
+  {
+    "id": "book_jisi_yeyue_tu",
+    "label": "《机丝夜月图》",
+    "canonical": "机丝夜月图",
+    "aliases": [
+      "《机丝夜月图》"
+    ],
+    "first_seen": "1923-04-23",
+    "last_seen": "1923-04-23",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-23.md"
+  },
+  {
+    "id": "book_xinwen_bao",
+    "label": "《新闻报》",
+    "canonical": "新闻报",
+    "aliases": [
+      "《新闻报》"
+    ],
+    "first_seen": "1923-04-23",
+    "last_seen": "1923-04-23",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-23.md"
+  },
+  {
+    "id": "book_hefei_xianzhi",
+    "label": "《合肥县志》",
+    "canonical": "合肥县志",
+    "aliases": [
+      "《合肥县志》"
+    ],
+    "first_seen": "1923-04-23",
+    "last_seen": "1923-04-23",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-04-23.md"
+  },
+  {
     "id": "book_yuanshi_gezhi",
     "label": "元氏各志",
     "canonical": "元氏各志",
@@ -17422,22 +17659,6 @@
     "source_file": "1921-04-19.md"
   },
   {
-    "id": "book_zuozhuan",
-    "label": "《左传》",
-    "canonical": "《左传》",
-    "aliases": [
-      "《左传》"
-    ],
-    "first_seen": "1921-04-21",
-    "last_seen": "1921-04-21",
-    "mentions": 1,
-    "people": [],
-    "orgs": [],
-    "txns": [],
-    "relation_counts": {},
-    "source_file": "1921-04-21.md"
-  },
-  {
     "id": "book_xu_xiaomu_ji",
     "label": "《徐孝穆集》",
     "canonical": "《徐孝穆集》",
@@ -19534,32 +19755,6 @@
     "source_file": "1921-05-24.md"
   },
   {
-    "id": "book_caozijian_ji",
-    "label": "《曹子建集》",
-    "canonical": "《曹子建集》",
-    "aliases": [
-      "《曹子建集》"
-    ],
-    "first_seen": "1921-05-24",
-    "last_seen": "1921-05-24",
-    "mentions": 1,
-    "people": [
-      {
-        "id": "per_yifeng_laoren",
-        "label": "缪荃孙",
-        "relation": "赠",
-        "date": "1921-05-24",
-        "evidence": "明本《曹子建集》，又《说文篆韵谱》"
-      }
-    ],
-    "orgs": [],
-    "txns": [],
-    "relation_counts": {
-      "赠": 1
-    },
-    "source_file": "1921-05-24.md"
-  },
-  {
     "id": "book_shuowen_zhuanyunpu",
     "label": "《说文篆韵谱》",
     "canonical": "《说文篆韵谱》",
@@ -21338,22 +21533,6 @@
     "txns": [],
     "relation_counts": {},
     "source_file": "1921-06-24.md"
-  },
-  {
-    "id": "book_xinwen_bao",
-    "label": "《新闻》报",
-    "canonical": "《新闻报》",
-    "aliases": [
-      "《新闻》各报"
-    ],
-    "first_seen": "1921-06-25",
-    "last_seen": "1921-06-25",
-    "mentions": 1,
-    "people": [],
-    "orgs": [],
-    "txns": [],
-    "relation_counts": {},
-    "source_file": "1921-06-25.md"
   },
   {
     "id": "book_guang_zhuoyi_ji",
