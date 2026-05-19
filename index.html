@@ -235,6 +235,7 @@
     <button :class="{active:tab==='geo'}" @click="tab='geo'">{{ t('tab_geo') }}</button>
     <button :class="{active:tab==='reader'}" @click="tab='reader'">{{ t('tab_reader') }}</button>
     <button :class="{active:tab==='stats'}" @click="tab='stats'">{{ t('tab_stats') }}</button>
+    <button :class="{active:tab==='path'}" @click="tab='path'">路径探索</button>
     <button :class="{active:tab==='index'}" @click="tab='index'">{{ t('tab_index') }}</button>
   </div>
 
@@ -484,6 +485,42 @@
     </template>
   </div>
 
+  <!-- Path finder -->
+  <div class="view" v-show="tab==='path'">
+    <div class="controls">
+      <input v-model="pathFromQ" @keyup.enter="runPath" placeholder="起点 (人名/别名)" style="width:200px" />
+      <span>→</span>
+      <input v-model="pathToQ" @keyup.enter="runPath" placeholder="终点 (人名/别名)" style="width:200px" />
+      <button @click="runPath">查找最短路径</button>
+      <button @click="swapPath">⇄ 交换</button>
+      <span class="legend">在人物关系图中寻找最短跳数链路（无向 BFS）</span>
+    </div>
+    <div v-if="pathError" class="empty" style="color:var(--accent)">{{ pathError }}</div>
+    <div v-if="pathResult" style="background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:18px">
+      <div style="margin-bottom:14px;font-size:var(--fs-base)">
+        <span style="color:var(--muted)">最短路径 ·</span>
+        <strong style="color:var(--accent)">{{ pathResult.nodes.length-1 }} 跳</strong>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:var(--fs-sm)">
+        <template v-for="(n,i) in pathResult.nodes" :key="n.id">
+          <span class="chip chip-per" style="cursor:pointer;font-size:var(--fs-base);padding:4px 10px" @click="openProfileById(n.id)">{{ n.label }}</span>
+          <span v-if="i < pathResult.edges.length" style="display:inline-flex;flex-direction:column;align-items:center;gap:2px">
+            <span style="font-size:11px;color:var(--accent);font-weight:600">{{ pathResult.edges[i].relation }}</span>
+            <span style="font-size:16px;color:var(--muted)">─→</span>
+          </span>
+        </template>
+      </div>
+      <div style="margin-top:16px;font-size:var(--fs-sm)">
+        <strong style="color:var(--muted)">边证据：</strong>
+        <div v-for="(e,i) in pathResult.edges" :key="i" style="padding:6px 0;border-top:1px solid var(--border-soft)">
+          <span style="color:var(--accent);font-weight:600">{{ pathResult.nodes[i].label }} {{ e.relation }} {{ pathResult.nodes[i+1].label }}</span>
+          <span v-if="e.date" style="color:var(--muted);font-family:ui-monospace,monospace;margin-left:8px">{{ e.date }}</span>
+          <div style="color:var(--muted);margin-top:2px">{{ e.evidence || '(无证据文本)' }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Entity index -->
   <div class="view" v-show="tab==='index'">
     <div class="index-grid">
@@ -668,6 +705,10 @@ createApp({
     });
     const statsData = ref(null);
     const miscData = ref(null);
+    const pathFromQ = ref('');
+    const pathToQ = ref('');
+    const pathResult = ref(null);
+    const pathError = ref('');
     const relationFilter = ref('');
     const confFilter = ref('');
     const visibleNodeCount = ref(0);
@@ -1044,6 +1085,57 @@ createApp({
       visibleNodeCount.value = nodes.length;
       visibleEdgeCount.value = edges.length;
       renderPeople(nodes, edges, openProfileById, expandNode, removeNode, focusId);
+    }
+
+    // ── Path finder ──────────────────────────────────────────────────────
+    function findPerson(q) {
+      if (!peopleData.value || !q) return null;
+      return peopleData.value.nodes.find(n =>
+        (n.label || '').includes(q) || (n.aliases || []).some(a => (a || '').includes(q))
+      );
+    }
+    function runPath() {
+      pathError.value = ''; pathResult.value = null;
+      const a = findPerson(pathFromQ.value.trim());
+      const b = findPerson(pathToQ.value.trim());
+      if (!a) { pathError.value = '起点未找到: ' + pathFromQ.value; return; }
+      if (!b) { pathError.value = '终点未找到: ' + pathToQ.value; return; }
+      if (a.id === b.id) { pathError.value = '起点与终点相同'; return; }
+      // Build adjacency
+      const adj2 = new Map();
+      for (const e of peopleData.value.edges) {
+        if (!adj2.has(e.source)) adj2.set(e.source, []);
+        if (!adj2.has(e.target)) adj2.set(e.target, []);
+        adj2.get(e.source).push({other: e.target, edge: e});
+        adj2.get(e.target).push({other: e.source, edge: e});
+      }
+      // BFS
+      const parent = new Map(); parent.set(a.id, null);
+      const parentEdge = new Map();
+      const queue = [a.id];
+      let found = false;
+      while (queue.length && !found) {
+        const cur = queue.shift();
+        if (cur === b.id) { found = true; break; }
+        for (const {other, edge} of (adj2.get(cur) || [])) {
+          if (parent.has(other)) continue;
+          parent.set(other, cur);
+          parentEdge.set(other, edge);
+          if (other === b.id) { found = true; break; }
+          queue.push(other);
+        }
+      }
+      if (!parent.has(b.id)) { pathError.value = `${a.label} 与 ${b.label} 之间无路径`; return; }
+      // Reconstruct
+      const idChain = []; let cur = b.id;
+      while (cur != null) { idChain.unshift(cur); cur = parent.get(cur); }
+      const nodes = idChain.map(id => peopleData.value.nodes.find(n => n.id === id));
+      const edges = [];
+      for (let i = 1; i < idChain.length; i++) edges.push(parentEdge.get(idChain[i]));
+      pathResult.value = {nodes, edges};
+    }
+    function swapPath() {
+      const tmp = pathFromQ.value; pathFromQ.value = pathToQ.value; pathToQ.value = tmp;
     }
 
     function kindOf(entity_type) {
@@ -1710,6 +1802,7 @@ createApp({
       statsData, renderStats,
       miscData, miscOverviewGroups,
       locale, t,
+      pathFromQ, pathToQ, pathResult, pathError, runPath, swapPath,
       profile, profileKind, profileKindLabel, openProfile, openProfileById, openEventProfile, neighbourLabel,
     };
   }
