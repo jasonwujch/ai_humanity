@@ -120,19 +120,22 @@
   .drawer header h2 { margin: 0; font-size: var(--fs-h); font-weight: 700; letter-spacing: 0.04em }
   .drawer { font-size: var(--fs-sm) }
   .drawer header .close { margin-left: auto; border: 0; background: 0; cursor: pointer; font-size: 22px; color: var(--muted) }
-  .drawer .body { padding: 14px 18px }
-  .drawer h3 { font-size: 12px; color: var(--muted); margin: 18px 0 6px; text-transform: uppercase; letter-spacing: .04em }
-  .drawer .meta { font-size: 13px; color: #444; line-height: 1.6 }
+  .drawer .body { padding: 16px 22px }
+  .drawer h3 { font-size: var(--fs-sm); color: var(--muted); margin: 22px 0 8px; text-transform: uppercase; letter-spacing: .04em; font-weight: 700 }
+  .drawer .meta { font-size: var(--fs-base); color: var(--fg); line-height: 1.7 }
   .drawer .alias-row { display: flex; flex-wrap: wrap; gap: 4px }
-  .drawer .alias-row .chip { background: #f3f4f6; color: #444; font-size: 11px }
-  .drawer ul { padding-left: 18px; margin: 0; font-size: 13px; line-height: 1.7 }
+  .drawer .alias-row .chip { background: #f3f4f6; color: #444; font-size: var(--fs-xs) }
+  .drawer ul { padding-left: 22px; margin: 0; font-size: var(--fs-base); line-height: 1.9 }
   .drawer .neigh { cursor: pointer; color: var(--accent) }
   .drawer .neigh:hover { text-decoration: underline }
-  .drawer .edge-list { font-size: 12px }
-  .drawer .edge-list .row { padding: 6px 0; border-bottom: 1px solid #f3f4f6 }
-  .drawer .edge-list .row .rel { color: var(--accent); font-weight: 500 }
-  .drawer .edge-list .row .ev { color: #555 }
-  .drawer .edge-list .row .dt { color: var(--muted); font-size: 11px; font-family: ui-monospace, monospace }
+  .drawer .edge-list { font-size: var(--fs-base) }
+  .drawer .edge-list .row { padding: 10px 0; border-bottom: 1px solid var(--border-soft) }
+  .drawer .edge-list .row .rel { color: var(--accent); font-weight: 600 }
+  .drawer .edge-list .row .ev { color: var(--fg); line-height: 1.7 }
+  .drawer .edge-list .row .dt { color: var(--muted); font-size: var(--fs-xs); font-family: ui-monospace, monospace }
+  /* Compact when many rows */
+  .drawer.compact .edge-list .row { padding: 6px 0 }
+  .drawer.compact .edge-list { font-size: var(--fs-sm) }
 
   /* Metro */
   .metro-wrap { background: var(--paper); border: 1px solid var(--border); border-radius: 2px; overflow-x: auto; overflow-y: hidden }
@@ -273,19 +276,16 @@
       <div v-if="miscData && Object.keys(miscData).length" style="background:var(--paper);border:1px solid var(--border);padding:16px 18px;border-radius:2px;margin-bottom:20px">
         <h3 style="margin:0 0 10px;font-size:var(--fs-sm);padding-bottom:6px;border-bottom:1px solid var(--border-soft)">小众实体速览</h3>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;font-size:var(--fs-sm)">
-          <div v-for="grp in miscOverviewGroups" :key="grp.type" style="border:1px solid var(--border-soft);border-radius:2px;padding:8px 10px">
-            <div style="font-weight:600;color:var(--fg);margin-bottom:6px;display:flex;justify-content:space-between;cursor:pointer" @click="toggleMiscGroup(grp.type)">
+          <div v-for="grp in miscOverviewGroups" :key="grp.type" style="border:1px solid var(--border-soft);border-radius:2px;padding:8px 10px;display:flex;flex-direction:column;max-height:280px">
+            <div style="font-weight:600;color:var(--fg);margin-bottom:6px;display:flex;justify-content:space-between">
               <span><i class="dot" :class="'dot-'+kindOf(grp.type)"></i>{{ grp.type }}</span>
-              <span style="color:var(--muted);font-weight:400">{{ grp.items.length }} {{ miscExpanded[grp.type] ? '▾' : '▸' }}</span>
+              <span style="color:var(--muted);font-weight:400">{{ grp.items.length }}</span>
             </div>
-            <div :style="{maxHeight: miscExpanded[grp.type] ? 'none' : '180px', overflowY: 'auto'}">
-              <div v-for="item in (miscExpanded[grp.type] ? grp.items : grp.items.slice(0,12))" :key="item.id" style="padding:2px 0;cursor:pointer;display:flex;justify-content:space-between" @click="openProfile({id:item.id, label:item.label, _entity_type:grp.type})">
+            <div style="overflow-y:auto;flex:1">
+              <div v-for="item in grp.items" :key="item.id" style="padding:2px 0;cursor:pointer;display:flex;justify-content:space-between" @click="openProfile({id:item.id, label:item.label, _entity_type:grp.type})">
                 <span class="chip" :class="'chip-'+kindOf(grp.type)">{{ item.label }}</span>
                 <span style="color:var(--muted);font-size:var(--fs-xs)">{{ item.mentions }}×</span>
               </div>
-            </div>
-            <div v-if="!miscExpanded[grp.type] && grp.items.length > 12" style="margin-top:6px;font-size:var(--fs-xs);color:var(--accent);cursor:pointer;text-align:center" @click="toggleMiscGroup(grp.type)">
-              展开剩余 {{ grp.items.length - 12 }} 项 ▾
             </div>
           </div>
         </div>
@@ -522,6 +522,12 @@
       <button @click="swapPath">⇄ 交换</button>
       <span class="legend">在人物关系图中寻找最短跳数链路（无向 BFS）</span>
     </div>
+    <div style="background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:12px 14px;margin-bottom:12px">
+      <div style="font-size:var(--fs-xs);color:var(--muted);margin-bottom:6px">常用人物 (点击填入)：先点击起点 → 再点击终点</div>
+      <div style="display:flex;flex-wrap:wrap;gap:4px">
+        <span v-for="p in pathQuickPicks" :key="p.id" class="chip chip-per" style="cursor:pointer;padding:4px 10px;font-size:var(--fs-sm)" @click="pickPath(p)">{{ p.label }} <span style="color:var(--muted);font-size:10px">({{ p.degree }})</span></span>
+      </div>
+    </div>
     <div v-if="pathError" class="empty" style="color:var(--accent)">{{ pathError }}</div>
     <div v-if="pathResult" style="background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:18px">
       <div style="margin-bottom:14px;font-size:var(--fs-base)">
@@ -571,9 +577,20 @@
     </div>
   </div>
 
+  <!-- Source popup modal -->
+  <div v-if="sourcePopup" style="position:fixed;inset:0;background:rgba(31,26,20,.45);z-index:1100;display:flex;align-items:center;justify-content:center" @click="sourcePopup=null">
+    <div @click.stop style="background:var(--paper);border:1px solid var(--border);border-left:3px double var(--accent);max-width:min(720px,92vw);max-height:80vh;overflow-y:auto;padding:24px 32px;border-radius:2px;font-family:'Noto Serif SC','Songti SC',serif">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px;border-bottom:1px solid var(--border-soft);padding-bottom:8px">
+        <h2 style="margin:0;color:var(--accent);font-size:var(--fs-h);padding-left:12px;border-left:4px solid var(--accent)">{{ sourcePopup.date }}</h2>
+        <button @click="sourcePopup=null" style="background:0;border:0;font-size:22px;color:var(--muted);cursor:pointer">×</button>
+      </div>
+      <div style="font-size:clamp(15px,0.9vw+12px,18px);line-height:2.1" v-html="sourcePopup.html"></div>
+    </div>
+  </div>
+
   <!-- Profile drawer -->
   <div class="drawer-backdrop" :class="{open: profile}" @click="profile=null"></div>
-  <div class="drawer" :class="{open: profile}">
+  <div class="drawer" :class="{open: profile, compact: profile && (profile._source_mentions?.length > 4 || profile.sample_edges?.length > 8 || profile.txns?.length > 6)}">
     <header v-if="profile">
       <span class="chip" :class="'chip-'+profileKind">{{ profileKindLabel }}</span>
       <h2>{{ profile.label }}</h2>
@@ -754,6 +771,13 @@ createApp({
     const indexSearch = ref('');
 
     const profile = ref(null);
+    const sourcePopup = ref(null);
+    function openSourcePopup(date) {
+      if (!chunksData.value || !chunksData.value[date]) return;
+      const body = chunksData.value[date].body || '';
+      sourcePopup.value = {date, html: highlightSnippetRange(body, 0, body.length, date, new Set())};
+    }
+    window.__vueOpenSourcePopup = openSourcePopup;
     // Inverted index: entity_id → [{date, surface}]
     let chunkIndex = null;
     function buildChunkIndex() {
@@ -918,7 +942,7 @@ createApp({
       window.__vueOpenProfile = openProfileById;
     });
 
-    watch([tab, txnData, peopleData, locData, booksData], ([t, tx, pp, lc, bk]) => {
+    watch([tab, txnData, peopleData, locData, booksData, statsData], ([t, tx, pp, lc, bk, st]) => {
       if (t === 'txn' && tx && !txnTable) nextTick(() => initTxn(tx));
       if (t === 'books' && bk && !booksTable) nextTick(() => initBooks(bk));
       if (t === 'people' && pp && !cyInstance) nextTick(() => initLazyGraph());
@@ -1035,6 +1059,25 @@ createApp({
         jumpToReader(date);
       }
     }
+
+    function openBookProfile(b) {
+      openProfile({id: b.id, label: b.label, _entity_type: '书籍', _book: b, aliases: b.aliases, canonical: b.canonical, degree: b.mentions});
+    }
+    window.__vueOpenBookProfile = openBookProfile;
+
+    function pickPath(p) {
+      if (!pathFromQ.value || (pathFromQ.value && pathToQ.value)) {
+        pathFromQ.value = p.label;
+        pathToQ.value = '';
+      } else {
+        pathToQ.value = p.label;
+        runPath();
+      }
+    }
+    const pathQuickPicks = computed(() => {
+      if (!peopleData.value) return [];
+      return [...peopleData.value.nodes].sort((a,b)=>(b.degree||0)-(a.degree||0)).slice(0, 24);
+    });
 
     function openLocationDetail(cityName) {
       if (!locData.value) return;
@@ -1986,10 +2029,11 @@ createApp({
       statsData, renderStats,
       miscData, miscOverviewGroups,
       locale, t,
-      pathFromQ, pathToQ, pathResult, pathError, runPath, swapPath,
+      pathFromQ, pathToQ, pathResult, pathError, runPath, swapPath, pickPath, pathQuickPicks,
       miscExpanded, toggleMiscGroup,
       drawerSnippetClick,
       hasWikiPage,
+      sourcePopup, openSourcePopup,
       profile, profileKind, profileKindLabel, openProfile, openProfileById, openEventProfile, neighbourLabel,
     };
   }
@@ -2001,7 +2045,7 @@ function initBooks(data){
     initialSort:[{column:'mentions', dir:'desc'}],
     columns:[
       {title:'书名', field:'label', widthGrow:2, headerFilter:'input',
-        formatter: c => `<span class="chip chip-book" style="font-size:11px">${c.getValue()||''}</span>`},
+        formatter: c => `<span class="chip chip-book" style="font-size:var(--fs-xs)">${c.getValue()||''}</span>`},
       {title:'别名', field:'aliases', widthGrow:2,
         formatter: c => (c.getValue()||[]).slice(0,4).join('、')},
       {title:'提及次数', field:'mentions', sorter:'number', width:90, hozAlign:'right'},
@@ -2017,10 +2061,16 @@ function initBooks(data){
           return Object.entries(v).slice(0,4).map(([k,n]) => `<span class="chip" style="background:#f3f4f6;color:#444">${k} ${n}</span>`).join(' ');
         }},
     ],
-  });
-  document.getElementById('books-table').addEventListener('click', (e) => {
-    const chip = e.target.closest('.chip');
-    if (chip && chip.dataset.id && window.__vueOpenProfile) window.__vueOpenProfile(chip.dataset.id);
+    rowClick: (e, row) => {
+      // If clicked on a person chip, drill into person; otherwise open the book profile
+      const chip = e.target.closest('.chip');
+      if (chip && chip.dataset.id && window.__vueOpenProfile) {
+        window.__vueOpenProfile(chip.dataset.id);
+      } else {
+        const b = row.getData();
+        if (window.__vueOpenBookProfile) window.__vueOpenBookProfile(b);
+      }
+    },
   });
 }
 
@@ -2040,15 +2090,19 @@ function initTxn(data){
       {title:'方向', field:'direction', width:70,
         formatter: c => { const v = c.getValue(); return v === 'out' ? '出' : v === 'in' ? '入' : ''; }},
       {title:'证据', field:'evidence', widthGrow:3},
-      {title:'出处', field:'source_file', width:120, formatter: c => `<span style="font-family:ui-monospace,monospace;font-size:11px;color:#666">${c.getValue()||''}</span>`},
+      {title:'出处', field:'source_file', width:140, formatter: c => `<a class="src-link" data-date="${(c.getValue()||'').replace('.md','')}" style="color:var(--accent);cursor:pointer;font-family:ui-monospace,monospace;font-size:var(--fs-xs)">${c.getValue()||''} ↗</a>`},
     ],
   });
-  // Click-through on chips → open profile
   document.getElementById('txn-table').addEventListener('click', (e) => {
     const chip = e.target.closest('.chip');
-    if (chip && chip.dataset.id) {
-      const evt = new CustomEvent('openProfileById', {detail: chip.dataset.id});
-      document.dispatchEvent(evt);
+    if (chip && chip.dataset.id && window.__vueOpenProfile) {
+      window.__vueOpenProfile(chip.dataset.id);
+      return;
+    }
+    const src = e.target.closest('.src-link');
+    if (src && src.dataset.date && window.__vueOpenSourcePopup) {
+      e.stopPropagation();
+      window.__vueOpenSourcePopup(src.dataset.date);
     }
   });
 }
