@@ -343,7 +343,7 @@
       <span class="legend" v-if="eventsData">{{ filteredEvents.length }} / {{ eventsData.length }} 事件</span>
     </div>
     <div style="display:grid;grid-template-columns:1fr;gap:8px;max-height:calc(100vh - 240px);overflow-y:auto">
-      <div v-for="e in filteredEvents.slice(0,300)" :key="e.id" style="background:#fff;border:1px solid var(--border);border-radius:6px;padding:12px">
+      <div v-for="e in filteredEvents.slice(0,300)" :key="e.id" style="background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:14px;cursor:pointer" @click="openEventProfile(e)">
         <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px">
           <div>
             <span class="chip chip-evt">{{ e.relation }}</span>
@@ -352,7 +352,7 @@
           </div>
           <span class="legend">{{ e.members.length }} 参与 · 置信 {{ e.confidence_score }}</span>
         </div>
-        <div style="margin-top:8px">
+        <div style="margin-top:8px" @click.stop>
           <span v-for="m in e.members" :key="m.id" class="chip" :class="'chip-'+kindOf(m.type)" style="cursor:pointer;margin:2px" @click="openProfileById(m.id)">{{ m.label }}</span>
         </div>
       </div>
@@ -545,6 +545,13 @@
           <div class="ev">{{ e.evidence }}</div>
         </div>
       </div>
+      <h3 v-if="profile._source_mentions?.length">日记原文 ({{ profile._source_mentions.length }})</h3>
+      <div v-if="profile._source_mentions?.length" class="edge-list">
+        <div class="row" v-for="(s,i) in profile._source_mentions" :key="i" style="cursor:pointer" @click="jumpToReader(s.date)">
+          <span class="dt">{{ s.date }}</span>
+          <div class="ev" style="margin-top:2px" v-html="s.snippet"></div>
+        </div>
+      </div>
       <h3 v-if="profile.merged_ids?.length > 1">合并 ID</h3>
       <div class="meta" v-if="profile.merged_ids?.length > 1">
         <span v-for="i in profile.merged_ids" :key="i" class="chip" style="background:#f3f4f6;color:#666;font-family:ui-monospace,monospace;font-size:10px">{{ i }}</span>
@@ -658,6 +665,46 @@ createApp({
     const indexSearch = ref('');
 
     const profile = ref(null);
+    // Inverted index: entity_id → [{date, surface}]
+    let chunkIndex = null;
+    function buildChunkIndex() {
+      if (chunkIndex || !chunksData.value) return;
+      chunkIndex = new Map();
+      for (const [date, ch] of Object.entries(chunksData.value)) {
+        for (const ent of ch.entities || []) {
+          if (!chunkIndex.has(ent.id)) chunkIndex.set(ent.id, []);
+          chunkIndex.get(ent.id).push({date, surface: ent.surface});
+        }
+      }
+    }
+    function findSourceMentions(entityId, mergedIds, limit) {
+      buildChunkIndex();
+      if (!chunkIndex) return [];
+      limit = limit || 8;
+      const ids = new Set([entityId, ...(mergedIds || [])]);
+      const out = [];
+      const seenDates = new Set();
+      for (const id of ids) {
+        const hits = chunkIndex.get(id) || [];
+        for (const h of hits) {
+          if (seenDates.has(h.date)) continue;
+          seenDates.add(h.date);
+          const body = chunksData.value[h.date]?.body || '';
+          const idx = body.indexOf(h.surface);
+          if (idx === -1) {
+            out.push({date: h.date, surface: h.surface, snippet: body.slice(0, 80)});
+          } else {
+            const start = Math.max(0, idx - 18);
+            const end = Math.min(body.length, idx + h.surface.length + 60);
+            let snip = body.substring(start, end).replace(/\n/g, ' ');
+            snip = (start > 0 ? '…' : '') + snip.replace(h.surface, `<mark style="background:#ffeaa7;color:#1f1a14;padding:0 2px">${h.surface}</mark>`) + (end < body.length ? '…' : '');
+            out.push({date: h.date, surface: h.surface, snippet: snip});
+          }
+          if (out.length >= limit) return out;
+        }
+      }
+      return out;
+    }
     const profileKind = computed(() => profile.value ? (ENTITY_KIND_MAP[profile.value._entity_type]?.kind || 'per') : 'per');
     const profileKindLabel = computed(() => profile.value ? (ENTITY_KIND_MAP[profile.value._entity_type]?.label || '人') : '');
 
@@ -790,12 +837,13 @@ createApp({
 
     function openProfile(n) {
       if (!n) return;
+      let built;
       if (n._entity_type === '人' && profiles.value[n.id]) {
         const pr = profiles.value[n.id];
-        profile.value = {...pr, _entity_type: '人'};
+        built = {...pr, _entity_type: '人'};
       } else if (miscData.value && miscData.value[n.id]) {
         const m = miscData.value[n.id];
-        profile.value = {
+        built = {
           id: m.id, label: m.label, canonical: m.canonical, aliases: m.aliases,
           _entity_type: m.entity_type,
           _first_seen: m.first_seen, _last_seen: m.last_seen, _mentions: m.mentions,
@@ -804,7 +852,7 @@ createApp({
         };
       } else if (n._entity_type === '书籍' && n._book) {
         const b = n._book;
-        profile.value = {
+        built = {
           id: b.id, label: b.label, canonical: b.canonical, aliases: b.aliases,
           _entity_type: '书籍',
           _first_seen: b.first_seen, _last_seen: b.last_seen, _mentions: b.mentions,
@@ -813,18 +861,38 @@ createApp({
           txns: b.txns.map(t => ({date:t.date, label:t.label, evidence:t.evidence, relation:t.relation})),
         };
       } else {
-        profile.value = {
+        built = {
           id: n.id, label: n.label, aliases: n.aliases || [], canonical: n.canonical,
           degree: n.degree, _entity_type: n._entity_type,
           ...(n._date ? {_date:n._date} : {}),
           ...(n._evidence ? {_evidence:n._evidence} : {}),
         };
       }
+      // Attach source mentions for ALL entity types
+      built._source_mentions = findSourceMentions(built.id, built.merged_ids, 10);
+      profile.value = built;
     }
 
     function openProfileById(id) {
       const n = allNodes.value.find(x => x.id === id);
       if (n) openProfile(n);
+    }
+
+    function openEventProfile(e) {
+      // Build a synthetic profile for an event
+      const built = {
+        id: e.id,
+        label: e.label,
+        _entity_type: '事件',
+        _date: e.date,
+        relations: {[e.relation]: e.members.length},
+        top_neighbours: e.members.map(m => ({id:m.id, label:m.label, count:1})),
+      };
+      // Source: load entire day's chunk body
+      if (chunksData.value && e.date && chunksData.value[e.date]) {
+        built._source_mentions = [{date: e.date, surface: '', snippet: (chunksData.value[e.date].body || '').slice(0, 500)}];
+      }
+      profile.value = built;
     }
 
     function neighbourLabel(id) {
@@ -1402,7 +1470,7 @@ createApp({
       statsData, renderStats,
       miscData, miscOverviewGroups,
       locale, t,
-      profile, profileKind, profileKindLabel, openProfile, openProfileById, neighbourLabel,
+      profile, profileKind, profileKindLabel, openProfile, openProfileById, openEventProfile, neighbourLabel,
     };
   }
 }).mount('#app');
