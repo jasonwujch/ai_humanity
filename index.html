@@ -207,6 +207,7 @@
         {{ overview.totals.nodes_deduped || overview.totals.nodes }} {{ t('nodes_n') }} · {{ overview.totals.edges }} {{ t('edges_n') }} · {{ overview.date_range?.[0] }} ~ {{ overview.date_range?.[1] }} · {{ overview.totals.batches }} {{ t('batches_n') }}
       </div>
     </div>
+    <a href="specials/index.html" target="_blank" style="font-size:var(--fs-xs);color:var(--accent);text-decoration:none;border:1px solid var(--border);padding:4px 10px;border-radius:2px;background:var(--paper)">专题 ↗</a>
     <a href="wiki/index.html" target="_blank" style="font-size:var(--fs-xs);color:var(--accent);text-decoration:none;border:1px solid var(--border);padding:4px 10px;border-radius:2px;background:var(--paper)">Wiki ↗</a>
     <select v-model="locale" style="background:transparent;border:1px solid var(--border);border-radius:2px;font-size:11px;padding:3px 6px;color:var(--muted);font-family:inherit;cursor:pointer">
       <option value="zh">中文</option>

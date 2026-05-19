@@ -792,7 +792,7 @@
     "evidence": "张菊生赠新景印南北宋刊合璧《南华真经》十卷",
     "people": [
       {
-        "id": "per_zhang_jusheng",
+        "id": "per_zhang_juzi",
         "label": "张菊生",
         "type": "人",
         "relation": "赠"
@@ -6756,7 +6756,7 @@
     "evidence": "菊生贻《涵芬楼秘笈》弟九集",
     "people": [
       {
-        "id": "per_zhang_jusheng",
+        "id": "per_zhang_juzi",
         "label": "张菊生",
         "type": "人",
         "relation": "赠"
@@ -8068,7 +8068,7 @@
     "evidence": "赠新印黄、白纸各五部",
     "people": [
       {
-        "id": "per_zhang_jusheng",
+        "id": "per_zhang_juzi",
         "label": "张菊生",
         "type": "人",
         "relation": "赠"
@@ -20325,7 +20325,7 @@
       },
       {
         "id": "book_zhupoci",
-        "label": "注坡词",
+        "label": "《注坡词》",
         "type": "书籍",
         "relation": "商务"
       },
@@ -24736,5 +24736,235 @@
     "people": [],
     "amount": null,
     "direction": "gift_out"
+  },
+  {
+    "id": "txn_chenliangqian_buyfour",
+    "label": "陈乃乾代购书四部 四十元",
+    "date": "1923-06-14",
+    "source_file": "1923-06-14.md",
+    "evidence": "陈乃乾代购书四部，价洋四十元",
+    "people": [],
+    "amount": "四十元",
+    "direction": null
+  },
+  {
+    "id": "txn_taiping_yulan_buy",
+    "label": "购《太平御览》 一百四十元",
+    "date": "1923-06-14",
+    "source_file": "1923-06-14.md",
+    "evidence": "索价一百四十元。嘉庆九年刻本，初四日付五十元，初五日付四十元，初六日付五十元",
+    "people": [],
+    "amount": "一百四十元",
+    "direction": null
+  },
+  {
+    "id": "txn_give_dabei_zhishan",
+    "label": "送周芝山《大悲心陀罗尼经》三册",
+    "date": "1923-06-14",
+    "source_file": "1923-06-14.md",
+    "evidence": "送周芝山新印《大悲心陀罗尼经》三册",
+    "people": [],
+    "amount": null,
+    "direction": null
+  },
+  {
+    "id": "txn_zhishan_jingang_back",
+    "label": "芝山复赠《金刚经》四部",
+    "date": "1923-06-14",
+    "source_file": "1923-06-14.md",
+    "evidence": "芝山复赠《金刚经》四部",
+    "people": [],
+    "amount": null,
+    "direction": null
+  },
+  {
+    "id": "txn_haifeng_buy",
+    "label": "购《海峰文集》一元",
+    "date": "1923-06-15",
+    "source_file": "1923-06-15.md",
+    "evidence": "购《海峰文集》桐城刘大樛。初印本，无卷数，目分论著、书、序、记，价一元",
+    "people": [],
+    "amount": "一元",
+    "direction": null
+  },
+  {
+    "id": "txn_xileng_recv",
+    "label": "收西泠印社书价十二元七角",
+    "date": "1923-06-15",
+    "source_file": "1923-06-15.md",
+    "evidence": "收西泠印社书价十二元七角",
+    "people": [],
+    "amount": "十二元七角",
+    "direction": null
+  },
+  {
+    "id": "txn_saoye_recv",
+    "label": "收扫叶山房书价廿元",
+    "date": "1923-06-15",
+    "source_file": "1923-06-15.md",
+    "evidence": "收扫叶山房书价廿元",
+    "people": [],
+    "amount": "廿元",
+    "direction": null
+  },
+  {
+    "id": "txn_qianqing_recv",
+    "label": "收千顷堂书价捌元",
+    "date": "1923-06-15",
+    "source_file": "1923-06-15.md",
+    "evidence": "收千顷堂书价捌元",
+    "people": [],
+    "amount": "捌元",
+    "direction": null
+  },
+  {
+    "id": "txn_dazhao_recv",
+    "label": "收大照电灯公司夫马费捌拾两",
+    "date": "1923-06-15",
+    "source_file": "1923-06-15.md",
+    "evidence": "大照电灯公司汇来夫马费捌拾两",
+    "people": [],
+    "amount": "捌拾两",
+    "direction": null
+  },
+  {
+    "id": "txn_jichen_dabei",
+    "label": "送寄尘《大悲心陀罗尼经》二册",
+    "date": "1923-06-15",
+    "source_file": "1923-06-15.md",
+    "evidence": "送寄尘《大悲心陀罗尼经》二册",
+    "people": [],
+    "amount": null,
+    "direction": null
+  },
+  {
+    "id": "txn_zijing_liu_gift",
+    "label": "罗子经赠《柳河东集》",
+    "date": "1923-06-16",
+    "source_file": "1923-06-16.md",
+    "evidence": "罗子经赠新影印宋世彩堂本《柳河东集》",
+    "people": [],
+    "amount": null,
+    "direction": null
+  },
+  {
+    "id": "txn_xinjiang_pre",
+    "label": "《新疆图志》预约券四十五元",
+    "date": "1923-06-16",
+    "source_file": "1923-06-16.md",
+    "evidence": "博爱工厂印《新疆图志》预约券。每部四十五元，先付廿五元",
+    "people": [],
+    "amount": "四十五元 (先付廿五元)",
+    "direction": null
+  },
+  {
+    "id": "txn_lianhua_jia",
+    "label": "假博古斋宋本《妙法莲华经》索价八十元",
+    "date": "1923-06-16",
+    "source_file": "1923-06-16.md",
+    "evidence": "柳索价八十元",
+    "people": [],
+    "amount": "八十元",
+    "direction": null
+  },
+  {
+    "id": "txn_fahua_pay",
+    "label": "付《法华经》印价二百元",
+    "date": "1923-06-17",
+    "source_file": "1923-06-17.md",
+    "evidence": "旋函送印价洋式佰元。连前共付三百元",
+    "people": [],
+    "amount": "二佰元 (累计三百元)",
+    "direction": null
+  },
+  {
+    "id": "txn_wenxuanlou_pay",
+    "label": "付来青阁《文选楼丛书》卅元",
+    "date": "1923-06-17",
+    "source_file": "1923-06-17.md",
+    "evidence": "付来青阁残本《文选楼丛书》价卅元",
+    "people": [],
+    "amount": "卅元",
+    "direction": null
+  },
+  {
+    "id": "txn_jisheng_dan",
+    "label": "寄济生丹、救急丹 共七元",
+    "date": "1923-06-17",
+    "source_file": "1923-06-17.md",
+    "evidence": "寄济生丹二元、救急丹五元",
+    "people": [],
+    "amount": "七元",
+    "direction": null
+  },
+  {
+    "id": "txn_yushouping_gift",
+    "label": "送余寿平夫人素华丝葛幃、烛",
+    "date": "1923-06-17",
+    "source_file": "1923-06-17.md",
+    "evidence": "送余寿平夫人素华丝葛幃、烛",
+    "people": [],
+    "amount": null,
+    "direction": null
+  },
+  {
+    "id": "txn_pay_50_decline",
+    "label": "壁还吴仓石五十元",
+    "date": "1923-06-18",
+    "source_file": "1923-06-18.md",
+    "evidence": "送洋五十元亦壁还，改送禹鸿臚画屏",
+    "people": [],
+    "amount": "五十元 (退还)",
+    "direction": null
+  },
+  {
+    "id": "txn_qifeng_buy",
+    "label": "购《七峰诗稿》《耐寒斋诗钞》五角",
+    "date": "1923-06-19",
+    "source_file": "1923-06-19.md",
+    "evidence": "购《耐寒斋诗钞》，阜阳，程溶。《七峰诗稿》，怀宁，江尔维。洋五角",
+    "people": [],
+    "amount": "五角",
+    "direction": null
+  },
+  {
+    "id": "txn_jiuhuang_donate",
+    "label": "送义振协会《救荒辑要》三十册",
+    "date": "1923-06-19",
+    "source_file": "1923-06-19.md",
+    "evidence": "送义振协会《救荒辑要》三十册",
+    "people": [],
+    "amount": null,
+    "direction": null
+  },
+  {
+    "id": "txn_pan_send10",
+    "label": "潘同曾送洋十元",
+    "date": "1923-06-19",
+    "source_file": "1923-06-19.md",
+    "evidence": "初四日送洋十元",
+    "people": [],
+    "amount": "十元",
+    "direction": null
+  },
+  {
+    "id": "txn_liu_xianfu_gift",
+    "label": "送刘献夫四元素席",
+    "date": "1923-06-20",
+    "source_file": "1923-06-20.md",
+    "evidence": "送四元素席，并往行礼",
+    "people": [],
+    "amount": "四元",
+    "direction": null
+  },
+  {
+    "id": "txn_xu_jingren_gift",
+    "label": "寄许静仁太夫人素华丝葛幃",
+    "date": "1923-06-20",
+    "source_file": "1923-06-20.md",
+    "evidence": "寄许静仁之太夫人素华丝葛幃",
+    "people": [],
+    "amount": null,
+    "direction": null
   }
 ]

@@ -370,7 +370,7 @@
         "type": "人"
       },
       {
-        "id": "per_zhang_jusheng",
+        "id": "per_zhang_juzi",
         "label": "张菊生",
         "type": "人"
       },
@@ -602,7 +602,7 @@
         "type": "人"
       },
       {
-        "id": "per_zhang_jusheng",
+        "id": "per_zhang_juzi",
         "label": "张菊生",
         "type": "人"
       },
@@ -695,7 +695,7 @@
         "type": "人"
       },
       {
-        "id": "per_zhang_jusheng",
+        "id": "per_zhang_juzi",
         "label": "张菊生",
         "type": "人"
       },
@@ -916,7 +916,7 @@
     "source_file": "1920-03-26.md",
     "members": [
       {
-        "id": "per_zhang_jusheng",
+        "id": "per_zhang_juzi",
         "label": "张菊生",
         "type": "人"
       },
@@ -972,7 +972,7 @@
         "type": "人"
       },
       {
-        "id": "per_zhang_jusheng",
+        "id": "per_zhang_juzi",
         "label": "张菊生",
         "type": "人"
       },
@@ -1131,7 +1131,7 @@
         "type": "人"
       },
       {
-        "id": "per_zhang_jusheng",
+        "id": "per_zhang_juzi",
         "label": "张菊生",
         "type": "人"
       },
@@ -1172,7 +1172,7 @@
         "type": "人"
       },
       {
-        "id": "per_zhang_jusheng",
+        "id": "per_zhang_juzi",
         "label": "张菊生",
         "type": "人"
       },
@@ -4478,7 +4478,7 @@
     "source_file": "1920-07-31.md",
     "members": [
       {
-        "id": "per_zhang_jusheng",
+        "id": "per_zhang_juzi",
         "label": "张菊生",
         "type": "人"
       },
@@ -4514,7 +4514,7 @@
     "source_file": "1920-08-01.md",
     "members": [
       {
-        "id": "per_zhang_jusheng",
+        "id": "per_zhang_juzi",
         "label": "张菊生",
         "type": "人"
       },
@@ -8058,7 +8058,7 @@
         "type": "人"
       },
       {
-        "id": "per_zhang_jusheng",
+        "id": "per_zhang_juzi",
         "label": "张菊生",
         "type": "人"
       },
@@ -8466,7 +8466,7 @@
         "type": "人"
       },
       {
-        "id": "per_zhang_jusheng",
+        "id": "per_zhang_juzi",
         "label": "张菊生",
         "type": "人"
       },
@@ -8543,7 +8543,7 @@
         "type": "人"
       },
       {
-        "id": "per_zhang_jusheng",
+        "id": "per_zhang_juzi",
         "label": "张菊生",
         "type": "人"
       },
@@ -8616,7 +8616,7 @@
     "source_file": "1921-03-18.md",
     "members": [
       {
-        "id": "per_zhang_jusheng",
+        "id": "per_zhang_juzi",
         "label": "张菊生",
         "type": "人"
       },
@@ -15065,7 +15065,7 @@
     "source_file": "1921-12-24.md",
     "members": [
       {
-        "id": "per_zhang_jusheng",
+        "id": "per_zhang_juzi",
         "label": "张菊生",
         "type": "人"
       },
@@ -24101,6 +24101,58 @@
       {
         "id": "per_wu_diepin",
         "label": "吴蝶卿",
+        "type": "人"
+      }
+    ]
+  },
+  {
+    "id": "hyp_19230616_dadong_xican",
+    "label": "1923-06-16 同席 at 大东旅社",
+    "relation": "同席",
+    "confidence": "EXTRACTED",
+    "confidence_score": 0.95,
+    "date": "1923-06-16",
+    "source_file": "1923-06-16.md",
+    "members": [
+      {
+        "id": "per_sun_yuanfang",
+        "label": "孙元方",
+        "type": "人"
+      },
+      {
+        "id": "per_xie_yongqi",
+        "label": "谢永淇",
+        "type": "人"
+      },
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人"
+      }
+    ]
+  },
+  {
+    "id": "hyp_19230620_dajilun",
+    "label": "1923-06-20 同乘大吉轮赴南通",
+    "relation": "同席",
+    "confidence": "EXTRACTED",
+    "confidence_score": 0.9,
+    "date": "1923-06-20",
+    "source_file": "1923-06-20.md",
+    "members": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人"
+      },
+      {
+        "id": "per_zhang_zuosan",
+        "label": "张作三",
+        "type": "人"
+      },
+      {
+        "id": "per_jiang_ganqing",
+        "label": "江幹卿",
         "type": "人"
       }
     ]

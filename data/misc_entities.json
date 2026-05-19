@@ -695,8 +695,8 @@
     "evidence": "拓南陵各碑"
    },
    {
-    "id": "per_shifeng",
-    "label": "世凤",
+    "id": "per_shifeng_zhi",
+    "label": "世凤侄",
     "type": "人",
     "relation": "位于",
     "date": "1921-05-06",
@@ -1582,7 +1582,7 @@
     "evidence": "至商务印书馆张菊生修理旧书"
    },
    {
-    "id": "per_zhang_jusheng",
+    "id": "per_zhang_juzi",
     "label": "张菊生",
     "type": "人",
     "relation": "属于",
@@ -2404,8 +2404,8 @@
     "evidence": "刘健之来谭"
    },
    {
-    "id": "per_shifeng",
-    "label": "世凤",
+    "id": "per_shifeng_zhi",
+    "label": "世凤侄",
     "type": "人",
     "relation": "拜访",
     "date": "1921-05-06",
@@ -2974,6 +2974,14 @@
     "relation": "拜访",
     "date": "1920-01-29",
     "evidence": "至商务书馆、蟬隐庐、博古斋、有余兴斋"
+   },
+   {
+    "id": "per_liu_rongcun",
+    "label": "柳荣邨",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-06-16",
+    "evidence": "假博古斋柳荣邨"
    }
   ]
  },
@@ -4213,7 +4221,7 @@
     "evidence": "午刻，赴陶希泉一枝香之约"
    },
    {
-    "id": "per_zhang_jusheng",
+    "id": "per_zhang_juzi",
     "label": "张菊生",
     "type": "人",
     "relation": "同席",
@@ -6907,6 +6915,14 @@
   "last_seen": "1922-12-11",
   "linked_people": [
    {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "赠",
+    "date": "1923-06-19",
+    "evidence": "送义振协会《救荒辑要》三十册"
+   },
+   {
     "id": "per_huang_ziyou",
     "label": "黄子猷",
     "type": "人",
@@ -6929,14 +6945,6 @@
     "relation": "属于",
     "date": "1922-07-14",
     "evidence": "电请提倡劝募会长县知事徐传友"
-   },
-   {
-    "id": "per_xu_naichang",
-    "label": "徐乃昌",
-    "type": "人",
-    "relation": "资助",
-    "date": "1922-09-05",
-    "evidence": "捐助南陵水灾五十元义振协会"
    },
    {
     "id": "per_bao_zidan",
@@ -14598,6 +14606,321 @@
    }
   ]
  },
+ "org_dasheng_123_chang": {
+  "id": "org_dasheng_123_chang",
+  "label": "大生一、二、三厂",
+  "entity_type": "团体",
+  "canonical": "大生一、二、三厂",
+  "aliases": [
+   "大生一、二、三厂"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-06-14",
+  "last_seen": "1923-06-14",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-06-14",
+    "evidence": "赴大生一、二、三厂董事联合会"
+   },
+   {
+    "id": "per_zhou_meiquan",
+    "label": "周美权",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-06-14",
+    "evidence": "股东联合会周美权来会"
+   }
+  ]
+ },
+ "org_xilengyinshe": {
+  "id": "org_xilengyinshe",
+  "label": "西泠印社",
+  "entity_type": "团体",
+  "canonical": "西泠印社",
+  "aliases": [
+   "西泠印社"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-06-15",
+  "last_seen": "1923-06-15",
+  "linked_people": [
+   {
+    "id": "per_wu_shiqian",
+    "label": "吴石潜",
+    "type": "人",
+    "relation": "属于",
+    "date": "1922-06-03",
+    "evidence": "吊西泠印社吴石潜之丧"
+   }
+  ]
+ },
+ "org_saoyeshanfang": {
+  "id": "org_saoyeshanfang",
+  "label": "扫叶山房",
+  "entity_type": "团体",
+  "canonical": "扫叶山房",
+  "aliases": [
+   "扫叶山房"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-06-15",
+  "last_seen": "1923-06-15",
+  "linked_people": []
+ },
+ "org_qianqintang": {
+  "id": "org_qianqintang",
+  "label": "千顷堂",
+  "entity_type": "团体",
+  "canonical": "千顷堂",
+  "aliases": [
+   "千顷堂"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-06-15",
+  "last_seen": "1923-06-15",
+  "linked_people": []
+ },
+ "org_dazhao_dianden": {
+  "id": "org_dazhao_dianden",
+  "label": "大照电灯公司",
+  "entity_type": "团体",
+  "canonical": "大照电灯公司",
+  "aliases": [
+   "大照电灯公司"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-06-15",
+  "last_seen": "1923-06-15",
+  "linked_people": []
+ },
+ "org_boaigongchang": {
+  "id": "org_boaigongchang",
+  "label": "博爱工厂",
+  "entity_type": "团体",
+  "canonical": "博爱工厂",
+  "aliases": [
+   "博爱工厂"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-06-16",
+  "last_seen": "1923-06-16",
+  "linked_people": []
+ },
+ "loc_tiantongsi": {
+  "id": "loc_tiantongsi",
+  "label": "天童寺",
+  "entity_type": "地",
+  "canonical": "天童寺",
+  "aliases": [
+   "天童寺"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-06-16",
+  "last_seen": "1923-06-16",
+  "linked_people": []
+ },
+ "org_zhongfu_bank": {
+  "id": "org_zhongfu_bank",
+  "label": "中孚银行",
+  "entity_type": "团体",
+  "canonical": "中孚银行",
+  "aliases": [
+   "中孚银行"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-06-16",
+  "last_seen": "1923-06-16",
+  "linked_people": [
+   {
+    "id": "per_sun_yuanfang",
+    "label": "孙元方",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-06-16",
+    "evidence": "中孚银行孙元方"
+   },
+   {
+    "id": "per_xie_yongqi",
+    "label": "谢永淇",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-06-16",
+    "evidence": "中孚银行孙元方、谢永淇"
+   }
+  ]
+ },
+ "loc_shigang": {
+  "id": "loc_shigang",
+  "label": "石港",
+  "entity_type": "地",
+  "canonical": "石港",
+  "aliases": [
+   "石港"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-06-17",
+  "last_seen": "1923-06-17",
+  "linked_people": [
+   {
+    "id": "per_song_weiting",
+    "label": "宋蔚亭金森",
+    "type": "人",
+    "relation": "位于",
+    "date": "1922-08-16",
+    "evidence": "住石港,年七十七岁"
+   }
+  ]
+ },
+ "org_mayushan": {
+  "id": "org_mayushan",
+  "label": "马玉山公司",
+  "entity_type": "团体",
+  "canonical": "马玉山公司",
+  "aliases": [
+   "马玉山公司"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-06-17",
+  "last_seen": "1923-06-17",
+  "linked_people": [
+   {
+    "id": "per_lao_jiliu",
+    "label": "劳吉六",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-06-17",
+    "evidence": "吉六在石港分销马玉山公司"
+   }
+  ]
+ },
+ "loc_huaian_huxinsi": {
+  "id": "loc_huaian_huxinsi",
+  "label": "淮安湖心寺",
+  "entity_type": "地",
+  "canonical": "淮安湖心寺",
+  "aliases": [
+   "淮安湖心寺"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-06-18",
+  "last_seen": "1923-06-18",
+  "linked_people": [
+   {
+    "id": "per_huizhi",
+    "label": "慧之",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-06-18",
+    "evidence": "淮安湖心寺慧之方丈"
+   }
+  ]
+ },
+ "loc_fuyang": {
+  "id": "loc_fuyang",
+  "label": "阜阳",
+  "entity_type": "地",
+  "canonical": "阜阳",
+  "aliases": [
+   "阜阳"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-06-19",
+  "last_seen": "1923-06-19",
+  "linked_people": []
+ },
+ "loc_dasheng": {
+  "id": "loc_dasheng",
+  "label": "大生",
+  "entity_type": "地",
+  "canonical": "大生厂",
+  "aliases": [
+   "大生"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-06-20",
+  "last_seen": "1923-06-20",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-06-20",
+    "evidence": "至大生，寄尘外出"
+   },
+   {
+    "id": "per_zhang_xiyuan",
+    "label": "章希媛",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1921-12-23",
+    "evidence": "至大生，答拜章希璦"
+   },
+   {
+    "id": "per_wu_jichen",
+    "label": "吴寄尘",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1922-10-17",
+    "evidence": "至大生，晤寄尘"
+   },
+   {
+    "id": "per_li_shouqing",
+    "label": "李寿卿",
+    "type": "人",
+    "relation": "属于",
+    "date": "1922-10-21",
+    "evidence": "李寿卿一厂经理"
+   },
+   {
+    "id": "per_xu_jingren",
+    "label": "徐静仁",
+    "type": "人",
+    "relation": "属于",
+    "date": "1922-10-22",
+    "evidence": "议由董事会公函请徐静仁速就纺织管理处主任"
+   }
+  ]
+ },
+ "loc_wanji_dian": {
+  "id": "loc_wanji_dian",
+  "label": "万济典",
+  "entity_type": "地",
+  "canonical": "万济典",
+  "aliases": [
+   "万济典"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-06-20",
+  "last_seen": "1923-06-20",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-06-20",
+    "evidence": "又至万济典，晤吴蝶卿"
+   }
+  ]
+ },
+ "loc_shidai": {
+  "id": "loc_shidai",
+  "label": "石埭",
+  "entity_type": "地",
+  "canonical": "石埭",
+  "aliases": [
+   "石埭"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-06-20",
+  "last_seen": "1923-06-20",
+  "linked_people": []
+ },
  "loc_xilingyinshe": {
   "id": "loc_xilingyinshe",
   "label": "西泠印社",
@@ -21465,28 +21788,6 @@
   "last_seen": "1921-01-10",
   "linked_people": []
  },
- "org_xilengyinshe": {
-  "id": "org_xilengyinshe",
-  "label": "西泠印社",
-  "entity_type": "团体",
-  "canonical": "西泠印社",
-  "aliases": [
-   "西泠印社"
-  ],
-  "mentions": 1,
-  "first_seen": "1921-01-11",
-  "last_seen": "1921-01-11",
-  "linked_people": [
-   {
-    "id": "per_wu_shiqian",
-    "label": "吴石潜",
-    "type": "人",
-    "relation": "属于",
-    "date": "1922-06-03",
-    "evidence": "吊西泠印社吴石潜之丧"
-   }
-  ]
- },
  "org_yizhi_xuexiao": {
   "id": "org_yizhi_xuexiao",
   "label": "益智学校",
@@ -21714,19 +22015,6 @@
   "last_seen": "1921-01-17",
   "linked_people": []
  },
- "loc_fuyang": {
-  "id": "loc_fuyang",
-  "label": "阜阳",
-  "entity_type": "地",
-  "canonical": "阜阳",
-  "aliases": [
-   "阜阳"
-  ],
-  "mentions": 1,
-  "first_seen": "1921-01-17",
-  "last_seen": "1921-01-17",
-  "linked_people": []
- },
  "loc_yingzhou": {
   "id": "loc_yingzhou",
   "label": "颍州",
@@ -21778,60 +22066,6 @@
   "first_seen": "1921-01-18",
   "last_seen": "1921-01-18",
   "linked_people": []
- },
- "loc_dasheng": {
-  "id": "loc_dasheng",
-  "label": "大生",
-  "entity_type": "地",
-  "canonical": "大生",
-  "aliases": [
-   "大生"
-  ],
-  "mentions": 3,
-  "first_seen": "1921-01-22",
-  "last_seen": "1921-01-24",
-  "linked_people": [
-   {
-    "id": "per_xu_naichang",
-    "label": "徐乃昌",
-    "type": "人",
-    "relation": "拜访",
-    "date": "1921-01-22",
-    "evidence": "至大生，晤柳梓庭谭"
-   },
-   {
-    "id": "per_zhang_xiyuan",
-    "label": "章希媛",
-    "type": "人",
-    "relation": "拜访",
-    "date": "1921-12-23",
-    "evidence": "至大生，答拜章希璦"
-   },
-   {
-    "id": "per_wu_jichen",
-    "label": "吴寄尘",
-    "type": "人",
-    "relation": "拜访",
-    "date": "1922-10-17",
-    "evidence": "至大生，晤寄尘"
-   },
-   {
-    "id": "per_li_shouqing",
-    "label": "李寿卿",
-    "type": "人",
-    "relation": "属于",
-    "date": "1922-10-21",
-    "evidence": "李寿卿一厂经理"
-   },
-   {
-    "id": "per_xu_jingren",
-    "label": "徐静仁",
-    "type": "人",
-    "relation": "属于",
-    "date": "1922-10-22",
-    "evidence": "议由董事会公函请徐静仁速就纺织管理处主任"
-   }
-  ]
  },
  "org_huaihai_yinhang": {
   "id": "org_huaihai_yinhang",
@@ -26515,19 +26749,6 @@
   "last_seen": "1921-09-09",
   "linked_people": []
  },
- "org_saoyeshanfang": {
-  "id": "org_saoyeshanfang",
-  "label": "扫叶山房",
-  "entity_type": "团体",
-  "canonical": "扫叶山房",
-  "aliases": [
-   "扫叶山房"
-  ],
-  "mentions": 1,
-  "first_seen": "1921-09-09",
-  "last_seen": "1921-09-09",
-  "linked_people": []
- },
  "org_chezhan": {
   "id": "org_chezhan",
   "label": "车站",
@@ -27361,19 +27582,6 @@
     "evidence": "购泰生永号周大盛荣。赛连两件，计洋廿四元"
    }
   ]
- },
- "org_dazhao_dianden": {
-  "id": "org_dazhao_dianden",
-  "label": "大照电灯公司",
-  "entity_type": "团体",
-  "canonical": "大照电灯公司",
-  "aliases": [
-   "大照电灯公司"
-  ],
-  "mentions": 1,
-  "first_seen": "1921-10-22",
-  "last_seen": "1921-10-22",
-  "linked_people": []
  },
  "org_huizhou_luhu_tongxianghui": {
   "id": "org_huizhou_luhu_tongxianghui",
@@ -34780,28 +34988,6 @@
   "first_seen": "1922-08-16",
   "last_seen": "1922-08-18",
   "linked_people": []
- },
- "loc_shigang": {
-  "id": "loc_shigang",
-  "label": "石港",
-  "entity_type": "地",
-  "canonical": "石港",
-  "aliases": [
-   "石港"
-  ],
-  "mentions": 1,
-  "first_seen": "1922-08-16",
-  "last_seen": "1922-08-16",
-  "linked_people": [
-   {
-    "id": "per_song_weiting",
-    "label": "宋蔚亭金森",
-    "type": "人",
-    "relation": "位于",
-    "date": "1922-08-16",
-    "evidence": "住石港,年七十七岁"
-   }
-  ]
  },
  "loc_songshu_lu": {
   "id": "loc_songshu_lu",

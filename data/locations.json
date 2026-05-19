@@ -1952,17 +1952,8 @@
           32.015,
           120.855
         ],
-        "count": 8,
+        "count": 9,
         "visits": [
-          {
-            "date": "1921-01-24",
-            "location_id": "loc_dasheng",
-            "location_label": "大生",
-            "resolved_city": "南通",
-            "evidence": "至大生，结来往账",
-            "relation": "拜访",
-            "source_file": "1921-01-22.md"
-          },
           {
             "date": "1921-09-22",
             "location_id": "loc_dasheng",
@@ -1970,7 +1961,7 @@
             "resolved_city": "南通",
             "evidence": "至大生",
             "relation": "拜访",
-            "source_file": "1921-01-22.md"
+            "source_file": "1923-06-20.md"
           },
           {
             "date": "1921-09-24",
@@ -1979,7 +1970,7 @@
             "resolved_city": "南通",
             "evidence": "至大生",
             "relation": "拜访",
-            "source_file": "1921-01-22.md"
+            "source_file": "1923-06-20.md"
           },
           {
             "date": "1922-03-10",
@@ -1997,7 +1988,7 @@
             "resolved_city": "南通",
             "evidence": "至大生，晤江知源、吴蝶卿",
             "relation": "拜访",
-            "source_file": "1921-01-22.md"
+            "source_file": "1923-06-20.md"
           },
           {
             "date": "1922-06-13",
@@ -2006,7 +1997,16 @@
             "resolved_city": "南通",
             "evidence": "至大生，晤江知源",
             "relation": "拜访",
-            "source_file": "1921-01-22.md"
+            "source_file": "1923-06-20.md"
+          },
+          {
+            "date": "1923-06-20",
+            "location_id": "loc_dasheng",
+            "location_label": "大生",
+            "resolved_city": "南通",
+            "evidence": "至大生，寄尘外出",
+            "relation": "拜访",
+            "source_file": "1923-06-20.md"
           }
         ]
       }
@@ -3342,6 +3342,34 @@
       "label": "大庆轮"
     },
     {
+      "id": "loc_tiantongsi",
+      "label": "天童寺"
+    },
+    {
+      "id": "loc_shigang",
+      "label": "石港"
+    },
+    {
+      "id": "loc_huaian_huxinsi",
+      "label": "淮安湖心寺"
+    },
+    {
+      "id": "loc_fuyang",
+      "label": "阜阳"
+    },
+    {
+      "id": "loc_dasheng",
+      "label": "大生"
+    },
+    {
+      "id": "loc_wanji_dian",
+      "label": "万济典"
+    },
+    {
+      "id": "loc_shidai",
+      "label": "石埭"
+    },
+    {
       "id": "loc_xinxiang",
       "label": "新乡"
     },
@@ -4354,10 +4382,6 @@
       "label": "凤台"
     },
     {
-      "id": "loc_fuyang",
-      "label": "阜阳"
-    },
-    {
       "id": "loc_yingzhou",
       "label": "颍州"
     },
@@ -4368,10 +4392,6 @@
     {
       "id": "loc_mengcheng",
       "label": "蒙城"
-    },
-    {
-      "id": "loc_dasheng",
-      "label": "大生"
     },
     {
       "id": "loc_yiling",
@@ -5654,10 +5674,6 @@
       "label": "山海关"
     },
     {
-      "id": "loc_shigang",
-      "label": "石港"
-    },
-    {
       "id": "loc_songshu_lu",
       "label": "松树路"
     },
@@ -6479,7 +6495,7 @@
       "resolved_city": "南通",
       "evidence": "至大生，晤柳梓庭谭",
       "relation": "拜访",
-      "source_file": "1921-01-22.md"
+      "source_file": "1923-06-20.md"
     },
     {
       "date": "1921-01-23",
@@ -6488,7 +6504,7 @@
       "resolved_city": "南通",
       "evidence": "至大生，为恒季申附淞厂四分之一股本壹千二百五十两",
       "relation": "拜访",
-      "source_file": "1921-01-22.md"
+      "source_file": "1923-06-20.md"
     },
     {
       "date": "1921-01-24",
@@ -6497,7 +6513,7 @@
       "resolved_city": "南通",
       "evidence": "至大生，结来往账",
       "relation": "拜访",
-      "source_file": "1921-01-22.md"
+      "source_file": "1923-06-20.md"
     },
     {
       "date": "1921-01-24",
@@ -6740,7 +6756,7 @@
       "resolved_city": "南通",
       "evidence": "至大生",
       "relation": "拜访",
-      "source_file": "1921-01-22.md"
+      "source_file": "1923-06-20.md"
     },
     {
       "date": "1921-09-23",
@@ -6758,7 +6774,7 @@
       "resolved_city": "南通",
       "evidence": "至大生",
       "relation": "拜访",
-      "source_file": "1921-01-22.md"
+      "source_file": "1923-06-20.md"
     },
     {
       "date": "1921-10-15",
@@ -7424,7 +7440,7 @@
       "resolved_city": "南通",
       "evidence": "至大生，晤江知源、吴蝶卿",
       "relation": "拜访",
-      "source_file": "1921-01-22.md"
+      "source_file": "1923-06-20.md"
     },
     {
       "date": "1922-06-13",
@@ -7442,7 +7458,7 @@
       "resolved_city": "南通",
       "evidence": "至大生，晤江知源",
       "relation": "拜访",
-      "source_file": "1921-01-22.md"
+      "source_file": "1923-06-20.md"
     },
     {
       "date": "1922-06-14",
@@ -8496,6 +8512,24 @@
       "evidence": "至振华旅馆，拜南通各友",
       "relation": "拜访",
       "source_file": "1923-06-11.md"
+    },
+    {
+      "date": "1923-06-20",
+      "location_id": "loc_dasheng",
+      "location_label": "大生",
+      "resolved_city": "南通",
+      "evidence": "至大生，寄尘外出",
+      "relation": "拜访",
+      "source_file": "1923-06-20.md"
+    },
+    {
+      "date": "1923-06-20",
+      "location_id": "loc_wanji_dian",
+      "location_label": "万济典",
+      "resolved_city": null,
+      "evidence": "又至万济典，晤吴蝶卿",
+      "relation": "拜访",
+      "source_file": "1923-06-20.md"
     }
   ],
   "xu_ids": [
@@ -8506,7 +8540,7 @@
   "city_visit_counts": {
     "上海": 164,
     "苏州": 25,
-    "南通": 16,
+    "南通": 17,
     "镇江": 2,
     "松江": 1,
     "北京": 1,

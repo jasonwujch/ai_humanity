@@ -1092,6 +1092,122 @@ idx_lines.append('</ul>')
 (wiki_dir / 'index.html').write_text(f'<!doctype html><html lang="zh"><head><meta charset="utf-8"><title>实体 Wiki · 徐乃昌日记 KG</title><style>{WIKI_CSS}</style></head><body><div class="container">{"".join(idx_lines)}</div></body></html>', encoding='utf-8')
 
 print(f'wrote {len(top_per_ids)} wiki pages + index')
+
+# ── 9b) thematic special pages ───────────────────────────────────────────────
+specials_dir = Path(__file__).parent / 'specials'
+specials_dir.mkdir(exist_ok=True)
+
+SPECIAL_CSS = WIKI_CSS  # reuse
+
+def render_special(title, lede, sections):
+    body = [f'<nav><a href="../index.html">← 返回总览</a><a href="../wiki/index.html">实体 Wiki</a></nav>']
+    body.append(f'<h1>{esc(title)}</h1>')
+    body.append(f'<div class="meta">{esc(lede)}</div>')
+    for s in sections:
+        body.append(f'<h2>{esc(s["title"])}</h2>')
+        if s.get('intro'):
+            body.append(f'<div style="color:#3b3128;margin-bottom:12px">{s["intro"]}</div>')
+        if s.get('items'):
+            body.append('<div>')
+            for item in s['items']:
+                body.append(f'<div class="row">{item}</div>')
+            body.append('</div>')
+    return f'<!doctype html><html lang="zh"><head><meta charset="utf-8"><title>{esc(title)} - 徐乃昌日记 KG</title><style>{SPECIAL_CSS}</style></head><body><div class="container">{"".join(body)}</div></body></html>'
+
+# Topic 1: 1921 皖北赈灾
+disasters_anhui_1921 = []
+for n in src['nodes']:
+    if n.get('entity_type') != '灾害': continue
+    md = n.get('metadata') or {}
+    sfs = md.get('surface_forms') or []
+    dates = [sf.get('date') for sf in sfs if sf.get('date') and sf.get('date','').startswith('1921')]
+    label = n.get('label','')
+    if dates and ('皖' in label or '安徽' in label or '凤' in label or '阜' in label or '霍' in label or '南陵' in label):
+        disasters_anhui_1921.append({'label': label, 'dates': dates, 'id': n['id']})
+
+# Related 团体 (赈灾) and txns
+relief_orgs = []
+for n in src['nodes']:
+    if n.get('entity_type') != '团体': continue
+    label = n.get('label','')
+    if '振' in label or '赈' in label or '振灾' in label or '义振' in label or '极贫会' in label:
+        relief_orgs.append({'id': n['id'], 'label': label})
+
+# Resource: 资助 txns
+zizhu_txns = [t for t in txns if any('资助' in (p.get('relation','') or '') for p in t.get('people',[]))]
+zizhu_1921 = [t for t in zizhu_txns if (t.get('date','') or '').startswith('1921')]
+
+s1_items = []
+for d in sorted(disasters_anhui_1921, key=lambda x: x['dates'][0]):
+    s1_items.append(f'<span class="dt">{d["dates"][0]}</span> <strong>{esc(d["label"])}</strong>')
+s2_items = []
+for org in relief_orgs[:20]:
+    s2_items.append(f'<strong>{esc(org["label"])}</strong>')
+s3_items = []
+for t in zizhu_1921[:30]:
+    people_str = '、'.join(p.get('label','') for p in (t.get('people') or [])[:4])
+    s3_items.append(f'<span class="dt">{esc(t.get("date",""))}</span> <strong>{esc(t.get("label",""))}</strong> · {esc(people_str)} <div class="evidence">{esc(t.get("evidence",""))}</div>')
+
+special1_html = render_special(
+    '1921 皖北赈灾',
+    '1921 年安徽北部连续遭遇水患，徐乃昌作为同乡士绅与多家慈善机构合作筹办赈务。本页汇总该年灾害条目、相关赈灾机构、与该年资助类交易。',
+    [
+        {'title': f'1921 年安徽灾害条目 ({len(disasters_anhui_1921)})', 'items': s1_items},
+        {'title': f'相关赈灾机构 / 慈善团体 ({len(relief_orgs)})', 'items': s2_items},
+        {'title': f'1921 年资助交易 ({len(zizhu_1921)})', 'items': s3_items},
+    ]
+)
+(specials_dir / 'wanbei-1921.html').write_text(special1_html, encoding='utf-8')
+
+# Topic 2: 戏楼社交
+DRAMA_VENUES = {'共舞台', '丹桂第一台', '大舞台', '亦舞台', '丹桂弟一台', '通俗剧场'}
+DRAMA_RELATED = {'同席'}
+drama_events = [h for h in src['hyperedges'] if any(d in (h.get('label') or '') for d in DRAMA_VENUES)]
+drama_events_by_venue = defaultdict(list)
+for h in drama_events:
+    for v in DRAMA_VENUES:
+        if v in (h.get('label') or ''):
+            drama_events_by_venue[v].append(h)
+
+s_drama_sections = []
+for venue, events in drama_events_by_venue.items():
+    items = []
+    for h in events:
+        members = []
+        for mid in (h.get('nodes') or []):
+            mn = nodes_by_id.get(mid, {})
+            if mn.get('entity_type') == '人':
+                pid = redirect(mid)
+                pname = nodes_by_id.get(pid, mn).get('label')
+                members.append(f'<span class="chip chip-per">{esc(pname)}</span>')
+        items.append(f'<span class="dt">{esc(h.get("label",""))}</span> {"".join(members)}')
+    s_drama_sections.append({'title': f'{venue} ({len(events)} 次同席)', 'items': items})
+
+if not s_drama_sections:
+    s_drama_sections = [{'title': '无数据', 'items': []}]
+
+special2_html = render_special(
+    '戏楼社交',
+    '民国上海 福州路 戏院云集，徐乃昌日记中多次记录戏园应酬。本页按戏楼分组列出同席事件与参与人。',
+    s_drama_sections
+)
+(specials_dir / 'drama-shanghai.html').write_text(special2_html, encoding='utf-8')
+
+# Index
+specials_idx = [
+    f'<nav><a href="../index.html">← 返回总览</a></nav>',
+    '<h1>专题策展</h1>',
+    '<div class="meta">数据驱动的主题页：把分散在日记里的条目按议题聚合。</div>',
+    '<ul>',
+    '<li><a href="wanbei-1921.html"><strong>1921 皖北赈灾</strong></a> — 灾害条目、赈务机构、资助交易</li>',
+    '<li><a href="drama-shanghai.html"><strong>戏楼社交</strong></a> — 福州路戏院的同席网络</li>',
+    '</ul>',
+]
+(specials_dir / 'index.html').write_text(
+    f'<!doctype html><html lang="zh"><head><meta charset="utf-8"><title>专题策展 · 徐乃昌日记 KG</title><style>{SPECIAL_CSS}</style></head><body><div class="container">{"".join(specials_idx)}</div></body></html>',
+    encoding='utf-8',
+)
+print(f'wrote 2 specials: wanbei-1921 ({len(disasters_anhui_1921)} disasters), drama-shanghai ({len(drama_events)} events)')
 print(f'wrote {len(chunks_out)} chunks (raw text + entity highlights)')
 print(f'wrote {len(txns)} txns, {len(per_nodes_deduped)} people (was {len(per_ids)}), {len(visits)} visits')
 print(f'mapped: {sum(mapped_cities.values())} / {len(visits)} → top cities: {list(mapped_cities.most_common(5))}')
