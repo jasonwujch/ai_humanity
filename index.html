@@ -60,6 +60,15 @@
   .chip-book { background: #ede9fe; color: var(--book) }
   .chip-txn { background: #fce7f3; color: var(--txn) }
   .chip-evt { background: #cffafe; color: var(--evt) }
+  .chip-ill { background: #ffe4e6; color: var(--ill) }
+  .chip-dis { background: #f3e8ff; color: var(--dis) }
+  .chip-ofc { background: #f1f5f9; color: var(--ofc) }
+  .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: middle }
+  .dot-per { background: var(--per) } .dot-org { background: var(--org) } .dot-loc { background: var(--loc) }
+  .dot-book { background: var(--book) } .dot-txn { background: var(--txn) } .dot-evt { background: var(--evt) }
+  .dot-ill { background: var(--ill) } .dot-dis { background: var(--dis) } .dot-ofc { background: var(--ofc) }
+  .entity-legend { display: flex; gap: 14px; padding: 6px 24px; background: #fff; border-bottom: 1px solid var(--border); font-size: 11px; color: var(--muted); flex-wrap: wrap; align-items: center }
+  .entity-legend span { display: inline-flex; align-items: center; gap: 4px }
 
   /* Profile drawer */
   .drawer-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.3); z-index: 999; display: none }
@@ -127,6 +136,19 @@
     <button :class="{active:tab==='people'}" @click="tab='people'">人物关系</button>
     <button :class="{active:tab==='geo'}" @click="tab='geo'">作者行迹</button>
     <button :class="{active:tab==='index'}" @click="tab='index'">实体索引</button>
+  </div>
+
+  <div class="entity-legend">
+    <strong style="color:#444">实体配色：</strong>
+    <span><i class="dot dot-per"></i>人</span>
+    <span><i class="dot dot-org"></i>团体</span>
+    <span><i class="dot dot-loc"></i>地</span>
+    <span><i class="dot dot-book"></i>书籍</span>
+    <span><i class="dot dot-txn"></i>交易</span>
+    <span><i class="dot dot-evt"></i>事件</span>
+    <span><i class="dot dot-ofc"></i>官职</span>
+    <span><i class="dot dot-ill"></i>疾病</span>
+    <span><i class="dot dot-dis"></i>灾害</span>
   </div>
 
   <!-- Overview -->
@@ -225,13 +247,14 @@
       <div class="index-side">
         <div style="font-size:12px;color:var(--muted);padding:6px 10px">实体类型</div>
         <button v-for="t in indexCategories" :key="t.key" :class="{active:indexCat===t.key}" @click="indexCat=t.key">
-          {{ t.label }} <span style="color:var(--muted);float:right">{{ t.count }}</span>
+          <i class="dot" :class="'dot-'+kindOf(t.key)"></i>{{ t.label }} <span style="color:var(--muted);float:right">{{ t.count }}</span>
         </button>
         <div style="margin-top:8px;padding:0 4px"><input v-model="indexSearch" placeholder="筛选..." style="width:100%;padding:5px 8px;border:1px solid #ccc;border-radius:4px;font-size:13px" /></div>
       </div>
       <div class="index-list">
         <div v-if="indexRows.length === 0" class="empty">无匹配</div>
         <div v-for="r in indexRows.slice(0,500)" :key="r.id" class="row" @click="openProfile(r)">
+          <i class="dot" :class="'dot-'+kindOf(r._entity_type)"></i>
           <span class="label">{{ r.label }}</span>
           <span v-if="r.aliases && r.aliases.length>1" style="color:var(--muted);font-size:11px">＝ {{ r.aliases.slice(0,3).join('、') }}</span>
           <span class="meta">{{ r.degree != null ? 'deg '+r.degree : '' }}</span>
@@ -585,6 +608,10 @@ createApp({
       renderPeople(nodes, edges, openProfileById, expandNode, removeNode, focusId);
     }
 
+    function kindOf(entity_type) {
+      return ENTITY_KIND_MAP[entity_type]?.kind || 'per';
+    }
+
     return {
       tab, overview, peopleData, txnData, locData, profiles, allNodes,
       globalQ, searchOpen, searchHits, onSearch, selectHit,
@@ -594,7 +621,7 @@ createApp({
       expandN, addPersonQ, addByQuery, expandTopHubs, resetGraph, redrawGraph,
       indexCat, indexSearch, indexCategories, indexRows,
       sortedEntityTypes, sortedRelationTypes, relationOptions, maxEntity, maxRelation,
-      applyTxnFilter,
+      applyTxnFilter, kindOf,
       profile, profileKind, profileKindLabel, openProfile, openProfileById, neighbourLabel,
     };
   }
