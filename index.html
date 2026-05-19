@@ -92,6 +92,18 @@
   .drawer .edge-list .row .ev { color: #555 }
   .drawer .edge-list .row .dt { color: var(--muted); font-size: 11px; font-family: ui-monospace, monospace }
 
+  /* Metro */
+  .metro-wrap { background: #fff; border: 1px solid var(--border); border-radius: 6px; overflow-x: auto; overflow-y: hidden }
+  .metro-svg { display: block; min-width: 100% }
+  .metro-svg .axis-line { stroke: #e5e7eb; stroke-width: 1 }
+  .metro-svg .axis-label { font-size: 10px; fill: #64748b; font-family: ui-monospace, monospace }
+  .metro-svg .row-label { font-size: 12px; fill: #1f2937; font-weight: 600 }
+  .metro-svg .row-line { stroke-width: 14; stroke-linecap: round; opacity: 0.18 }
+  .metro-svg .station { cursor: pointer; transition: opacity .15s }
+  .metro-svg .station:hover { opacity: 1 !important; r: 7 }
+  .metro-tooltip { position: absolute; background: #1f2937; color: #fff; padding: 8px 10px; border-radius: 6px; font-size: 12px; pointer-events: none; max-width: 320px; z-index: 200; display: none; line-height: 1.5 }
+  .metro-tooltip.show { display: block }
+
   /* Reader */
   .reader-grid { display: grid; grid-template-columns: 220px 1fr 280px; gap: 14px; height: calc(100vh - 200px) }
   .reader-side { background: #fff; border: 1px solid var(--border); border-radius: 6px; overflow-y: auto; padding: 6px }
@@ -166,6 +178,7 @@
     <button :class="{active:tab==='txn'}" @click="tab='txn'">账单</button>
     <button :class="{active:tab==='books'}" @click="tab='books'">藏书</button>
     <button :class="{active:tab==='events'}" @click="tab='events'">事件聚会</button>
+    <button :class="{active:tab==='metro'}" @click="tab='metro'">主题时间线</button>
     <button :class="{active:tab==='people'}" @click="tab='people'">人物关系</button>
     <button :class="{active:tab==='geo'}" @click="tab='geo'">作者行迹</button>
     <button :class="{active:tab==='reader'}" @click="tab='reader'">日记阅读</button>
@@ -280,6 +293,31 @@
       </div>
       <div v-if="filteredEvents.length > 300" style="text-align:center;color:var(--muted);padding:10px">仅显示前 300 / {{ filteredEvents.length }}</div>
     </div>
+  </div>
+
+  <!-- Metro timeline -->
+  <div class="view" v-show="tab==='metro'">
+    <div class="controls">
+      <label>颗粒度
+        <select v-model="metroGran" @change="renderMetro">
+          <option value="week">周</option>
+          <option value="month">月</option>
+          <option value="day">日</option>
+        </select>
+      </label>
+      <label>包含
+        <select v-model="metroSource" @change="renderMetro">
+          <option value="edges">人物关系</option>
+          <option value="events">事件聚会</option>
+          <option value="both">全部</option>
+        </select>
+      </label>
+      <span class="legend">横轴=时间，每行=关系类型；点击站点查看证据。颗粒度越细，行越拥挤</span>
+    </div>
+    <div class="metro-wrap" style="height:calc(100vh - 240px)">
+      <svg id="metro-svg" class="metro-svg"></svg>
+    </div>
+    <div id="metro-tooltip" class="metro-tooltip"></div>
   </div>
 
   <!-- People graph -->
@@ -482,6 +520,8 @@ createApp({
     const eventSearch = ref('');
     const eventRelation = ref('');
     const eventMinMembers = ref(2);
+    const metroGran = ref('week');
+    const metroSource = ref('both');
     const relationFilter = ref('');
     const confFilter = ref('');
     const visibleNodeCount = ref(0);
@@ -573,6 +613,7 @@ createApp({
       if (t === 'books' && bk && !booksTable) nextTick(() => initBooks(bk));
       if (t === 'people' && pp && !cyInstance) nextTick(() => initLazyGraph());
       if (t === 'geo' && lc && !leafletMap) nextTick(() => initGeo(lc));
+      if (t === 'metro') nextTick(() => renderMetro());
     });
 
     function onSearch() {
@@ -766,6 +807,136 @@ createApp({
       return ENTITY_KIND_MAP[entity_type]?.kind || 'per';
     }
 
+    // ── Metro timeline ───────────────────────────────────────────────────
+    function renderMetro() {
+      const svg = document.getElementById('metro-svg');
+      if (!svg) return;
+      svg.innerHTML = '';
+      // Collect stations from selected sources
+      const stations = [];  // {date, relation, label, members[], confidence}
+      if (metroSource.value !== 'events' && peopleData.value) {
+        for (const e of peopleData.value.edges) {
+          if (!e.date || !e.relation) continue;
+          stations.push({
+            date: e.date, relation: e.relation,
+            label: '', evidence: e.evidence,
+            members: [{id:e.source, label:''}, {id:e.target, label:''}],
+            confidence: e.confidence,
+          });
+        }
+      }
+      if (metroSource.value !== 'edges' && eventsData.value) {
+        for (const ev of eventsData.value) {
+          if (!ev.date || !ev.relation) continue;
+          stations.push({
+            date: ev.date, relation: ev.relation,
+            label: ev.label, evidence: ev.label,
+            members: ev.members || [], confidence: ev.confidence,
+          });
+        }
+      }
+      if (stations.length === 0) return;
+
+      // Group by relation, build x-axis
+      const allDates = stations.map(s => s.date).sort();
+      const dMin = allDates[0], dMax = allDates[allDates.length-1];
+      const TOP_RELS = ['拜访','致书','商务','赠','受赠','同席','资助','转交','亲属','治病'];
+      const relations = TOP_RELS.filter(r => stations.some(s => s.relation === r));
+
+      const rowH = 56;
+      const padL = 110, padR = 30, padT = 50, padB = 40;
+      const width = Math.max(1100, svg.parentElement.clientWidth);
+      const height = padT + rowH * relations.length + padB;
+      svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+      svg.setAttribute('width', width);
+      svg.setAttribute('height', height);
+      const innerW = width - padL - padR;
+
+      function dateToFraction(d) {
+        const toEpoch = (s) => Date.parse(s + 'T00:00:00Z') / 86400000;
+        const a = toEpoch(dMin), b = toEpoch(dMax) || a + 1, x = toEpoch(d);
+        return (x - a) / Math.max(1, b - a);
+      }
+      function xOf(d) { return padL + dateToFraction(d) * innerW; }
+
+      // Time axis ticks: month labels
+      const months = new Set();
+      for (const d of allDates) months.add(d.slice(0,7));
+      const monthArr = [...months].sort();
+      for (const m of monthArr) {
+        const fakeDate = m + '-01';
+        const x = xOf(fakeDate);
+        const showLabel = m.endsWith('-01') || m.endsWith('-07');
+        const tick = document.createElementNS('http://www.w3.org/2000/svg','line');
+        tick.setAttribute('x1', x); tick.setAttribute('x2', x);
+        tick.setAttribute('y1', padT - 4); tick.setAttribute('y2', height - padB);
+        tick.setAttribute('stroke', '#f3f4f6');
+        tick.setAttribute('stroke-width', '1');
+        svg.appendChild(tick);
+        if (showLabel) {
+          const lbl = document.createElementNS('http://www.w3.org/2000/svg','text');
+          lbl.setAttribute('x', x); lbl.setAttribute('y', padT - 12);
+          lbl.setAttribute('text-anchor', 'middle');
+          lbl.setAttribute('class', 'axis-label');
+          lbl.textContent = m;
+          svg.appendChild(lbl);
+        }
+      }
+
+      // Row palette
+      const RELATION_COLORS = {
+        '拜访':'#1d4ed8','致书':'#16a34a','商务':'#db2777','赠':'#d97706','受赠':'#7c3aed',
+        '同席':'#0891b2','资助':'#be123c','转交':'#9333ea','亲属':'#475569','治病':'#dc2626'
+      };
+
+      relations.forEach((rel, idx) => {
+        const y = padT + idx * rowH + rowH / 2;
+        const color = RELATION_COLORS[rel] || '#64748b';
+        // Row label
+        const lbl = document.createElementNS('http://www.w3.org/2000/svg','text');
+        lbl.setAttribute('x', padL - 12); lbl.setAttribute('y', y + 4);
+        lbl.setAttribute('text-anchor', 'end'); lbl.setAttribute('class', 'row-label');
+        lbl.setAttribute('fill', color);
+        lbl.textContent = rel;
+        svg.appendChild(lbl);
+        // Row line
+        const line = document.createElementNS('http://www.w3.org/2000/svg','line');
+        line.setAttribute('x1', padL); line.setAttribute('x2', width - padR);
+        line.setAttribute('y1', y); line.setAttribute('y2', y);
+        line.setAttribute('class', 'row-line');
+        line.setAttribute('stroke', color);
+        svg.appendChild(line);
+        // Stations
+        const rowStations = stations.filter(s => s.relation === rel);
+        for (const st of rowStations) {
+          const dot = document.createElementNS('http://www.w3.org/2000/svg','circle');
+          dot.setAttribute('cx', xOf(st.date)); dot.setAttribute('cy', y);
+          const r = Math.min(8, 2 + Math.sqrt((st.members?.length || 1)));
+          dot.setAttribute('r', r);
+          dot.setAttribute('fill', color);
+          dot.setAttribute('class', 'station');
+          dot.setAttribute('opacity', st.confidence === 'INFERRED' ? '0.45' : '0.75');
+          dot.addEventListener('mouseenter', (evt) => {
+            const tt = document.getElementById('metro-tooltip');
+            tt.innerHTML = `<strong>${st.date}</strong> · ${rel}<br>${st.label || st.evidence || ''}` +
+              (st.members && st.members.length ? `<br><span style="color:#cbd5e1">${st.members.slice(0,6).map(m=>m.label||'').join('、')}${st.members.length>6?' ...':''}</span>` : '');
+            tt.style.left = (evt.clientX + 12) + 'px';
+            tt.style.top = (evt.clientY + 12) + 'px';
+            tt.classList.add('show');
+          });
+          dot.addEventListener('mouseleave', () => {
+            document.getElementById('metro-tooltip').classList.remove('show');
+          });
+          dot.addEventListener('click', () => {
+            // Find one PER member to open profile
+            const perMember = (st.members || []).find(m => m.type === '人');
+            if (perMember) openProfileById(perMember.id);
+          });
+          svg.appendChild(dot);
+        }
+      });
+    }
+
     // ── Events ───────────────────────────────────────────────────────────
     const eventRelations = computed(() => eventsData.value ? [...new Set(eventsData.value.map(e=>e.relation).filter(Boolean))].sort() : []);
     const filteredEvents = computed(() => {
@@ -908,6 +1079,7 @@ createApp({
       chunksData, readerDate, readerDates, readerByMonth, currentChunk, highlightedBody, entitiesByType,
       prevDay, nextDay, jumpDate,
       eventsData, eventSearch, eventRelation, eventMinMembers, eventRelations, filteredEvents,
+      metroGran, metroSource, renderMetro,
       profile, profileKind, profileKindLabel, openProfile, openProfileById, neighbourLabel,
     };
   }
