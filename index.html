@@ -478,6 +478,10 @@
       <button @click="stepTrajectory(-1)" title="上一行迹">⏪</button>
       <button @click="stepTrajectory(1)" title="下一行迹">⏩</button>
       <button v-if="trajectoryIdx > 0 || trajectoryPlaying" @click="trajectoryIdx=0;updateTrajectoryFrame()">⏮</button>
+      <label style="font-size:var(--fs-xs);display:flex;align-items:center;gap:4px">速度
+        <input type="range" min="100" max="2000" step="100" v-model.number="trajectorySpeed" @input="restartTrajectoryTimer" style="width:120px;vertical-align:middle" />
+        <span style="font-family:ui-monospace,monospace;color:var(--accent);min-width:48px">{{ trajectorySpeed }}ms</span>
+      </label>
       <label style="font-size:var(--fs-xs)"><input type="checkbox" v-model="trajectoryAutoPopup" /> 同步打开原文</label>
       <span v-if="trajectoryIdx >= 0 && locData?.visits?.[trajectoryIdx]" class="legend" style="font-family:ui-monospace,monospace;color:var(--accent);font-weight:600">{{ locData.visits[trajectoryIdx].date }} · {{ locData.visits[trajectoryIdx].location_label }}</span>
       <span class="legend">{{ locData.visits.length }} 次行迹 · {{ locData.visits.length - Object.values(locData.unmapped_top).reduce((a,b)=>a+b,0) }} 已定位 · {{ Object.values(locData.unmapped_top).reduce((a,b)=>a+b,0) }} 未定位</span>
@@ -764,9 +768,10 @@
       <div style="font-size:clamp(15px,0.9vw+12px,18px);line-height:2.1" v-html="sourcePopup.html"></div>
     </div>
   </div>
-  <div v-if="sourcePopup && sourcePopup.mode === 'side'" style="position:fixed;top:108px;right:0;bottom:0;width:min(420px,92vw);background:var(--paper);border-left:3px double var(--accent);box-shadow:-8px 0 24px rgba(31,26,20,.12);z-index:990;overflow-y:auto;font-family:'Noto Serif SC','Songti SC',serif">
+  <div v-if="sourcePopup && sourcePopup.mode === 'side'" id="source-side-panel" style="position:fixed;top:108px;right:0;bottom:0;width:min(420px,92vw);background:var(--paper);border-left:3px double var(--accent);box-shadow:-8px 0 24px rgba(31,26,20,.12);z-index:990;overflow-y:auto;font-family:'Noto Serif SC','Songti SC',serif">
     <div style="position:sticky;top:0;background:var(--paper);padding:14px 20px;border-bottom:1px solid var(--border);display:flex;align-items:baseline;gap:10px">
       <h2 style="margin:0;color:var(--accent);font-size:var(--fs-h);padding-left:10px;border-left:4px solid var(--accent)">{{ sourcePopup.date }}</h2>
+      <span v-if="sourcePopup.focusSurface" style="color:var(--muted);font-size:var(--fs-xs)">聚焦：<mark style="background:#ffeaa7;padding:0 4px">{{ sourcePopup.focusSurface }}</mark></span>
       <button @click="sourcePopup=null" style="margin-left:auto;background:0;border:0;font-size:22px;color:var(--muted);cursor:pointer">×</button>
     </div>
     <div style="padding:16px 20px;font-size:clamp(14px,0.7vw+11px,16px);line-height:2.0" v-html="sourcePopup.html"></div>
@@ -1008,10 +1013,28 @@ createApp({
 
     const profile = ref(null);
     const sourcePopup = ref(null);
-    function openSourcePopup(date, mode) {
+    function openSourcePopup(date, mode, focusSurface) {
       if (!chunksData.value || !chunksData.value[date]) return;
       const body = chunksData.value[date].body || '';
-      sourcePopup.value = {date, mode: mode || 'modal', html: highlightSnippetRange(body, 0, body.length, date, new Set())};
+      let html = highlightSnippetRange(body, 0, body.length, date, new Set());
+      // Re-wrap occurrences of focusSurface with a strong yellow background so the
+      // location-of-interest pops in the rendered text
+      if (focusSurface && focusSurface.length) {
+        const safe = focusSurface.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        // Wrap surface inside existing ent spans (don't break the HTML tags) — use simple replace
+        html = html.split(focusSurface).join(`<mark style="background:#ffeaa7;color:#1f1a14;padding:1px 3px;border-radius:2px;box-shadow:0 0 0 1px #f59e0b">${focusSurface}</mark>`);
+      }
+      sourcePopup.value = {date, mode: mode || 'modal', focusSurface, html};
+      // Scroll side-panel to the highlighted mark after Vue re-renders
+      if (focusSurface) {
+        nextTick(() => {
+          const panel = document.getElementById('source-side-panel');
+          if (panel) {
+            const mark = panel.querySelector('mark');
+            if (mark) mark.scrollIntoView({block: 'center', behavior: 'smooth'});
+          }
+        });
+      }
     }
     window.__vueOpenSourcePopup = openSourcePopup;
     // Inverted index: entity_id → [{date, surface}]
@@ -1363,6 +1386,7 @@ createApp({
     const trajectoryIdx = ref(-1);
     const trajectoryPlaying = ref(false);
     const trajectoryAutoPopup = ref(true);
+    const trajectorySpeed = ref(800);
     let trajectoryTimer = null;
     let trajectoryMarker = null;
     let trajectoryTrail = null;
@@ -1376,6 +1400,10 @@ createApp({
       if (!locData.value?.visits?.length || !leafletMap) return;
       if (trajectoryIdx.value < 0) trajectoryIdx.value = 0;
       trajectoryPlaying.value = true;
+      startTrajectoryTimer();
+    }
+    function startTrajectoryTimer() {
+      if (trajectoryTimer) clearInterval(trajectoryTimer);
       trajectoryTimer = setInterval(() => {
         if (trajectoryIdx.value >= locData.value.visits.length - 1) {
           trajectoryPlaying.value = false;
@@ -1384,7 +1412,10 @@ createApp({
         }
         trajectoryIdx.value += 1;
         updateTrajectoryFrame();
-      }, 200);
+      }, trajectorySpeed.value);
+    }
+    function restartTrajectoryTimer() {
+      if (trajectoryPlaying.value) startTrajectoryTimer();
     }
 
     function updateTrajectoryFrame() {
@@ -1424,9 +1455,9 @@ createApp({
       } else {
         leafletMap.panTo(here, {animate: true, duration: 0.3});
       }
-      // Auto-popup source for this date (side mode so map stays visible)
+      // Auto-popup source for this date (side mode, with location-label highlighted)
       if (trajectoryAutoPopup.value && cur.date && window.__vueOpenSourcePopup) {
-        window.__vueOpenSourcePopup(cur.date, 'side');
+        window.__vueOpenSourcePopup(cur.date, 'side', cur.location_label);
       }
     }
 
@@ -2439,7 +2470,8 @@ createApp({
       hasWikiPage,
       sourcePopup, openSourcePopup,
       flyTo, resetGeoView,
-      trajectoryIdx, trajectoryPlaying, trajectoryAutoPopup, toggleTrajectory, updateTrajectoryFrame, stepTrajectory,
+      trajectoryIdx, trajectoryPlaying, trajectoryAutoPopup, trajectorySpeed,
+      toggleTrajectory, updateTrajectoryFrame, stepTrajectory, restartTrajectoryTimer,
       profile, profileKind, profileKindLabel, openProfile, openProfileById, openEventProfile, neighbourLabel,
     };
   }
@@ -2671,7 +2703,7 @@ function renderPeople(nodes, edges, onTap, onDblTap, onRemove, focusId){
       {selector:':selected', style:{'background-color':'#f59e0b','line-color':'#f59e0b','border-width':3,'border-color':'#fbbf24'}},
     ],
     layout: layoutOpts,
-    wheelSensitivity:0.2,
+    wheelSensitivity: 1.0,
     boxSelectionEnabled: false,
   });
   // Single tap → profile (delayed so dbl-tap can preempt)
