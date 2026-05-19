@@ -247,6 +247,7 @@
     <button :class="{active:tab==='stats'}" @click="tab='stats'">{{ t('tab_stats') }}</button>
     <button :class="{active:tab==='quality'}" @click="tab='quality'">数据质量</button>
     <button :class="{active:tab==='cooc'}" @click="tab='cooc'">隐性关系</button>
+    <button :class="{active:tab==='kin'}" @click="tab='kin'">亲属网络</button>
     <button :class="{active:tab==='path'}" @click="tab='path'">路径探索</button>
     <button :class="{active:tab==='index'}" @click="tab='index'">{{ t('tab_index') }}</button>
   </div>
@@ -625,6 +626,33 @@
     </template>
   </div>
 
+  <!-- Kin network -->
+  <div class="view" v-show="tab==='kin'">
+    <div v-if="!kinData" class="empty">加载中…</div>
+    <template v-else>
+      <div class="controls">
+        <input v-model="kinSearch" placeholder="搜索人名" style="width:220px" />
+        <label>关系类型
+          <select v-model="kinTypeFilter">
+            <option value="">全部</option>
+            <option v-for="t in kinTypes" :key="t" :value="t">{{ t }}</option>
+          </select>
+        </label>
+        <span class="legend">{{ filteredKin.length }} 条 · 亲属类型总数: {{ kinTypes.length }}</span>
+      </div>
+      <div style="background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:14px 18px;max-height:calc(100vh - 260px);overflow-y:auto">
+        <div v-for="(e,i) in filteredKin.slice(0,400)" :key="i" style="display:grid;grid-template-columns:1fr 80px 1fr 100px 1fr;gap:10px;align-items:center;padding:6px 0;border-bottom:1px solid var(--border-soft);font-size:var(--fs-sm)">
+          <span class="chip chip-per" style="cursor:pointer" @click="openProfileById(e.source)">{{ e.source_label }}</span>
+          <span style="text-align:center;color:var(--accent);font-weight:600">{{ e.kin_type || '亲属' }}</span>
+          <span class="chip chip-per" style="cursor:pointer" @click="openProfileById(e.target)">{{ e.target_label }}</span>
+          <span style="color:var(--muted);font-family:ui-monospace,monospace;font-size:var(--fs-xs)">{{ e.date }}</span>
+          <span style="color:var(--muted);font-size:var(--fs-xs)">{{ e.evidence }}</span>
+        </div>
+        <div v-if="filteredKin.length > 400" style="text-align:center;color:var(--muted);padding:10px;font-size:var(--fs-xs)">仅显示前 400 / {{ filteredKin.length }}</div>
+      </div>
+    </template>
+  </div>
+
   <!-- Path finder -->
   <div class="view" v-show="tab==='path'">
     <div class="controls">
@@ -880,6 +908,9 @@ createApp({
     const statsData = ref(null);
     const miscData = ref(null);
     const coocData = ref(null);
+    const kinData = ref(null);
+    const kinSearch = ref('');
+    const kinTypeFilter = ref('');
     const pathFromQ = ref('');
     const pathToQ = ref('');
     const pathResult = ref(null);
@@ -1020,7 +1051,7 @@ createApp({
     });
 
     onMounted(async () => {
-      const [ov, tx, pp, lc, pr, bk, ck, ev, st, mi, co] = await Promise.all([
+      const [ov, tx, pp, lc, pr, bk, ck, ev, st, mi, co, kn] = await Promise.all([
         fetch('data/overview.json').then(r=>r.json()),
         fetch('data/transactions.json').then(r=>r.json()),
         fetch('data/people_graph.json').then(r=>r.json()),
@@ -1032,9 +1063,10 @@ createApp({
         fetch('data/stats.json').then(r=>r.json()).catch(() => null),
         fetch('data/misc_entities.json').then(r=>r.json()).catch(() => ({})),
         fetch('data/cooccurrence.json').then(r=>r.json()).catch(() => null),
+        fetch('data/kin.json').then(r=>r.json()).catch(() => []),
       ]);
       overview.value = ov; txnData.value = tx; peopleData.value = pp; locData.value = lc; profiles.value = pr;
-      booksData.value = bk; chunksData.value = ck; eventsData.value = ev; statsData.value = st; miscData.value = mi; coocData.value = co;
+      booksData.value = bk; chunksData.value = ck; eventsData.value = ev; statsData.value = st; miscData.value = mi; coocData.value = co; kinData.value = kn;
       const dates = Object.keys(ck).sort();
       if (dates.length && !readerDate.value) readerDate.value = dates[0];
 
@@ -1455,6 +1487,19 @@ createApp({
       visibleEdgeCount.value = edges.length;
       renderPeople(nodes, edges, openProfileById, expandNode, removeNode, focusId);
     }
+
+    // ── Kin ──────────────────────────────────────────────────────────────
+    const kinTypes = computed(() => kinData.value ? [...new Set(kinData.value.map(e=>e.kin_type).filter(Boolean))].sort() : []);
+    const filteredKin = computed(() => {
+      if (!kinData.value) return [];
+      const q = kinSearch.value.trim();
+      const t = kinTypeFilter.value;
+      return kinData.value.filter(e => {
+        if (t && e.kin_type !== t) return false;
+        if (!q) return true;
+        return (e.source_label || '').includes(q) || (e.target_label || '').includes(q);
+      });
+    });
 
     // ── Path finder ──────────────────────────────────────────────────────
     function findPerson(q) {
@@ -2217,6 +2262,7 @@ createApp({
       statsData, renderStats,
       miscData, miscOverviewGroups,
       coocData,
+      kinData, kinSearch, kinTypeFilter, kinTypes, filteredKin,
       locale, t,
       pathFromQ, pathToQ, pathResult, pathError, runPath, swapPath, pickPath, pathQuickPicks,
       miscExpanded, toggleMiscGroup,

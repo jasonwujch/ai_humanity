@@ -1,0 +1,2102 @@
+[
+  {
+    "source": "per_li_pingshu",
+    "source_label": "李平书",
+    "target": "per_zishun",
+    "target_label": "子顺",
+    "kin_type": "弟",
+    "direction": null,
+    "evidence": "李平书之弟子顺",
+    "date": "1920-01-17"
+  },
+  {
+    "source": "per_congshi",
+    "source_label": "葱石",
+    "target": "per_gonglu",
+    "target_label": "公鲁",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "葱石暨其夫人、子公鲁",
+    "date": "1920-01-19"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_muxing",
+    "target_label": "慕邢",
+    "kin_type": "姪",
+    "direction": null,
+    "evidence": "慕邢、冠英两侄亦来贺",
+    "date": "1920-01-19"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_guanying",
+    "target_label": "冠英",
+    "kin_type": "姪",
+    "direction": null,
+    "evidence": "慕邢、冠英两侄亦来贺",
+    "date": "1920-01-19"
+  },
+  {
+    "source": "per_liuzhou_dashou",
+    "source_label": "六舟僧达受",
+    "target": "per_yao_wenfu",
+    "target_label": "姚文敷",
+    "kin_type": "族人",
+    "direction": null,
+    "evidence": "俗家为海宁姚氏，文敷族人",
+    "date": "1920-02-24"
+  },
+  {
+    "source": "per_li_shuyun",
+    "source_label": "李叔云",
+    "target": "per_sun_taifuren",
+    "target_label": "孙太夫人",
+    "kin_type": "母",
+    "direction": null,
+    "evidence": "李叔云生母孙太夫人",
+    "date": "1920-03-17"
+  },
+  {
+    "source": "per_chen_zhibai",
+    "source_label": "陈知白(榆荫)",
+    "target": "per_chen_jiean",
+    "target_label": "陈戒庵",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "陈知白名榆荫，戒安子",
+    "date": "1920-03-27"
+  },
+  {
+    "source": "per_wang_chanqing",
+    "source_label": "汪蟾清",
+    "target": "per_wang_yu",
+    "target_label": "汪煜",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "汪蟾清为其子煜授室",
+    "date": "1920-04-01"
+  },
+  {
+    "source": "per_guo_zhimo",
+    "source_label": "郭志谟",
+    "target": "per_di_zhancheng",
+    "target_label": "翟展成",
+    "kin_type": "婿",
+    "direction": null,
+    "evidence": "晤展成婿郭志谟君",
+    "date": "1920-04-06"
+  },
+  {
+    "source": "per_miao_zibin",
+    "source_label": "缪子彬",
+    "target": "per_hui_qin",
+    "target_label": "蕙勤",
+    "kin_type": "夫",
+    "direction": null,
+    "evidence": "蕙勤。已嫁缪子彬，素服",
+    "date": "1920-04-12"
+  },
+  {
+    "source": "per_xujun",
+    "source_label": "旭君",
+    "target": "per_meihe",
+    "target_label": "梅盒",
+    "kin_type": "弟",
+    "direction": null,
+    "evidence": "梅盒同年之弟旭君",
+    "date": "1920-05-19"
+  },
+  {
+    "source": "per_zhang_shuchun",
+    "source_label": "章淑淳",
+    "target": "per_zhang_xiyuan",
+    "target_label": "章希媛",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "章淑淳希璦三子",
+    "date": "1920-05-29"
+  },
+  {
+    "source": "per_lei_sheng",
+    "source_label": "徐磊生",
+    "target": "per_xu_dehong",
+    "target_label": "徐德虹",
+    "kin_type": "妹",
+    "direction": null,
+    "evidence": "其胞妹德虹",
+    "date": "1922-12-12"
+  },
+  {
+    "source": "per_feng_guangjiu",
+    "source_label": "冯光久",
+    "target": "per_feng_hui",
+    "target_label": "冯徽",
+    "kin_type": "兄",
+    "direction": null,
+    "evidence": "询其兄冯徽",
+    "date": "1922-12-24"
+  },
+  {
+    "source": "per_li_conglong",
+    "source_label": "李从龙",
+    "target": "per_li_jiaji",
+    "target_label": "李家骥",
+    "kin_type": "姪",
+    "direction": null,
+    "evidence": "胞侄李家骥",
+    "date": "1922-12-30"
+  },
+  {
+    "source": "per_zilai",
+    "source_label": "紫来",
+    "target": "per_wang_yuexi",
+    "target_label": "王月希",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "王月希之子紫来先生",
+    "date": "1922-12-31"
+  },
+  {
+    "source": "per_yu_changquan",
+    "source_label": "俞昌权",
+    "target": "per_yu_changshi",
+    "target_label": "俞昌时",
+    "kin_type": "弟",
+    "direction": null,
+    "evidence": "俞昌权来书，其弟昌时",
+    "date": "1923-01-04"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_chong",
+    "target_label": "崇",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "崇儿旧业师朱右村",
+    "date": "1923-01-12"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_zhunv",
+    "target_label": "珠女",
+    "kin_type": "女",
+    "direction": null,
+    "evidence": "挈大女蕊珠",
+    "date": "1923-01-15"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_qi",
+    "target_label": "绮",
+    "kin_type": "女",
+    "direction": null,
+    "evidence": "三女绮",
+    "date": "1923-01-15"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_chong",
+    "target_label": "崇",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "大儿崇",
+    "date": "1923-01-15"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_li_jiayuan",
+    "target_label": "李家源",
+    "kin_type": "外孙",
+    "direction": null,
+    "evidence": "外孙李家源",
+    "date": "1923-01-15"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_zhunv",
+    "target_label": "珠女",
+    "kin_type": "女",
+    "direction": null,
+    "evidence": "大女挈外孙李家源今晚回肥",
+    "date": "1923-01-18"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_ma_hanqing",
+    "target_label": "马汉卿",
+    "kin_type": "外舅(妻父)",
+    "direction": null,
+    "evidence": "外舅马汉卿公八十阴寿",
+    "date": "1923-01-21"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_ren_zimu",
+    "target_label": "任子木",
+    "kin_type": null,
+    "direction": null,
+    "evidence": "为任子木之太夫人襄题神主",
+    "date": "1923-01-27"
+  },
+  {
+    "source": "per_zhang_zijun",
+    "source_label": "张子俊",
+    "target": "per_zhuxi_gong",
+    "target_label": "竹溪公",
+    "kin_type": "祖",
+    "direction": null,
+    "evidence": "子俊因其祖竹溪公家训入志",
+    "date": "1923-01-30"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_chongr",
+    "target_label": "崇儿",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "晚挈崇儿至来青阁",
+    "date": "1923-02-01"
+  },
+  {
+    "source": "per_zhang_jingxuan",
+    "source_label": "章静轩",
+    "target": "per_yequan",
+    "target_label": "章也泉",
+    "kin_type": "父",
+    "direction": null,
+    "evidence": "章静轩尊人也泉",
+    "date": "1923-02-25"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_shuwan",
+    "target_label": "淑婉",
+    "kin_type": "家属",
+    "direction": null,
+    "evidence": "淑婉、绮女同行",
+    "date": "1923-03-08"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_qinu",
+    "target_label": "绮女",
+    "kin_type": "女",
+    "direction": null,
+    "evidence": "淑婉、绮女同行",
+    "date": "1923-03-08"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_shupo",
+    "target_label": "淑魄",
+    "kin_type": "家属",
+    "direction": null,
+    "evidence": "淑魄挈绮女至中由吉巷陆府",
+    "date": "1923-03-09"
+  },
+  {
+    "source": "per_huang_jiyuan",
+    "source_label": "黄吉园",
+    "target": "per_boqian",
+    "target_label": "伯谦",
+    "kin_type": "父子",
+    "direction": null,
+    "evidence": "黄吉园、伯谦父子谭",
+    "date": "1923-03-11"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_qinu",
+    "target_label": "绮女",
+    "kin_type": "女",
+    "direction": null,
+    "evidence": "绮女存汇丰五千元",
+    "date": "1923-03-14"
+  },
+  {
+    "source": "per_yu_gumin_mother",
+    "source_label": "余穀民之太夫人",
+    "target": "per_yu_gumin",
+    "target_label": "余穀民",
+    "kin_type": "母",
+    "direction": null,
+    "evidence": "余穀民之太夫人",
+    "date": "1923-03-15"
+  },
+  {
+    "source": "per_chong",
+    "source_label": "崇",
+    "target": "per_xu_naichang",
+    "target_label": "徐乃昌",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "晨送崇、佑两儿入学",
+    "date": "1923-03-22"
+  },
+  {
+    "source": "per_you",
+    "source_label": "佑 (徐乃昌之子)",
+    "target": "per_xu_naichang",
+    "target_label": "徐乃昌",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "晨送崇、佑两儿入学",
+    "date": "1923-03-22"
+  },
+  {
+    "source": "per_feng_guangjiu_n",
+    "source_label": "冯光久之女公子",
+    "target": "per_feng_guangjiu",
+    "target_label": "冯光久",
+    "kin_type": "女",
+    "direction": null,
+    "evidence": "冯光久之女公子回通",
+    "date": "1923-03-22"
+  },
+  {
+    "source": "per_xianronglu_gong",
+    "source_label": "先荣禄公",
+    "target": "per_xu_naichang",
+    "target_label": "徐乃昌",
+    "kin_type": "父祖",
+    "direction": null,
+    "evidence": "先荣禄公忌日",
+    "date": "1923-03-23"
+  },
+  {
+    "source": "per_shen_jitu",
+    "source_label": "沈季图",
+    "target": "per_shen_qiquan",
+    "target_label": "沈淇泉",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "沈淇泉子季图",
+    "date": "1923-03-24"
+  },
+  {
+    "source": "per_li_zuwang",
+    "source_label": "李祖望",
+    "target": "per_li_yuanzhi",
+    "target_label": "李元之",
+    "kin_type": "祖",
+    "direction": null,
+    "evidence": "假读李元之祖宾嶠先生祖望",
+    "date": "1923-03-25"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_chongr",
+    "target_label": "崇儿",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "并挈崇儿至上海大戏院",
+    "date": "1920-06-13"
+  },
+  {
+    "source": "per_rui_zhu",
+    "source_label": "蕊珠",
+    "target": "per_xu_naichang",
+    "target_label": "徐乃昌",
+    "kin_type": "女",
+    "direction": null,
+    "evidence": "大女蕊珠自合肥来电",
+    "date": "1923-04-11"
+  },
+  {
+    "source": "per_shupo",
+    "source_label": "淑魄",
+    "target": "per_xu_naichang",
+    "target_label": "徐乃昌",
+    "kin_type": "妻",
+    "direction": null,
+    "evidence": "淑魄挈绮女附隆和轮至肥",
+    "date": "1923-04-13"
+  },
+  {
+    "source": "per_qinu",
+    "source_label": "绮女",
+    "target": "per_xu_naichang",
+    "target_label": "徐乃昌",
+    "kin_type": "女",
+    "direction": null,
+    "evidence": "绮女附隆和轮至肥",
+    "date": "1923-04-13"
+  },
+  {
+    "source": "per_qiu_shi",
+    "source_label": "秋史",
+    "target": "per_jiang_xun",
+    "target_label": "江干九",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "江干九、恂。秋史德量。父子手校也",
+    "date": "1923-04-14"
+  },
+  {
+    "source": "per_chongr",
+    "source_label": "崇儿",
+    "target": "per_xu_naichang",
+    "target_label": "徐乃昌",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "命崇儿至陈乃乾家",
+    "date": "1923-04-14"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_chongr",
+    "target_label": "崇儿",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "挈崇儿至来青阁",
+    "date": "1923-04-22"
+  },
+  {
+    "source": "per_tian_zhongyun",
+    "source_label": "田仲云",
+    "target": "per_yishan_jun",
+    "target_label": "挹珊君",
+    "kin_type": "父",
+    "direction": null,
+    "evidence": "请题其尊人挹珊君《机丝夜月图》",
+    "date": "1923-04-23"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_shuwan",
+    "target_label": "淑婉",
+    "kin_type": "亲属",
+    "direction": null,
+    "evidence": "为淑婉、定君暨儿女辈共捐十元",
+    "date": "1923-04-23"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_dingjun",
+    "target_label": "定君",
+    "kin_type": "亲属",
+    "direction": null,
+    "evidence": "为淑婉、定君暨儿女辈共捐十元",
+    "date": "1923-04-23"
+  },
+  {
+    "source": "per_chongr",
+    "source_label": "崇儿",
+    "target": "per_xu_naichang",
+    "target_label": "徐乃昌",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "命崇儿送至该新闻馆",
+    "date": "1923-05-04"
+  },
+  {
+    "source": "per_jia_yuan",
+    "source_label": "家源",
+    "target": "per_xu_naichang",
+    "target_label": "徐乃昌",
+    "kin_type": "外孙",
+    "direction": null,
+    "evidence": "挈大女暨外孙家源来沪",
+    "date": "1923-05-03"
+  },
+  {
+    "source": "per_shun_chen",
+    "source_label": "吴舜臣",
+    "target": "per_wu_yuansong",
+    "target_label": "吴元松",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "舜臣讯寄其子名条，吴元松",
+    "date": "1923-05-05"
+  },
+  {
+    "source": "per_sun_taifuren",
+    "source_label": "孙太夫人",
+    "target": "per_lu_gaoyu",
+    "target_label": "吕皋俞",
+    "kin_type": "母",
+    "direction": null,
+    "evidence": "吕皋俞之母孙太夫人七十寿征诗",
+    "date": "1923-05-06"
+  },
+  {
+    "source": "per_shu_shaozhi",
+    "source_label": "束劭直",
+    "target": "per_jiang_shi",
+    "target_label": "蒋氏",
+    "kin_type": "子妇",
+    "direction": null,
+    "evidence": "束劭直娶子妇蒋氏",
+    "date": "1923-05-21"
+  },
+  {
+    "source": "per_zhu_jingan",
+    "source_label": "朱静安",
+    "target": "per_zhu_zhiren",
+    "target_label": "朱智仁",
+    "kin_type": "父",
+    "direction": null,
+    "evidence": "至朱静安家，祝其尊人智仁先生七十寿",
+    "date": "1923-05-22"
+  },
+  {
+    "source": "per_jiannan",
+    "source_label": "剑南",
+    "target": "per_shu_shaozhi",
+    "target_label": "束劭直",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "其子剑南",
+    "date": "1923-05-24"
+  },
+  {
+    "source": "per_yu_shoulao",
+    "source_label": "余寿老",
+    "target": "per_ni_furen",
+    "target_label": "倪夫人",
+    "kin_type": "妻",
+    "direction": null,
+    "evidence": "寿老之配倪夫人病故",
+    "date": "1923-05-24"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_chongr",
+    "target_label": "崇儿",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "挈崇儿至来青阁",
+    "date": "1923-05-26"
+  },
+  {
+    "source": "per_xiaowei_sheng",
+    "source_label": "小微生",
+    "target": "per_zhang_shun",
+    "target_label": "张顺",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "张顺之子小微生作贼也",
+    "date": "1923-05-29"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_zidan",
+    "target_label": "子丹弟",
+    "kin_type": "弟",
+    "direction": null,
+    "evidence": "子丹弟一枝香西餐",
+    "date": "1923-06-06"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_chong",
+    "target_label": "崇",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "挈崇、佑两儿游半淞园",
+    "date": "1923-06-18"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_you",
+    "target_label": "佑 (徐乃昌之子)",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "挈崇、佑两儿游半淞园",
+    "date": "1923-06-18"
+  },
+  {
+    "source": "per_liu_zihe",
+    "source_label": "刘子鹤",
+    "target": "per_xianfu",
+    "target_label": "献夫先生",
+    "kin_type": "父",
+    "direction": null,
+    "evidence": "刘子鹤尊人献夫先生",
+    "date": "1923-06-20"
+  },
+  {
+    "source": "per_tan_furen",
+    "source_label": "谭夫人",
+    "target": "per_zhou_fulao",
+    "target_label": "周扶老",
+    "kin_type": "妻",
+    "direction": null,
+    "evidence": "周扶老之夫人谭夫人",
+    "date": "1920-06-19"
+  },
+  {
+    "source": "per_chen_qingyuan",
+    "source_label": "陈清源",
+    "target": "per_chen_pai_zhang",
+    "target_label": "陈排长",
+    "kin_type": "兄",
+    "direction": null,
+    "evidence": "缉私营陈排长曾在江平轮供差，清源族弟",
+    "date": "1920-06-30"
+  },
+  {
+    "source": "per_chen_qingyuan",
+    "source_label": "陈清源",
+    "target": "per_chen_yichu",
+    "target_label": "陈毅楚",
+    "kin_type": "弟",
+    "direction": null,
+    "evidence": "营长陈毅楚，韬，合肥，清源弟",
+    "date": "1920-07-02"
+  },
+  {
+    "source": "per_wang_baozhen",
+    "source_label": "王宝珍",
+    "target": "per_baoyu",
+    "target_label": "宝玉",
+    "kin_type": "养女",
+    "direction": null,
+    "evidence": "宝珍家养女有宝玉(即小篮子)、宝如",
+    "date": "1920-07-07"
+  },
+  {
+    "source": "per_wang_baozhen",
+    "source_label": "王宝珍",
+    "target": "per_baoru",
+    "target_label": "宝如",
+    "kin_type": "养女",
+    "direction": null,
+    "evidence": "宝珍家养女有宝玉(即小篮子)、宝如",
+    "date": "1920-07-07"
+  },
+  {
+    "source": "per_zhu_yinhong",
+    "source_label": "朱银红",
+    "target": "per_yuexian",
+    "target_label": "月仙",
+    "kin_type": "家人",
+    "direction": null,
+    "evidence": "银红家有月仙",
+    "date": "1920-07-07"
+  },
+  {
+    "source": "per_song_mianzhan",
+    "source_label": "宋勉旃",
+    "target": "per_song_rongqing",
+    "target_label": "宋鎔青",
+    "kin_type": "父子",
+    "direction": null,
+    "evidence": "宋勉旃、勛，歙县。宋鎔青景鎬。父子",
+    "date": "1920-07-07"
+  },
+  {
+    "source": "per_tao_zhecun",
+    "source_label": "陶拙存",
+    "target": "per_tao_yuanhui",
+    "target_label": "陶元晖",
+    "kin_type": "族祖",
+    "direction": null,
+    "evidence": "其新印族祖...陶元晖中丞",
+    "date": "1920-07-31"
+  },
+  {
+    "source": "per_xia_fuyi",
+    "source_label": "夏辅宜",
+    "target": "per_xia_futang",
+    "target_label": "夏鉴堂",
+    "kin_type": "兄",
+    "direction": null,
+    "evidence": "夏辅宜之弟讥书，鉴堂",
+    "date": "1920-08-13"
+  },
+  {
+    "source": "per_tao_zhecun",
+    "source_label": "陶拙存",
+    "target": "per_tongcun",
+    "target_label": "陶僮存",
+    "kin_type": "兄",
+    "direction": null,
+    "evidence": "陶拙存之弟僮存",
+    "date": "1920-08-13"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_shuwan",
+    "target_label": "淑婉",
+    "kin_type": "妻",
+    "direction": null,
+    "evidence": "同淑婉挈儿女辈游大世界",
+    "date": "1920-08-15"
+  },
+  {
+    "source": "per_gu_dingmei",
+    "source_label": "顾鼎梅",
+    "target": "per_gu_jiaxiang",
+    "target_label": "顾家相",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "鼎梅赠其尊人家相",
+    "date": "1920-08-17"
+  },
+  {
+    "source": "per_chen_shaowu",
+    "source_label": "陈劭吾",
+    "target": "per_cheng_xuangong",
+    "target_label": "程选公",
+    "kin_type": "婿",
+    "direction": null,
+    "evidence": "邵吾属为其孙婿程选公(瑞铨)请拔可关照",
+    "date": "1920-08-18"
+  },
+  {
+    "source": "per_liu_congshi",
+    "source_label": "刘葱石",
+    "target": "per_yang_hanxi",
+    "target_label": "杨翰西",
+    "kin_type": "亲家",
+    "direction": null,
+    "evidence": "刘葱石与杨翰西联姻，为作冰人",
+    "date": "1920-08-28"
+  },
+  {
+    "source": "per_zhang_panzhi",
+    "source_label": "章泮芝 (章尚兰)",
+    "target": "per_zhang_xiqing",
+    "target_label": "章锡卿",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "章泮芝、名尚兰，锡卿子",
+    "date": "1920-09-02"
+  },
+  {
+    "source": "per_zhang_chubai",
+    "source_label": "章初白 (章家驹)",
+    "target": "per_xi_ai",
+    "target_label": "希璦",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "章初白名家驹，希璦子",
+    "date": "1920-09-02"
+  },
+  {
+    "source": "per_chong",
+    "source_label": "崇",
+    "target": "per_xu_naichang",
+    "target_label": "徐乃昌",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "崇、佑两儿随侍",
+    "date": "1920-09-04"
+  },
+  {
+    "source": "per_you",
+    "source_label": "佑 (徐乃昌之子)",
+    "target": "per_xu_naichang",
+    "target_label": "徐乃昌",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "崇、佑两儿随侍",
+    "date": "1920-09-04"
+  },
+  {
+    "source": "per_lvsong_tingmeijing",
+    "source_label": "吕宋廷美璟",
+    "target": "per_wen_jie",
+    "target_label": "文节(廷美璟曾祖)",
+    "kin_type": "曾孙",
+    "direction": null,
+    "evidence": "吕宋廷美璟,文节曾孙",
+    "date": "1920-09-10"
+  },
+  {
+    "source": "per_yao_huaiting",
+    "source_label": "姚槐亭",
+    "target": "per_ge_taifuren",
+    "target_label": "葛太夫人",
+    "kin_type": "母",
+    "direction": null,
+    "evidence": "姚槐亭、筱亭之母葛太夫人",
+    "date": "1920-09-10"
+  },
+  {
+    "source": "per_yao_xiaoting",
+    "source_label": "姚筱亭",
+    "target": "per_ge_taifuren",
+    "target_label": "葛太夫人",
+    "kin_type": "母",
+    "direction": null,
+    "evidence": "姚槐亭、筱亭之母葛太夫人",
+    "date": "1920-09-10"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_xu_zidan",
+    "target_label": "徐子丹",
+    "kin_type": "弟",
+    "direction": null,
+    "evidence": "子丹弟",
+    "date": "1920-09-29"
+  },
+  {
+    "source": "per_liu_qianji",
+    "source_label": "刘谦吉",
+    "target": "per_liu_yuanchang",
+    "target_label": "刘源长",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "刘源长著,男谦吉辑",
+    "date": "1920-09-30"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_chongr",
+    "target_label": "崇儿",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "崇儿",
+    "date": "1920-10-06"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_youer",
+    "target_label": "佑儿",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "佑两儿",
+    "date": "1920-10-06"
+  },
+  {
+    "source": "per_chen_weixiang",
+    "source_label": "陈渭祥",
+    "target": "per_qi",
+    "target_label": "绮",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "陈渭祥显璜，器之子",
+    "date": "1920-10-15"
+  },
+  {
+    "source": "per_jia_zhuo",
+    "source_label": "家倬",
+    "target": "per_zhao_ruren",
+    "target_label": "赵孺人",
+    "kin_type": "妻",
+    "direction": null,
+    "evidence": "家倬四叔侧室赵孺人",
+    "date": "1920-10-20"
+  },
+  {
+    "source": "per_rongting",
+    "source_label": "荣廷",
+    "target": "per_huiting",
+    "target_label": "辉廷",
+    "kin_type": "弟",
+    "direction": null,
+    "evidence": "因病，派其弟辉廷随往",
+    "date": "1920-10-21"
+  },
+  {
+    "source": "per_tian_xiansheng",
+    "source_label": "田先生",
+    "target": "per_xu_fuxing",
+    "target_label": "徐福兴",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "田先生之子徐福兴",
+    "date": "1920-10-21"
+  },
+  {
+    "source": "per_xu_xinliu",
+    "source_label": "徐新六",
+    "target": "per_xu_zhongke",
+    "target_label": "徐仲可",
+    "kin_type": "父",
+    "direction": null,
+    "evidence": "兼拜其尊人仲可先生",
+    "date": "1920-11-22"
+  },
+  {
+    "source": "per_wu_jianquan",
+    "source_label": "吴剑泉",
+    "target": "per_wu_yiquan",
+    "target_label": "吴怡泉",
+    "kin_type": "兄",
+    "direction": null,
+    "evidence": "吴剑泉之六弟怡泉",
+    "date": "1920-12-05"
+  },
+  {
+    "source": "per_meng_chunsun",
+    "source_label": "孟纯孙",
+    "target": "per_zhou_xianggu",
+    "target_label": "周香谷",
+    "kin_type": "妻",
+    "direction": null,
+    "evidence": "孟纯孙之夫人周香谷女史",
+    "date": "1920-12-12"
+  },
+  {
+    "source": "per_zhao_yuechuan",
+    "source_label": "赵月川",
+    "target": "per_jichang_yaoting",
+    "target_label": "继昌耀廷",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "赵月川子继昌耀廷",
+    "date": "1920-12-15"
+  },
+  {
+    "source": "per_li_zhoubai_furen",
+    "source_label": "黎周柏夫人",
+    "target": "per_li_zhoubai",
+    "target_label": "黎周柏",
+    "kin_type": "妻",
+    "direction": null,
+    "evidence": "黎周柏相夫人",
+    "date": "1921-01-03"
+  },
+  {
+    "source": "per_chong",
+    "source_label": "崇",
+    "target": "per_xu_naichang",
+    "target_label": "徐乃昌",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "挈崇、佑两儿至先施乐园",
+    "date": "1921-01-08"
+  },
+  {
+    "source": "per_you",
+    "source_label": "佑 (徐乃昌之子)",
+    "target": "per_xu_naichang",
+    "target_label": "徐乃昌",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "挈崇、佑两儿至先施乐园",
+    "date": "1921-01-08"
+  },
+  {
+    "source": "per_youer",
+    "source_label": "佑儿",
+    "target": "per_xu_naichang",
+    "target_label": "徐乃昌",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "佑儿跌伤额角",
+    "date": "1921-02-17"
+  },
+  {
+    "source": "per_wang_songge",
+    "source_label": "汪颂阁",
+    "target": "per_wang_rangqing",
+    "target_label": "汪穰卿",
+    "kin_type": "弟",
+    "direction": null,
+    "evidence": "汪颂阁贻其兄穰卿遗集",
+    "date": "1921-03-04"
+  },
+  {
+    "source": "per_zhang_yizhi",
+    "source_label": "张一志",
+    "target": "per_zhang_jingsheng",
+    "target_label": "张静生",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "张静生为七子一志行结婚礼",
+    "date": "1921-03-12"
+  },
+  {
+    "source": "per_xi_shaoqing",
+    "source_label": "席少卿",
+    "target": "per_zudao_sheng",
+    "target_label": "祖道生",
+    "kin_type": "祖父",
+    "direction": null,
+    "evidence": "席少卿祖道生君领帖",
+    "date": "1921-03-16"
+  },
+  {
+    "source": "per_wang_ganqing",
+    "source_label": "汪甘卿",
+    "target": "per_deng_baichuan",
+    "target_label": "邓百川",
+    "kin_type": "姻亲",
+    "direction": null,
+    "evidence": "同邓百川家联姻。以长女妻其子",
+    "date": "1921-03-23"
+  },
+  {
+    "source": "per_yu_furen",
+    "source_label": "于夫人",
+    "target": "per_wu_huaqing",
+    "target_label": "吴华卿",
+    "kin_type": "母",
+    "direction": null,
+    "evidence": "南京吴华卿之母于夫人去世",
+    "date": "1921-03-25"
+  },
+  {
+    "source": "per_zhuyi",
+    "source_label": "祝颐",
+    "target": "per_cheng_yuncen",
+    "target_label": "程云岑",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "程云岑为子祝颐授室",
+    "date": "1921-03-26"
+  },
+  {
+    "source": "per_lizheng",
+    "source_label": "礼征",
+    "target": "per_guo_pinhan",
+    "target_label": "郭品翰",
+    "kin_type": "兄弟",
+    "direction": null,
+    "evidence": "郭品翰、礼征昆仲来",
+    "date": "1921-03-27"
+  },
+  {
+    "source": "per_li_ruijiu_mu",
+    "source_label": "李瑞九太夫人",
+    "target": "per_li_ruijiu",
+    "target_label": "李瑞九",
+    "kin_type": "母",
+    "direction": null,
+    "evidence": "李瑞九之太夫人丧",
+    "date": "1921-04-01"
+  },
+  {
+    "source": "per_zong_zidai",
+    "source_label": "宗子戴",
+    "target": "per_zong_xiangwen",
+    "target_label": "宗湘文",
+    "kin_type": "先德(父)",
+    "direction": null,
+    "evidence": "赠其先德湘文先生",
+    "date": "1921-04-19"
+  },
+  {
+    "source": "per_chongr",
+    "source_label": "崇儿",
+    "target": "per_xu_naichang",
+    "target_label": "徐乃昌",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "崇儿(徐乃昌之子)",
+    "date": "1921-04-28"
+  },
+  {
+    "source": "per_rong_yao",
+    "source_label": "容尧",
+    "target": "per_zheng_runsheng",
+    "target_label": "郑润生",
+    "kin_type": "父",
+    "direction": null,
+    "evidence": "寄挽其尊人容尧",
+    "date": "1921-04-30"
+  },
+  {
+    "source": "per_wu_falai",
+    "source_label": "吴发来",
+    "target": "per_fa_xiang",
+    "target_label": "发祥",
+    "kin_type": "兄",
+    "direction": null,
+    "evidence": "吴发来、发祥昆仲",
+    "date": "1921-05-07"
+  },
+  {
+    "source": "per_ye_huanbin",
+    "source_label": "叶焕彬",
+    "target": "per_qi_xun",
+    "target_label": "启勋",
+    "kin_type": "姪",
+    "direction": null,
+    "evidence": "叶焕彬德辉。同侄启勋、定侯",
+    "date": "1921-05-09"
+  },
+  {
+    "source": "per_ye_huanbin",
+    "source_label": "叶焕彬",
+    "target": "per_ding_hou",
+    "target_label": "定侯",
+    "kin_type": "姪",
+    "direction": null,
+    "evidence": "叶焕彬德辉。同侄启勋、定侯",
+    "date": "1921-05-09"
+  },
+  {
+    "source": "per_cui_xiangqing",
+    "source_label": "崔翔青",
+    "target": "per_cui_bingshi",
+    "target_label": "崔秉实",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "省议员崔翔青建议倡办芜湖房牙杂粮税捐局，即为其子崔秉实谋充局长",
+    "date": "1921-05-10"
+  },
+  {
+    "source": "per_yu_shouchen",
+    "source_label": "俞寿臣",
+    "target": "per_yu_keshi",
+    "target_label": "俞恪士",
+    "kin_type": "兄",
+    "direction": null,
+    "evidence": "俞寿臣贻其兄恪士《觚庵诗存》",
+    "date": "1921-05-12"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_shuwan",
+    "target_label": "淑婉",
+    "kin_type": "妻",
+    "direction": null,
+    "evidence": "同淑婉至天蟾舞台",
+    "date": "1921-05-28"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_chongr",
+    "target_label": "崇儿",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "同崇儿至虹口大花园",
+    "date": "1921-05-31"
+  },
+  {
+    "source": "per_mengpo",
+    "source_label": "周梦坡",
+    "target": "per_zhang_furen",
+    "target_label": "张夫人",
+    "kin_type": "妻",
+    "direction": null,
+    "evidence": "周梦坡德配张夫人六十寿",
+    "date": "1921-06-05"
+  },
+  {
+    "source": "per_guo_lvzhen",
+    "source_label": "郭履真",
+    "target": "per_guo_pinhan",
+    "target_label": "郭品翰",
+    "kin_type": "兄",
+    "direction": null,
+    "evidence": "郭履真、品翰昆仲来",
+    "date": "1921-06-04"
+  },
+  {
+    "source": "per_wang_zongyan",
+    "source_label": "王宗炎",
+    "target": "per_wang_duanlv",
+    "target_label": "王端履",
+    "kin_type": "父",
+    "direction": null,
+    "evidence": "萧山王端履,王宗炎子",
+    "date": "1921-06-09"
+  },
+  {
+    "source": "per_zhang_jingsheng",
+    "source_label": "张静生",
+    "target": "per_li_gengyu",
+    "target_label": "李庚余",
+    "kin_type": null,
+    "direction": null,
+    "evidence": "近为其八世兄同李庚余女公子议婚",
+    "date": "1921-06-11"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_chong",
+    "target_label": "崇",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "挈崇、佑两儿至商务书馆",
+    "date": "1921-07-08"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_you",
+    "target_label": "佑 (徐乃昌之子)",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "挈崇、佑两儿至商务书馆",
+    "date": "1921-07-08"
+  },
+  {
+    "source": "per_liang_wenzhong",
+    "source_label": "梁文忠",
+    "target": "per_yu_taifuren",
+    "target_label": "虞太夫人",
+    "kin_type": "叔母",
+    "direction": null,
+    "evidence": "梁文忠之叔母余太夫人",
+    "date": "1921-07-08"
+  },
+  {
+    "source": "per_zhang_tuilao",
+    "source_label": "张退老",
+    "target": "per_zhang_lizu",
+    "target_label": "张立祖",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "张退老之公子名立祖,字敬礼",
+    "date": "1921-07-10"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_funv",
+    "target_label": "馥女",
+    "kin_type": "女",
+    "direction": null,
+    "evidence": "当口报馥女生辰",
+    "date": "1921-07-10"
+  },
+  {
+    "source": "per_zhang_jingsheng",
+    "source_label": "张静生",
+    "target": "per_zhang_gongzi",
+    "target_label": "张公子",
+    "kin_type": "父子",
+    "direction": null,
+    "evidence": "张静生之公子",
+    "date": "1921-07-14"
+  },
+  {
+    "source": "per_cao_muru",
+    "source_label": "曹木如",
+    "target": "per_song_bin",
+    "target_label": "颂彬",
+    "kin_type": "父子",
+    "direction": null,
+    "evidence": "为其子颂彬入银行练习生事",
+    "date": "1921-07-19"
+  },
+  {
+    "source": "per_xianli",
+    "source_label": "显礼",
+    "target": "per_xie_jixian",
+    "target_label": "谢继先",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "求以其二儿显礼代理其事",
+    "date": "1921-07-30"
+  },
+  {
+    "source": "per_wang_tongrong",
+    "source_label": "王同荣",
+    "target": "per_wang_haoqu",
+    "target_label": "王灏渠",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "王同荣为灏渠之子",
+    "date": "1921-08-01"
+  },
+  {
+    "source": "per_gong_xiaogong",
+    "source_label": "龚孝拱",
+    "target": "per_gong_dingan",
+    "target_label": "龚定庵",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "龚定庵、孝拱父子校《段注说文》",
+    "date": "1921-08-06"
+  },
+  {
+    "source": "per_rong_ting_mu",
+    "source_label": "荣廷之母",
+    "target": "per_rong_ting",
+    "target_label": "荣廷",
+    "kin_type": "母",
+    "direction": null,
+    "evidence": "荣廷之母去世",
+    "date": "1921-08-10"
+  },
+  {
+    "source": "per_xu_ke",
+    "source_label": "徐珂",
+    "target": "per_xu_fang",
+    "target_label": "徐枋",
+    "kin_type": "弟",
+    "direction": null,
+    "evidence": "柯为徐枋弟",
+    "date": "1921-08-22"
+  },
+  {
+    "source": "per_jiang_rongfang_wife",
+    "source_label": "江蓉舫之夫人",
+    "target": "per_jiang_rongfang",
+    "target_label": "江蓉舫",
+    "kin_type": "妻",
+    "direction": null,
+    "evidence": "江蓉舫之夫人",
+    "date": "1921-09-28"
+  },
+  {
+    "source": "per_yu_diren_mother",
+    "source_label": "虞迪人之母林太夫人",
+    "target": "per_yu_diren",
+    "target_label": "虞迪人",
+    "kin_type": "母",
+    "direction": null,
+    "evidence": "虞迪人之母林太夫人",
+    "date": "1921-09-30"
+  },
+  {
+    "source": "per_tian_shaobai_wife",
+    "source_label": "田少白夫人",
+    "target": "per_tian_shaobai",
+    "target_label": "田少白",
+    "kin_type": "妻",
+    "direction": null,
+    "evidence": "田少白夫人",
+    "date": "1921-09-30"
+  },
+  {
+    "source": "per_zhunv",
+    "source_label": "珠女",
+    "target": "per_xu_naichang",
+    "target_label": "徐乃昌",
+    "kin_type": "女",
+    "direction": null,
+    "evidence": "大女蕊珠",
+    "date": "1921-09-30"
+  },
+  {
+    "source": "per_qinu",
+    "source_label": "绮女",
+    "target": "per_xu_naichang",
+    "target_label": "徐乃昌",
+    "kin_type": "女",
+    "direction": null,
+    "evidence": "三女绮",
+    "date": "1921-09-30"
+  },
+  {
+    "source": "per_gonglu",
+    "source_label": "公鲁",
+    "target": "per_liu_congshi",
+    "target_label": "刘葱石",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "晤其公子公鲁谭",
+    "date": "1921-10-05"
+  },
+  {
+    "source": "per_pu_taishuren",
+    "source_label": "濮太淑人",
+    "target": "per_yang_shutong",
+    "target_label": "杨漱桐",
+    "kin_type": "母",
+    "direction": null,
+    "evidence": "送杨漱桐通。之太夫人濮太淑人",
+    "date": "1921-10-07"
+  },
+  {
+    "source": "per_shuwan",
+    "source_label": "淑婉",
+    "target": "per_qinu",
+    "target_label": "绮女",
+    "kin_type": "母女?",
+    "direction": null,
+    "evidence": "淑婉挈绮女回沪",
+    "date": "1921-10-16"
+  },
+  {
+    "source": "per_xu_menglan",
+    "source_label": "徐梦兰",
+    "target": "per_xu_ziren",
+    "target_label": "徐子仁",
+    "kin_type": "父子",
+    "direction": null,
+    "evidence": "徐梦兰子仁，日本大学农科毕业",
+    "date": "1921-10-18"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_chongr",
+    "target_label": "崇儿",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "代邀课崇儿读",
+    "date": "1921-10-25"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_zidan",
+    "target_label": "子丹弟",
+    "kin_type": "弟",
+    "direction": null,
+    "evidence": "约同子丹弟、刘十枝赴津往吊",
+    "date": "1921-10-26"
+  },
+  {
+    "source": "per_su_kuijiu",
+    "source_label": "苏逵九",
+    "target": "per_su_chongjing",
+    "target_label": "苏崇镜",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "见其子苏崇镜",
+    "date": "1921-10-31"
+  },
+  {
+    "source": "per_wu_liansheng",
+    "source_label": "吴联笙",
+    "target": "per_ma_meisheng",
+    "target_label": "马梅生",
+    "kin_type": "姊妹夫(内弟)",
+    "direction": null,
+    "evidence": "殷挚为马梅生内弟请其推荐一事",
+    "date": "1921-11-01"
+  },
+  {
+    "source": "per_fu_fusheng",
+    "source_label": "傅弗生",
+    "target": "per_fu_yaosheng",
+    "target_label": "傅尧生",
+    "kin_type": "兄弟",
+    "direction": null,
+    "evidence": "傅氏昆仲来答拜",
+    "date": "1921-11-02"
+  },
+  {
+    "source": "per_conglong",
+    "source_label": "从龙",
+    "target": "per_guangfu",
+    "target_label": "光辅",
+    "kin_type": "族人",
+    "direction": null,
+    "evidence": "派其族人光辅送来",
+    "date": "1921-11-03"
+  },
+  {
+    "source": "per_lin_yishu",
+    "source_label": "林贻书",
+    "target": "per_liu_jianzhi",
+    "target_label": "刘健之",
+    "kin_type": "姻亲",
+    "direction": null,
+    "evidence": "林贻书、刘健之两家结婚礼，属作冰人",
+    "date": "1921-11-09"
+  },
+  {
+    "source": "per_he_shaoqi",
+    "source_label": "何少圻",
+    "target": "per_he_ziyong",
+    "target_label": "何子永",
+    "kin_type": "祖",
+    "direction": null,
+    "evidence": "其祖子永先生",
+    "date": "1921-11-11"
+  },
+  {
+    "source": "per_he_shaoqi",
+    "source_label": "何少圻",
+    "target": "per_he_songqi",
+    "target_label": "何颂圻",
+    "kin_type": "父",
+    "direction": null,
+    "evidence": "父颂圻传略",
+    "date": "1921-11-11"
+  },
+  {
+    "source": "per_chu_deqin",
+    "source_label": "褚德勤",
+    "target": "per_chu_dechun",
+    "target_label": "褚德纯",
+    "kin_type": "兄",
+    "direction": null,
+    "evidence": "褚德勤之弟德纯",
+    "date": "1921-11-14"
+  },
+  {
+    "source": "per_wu_yisheng",
+    "source_label": "吴怡生",
+    "target": "per_wu_gaoshi",
+    "target_label": "吴高氏",
+    "kin_type": "母",
+    "direction": null,
+    "evidence": "吴怡生之母吴高氏",
+    "date": "1921-11-17"
+  },
+  {
+    "source": "per_fan_minqian",
+    "source_label": "范悯黔",
+    "target": "per_gao_furen",
+    "target_label": "高夫人",
+    "kin_type": "母",
+    "direction": null,
+    "evidence": "范悯黔拟将其母高夫人灵椽寄存",
+    "date": "1921-11-26"
+  },
+  {
+    "source": "per_zhi_qing",
+    "source_label": "执卿",
+    "target": "per_bo_liewu",
+    "target_label": "柏烈武",
+    "kin_type": "父",
+    "direction": null,
+    "evidence": "柏烈武之尊人执卿先生",
+    "date": "1922-01-09"
+  },
+  {
+    "source": "per_zhu_taijun",
+    "source_label": "朱太君",
+    "target": "per_bo_liewu",
+    "target_label": "柏烈武",
+    "kin_type": "母",
+    "direction": null,
+    "evidence": "柏烈武之尊人执卿先生暨母朱太君",
+    "date": "1922-01-09"
+  },
+  {
+    "source": "per_gongmai",
+    "source_label": "公迈",
+    "target": "per_wu_canglao",
+    "target_label": "吴仓老",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "答拜吴仓老、公迈乔梓",
+    "date": "1922-01-11"
+  },
+  {
+    "source": "per_hu_ziheng",
+    "source_label": "胡子珩",
+    "target": "per_hu_zigui",
+    "target_label": "胡子贵",
+    "kin_type": "弟",
+    "direction": null,
+    "evidence": "南陵胡子贵、子珩弟",
+    "date": "1922-01-14"
+  },
+  {
+    "source": "per_guanying",
+    "source_label": "冠英",
+    "target": "per_xu_naichang",
+    "target_label": "徐乃昌",
+    "kin_type": "姪",
+    "direction": null,
+    "evidence": "冠英侄来贺",
+    "date": "1922-01-27"
+  },
+  {
+    "source": "per_wu_zengding",
+    "source_label": "吴增鼎",
+    "target": "per_wu_yuanfu",
+    "target_label": "苑甫",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "吴为苑甫之子",
+    "date": "1922-02-14"
+  },
+  {
+    "source": "per_xu_zidan",
+    "source_label": "徐子丹",
+    "target": "per_xu_naichang",
+    "target_label": "徐乃昌",
+    "kin_type": "弟",
+    "direction": null,
+    "evidence": "子丹弟来",
+    "date": "1922-02-18"
+  },
+  {
+    "source": "per_li_tai_gongren",
+    "source_label": "李太恭人",
+    "target": "per_kui_sheng",
+    "target_label": "况夔笙",
+    "kin_type": "母",
+    "direction": null,
+    "evidence": "以二月朔为其母李太恭人营葬期近",
+    "date": "1922-02-19"
+  },
+  {
+    "source": "per_mu_gong_zi",
+    "source_label": "木公子骏孙",
+    "target": "per_liu_xunfu",
+    "target_label": "刘逊甫",
+    "kin_type": "婿",
+    "direction": null,
+    "evidence": "逊甫婿、木公子号骏孙",
+    "date": "1922-02-20"
+  },
+  {
+    "source": "per_chongr",
+    "source_label": "崇儿",
+    "target": "per_xu_naichang",
+    "target_label": "徐乃昌",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "拟将其女许字崇儿",
+    "date": "1922-02-20"
+  },
+  {
+    "source": "per_lao_jiliu",
+    "source_label": "劳吉六",
+    "target": "per_zhengxiang",
+    "target_label": "正祥",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "为其子正祥在南通模范纱厂学习",
+    "date": "1922-03-09"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_dandi",
+    "target_label": "丹弟",
+    "kin_type": "弟",
+    "direction": null,
+    "evidence": "至丹弟处，未晤，是日生辰",
+    "date": "1922-03-10"
+  },
+  {
+    "source": "per_guo_lizheng",
+    "source_label": "郭礼征",
+    "target": "per_guo_pinhan",
+    "target_label": "郭品翰",
+    "kin_type": "兄",
+    "direction": null,
+    "evidence": "郭礼征、品翰昆仲",
+    "date": "1922-03-11"
+  },
+  {
+    "source": "per_guo_lizheng",
+    "source_label": "郭礼征",
+    "target": "per_guo_jianghou",
+    "target_label": "郭绛侯",
+    "kin_type": "姪",
+    "direction": null,
+    "evidence": "同座有其侄郭绛侯",
+    "date": "1922-03-13"
+  },
+  {
+    "source": "per_zhang_jian",
+    "source_label": "张謇",
+    "target": "per_zhang_cha",
+    "target_label": "张察",
+    "kin_type": "兄",
+    "direction": null,
+    "evidence": "张奢、张察",
+    "date": "1922-03-23"
+  },
+  {
+    "source": "per_wang_xuecheng",
+    "source_label": "王雪澄",
+    "target": "per_wang_shujun",
+    "target_label": "王叔儁",
+    "kin_type": "父",
+    "direction": null,
+    "evidence": "王雪澄、叔儁父子来谭",
+    "date": "1922-03-26"
+  },
+  {
+    "source": "per_li_shuyan",
+    "source_label": "李叔岩",
+    "target": "per_xu_naichang",
+    "target_label": "徐乃昌",
+    "kin_type": "婿",
+    "direction": null,
+    "evidence": "李婿叔岩今晚来",
+    "date": "1922-03-27"
+  },
+  {
+    "source": "per_liu_weizhi",
+    "source_label": "刘畏之",
+    "target": "per_liu_shizhi2",
+    "target_label": "刘实之",
+    "kin_type": "兄弟",
+    "direction": null,
+    "evidence": "答拜刘畏之、实之、晦之昆仲",
+    "date": "1922-03-29"
+  },
+  {
+    "source": "per_liu_weizhi",
+    "source_label": "刘畏之",
+    "target": "per_liu_huizhi",
+    "target_label": "刘晦之",
+    "kin_type": "兄弟",
+    "direction": null,
+    "evidence": "答拜刘畏之、实之、晦之昆仲",
+    "date": "1922-03-29"
+  },
+  {
+    "source": "per_liu_shizhi2",
+    "source_label": "刘实之",
+    "target": "per_liu_huizhi",
+    "target_label": "刘晦之",
+    "kin_type": "兄弟",
+    "direction": null,
+    "evidence": "答拜刘畏之、实之、晦之昆仲",
+    "date": "1922-03-29"
+  },
+  {
+    "source": "per_zhang_xiaoruo",
+    "source_label": "张孝若",
+    "target": "per_selao",
+    "target_label": "嗇老",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "同至嗇老处，久谭",
+    "date": "1922-03-30"
+  },
+  {
+    "source": "per_jingli",
+    "source_label": "敬礼婿",
+    "target": "per_yuzu",
+    "target_label": "豫祖",
+    "kin_type": "兄弟",
+    "direction": null,
+    "evidence": "敬礼婿兄名豫祖，号敬安",
+    "date": "1922-04-01"
+  },
+  {
+    "source": "per_chen_xingnan",
+    "source_label": "陈星南",
+    "target": "per_chen_shilu",
+    "target_label": "陈石庐",
+    "kin_type": null,
+    "direction": null,
+    "evidence": "陈杏南子。陈石庐劭吾子",
+    "date": "1922-04-02"
+  },
+  {
+    "source": "per_chen_xingnan",
+    "source_label": "陈星南",
+    "target": "per_chen_baozhi",
+    "target_label": "陈保之",
+    "kin_type": "父子",
+    "direction": null,
+    "evidence": "访陈星南、陈保之乔梓",
+    "date": "1922-04-06"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_xu_zidan",
+    "target_label": "徐子丹",
+    "kin_type": "弟",
+    "direction": null,
+    "evidence": "子丹弟来函",
+    "date": "1922-04-08"
+  },
+  {
+    "source": "per_zhao_luzhan_wife",
+    "source_label": "赵鲁瞻夫人",
+    "target": "per_zhao_luzhan",
+    "target_label": "赵鲁瞻",
+    "kin_type": "妻",
+    "direction": null,
+    "evidence": "赵鲁瞻之夫人",
+    "date": "1922-04-12"
+  },
+  {
+    "source": "per_gao_yu",
+    "source_label": "皋俞",
+    "target": "per_sun_taifuren",
+    "target_label": "孙太夫人",
+    "kin_type": "母",
+    "direction": null,
+    "evidence": "贺其母孙太夫人七十寿",
+    "date": "1922-04-23"
+  },
+  {
+    "source": "per_xu_chong",
+    "source_label": "崇儿",
+    "target": "per_shuwan",
+    "target_label": "淑婉",
+    "kin_type": "母",
+    "direction": null,
+    "evidence": "阅崇、佑两儿来禀,知淑婉病",
+    "date": "1922-05-05"
+  },
+  {
+    "source": "per_han_furen",
+    "source_label": "韩夫人",
+    "target": "per_yuan_youkai",
+    "target_label": "袁又恺",
+    "kin_type": "母",
+    "direction": null,
+    "evidence": "读袁又恺廷禱。母韩夫人贞节堂",
+    "date": "1922-05-08"
+  },
+  {
+    "source": "per_xu_dehong",
+    "source_label": "徐德虹",
+    "target": "per_lei_sheng",
+    "target_label": "徐磊生",
+    "kin_type": "姪",
+    "direction": null,
+    "evidence": "徐德虹侄",
+    "date": "1922-05-11"
+  },
+  {
+    "source": "per_di_chuqing_furen",
+    "source_label": "狄楚青夫人汪",
+    "target": "per_di_chuqing",
+    "target_label": "狄楚青",
+    "kin_type": "妻",
+    "direction": null,
+    "evidence": "狄楚青夫人汪",
+    "date": "1922-05-18"
+  },
+  {
+    "source": "per_qinu",
+    "source_label": "绮女",
+    "target": "per_xu_naichang",
+    "target_label": "徐乃昌",
+    "kin_type": "女",
+    "direction": null,
+    "evidence": "交绮女捐江浙皖义振会廿元",
+    "date": "1922-05-23"
+  },
+  {
+    "source": "per_heng_jinshu",
+    "source_label": "恒瑾叔",
+    "target": "per_xu_naichang",
+    "target_label": "徐乃昌",
+    "kin_type": "叔",
+    "direction": null,
+    "evidence": "恒瑾叔",
+    "date": "1922-05-23"
+  },
+  {
+    "source": "per_qinu",
+    "source_label": "绮女",
+    "target": "per_xu_naichang",
+    "target_label": "徐乃昌",
+    "kin_type": "女",
+    "direction": null,
+    "evidence": "商绮女姚步圩田并售事",
+    "date": "1922-06-12"
+  },
+  {
+    "source": "per_shuwan",
+    "source_label": "淑婉",
+    "target": "per_xu_naichang",
+    "target_label": "徐乃昌",
+    "kin_type": "女眷",
+    "direction": null,
+    "evidence": "至兆芳，同淑婉摄影",
+    "date": "1922-06-13"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_zidan",
+    "target_label": "子丹弟",
+    "kin_type": "弟",
+    "direction": null,
+    "evidence": "至子丹弟处",
+    "date": "1922-07-25"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_chongr",
+    "target_label": "崇儿",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "挈崇儿、绮女、馥女",
+    "date": "1922-07-29"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_qinu",
+    "target_label": "绮女",
+    "kin_type": "女",
+    "direction": null,
+    "evidence": "挈崇儿、绮女、馥女",
+    "date": "1922-07-29"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_funv",
+    "target_label": "馥女",
+    "kin_type": "女",
+    "direction": null,
+    "evidence": "挈崇儿、绮女、馥女",
+    "date": "1922-07-29"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_chongr",
+    "target_label": "崇儿",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "寄回崇儿文稿",
+    "date": "1922-08-12"
+  },
+  {
+    "source": "per_song_zhonggang",
+    "source_label": "宋仲刚",
+    "target": "per_song_weiting",
+    "target_label": "宋蔚亭金森",
+    "kin_type": "父",
+    "direction": null,
+    "evidence": "仲刚尊人宋蔚亭金森",
+    "date": "1922-08-16"
+  },
+  {
+    "source": "per_xu_fu",
+    "source_label": "徐复",
+    "target": "per_lei_sheng",
+    "target_label": "徐磊生",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "徐磊生之世兄徐复考入南通学校事",
+    "date": "1922-08-21"
+  },
+  {
+    "source": "per_hatong",
+    "source_label": "哈同",
+    "target": "per_jialing",
+    "target_label": "迦陵",
+    "kin_type": "夫",
+    "direction": null,
+    "evidence": "哈同、迦陵夫妇",
+    "date": "1922-08-28"
+  },
+  {
+    "source": "per_zhang_xuetang",
+    "source_label": "张雪堂",
+    "target": "per_wei_wenxi",
+    "target_label": "卫文熙",
+    "kin_type": "伯父",
+    "direction": null,
+    "evidence": "张雪堂系卫芝山之伯父",
+    "date": "1922-09-05"
+  },
+  {
+    "source": "per_liu_dazhang",
+    "source_label": "刘达章",
+    "target": "per_liu_fuzeng",
+    "target_label": "刘弗增",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "刘达章冠芳，弗增子",
+    "date": "1922-09-15"
+  },
+  {
+    "source": "per_liu_zihe",
+    "source_label": "刘子鹤",
+    "target": "per_yantao",
+    "target_label": "研涛",
+    "kin_type": "姻亲",
+    "direction": null,
+    "evidence": "子鹤同砚涛结儿女姻亲",
+    "date": "1922-09-28"
+  },
+  {
+    "source": "per_guo_lizheng",
+    "source_label": "郭礼征",
+    "target": "per_guo_pinhan",
+    "target_label": "郭品翰",
+    "kin_type": "兄弟",
+    "direction": null,
+    "evidence": "郭礼征、品翰昆仲",
+    "date": "1922-10-27"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_chongr",
+    "target_label": "崇儿",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "由崇儿检送",
+    "date": "1922-11-01"
+  },
+  {
+    "source": "per_zhang_haiyan",
+    "source_label": "张海岩",
+    "target": "per_zhang_peizhi",
+    "target_label": "张培之",
+    "kin_type": "孙",
+    "direction": null,
+    "evidence": "张培之长孙",
+    "date": "1922-11-05"
+  },
+  {
+    "source": "per_zhang_haiyan",
+    "source_label": "张海岩",
+    "target": "per_zhang_baohua",
+    "target_label": "张葆华",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "张葆华之子",
+    "date": "1922-11-05"
+  },
+  {
+    "source": "per_ma_lansheng",
+    "source_label": "马兰生",
+    "target": "per_ma_zhongyuan",
+    "target_label": "马忠元",
+    "kin_type": "姪",
+    "direction": null,
+    "evidence": "马兰生暨其侄忠元先后由宁来",
+    "date": "1922-11-20"
+  },
+  {
+    "source": "per_xu_guanxun",
+    "source_label": "徐贯恂",
+    "target": "per_shi_ziying",
+    "target_label": "施子英",
+    "kin_type": "婿",
+    "direction": null,
+    "evidence": "通州人，施子英婿",
+    "date": "1922-11-21"
+  },
+  {
+    "source": "per_zhu_xiangfu",
+    "source_label": "朱象甫",
+    "target": "per_zhu_shanzhang",
+    "target_label": "朱善张",
+    "kin_type": "祖",
+    "direction": null,
+    "evidence": "赠其祖善张所刻《朱氏家集》",
+    "date": "1922-11-24"
+  },
+  {
+    "source": "per_xu_naichang",
+    "source_label": "徐乃昌",
+    "target": "per_shuwan",
+    "target_label": "淑婉",
+    "kin_type": "妻",
+    "direction": null,
+    "evidence": "同淑婉至共舞台观剧",
+    "date": "1922-12-09"
+  }
+]

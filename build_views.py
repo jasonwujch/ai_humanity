@@ -959,6 +959,29 @@ for cid, ch in chunks.items():
 chunks_out = {k: v for k, v in chunks.items() if v['body']}
 (out_dir / 'chunks.json').write_text(json.dumps(chunks_out, ensure_ascii=False, indent=1), encoding='utf-8')
 
+# ── 9c) kin (亲属) network ───────────────────────────────────────────────────
+kin_edges_out = []
+for e in src['edges']:
+    if e.get('relation') != '亲属': continue
+    s = e.get('source'); t = e.get('target')
+    sn = nodes_by_id.get(s,{}); tn = nodes_by_id.get(t,{})
+    if sn.get('entity_type') != '人' or tn.get('entity_type') != '人':
+        continue
+    md = e.get('metadata') or {}
+    s_p = redirect(s); t_p = redirect(t)
+    if s_p == t_p: continue
+    kin_edges_out.append({
+        'source': s_p, 'source_label': nodes_by_id.get(s_p,sn).get('label'),
+        'target': t_p, 'target_label': nodes_by_id.get(t_p,tn).get('label'),
+        'kin_type': md.get('kin_type'),
+        'direction': md.get('direction'),
+        'evidence': md.get('evidence_text'),
+        'date': e.get('source_location'),
+    })
+
+(out_dir / 'kin.json').write_text(json.dumps(kin_edges_out, ensure_ascii=False, indent=2), encoding='utf-8')
+print(f'wrote {len(kin_edges_out)} kin edges')
+
 # ── 10) co-occurrence matrix (implicit PER-PER relationships) ────────────────
 from itertools import combinations
 per_pair_count = Counter()
