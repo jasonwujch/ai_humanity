@@ -52,6 +52,7 @@ until all batches finish so we only re-extract once.
 | 2 | PER recall gaps — graphify misses some person names (e.g. 1923-03-06: 洪希甫, 李伯老, 李仲帅, 李伯耆 in plain text while 李少穆/汪禹丞/柏烈武/张仲昭 are caught) | None — visible only as unhighlighted names in reader | Re-prompt graphify with extra named-entity rules (esp. 老/帅/耆/伯-suffix elder honorifics); re-run extraction |
 | 3 | Some venues unmapped on geo (~50 minor 上海 establishments) | Manual `VENUE_COORDS` additions in `build_views.py` | Crowd-source remaining coordinates |
 | 4 | Some 拜访/位于 edges have wrong source (not Xu) which inflates 行迹 count | None | Tighten graphify prompt for these relations |
+| 5 | Entity dedup gaps — same person extracted under multiple canonical strings. Symptoms: 字/号 not linked to 名 (e.g. 积余 = 徐乃昌 字, 寿老 = 余寿老); 同名异写 OCR variants (汪禹丞 vs 汪宇丞); 老/翁/丈/公 honorific suffixes treated as new entity (X翁 ≠ X). Existing view-time dedup uses canonical-name equality only. | None — visible as adjacent nodes that should be one in 人物关系 + 隐性关系 reveals some via co-occurrence | Stronger surface_forms 别名规则 in graphify v2.6 + biographical alias dict for top-N elite |
 
 When the full graphify rerun is scheduled, walk this table top-to-bottom.
 
