@@ -867,6 +867,55 @@ for cid, ch in chunks.items():
 chunks_out = {k: v for k, v in chunks.items() if v['body']}
 (out_dir / 'chunks.json').write_text(json.dumps(chunks_out, ensure_ascii=False, indent=1), encoding='utf-8')
 
+# ── 10) co-occurrence matrix (implicit PER-PER relationships) ────────────────
+from itertools import combinations
+per_pair_count = Counter()
+per_pair_dates = defaultdict(list)
+for date, ch in chunks_out.items():
+    per_ids_in_chunk = set()
+    for ent in ch.get('entities', []):
+        if ent.get('type') == '人':
+            per_ids_in_chunk.add(ent['id'])
+    if len(per_ids_in_chunk) < 2: continue
+    for a, b in combinations(sorted(per_ids_in_chunk), 2):
+        per_pair_count[(a,b)] += 1
+        if len(per_pair_dates[(a,b)]) < 5:
+            per_pair_dates[(a,b)].append(date)
+
+# Set of existing PER edges (undirected) for subtraction
+existing_per_edges = set()
+for e in per_edges_deduped:
+    s, t = sorted([e['source'], e['target']])
+    existing_per_edges.add((s,t))
+
+# Hidden pairs: high co-occurrence but no direct edge
+hidden_pairs = []
+for (a,b), cnt in per_pair_count.most_common():
+    if cnt < 3: break
+    if (a,b) in existing_per_edges: continue
+    la = nodes_by_id.get(a,{}).get('label')
+    lb = nodes_by_id.get(b,{}).get('label')
+    hidden_pairs.append({
+        'a': a, 'a_label': la, 'b': b, 'b_label': lb,
+        'count': cnt, 'sample_dates': per_pair_dates[(a,b)],
+    })
+hidden_pairs = hidden_pairs[:200]
+
+# Per-person hidden neighbours map (top 10 per primary)
+hidden_by_person = defaultdict(list)
+for hp in hidden_pairs:
+    hidden_by_person[hp['a']].append({'id': hp['b'], 'label': hp['b_label'], 'count': hp['count'], 'dates': hp['sample_dates']})
+    hidden_by_person[hp['b']].append({'id': hp['a'], 'label': hp['a_label'], 'count': hp['count'], 'dates': hp['sample_dates']})
+for pid in hidden_by_person:
+    hidden_by_person[pid].sort(key=lambda x: -x['count'])
+    hidden_by_person[pid] = hidden_by_person[pid][:10]
+
+(out_dir / 'cooccurrence.json').write_text(json.dumps({
+    'hidden_pairs': hidden_pairs,
+    'hidden_by_person': hidden_by_person,
+}, ensure_ascii=False, indent=1), encoding='utf-8')
+print(f'wrote {len(hidden_pairs)} hidden co-occurrence pairs')
+
 # ── 9) wiki pages (top-N PER + top-N books + top-N events) ───────────────────
 wiki_dir = Path(__file__).parent / 'wiki'
 wiki_dir.mkdir(exist_ok=True)

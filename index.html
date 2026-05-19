@@ -245,6 +245,7 @@
     <button :class="{active:tab==='reader'}" @click="tab='reader'">{{ t('tab_reader') }}</button>
     <button :class="{active:tab==='stats'}" @click="tab='stats'">{{ t('tab_stats') }}</button>
     <button :class="{active:tab==='quality'}" @click="tab='quality'">数据质量</button>
+    <button :class="{active:tab==='cooc'}" @click="tab='cooc'">隐性关系</button>
     <button :class="{active:tab==='path'}" @click="tab='path'">路径探索</button>
     <button :class="{active:tab==='index'}" @click="tab='index'">{{ t('tab_index') }}</button>
   </div>
@@ -579,6 +580,27 @@
     </template>
   </div>
 
+  <!-- Co-occurrence (hidden affinities) -->
+  <div class="view" v-show="tab==='cooc'">
+    <div v-if="!coocData" class="empty">加载中…</div>
+    <template v-else>
+      <div style="background:var(--paper);border:1px solid var(--border);padding:14px 18px;border-radius:2px;margin-bottom:14px;font-size:var(--fs-sm);color:var(--muted)">
+        <strong style="color:var(--fg)">隐性关系：</strong>同一日记片段中频繁同时出现，但提取流程未直接建立边的 PER 对。可能是被忽略的同行人、间接关系、或值得复核的数据空缺。
+      </div>
+      <div style="background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:14px 18px">
+        <h3 style="margin:0 0 10px;font-size:var(--fs-sm)">Top {{ coocData.hidden_pairs.length }} 共现对 (无直接边)</h3>
+        <div style="font-size:var(--fs-sm);max-height:calc(100vh - 300px);overflow-y:auto">
+          <div v-for="(p,i) in coocData.hidden_pairs" :key="i" style="display:grid;grid-template-columns:60px 1fr 1fr 1fr;gap:12px;align-items:baseline;padding:6px 0;border-bottom:1px solid var(--border-soft)">
+            <span style="font-family:ui-monospace,monospace;color:var(--accent);font-weight:600">{{ p.count }}×</span>
+            <span class="chip chip-per" style="cursor:pointer" @click="openProfileById(p.a)">{{ p.a_label }}</span>
+            <span class="chip chip-per" style="cursor:pointer" @click="openProfileById(p.b)">{{ p.b_label }}</span>
+            <span style="color:var(--muted);font-size:var(--fs-xs);font-family:ui-monospace,monospace">{{ p.sample_dates.slice(0,3).join(' / ') }}</span>
+          </div>
+        </div>
+      </div>
+    </template>
+  </div>
+
   <!-- Path finder -->
   <div class="view" v-show="tab==='path'">
     <div class="controls">
@@ -689,6 +711,13 @@
       <div class="meta" v-if="profile.relations">
         <span v-for="(c,r) in profile.relations" :key="r" class="chip" style="background:#f3f4f6;color:#444">{{ r }} · {{ c }}</span>
       </div>
+      <h3 v-if="profile._hidden_neighbours?.length">隐性同行人 (无直接边但常共现)</h3>
+      <ul v-if="profile._hidden_neighbours?.length">
+        <li v-for="n in profile._hidden_neighbours" :key="n.id">
+          <span class="neigh" @click="openProfileById(n.id)">{{ n.label }}</span> · {{ n.count }} 次共现
+          <span style="color:var(--muted);font-size:var(--fs-xs);font-family:ui-monospace,monospace">{{ (n.dates||[]).slice(0,2).join(', ') }}</span>
+        </li>
+      </ul>
       <h3 v-if="profile.top_neighbours?.length">主要关联人 ({{ profile.top_neighbours.length }})</h3>
       <ul v-if="profile.top_neighbours?.length">
         <li v-for="n in profile.top_neighbours" :key="n.id">
@@ -826,6 +855,7 @@ createApp({
     });
     const statsData = ref(null);
     const miscData = ref(null);
+    const coocData = ref(null);
     const pathFromQ = ref('');
     const pathToQ = ref('');
     const pathResult = ref(null);
@@ -966,7 +996,7 @@ createApp({
     });
 
     onMounted(async () => {
-      const [ov, tx, pp, lc, pr, bk, ck, ev, st, mi] = await Promise.all([
+      const [ov, tx, pp, lc, pr, bk, ck, ev, st, mi, co] = await Promise.all([
         fetch('data/overview.json').then(r=>r.json()),
         fetch('data/transactions.json').then(r=>r.json()),
         fetch('data/people_graph.json').then(r=>r.json()),
@@ -977,9 +1007,10 @@ createApp({
         fetch('data/events.json').then(r=>r.json()).catch(() => []),
         fetch('data/stats.json').then(r=>r.json()).catch(() => null),
         fetch('data/misc_entities.json').then(r=>r.json()).catch(() => ({})),
+        fetch('data/cooccurrence.json').then(r=>r.json()).catch(() => null),
       ]);
       overview.value = ov; txnData.value = tx; peopleData.value = pp; locData.value = lc; profiles.value = pr;
-      booksData.value = bk; chunksData.value = ck; eventsData.value = ev; statsData.value = st; miscData.value = mi;
+      booksData.value = bk; chunksData.value = ck; eventsData.value = ev; statsData.value = st; miscData.value = mi; coocData.value = co;
       const dates = Object.keys(ck).sort();
       if (dates.length && !readerDate.value) readerDate.value = dates[0];
 
@@ -1128,7 +1159,11 @@ createApp({
       if (n._entity_type === '人' && profiles.value[n.id]) {
         const pr = profiles.value[n.id];
         built = {...pr, _entity_type: '人'};
-      } else if (miscData.value && miscData.value[n.id]) {
+      // Augment with hidden co-occurrence neighbours for PER
+      if (n._entity_type === '人' && profiles.value[n.id] && coocData.value?.hidden_by_person?.[n.id]) {
+        // built will be set below, augment after
+      }
+      if (false) {} else if (miscData.value && miscData.value[n.id]) {
         const m = miscData.value[n.id];
         built = {
           id: m.id, label: m.label, canonical: m.canonical, aliases: m.aliases,
@@ -1157,6 +1192,10 @@ createApp({
       }
       // Attach source mentions for ALL entity types
       built._source_mentions = findSourceMentions(built.id, built.merged_ids, 10);
+      // Augment PER with hidden co-occurrence
+      if (built._entity_type === '人' && coocData.value?.hidden_by_person?.[built.id]) {
+        built._hidden_neighbours = coocData.value.hidden_by_person[built.id];
+      }
       profile.value = built;
     }
 
@@ -2153,6 +2192,7 @@ createApp({
       metroView, calAnchor, calLabel, calShift, calToday, renderMetroOrCalendar,
       statsData, renderStats,
       miscData, miscOverviewGroups,
+      coocData,
       locale, t,
       pathFromQ, pathToQ, pathResult, pathError, runPath, swapPath, pickPath, pathQuickPicks,
       miscExpanded, toggleMiscGroup,
