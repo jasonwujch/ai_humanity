@@ -542,9 +542,9 @@
       <div class="reader-main" v-if="currentChunk">
         <h2>
           <span v-if="calendarMode === 'solar'">{{ readerDate }}</span>
-          <span v-else>{{ currentChunk.lunar_date || fmtDate(readerDate) }}</span>
+          <span v-else>{{ fmtDate(readerDate) }}</span>
           <span style="margin-left:14px;font-size:14px;color:var(--muted);font-weight:400">
-            <span v-if="calendarMode === 'solar' && currentChunk.lunar_date">{{ currentChunk.lunar_date }}</span>
+            <span v-if="calendarMode === 'solar'">{{ fmtDate(readerDate) }}</span>
             <span v-else>{{ readerDate }}</span>
           </span>
         </h2>
@@ -2582,18 +2582,23 @@ createApp({
       for (const d of dates) {
         const y = parseInt(d.slice(0,4));
         const mo = parseInt(d.slice(5,7));
-        const seasonKey = seasonOf(mo);
+        // Split 冬 into 冬(初/末) so Dec stays late but Jan/Feb come early in the year
+        let seasonKey;
+        if (mo === 1 || mo === 2) seasonKey = '冬(末)';
+        else if (mo === 12) seasonKey = '冬(初)';
+        else seasonKey = seasonOf(mo);
         if (!tree[y]) tree[y] = {};
         if (!tree[y][seasonKey]) tree[y][seasonKey] = [];
         tree[y][seasonKey].push({date:d, count:(chunksData.value?.[d]?.entities || []).length});
       }
       const out = [];
       for (const y of Object.keys(tree).sort()) {
-        const seasons = [];
-        for (const s of SEASONS) {
-          if (tree[y][s.label]) seasons.push({label: s.label, days: tree[y][s.label]});
-        }
-        out.push({year: y, seasons, total: seasons.reduce((a,s)=>a+s.days.length, 0)});
+        // Sort season buckets by earliest date inside each
+        const buckets = Object.entries(tree[y]).map(([label, days]) => ({label, days}));
+        buckets.sort((a, b) => (a.days[0]?.date || '') < (b.days[0]?.date || '') ? -1 : 1);
+        // Sort days within each bucket chronologically
+        for (const b of buckets) b.days.sort((x, y) => x.date < y.date ? -1 : 1);
+        out.push({year: y, seasons: buckets, total: buckets.reduce((a,s)=>a+s.days.length, 0)});
       }
       return out;
     }
