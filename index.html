@@ -324,7 +324,7 @@
   <!-- Transactions -->
   <div class="view" v-show="tab==='txn'">
     <div class="controls">
-      <input v-model="txnSearch" @input="applyTxnFilter" placeholder="搜索 人名 / 交易 / 证据" style="width:260px" />
+      <input v-model="txnSearch" @input="applyTxnFilter" placeholder="搜索 人名 / 交易 / 证据" style="width:240px" />
       <label><input type="checkbox" v-model="txnHasPerson" @change="applyTxnFilter" /> 仅显示有相关人</label>
       <label>方向
         <select v-model="txnDirection" @change="applyTxnFilter">
@@ -335,6 +335,20 @@
       </label>
       <span class="legend" v-if="txnData">共 {{ txnData.length }} 笔</span>
     </div>
+    <div class="controls">
+      <label>日期范围
+        <input type="date" v-model="dateFrom" @change="applyTxnFilter" style="width:140px" />
+        <span>—</span>
+        <input type="date" v-model="dateTo" @change="applyTxnFilter" style="width:140px" />
+      </label>
+      <button @click="clearDateFilter">清空</button>
+      <span class="legend">快捷:</span>
+      <button v-for="y in dateYears" :key="y" @click="setYear(y)" style="padding:3px 8px;font-size:var(--fs-xs)">{{ y }}</button>
+      <select @change="setMonth($event.target.value)" :value="dateMonth" style="padding:5px 8px;font-size:var(--fs-xs)">
+        <option value="">月...</option>
+        <option v-for="m in 12" :key="m" :value="dateYearSel + '-' + String(m).padStart(2,'0')">{{ m }}月</option>
+      </select>
+    </div>
     <div id="txn-table"></div>
   </div>
 
@@ -344,6 +358,16 @@
       <input v-model="bookSearch" @input="applyBookFilter" placeholder="搜索 书名 / 别名" style="width:240px" />
       <label>仅显示有人物关联 <input type="checkbox" v-model="bookHasPerson" @change="applyBookFilter" /></label>
       <span class="legend" v-if="booksData">{{ booksData.length }} 部 · {{ booksData.filter(b=>b.people.length>0).length }} 有人物关联</span>
+    </div>
+    <div class="controls">
+      <label>首次提及范围
+        <input type="date" v-model="dateFrom" @change="applyBookFilter" style="width:140px" />
+        <span>—</span>
+        <input type="date" v-model="dateTo" @change="applyBookFilter" style="width:140px" />
+      </label>
+      <button @click="clearDateFilter">清空</button>
+      <span class="legend">快捷:</span>
+      <button v-for="y in dateYears" :key="y" @click="setYear(y, 'book')" style="padding:3px 8px;font-size:var(--fs-xs)">{{ y }}</button>
     </div>
     <div id="books-table"></div>
   </div>
@@ -890,6 +914,38 @@ createApp({
     const txnSearch = ref('');
     const txnHasPerson = ref(false);
     const txnDirection = ref('');
+    const dateFrom = ref('');
+    const dateTo = ref('');
+    const dateMonth = ref('');
+    const dateYearSel = ref('');
+    const dateYears = computed(() => {
+      if (!overview.value?.date_range) return [];
+      const [a, b] = overview.value.date_range;
+      const y0 = parseInt(a.slice(0,4)), y1 = parseInt(b.slice(0,4));
+      const out = [];
+      for (let y = y0; y <= y1; y++) out.push(y);
+      return out;
+    });
+    function clearDateFilter() {
+      dateFrom.value = ''; dateTo.value = ''; dateMonth.value = '';
+      applyTxnFilter(); applyBookFilter();
+    }
+    function setYear(y, target) {
+      dateFrom.value = `${y}-01-01`;
+      dateTo.value = `${y}-12-31`;
+      dateYearSel.value = y;
+      dateMonth.value = '';
+      if (target === 'book') applyBookFilter(); else applyTxnFilter();
+    }
+    function setMonth(yyyymm) {
+      if (!yyyymm) { dateMonth.value = ''; return; }
+      dateMonth.value = yyyymm;
+      const [y, m] = yyyymm.split('-');
+      const lastDay = new Date(parseInt(y), parseInt(m), 0).getDate();
+      dateFrom.value = `${yyyymm}-01`;
+      dateTo.value = `${yyyymm}-${String(lastDay).padStart(2,'0')}`;
+      applyTxnFilter();
+    }
     const booksData = ref(null);
     const bookSearch = ref('');
     const bookHasPerson = ref(false);
@@ -1429,8 +1485,11 @@ createApp({
     function applyBookFilter() {
       if (!booksTable) return;
       const q = bookSearch.value.trim();
+      const df = dateFrom.value, dt = dateTo.value;
       booksTable.setFilter((row) => {
         if (bookHasPerson.value && (!row.people || row.people.length === 0)) return false;
+        if (df && (row.first_seen || '') < df) return false;
+        if (dt && (row.first_seen || '') > dt) return false;
         if (!q) return true;
         const blob = [row.label, (row.aliases||[]).join(' '), (row.people||[]).map(p=>p.label).join(' ')].join(' ');
         return blob.includes(q);
@@ -1440,9 +1499,12 @@ createApp({
     function applyTxnFilter() {
       if (!txnTable) return;
       const q = txnSearch.value.trim();
+      const df = dateFrom.value, dt = dateTo.value;
       txnTable.setFilter((row) => {
         if (txnHasPerson.value && (!row.people || row.people.length === 0)) return false;
         if (txnDirection.value && row.direction !== txnDirection.value) return false;
+        if (df && (row.date || '') < df) return false;
+        if (dt && (row.date || '') > dt) return false;
         if (!q) return true;
         const blob = [row.label, row.evidence, (row.people||[]).map(p=>p.label).join(' ')].join(' ');
         return blob.includes(q);
@@ -2316,6 +2378,8 @@ createApp({
       sortedEntityTypes, sortedRelationTypes, relationOptions, maxEntity, maxRelation,
       applyTxnFilter, applyBookFilter, kindOf,
       booksData, bookSearch, bookHasPerson,
+      dateFrom, dateTo, dateMonth, dateYearSel, dateYears,
+      clearDateFilter, setYear, setMonth,
       chunksData, readerDate, readerDates, readerByMonth, readerBySeason, readerExpanded, toggleSeason,
       currentChunk, highlightedBody, entitiesByType,
       prevDay, nextDay, jumpDate,
@@ -2341,8 +2405,12 @@ createApp({
 
 function initBooks(data){
   booksTable = new Tabulator('#books-table', {
-    data, height:'calc(100vh - 240px)', layout:'fitColumns',
+    data, height:'calc(100vh - 290px)', layout:'fitColumns',
     initialSort:[{column:'mentions', dir:'desc'}],
+    pagination: 'local',
+    paginationSize: 50,
+    paginationSizeSelector: [25, 50, 100, 200],
+    paginationCounter: 'rows',
     columns:[
       {title:'书名', field:'label', widthGrow:2, headerFilter:'input',
         formatter: c => `<span class="chip chip-book" style="font-size:var(--fs-xs)">${c.getValue()||''}</span>`},
@@ -2376,8 +2444,12 @@ function initBooks(data){
 
 function initTxn(data){
   txnTable = new Tabulator('#txn-table', {
-    data, height:'calc(100vh - 200px)', layout:'fitColumns',
+    data, height:'calc(100vh - 290px)', layout:'fitColumns',
     initialSort:[{column:'date', dir:'asc'}],
+    pagination: 'local',
+    paginationSize: 50,
+    paginationSizeSelector: [25, 50, 100, 200],
+    paginationCounter: 'rows',
     columns:[
       {title:'日期', field:'date', sorter:'string', width:110, headerFilter:'input'},
       {title:'交易', field:'label', widthGrow:2, headerFilter:'input'},
