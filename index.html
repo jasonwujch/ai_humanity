@@ -265,13 +265,21 @@
         <div class="card"><div class="num">{{ overview.totals.batches }}</div><div class="lbl">批次</div></div>
       </div>
       <div v-if="miscData && Object.keys(miscData).length" style="background:var(--paper);border:1px solid var(--border);padding:16px 18px;border-radius:2px;margin-bottom:20px">
-        <h3 style="margin:0 0 10px;font-size:13px;padding-bottom:6px;border-bottom:1px solid var(--border-soft)">小众实体速览</h3>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;font-size:13px">
-          <div v-for="grp in miscOverviewGroups" :key="grp.type">
-            <div style="font-weight:600;color:var(--muted);margin-bottom:4px"><i class="dot" :class="'dot-'+kindOf(grp.type)"></i>{{ grp.type }} ({{ grp.items.length }})</div>
-            <div v-for="item in grp.items.slice(0,8)" :key="item.id" style="padding:2px 0;cursor:pointer" @click="openProfile({id:item.id, label:item.label, _entity_type:grp.type})">
-              <span class="chip" :class="'chip-'+kindOf(grp.type)">{{ item.label }}</span>
-              <span style="color:var(--muted);font-size:11px">{{ item.mentions }}×</span>
+        <h3 style="margin:0 0 10px;font-size:var(--fs-sm);padding-bottom:6px;border-bottom:1px solid var(--border-soft)">小众实体速览</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;font-size:var(--fs-sm)">
+          <div v-for="grp in miscOverviewGroups" :key="grp.type" style="border:1px solid var(--border-soft);border-radius:2px;padding:8px 10px">
+            <div style="font-weight:600;color:var(--fg);margin-bottom:6px;display:flex;justify-content:space-between;cursor:pointer" @click="toggleMiscGroup(grp.type)">
+              <span><i class="dot" :class="'dot-'+kindOf(grp.type)"></i>{{ grp.type }}</span>
+              <span style="color:var(--muted);font-weight:400">{{ grp.items.length }} {{ miscExpanded[grp.type] ? '▾' : '▸' }}</span>
+            </div>
+            <div :style="{maxHeight: miscExpanded[grp.type] ? 'none' : '180px', overflowY: 'auto'}">
+              <div v-for="item in (miscExpanded[grp.type] ? grp.items : grp.items.slice(0,12))" :key="item.id" style="padding:2px 0;cursor:pointer;display:flex;justify-content:space-between" @click="openProfile({id:item.id, label:item.label, _entity_type:grp.type})">
+                <span class="chip" :class="'chip-'+kindOf(grp.type)">{{ item.label }}</span>
+                <span style="color:var(--muted);font-size:var(--fs-xs)">{{ item.mentions }}×</span>
+              </div>
+            </div>
+            <div v-if="!miscExpanded[grp.type] && grp.items.length > 12" style="margin-top:6px;font-size:var(--fs-xs);color:var(--accent);cursor:pointer;text-align:center" @click="toggleMiscGroup(grp.type)">
+              展开剩余 {{ grp.items.length - 12 }} 项 ▾
             </div>
           </div>
         </div>
@@ -592,9 +600,9 @@
       </div>
       <h3 v-if="profile._source_mentions?.length">日记原文 ({{ profile._source_mentions.length }})</h3>
       <div v-if="profile._source_mentions?.length" class="edge-list">
-        <div class="row" v-for="(s,i) in profile._source_mentions" :key="i" style="cursor:pointer" @click="jumpToReader(s.date)">
+        <div class="row" v-for="(s,i) in profile._source_mentions" :key="i" style="cursor:pointer" @click="drawerSnippetClick($event, s.date)">
           <span class="dt">{{ s.date }}</span>
-          <div class="ev" style="margin-top:2px" v-html="s.snippet"></div>
+          <div class="ev" style="margin-top:2px;line-height:1.9;font-family:'Noto Serif SC','Songti SC',serif" v-html="s.snippet"></div>
         </div>
       </div>
       <h3 v-if="profile.merged_ids?.length > 1">合并 ID</h3>
@@ -752,19 +760,63 @@ createApp({
           seenDates.add(h.date);
           const body = chunksData.value[h.date]?.body || '';
           const idx = body.indexOf(h.surface);
+          const focusIds = new Set(ids);
           if (idx === -1) {
-            out.push({date: h.date, surface: h.surface, snippet: body.slice(0, 80)});
+            out.push({date: h.date, surface: h.surface, snippet: highlightSnippetRange(body, 0, Math.min(body.length, 120), h.date, focusIds)});
           } else {
-            const start = Math.max(0, idx - 18);
-            const end = Math.min(body.length, idx + h.surface.length + 60);
-            let snip = body.substring(start, end).replace(/\n/g, ' ');
-            snip = (start > 0 ? '…' : '') + snip.replace(h.surface, `<mark style="background:#ffeaa7;color:#1f1a14;padding:0 2px">${h.surface}</mark>`) + (end < body.length ? '…' : '');
-            out.push({date: h.date, surface: h.surface, snippet: snip});
+            const start = Math.max(0, idx - 24);
+            const end = Math.min(body.length, idx + h.surface.length + 72);
+            out.push({date: h.date, surface: h.surface, snippet: highlightSnippetRange(body, start, end, h.date, focusIds)});
           }
           if (out.length >= limit) return out;
         }
       }
       return out;
+    }
+
+    function highlightSnippetRange(body, start, end, date, focusIds) {
+      // Highlight all entities visible in body[start..end] using the same color scheme as reader
+      const chunk = chunksData.value?.[date];
+      const entities = chunk?.entities || [];
+      const sub = body.substring(start, end).replace(/\n/g, ' ');
+      // Sort entities by surface length desc
+      const sorted = [...entities].sort((a,b) => (b.surface||'').length - (a.surface||'').length);
+      const mask = new Array(sub.length).fill(null);
+      for (const ent of sorted) {
+        if (!ent.surface) continue;
+        let cursor = 0;
+        while (cursor <= sub.length - ent.surface.length) {
+          const f = sub.indexOf(ent.surface, cursor);
+          if (f === -1) break;
+          let clear = true;
+          for (let i = f; i < f + ent.surface.length; i++) if (mask[i] !== null) { clear = false; break; }
+          if (clear) {
+            for (let i = f; i < f + ent.surface.length; i++) mask[i] = (i === f ? ent : 'cont');
+          }
+          cursor = f + ent.surface.length;
+        }
+      }
+      let html = (start > 0 ? '…' : '');
+      let i = 0;
+      while (i < sub.length) {
+        if (mask[i] && mask[i] !== 'cont') {
+          const ent = mask[i];
+          const s = ent.surface;
+          const kind = ENTITY_KIND_MAP[ent.type]?.kind || 'per';
+          const isFocus = focusIds && focusIds.has(ent.id);
+          const focusStyle = isFocus ? ' style="font-weight:700;text-decoration:underline;text-decoration-thickness:2px"' : '';
+          html += `<span class="ent ent-${kind}"${focusStyle} title="${ent.label||''} (${ent.type||''})" data-id="${ent.id}">${escapeHtml(sub.substring(i, i+s.length))}</span>`;
+          i += s.length;
+        } else {
+          html += escapeHtml(sub[i]);
+          i++;
+        }
+      }
+      html += (end < body.length ? '…' : '');
+      return html;
+    }
+    function escapeHtml(s) {
+      return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     }
     const profileKind = computed(() => profile.value ? (ENTITY_KIND_MAP[profile.value._entity_type]?.kind || 'per') : 'per');
     const profileKindLabel = computed(() => profile.value ? (ENTITY_KIND_MAP[profile.value._entity_type]?.label || '人') : '');
@@ -824,6 +876,15 @@ createApp({
       for (const b of bk) {
         nodes.push({id:b.id, label:b.label, aliases:b.aliases, _entity_type:'书籍', degree:b.mentions, canonical:b.canonical, _book:b});
       }
+      // Misc entities (团体/疾病/灾害/官职 — 地 already added via lc.locations but augment with mention count)
+      for (const m of Object.values(mi || {})) {
+        if (m.entity_type === '地') continue;  // skip; already in
+        nodes.push({id:m.id, label:m.label, aliases:m.aliases, _entity_type:m.entity_type, degree:m.mentions, canonical:m.canonical});
+      }
+      // Events
+      for (const e of (ev || [])) {
+        nodes.push({id:e.id, label:e.label, _entity_type:'事件', degree:(e.members||[]).length, _date:e.date, _event:e});
+      }
       allNodes.value = nodes;
 
       document.addEventListener('keydown', (e) => {
@@ -871,10 +932,12 @@ createApp({
           const body = ch.body || '';
           const idx = body.indexOf(q);
           if (idx === -1) continue;
-          const start = Math.max(0, idx - 12);
-          const end = Math.min(body.length, idx + q.length + 30);
-          let snippet = body.substring(start, end).replace(/\n/g, ' ');
-          snippet = (start > 0 ? '…' : '') + snippet.replace(q, `<mark style="background:#ffeaa7;color:#1f1a14">${q}</mark>`) + (end < body.length ? '…' : '');
+          const start = Math.max(0, idx - 18);
+          const end = Math.min(body.length, idx + q.length + 50);
+          // Highlight + wrap query in <mark> on top
+          let snippet = highlightSnippetRange(body, start, end, date, new Set());
+          // Plus visual mark for query string (only first occurrence)
+          snippet = snippet.replace(q, `<mark style="background:#ffeaa7;color:#1f1a14;padding:0 2px">${q}</mark>`);
           th.push({date, snippet});
           if (th.length >= 30) break;
         }
@@ -898,6 +961,10 @@ createApp({
 
     function openProfile(n) {
       if (!n) return;
+      if (n._entity_type === '事件' && n._event) {
+        openEventProfile(n._event);
+        return;
+      }
       let built;
       if (n._entity_type === '人' && profiles.value[n.id]) {
         const pr = profiles.value[n.id];
@@ -939,6 +1006,55 @@ createApp({
       if (n) openProfile(n);
     }
 
+    function drawerSnippetClick(evt, date) {
+      // If user clicked an entity span, open that profile; otherwise jump to reader
+      const span = evt.target.closest('.ent');
+      if (span && span.dataset.id) {
+        openProfileById(span.dataset.id);
+      } else {
+        jumpToReader(date);
+      }
+    }
+
+    function openLocationDetail(cityName) {
+      if (!locData.value) return;
+      const info = (window.__cityDetail || {})[cityName];
+      if (!info) return;
+      // Find the loc node id matching this city name (preferred match)
+      const locNode = locData.value.locations.find(l => l.label === cityName);
+      // Aggregate venues + sample visits
+      const venueCounts = {};
+      for (const v of info.visits) {
+        if (v.location_label && v.location_label !== cityName) {
+          venueCounts[v.location_label] = (venueCounts[v.location_label] || 0) + 1;
+        }
+      }
+      const venues = Object.entries(venueCounts).sort((a,b)=>b[1]-a[1]).map(([k,v]) => ({label:k, count:v}));
+      const sampleVisits = info.visits.slice(-30).reverse();
+      const built = {
+        id: locNode?.id || cityName, label: cityName, _entity_type: '地',
+        _mentions: info.visits.length,
+        _first_seen: info.visits[0]?.date, _last_seen: info.visits[info.visits.length-1]?.date,
+        relations: {'到访': info.visits.length, '场所': venues.length},
+        _venues: venues,
+        sample_edges: sampleVisits.map(v => ({other: locNode?.id || cityName, direction: 'in', relation: v.relation, evidence: v.evidence, date: v.date})),
+      };
+      // Source mentions from all visit dates
+      const dates = [...new Set(info.visits.map(v => v.date).filter(Boolean))].slice(0, 8);
+      const sm = [];
+      for (const date of dates) {
+        const body = chunksData.value?.[date]?.body || '';
+        const surface = info.visits.find(v => v.date === date)?.location_label || cityName;
+        const idx = body.indexOf(surface);
+        const start = idx >= 0 ? Math.max(0, idx - 24) : 0;
+        const end = idx >= 0 ? Math.min(body.length, idx + surface.length + 72) : Math.min(body.length, 120);
+        sm.push({date, surface, snippet: highlightSnippetRange(body, start, end, date, new Set([locNode?.id]))});
+      }
+      built._source_mentions = sm;
+      profile.value = built;
+    }
+    window.__vueOpenLocationDetail = openLocationDetail;
+
     function openEventProfile(e) {
       // Build a synthetic profile for an event
       const built = {
@@ -949,9 +1065,11 @@ createApp({
         relations: {[e.relation]: e.members.length},
         top_neighbours: e.members.map(m => ({id:m.id, label:m.label, count:1})),
       };
-      // Source: load entire day's chunk body
+      // Source: render whole day's chunk body with entity highlights
       if (chunksData.value && e.date && chunksData.value[e.date]) {
-        built._source_mentions = [{date: e.date, surface: '', snippet: (chunksData.value[e.date].body || '').slice(0, 500)}];
+        const body = chunksData.value[e.date].body || '';
+        const focusIds = new Set((e.members||[]).map(m => m.id));
+        built._source_mentions = [{date: e.date, surface: '', snippet: highlightSnippetRange(body, 0, Math.min(body.length, 1000), e.date, focusIds)}];
       }
       profile.value = built;
     }
@@ -1142,15 +1260,19 @@ createApp({
       return ENTITY_KIND_MAP[entity_type]?.kind || 'per';
     }
 
+    const miscExpanded = ref({});
+    function toggleMiscGroup(type) {
+      miscExpanded.value = {...miscExpanded.value, [type]: !miscExpanded.value[type]};
+    }
     const miscOverviewGroups = computed(() => {
       if (!miscData.value) return [];
       const groups = {};
       for (const m of Object.values(miscData.value)) {
-        if (!['疾病','灾害','官职'].includes(m.entity_type)) continue;
+        if (!['疾病','灾害','官职','团体'].includes(m.entity_type)) continue;
         if (!groups[m.entity_type]) groups[m.entity_type] = [];
         groups[m.entity_type].push(m);
       }
-      return ['疾病','灾害','官职'].filter(t => groups[t]).map(t => ({type: t, items: groups[t].sort((a,b)=>b.mentions-a.mentions)}));
+      return ['团体','疾病','灾害','官职'].filter(t => groups[t]).map(t => ({type: t, items: groups[t].sort((a,b)=>b.mentions-a.mentions)}));
     });
 
     // ── Calendar / Metro dispatcher ──────────────────────────────────────
@@ -1803,6 +1925,8 @@ createApp({
       miscData, miscOverviewGroups,
       locale, t,
       pathFromQ, pathToQ, pathResult, pathError, runPath, swapPath,
+      miscExpanded, toggleMiscGroup,
+      drawerSnippetClick,
       profile, profileKind, profileKindLabel, openProfile, openProfileById, openEventProfile, neighbourLabel,
     };
   }
@@ -1966,26 +2090,18 @@ function initGeo(data){
     byCity[city].visits.push(v);
     if (v.location_label !== city) byCity[city].venues.add(v.location_label);
   }
+  // Stash for click-through
+  window.__cityDetail = byCity;
   for (const [name, info] of Object.entries(byCity)) {
     const r = Math.min(28, 5 + Math.sqrt(info.visits.length) * 2.5);
-    const yearSpan = (() => {
-      const ys = info.visits.map(v => (v.date||'').slice(0,4)).filter(Boolean).sort();
-      return ys.length ? `${ys[0]}~${ys[ys.length-1]}` : '';
-    })();
-    const color = info.visits.length >= 30 ? '#dc2626' : info.visits.length >= 10 ? '#ea580c' : info.visits.length >= 3 ? '#d97706' : '#1d4ed8';
+    const color = info.visits.length >= 30 ? '#9b2926' : info.visits.length >= 10 ? '#a3296b' : info.visits.length >= 3 ? '#a35c1a' : '#1f3f8a';
     const marker = L.circleMarker(info.coord, {
       radius:r, color, weight:1.5, fillColor:color, fillOpacity:0.4
     }).addTo(leafletMap);
-    const venueList = [...info.venues].slice(0,12).join('、');
-    const sampleVisits = info.visits.slice(-10).reverse().map(v =>
-      `<div style="margin:3px 0;padding-bottom:3px;border-bottom:1px solid #f3f4f6"><span style="color:#1d4ed8;font-family:ui-monospace,monospace;font-size:11px">${v.date || '?'}</span> <span style="color:#888;font-size:11px">${v.relation||''}</span> <strong>${v.location_label||''}</strong><br><span style="color:#444">${v.evidence || ''}</span></div>`
-    ).join('');
-    marker.bindPopup(
-      `<div style="min-width:260px"><b style="font-size:14px">${name}</b> <span style="color:#888;font-size:11px">${yearSpan}</span><br>`+
-      `<span style="color:#888;font-size:12px">${info.visits.length} 次行迹${info.venues.size ? ' · '+info.venues.size+' 个场所' : ''}</span>`+
-      (venueList ? `<div style="margin-top:6px;font-size:11px;color:#666">${venueList}</div>` : '')+
-      `<div style="max-height:240px;overflow:auto;margin-top:8px;font-size:12px">${sampleVisits}</div></div>`
-    );
+    marker.bindTooltip(`<b>${name}</b><br>${info.visits.length} 次行迹`, {direction:'top'});
+    marker.on('click', () => {
+      if (window.__vueOpenLocationDetail) window.__vueOpenLocationDetail(name);
+    });
   }
 }
 </script>
