@@ -185,11 +185,21 @@
     <div class="search">
       <input v-model="globalQ" @input="onSearch" @focus="searchOpen=true" placeholder="全局搜索 (Ctrl+K)" />
       <div class="search-results" :class="{open: searchOpen && (globalQ || '').trim()}">
-        <div v-if="searchHits.length === 0" class="item" style="color:var(--muted)">无匹配</div>
-        <div v-for="h in searchHits" :key="h.id+h.kind" class="item" @click="selectHit(h)">
-          <div><span class="chip" :class="'chip-'+(h.kind||'per')">{{ h.kindLabel }}</span>{{ h.label }}</div>
-          <div class="sub">{{ h.sub }}</div>
-        </div>
+        <div v-if="searchHits.length === 0 && textHits.length === 0" class="item" style="color:var(--muted)">无匹配</div>
+        <template v-if="searchHits.length">
+          <div style="padding:6px 12px;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;background:var(--border-soft)">实体 ({{ searchHits.length }})</div>
+          <div v-for="h in searchHits" :key="'e-'+h.id" class="item" @click="selectHit(h)">
+            <div><span class="chip" :class="'chip-'+(h.kind||'per')">{{ h.kindLabel }}</span>{{ h.label }}</div>
+            <div class="sub">{{ h.sub }}</div>
+          </div>
+        </template>
+        <template v-if="textHits.length">
+          <div style="padding:6px 12px;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;background:var(--border-soft)">日记原文 ({{ textHits.length }})</div>
+          <div v-for="t in textHits.slice(0,15)" :key="'t-'+t.date" class="item" @click="jumpToReader(t.date)">
+            <div><span class="chip chip-evt">原文</span><span style="font-family:ui-monospace,monospace">{{ t.date }}</span></div>
+            <div class="sub" v-html="t.snippet"></div>
+          </div>
+        </template>
       </div>
     </div>
   </header>
@@ -528,6 +538,7 @@ createApp({
     const globalQ = ref('');
     const searchOpen = ref(false);
     const searchHits = ref([]);
+    const textHits = ref([]);
 
     const txnSearch = ref('');
     const txnHasPerson = ref(false);
@@ -639,10 +650,11 @@ createApp({
 
     function onSearch() {
       const q = globalQ.value.trim();
-      if (!q) { searchHits.value = []; return; }
+      if (!q) { searchHits.value = []; textHits.value = []; return; }
+      // Entity hits
       const hits = [];
       for (const n of allNodes.value) {
-        if (hits.length >= 50) break;
+        if (hits.length >= 30) break;
         const labelMatch = (n.label || '').includes(q);
         const aliasMatch = (n.aliases || []).some(a => (a || '').includes(q));
         if (!labelMatch && !aliasMatch) continue;
@@ -654,7 +666,30 @@ createApp({
         hits.push({id:n.id, label:n.label, kind:meta.kind, kindLabel:meta.label, sub, _entity_type:n._entity_type, _node:n});
       }
       searchHits.value = hits;
+      // Text hits (full-text over chunks.json)
+      const th = [];
+      if (chunksData.value && q.length >= 2) {
+        for (const [date, ch] of Object.entries(chunksData.value)) {
+          const body = ch.body || '';
+          const idx = body.indexOf(q);
+          if (idx === -1) continue;
+          const start = Math.max(0, idx - 12);
+          const end = Math.min(body.length, idx + q.length + 30);
+          let snippet = body.substring(start, end).replace(/\n/g, ' ');
+          snippet = (start > 0 ? '…' : '') + snippet.replace(q, `<mark style="background:#ffeaa7;color:#1f1a14">${q}</mark>`) + (end < body.length ? '…' : '');
+          th.push({date, snippet});
+          if (th.length >= 30) break;
+        }
+      }
+      textHits.value = th;
       searchOpen.value = true;
+    }
+
+    function jumpToReader(date) {
+      searchOpen.value = false;
+      globalQ.value = '';
+      tab.value = 'reader';
+      readerDate.value = date;
     }
 
     function selectHit(h) {
@@ -1088,7 +1123,7 @@ createApp({
 
     return {
       tab, overview, peopleData, txnData, locData, profiles, allNodes,
-      globalQ, searchOpen, searchHits, onSearch, selectHit,
+      globalQ, searchOpen, searchHits, textHits, onSearch, selectHit, jumpToReader,
       txnSearch, txnHasPerson, txnDirection,
       relationFilter, confFilter,
       visibleNodeCount, visibleEdgeCount,
