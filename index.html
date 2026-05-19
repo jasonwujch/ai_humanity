@@ -244,6 +244,7 @@
     <button :class="{active:tab==='geo'}" @click="tab='geo'">{{ t('tab_geo') }}</button>
     <button :class="{active:tab==='reader'}" @click="tab='reader'">{{ t('tab_reader') }}</button>
     <button :class="{active:tab==='stats'}" @click="tab='stats'">{{ t('tab_stats') }}</button>
+    <button :class="{active:tab==='quality'}" @click="tab='quality'">数据质量</button>
     <button :class="{active:tab==='path'}" @click="tab='path'">路径探索</button>
     <button :class="{active:tab==='index'}" @click="tab='index'">{{ t('tab_index') }}</button>
   </div>
@@ -518,6 +519,62 @@
         <h3 style="margin:0 0 12px;font-size:14px">Top 20 人物 月度提及曲线</h3>
         <div style="overflow-x:auto"><svg id="stats-per-svg" style="display:block"></svg></div>
         <div class="legend" style="margin-top:6px">每月在日记中的提及次数。点击曲线名跳到该人档案。</div>
+      </div>
+    </template>
+  </div>
+
+  <!-- Quality dashboard -->
+  <div class="view" v-show="tab==='quality'">
+    <div v-if="!statsData" class="empty">加载中…</div>
+    <template v-else>
+      <div class="cards">
+        <div class="card"><div class="num">{{ statsData.confidence_breakdown?.EXTRACTED || 0 }}</div><div class="lbl">EXTRACTED (原文证据)</div></div>
+        <div class="card"><div class="num">{{ statsData.confidence_breakdown?.INFERRED || 0 }}</div><div class="lbl">INFERRED (推断)</div></div>
+        <div class="card"><div class="num">{{ statsData.confidence_breakdown?.AMBIGUOUS || 0 }}</div><div class="lbl">AMBIGUOUS</div></div>
+      </div>
+      <div class="breakdown">
+        <section>
+          <h3>置信度分数分布</h3>
+          <table>
+            <tr v-for="(c,k) in statsData.confidence_score_buckets" :key="k">
+              <td>{{ k }}</td>
+              <td class="r">{{ c }}</td>
+              <td><div class="bar"><span :style="{width:(c / Math.max(...Object.values(statsData.confidence_score_buckets))*100)+'%'}"></span></div></td>
+            </tr>
+          </table>
+        </section>
+        <section>
+          <h3>关系互惠 (赠/受赠)</h3>
+          <div v-for="rc in statsData.reciprocity" :key="rc.forward" style="font-size:var(--fs-sm);margin-bottom:14px">
+            <div style="margin-bottom:6px"><strong>{{ rc.forward }}</strong> 总数 {{ rc.forward_total }} · <strong>{{ rc.backward }}</strong> 反向 {{ rc.backward_total }} · 缺失互惠 <span style="color:var(--accent);font-weight:600">{{ rc.missing_reciprocal }}</span></div>
+            <div style="color:var(--muted);font-size:11px;margin-bottom:4px">(说明: 赠/受赠 自然不对称——记录者只记一个方向；以下为示例)</div>
+            <div v-for="(s,i) in rc.samples.slice(0,5)" :key="i" style="font-size:var(--fs-xs);padding:2px 0;color:var(--muted)">{{ s.src_label }} {{ rc.forward }} {{ s.tgt_label }}</div>
+          </div>
+        </section>
+      </div>
+      <div style="background:var(--paper);border:1px solid var(--border);padding:18px;border-radius:2px;margin-top:18px">
+        <h3 style="margin:0 0 10px;font-size:var(--fs-sm)">最低置信度边 (top 20) — 需人工复核</h3>
+        <div style="font-size:var(--fs-sm)">
+          <div v-for="(e,i) in statsData.low_confidence_sample" :key="i" style="padding:6px 0;border-bottom:1px solid var(--border-soft);display:grid;grid-template-columns:60px 1fr 60px;gap:12px;align-items:baseline">
+            <span style="font-family:ui-monospace,monospace;color:var(--accent);font-weight:600">{{ e.score }}</span>
+            <div>
+              <strong>{{ e.source_label }}</strong> <span style="color:var(--accent);font-weight:600">{{ e.relation }}</span> <strong>{{ e.target_label }}</strong>
+              <div style="color:var(--muted);font-size:var(--fs-xs);margin-top:2px">{{ e.evidence }} <span v-if="e.date">· {{ e.date }}</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="background:var(--paper);border:1px solid var(--border);padding:18px;border-radius:2px;margin-top:18px">
+        <h3 style="margin:0 0 10px;font-size:var(--fs-sm)">各关系类型置信度</h3>
+        <table style="width:100%;font-size:var(--fs-sm);border-collapse:collapse">
+          <tr style="border-bottom:1px solid var(--border-soft)"><th style="text-align:left;padding:4px 0">关系</th><th style="text-align:right">EXTRACTED</th><th style="text-align:right">INFERRED</th><th style="text-align:right">AMBIGUOUS</th></tr>
+          <tr v-for="(d,r) in statsData.confidence_by_relation" :key="r" style="border-bottom:1px solid var(--border-soft)">
+            <td>{{ r }}</td>
+            <td style="text-align:right">{{ d.EXTRACTED || 0 }}</td>
+            <td style="text-align:right;color:var(--loc)">{{ d.INFERRED || 0 }}</td>
+            <td style="text-align:right;color:var(--accent)">{{ d.AMBIGUOUS || 0 }}</td>
+          </tr>
+        </table>
       </div>
     </template>
   </div>

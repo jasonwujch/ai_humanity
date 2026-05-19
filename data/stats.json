@@ -855,5 +855,312 @@
         "1920-01": 6
       }
     }
+  ],
+  "confidence_breakdown": {
+    "EXTRACTED": 8404,
+    "INFERRED": 433,
+    "AMBIGUOUS": 9
+  },
+  "confidence_score_buckets": {
+    "≥0.9": 7171,
+    "0.7-0.9": 1542,
+    "0.5-0.7": 117,
+    "<0.5": 16
+  },
+  "confidence_by_relation": {
+    "位于": {
+      "EXTRACTED": 288,
+      "INFERRED": 131,
+      "AMBIGUOUS": 1
+    },
+    "属于": {
+      "EXTRACTED": 507,
+      "INFERRED": 116
+    },
+    "致书": {
+      "EXTRACTED": 1364,
+      "INFERRED": 20,
+      "AMBIGUOUS": 2
+    },
+    "资助": {
+      "EXTRACTED": 243,
+      "INFERRED": 4
+    },
+    "受赠": {
+      "EXTRACTED": 240,
+      "INFERRED": 2,
+      "AMBIGUOUS": 1
+    },
+    "商务": {
+      "EXTRACTED": 993,
+      "INFERRED": 19
+    },
+    "同席": {
+      "EXTRACTED": 448,
+      "INFERRED": 6
+    },
+    "拜访": {
+      "EXTRACTED": 2964,
+      "INFERRED": 60,
+      "AMBIGUOUS": 3
+    },
+    "转交": {
+      "EXTRACTED": 236,
+      "INFERRED": 3
+    },
+    "赠": {
+      "EXTRACTED": 854,
+      "INFERRED": 11
+    },
+    "同_as": {
+      "INFERRED": 4,
+      "EXTRACTED": 12
+    },
+    "亲属": {
+      "EXTRACTED": 180,
+      "INFERRED": 43,
+      "AMBIGUOUS": 2
+    },
+    "治病": {
+      "EXTRACTED": 55,
+      "INFERRED": 10
+    },
+    "师友": {
+      "EXTRACTED": 20,
+      "INFERRED": 4
+    }
+  },
+  "reciprocity": [
+    {
+      "forward": "赠",
+      "backward": "受赠",
+      "forward_total": 607,
+      "backward_total": 240,
+      "missing_reciprocal": 599,
+      "samples": [
+        {
+          "src": "per_xu_naichang",
+          "src_label": "徐乃昌",
+          "tgt": "per_liu_zhiting",
+          "tgt_label": "柳芝庭"
+        },
+        {
+          "src": "per_xu_naichang",
+          "src_label": "徐乃昌",
+          "tgt": "per_wang_jing_an",
+          "tgt_label": "王静庵"
+        },
+        {
+          "src": "per_xu_naichang",
+          "src_label": "徐乃昌",
+          "tgt": "book_zhenlei_tu",
+          "tgt_label": "《枕雷图》卷"
+        },
+        {
+          "src": "per_liu_hanyi",
+          "src_label": "刘翰怡",
+          "tgt": "book_mingchenyanxinglu",
+          "tgt_label": "宋本《名臣言行录》"
+        },
+        {
+          "src": "per_xu_naichang",
+          "src_label": "徐乃昌",
+          "tgt": "per_zhang_shiming_mu",
+          "tgt_label": "张石铭母夫人"
+        },
+        {
+          "src": "per_chen_naiqian",
+          "src_label": "陈乃乾",
+          "tgt": "book_qixia_xiaogao",
+          "tgt_label": "《栖霞小稿》"
+        },
+        {
+          "src": "per_xu_naichang",
+          "src_label": "徐乃昌",
+          "tgt": "per_zhou_shaopu",
+          "tgt_label": "周少朴"
+        },
+        {
+          "src": "per_xu_naichang",
+          "src_label": "徐乃昌",
+          "tgt": "per_zhu_hengjin",
+          "tgt_label": "祝恒瑾"
+        },
+        {
+          "src": "per_xu_naichang",
+          "src_label": "徐乃昌",
+          "tgt": "per_peng_erlin",
+          "tgt_label": "彭二林"
+        },
+        {
+          "src": "per_xu_naichang",
+          "src_label": "徐乃昌",
+          "tgt": "txn_song_zimu_xichuang",
+          "tgt_label": "送任子木东缎喜幢"
+        }
+      ]
+    }
+  ],
+  "low_confidence_sample": [
+    {
+      "source_label": "南京湖墅",
+      "target_label": "北京",
+      "relation": "位于",
+      "score": 0.3,
+      "evidence": "南京湖墅(地名属南京)",
+      "date": "1923-01-23"
+    },
+    {
+      "source_label": "罗子经",
+      "target_label": "仁济堂",
+      "relation": "拜访",
+      "score": 0.3,
+      "evidence": "晤子经，商《鱼集》事",
+      "date": "1921-01-11"
+    },
+    {
+      "source_label": "子彬",
+      "target_label": "仁济堂",
+      "relation": "拜访",
+      "score": 0.3,
+      "evidence": "子彬来谭",
+      "date": "1921-01-11"
+    },
+    {
+      "source_label": "王叔儁",
+      "target_label": "惠中",
+      "relation": "拜访",
+      "score": 0.3,
+      "evidence": "王叔儁来，不晤",
+      "date": "1921-01-12"
+    },
+    {
+      "source_label": "刘泰生",
+      "target_label": "惠中",
+      "relation": "拜访",
+      "score": 0.3,
+      "evidence": "刘泰生、永涛…来",
+      "date": "1921-01-13"
+    },
+    {
+      "source_label": "罗子经",
+      "target_label": "惠中",
+      "relation": "拜访",
+      "score": 0.3,
+      "evidence": "昨晚，子经来，谭《鱼集》",
+      "date": "1921-01-13"
+    },
+    {
+      "source_label": "陆纯伯",
+      "target_label": "惠中",
+      "relation": "拜访",
+      "score": 0.3,
+      "evidence": "陆纯伯娶子妇，送联、烛",
+      "date": "1921-01-16"
+    },
+    {
+      "source_label": "拔可",
+      "target_label": "惠中",
+      "relation": "拜访",
+      "score": 0.3,
+      "evidence": "拔可来，不晤",
+      "date": "1921-01-17"
+    },
+    {
+      "source_label": "吴渔荃",
+      "target_label": "惠中",
+      "relation": "拜访",
+      "score": 0.3,
+      "evidence": "晤吴渔荃谭",
+      "date": "1921-01-17"
+    },
+    {
+      "source_label": "削若木",
+      "target_label": "惠中",
+      "relation": "拜访",
+      "score": 0.3,
+      "evidence": "削若木、削景参来谭",
+      "date": "1921-01-17"
+    },
+    {
+      "source_label": "削景参",
+      "target_label": "惠中",
+      "relation": "拜访",
+      "score": 0.3,
+      "evidence": "削若木、削景参来谭",
+      "date": "1921-01-17"
+    },
+    {
+      "source_label": "聚康庄",
+      "target_label": "豫西",
+      "relation": "位于",
+      "score": 0.3,
+      "evidence": "购德国聚康庄",
+      "date": "1921-03-04"
+    },
+    {
+      "source_label": "南通",
+      "target_label": "沪",
+      "relation": "位于",
+      "score": 0.3,
+      "evidence": "上海有印刷品警告孝若。即南通伤心史",
+      "date": "1922-04-30"
+    },
+    {
+      "source_label": "会宾楼",
+      "target_label": "大场镇",
+      "relation": "位于",
+      "score": 0.4,
+      "evidence": "应中国实业银行...会宾楼之约",
+      "date": "1920-09-13"
+    },
+    {
+      "source_label": "罗子经",
+      "target_label": "惠中",
+      "relation": "拜访",
+      "score": 0.4,
+      "evidence": "晚，子经来谭",
+      "date": "1921-01-10"
+    },
+    {
+      "source_label": "刘泰生",
+      "target_label": "宏度",
+      "relation": "拜访",
+      "score": 0.4,
+      "evidence": "答拜刘泰生、宏度，不晤",
+      "date": "1921-01-13"
+    },
+    {
+      "source_label": "陈一甫",
+      "target_label": "陈一甫",
+      "relation": "拜访",
+      "score": 0.5,
+      "evidence": "访陈一甫，不遇",
+      "date": "1920-05-16"
+    },
+    {
+      "source_label": "徐乃昌",
+      "target_label": "刘健之",
+      "relation": "拜访",
+      "score": 0.5,
+      "evidence": "知刘健之亦来苏",
+      "date": "1923-03-09"
+    },
+    {
+      "source_label": "徐乃昌",
+      "target_label": "《郑堂读书记》",
+      "relation": "商务",
+      "score": 0.5,
+      "evidence": "阅周中孚《郑堂读书记》",
+      "date": "1923-04-10"
+    },
+    {
+      "source_label": "淑魄",
+      "target_label": "林福",
+      "relation": "致书",
+      "score": 0.5,
+      "evidence": "淑魄先派林福回沪",
+      "date": "1923-05-03"
+    }
   ]
 }

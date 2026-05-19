@@ -694,10 +694,72 @@ for n in src['nodes']:
 top_persons = sorted(person_per_month.keys(), key=lambda p: -sum(person_per_month[p].values()))[:20]
 person_labels = {pid: nodes_by_id.get(pid, {}).get('label', pid) for pid in top_persons}
 
+# Quality / reciprocity / confidence breakdown
+conf_breakdown = Counter()
+conf_by_rel = defaultdict(Counter)
+score_buckets = Counter()
+for e in src['edges']:
+    c = e.get('confidence') or 'UNKNOWN'
+    conf_breakdown[c] += 1
+    conf_by_rel[e.get('relation') or '?'][c] += 1
+    sc = e.get('confidence_score')
+    if sc is None: score_buckets['none'] += 1
+    elif sc >= 0.9: score_buckets['≥0.9'] += 1
+    elif sc >= 0.7: score_buckets['0.7-0.9'] += 1
+    elif sc >= 0.5: score_buckets['0.5-0.7'] += 1
+    else: score_buckets['<0.5'] += 1
+
+# Reciprocity: 赠↔受赠 and similar pairs
+RECIPROCAL_PAIRS = [('赠', '受赠'), ('致书', '致书')]  # 致书 is one-way but we check return-书
+recip_check = []
+for forward, backward in RECIPROCAL_PAIRS:
+    if forward == backward: continue
+    forward_pairs = set()
+    backward_pairs = set()
+    for e in src['edges']:
+        s = redirect(e['source']) if nodes_by_id.get(e['source'],{}).get('entity_type')=='人' else e['source']
+        t = redirect(e['target']) if nodes_by_id.get(e['target'],{}).get('entity_type')=='人' else e['target']
+        if e.get('relation') == forward:
+            forward_pairs.add((s, t))
+        elif e.get('relation') == backward:
+            backward_pairs.add((t, s))  # flipped
+    # Forward edges with no reciprocal entry
+    missing = forward_pairs - backward_pairs
+    extra = backward_pairs - forward_pairs
+    recip_check.append({
+        'forward': forward, 'backward': backward,
+        'forward_total': len(forward_pairs),
+        'backward_total': len(backward_pairs),
+        'missing_reciprocal': len(missing),
+        'samples': [{'src': s, 'src_label': nodes_by_id.get(s,{}).get('label'), 'tgt': t, 'tgt_label': nodes_by_id.get(t,{}).get('label')} for s, t in list(missing)[:10]],
+    })
+
+# Low-confidence sample (10 lowest)
+low_conf_edges = sorted(
+    [e for e in src['edges'] if e.get('confidence_score') is not None],
+    key=lambda e: e.get('confidence_score', 0)
+)[:20]
+low_conf_sample = [
+    {
+        'source_label': nodes_by_id.get(e['source'],{}).get('label'),
+        'target_label': nodes_by_id.get(e['target'],{}).get('label'),
+        'relation': e.get('relation'),
+        'score': e.get('confidence_score'),
+        'evidence': (e.get('metadata') or {}).get('evidence_text'),
+        'date': e.get('source_location'),
+    }
+    for e in low_conf_edges
+]
+
 stats = {
     'months': sorted({m for m in rel_per_month.keys()}),
     'rel_per_month': {m: dict(d) for m, d in rel_per_month.items()},
     'top_persons': [{'id': p, 'label': person_labels[p], 'total': sum(person_per_month[p].values()), 'monthly': dict(person_per_month[p])} for p in top_persons],
+    'confidence_breakdown': dict(conf_breakdown),
+    'confidence_score_buckets': dict(score_buckets),
+    'confidence_by_relation': {r: dict(d) for r, d in conf_by_rel.items()},
+    'reciprocity': recip_check,
+    'low_confidence_sample': low_conf_sample,
 }
 (out_dir / 'stats.json').write_text(json.dumps(stats, ensure_ascii=False, indent=2), encoding='utf-8')
 
