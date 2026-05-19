@@ -134,7 +134,13 @@ for n in src['nodes']:
 
 per_redirect = {}  # any per id → primary id
 for canon, ids in canonical_to_ids.items():
-    primary = sorted(ids, key=lambda i: (len(i), i))[0]
+    # Prefer node whose label matches canonical (most "named"). Tiebreak: shortest id.
+    def primary_score(i):
+        n = nodes_by_id.get(i, {})
+        label = n.get('label') or ''
+        label_matches = 0 if label == canon else 1
+        return (label_matches, len(i), i)
+    primary = sorted(ids, key=primary_score)[0]
     for i in ids:
         per_redirect[i] = primary
 

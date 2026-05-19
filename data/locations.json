@@ -811,6 +811,38 @@
       "label": "锦文斋翁朗店"
     },
     {
+      "id": "loc_langgong_tan",
+      "label": "朗宫潭"
+    },
+    {
+      "id": "loc_wenzhou",
+      "label": "温州"
+    },
+    {
+      "id": "loc_shi_er_xu",
+      "label": "十二圩"
+    },
+    {
+      "id": "loc_sanmalu",
+      "label": "三马路"
+    },
+    {
+      "id": "loc_qipan_jie",
+      "label": "棋盘街"
+    },
+    {
+      "id": "loc_jingansi_lu",
+      "label": "静安寺路"
+    },
+    {
+      "id": "loc_yancheng",
+      "label": "盐城"
+    },
+    {
+      "id": "loc_chongling",
+      "label": "崇陵"
+    },
+    {
       "id": "loc_dafengtian",
       "label": "大丰田"
     },
@@ -873,10 +905,6 @@
     {
       "id": "loc_huashan",
       "label": "花山"
-    },
-    {
-      "id": "loc_yancheng",
-      "label": "盐城"
     },
     {
       "id": "loc_shanghai_daxiyuan",
@@ -5812,6 +5840,42 @@
       "evidence": "至锦文斋翁朗店，观《神仙通鉴》",
       "relation": "拜访",
       "source_file": "1923-01-25.md"
+    },
+    {
+      "date": "1923-01-31",
+      "location_id": "loc_guwan_shichang",
+      "location_label": "古玩市场",
+      "resolved_city": null,
+      "evidence": "至古玩市场",
+      "relation": "拜访",
+      "source_file": "1922-12-10.md"
+    },
+    {
+      "date": "1923-02-01",
+      "location_id": "loc_laiqing_ge",
+      "location_label": "来青阁",
+      "resolved_city": null,
+      "evidence": "挈崇儿至来青阁",
+      "relation": "拜访",
+      "source_file": "1920-02-05.md"
+    },
+    {
+      "date": "1923-02-03",
+      "location_id": "loc_sanmalu",
+      "location_label": "三马路",
+      "resolved_city": null,
+      "evidence": "薄暮，游三马路花市",
+      "relation": "拜访",
+      "source_file": "1923-02-03.md"
+    },
+    {
+      "date": "1923-02-03",
+      "location_id": "loc_jingansi_lu",
+      "location_label": "静安寺路",
+      "resolved_city": null,
+      "evidence": "至静安寺路，购花二盆",
+      "relation": "拜访",
+      "source_file": "1923-02-03.md"
     }
   ],
   "xu_ids": [
@@ -5830,11 +5894,12 @@
     "无锡": 1
   },
   "unmapped_top": {
-    "来青阁": 4,
+    "来青阁": 5,
     "忠厚书庄": 3,
     "蟬隐庐": 3,
     "石竹山房": 2,
     "通俗剧场": 2,
+    "古玩市场": 2,
     "小双珠家": 1,
     "静安寺十号俱乐部": 1,
     "法界吉祥街": 1,
@@ -5868,7 +5933,6 @@
     "通州": 1,
     "翰墨林": 1,
     "松树路": 1,
-    "李紫东处": 1,
-    "楚园": 1
+    "李紫东处": 1
   }
 }

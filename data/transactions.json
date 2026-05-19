@@ -47,8 +47,8 @@
     "evidence": "售稻捌百石，每石二元八角四分",
     "people": [
       {
-        "id": "per_shunchen",
-        "label": "舜臣",
+        "id": "per_shun_chen",
+        "label": "吴舜臣",
         "type": "人",
         "relation": "商务"
       }
@@ -74,8 +74,8 @@
     "evidence": "又售稻一百石",
     "people": [
       {
-        "id": "per_shunchen",
-        "label": "舜臣",
+        "id": "per_shun_chen",
+        "label": "吴舜臣",
         "type": "人",
         "relation": "商务"
       }
@@ -152,8 +152,8 @@
     "evidence": "以五千元交余寿老，兑湾沚田价",
     "people": [
       {
-        "id": "per_shoulao",
-        "label": "寿老",
+        "id": "per_yu_shoulao",
+        "label": "余寿老",
         "type": "人",
         "relation": "商务"
       }
@@ -303,8 +303,8 @@
     "evidence": "吴舜臣汇来稻洋叁千元",
     "people": [
       {
-        "id": "per_shunchen",
-        "label": "舜臣",
+        "id": "per_shun_chen",
+        "label": "吴舜臣",
         "type": "人",
         "relation": "商务"
       }
@@ -735,8 +735,8 @@
     "evidence": "以《感应篇集传》《感应篇惠注》《阴鹭文图证》各二部分赠拙存、佩宜",
     "people": [
       {
-        "id": "per_zhucun",
-        "label": "拙存",
+        "id": "per_tao_zhecun",
+        "label": "陶拙存",
         "type": "人",
         "relation": "受赠"
       },
@@ -792,8 +792,8 @@
     "evidence": "张菊生赠新景印南北宋刊合璧《南华真经》十卷",
     "people": [
       {
-        "id": "per_ju_sheng",
-        "label": "菊生",
+        "id": "per_zhang_jusheng",
+        "label": "张菊生",
         "type": "人",
         "relation": "赠"
       }
@@ -948,8 +948,8 @@
     "evidence": "今仍索价八万余元",
     "people": [
       {
-        "id": "per_yi_lao",
-        "label": "艺老",
+        "id": "per_yifeng_laoren",
+        "label": "缪荃孙",
         "type": "人",
         "relation": "商务"
       }
@@ -1018,8 +1018,8 @@
     "evidence": "购画象方砖，廿元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "共谋"
       },
@@ -1041,8 +1041,8 @@
     "evidence": "元明间积翠堆花磁碗一对，十元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "共谋"
       },
@@ -1064,8 +1064,8 @@
     "evidence": "浏金五铢钱一枚，十元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "共谋"
       },
@@ -1573,8 +1573,8 @@
     "evidence": "商拨三千元,以二千济四穷,一千办平渠",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "共谋"
       },
@@ -1636,20 +1636,20 @@
     "evidence": "为逸塘购商务印书馆《大清会典》三部,每部减收一百元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "共谋"
       },
       {
-        "id": "per_yitang",
-        "label": "逸塘",
+        "id": "per_wang_yitang",
+        "label": "王逸塘",
         "type": "人",
         "relation": "共谋"
       },
       {
-        "id": "per_ba_ke",
-        "label": "拔可",
+        "id": "per_bo_ke",
+        "label": "李拔可",
         "type": "人",
         "relation": "共谋"
       },
@@ -1755,8 +1755,8 @@
     "evidence": "贻王倅儁、钱履樛金文各五十种",
     "people": [
       {
-        "id": "per_lujiu",
-        "label": "履樛",
+        "id": "per_qian_lvjiu",
+        "label": "钱履樛",
         "type": "人",
         "relation": "受赠"
       }
@@ -1842,8 +1842,8 @@
         "relation": "资助"
       },
       {
-        "id": "per_shunchen",
-        "label": "舜臣",
+        "id": "per_shun_chen",
+        "label": "吴舜臣",
         "type": "人",
         "relation": "受赠"
       }
@@ -2333,8 +2333,8 @@
     "evidence": "赠刘翰怡《劝戒九录》《感应篇集传》、吴让之书《感应篇》、惠注《阴鹭文图证》各二部",
     "people": [
       {
-        "id": "per_hanyi",
-        "label": "翰怡",
+        "id": "per_liu_hanyi",
+        "label": "刘翰怡",
         "type": "人",
         "relation": "受赠"
       }
@@ -2385,7 +2385,7 @@
     "people": [
       {
         "id": "per_ganqing",
-        "label": "江幹卿",
+        "label": "甘卿",
         "type": "人",
         "relation": "受赠"
       },
@@ -2930,8 +2930,8 @@
     "evidence": "贻碧螺春茗、酱菜",
     "people": [
       {
-        "id": "per_ba_ke",
-        "label": "拔可",
+        "id": "per_bo_ke",
+        "label": "李拔可",
         "type": "人",
         "relation": "受赠"
       }
@@ -3076,8 +3076,8 @@
     "evidence": "寄观音救急丹一百瓶、仁济丹二百瓶至南陵吴舜臣",
     "people": [
       {
-        "id": "per_shunchen",
-        "label": "舜臣",
+        "id": "per_shun_chen",
+        "label": "吴舜臣",
         "type": "人",
         "relation": "受赠"
       }
@@ -3523,8 +3523,8 @@
     "evidence": "售稻捌百石，每石二元一角一分",
     "people": [
       {
-        "id": "per_shunchen",
-        "label": "舜臣",
+        "id": "per_shun_chen",
+        "label": "吴舜臣",
         "type": "人",
         "relation": "商务"
       }
@@ -3611,8 +3611,8 @@
     "evidence": "付还顾鼎梅购碑洋四十六元二角五分",
     "people": [
       {
-        "id": "per_ding_mei",
-        "label": "鼎梅",
+        "id": "per_gu_dingmei",
+        "label": "顾鼎梅",
         "type": "人",
         "relation": "商务"
       }
@@ -3628,8 +3628,8 @@
     "evidence": "内钱履缪龙门全分廿二元四角",
     "people": [
       {
-        "id": "per_lujiu",
-        "label": "履樛",
+        "id": "per_qian_lvjiu",
+        "label": "钱履樛",
         "type": "人",
         "relation": "商务"
       }
@@ -4378,8 +4378,8 @@
     "evidence": "赠吴舜臣；女衣帽、西洋参四支、茶叶一箱、《劝戒录》",
     "people": [
       {
-        "id": "per_shunchen",
-        "label": "舜臣",
+        "id": "per_shun_chen",
+        "label": "吴舜臣",
         "type": "人",
         "relation": "受赠"
       }
@@ -4658,8 +4658,8 @@
     "evidence": "吴舜臣汇来稻洋贰千五百元",
     "people": [
       {
-        "id": "per_shunchen",
-        "label": "舜臣",
+        "id": "per_shun_chen",
+        "label": "吴舜臣",
         "type": "人",
         "relation": "资助"
       }
@@ -5036,8 +5036,8 @@
     "evidence": "请购料半十刀",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -5083,8 +5083,8 @@
     "evidence": "购詹大有墨十斤。每斤一元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -5374,8 +5374,8 @@
     "evidence": "翰怡贻《四部丛刊》中明刻《吴越春秋》《越绝书》《华阳国志》《放翁诗集》四种",
     "people": [
       {
-        "id": "per_hanyi",
-        "label": "翰怡",
+        "id": "per_liu_hanyi",
+        "label": "刘翰怡",
         "type": "人",
         "relation": "赠"
       }
@@ -5391,8 +5391,8 @@
     "evidence": "皖振会大照电灯公司存折，十月底，连本年收还七期，每期二千六百两",
     "people": [
       {
-        "id": "per_shaozhou_29",
-        "label": "少舟",
+        "id": "per_chen_shaozhou",
+        "label": "陈少舟",
         "type": "人",
         "relation": "商务"
       }
@@ -5428,8 +5428,8 @@
     "evidence": "赠金文拓本十种",
     "people": [
       {
-        "id": "per_wang_xuelao",
-        "label": "王雪老",
+        "id": "per_wang_xuecheng",
+        "label": "王雪澄",
         "type": "人",
         "relation": "受赠"
       },
@@ -5554,8 +5554,8 @@
         "relation": "受赠"
       },
       {
-        "id": "per_shaozhou_29",
-        "label": "少舟",
+        "id": "per_chen_shaozhou",
+        "label": "陈少舟",
         "type": "人",
         "relation": "受赠"
       }
@@ -6333,8 +6333,8 @@
     "evidence": "购□宜高官镜，四元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -6705,8 +6705,8 @@
     "evidence": "顾鼎梅来书，并寄各碑。价四元二角八分五",
     "people": [
       {
-        "id": "per_ding_mei",
-        "label": "鼎梅",
+        "id": "per_gu_dingmei",
+        "label": "顾鼎梅",
         "type": "人",
         "relation": "商务"
       }
@@ -6756,8 +6756,8 @@
     "evidence": "菊生贻《涵芬楼秘笈》弟九集",
     "people": [
       {
-        "id": "per_ju_sheng",
-        "label": "菊生",
+        "id": "per_zhang_jusheng",
+        "label": "张菊生",
         "type": "人",
         "relation": "赠"
       }
@@ -7246,8 +7246,8 @@
     "evidence": "以蓝印宣纸《徐公文集》贻蒋孟蘋",
     "people": [
       {
-        "id": "per_mengping",
-        "label": "孟蘋",
+        "id": "per_jiang_mengpin",
+        "label": "蒋孟蘋",
         "type": "人",
         "relation": "受赠"
       }
@@ -7263,8 +7263,8 @@
     "evidence": "寄来代购元遥志一种",
     "people": [
       {
-        "id": "per_ding_mei",
-        "label": "鼎梅",
+        "id": "per_gu_dingmei",
+        "label": "顾鼎梅",
         "type": "人",
         "relation": "商务"
       }
@@ -7804,8 +7804,8 @@
     "evidence": "购古书流通处明刻本《孔丛子》，廿日付价讫。二元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -7821,8 +7821,8 @@
     "evidence": "章学诚《纪元韵览》；一元四角",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -7838,8 +7838,8 @@
     "evidence": "《琅环仙庐诗集》。婺源董桂山撰，二角五分",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -7865,8 +7865,8 @@
     "evidence": "遂允拨五千元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "资助"
       }
@@ -7902,8 +7902,8 @@
     "evidence": "代黄子高购《辞源》，甲种，廿元...计十二元六角，外加邮费六角",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -7919,8 +7919,8 @@
     "evidence": "购料半八刀...夹宣...三刀，共廿三元三角",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -7953,8 +7953,8 @@
     "evidence": "购古香斋唐宝相花镜...双绶带鸟镜...价式拾元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -7980,8 +7980,8 @@
     "evidence": "广武将军精拓每分约洋四元，覆书代购二分",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -7997,8 +7997,8 @@
     "evidence": "给蒋仆四元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "资助"
       }
@@ -8014,8 +8014,8 @@
     "evidence": "曾子口之行簋...购价三百元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -8068,8 +8068,8 @@
     "evidence": "赠新印黄、白纸各五部",
     "people": [
       {
-        "id": "per_ju_sheng",
-        "label": "菊生",
+        "id": "per_zhang_jusheng",
+        "label": "张菊生",
         "type": "人",
         "relation": "赠"
       }
@@ -8180,8 +8180,8 @@
     "evidence": "贻吴寄尘祁门茶两匣",
     "people": [
       {
-        "id": "per_ji_chen",
-        "label": "寄尘",
+        "id": "per_wu_jichen",
+        "label": "吴寄尘",
         "type": "人",
         "relation": "受赠"
       }
@@ -8604,8 +8604,8 @@
     "evidence": "送余寿老洞庭碧螺、九华云雾茶两瓶",
     "people": [
       {
-        "id": "per_shoulao",
-        "label": "寿老",
+        "id": "per_yu_shoulao",
+        "label": "余寿老",
         "type": "人",
         "relation": "赠"
       }
@@ -8740,8 +8740,8 @@
     "evidence": "送奠敬壹百元、缎幃一轴",
     "people": [
       {
-        "id": "per_zhuanxiang",
-        "label": "篆香",
+        "id": "per_xu_zhuanxiang",
+        "label": "许篆香",
         "type": "人",
         "relation": "受赠"
       }
@@ -8825,8 +8825,8 @@
     "evidence": "吴舜臣汇来稻洋壹千元",
     "people": [
       {
-        "id": "per_shunchen",
-        "label": "舜臣",
+        "id": "per_shun_chen",
+        "label": "吴舜臣",
         "type": "人",
         "relation": "资助"
       }
@@ -8935,8 +8935,8 @@
         "relation": "受赠"
       },
       {
-        "id": "per_ba_ke",
-        "label": "拔可",
+        "id": "per_bo_ke",
+        "label": "李拔可",
         "type": "人",
         "relation": "受赠"
       },
@@ -8947,14 +8947,14 @@
         "relation": "受赠"
       },
       {
-        "id": "per_ji_chen",
-        "label": "寄尘",
+        "id": "per_wu_jichen",
+        "label": "吴寄尘",
         "type": "人",
         "relation": "受赠"
       },
       {
-        "id": "per_mengping",
-        "label": "孟蘋",
+        "id": "per_jiang_mengpin",
+        "label": "蒋孟蘋",
         "type": "人",
         "relation": "受赠"
       },
@@ -9452,8 +9452,8 @@
     "evidence": "顾鼎梅购碑，共廿元○三角七分",
     "people": [
       {
-        "id": "per_ding_mei",
-        "label": "鼎梅",
+        "id": "per_gu_dingmei",
+        "label": "顾鼎梅",
         "type": "人",
         "relation": "商务"
       },
@@ -9515,8 +9515,8 @@
     "evidence": "今为孟蘋购去，价二百余元",
     "people": [
       {
-        "id": "per_mengping",
-        "label": "孟蘋",
+        "id": "per_jiang_mengpin",
+        "label": "蒋孟蘋",
         "type": "人",
         "relation": "商务"
       },
@@ -9538,8 +9538,8 @@
     "evidence": "谢赠《积学斋》《卿斋》两丛书、《怀邻杂俎》",
     "people": [
       {
-        "id": "per_pei_sun",
-        "label": "培孙",
+        "id": "per_wang_peisun",
+        "label": "王培孙",
         "type": "人",
         "relation": "受赠"
       }
@@ -9555,8 +9555,8 @@
     "evidence": "嗇公《徐集》(宣纸)、长生瓦、烟、茶",
     "people": [
       {
-        "id": "se_lao",
-        "label": "嗇老",
+        "id": "per_zhang_jian",
+        "label": "张謇",
         "type": "人",
         "relation": "受赠"
       }
@@ -9589,8 +9589,8 @@
     "evidence": "附嗇老寿分廿元",
     "people": [
       {
-        "id": "se_lao",
-        "label": "嗇老",
+        "id": "per_zhang_jian",
+        "label": "张謇",
         "type": "人",
         "relation": "受赠"
       }
@@ -9612,8 +9612,8 @@
         "relation": "商务"
       },
       {
-        "id": "per_ji_chen",
-        "label": "寄尘",
+        "id": "per_wu_jichen",
+        "label": "吴寄尘",
         "type": "人",
         "relation": "商务"
       }
@@ -10096,8 +10096,8 @@
     "evidence": "以胡瘦唐托售书画五种交游筱溪代售",
     "people": [
       {
-        "id": "per_shou_tang",
-        "label": "瘦唐",
+        "id": "per_hu_shoutang",
+        "label": "胡瘦唐",
         "type": "人",
         "relation": "商务"
       },
@@ -10366,8 +10366,8 @@
     "evidence": "造象十九种、砖瓦十五种、各志十三种拓本，价四元四角三分五厘",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -10865,8 +10865,8 @@
     "evidence": "先付洋三元",
     "people": [
       {
-        "id": "per_cao_jun",
-        "label": "曹君",
+        "id": "per_cao_xiujun",
+        "label": "曹绣君",
         "type": "人",
         "relation": "商务"
       }
@@ -10960,8 +10960,8 @@
     "evidence": "转赠双龙佩、小琮、松璧、五岳真形、冠、瑤、璉等七种",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "赠"
       }
@@ -11128,8 +11128,8 @@
         "relation": "赠"
       },
       {
-        "id": "per_shunchen",
-        "label": "舜臣",
+        "id": "per_shun_chen",
+        "label": "吴舜臣",
         "type": "人",
         "relation": "赠"
       }
@@ -11232,8 +11232,8 @@
     "evidence": "惠赠《亚洲学术杂志》十册",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "受赠"
       }
@@ -11249,8 +11249,8 @@
     "evidence": "木公又赠新得魏延昌二年造象拓本",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "受赠"
       }
@@ -11364,8 +11364,8 @@
     "evidence": "前两次付过洋六元，今再付洋六元",
     "people": [
       {
-        "id": "per_cao_jun",
-        "label": "曹君",
+        "id": "per_cao_xiujun",
+        "label": "曹绣君",
         "type": "人",
         "relation": "商务"
       }
@@ -11476,8 +11476,8 @@
     "evidence": "付洋五元",
     "people": [
       {
-        "id": "per_cao_jun",
-        "label": "曹君",
+        "id": "per_cao_xiujun",
+        "label": "曹绣君",
         "type": "人",
         "relation": "商务"
       }
@@ -11984,8 +11984,8 @@
     "evidence": "卖稻，来函卖四百石，又淑记一百石，每石三元三角",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -12051,8 +12051,8 @@
     "evidence": "添购十五亩，每亩十二元，共缴一百八十",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -12068,8 +12068,8 @@
     "evidence": "畸零十六亩四分,找价三百廿八元,每作廿元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -12665,8 +12665,8 @@
     "evidence": "付曹绣君钞书五元",
     "people": [
       {
-        "id": "per_cao_jun",
-        "label": "曹君",
+        "id": "per_cao_xiujun",
+        "label": "曹绣君",
         "type": "人",
         "relation": "受赠"
       }
@@ -12858,8 +12858,8 @@
     "evidence": "代汪书屏购雪茄烟四十元",
     "people": [
       {
-        "id": "per_shuping",
-        "label": "书屏",
+        "id": "per_wang_shuping",
+        "label": "汪书屏",
         "type": "人",
         "relation": "商务"
       }
@@ -12946,8 +12946,8 @@
     "evidence": "以《六朝墓志菁华》四集《常丑奴墓志》赠张嗇庵",
     "people": [
       {
-        "id": "se_lao",
-        "label": "嗇老",
+        "id": "per_zhang_jian",
+        "label": "张謇",
         "type": "人",
         "relation": "受赠"
       }
@@ -13074,8 +13074,8 @@
     "evidence": "收吴舜臣汇来二千二百元。内淑记六百元",
     "people": [
       {
-        "id": "per_shunchen",
-        "label": "舜臣",
+        "id": "per_shun_chen",
+        "label": "吴舜臣",
         "type": "人",
         "relation": "资助"
       }
@@ -13288,8 +13288,8 @@
     "evidence": "送吴寄尘茶叶两箱、合肥。挂面两篓",
     "people": [
       {
-        "id": "per_ji_chen",
-        "label": "寄尘",
+        "id": "per_wu_jichen",
+        "label": "吴寄尘",
         "type": "人",
         "relation": "受赠"
       }
@@ -14281,8 +14281,8 @@
     "evidence": "《吴兴诗话》十六卷...价一元二角",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -14588,8 +14588,8 @@
     "evidence": "价洋三元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -14605,8 +14605,8 @@
     "evidence": "计廿四元，每刀叁元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -14632,8 +14632,8 @@
     "evidence": "一索四元，一索十五元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -14649,8 +14649,8 @@
     "evidence": "价二元五角",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -14666,8 +14666,8 @@
     "evidence": "索价二元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -14693,8 +14693,8 @@
     "evidence": "价九元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -14730,8 +14730,8 @@
     "evidence": "购来青阁书五种，洋二元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -14747,8 +14747,8 @@
     "evidence": "价五十元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -14764,8 +14764,8 @@
     "evidence": "码洋一百廿六元五角",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -14798,8 +14798,8 @@
     "evidence": "取大丰公司存银四千两",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -14815,8 +14815,8 @@
     "evidence": "偿损失银二百卅两",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -14832,8 +14832,8 @@
     "evidence": "汇丰存洋五千元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -14849,8 +14849,8 @@
     "evidence": "花旗，存银二千两",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -14893,8 +14893,8 @@
     "evidence": "议定价十二元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -15374,14 +15374,14 @@
     "evidence": "售《艺文类聚》七十元",
     "people": [
       {
-        "id": "per_xingru",
-        "label": "星如",
+        "id": "per_sun_xingru",
+        "label": "孙星如",
         "type": "人",
         "relation": "商务"
       },
       {
-        "id": "per_jishen",
-        "label": "季申",
+        "id": "per_heng_jishen",
+        "label": "恒季申",
         "type": "人",
         "relation": "商务"
       }
@@ -15397,8 +15397,8 @@
     "evidence": "售《国语补音》卅元",
     "people": [
       {
-        "id": "per_xingru",
-        "label": "星如",
+        "id": "per_sun_xingru",
+        "label": "孙星如",
         "type": "人",
         "relation": "商务"
       },
@@ -15901,8 +15901,8 @@
     "evidence": "贻瓦当拓本卅余种",
     "people": [
       {
-        "id": "per_rao_sheng",
-        "label": "饶生",
+        "id": "per_wang_raosheng",
+        "label": "王饶生",
         "type": "人",
         "relation": "受赠"
       }
@@ -15952,8 +15952,8 @@
     "evidence": "赠王饶生单于和亲等砖四种、建安画象砖、金涂塔、崔承宗造象",
     "people": [
       {
-        "id": "per_rao_sheng",
-        "label": "饶生",
+        "id": "per_wang_raosheng",
+        "label": "王饶生",
         "type": "人",
         "relation": "受赠"
       }
@@ -16979,8 +16979,8 @@
     "evidence": "购玫瑰蟠桃、五香桃二种三元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -17026,8 +17026,8 @@
     "evidence": "付大生洋五百元，济家用",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -17043,8 +17043,8 @@
     "evidence": "化洋壹千二百五十七元八角六分一厘，交淮海银行收水泥公司五十股",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -17090,8 +17090,8 @@
     "evidence": "付大生二百四十二元一角四分，家用",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -17147,8 +17147,8 @@
     "evidence": "自捐壹千元，散放急振",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "资助"
       }
@@ -17174,8 +17174,8 @@
     "evidence": "陈少舟捐壹千元",
     "people": [
       {
-        "id": "per_shaozhou_29",
-        "label": "少舟",
+        "id": "per_chen_shaozhou",
+        "label": "陈少舟",
         "type": "人",
         "relation": "资助"
       },
@@ -17204,8 +17204,8 @@
         "relation": "资助"
       },
       {
-        "id": "per_younong",
-        "label": "幼农",
+        "id": "per_wang_younong",
+        "label": "汪幼农",
         "type": "人",
         "relation": "资助"
       },
@@ -17453,8 +17453,8 @@
     "evidence": "捐款一千元于廿五日交去",
     "people": [
       {
-        "id": "per_shunchen",
-        "label": "舜臣",
+        "id": "per_shun_chen",
+        "label": "吴舜臣",
         "type": "人",
         "relation": "受赠"
       }
@@ -17548,8 +17548,8 @@
     "evidence": "赠百合、葛精",
     "people": [
       {
-        "id": "per_ji_chen",
-        "label": "寄尘",
+        "id": "per_wu_jichen",
+        "label": "吴寄尘",
         "type": "人",
         "relation": "受赠"
       }
@@ -17609,8 +17609,8 @@
     "evidence": "邱渭翁捐振款一万元",
     "people": [
       {
-        "id": "per_weiqing",
-        "label": "渭卿",
+        "id": "per_qiu_weiqing",
+        "label": "邱渭卿",
         "type": "人",
         "relation": "资助"
       }
@@ -17886,8 +17886,8 @@
     "evidence": "给汽车夫二元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -17903,8 +17903,8 @@
     "evidence": "顾鼎梅捐五十元",
     "people": [
       {
-        "id": "per_ding_mei",
-        "label": "鼎梅",
+        "id": "per_gu_dingmei",
+        "label": "顾鼎梅",
         "type": "人",
         "relation": "资助"
       }
@@ -17920,8 +17920,8 @@
     "evidence": "并洋三百四十九元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -18018,8 +18018,8 @@
     "evidence": "雇汽车二元五角",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -18075,8 +18075,8 @@
         "relation": "资助"
       },
       {
-        "id": "per_ding_mei",
-        "label": "鼎梅",
+        "id": "per_gu_dingmei",
+        "label": "顾鼎梅",
         "type": "人",
         "relation": "资助"
       }
@@ -18123,7 +18123,7 @@
     "people": [
       {
         "id": "org_dayuan_gongsi",
-        "label": "大豫公司",
+        "label": "大源公司",
         "type": "团体",
         "relation": "商务"
       }
@@ -19239,8 +19239,8 @@
     "evidence": "王揖唐赠转译日美浓部博士所译《欧洲诸国战后之新宪法》",
     "people": [
       {
-        "id": "per_yitang",
-        "label": "逸塘",
+        "id": "per_wang_yitang",
+        "label": "王逸塘",
         "type": "人",
         "relation": "赠"
       }
@@ -19273,8 +19273,8 @@
     "evidence": "交还代沙购《续古逸丛书》《王荆公诗注》九十八元",
     "people": [
       {
-        "id": "per_ba_ke",
-        "label": "拔可",
+        "id": "per_bo_ke",
+        "label": "李拔可",
         "type": "人",
         "relation": "商务"
       }
@@ -19724,8 +19724,8 @@
     "evidence": "取书一种，绥安朱霞辑《闽海风雅》",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -19741,8 +19741,8 @@
     "evidence": "购厉太鸿《云林寺志》乾隆九年刻本。八卷，价三元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -19758,8 +19758,8 @@
     "evidence": "至来青阁，取书二种，共二元五角",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -19785,8 +19785,8 @@
     "evidence": "家境甚苦，赠川资十元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "赠"
       }
@@ -19802,8 +19802,8 @@
     "evidence": "并东王公、西王母镜二片，蜀当眉镜、六花镜、天地成镜、大吉镜各一片，陈冶镜二片，日本镜四片，共十二片",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "赠"
       }
@@ -19819,8 +19819,8 @@
     "evidence": "送刘子鹤之弟夫人呢挽幃",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "赠"
       }
@@ -19836,8 +19836,8 @@
     "evidence": "交大婚经费二百元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "资助"
       }
@@ -19853,8 +19853,8 @@
     "evidence": "购集成、来青阁各书，二元二角",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -19870,8 +19870,8 @@
     "evidence": "退院雨山和尚来募水陆道场，认助二百元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "资助"
       }
@@ -19887,8 +19887,8 @@
     "evidence": "月送修金四十元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "资助"
       }
@@ -19904,8 +19904,8 @@
     "evidence": "购来青阁书，价十元零八角",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       },
@@ -19927,8 +19927,8 @@
     "evidence": "附福份八元，当交来人",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "赠"
       }
@@ -19944,8 +19944,8 @@
     "evidence": "购来青阁上谷陈上年仿宋刻《广韵》五卷...价洋一元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -19961,8 +19961,8 @@
     "evidence": "送任子木东缎喜幢",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "赠"
       },
@@ -19984,8 +19984,8 @@
     "evidence": "同子丹弟、鲍承良公送绸幢",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "赠"
       },
@@ -20007,8 +20007,8 @@
     "evidence": "购四骏貌镜，价十三元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -20024,8 +20024,8 @@
     "evidence": "初十日购成，计廿二元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -20041,8 +20041,8 @@
     "evidence": "赠建初延熹君宜子孙大吉吕金鈿中等四洗...五铢泉范二十种拓本",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "赠"
       },
@@ -20080,8 +20080,8 @@
         "relation": "赠"
       },
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "受赠"
       }
@@ -20134,8 +20134,8 @@
     "evidence": "送焦乐山梁墨卿善书，又南陵募捐启六本",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "赠"
       },
@@ -20157,8 +20157,8 @@
     "evidence": "存九八。元式千式百两于永安公司",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -20174,8 +20174,8 @@
     "evidence": "购斋戒牌，三元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -20208,8 +20208,8 @@
     "evidence": "购书：十四日付价廿七元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       },
@@ -20288,8 +20288,8 @@
     "evidence": "付马郭双造象价五十元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -20315,8 +20315,8 @@
     "evidence": "丁巳年得《常丑奴志》……价五百元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       },
@@ -20338,8 +20338,8 @@
     "evidence": "购书三种，价三元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       },
@@ -20383,8 +20383,8 @@
     "evidence": "新购湾村徐体华屋并基……计洋五十元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -20400,8 +20400,8 @@
     "evidence": "卖稻一千三百石，每石三元一角三分",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -20417,8 +20417,8 @@
     "evidence": "取书二种……价码一元……价码三角",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       },
@@ -20466,8 +20466,8 @@
     "evidence": "送屏分八元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "赠"
       }
@@ -20483,8 +20483,8 @@
     "evidence": "购《劝戒录》陆百部，计洋一百五十六元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -20500,8 +20500,8 @@
     "evidence": "为姪女镌牙印四方……价四元六角",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -20517,8 +20517,8 @@
     "evidence": "付本年还振款二千六百两",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "资助"
       }
@@ -20534,8 +20534,8 @@
     "evidence": "购《劝戒录类编》壹百部，价廿六元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       },
@@ -20567,8 +20567,8 @@
     "evidence": "告拨振洋二千五百元汇芜",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "资助"
       }
@@ -20584,8 +20584,8 @@
     "evidence": "济生会助二千元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "资助"
       }
@@ -20601,8 +20601,8 @@
     "evidence": "义振协会三千元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "资助"
       }
@@ -20618,8 +20618,8 @@
     "evidence": "拨郎溪、宁国振洋各壹千元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "资助"
       }
@@ -20635,8 +20635,8 @@
     "evidence": "泾县五百元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "资助"
       }
@@ -20682,8 +20682,8 @@
     "evidence": "为淑婉捐洋十元，回棉衣五套",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "资助"
       }
@@ -20749,8 +20749,8 @@
     "evidence": "购集成书局杨估志书两种，付洋十八元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       },
@@ -20808,8 +20808,8 @@
     "evidence": "售出通海实业公司股票三千四百七十股",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "商务"
       }
@@ -20825,8 +20825,8 @@
     "evidence": "冯蒿老八十寿份十元",
     "people": [
       {
-        "id": "per_jiyu",
-        "label": "积余",
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
         "type": "人",
         "relation": "资助"
       }
@@ -21053,8 +21053,8 @@
     "evidence": "先后收到吴舜臣稻洋四千元",
     "people": [
       {
-        "id": "per_shunchen",
-        "label": "舜臣",
+        "id": "per_shun_chen",
+        "label": "吴舜臣",
         "type": "人",
         "relation": "商务"
       }
@@ -21483,5 +21483,425 @@
     "people": [],
     "amount": "三十元○二角二分",
     "direction": null
+  },
+  {
+    "id": "txn_shen_cihu_zeng_books",
+    "label": "沈慈护赠《玉台新咏》《徐集校记》",
+    "date": "1923-01-27",
+    "source_file": "1923-01-27.md",
+    "evidence": "赠《玉台新咏》《徐集校记》",
+    "people": [],
+    "amount": null,
+    "direction": "received"
+  },
+  {
+    "id": "txn_dafeng_dividend_200",
+    "label": "收大丰公司息洋二百元",
+    "date": "1923-01-27",
+    "source_file": "1923-01-27.md",
+    "evidence": "收大丰公司息洋二百元",
+    "people": [],
+    "amount": "200元",
+    "direction": "received"
+  },
+  {
+    "id": "txn_liu_ciyu_xiuzhi_50",
+    "label": "送刘次羽修志五十元",
+    "date": "1923-01-27",
+    "source_file": "1923-01-27.md",
+    "evidence": "送刘次羽修志五十元",
+    "people": [],
+    "amount": "50元",
+    "direction": "given"
+  },
+  {
+    "id": "txn_xi_shaoqing_huang_zhuang",
+    "label": "送席少卿之夫人黄华丝葛幢",
+    "date": "1923-01-27",
+    "source_file": "1923-01-27.md",
+    "evidence": "送席少卿之夫人黄华丝葛幢",
+    "people": [],
+    "amount": null,
+    "direction": "given"
+  },
+  {
+    "id": "txn_li_zidong_print_yutai_100",
+    "label": "为李子东印《玉台新咏》十二部 议定洋壹百元",
+    "date": "1923-01-27",
+    "source_file": "1923-01-27.md",
+    "evidence": "为李子东印《玉台新咏》十二部",
+    "people": [],
+    "amount": "100元",
+    "direction": "service"
+  },
+  {
+    "id": "txn_shenxian_jian_12",
+    "label": "购锦文斋《神仙鉴》十二元",
+    "date": "1923-01-27",
+    "source_file": "1923-01-27.md",
+    "evidence": "购锦文斋翁估《神仙鉴》，十二元",
+    "people": [],
+    "amount": "12元",
+    "direction": "purchased"
+  },
+  {
+    "id": "txn_xiuzhi_li_yuanzhi_100",
+    "label": "送李元之先生修志洋壹百元",
+    "date": "1923-01-28",
+    "source_file": "1923-01-28.md",
+    "evidence": "送李元之先生修志洋壹百元",
+    "people": [],
+    "amount": "100元",
+    "direction": "given"
+  },
+  {
+    "id": "txn_xu_jingren_zeng_yutai",
+    "label": "函徐静仁赠《玉台新咏》",
+    "date": "1923-01-28",
+    "source_file": "1923-01-28.md",
+    "evidence": "函徐静仁，赠《玉台新咏》",
+    "people": [],
+    "amount": null,
+    "direction": "given"
+  },
+  {
+    "id": "txn_liu_congshi_zeng_moyutai",
+    "label": "再赠刘葱石墨印《玉台新咏》",
+    "date": "1923-01-28",
+    "source_file": "1923-01-28.md",
+    "evidence": "再赠墨印《玉台新咏》",
+    "people": [],
+    "amount": null,
+    "direction": "given"
+  },
+  {
+    "id": "txn_liu_congshi_zeng_wudeng",
+    "label": "刘葱石赠覆宋《五灯会元》",
+    "date": "1923-01-28",
+    "source_file": "1923-01-28.md",
+    "evidence": "葱石函复，赠覆宋《五灯会元》",
+    "people": [],
+    "amount": null,
+    "direction": "received"
+  },
+  {
+    "id": "txn_chen_shaoshi_yu_70shou_zhuang",
+    "label": "送陈少石暨俞夫人七十双寿红花缎幢",
+    "date": "1923-01-28",
+    "source_file": "1923-01-28.md",
+    "evidence": "送陈少石世伯暨俞夫人七十双寿红花缎幢",
+    "people": [],
+    "amount": null,
+    "direction": "given"
+  },
+  {
+    "id": "txn_qian_changmei_books_15",
+    "label": "钱昌美送书购价十五元",
+    "date": "1923-01-29",
+    "source_file": "1923-01-29.md",
+    "evidence": "钱昌美送书数种，留下各种，购价十五元",
+    "people": [],
+    "amount": "15元",
+    "direction": "purchased"
+  },
+  {
+    "id": "txn_lushan_tongzhi_10",
+    "label": "购《庐山通志》洋十元",
+    "date": "1923-01-29",
+    "source_file": "1923-01-29.md",
+    "evidence": "《庐山通志》十二卷...洋十元",
+    "people": [],
+    "amount": "10元",
+    "direction": "purchased"
+  },
+  {
+    "id": "txn_buddhist_books_6_5",
+    "label": "购佛经六册共五元",
+    "date": "1923-01-29",
+    "source_file": "1923-01-29.md",
+    "evidence": "以下六册共五元",
+    "people": [],
+    "amount": "5元",
+    "direction": "purchased"
+  },
+  {
+    "id": "txn_qian_changmei_yutai_15",
+    "label": "送钱昌美《玉台新咏》并付书价十五元",
+    "date": "1923-01-30",
+    "source_file": "1923-01-30.md",
+    "evidence": "送钱昌美《玉台新咏》，并付书价十五元",
+    "people": [],
+    "amount": "15元",
+    "direction": "given"
+  },
+  {
+    "id": "txn_zhang_zijun_zeng_yutai",
+    "label": "赠张子俊《玉台新咏》",
+    "date": "1923-01-30",
+    "source_file": "1923-01-30.md",
+    "evidence": "赠《玉台新咏》",
+    "people": [],
+    "amount": null,
+    "direction": "given"
+  },
+  {
+    "id": "txn_taocang_hanwa_5",
+    "label": "购陶仓一对汉富贵万岁瓦五元",
+    "date": "1923-01-31",
+    "source_file": "1923-01-31.md",
+    "evidence": "购陶仓一对...汉富贵万岁瓦，洋五元",
+    "people": [],
+    "amount": "5元",
+    "direction": "purchased"
+  },
+  {
+    "id": "txn_guxiangzhai_70",
+    "label": "古香斋购书画铜器七十元",
+    "date": "1923-01-31",
+    "source_file": "1923-01-31.md",
+    "evidence": "至古香斋，购书画铜器七十元",
+    "people": [],
+    "amount": "70元",
+    "direction": "purchased"
+  },
+  {
+    "id": "txn_tangtian_majing_32",
+    "label": "唐天马蹄镜卅二元",
+    "date": "1923-01-31",
+    "source_file": "1923-01-31.md",
+    "evidence": "唐天马蹄镜，卅二元",
+    "people": [],
+    "amount": "32元",
+    "direction": "purchased"
+  },
+  {
+    "id": "txn_zhandeludao_quan_6",
+    "label": "元至正二十年彰德路权六元",
+    "date": "1923-01-31",
+    "source_file": "1923-01-31.md",
+    "evidence": "元至正二十年彰德路权，六元",
+    "people": [],
+    "amount": "6元",
+    "direction": "purchased"
+  },
+  {
+    "id": "txn_jiang_lishu_6",
+    "label": "江于九恂隶书轴六元",
+    "date": "1923-01-31",
+    "source_file": "1923-01-31.md",
+    "evidence": "江于九恂。隶书轴，六元",
+    "people": [],
+    "amount": "6元",
+    "direction": "purchased"
+  },
+  {
+    "id": "txn_huang_shishou_5",
+    "label": "黄山寿仕女轴五元",
+    "date": "1923-01-31",
+    "source_file": "1923-01-31.md",
+    "evidence": "黄山寿仕女轴，五元",
+    "people": [],
+    "amount": "5元",
+    "direction": "purchased"
+  },
+  {
+    "id": "txn_chen_dongfang_2",
+    "label": "陈洪绶画东方朔象二元",
+    "date": "1923-01-31",
+    "source_file": "1923-01-31.md",
+    "evidence": "陈洪绶画东方朔象，二元",
+    "people": [],
+    "amount": "2元",
+    "direction": "purchased"
+  },
+  {
+    "id": "txn_cao_youlan_5",
+    "label": "曹墨琴书《幽兰赋》五元",
+    "date": "1923-01-31",
+    "source_file": "1923-01-31.md",
+    "evidence": "曹墨琴书《幽兰赋》，五元",
+    "people": [],
+    "amount": "5元",
+    "direction": "purchased"
+  },
+  {
+    "id": "txn_gu_dongfang_6",
+    "label": "顾绣东方朔象六元",
+    "date": "1923-01-31",
+    "source_file": "1923-01-31.md",
+    "evidence": "顾绣东方朔象，六元",
+    "people": [],
+    "amount": "6元",
+    "direction": "purchased"
+  },
+  {
+    "id": "txn_wenxinguo_qin_8",
+    "label": "文信国公遗琴轴吴廷康拓本八元",
+    "date": "1923-01-31",
+    "source_file": "1923-01-31.md",
+    "evidence": "文信国公遗琴轴。吴廷康拓本并题...八元",
+    "people": [],
+    "amount": "8元",
+    "direction": "purchased"
+  },
+  {
+    "id": "txn_zhao_lianlu_12",
+    "label": "赵次闲之琛六言篆书联十二元",
+    "date": "1923-02-02",
+    "source_file": "1923-02-02.md",
+    "evidence": "六言篆书联，集石鼓文。索价十四元。廿九日议定十二元",
+    "people": [],
+    "amount": "12元",
+    "direction": "purchased"
+  },
+  {
+    "id": "txn_shi_er_xu_juan_100",
+    "label": "助十二圩善举一百元",
+    "date": "1923-02-02",
+    "source_file": "1923-02-02.md",
+    "evidence": "允助十二圩善举一百元",
+    "people": [],
+    "amount": "100元",
+    "direction": "given"
+  },
+  {
+    "id": "txn_dayuan_juan_100",
+    "label": "大源公司捐一百元",
+    "date": "1923-02-02",
+    "source_file": "1923-02-02.md",
+    "evidence": "大源公司捐一百元",
+    "people": [],
+    "amount": "100元",
+    "direction": "given"
+  },
+  {
+    "id": "txn_ruxing_jizhuan_2",
+    "label": "购《儒行集传》二卷价洋二元",
+    "date": "1923-02-02",
+    "source_file": "1923-02-02.md",
+    "evidence": "购《儒行集传》二卷...价洋二元",
+    "people": [],
+    "amount": "2元",
+    "direction": "purchased"
+  },
+  {
+    "id": "txn_hanxin_youshan_jing_24",
+    "label": "购汉新有善同镜价洋廿四元",
+    "date": "1923-02-03",
+    "source_file": "1923-02-03.md",
+    "evidence": "购汉新有善同镜，黑漆古，疑破损。价洋廿四元",
+    "people": [],
+    "amount": "24元",
+    "direction": "purchased"
+  },
+  {
+    "id": "txn_chen_songyan_mo_8",
+    "label": "购陈松烟墨约斤价洋捌元",
+    "date": "1923-02-03",
+    "source_file": "1923-02-03.md",
+    "evidence": "购陈松烟墨约斤，价洋捌元",
+    "people": [],
+    "amount": "8元",
+    "direction": "purchased"
+  },
+  {
+    "id": "txn_beixi_ziyi_minus4",
+    "label": "古书流通处《北溪字义》商减四元购成",
+    "date": "1923-02-03",
+    "source_file": "1923-02-03.md",
+    "evidence": "《北溪字义》已向古书流通处商减四元购成",
+    "people": [],
+    "amount": "减4元",
+    "direction": "purchased"
+  },
+  {
+    "id": "txn_hengbai_yan_2_4",
+    "label": "购亨白二五支烟一匣洋二元四角",
+    "date": "1923-02-03",
+    "source_file": "1923-02-03.md",
+    "evidence": "购亨白二五支。烟一匣，洋二元四角",
+    "people": [],
+    "amount": "2.4元",
+    "direction": "purchased"
+  },
+  {
+    "id": "txn_hua_2_pen_2_8",
+    "label": "购花二盆洋二元八角",
+    "date": "1923-02-03",
+    "source_file": "1923-02-03.md",
+    "evidence": "购花二盆，洋二元八角",
+    "people": [],
+    "amount": "2.8元",
+    "direction": "purchased"
+  },
+  {
+    "id": "txn_pay_guxiangzhai_36",
+    "label": "付古香斋汉镜赵联价卅六元",
+    "date": "1923-02-03",
+    "source_file": "1923-02-03.md",
+    "evidence": "付古香斋汉镜、赵联价卅六元",
+    "people": [],
+    "amount": "36元",
+    "direction": "given"
+  },
+  {
+    "id": "txn_taozilin_yutai_102",
+    "label": "陶子麟汇《玉台新咏》刻价一百零二元",
+    "date": "1923-02-03",
+    "source_file": "1923-02-03.md",
+    "evidence": "汇《玉台新咏》刻价一百零二元收到",
+    "people": [],
+    "amount": "102元",
+    "direction": "received"
+  },
+  {
+    "id": "txn_taozilin_zeng_liang_yishi",
+    "label": "陶子麟赠《梁文忠节庵先生遗诗》",
+    "date": "1923-02-03",
+    "source_file": "1923-02-03.md",
+    "evidence": "并赠新刻《梁文忠节庵先生遗诗》",
+    "people": [],
+    "amount": null,
+    "direction": "received"
+  },
+  {
+    "id": "txn_ciyou_juan_9000",
+    "label": "慈幼院捐款实收九千余元",
+    "date": "1923-02-03",
+    "source_file": "1923-02-03.md",
+    "evidence": "慈幼院捐款实收九千余元",
+    "people": [],
+    "amount": "9000余元",
+    "direction": "received"
+  },
+  {
+    "id": "txn_fangsheng_dixu_5000",
+    "label": "放生会再购地五千元",
+    "date": "1923-02-03",
+    "source_file": "1923-02-03.md",
+    "evidence": "现又购地五千元",
+    "people": [],
+    "amount": "5000元",
+    "direction": "purchased"
+  },
+  {
+    "id": "txn_qiu_bian_50",
+    "label": "送邱渭卿匾收洋五十元",
+    "date": "1923-02-19",
+    "source_file": "1923-02-19.md",
+    "evidence": "送邱渭卿匾，收洋五十元",
+    "people": [],
+    "amount": "50元",
+    "direction": "received"
+  },
+  {
+    "id": "txn_tongming_xin_210",
+    "label": "通明公司七月薪二百十元",
+    "date": "1923-02-19",
+    "source_file": "1923-02-19.md",
+    "evidence": "寄通明公司七月薪二百十元收到",
+    "people": [],
+    "amount": "210元",
+    "direction": "received"
   }
 ]

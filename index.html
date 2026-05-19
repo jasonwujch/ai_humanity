@@ -186,25 +186,27 @@
   <!-- People graph -->
   <div class="view" v-show="tab==='people'">
     <div class="controls">
-      <input v-model="peopleSearch" @input="applyPeopleFilter" placeholder="搜索 人名 / 别名" style="width:220px" />
-      <label>最小度数 <input type="number" v-model.number="minDegree" min="0" @input="applyPeopleFilter" style="width:56px" /></label>
+      <button @click="resetGraph" style="padding:5px 12px;border:1px solid #ccc;border-radius:4px;background:#fff;cursor:pointer;font-size:13px">重置 (仅徐乃昌)</button>
+      <button @click="expandTopHubs(20)" style="padding:5px 12px;border:1px solid #ccc;border-radius:4px;background:#fff;cursor:pointer;font-size:13px">加载 top 20 hub</button>
+      <input v-model="addPersonQ" @keyup.enter="addByQuery" placeholder="加入指定人物 (回车)" style="width:200px" />
+      <label>每次展开 N <input type="number" v-model.number="expandN" min="1" max="50" style="width:50px" /></label>
       <label>关系
-        <select v-model="relationFilter" @change="applyPeopleFilter">
+        <select v-model="relationFilter" @change="redrawGraph">
           <option value="">全部</option>
           <option v-for="r in relationOptions" :key="r" :value="r">{{ r }}</option>
         </select>
       </label>
       <label>置信度
-        <select v-model="confFilter" @change="applyPeopleFilter">
+        <select v-model="confFilter" @change="redrawGraph">
           <option value="">全部</option>
           <option value="EXTRACTED">仅原文</option>
           <option value="EXTRACTED_INFERRED">原文+推断</option>
         </select>
       </label>
-      <span class="legend" v-if="peopleData">{{ visibleNodeCount }} / {{ peopleData.nodes.length }} 人 · {{ visibleEdgeCount }} 关系</span>
+      <span class="legend">{{ visibleNodeCount }} / {{ peopleData?.nodes.length || 0 }} 人 · {{ visibleEdgeCount }} 关系 · 上限 500</span>
     </div>
     <div id="people-graph"></div>
-    <div class="legend" style="margin-top:6px">点击节点 → 打开档案 · 双击边 → 查看证据 · 滚轮缩放</div>
+    <div class="legend" style="margin-top:6px">单击节点 → 档案 · 双击节点 → 展开邻居 · 双击边 → 证据 · 右键节点 → 移除</div>
   </div>
 
   <!-- Geo -->
@@ -329,12 +331,18 @@ createApp({
     const txnSearch = ref('');
     const txnHasPerson = ref(false);
     const txnDirection = ref('');
-    const peopleSearch = ref('');
-    const minDegree = ref(3);
     const relationFilter = ref('');
     const confFilter = ref('');
     const visibleNodeCount = ref(0);
     const visibleEdgeCount = ref(0);
+
+    // Lazy graph state
+    const visibleIds = ref(new Set());
+    const expandN = ref(15);
+    const addPersonQ = ref('');
+    const MAX_VISIBLE = 500;
+    // Adjacency index: per id → array of {other, edge}
+    let adj = null;
 
     const indexCat = ref('人');
     const indexSearch = ref('');
@@ -402,7 +410,7 @@ createApp({
 
     watch([tab, txnData, peopleData, locData], ([t, tx, pp, lc]) => {
       if (t === 'txn' && tx && !txnTable) nextTick(() => initTxn(tx));
-      if (t === 'people' && pp && !cyInstance) nextTick(() => applyPeopleFilter());
+      if (t === 'people' && pp && !cyInstance) nextTick(() => initLazyGraph());
       if (t === 'geo' && lc && !leafletMap) nextTick(() => initGeo(lc));
     });
 
@@ -475,44 +483,118 @@ createApp({
       });
     }
 
-    function applyPeopleFilter() {
-      if (!peopleData.value) return;
-      const q = peopleSearch.value.trim();
-      const md = minDegree.value || 0;
+    function buildAdj() {
+      if (adj) return;
+      adj = new Map();
+      for (const n of peopleData.value.nodes) adj.set(n.id, []);
+      for (const e of peopleData.value.edges) {
+        adj.get(e.source)?.push({other: e.target, edge: e});
+        adj.get(e.target)?.push({other: e.source, edge: e});
+      }
+    }
+
+    function initLazyGraph() {
+      buildAdj();
+      // Seed with Xu — find by canonical or label
+      const xu = peopleData.value.nodes.find(n => n.canonical === '徐乃昌' || n.label === '徐乃昌');
+      if (xu) {
+        visibleIds.value = new Set([xu.id]);
+      } else if (peopleData.value.nodes.length) {
+        // Fallback: highest-degree node
+        const top = [...peopleData.value.nodes].sort((a,b)=>(b.degree||0)-(a.degree||0))[0];
+        visibleIds.value = new Set([top.id]);
+      }
+      redrawGraph();
+    }
+
+    function expandNode(nodeId, n) {
+      buildAdj();
+      n = n || expandN.value || 15;
+      const neighbours = (adj.get(nodeId) || [])
+        .filter(({edge}) => passFilter(edge))
+        .sort((a, b) => {
+          const da = (peopleData.value.nodes.find(x=>x.id===a.other)?.degree)||0;
+          const db = (peopleData.value.nodes.find(x=>x.id===b.other)?.degree)||0;
+          return db - da;
+        });
+      let added = 0;
+      const set = new Set(visibleIds.value);
+      for (const {other} of neighbours) {
+        if (set.size >= MAX_VISIBLE) break;
+        if (!set.has(other)) { set.add(other); added++; }
+        if (added >= n) break;
+      }
+      visibleIds.value = set;
+      redrawGraph(nodeId);
+      return added;
+    }
+
+    function expandTopHubs(k) {
+      buildAdj();
+      const set = new Set(visibleIds.value);
+      const top = [...peopleData.value.nodes]
+        .filter(n => !set.has(n.id))
+        .sort((a,b)=>(b.degree||0)-(a.degree||0))
+        .slice(0, k);
+      for (const n of top) { if (set.size < MAX_VISIBLE) set.add(n.id); }
+      visibleIds.value = set;
+      redrawGraph();
+    }
+
+    function addByQuery() {
+      const q = addPersonQ.value.trim();
+      if (!q) return;
+      const hit = peopleData.value.nodes.find(n =>
+        (n.label||'').includes(q) || (n.aliases||[]).some(a=>(a||'').includes(q))
+      );
+      if (!hit) { alert('未找到 ' + q); return; }
+      const set = new Set(visibleIds.value);
+      if (set.size < MAX_VISIBLE) set.add(hit.id);
+      visibleIds.value = set;
+      addPersonQ.value = '';
+      redrawGraph(hit.id);
+    }
+
+    function removeNode(nodeId) {
+      const set = new Set(visibleIds.value);
+      set.delete(nodeId);
+      visibleIds.value = set;
+      redrawGraph();
+    }
+
+    function resetGraph() {
+      initLazyGraph();
+    }
+
+    function passFilter(edge) {
       const rel = relationFilter.value;
       const cf = confFilter.value;
-      const baseNodes = peopleData.value.nodes
-        .filter(n => n.degree >= md)
-        .filter(n => !q || (n.label||'').includes(q) || (n.aliases||[]).some(a=>(a||'').includes(q)));
-      const baseIds = new Set(baseNodes.map(n => n.id));
-      const edges = peopleData.value.edges.filter(e => {
-        if (!baseIds.has(e.source) || !baseIds.has(e.target)) return false;
-        if (rel && e.relation !== rel) return false;
-        if (cf === 'EXTRACTED' && e.confidence !== 'EXTRACTED') return false;
-        if (cf === 'EXTRACTED_INFERRED' && !['EXTRACTED','INFERRED'].includes(e.confidence)) return false;
-        return true;
-      });
-      let nodeIds = baseIds;
-      if (rel || cf) {
-        const connected = new Set();
-        edges.forEach(e => { connected.add(e.source); connected.add(e.target); });
-        nodeIds = connected;
-      }
-      const nodes = baseNodes.filter(n => nodeIds.has(n.id));
+      if (rel && edge.relation !== rel) return false;
+      if (cf === 'EXTRACTED' && edge.confidence !== 'EXTRACTED') return false;
+      if (cf === 'EXTRACTED_INFERRED' && !['EXTRACTED','INFERRED'].includes(edge.confidence)) return false;
+      return true;
+    }
+
+    function redrawGraph(focusId) {
+      if (!peopleData.value) return;
+      const ids = visibleIds.value;
+      const nodes = peopleData.value.nodes.filter(n => ids.has(n.id));
+      const edges = peopleData.value.edges.filter(e => ids.has(e.source) && ids.has(e.target) && passFilter(e));
       visibleNodeCount.value = nodes.length;
       visibleEdgeCount.value = edges.length;
-      renderPeople(nodes, edges, openProfileById);
+      renderPeople(nodes, edges, openProfileById, expandNode, removeNode, focusId);
     }
 
     return {
       tab, overview, peopleData, txnData, locData, profiles, allNodes,
       globalQ, searchOpen, searchHits, onSearch, selectHit,
       txnSearch, txnHasPerson, txnDirection,
-      peopleSearch, minDegree, relationFilter, confFilter,
+      relationFilter, confFilter,
       visibleNodeCount, visibleEdgeCount,
+      expandN, addPersonQ, addByQuery, expandTopHubs, resetGraph, redrawGraph,
       indexCat, indexSearch, indexCategories, indexRows,
       sortedEntityTypes, sortedRelationTypes, relationOptions, maxEntity, maxRelation,
-      applyTxnFilter, applyPeopleFilter,
+      applyTxnFilter,
       profile, profileKind, profileKindLabel, openProfile, openProfileById, neighbourLabel,
     };
   }
@@ -551,15 +633,22 @@ document.addEventListener('openProfileById', (e) => {
   if (window.__vueOpenProfile) window.__vueOpenProfile(e.detail);
 });
 
-function renderPeople(nodes, edges, onTap){
+function renderPeople(nodes, edges, onTap, onDblTap, onRemove, focusId){
   const elements = [
     ...nodes.map(n => ({data:{id:n.id, label:n.label, degree:n.degree, aliases:(n.aliases||[]).join('、')}})),
-    ...edges.map(e => ({data:{source:e.source, target:e.target, relation:e.relation, confidence:e.confidence, evidence:e.evidence, date:e.date}})),
+    ...edges.map(e => ({data:{id:`${e.source}--${e.relation}--${e.target}`, source:e.source, target:e.target, relation:e.relation, confidence:e.confidence, evidence:e.evidence, date:e.date}})),
   ];
+  const layoutOpts = {name:'cose', animate:false, idealEdgeLength:100, nodeRepulsion:8000, randomize:false, fit:true, padding:30};
   if (cyInstance) {
     cyInstance.elements().remove();
     cyInstance.add(elements);
-    cyInstance.layout({name:'cose', animate:false, idealEdgeLength:90, nodeRepulsion:6000}).run();
+    cyInstance.layout(layoutOpts).run();
+    if (focusId) {
+      const node = cyInstance.getElementById(focusId);
+      if (node && node.length) {
+        setTimeout(() => cyInstance.animate({center:{eles:node}, zoom: Math.max(1.0, cyInstance.zoom())}, {duration:300}), 50);
+      }
+    }
     return;
   }
   cyInstance = cytoscape({
@@ -569,39 +658,58 @@ function renderPeople(nodes, edges, onTap){
       {selector:'node', style:{
         label:'data(label)',
         'background-color':'#1d4ed8',
-        'width':'mapData(degree,0,80,14,72)',
-        'height':'mapData(degree,0,80,14,72)',
-        'font-size':10,
+        'width':'mapData(degree,0,200,16,80)',
+        'height':'mapData(degree,0,200,16,80)',
+        'font-size':11,
         'text-valign':'center', 'text-halign':'center',
         'color':'#fff',
-        'text-outline-color':'#1d4ed8', 'text-outline-width':1,
+        'text-outline-color':'#1d4ed8', 'text-outline-width':1.5,
         'border-width':0,
       }},
+      {selector:'node:active', style:{'overlay-opacity':0.2,'overlay-color':'#fbbf24'}},
       {selector:'edge', style:{
-        'line-color':'#bbb',
+        'line-color':'#cbd5e1',
         'curve-style':'bezier',
-        'width':1,
+        'width':1.2,
         label:'data(relation)',
-        'font-size':8,
-        'color':'#888',
+        'font-size':9,
+        'color':'#64748b',
         'text-rotation':'autorotate',
         'text-background-color':'#fff',
-        'text-background-opacity':0.7,
-        'text-background-padding':1,
+        'text-background-opacity':0.8,
+        'text-background-padding':2,
+        'target-arrow-shape':'triangle',
+        'target-arrow-color':'#cbd5e1',
+        'arrow-scale':0.8,
       }},
-      {selector:'edge[confidence = "INFERRED"]', style:{'line-style':'dashed', 'line-color':'#999'}},
-      {selector:'edge[confidence = "AMBIGUOUS"]', style:{'line-color':'#e57373','line-style':'dotted'}},
+      {selector:'edge[confidence = "INFERRED"]', style:{'line-style':'dashed', 'line-color':'#94a3b8', 'target-arrow-color':'#94a3b8'}},
+      {selector:'edge[confidence = "AMBIGUOUS"]', style:{'line-color':'#e57373','line-style':'dotted','target-arrow-color':'#e57373'}},
       {selector:':selected', style:{'background-color':'#f59e0b','line-color':'#f59e0b','border-width':3,'border-color':'#fbbf24'}},
     ],
-    layout:{name:'cose', animate:false, idealEdgeLength:90, nodeRepulsion:6000},
+    layout: layoutOpts,
     wheelSensitivity:0.2,
+    boxSelectionEnabled: false,
   });
+  // Single tap → profile (delayed so dbl-tap can preempt)
+  let tapTimer = null;
   cyInstance.on('tap', 'node', (evt) => {
-    if (onTap) onTap(evt.target.id());
+    const id = evt.target.id();
+    if (tapTimer) { clearTimeout(tapTimer); tapTimer = null; }
+    tapTimer = setTimeout(() => {
+      tapTimer = null;
+      if (onTap) onTap(id);
+    }, 260);
+  });
+  cyInstance.on('dbltap', 'node', (evt) => {
+    if (tapTimer) { clearTimeout(tapTimer); tapTimer = null; }
+    if (onDblTap) onDblTap(evt.target.id());
   });
   cyInstance.on('tap', 'edge', (evt) => {
     const d = evt.target.data();
     alert(`${d.relation || '关系'}\n证据: ${d.evidence || '(无)'}\n日期: ${d.date || '?'}\n置信度: ${d.confidence || '?'}`);
+  });
+  cyInstance.on('cxttap', 'node', (evt) => {
+    if (onRemove) onRemove(evt.target.id());
   });
 }
 
