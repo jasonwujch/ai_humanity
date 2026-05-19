@@ -447,7 +447,13 @@
       <button @click="flyTo('南通')">南通</button>
       <button @click="flyTo('南陵')">南陵 (祖籍)</button>
       <button @click="resetGeoView">全域</button>
+      <button @click="toggleTrajectory">{{ trajectoryPlaying ? '⏸ 暂停' : '▶ 行迹动画' }}</button>
+      <button v-if="trajectoryIdx > 0 || trajectoryPlaying" @click="trajectoryIdx=0;updateTrajectoryFrame()">⏮</button>
+      <span v-if="trajectoryIdx >= 0 && locData?.visits?.[trajectoryIdx]" class="legend" style="font-family:ui-monospace,monospace;color:var(--accent);font-weight:600">{{ locData.visits[trajectoryIdx].date }}</span>
       <span class="legend">{{ locData.visits.length }} 次行迹 · {{ locData.visits.length - Object.values(locData.unmapped_top).reduce((a,b)=>a+b,0) }} 已定位 · {{ Object.values(locData.unmapped_top).reduce((a,b)=>a+b,0) }} 未定位</span>
+    </div>
+    <div v-if="trajectoryIdx >= 0" style="margin-bottom:8px">
+      <input type="range" :min="0" :max="(locData?.visits?.length || 1)-1" v-model.number="trajectoryIdx" @input="updateTrajectoryFrame" style="width:100%" />
     </div>
     <div id="geo-map"></div>
     <div class="legend" style="margin-top:6px">城市圆点 (zoom < 11) · 缩放到城内自动显示场所小点 · 点击查看时间与证据</div>
@@ -1288,6 +1294,65 @@ createApp({
       if (!peopleData.value) return [];
       return [...peopleData.value.nodes].sort((a,b)=>(b.degree||0)-(a.degree||0)).slice(0, 24);
     });
+
+    const trajectoryIdx = ref(-1);
+    const trajectoryPlaying = ref(false);
+    let trajectoryTimer = null;
+    let trajectoryMarker = null;
+    let trajectoryTrail = null;
+
+    function toggleTrajectory() {
+      if (trajectoryPlaying.value) {
+        trajectoryPlaying.value = false;
+        if (trajectoryTimer) { clearInterval(trajectoryTimer); trajectoryTimer = null; }
+        return;
+      }
+      if (!locData.value?.visits?.length || !leafletMap) return;
+      if (trajectoryIdx.value < 0) trajectoryIdx.value = 0;
+      trajectoryPlaying.value = true;
+      trajectoryTimer = setInterval(() => {
+        if (trajectoryIdx.value >= locData.value.visits.length - 1) {
+          trajectoryPlaying.value = false;
+          clearInterval(trajectoryTimer); trajectoryTimer = null;
+          return;
+        }
+        trajectoryIdx.value += 1;
+        updateTrajectoryFrame();
+      }, 200);
+    }
+
+    function updateTrajectoryFrame() {
+      if (!leafletMap || !locData.value) return;
+      const i = trajectoryIdx.value;
+      const visits = locData.value.visits || [];
+      const coords = locData.value.coords || {};
+      const venueCoords = locData.value.venue_coords || {};
+      function coordFor(v) {
+        if (venueCoords[v.location_label]) return venueCoords[v.location_label];
+        const c = v.resolved_city;
+        if (c && coords[c]) return coords[c];
+        return null;
+      }
+      const cur = visits[i];
+      if (!cur) return;
+      const here = coordFor(cur);
+      if (!here) return;
+      if (!trajectoryMarker) {
+        trajectoryMarker = L.circleMarker(here, {radius: 10, color: '#9b2926', weight: 3, fillColor: '#9b2926', fillOpacity: 0.85}).addTo(leafletMap);
+      } else {
+        trajectoryMarker.setLatLng(here);
+      }
+      // Trail of last 8 positions
+      const recent = [];
+      for (let k = Math.max(0, i - 7); k <= i; k++) {
+        const c = coordFor(visits[k]);
+        if (c) recent.push(c);
+      }
+      if (trajectoryTrail) leafletMap.removeLayer(trajectoryTrail);
+      trajectoryTrail = L.polyline(recent, {color: '#9b2926', weight: 2, opacity: 0.6, dashArray: '4 4'}).addTo(leafletMap);
+      // Pan to position
+      leafletMap.panTo(here, {animate: true, duration: 0.3});
+    }
 
     function flyTo(cityName) {
       const c = locData.value?.coords?.[cityName];
@@ -2270,6 +2335,7 @@ createApp({
       hasWikiPage,
       sourcePopup, openSourcePopup,
       flyTo, resetGeoView,
+      trajectoryIdx, trajectoryPlaying, toggleTrajectory, updateTrajectoryFrame,
       profile, profileKind, profileKindLabel, openProfile, openProfileById, openEventProfile, neighbourLabel,
     };
   }
