@@ -767,8 +767,68 @@
       "label": "福建"
     },
     {
+      "id": "loc_xinlvshe",
+      "label": "新旅社"
+    },
+    {
+      "id": "loc_wutaishan",
+      "label": "五台山"
+    },
+    {
+      "id": "loc_shaoxing",
+      "label": "绍兴"
+    },
+    {
+      "id": "loc_renhe",
+      "label": "仁和"
+    },
+    {
+      "id": "loc_shanxi_yuxiang",
+      "label": "山西虞乡"
+    },
+    {
       "id": "loc_xiushui",
       "label": "秀水"
+    },
+    {
+      "id": "loc_jinshan",
+      "label": "金山"
+    },
+    {
+      "id": "loc_meiguo",
+      "label": "美国"
+    },
+    {
+      "id": "loc_nanjing_daoshujie",
+      "label": "南京道署街"
+    },
+    {
+      "id": "loc_yihonglou",
+      "label": "倚虹楼"
+    },
+    {
+      "id": "loc_chiling",
+      "label": "赤岭"
+    },
+    {
+      "id": "loc_yangjiashan",
+      "label": "杨家山"
+    },
+    {
+      "id": "loc_wuyuan",
+      "label": "婺源"
+    },
+    {
+      "id": "loc_yujianong_38",
+      "label": "俞家弄卅八号"
+    },
+    {
+      "id": "loc_wanqing_hutian",
+      "label": "万顷湖田"
+    },
+    {
+      "id": "loc_houshan",
+      "label": "后山"
     },
     {
       "id": "loc_dingjiachong",
@@ -1187,10 +1247,6 @@
       "label": "龙潭"
     },
     {
-      "id": "loc_yihonglou",
-      "label": "倚虹楼"
-    },
-    {
       "id": "loc_dadong_jiulou",
       "label": "大东酒楼"
     },
@@ -1527,10 +1583,6 @@
       "label": "天然庵"
     },
     {
-      "id": "loc_shaoxing",
-      "label": "绍兴"
-    },
-    {
       "id": "loc_huacheng_si",
       "label": "化成寺"
     },
@@ -1707,16 +1759,8 @@
       "label": "汤村"
     },
     {
-      "id": "loc_chiling",
-      "label": "赤岭"
-    },
-    {
       "id": "loc_aoguanwu",
       "label": "鳌官屋"
-    },
-    {
-      "id": "loc_yangjiashan",
-      "label": "杨家山"
     },
     {
       "id": "loc_yibaiwu",
@@ -2195,10 +2239,6 @@
       "label": "武昌"
     },
     {
-      "id": "loc_wuyuan",
-      "label": "婺源"
-    },
-    {
       "id": "loc_chuyuan",
       "label": "楚园"
     },
@@ -2501,10 +2541,6 @@
     {
       "id": "loc_tongling_yeshanchong",
       "label": "铜陵县叶山冲"
-    },
-    {
-      "id": "loc_meiguo",
-      "label": "美国"
     },
     {
       "id": "loc_aiyun_yingxiyuan",
@@ -3293,10 +3329,6 @@
     {
       "id": "loc_jiangdu",
       "label": "江都"
-    },
-    {
-      "id": "loc_jinshan",
-      "label": "金山"
     },
     {
       "id": "loc_danxu",

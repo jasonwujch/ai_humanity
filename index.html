@@ -165,6 +165,7 @@
     <button :class="{active:tab==='overview'}" @click="tab='overview'">总览</button>
     <button :class="{active:tab==='txn'}" @click="tab='txn'">账单</button>
     <button :class="{active:tab==='books'}" @click="tab='books'">藏书</button>
+    <button :class="{active:tab==='events'}" @click="tab='events'">事件聚会</button>
     <button :class="{active:tab==='people'}" @click="tab='people'">人物关系</button>
     <button :class="{active:tab==='geo'}" @click="tab='geo'">作者行迹</button>
     <button :class="{active:tab==='reader'}" @click="tab='reader'">日记阅读</button>
@@ -246,6 +247,39 @@
       <span class="legend" v-if="booksData">{{ booksData.length }} 部 · {{ booksData.filter(b=>b.people.length>0).length }} 有人物关联</span>
     </div>
     <div id="books-table"></div>
+  </div>
+
+  <!-- Events -->
+  <div class="view" v-show="tab==='events'">
+    <div class="controls">
+      <input v-model="eventSearch" placeholder="搜索 事件 / 参与人" style="width:240px" />
+      <label>关系
+        <select v-model="eventRelation">
+          <option value="">全部</option>
+          <option v-for="r in eventRelations" :key="r" :value="r">{{ r }}</option>
+        </select>
+      </label>
+      <label>最少参与
+        <input type="number" v-model.number="eventMinMembers" min="2" style="width:60px" />
+      </label>
+      <span class="legend" v-if="eventsData">{{ filteredEvents.length }} / {{ eventsData.length }} 事件</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr;gap:8px;max-height:calc(100vh - 240px);overflow-y:auto">
+      <div v-for="e in filteredEvents.slice(0,300)" :key="e.id" style="background:#fff;border:1px solid var(--border);border-radius:6px;padding:12px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px">
+          <div>
+            <span class="chip chip-evt">{{ e.relation }}</span>
+            <span style="font-family:ui-monospace,monospace;color:#888;font-size:12px;margin-left:6px">{{ e.date || '?' }}</span>
+            <strong style="margin-left:8px">{{ e.label }}</strong>
+          </div>
+          <span class="legend">{{ e.members.length }} 参与 · 置信 {{ e.confidence_score }}</span>
+        </div>
+        <div style="margin-top:8px">
+          <span v-for="m in e.members" :key="m.id" class="chip" :class="'chip-'+kindOf(m.type)" style="cursor:pointer;margin:2px" @click="openProfileById(m.id)">{{ m.label }}</span>
+        </div>
+      </div>
+      <div v-if="filteredEvents.length > 300" style="text-align:center;color:var(--muted);padding:10px">仅显示前 300 / {{ filteredEvents.length }}</div>
+    </div>
   </div>
 
   <!-- People graph -->
@@ -444,6 +478,10 @@ createApp({
     const bookHasPerson = ref(false);
     const chunksData = ref(null);
     const readerDate = ref(null);
+    const eventsData = ref(null);
+    const eventSearch = ref('');
+    const eventRelation = ref('');
+    const eventMinMembers = ref(2);
     const relationFilter = ref('');
     const confFilter = ref('');
     const visibleNodeCount = ref(0);
@@ -489,7 +527,7 @@ createApp({
     });
 
     onMounted(async () => {
-      const [ov, tx, pp, lc, pr, bk, ck] = await Promise.all([
+      const [ov, tx, pp, lc, pr, bk, ck, ev] = await Promise.all([
         fetch('data/overview.json').then(r=>r.json()),
         fetch('data/transactions.json').then(r=>r.json()),
         fetch('data/people_graph.json').then(r=>r.json()),
@@ -497,9 +535,10 @@ createApp({
         fetch('data/people_profiles.json').then(r=>r.json()),
         fetch('data/books.json').then(r=>r.json()).catch(() => []),
         fetch('data/chunks.json').then(r=>r.json()).catch(() => ({})),
+        fetch('data/events.json').then(r=>r.json()).catch(() => []),
       ]);
       overview.value = ov; txnData.value = tx; peopleData.value = pp; locData.value = lc; profiles.value = pr;
-      booksData.value = bk; chunksData.value = ck;
+      booksData.value = bk; chunksData.value = ck; eventsData.value = ev;
       const dates = Object.keys(ck).sort();
       if (dates.length && !readerDate.value) readerDate.value = dates[0];
 
@@ -727,6 +766,22 @@ createApp({
       return ENTITY_KIND_MAP[entity_type]?.kind || 'per';
     }
 
+    // ── Events ───────────────────────────────────────────────────────────
+    const eventRelations = computed(() => eventsData.value ? [...new Set(eventsData.value.map(e=>e.relation).filter(Boolean))].sort() : []);
+    const filteredEvents = computed(() => {
+      if (!eventsData.value) return [];
+      const q = eventSearch.value.trim();
+      const rel = eventRelation.value;
+      const mm = eventMinMembers.value || 2;
+      return eventsData.value.filter(e => {
+        if (rel && e.relation !== rel) return false;
+        if ((e.members?.length || 0) < mm) return false;
+        if (!q) return true;
+        const blob = [e.label, ...(e.members||[]).map(m=>m.label||'')].join(' ');
+        return blob.includes(q);
+      });
+    });
+
     // ── Reader ───────────────────────────────────────────────────────────
     const readerDates = computed(() => chunksData.value ? Object.keys(chunksData.value).sort() : []);
     const readerByMonth = computed(() => {
@@ -852,6 +907,7 @@ createApp({
       booksData, bookSearch, bookHasPerson,
       chunksData, readerDate, readerDates, readerByMonth, currentChunk, highlightedBody, entitiesByType,
       prevDay, nextDay, jumpDate,
+      eventsData, eventSearch, eventRelation, eventMinMembers, eventRelations, filteredEvents,
       profile, profileKind, profileKindLabel, openProfile, openProfileById, neighbourLabel,
     };
   }

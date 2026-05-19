@@ -809,7 +809,7 @@
     "evidence": "梦坡贻《晨风庐唱和续集》三卷共二部",
     "people": [
       {
-        "id": "per_zhou_mengpo",
+        "id": "per_mengpo",
         "label": "周梦坡",
         "type": "人",
         "relation": "赠"
@@ -1772,7 +1772,7 @@
     "evidence": "周梦坡金文十种",
     "people": [
       {
-        "id": "per_zhou_mengpo",
+        "id": "per_mengpo",
         "label": "周梦坡",
         "type": "人",
         "relation": "受赠"
@@ -21123,6 +21123,315 @@
     "people": [],
     "amount": "一百元",
     "direction": "out"
+  },
+  {
+    "id": "txn_buy_qingliangshan",
+    "label": "购《清凉山新志》洋十元",
+    "date": "1922-12-30",
+    "source_file": "1922-12-30.md",
+    "evidence": "购杭估《清凉山新志》十卷",
+    "people": [],
+    "amount": "洋十元",
+    "direction": "buy"
+  },
+  {
+    "id": "txn_wu_remit_2400",
+    "label": "吴舜臣汇来洋二千四百元",
+    "date": "1922-12-30",
+    "source_file": "1922-12-30.md",
+    "evidence": "昨吴舜臣汇来交通银行。洋二千四百元",
+    "people": [],
+    "amount": "洋二千四百元",
+    "direction": "incoming"
+  },
+  {
+    "id": "txn_xuancheng_dongzhen_2000",
+    "label": "宣城冬振二千元",
+    "date": "1922-12-30",
+    "source_file": "1922-12-30.md",
+    "evidence": "暂借付宣城冬振二千元",
+    "people": [],
+    "amount": "二千元",
+    "direction": "outgoing"
+  },
+  {
+    "id": "txn_silver_2000_funeral",
+    "label": "赏银二千元治丧",
+    "date": "1922-12-30",
+    "source_file": "1922-12-30.md",
+    "evidence": "赏银二千元治丧",
+    "people": [],
+    "amount": "二千元",
+    "direction": "imperial_grant"
+  },
+  {
+    "id": "txn_pan_buy_liuhedongji",
+    "label": "潘明训四千三百元购《柳河东集》",
+    "date": "1922-12-31",
+    "source_file": "1922-12-31.md",
+    "evidence": "潘明训以四千三百元得之",
+    "people": [],
+    "amount": "四千三百元",
+    "direction": "buy"
+  },
+  {
+    "id": "txn_jieshao_300",
+    "label": "酬绍介人三百元",
+    "date": "1922-12-31",
+    "source_file": "1922-12-31.md",
+    "evidence": "另酬劳绍介人三百元",
+    "people": [],
+    "amount": "三百元",
+    "direction": "outgoing"
+  },
+  {
+    "id": "txn_tangbei_30",
+    "label": "唐柏梯寺碑卅元",
+    "date": "1922-12-31",
+    "source_file": "1922-12-31.md",
+    "evidence": "前虽出价卅元，今仍还之",
+    "people": [],
+    "amount": "卅元",
+    "direction": "return"
+  },
+  {
+    "id": "txn_yichan_100000",
+    "label": "杨述堂遗产十万元拨皖",
+    "date": "1922-12-31",
+    "source_file": "1922-12-31.md",
+    "evidence": "划归皖省建祠兴学之十万元",
+    "people": [],
+    "amount": "十万元",
+    "direction": "transfer"
+  },
+  {
+    "id": "txn_youyi_quan",
+    "label": "游艺券卅张洋四十元",
+    "date": "1923-01-02",
+    "source_file": "1923-01-02.md",
+    "evidence": "收旅沪安徽公学游艺券赠券二张,交券价四十元,还券卅张",
+    "people": [],
+    "amount": "四十元",
+    "direction": "purchase"
+  },
+  {
+    "id": "txn_honghuayou",
+    "label": "印度红花油",
+    "date": "1923-01-02",
+    "source_file": "1923-01-02.md",
+    "evidence": "赠印度红花油",
+    "people": [
+      {
+        "id": "per_li_zixin",
+        "label": "李子馨",
+        "type": "人",
+        "relation": "赠"
+      }
+    ],
+    "amount": null,
+    "direction": "gift_in"
+  },
+  {
+    "id": "txn_mengpo_shouzi",
+    "label": "屏资一元梦坡六十寿",
+    "date": "1923-01-03",
+    "source_file": "1923-01-03.md",
+    "evidence": "今交醉愚汇送，并屏资一元",
+    "people": [],
+    "amount": "一元",
+    "direction": "outgoing"
+  },
+  {
+    "id": "txn_shiyegupiao_207",
+    "label": "实业股票二百○七元",
+    "date": "1923-01-03",
+    "source_file": "1923-01-03.md",
+    "evidence": "售实业股票二百○七元已收到",
+    "people": [],
+    "amount": "二百○七元",
+    "direction": "sell"
+  },
+  {
+    "id": "txn_zao_xiang",
+    "label": "赠造象二种",
+    "date": "1923-01-03",
+    "source_file": "1923-01-03.md",
+    "evidence": "赠造象二种、魏、唐释道二象",
+    "people": [
+      {
+        "id": "per_li_mugong",
+        "label": "李木公",
+        "type": "人",
+        "relation": "受赠"
+      }
+    ],
+    "amount": null,
+    "direction": "gift_out"
+  },
+  {
+    "id": "txn_mengpo_shouwu",
+    "label": "周梦坡六十寿红花缎幢",
+    "date": "1923-01-03",
+    "source_file": "1923-01-03.md",
+    "evidence": "送周梦坡六十寿红花缎幢、红烛",
+    "people": [
+      {
+        "id": "per_mengpo",
+        "label": "周梦坡",
+        "type": "人",
+        "relation": "受赠"
+      }
+    ],
+    "amount": null,
+    "direction": "gift_out"
+  },
+  {
+    "id": "txn_wang_xiexun_zhuang",
+    "label": "汪撷荀之太夫人素幢",
+    "date": "1923-01-03",
+    "source_file": "1923-01-03.md",
+    "evidence": "送汪 撷荀之太夫人洋缎素幢、素烛",
+    "people": [
+      {
+        "id": "per_wang_xiexun",
+        "label": "汪撷荀",
+        "type": "人",
+        "relation": "受赠"
+      }
+    ],
+    "amount": null,
+    "direction": "gift_out"
+  },
+  {
+    "id": "txn_chashi",
+    "label": "茶食罐诘各四",
+    "date": "1923-01-04",
+    "source_file": "1923-01-04.md",
+    "evidence": "赠茶食、罐诘各四",
+    "people": [
+      {
+        "id": "per_yu_changquan",
+        "label": "俞昌权",
+        "type": "人",
+        "relation": "受赠"
+      }
+    ],
+    "amount": null,
+    "direction": "gift_out"
+  },
+  {
+    "id": "txn_bao_xinzhai_zhuang",
+    "label": "鲍心斋之太夫人东缎素幢",
+    "date": "1923-01-05",
+    "source_file": "1923-01-05.md",
+    "evidence": "送鲍心斋之太夫人东缎素幢、烛",
+    "people": [
+      {
+        "id": "per_bao_xinzhai",
+        "label": "鲍心斋",
+        "type": "人",
+        "relation": "受赠"
+      }
+    ],
+    "amount": null,
+    "direction": "gift_out"
+  },
+  {
+    "id": "txn_yutai_chen",
+    "label": "送陈贵阳师《玉台新咏》",
+    "date": "1923-01-05",
+    "source_file": "1923-01-05.md",
+    "evidence": "送陈贵阳师《玉台新咏》",
+    "people": [],
+    "amount": null,
+    "direction": "gift_out"
+  },
+  {
+    "id": "txn_huajinlou_chen",
+    "label": "陈贵阳赠《花近楼诗存》",
+    "date": "1923-01-05",
+    "source_file": "1923-01-05.md",
+    "evidence": "师覆赠《花近楼诗存》五编",
+    "people": [],
+    "amount": null,
+    "direction": "gift_in"
+  },
+  {
+    "id": "txn_yutai_feng",
+    "label": "赠冯蒿丈《玉台新咏》",
+    "date": "1923-01-05",
+    "source_file": "1923-01-05.md",
+    "evidence": "赠冯蒿丈《玉台新咏》",
+    "people": [],
+    "amount": null,
+    "direction": "gift_out"
+  },
+  {
+    "id": "txn_yutai_heng_jin",
+    "label": "赠恒季申瑾叔《玉台新咏》",
+    "date": "1923-01-05",
+    "source_file": "1923-01-05.md",
+    "evidence": "赠恒季申、瑾叔《玉台新咏》",
+    "people": [],
+    "amount": null,
+    "direction": "gift_out"
+  },
+  {
+    "id": "txn_xianshi_400",
+    "label": "付先施四百元家用",
+    "date": "1923-01-06",
+    "source_file": "1923-01-06.md",
+    "evidence": "付先施四百元家用",
+    "people": [],
+    "amount": "四百元",
+    "direction": "outgoing"
+  },
+  {
+    "id": "txn_shangwu_shoushu_88",
+    "label": "商务寄售书洋八十八元",
+    "date": "1923-01-09",
+    "source_file": "1923-01-09.md",
+    "evidence": "商务书馆寄售股交书、售书洋八十八元一角六分",
+    "people": [],
+    "amount": "八十八元一角六分",
+    "direction": "incoming"
+  },
+  {
+    "id": "txn_daqing_100",
+    "label": "代购《大清会典》一百元",
+    "date": "1923-01-09",
+    "source_file": "1923-01-09.md",
+    "evidence": "付还代购《大清会典》书价壹百元",
+    "people": [],
+    "amount": "壹百元",
+    "direction": "outgoing"
+  },
+  {
+    "id": "txn_yutai_fu",
+    "label": "傅沅叔《玉台新咏》蓝印本",
+    "date": "1923-01-09",
+    "source_file": "1923-01-09.md",
+    "evidence": "另寄蓝印本赠《玉台新咏》一部",
+    "people": [
+      {
+        "id": "per_fu_yuanshu",
+        "label": "傅沅叔(增湘)",
+        "type": "人",
+        "relation": "受赠"
+      }
+    ],
+    "amount": "书价一百六十元",
+    "direction": "mixed"
+  },
+  {
+    "id": "txn_huining_100",
+    "label": "徽宁同乡会捐款壹百元",
+    "date": "1923-01-09",
+    "source_file": "1923-01-09.md",
+    "evidence": "收捐款壹百元",
+    "people": [],
+    "amount": "壹百元",
+    "direction": "outgoing"
   },
   {
     "id": "txn_beixi_ziyi_offer",

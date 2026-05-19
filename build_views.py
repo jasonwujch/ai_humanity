@@ -506,7 +506,41 @@ for n in per_nodes_deduped:
 (out_dir / 'people_profiles.json').write_text(json.dumps(per_profile, ensure_ascii=False, indent=2), encoding='utf-8')
 
 
-# ── 7) chunks (raw diary text + per-chunk entity index) ─────────────────────
+# ── 7) hyperedges (multi-party events) ──────────────────────────────────────
+events_out = []
+for h in src['hyperedges']:
+    members = []
+    for mid in h.get('nodes') or []:
+        mn = nodes_by_id.get(mid, {})
+        if not mn: continue
+        cm_id = redirect(mid) if mn.get('entity_type') == '人' else mid
+        cm_n = nodes_by_id.get(cm_id, mn)
+        members.append({
+            'id': cm_id,
+            'label': cm_n.get('label') or mn.get('label'),
+            'type': mn.get('entity_type'),
+        })
+    # Extract date from id or label
+    date = None
+    label = h.get('label') or ''
+    import re as _re
+    m = _re.search(r'(19\d{2}[-_]\d{2}[-_]\d{2})', h.get('id', '') + ' ' + label)
+    if m:
+        date = m.group(1).replace('_', '-')
+    events_out.append({
+        'id': h.get('id'),
+        'label': label,
+        'relation': h.get('relation'),
+        'confidence': h.get('confidence'),
+        'confidence_score': h.get('confidence_score'),
+        'date': date,
+        'source_file': normalize_source(h.get('source_file')),
+        'members': members,
+    })
+events_out.sort(key=lambda e: e.get('date') or '')
+(out_dir / 'events.json').write_text(json.dumps(events_out, ensure_ascii=False, indent=2), encoding='utf-8')
+
+# ── 8) chunks (raw diary text + per-chunk entity index) ─────────────────────
 chunk_dir = ROOT / 'data' / 'poc_200'
 chunks = {}
 for md_file in sorted(chunk_dir.glob('*.md')):

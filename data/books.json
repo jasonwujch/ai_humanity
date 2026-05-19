@@ -782,7 +782,7 @@
     "mentions": 2,
     "people": [
       {
-        "id": "per_zhou_mengpo",
+        "id": "per_mengpo",
         "label": "周梦坡",
         "relation": "赠",
         "date": "1920-08-07",
@@ -1515,22 +1515,6 @@
     ],
     "first_seen": "1921-06-13",
     "last_seen": "1921-06-21",
-    "mentions": 2,
-    "people": [],
-    "orgs": [],
-    "txns": [],
-    "relation_counts": {},
-    "source_file": "1921-06-13.md"
-  },
-  {
-    "id": "book_conggutang",
-    "label": "《从古堂款识学》",
-    "canonical": "《从古堂款识学》",
-    "aliases": [
-      "《从古堂款识学》"
-    ],
-    "first_seen": "1921-06-13",
-    "last_seen": "1921-06-18",
     "mentions": 2,
     "people": [],
     "orgs": [],
@@ -5084,6 +5068,41 @@
     "mentions": 1,
     "people": [
       {
+        "id": "per_li_zixin",
+        "label": "李子馨",
+        "relation": "受赠",
+        "date": "1923-01-04",
+        "evidence": "覆书谢之，并赠《玉台新咏》"
+      },
+      {
+        "id": "per_chen_guiyang",
+        "label": "陈贵阳",
+        "relation": "受赠",
+        "date": "1923-01-05",
+        "evidence": "送陈贵阳师《玉台新咏》"
+      },
+      {
+        "id": "per_feng_haozhang",
+        "label": "冯蒿丈",
+        "relation": "受赠",
+        "date": "1923-01-05",
+        "evidence": "赠冯蒿丈《玉台新咏》"
+      },
+      {
+        "id": "per_heng_jishen",
+        "label": "恒季申",
+        "relation": "受赠",
+        "date": "1923-01-05",
+        "evidence": "赠恒季申、瑾叔《玉台新咏》"
+      },
+      {
+        "id": "per_jinshu",
+        "label": "瑾叔",
+        "relation": "受赠",
+        "date": "1923-01-05",
+        "evidence": "赠恒季申、瑾叔《玉台新咏》"
+      },
+      {
         "id": "per_xu_naichang",
         "label": "徐乃昌",
         "relation": "商务",
@@ -5145,6 +5164,7 @@
     ],
     "relation_counts": {
       "商务": 6,
+      "受赠": 5,
       "致书": 2
     },
     "source_file": "1920-04-14.md"
@@ -7374,6 +7394,260 @@
       "商务": 1
     },
     "source_file": "1922-12-29.md"
+  },
+  {
+    "id": "book_qingliangshan_xinzhi",
+    "label": "《清凉山新志》",
+    "canonical": "《清凉山新志》",
+    "aliases": [
+      "《清凉山新志》"
+    ],
+    "first_seen": "1922-12-30",
+    "last_seen": "1922-12-30",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1922-12-30.md"
+  },
+  {
+    "id": "book_xuzangjing",
+    "label": "续藏经",
+    "canonical": "续藏经",
+    "aliases": [
+      "续藏经"
+    ],
+    "first_seen": "1922-12-30",
+    "last_seen": "1922-12-30",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1922-12-30.md"
+  },
+  {
+    "id": "book_yuanshi_yiwen_zhengbu",
+    "label": "《元史译文证补》",
+    "canonical": "《元史译文证补》",
+    "aliases": [
+      "《元史译文证补》"
+    ],
+    "first_seen": "1922-12-30",
+    "last_seen": "1922-12-30",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1922-12-30.md"
+  },
+  {
+    "id": "book_liuhedongji",
+    "label": "宋世彩堂《柳河东集》",
+    "canonical": "宋世彩堂《柳河东集》",
+    "aliases": [
+      "宋世彩堂《柳河东集》"
+    ],
+    "first_seen": "1922-12-31",
+    "last_seen": "1922-12-31",
+    "mentions": 1,
+    "people": [
+      {
+        "id": "per_pan_mingxun",
+        "label": "潘明训",
+        "relation": "商务",
+        "date": "1922-12-31",
+        "evidence": "潘明训以四千三百元得之"
+      }
+    ],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {
+      "商务": 1
+    },
+    "source_file": "1922-12-31.md"
+  },
+  {
+    "id": "book_tangbaiti_si_bei",
+    "label": "唐柏梯寺碑",
+    "canonical": "唐柏梯寺碑",
+    "aliases": [
+      "唐柏梯寺碑"
+    ],
+    "first_seen": "1922-12-31",
+    "last_seen": "1922-12-31",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1922-12-31.md"
+  },
+  {
+    "id": "book_huanyu_fangbei_lu",
+    "label": "《寰宇访碑录》",
+    "canonical": "《寰宇访碑录》",
+    "aliases": [
+      "《寰宇访碑录》"
+    ],
+    "first_seen": "1922-12-31",
+    "last_seen": "1922-12-31",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1922-12-31.md"
+  },
+  {
+    "id": "book_conggutang",
+    "label": "《从古堂款识学》",
+    "canonical": "《从古堂款识学》",
+    "aliases": [
+      "《从古堂款识学》"
+    ],
+    "first_seen": "1922-12-31",
+    "last_seen": "1922-12-31",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1922-12-31.md"
+  },
+  {
+    "id": "book_qingshi_waiji",
+    "label": "《清室外记》",
+    "canonical": "《清室外记》",
+    "aliases": [
+      "《清室外记》"
+    ],
+    "first_seen": "1922-12-31",
+    "last_seen": "1922-12-31",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1922-12-31.md"
+  },
+  {
+    "id": "book_qianlong_yingshi",
+    "label": "《乾隆英使觐见记》",
+    "canonical": "《乾隆英使觐见记》",
+    "aliases": [
+      "马戛尔尼《乾隆英使觐见记》"
+    ],
+    "first_seen": "1922-12-31",
+    "last_seen": "1922-12-31",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1922-12-31.md"
+  },
+  {
+    "id": "book_qinduuan_quanxing",
+    "label": "秦敦全形拓本",
+    "canonical": "秦敦全形拓本",
+    "aliases": [
+      "张勋帛藏秦敦全形拓本"
+    ],
+    "first_seen": "1922-12-31",
+    "last_seen": "1922-12-31",
+    "mentions": 1,
+    "people": [
+      {
+        "id": "per_xueruomu",
+        "label": "削若木",
+        "relation": "赠",
+        "date": "1922-12-31",
+        "evidence": "寄赠张勋帛藏秦敦全形拓本"
+      }
+    ],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {
+      "赠": 1
+    },
+    "source_file": "1922-12-31.md"
+  },
+  {
+    "id": "book_huajinlou_shicun",
+    "label": "《花近楼诗存》",
+    "canonical": "《花近楼诗存》",
+    "aliases": [
+      "《花近楼诗存》五编"
+    ],
+    "first_seen": "1923-01-05",
+    "last_seen": "1923-01-05",
+    "mentions": 1,
+    "people": [
+      {
+        "id": "per_chen_guiyang",
+        "label": "陈贵阳",
+        "relation": "赠",
+        "date": "1923-01-05",
+        "evidence": "师覆赠《花近楼诗存》五编"
+      }
+    ],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {
+      "赠": 1
+    },
+    "source_file": "1923-01-05.md"
+  },
+  {
+    "id": "book_litatu",
+    "label": "《礼塔图》",
+    "canonical": "《礼塔图》",
+    "aliases": [
+      "《礼塔图》卷"
+    ],
+    "first_seen": "1923-01-05",
+    "last_seen": "1923-01-05",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-01-05.md"
+  },
+  {
+    "id": "book_xuji_xiaoji",
+    "label": "《徐集校记》",
+    "canonical": "《徐集校记》",
+    "aliases": [
+      "《徐集校记》"
+    ],
+    "first_seen": "1923-01-09",
+    "last_seen": "1923-01-09",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-01-09.md"
+  },
+  {
+    "id": "book_dengkelu",
+    "label": "《登科录》",
+    "canonical": "《登科录》",
+    "aliases": [
+      "《登科录》四本"
+    ],
+    "first_seen": "1923-01-09",
+    "last_seen": "1923-01-09",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-01-09.md"
   },
   {
     "id": "book_yangchun_baixue",
@@ -10038,7 +10312,7 @@
     "mentions": 1,
     "people": [
       {
-        "id": "per_zhou_mengpo",
+        "id": "per_mengpo",
         "label": "周梦坡",
         "relation": "赠",
         "date": "1920-08-12",
@@ -15265,22 +15539,6 @@
     "canonical": "《花近楼逸社诗存》",
     "aliases": [
       "《花近楼逸社诗存》"
-    ],
-    "first_seen": "1921-04-09",
-    "last_seen": "1921-04-09",
-    "mentions": 1,
-    "people": [],
-    "orgs": [],
-    "txns": [],
-    "relation_counts": {},
-    "source_file": "1921-04-09.md"
-  },
-  {
-    "id": "book_huajinlou_shicun",
-    "label": "《花近楼诗存》",
-    "canonical": "《花近楼诗存》",
-    "aliases": [
-      "《花近楼诗存》四编"
     ],
     "first_seen": "1921-04-09",
     "last_seen": "1921-04-09",
