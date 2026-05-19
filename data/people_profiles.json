@@ -27476,6 +27476,673 @@
       }
     ]
   },
+  "per_bolao": {
+    "id": "per_bolao",
+    "label": "伯老",
+    "canonical": "伯老",
+    "aliases": [
+      "伯老"
+    ],
+    "merged_ids": [
+      "per_bolao"
+    ],
+    "degree": 1,
+    "relations": {
+      "商务": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 1
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "商务",
+        "evidence": "托伯老、慧之售庐山地",
+        "date": "1920-08-29"
+      }
+    ],
+    "txns": []
+  },
+  "per_xifu": {
+    "id": "per_xifu",
+    "label": "希甫",
+    "canonical": "希甫",
+    "aliases": [
+      "希甫"
+    ],
+    "merged_ids": [
+      "per_xifu"
+    ],
+    "degree": 3,
+    "relations": {
+      "同席": 1,
+      "转交": 1,
+      "拜访": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 3
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "同席",
+        "evidence": "同希甫至寿老处",
+        "date": "1921-01-01"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "转交",
+        "evidence": "交希甫一百七十七号。捐册，请其代募",
+        "date": "1921-01-01"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "拜访",
+        "evidence": "至希甫处，告淞地寄尘愿以半价购之",
+        "date": "1921-04-02"
+      }
+    ],
+    "txns": []
+  },
+  "per_seng_songqiao": {
+    "id": "per_seng_songqiao",
+    "label": "松乔",
+    "canonical": "松乔",
+    "aliases": [
+      "松乔"
+    ],
+    "merged_ids": [
+      "per_seng_songqiao"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_seng_fancheng": {
+    "id": "per_seng_fancheng",
+    "label": "范成",
+    "canonical": "范成",
+    "aliases": [
+      "范成"
+    ],
+    "merged_ids": [
+      "per_seng_fancheng"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_guan_peishan": {
+    "id": "per_guan_peishan",
+    "label": "管佩珊",
+    "canonical": "管佩珊",
+    "aliases": [
+      "管佩珊君"
+    ],
+    "merged_ids": [
+      "per_guan_peishan"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_mao_youren": {
+    "id": "per_mao_youren",
+    "label": "茅友仁",
+    "canonical": "茅友仁",
+    "aliases": [
+      "茅友仁"
+    ],
+    "merged_ids": [
+      "per_mao_youren"
+    ],
+    "degree": 1,
+    "relations": {
+      "致书": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_sha_jianan",
+        "label": "沙健庵",
+        "count": 1
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_sha_jianan",
+        "direction": "in",
+        "relation": "致书",
+        "evidence": "覆沙健庵如皋书…交茅友仁即寄",
+        "date": "1922-10-04"
+      }
+    ],
+    "txns": [
+      {
+        "date": "1922-10-04",
+        "label": "交还书价一百十一元",
+        "evidence": "并交还书价一百十一元",
+        "amount": "一百十一元",
+        "direction": null,
+        "relation": "商务"
+      }
+    ]
+  },
+  "per_li_jiaji": {
+    "id": "per_li_jiaji",
+    "label": "李家骥",
+    "canonical": "李家骥",
+    "aliases": [
+      "李家骥"
+    ],
+    "merged_ids": [
+      "per_li_jiaji"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_zhang_jingsheng": {
+    "id": "per_zhang_jingsheng",
+    "label": "张静生",
+    "canonical": "张静生",
+    "aliases": [
+      "张静生"
+    ],
+    "merged_ids": [
+      "per_zhang_jingsheng"
+    ],
+    "degree": 9,
+    "relations": {
+      "亲属": 3,
+      "拜访": 2,
+      "赠": 2,
+      "致书": 2
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 4
+      },
+      {
+        "id": "per_li_gengyu",
+        "label": "李庚余",
+        "count": 2
+      },
+      {
+        "id": "per_zhang_yizhi",
+        "label": "张一志",
+        "count": 1
+      },
+      {
+        "id": "per_zhang_zhongzhao",
+        "label": "张仲昭",
+        "count": 1
+      },
+      {
+        "id": "per_zhang_gongzi",
+        "label": "张公子",
+        "count": 1
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_zhang_yizhi",
+        "direction": "in",
+        "relation": "亲属",
+        "evidence": "张静生为七子一志行结婚礼",
+        "date": "1921-03-12"
+      },
+      {
+        "other": "per_li_gengyu",
+        "direction": "out",
+        "relation": "亲属",
+        "evidence": "近为其八世兄同李庚余女公子议婚",
+        "date": "1921-06-11"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "拜访",
+        "evidence": "至张静生、李庚余两家，议婚",
+        "date": "1921-06-13"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "赠",
+        "evidence": "静生赠其尊人刻《榕园丛书》全帙六十册",
+        "date": "1921-06-13"
+      },
+      {
+        "other": "per_li_gengyu",
+        "direction": "in",
+        "relation": "致书",
+        "evidence": "属询张静生家聘期，当函询",
+        "date": "1921-06-24"
+      },
+      {
+        "other": "per_zhang_zhongzhao",
+        "direction": "in",
+        "relation": "拜访",
+        "evidence": "同张仲昭为张静生之公子...作冰人，行聘礼",
+        "date": "1921-07-14"
+      },
+      {
+        "other": "per_zhang_gongzi",
+        "direction": "out",
+        "relation": "亲属",
+        "evidence": "张静生之公子",
+        "date": "1921-07-14"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "致书",
+        "evidence": "接张静生覆书议婚事",
+        "date": "1922-01-03"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "赠",
+        "evidence": "张静生娶媳，送红呢幢",
+        "date": "1922-03-08"
+      }
+    ],
+    "txns": []
+  },
+  "per_chen_yunshan": {
+    "id": "per_chen_yunshan",
+    "label": "陈韫山",
+    "canonical": "陈韫山",
+    "aliases": [
+      "陈韫山"
+    ],
+    "merged_ids": [
+      "per_chen_yunshan"
+    ],
+    "degree": 1,
+    "relations": {
+      "商务": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 1
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "商务",
+        "evidence": "陈韫山借读画斋本《南宋群贤小集》影印",
+        "date": "1921-07-29"
+      }
+    ],
+    "txns": []
+  },
+  "per_zhao_jinzhai_wei": {
+    "id": "per_zhao_jinzhai_wei",
+    "label": "赵晋斋",
+    "canonical": "赵晋斋(魏)",
+    "aliases": [
+      "赵晋斋魏"
+    ],
+    "merged_ids": [
+      "per_zhao_jinzhai_wei"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_gu_sishizhai": {
+    "id": "per_gu_sishizhai",
+    "label": "顾思适斋",
+    "canonical": "顾千里(思适斋)",
+    "aliases": [
+      "顾思适斋",
+      "顾千里"
+    ],
+    "merged_ids": [
+      "per_gu_sishizhai"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_zhang_guyu": {
+    "id": "per_zhang_guyu",
+    "label": "张古余",
+    "canonical": "张古余",
+    "aliases": [
+      "张古余"
+    ],
+    "merged_ids": [
+      "per_zhang_guyu"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_xu_yanbo": {
+    "id": "per_xu_yanbo",
+    "label": "徐彦伯",
+    "canonical": "徐彦伯",
+    "aliases": [
+      "徐彦伯"
+    ],
+    "merged_ids": [
+      "per_xu_yanbo"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_hu_fuzhi": {
+    "id": "per_hu_fuzhi",
+    "label": "胡辅之",
+    "canonical": "胡辅之",
+    "aliases": [
+      "胡辅之"
+    ],
+    "merged_ids": [
+      "per_hu_fuzhi"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_xu_laizhuang": {
+    "id": "per_xu_laizhuang",
+    "label": "徐籟庄",
+    "canonical": "徐云巢(籟庄)",
+    "aliases": [
+      "徐籟庄",
+      "徐云巢"
+    ],
+    "merged_ids": [
+      "per_xu_laizhuang"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_wang_yuexi": {
+    "id": "per_wang_yuexi",
+    "label": "王月希",
+    "canonical": "王月希",
+    "aliases": [
+      "王月希"
+    ],
+    "merged_ids": [
+      "per_wang_yuexi"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_zilai": {
+    "id": "per_zilai",
+    "label": "紫来",
+    "canonical": "紫来",
+    "aliases": [
+      "紫来先生"
+    ],
+    "merged_ids": [
+      "per_zilai"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_zhang_xibo": {
+    "id": "per_zhang_xibo",
+    "label": "张希伯",
+    "canonical": "张希伯",
+    "aliases": [
+      "张希伯"
+    ],
+    "merged_ids": [
+      "per_zhang_xibo"
+    ],
+    "degree": 2,
+    "relations": {
+      "商务": 1,
+      "赠": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 2
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "商务",
+        "evidence": "购张希伯唐刘智墓志",
+        "date": "1922-01-02"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "赠",
+        "evidence": "张希伯寄洪武钞尚方镜拓本",
+        "date": "1922-01-03"
+      }
+    ],
+    "txns": []
+  },
+  "per_gao_zhizhi": {
+    "id": "per_gao_zhizhi",
+    "label": "高植志",
+    "canonical": "高植志",
+    "aliases": [
+      "高植志"
+    ],
+    "merged_ids": [
+      "per_gao_zhizhi"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_xueruomu": {
+    "id": "per_xueruomu",
+    "label": "削若木",
+    "canonical": "削若木",
+    "aliases": [
+      "削若木"
+    ],
+    "merged_ids": [
+      "per_xueruomu",
+      "per_xue_ruomu",
+      "per_xiao_ruomu"
+    ],
+    "degree": 3,
+    "relations": {
+      "拜访": 2,
+      "致书": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 3
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "拜访",
+        "evidence": "访削若木，不遇",
+        "date": "1921-10-18"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "拜访",
+        "evidence": "削若木、徐子仁来",
+        "date": "1921-10-19"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "致书",
+        "evidence": "覆削若木、李从龙书",
+        "date": "1922-05-12"
+      }
+    ],
+    "txns": []
+  },
+  "per_zhang_xun": {
+    "id": "per_zhang_xun",
+    "label": "张勋",
+    "canonical": "张勋",
+    "aliases": [
+      "张勋"
+    ],
+    "merged_ids": [
+      "per_zhang_xun"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_yang_shutang": {
+    "id": "per_yang_shutang",
+    "label": "杨述堂",
+    "canonical": "杨述堂",
+    "aliases": [
+      "杨述堂"
+    ],
+    "merged_ids": [
+      "per_yang_shutang"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_zhusheng": {
+    "id": "per_zhusheng",
+    "label": "铸生",
+    "canonical": "铸生",
+    "aliases": [
+      "铸生"
+    ],
+    "merged_ids": [
+      "per_zhusheng"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_li_weiqiang": {
+    "id": "per_li_weiqiang",
+    "label": "李维强",
+    "canonical": "李维强",
+    "aliases": [
+      "李维强"
+    ],
+    "merged_ids": [
+      "per_li_weiqiang"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_li_zixin": {
+    "id": "per_li_zixin",
+    "label": "李子馨",
+    "canonical": "李子馨",
+    "aliases": [
+      "李子馨"
+    ],
+    "merged_ids": [
+      "per_li_zixin"
+    ],
+    "degree": 2,
+    "relations": {
+      "拜访": 1,
+      "赠": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 2
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "拜访",
+        "evidence": "同仲刚闲步，拜俞汝权、李子馨",
+        "date": "1922-07-04"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "赠",
+        "evidence": "李子馨送肴佩",
+        "date": "1922-08-12"
+      }
+    ],
+    "txns": []
+  },
   "per_wen_gongda": {
     "id": "per_wen_gongda",
     "label": "文公达",
@@ -39895,38 +40562,6 @@
     "sample_edges": [],
     "txns": []
   },
-  "per_bolao": {
-    "id": "per_bolao",
-    "label": "伯老",
-    "canonical": "伯老",
-    "aliases": [
-      "伯老"
-    ],
-    "merged_ids": [
-      "per_bolao"
-    ],
-    "degree": 1,
-    "relations": {
-      "商务": 1
-    },
-    "top_neighbours": [
-      {
-        "id": "per_xu_naichang",
-        "label": "徐乃昌",
-        "count": 1
-      }
-    ],
-    "sample_edges": [
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "商务",
-        "evidence": "托伯老、慧之售庐山地",
-        "date": "1920-08-29"
-      }
-    ],
-    "txns": []
-  },
   "per_zheng_lisan": {
     "id": "per_zheng_lisan",
     "label": "郑立三",
@@ -51162,54 +51797,6 @@
     ],
     "txns": []
   },
-  "per_xifu": {
-    "id": "per_xifu",
-    "label": "希甫",
-    "canonical": "希甫",
-    "aliases": [
-      "希甫"
-    ],
-    "merged_ids": [
-      "per_xifu"
-    ],
-    "degree": 3,
-    "relations": {
-      "同席": 1,
-      "转交": 1,
-      "拜访": 1
-    },
-    "top_neighbours": [
-      {
-        "id": "per_xu_naichang",
-        "label": "徐乃昌",
-        "count": 3
-      }
-    ],
-    "sample_edges": [
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "同席",
-        "evidence": "同希甫至寿老处",
-        "date": "1921-01-01"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "转交",
-        "evidence": "交希甫一百七十七号。捐册，请其代募",
-        "date": "1921-01-01"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "拜访",
-        "evidence": "至希甫处，告淞地寄尘愿以半价购之",
-        "date": "1921-04-02"
-      }
-    ],
-    "txns": []
-  },
   "per_yang_zhi": {
     "id": "per_yang_zhi",
     "label": "杨芷",
@@ -52325,54 +52912,6 @@
     "relations": {},
     "top_neighbours": [],
     "sample_edges": [],
-    "txns": []
-  },
-  "per_xue_ruomu": {
-    "id": "per_xue_ruomu",
-    "label": "削若木",
-    "canonical": "削若木",
-    "aliases": [
-      "削若木"
-    ],
-    "merged_ids": [
-      "per_xue_ruomu",
-      "per_xiao_ruomu"
-    ],
-    "degree": 3,
-    "relations": {
-      "拜访": 2,
-      "致书": 1
-    },
-    "top_neighbours": [
-      {
-        "id": "per_xu_naichang",
-        "label": "徐乃昌",
-        "count": 3
-      }
-    ],
-    "sample_edges": [
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "拜访",
-        "evidence": "访削若木，不遇",
-        "date": "1921-10-18"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "拜访",
-        "evidence": "削若木、徐子仁来",
-        "date": "1921-10-19"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "致书",
-        "evidence": "覆削若木、李从龙书",
-        "date": "1922-05-12"
-      }
-    ],
     "txns": []
   },
   "per_xue_jingcan": {
@@ -55049,117 +55588,6 @@
         "relation": "拜访",
         "evidence": "申刻题主,邹学东题主",
         "date": "1921-03-11"
-      }
-    ],
-    "txns": []
-  },
-  "per_zhang_jingsheng": {
-    "id": "per_zhang_jingsheng",
-    "label": "张静生",
-    "canonical": "张静生",
-    "aliases": [
-      "张静生"
-    ],
-    "merged_ids": [
-      "per_zhang_jingsheng"
-    ],
-    "degree": 9,
-    "relations": {
-      "亲属": 3,
-      "拜访": 2,
-      "赠": 2,
-      "致书": 2
-    },
-    "top_neighbours": [
-      {
-        "id": "per_xu_naichang",
-        "label": "徐乃昌",
-        "count": 4
-      },
-      {
-        "id": "per_li_gengyu",
-        "label": "李庚余",
-        "count": 2
-      },
-      {
-        "id": "per_zhang_yizhi",
-        "label": "张一志",
-        "count": 1
-      },
-      {
-        "id": "per_zhang_zhongzhao",
-        "label": "张仲昭",
-        "count": 1
-      },
-      {
-        "id": "per_zhang_gongzi",
-        "label": "张公子",
-        "count": 1
-      }
-    ],
-    "sample_edges": [
-      {
-        "other": "per_zhang_yizhi",
-        "direction": "in",
-        "relation": "亲属",
-        "evidence": "张静生为七子一志行结婚礼",
-        "date": "1921-03-12"
-      },
-      {
-        "other": "per_li_gengyu",
-        "direction": "out",
-        "relation": "亲属",
-        "evidence": "近为其八世兄同李庚余女公子议婚",
-        "date": "1921-06-11"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "拜访",
-        "evidence": "至张静生、李庚余两家，议婚",
-        "date": "1921-06-13"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "赠",
-        "evidence": "静生赠其尊人刻《榕园丛书》全帙六十册",
-        "date": "1921-06-13"
-      },
-      {
-        "other": "per_li_gengyu",
-        "direction": "in",
-        "relation": "致书",
-        "evidence": "属询张静生家聘期，当函询",
-        "date": "1921-06-24"
-      },
-      {
-        "other": "per_zhang_zhongzhao",
-        "direction": "in",
-        "relation": "拜访",
-        "evidence": "同张仲昭为张静生之公子...作冰人，行聘礼",
-        "date": "1921-07-14"
-      },
-      {
-        "other": "per_zhang_gongzi",
-        "direction": "out",
-        "relation": "亲属",
-        "evidence": "张静生之公子",
-        "date": "1921-07-14"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "致书",
-        "evidence": "接张静生覆书议婚事",
-        "date": "1922-01-03"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "赠",
-        "evidence": "张静生娶媳，送红呢幢",
-        "date": "1922-03-08"
       }
     ],
     "txns": []
@@ -63531,38 +63959,6 @@
     ],
     "txns": []
   },
-  "per_chen_yunshan": {
-    "id": "per_chen_yunshan",
-    "label": "陈韫山",
-    "canonical": "陈韫山",
-    "aliases": [
-      "陈韫山"
-    ],
-    "merged_ids": [
-      "per_chen_yunshan"
-    ],
-    "degree": 1,
-    "relations": {
-      "商务": 1
-    },
-    "top_neighbours": [
-      {
-        "id": "per_xu_naichang",
-        "label": "徐乃昌",
-        "count": 1
-      }
-    ],
-    "sample_edges": [
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "商务",
-        "evidence": "陈韫山借读画斋本《南宋群贤小集》影印",
-        "date": "1921-07-29"
-      }
-    ],
-    "txns": []
-  },
   "per_ruiyang": {
     "id": "per_ruiyang",
     "label": "瑞阳",
@@ -71298,22 +71694,6 @@
       }
     ]
   },
-  "per_zhang_xun": {
-    "id": "per_zhang_xun",
-    "label": "张勋",
-    "canonical": "张勋(伯广)",
-    "aliases": [
-      "张勋伯广建"
-    ],
-    "merged_ids": [
-      "per_zhang_xun"
-    ],
-    "degree": 0,
-    "relations": {},
-    "top_neighbours": [],
-    "sample_edges": [],
-    "txns": []
-  },
   "per_zhou_keshen": {
     "id": "per_zhou_keshen",
     "label": "周恪慎公",
@@ -72689,46 +73069,6 @@
     "relations": {},
     "top_neighbours": [],
     "sample_edges": [],
-    "txns": []
-  },
-  "per_zhang_xibo": {
-    "id": "per_zhang_xibo",
-    "label": "张希伯",
-    "canonical": "张希伯",
-    "aliases": [
-      "张希伯"
-    ],
-    "merged_ids": [
-      "per_zhang_xibo"
-    ],
-    "degree": 2,
-    "relations": {
-      "商务": 1,
-      "赠": 1
-    },
-    "top_neighbours": [
-      {
-        "id": "per_xu_naichang",
-        "label": "徐乃昌",
-        "count": 2
-      }
-    ],
-    "sample_edges": [
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "商务",
-        "evidence": "购张希伯唐刘智墓志",
-        "date": "1922-01-02"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "赠",
-        "evidence": "张希伯寄洪武钞尚方镜拓本",
-        "date": "1922-01-03"
-      }
-    ],
     "txns": []
   },
   "per_li_yishan": {
@@ -81819,46 +82159,6 @@
     "sample_edges": [],
     "txns": []
   },
-  "per_li_zixin": {
-    "id": "per_li_zixin",
-    "label": "李子馨",
-    "canonical": "李子馨(锡香)",
-    "aliases": [
-      "李子馨"
-    ],
-    "merged_ids": [
-      "per_li_zixin"
-    ],
-    "degree": 2,
-    "relations": {
-      "拜访": 1,
-      "赠": 1
-    },
-    "top_neighbours": [
-      {
-        "id": "per_xu_naichang",
-        "label": "徐乃昌",
-        "count": 2
-      }
-    ],
-    "sample_edges": [
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "拜访",
-        "evidence": "同仲刚闲步，拜俞汝权、李子馨",
-        "date": "1922-07-04"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "赠",
-        "evidence": "李子馨送肴佩",
-        "date": "1922-08-12"
-      }
-    ],
-    "txns": []
-  },
   "per_gao_yunhan": {
     "id": "per_gao_yunhan",
     "label": "高云汉",
@@ -85902,47 +86202,6 @@
     "top_neighbours": [],
     "sample_edges": [],
     "txns": []
-  },
-  "per_mao_youren": {
-    "id": "per_mao_youren",
-    "label": "茅友仁",
-    "canonical": "茅友仁",
-    "aliases": [
-      "茅友仁"
-    ],
-    "merged_ids": [
-      "per_mao_youren"
-    ],
-    "degree": 1,
-    "relations": {
-      "致书": 1
-    },
-    "top_neighbours": [
-      {
-        "id": "per_sha_jianan",
-        "label": "沙健庵",
-        "count": 1
-      }
-    ],
-    "sample_edges": [
-      {
-        "other": "per_sha_jianan",
-        "direction": "in",
-        "relation": "致书",
-        "evidence": "覆沙健庵如皋书…交茅友仁即寄",
-        "date": "1922-10-04"
-      }
-    ],
-    "txns": [
-      {
-        "date": "1922-10-04",
-        "label": "交还书价一百十一元",
-        "evidence": "并交还书价一百十一元",
-        "amount": "一百十一元",
-        "direction": null,
-        "relation": "商务"
-      }
-    ]
   },
   "per_minobe": {
     "id": "per_minobe",

@@ -388,7 +388,73 @@ unmapped = Counter(v['location_label'] for v in visits if not v['resolved_city']
 }, ensure_ascii=False, indent=2), encoding='utf-8')
 
 
-# ── 5) per-person profile data (NEW — for entity-detail page) ────────────────
+# ── 5) books ─────────────────────────────────────────────────────────────────
+# Each book node: aliases, first/last seen, counterparties (people, orgs, txns)
+books = []
+for n in src['nodes']:
+    if n.get('entity_type') != '书籍':
+        continue
+    md = n.get('metadata') or {}
+    surface_forms = md.get('surface_forms') or []
+    dates = sorted({sf.get('date') for sf in surface_forms if sf.get('date')})
+    aliases = sorted({sf.get('surface') for sf in surface_forms if sf.get('surface')})
+    # Walk direct edges
+    people = []
+    orgs = []
+    txns_linked = []
+    relations = Counter()
+    for direction, e in edges_by_node.get(n['id'], []):
+        other_id = e['target'] if direction == 'out' else e['source']
+        other_n = nodes_by_id.get(other_id, {})
+        ot = other_n.get('entity_type')
+        rel = e.get('relation')
+        relations[rel] += 1
+        item = {
+            'id': redirect(other_id) if ot == '人' else other_id,
+            'label': nodes_by_id.get(redirect(other_id) if ot == '人' else other_id, other_n).get('label') or other_n.get('label'),
+            'relation': rel,
+            'date': e.get('source_location'),
+            'evidence': (e.get('metadata') or {}).get('evidence_text'),
+        }
+        if ot == '人':
+            people.append(item)
+        elif ot == '团体':
+            orgs.append(item)
+        elif ot == '交易':
+            txns_linked.append(item)
+    # Hyperedge co-members
+    for h in hyper_by_node.get(n['id'], []):
+        for mid in h.get('nodes') or []:
+            if mid == n['id']:
+                continue
+            mn = nodes_by_id.get(mid, {})
+            if mn.get('entity_type') == '人':
+                people.append({
+                    'id': redirect(mid),
+                    'label': nodes_by_id.get(redirect(mid), mn).get('label'),
+                    'relation': h.get('relation'),
+                    'date': None,
+                    'evidence': h.get('label'),
+                })
+    books.append({
+        'id': n['id'],
+        'label': n.get('label'),
+        'canonical': md.get('canonical'),
+        'aliases': aliases,
+        'first_seen': dates[0] if dates else None,
+        'last_seen': dates[-1] if dates else None,
+        'mentions': len(surface_forms),
+        'people': people[:20],
+        'orgs': orgs[:10],
+        'txns': txns_linked[:20],
+        'relation_counts': dict(relations.most_common()),
+        'source_file': normalize_source(n.get('source_file')),
+    })
+books.sort(key=lambda b: -b['mentions'])
+(out_dir / 'books.json').write_text(json.dumps(books, ensure_ascii=False, indent=2), encoding='utf-8')
+
+
+# ── 6) per-person profile data ───────────────────────────────────────────────
 # For each PER primary id, gather: aliases, degree, top neighbours, txns, mentions
 per_profile = {}
 edges_by_per = defaultdict(list)

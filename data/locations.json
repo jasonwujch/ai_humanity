@@ -767,8 +767,40 @@
       "label": "福建"
     },
     {
+      "id": "loc_xinlvshe",
+      "label": "新旅社"
+    },
+    {
+      "id": "loc_wutaishan",
+      "label": "五台山"
+    },
+    {
+      "id": "loc_shaoxing",
+      "label": "绍兴"
+    },
+    {
+      "id": "loc_renhe",
+      "label": "仁和"
+    },
+    {
+      "id": "loc_shanxi_yuxiang",
+      "label": "山西虞乡"
+    },
+    {
       "id": "loc_xiushui",
       "label": "秀水"
+    },
+    {
+      "id": "loc_jinshan",
+      "label": "金山"
+    },
+    {
+      "id": "loc_meiguo",
+      "label": "美国"
+    },
+    {
+      "id": "loc_nanjing_daoshujie",
+      "label": "南京道署街"
     },
     {
       "id": "loc_dingjiachong",
@@ -1525,10 +1557,6 @@
     {
       "id": "loc_tianran_an",
       "label": "天然庵"
-    },
-    {
-      "id": "loc_shaoxing",
-      "label": "绍兴"
     },
     {
       "id": "loc_huacheng_si",
@@ -2503,10 +2531,6 @@
       "label": "铜陵县叶山冲"
     },
     {
-      "id": "loc_meiguo",
-      "label": "美国"
-    },
-    {
       "id": "loc_aiyun_yingxiyuan",
       "label": "爰伦影戏园"
     },
@@ -3293,10 +3317,6 @@
     {
       "id": "loc_jiangdu",
       "label": "江都"
-    },
-    {
-      "id": "loc_jinshan",
-      "label": "金山"
     },
     {
       "id": "loc_danxu",

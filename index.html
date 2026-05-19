@@ -133,6 +133,7 @@
   <div class="tabs">
     <button :class="{active:tab==='overview'}" @click="tab='overview'">总览</button>
     <button :class="{active:tab==='txn'}" @click="tab='txn'">账单</button>
+    <button :class="{active:tab==='books'}" @click="tab='books'">藏书</button>
     <button :class="{active:tab==='people'}" @click="tab='people'">人物关系</button>
     <button :class="{active:tab==='geo'}" @click="tab='geo'">作者行迹</button>
     <button :class="{active:tab==='index'}" @click="tab='index'">实体索引</button>
@@ -203,6 +204,16 @@
       <span class="legend" v-if="txnData">共 {{ txnData.length }} 笔</span>
     </div>
     <div id="txn-table"></div>
+  </div>
+
+  <!-- Books -->
+  <div class="view" v-show="tab==='books'">
+    <div class="controls">
+      <input v-model="bookSearch" @input="applyBookFilter" placeholder="搜索 书名 / 别名" style="width:240px" />
+      <label>仅显示有人物关联 <input type="checkbox" v-model="bookHasPerson" @change="applyBookFilter" /></label>
+      <span class="legend" v-if="booksData">{{ booksData.length }} 部 · {{ booksData.filter(b=>b.people.length>0).length }} 有人物关联</span>
+    </div>
+    <div id="books-table"></div>
   </div>
 
   <!-- People graph -->
@@ -276,6 +287,9 @@
       <div class="meta" v-if="profile.canonical && profile.canonical !== profile.label">
         <strong>规范名：</strong> {{ profile.canonical }}
       </div>
+      <div class="meta" v-if="profile._first_seen">
+        <strong>首次提及：</strong> {{ profile._first_seen }} · <strong>最近：</strong> {{ profile._last_seen }} · <strong>{{ profile._mentions }} 次</strong>
+      </div>
       <h3 v-if="profile.aliases?.length">别名 ({{ profile.aliases.length }})</h3>
       <div class="alias-row">
         <span v-for="a in profile.aliases" :key="a" class="chip">{{ a }}</span>
@@ -334,6 +348,7 @@ const ENTITY_KIND_MAP = {
 const KIND_COLORS = { per: '#1d4ed8', org: '#16a34a', loc: '#d97706', book: '#7c3aed', txn: '#db2777', evt: '#0891b2', ill: '#be123c', ofc: '#475569', dis: '#9333ea' };
 
 let txnTable = null;
+let booksTable = null;
 let cyInstance = null;
 let leafletMap = null;
 
@@ -354,6 +369,9 @@ createApp({
     const txnSearch = ref('');
     const txnHasPerson = ref(false);
     const txnDirection = ref('');
+    const booksData = ref(null);
+    const bookSearch = ref('');
+    const bookHasPerson = ref(false);
     const relationFilter = ref('');
     const confFilter = ref('');
     const visibleNodeCount = ref(0);
@@ -399,14 +417,16 @@ createApp({
     });
 
     onMounted(async () => {
-      const [ov, tx, pp, lc, pr] = await Promise.all([
+      const [ov, tx, pp, lc, pr, bk] = await Promise.all([
         fetch('data/overview.json').then(r=>r.json()),
         fetch('data/transactions.json').then(r=>r.json()),
         fetch('data/people_graph.json').then(r=>r.json()),
         fetch('data/locations.json').then(r=>r.json()),
         fetch('data/people_profiles.json').then(r=>r.json()),
+        fetch('data/books.json').then(r=>r.json()).catch(() => []),
       ]);
       overview.value = ov; txnData.value = tx; peopleData.value = pp; locData.value = lc; profiles.value = pr;
+      booksData.value = bk;
 
       // Build searchable allNodes from people_graph + locations + transactions + (locations as entities)
       const nodes = [];
@@ -417,6 +437,9 @@ createApp({
       for (const t of tx) {
         if (txnSeen.has(t.label)) continue; txnSeen.add(t.label);
         nodes.push({id:t.id, label:t.label, _entity_type:'交易', degree:(t.people||[]).length, _date:t.date, _evidence:t.evidence});
+      }
+      for (const b of bk) {
+        nodes.push({id:b.id, label:b.label, aliases:b.aliases, _entity_type:'书籍', degree:b.mentions, canonical:b.canonical, _book:b});
       }
       allNodes.value = nodes;
 
@@ -431,8 +454,9 @@ createApp({
       window.__vueOpenProfile = openProfileById;
     });
 
-    watch([tab, txnData, peopleData, locData], ([t, tx, pp, lc]) => {
+    watch([tab, txnData, peopleData, locData, booksData], ([t, tx, pp, lc, bk]) => {
       if (t === 'txn' && tx && !txnTable) nextTick(() => initTxn(tx));
+      if (t === 'books' && bk && !booksTable) nextTick(() => initBooks(bk));
       if (t === 'people' && pp && !cyInstance) nextTick(() => initLazyGraph());
       if (t === 'geo' && lc && !leafletMap) nextTick(() => initGeo(lc));
     });
@@ -468,15 +492,20 @@ createApp({
       if (n._entity_type === '人' && profiles.value[n.id]) {
         const pr = profiles.value[n.id];
         profile.value = {...pr, _entity_type: '人'};
-      } else {
-        // Build a minimal profile from available data
+      } else if (n._entity_type === '书籍' && n._book) {
+        const b = n._book;
         profile.value = {
-          id: n.id,
-          label: n.label,
-          aliases: n.aliases || [],
-          canonical: n.canonical,
-          degree: n.degree,
-          _entity_type: n._entity_type,
+          id: b.id, label: b.label, canonical: b.canonical, aliases: b.aliases,
+          _entity_type: '书籍',
+          _first_seen: b.first_seen, _last_seen: b.last_seen, _mentions: b.mentions,
+          relations: b.relation_counts,
+          top_neighbours: b.people.map(p => ({id:p.id, label:p.label, count:1, _evidence:p.evidence, _date:p.date, _relation:p.relation})),
+          txns: b.txns.map(t => ({date:t.date, label:t.label, evidence:t.evidence, relation:t.relation})),
+        };
+      } else {
+        profile.value = {
+          id: n.id, label: n.label, aliases: n.aliases || [], canonical: n.canonical,
+          degree: n.degree, _entity_type: n._entity_type,
           ...(n._date ? {_date:n._date} : {}),
           ...(n._evidence ? {_evidence:n._evidence} : {}),
         };
@@ -492,6 +521,17 @@ createApp({
       if (profiles.value && profiles.value[id]) return profiles.value[id].label;
       const n = allNodes.value.find(x => x.id === id);
       return n ? n.label : id;
+    }
+
+    function applyBookFilter() {
+      if (!booksTable) return;
+      const q = bookSearch.value.trim();
+      booksTable.setFilter((row) => {
+        if (bookHasPerson.value && (!row.people || row.people.length === 0)) return false;
+        if (!q) return true;
+        const blob = [row.label, (row.aliases||[]).join(' '), (row.people||[]).map(p=>p.label).join(' ')].join(' ');
+        return blob.includes(q);
+      });
     }
 
     function applyTxnFilter() {
@@ -621,11 +661,41 @@ createApp({
       expandN, addPersonQ, addByQuery, expandTopHubs, resetGraph, redrawGraph,
       indexCat, indexSearch, indexCategories, indexRows,
       sortedEntityTypes, sortedRelationTypes, relationOptions, maxEntity, maxRelation,
-      applyTxnFilter, kindOf,
+      applyTxnFilter, applyBookFilter, kindOf,
+      booksData, bookSearch, bookHasPerson,
       profile, profileKind, profileKindLabel, openProfile, openProfileById, neighbourLabel,
     };
   }
 }).mount('#app');
+
+function initBooks(data){
+  booksTable = new Tabulator('#books-table', {
+    data, height:'calc(100vh - 240px)', layout:'fitColumns',
+    initialSort:[{column:'mentions', dir:'desc'}],
+    columns:[
+      {title:'书名', field:'label', widthGrow:2, headerFilter:'input',
+        formatter: c => `<span class="chip chip-book" style="font-size:11px">${c.getValue()||''}</span>`},
+      {title:'别名', field:'aliases', widthGrow:2,
+        formatter: c => (c.getValue()||[]).slice(0,4).join('、')},
+      {title:'提及次数', field:'mentions', sorter:'number', width:90, hozAlign:'right'},
+      {title:'首次', field:'first_seen', width:110},
+      {title:'最近', field:'last_seen', width:110},
+      {title:'相关人', field:'people', widthGrow:3,
+        formatter: c => (c.getValue()||[]).slice(0,8).map(p =>
+          `<span class="chip chip-per" data-id="${p.id||''}" title="${p.relation||''}">${p.label||''}</span>`
+        ).join(' ')},
+      {title:'关系', field:'relation_counts', width:160,
+        formatter: c => {
+          const v = c.getValue() || {};
+          return Object.entries(v).slice(0,4).map(([k,n]) => `<span class="chip" style="background:#f3f4f6;color:#444">${k} ${n}</span>`).join(' ');
+        }},
+    ],
+  });
+  document.getElementById('books-table').addEventListener('click', (e) => {
+    const chip = e.target.closest('.chip');
+    if (chip && chip.dataset.id && window.__vueOpenProfile) window.__vueOpenProfile(chip.dataset.id);
+  });
+}
 
 function initTxn(data){
   txnTable = new Tabulator('#txn-table', {
