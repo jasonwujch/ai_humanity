@@ -2,6 +2,8 @@
 <html lang="zh"><head>
 <meta charset="utf-8">
 <title>徐乃昌日记 知识图谱探索 · alpha</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="alternate icon" href="favicon.svg">
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
@@ -1221,11 +1223,7 @@ createApp({
       if (n._entity_type === '人' && profiles.value[n.id]) {
         const pr = profiles.value[n.id];
         built = {...pr, _entity_type: '人'};
-      // Augment with hidden co-occurrence neighbours for PER
-      if (n._entity_type === '人' && profiles.value[n.id] && coocData.value?.hidden_by_person?.[n.id]) {
-        // built will be set below, augment after
-      }
-      if (false) {} else if (miscData.value && miscData.value[n.id]) {
+      } else if (miscData.value && miscData.value[n.id]) {
         const m = miscData.value[n.id];
         built = {
           id: m.id, label: m.label, canonical: m.canonical, aliases: m.aliases,
