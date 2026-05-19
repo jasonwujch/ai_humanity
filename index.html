@@ -952,12 +952,15 @@ createApp({
       const si = STEMS.indexOf(gz[0]);
       const bi = BRANCHES.indexOf(gz[1]);
       if (si < 0 || bi < 0) return null;
-      // 1864 = 甲子 cycle base
-      for (let y = hint - 60; y <= hint + 60; y++) {
-        const idx = ((y - 1864) % 60 + 60) % 60;
-        if (idx % 10 === si && idx % 12 === bi) return y;
+      // 1864 = 甲子. Find first match in one cycle then snap to multiple-of-60 closest to hint.
+      let base = -1;
+      for (let y = 1864; y < 1924; y++) {
+        const idx = (y - 1864) % 60;
+        if (idx % 10 === si && idx % 12 === bi) { base = y; break; }
       }
-      return null;
+      if (base < 0) return null;
+      const k = Math.round((hint - base) / 60);
+      return base + 60 * k;
     }
 
     function parseCnDay(s) {

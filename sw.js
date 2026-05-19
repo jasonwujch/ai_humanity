@@ -4,7 +4,7 @@
 //   - everything else → cache-first (HTML, JS libs, fonts, tiles, wiki pages)
 // Cache version bumps invalidate all stale entries on activate.
 
-const CACHE = 'xnc-kg-v15';
+const CACHE = 'xnc-kg-v16';
 const PRECACHE = [
   './',
   './index.html',
