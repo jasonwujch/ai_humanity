@@ -262,7 +262,7 @@
         "type": "人"
       },
       {
-        "id": "per_mugong",
+        "id": "per_mu_gong",
         "label": "木公",
         "type": "人"
       }
@@ -6460,8 +6460,8 @@
         "type": "人"
       },
       {
-        "id": "per_liu_ziting",
-        "label": "柳梓亭",
+        "id": "per_liu_zitng",
+        "label": "柳梓庭",
         "type": "人"
       },
       {
@@ -6903,8 +6903,8 @@
         "type": "人"
       },
       {
-        "id": "per_liu_ziting",
-        "label": "柳梓亭",
+        "id": "per_liu_zitng",
+        "label": "柳梓庭",
         "type": "人"
       },
       {
@@ -8313,8 +8313,8 @@
         "type": "人"
       },
       {
-        "id": "per_liu_ziting",
-        "label": "柳梓亭",
+        "id": "per_liu_zitng",
+        "label": "柳梓庭",
         "type": "人"
       },
       {
@@ -9194,8 +9194,8 @@
         "type": "人"
       },
       {
-        "id": "per_liu_ziting",
-        "label": "柳梓亭",
+        "id": "per_liu_zitng",
+        "label": "柳梓庭",
         "type": "人"
       },
       {
@@ -11484,8 +11484,8 @@
         "type": "人"
       },
       {
-        "id": "per_liu_ziting",
-        "label": "柳梓亭",
+        "id": "per_liu_zitng",
+        "label": "柳梓庭",
         "type": "人"
       },
       {
@@ -16777,8 +16777,8 @@
         "type": "人"
       },
       {
-        "id": "per_liu_ziting",
-        "label": "柳梓亭",
+        "id": "per_liu_zitng",
+        "label": "柳梓庭",
         "type": "人"
       },
       {
@@ -17136,7 +17136,7 @@
         "type": "人"
       },
       {
-        "id": "per_shaozhi",
+        "id": "per_shao_zhi",
         "label": "劭直",
         "type": "人"
       },
@@ -17564,8 +17564,8 @@
         "type": "人"
       },
       {
-        "id": "per_liu_ziting",
-        "label": "柳梓亭",
+        "id": "per_liu_zitng",
+        "label": "柳梓庭",
         "type": "人"
       }
     ]
@@ -21377,8 +21377,8 @@
         "type": "人"
       },
       {
-        "id": "per_liu_ziting",
-        "label": "柳梓亭",
+        "id": "per_liu_zitng",
+        "label": "柳梓庭",
         "type": "人"
       },
       {
@@ -23688,6 +23688,419 @@
       {
         "id": "per_luo_yuanjue",
         "label": "罗原觉",
+        "type": "人"
+      }
+    ]
+  },
+  {
+    "id": "he_shoulao_525",
+    "label": "1923-05-25 同席 at 寿老处",
+    "relation": "同席",
+    "confidence": "EXTRACTED",
+    "confidence_score": 0.95,
+    "date": "1923-05-25",
+    "source_file": "1923-05-25.md",
+    "members": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人"
+      },
+      {
+        "id": "per_yu_shoulao",
+        "label": "余寿老",
+        "type": "人"
+      },
+      {
+        "id": "per_jichen",
+        "label": "寄尘",
+        "type": "人"
+      },
+      {
+        "id": "per_shu_shaozhi",
+        "label": "束劭直",
+        "type": "人"
+      }
+    ]
+  },
+  {
+    "id": "he_laiqing_526",
+    "label": "1923-05-26 闲话 at 来青阁",
+    "relation": "同席",
+    "confidence": "EXTRACTED",
+    "confidence_score": 0.95,
+    "date": "1923-05-26",
+    "source_file": "1923-05-26.md",
+    "members": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人"
+      },
+      {
+        "id": "per_chongr",
+        "label": "崇儿",
+        "type": "人"
+      },
+      {
+        "id": "per_chen_naiqian",
+        "label": "陈乃乾",
+        "type": "人"
+      },
+      {
+        "id": "per_shouqi",
+        "label": "寿祺",
+        "type": "人"
+      }
+    ]
+  },
+  {
+    "id": "he_zhang_zhenghun_527",
+    "label": "1923-05-27 证婚冰人之宴 at 美丽",
+    "relation": "同席",
+    "confidence": "EXTRACTED",
+    "confidence_score": 0.85,
+    "date": "1923-05-27",
+    "source_file": "1923-05-27.md",
+    "members": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人"
+      },
+      {
+        "id": "per_zhang_jingsheng",
+        "label": "张静生",
+        "type": "人"
+      }
+    ]
+  },
+  {
+    "id": "he_cen_meili_529",
+    "label": "1923-05-29 同席 at 美丽",
+    "relation": "同席",
+    "confidence": "EXTRACTED",
+    "confidence_score": 0.9,
+    "date": "1923-05-29",
+    "source_file": "1923-05-29.md",
+    "members": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人"
+      },
+      {
+        "id": "per_cen_jiaolin",
+        "label": "岑郊麟",
+        "type": "人"
+      }
+    ]
+  },
+  {
+    "id": "he_qimei_531",
+    "label": "1923-05-31 齐媒酒 at 会宾楼",
+    "relation": "同席",
+    "confidence": "EXTRACTED",
+    "confidence_score": 0.9,
+    "date": "1923-05-31",
+    "source_file": "1923-05-31.md",
+    "members": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人"
+      },
+      {
+        "id": "per_li_boqi",
+        "label": "李伯齐",
+        "type": "人"
+      }
+    ]
+  },
+  {
+    "id": "he_zhenyuan_603",
+    "label": "1923-06-03 贞元会 at 都益处",
+    "relation": "同席",
+    "confidence": "EXTRACTED",
+    "confidence_score": 0.9,
+    "date": "1923-06-03",
+    "source_file": "1923-06-03.md",
+    "members": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人"
+      },
+      {
+        "id": "per_wang_zizhong",
+        "label": "王子仲",
+        "type": "人"
+      }
+    ]
+  },
+  {
+    "id": "hy_1923_06_06_yizhixiang",
+    "label": "1923-06-06 同席 at 一枝香",
+    "relation": "同席",
+    "confidence": "EXTRACTED",
+    "confidence_score": 1.0,
+    "date": "1923-06-06",
+    "source_file": "1923-06-06.md",
+    "members": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人"
+      },
+      {
+        "id": "per_sheng_yizhai",
+        "label": "盛彝斋",
+        "type": "人"
+      },
+      {
+        "id": "per_gao_aozhi",
+        "label": "高敖之",
+        "type": "人"
+      },
+      {
+        "id": "per_zidan",
+        "label": "子丹弟",
+        "type": "人"
+      }
+    ]
+  },
+  {
+    "id": "hy_1923_06_07_zhao_zhujun",
+    "label": "1923-06-07 同席 at 赵竹君家",
+    "relation": "同席",
+    "confidence": "EXTRACTED",
+    "confidence_score": 1.0,
+    "date": "1923-06-07",
+    "source_file": "1923-06-07.md",
+    "members": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人"
+      },
+      {
+        "id": "per_zhao_zhujun",
+        "label": "赵竹君",
+        "type": "人"
+      },
+      {
+        "id": "per_zhang_sean",
+        "label": "张嗇庵",
+        "type": "人"
+      },
+      {
+        "id": "per_sheng_zhushu",
+        "label": "盛竹书",
+        "type": "人"
+      },
+      {
+        "id": "per_zhou_meiquan",
+        "label": "周美权",
+        "type": "人"
+      },
+      {
+        "id": "per_wu_jichen",
+        "label": "吴寄尘",
+        "type": "人"
+      }
+    ]
+  },
+  {
+    "id": "hy_1923_06_09_huibinlou",
+    "label": "1923-06-09 同席 at 会宾楼",
+    "relation": "同席",
+    "confidence": "EXTRACTED",
+    "confidence_score": 0.9,
+    "date": "1923-06-09",
+    "source_file": "1923-06-09.md",
+    "members": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人"
+      },
+      {
+        "id": "per_sheng_yizhai",
+        "label": "盛彝斋",
+        "type": "人"
+      },
+      {
+        "id": "per_gao_aozhi",
+        "label": "高敖之",
+        "type": "人"
+      }
+    ]
+  },
+  {
+    "id": "hy_1923_06_09_shen_kunhe",
+    "label": "1923-06-09 同席 at 沈堃和酒叙",
+    "relation": "同席",
+    "confidence": "EXTRACTED",
+    "confidence_score": 1.0,
+    "date": "1923-06-09",
+    "source_file": "1923-06-09.md",
+    "members": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人"
+      },
+      {
+        "id": "per_shen_kunhe",
+        "label": "沈堃和",
+        "type": "人"
+      },
+      {
+        "id": "per_sha_jianan",
+        "label": "沙健庵",
+        "type": "人"
+      }
+    ]
+  },
+  {
+    "id": "hy_1923_06_11_dayalou",
+    "label": "1923-06-11 同席 at 大雅楼",
+    "relation": "同席",
+    "confidence": "EXTRACTED",
+    "confidence_score": 1.0,
+    "date": "1923-06-11",
+    "source_file": "1923-06-11.md",
+    "members": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人"
+      },
+      {
+        "id": "per_yang_ruisheng",
+        "label": "杨瑞生",
+        "type": "人"
+      },
+      {
+        "id": "per_chen_jianwen",
+        "label": "陈简文",
+        "type": "人"
+      },
+      {
+        "id": "per_liu_zitng",
+        "label": "柳梓庭",
+        "type": "人"
+      },
+      {
+        "id": "per_wu_jichen",
+        "label": "吴寄尘",
+        "type": "人"
+      },
+      {
+        "id": "per_jin_youlin",
+        "label": "金佑临",
+        "type": "人"
+      },
+      {
+        "id": "per_song_xishang",
+        "label": "宋希尚",
+        "type": "人"
+      },
+      {
+        "id": "per_shao_shuhua",
+        "label": "邵树华",
+        "type": "人"
+      }
+    ]
+  },
+  {
+    "id": "hy_1923_06_12_noon",
+    "label": "1923-06-12 午刻 公请 张退庵 等",
+    "relation": "同席",
+    "confidence": "EXTRACTED",
+    "confidence_score": 1.0,
+    "date": "1923-06-12",
+    "source_file": "1923-06-12.md",
+    "members": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人"
+      },
+      {
+        "id": "per_zhou_caichen",
+        "label": "周寀臣",
+        "type": "人"
+      },
+      {
+        "id": "per_wu_diepin",
+        "label": "吴蝶卿",
+        "type": "人"
+      },
+      {
+        "id": "per_liu_juqing",
+        "label": "刘聚卿",
+        "type": "人"
+      },
+      {
+        "id": "per_wu_yinzhi",
+        "label": "吴引之",
+        "type": "人"
+      },
+      {
+        "id": "per_zhang_tuian",
+        "label": "张退庵",
+        "type": "人"
+      },
+      {
+        "id": "per_zhang_sean",
+        "label": "张嗇庵",
+        "type": "人"
+      },
+      {
+        "id": "per_sheng_zhushu",
+        "label": "盛竹书",
+        "type": "人"
+      },
+      {
+        "id": "per_li_qiqing",
+        "label": "李耆卿",
+        "type": "人"
+      },
+      {
+        "id": "per_sha_jianan",
+        "label": "沙健庵",
+        "type": "人"
+      }
+    ]
+  },
+  {
+    "id": "hy_1923_06_12_yihonglou",
+    "label": "1923-06-12 公请南通各友 at 倚虹楼",
+    "relation": "同席",
+    "confidence": "EXTRACTED",
+    "confidence_score": 1.0,
+    "date": "1923-06-12",
+    "source_file": "1923-06-12.md",
+    "members": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人"
+      },
+      {
+        "id": "per_zhou_caichen",
+        "label": "周寀臣",
+        "type": "人"
+      },
+      {
+        "id": "per_liu_juqing",
+        "label": "刘聚卿",
+        "type": "人"
+      },
+      {
+        "id": "per_wu_diepin",
+        "label": "吴蝶卿",
         "type": "人"
       }
     ]

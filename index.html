@@ -512,14 +512,37 @@
     <div v-if="!statsData" class="empty">加载中…</div>
     <template v-else>
       <div style="background:var(--paper);border:1px solid var(--border);padding:18px;border-radius:2px;margin-bottom:18px">
-        <h3 style="margin:0 0 12px;font-size:14px">月度关系活动</h3>
+        <h3 style="margin:0 0 12px;font-size:var(--fs-sm)">月度关系活动</h3>
         <div style="overflow-x:auto"><svg id="stats-rel-svg" style="display:block"></svg></div>
         <div class="legend" style="margin-top:6px">每月各关系类型的边/事件数。鼠标悬停查看明细。</div>
       </div>
-      <div style="background:var(--paper);border:1px solid var(--border);padding:18px;border-radius:2px">
-        <h3 style="margin:0 0 12px;font-size:14px">Top 20 人物 月度提及曲线</h3>
+      <div style="background:var(--paper);border:1px solid var(--border);padding:18px;border-radius:2px;margin-bottom:18px">
+        <h3 style="margin:0 0 12px;font-size:var(--fs-sm)">Top 20 人物 月度提及曲线</h3>
         <div style="overflow-x:auto"><svg id="stats-per-svg" style="display:block"></svg></div>
         <div class="legend" style="margin-top:6px">每月在日记中的提及次数。点击曲线名跳到该人档案。</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:14px">
+        <section style="background:var(--paper);border:1px solid var(--border);padding:16px;border-radius:2px">
+          <h3 style="margin:0 0 10px;font-size:var(--fs-sm);padding-bottom:6px;border-bottom:1px solid var(--border-soft)">最近"消失"的人物 (≥6月未提及)</h3>
+          <div style="font-size:var(--fs-sm)">
+            <div v-for="(d,i) in statsData.disappeared" :key="i" style="display:grid;grid-template-columns:1fr auto auto;gap:10px;padding:5px 0;border-bottom:1px solid var(--border-soft);cursor:pointer" @click="openProfileById(d.id)">
+              <span class="chip chip-per">{{ d.label }}</span>
+              <span style="font-family:ui-monospace,monospace;font-size:var(--fs-xs);color:var(--muted)">最近 {{ d.last_seen }}</span>
+              <span style="color:var(--accent);font-weight:600">{{ d.total_mentions }}× · 消失 {{ d.months_absent }}月</span>
+            </div>
+          </div>
+        </section>
+        <section style="background:var(--paper);border:1px solid var(--border);padding:16px;border-radius:2px">
+          <h3 style="margin:0 0 10px;font-size:var(--fs-sm);padding-bottom:6px;border-bottom:1px solid var(--border-soft)">活动激增月份 (z-score ≥ 2.5)</h3>
+          <div style="font-size:var(--fs-sm)">
+            <div v-for="(s,i) in statsData.spikes" :key="i" style="display:grid;grid-template-columns:90px 1fr auto auto;gap:10px;padding:5px 0;border-bottom:1px solid var(--border-soft)">
+              <span style="font-family:ui-monospace,monospace;color:var(--accent);font-weight:600">{{ s.month }}</span>
+              <span class="chip" style="background:#f3f4f6;color:#444">{{ s.relation }}</span>
+              <span><strong>{{ s.count }}</strong> (均 {{ s.mean }})</span>
+              <span style="color:var(--accent);font-weight:600">z={{ s.zscore }}</span>
+            </div>
+          </div>
+        </section>
       </div>
     </template>
   </div>

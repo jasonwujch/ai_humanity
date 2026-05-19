@@ -792,6 +792,55 @@ low_conf_sample = [
     for e in low_conf_edges
 ]
 
+# Anomaly: disappeared people (last mention old vs corpus end)
+all_months = sorted(rel_per_month.keys())
+corpus_end_month = all_months[-1] if all_months else None
+
+# Compute last-month per primary PER from alias_timeline_by_pid
+disappeared = []
+for pid, entries in alias_timeline_by_pid.items():
+    if not entries: continue
+    last = max((e['date'] for e in entries), default='')
+    total = len(entries)
+    if total < 10:  # focus on prominent people only
+        continue
+    last_month = (last or '')[:7]
+    if last_month and corpus_end_month and last_month < corpus_end_month:
+        # Compute months gap
+        try:
+            y1, m1 = map(int, last_month.split('-'))
+            y2, m2 = map(int, corpus_end_month.split('-'))
+            gap = (y2 - y1) * 12 + (m2 - m1)
+        except:
+            gap = 0
+        if gap >= 6:
+            disappeared.append({
+                'id': pid,
+                'label': nodes_by_id.get(pid, {}).get('label'),
+                'last_seen': last,
+                'total_mentions': total,
+                'months_absent': gap,
+            })
+disappeared.sort(key=lambda d: (-d['total_mentions'], -d['months_absent']))
+disappeared = disappeared[:30]
+
+# Spikes: per-relation z-score on monthly counts
+import statistics
+spikes = []
+all_rels = set()
+for d in rel_per_month.values(): all_rels.update(d.keys())
+for rel in all_rels:
+    series = [rel_per_month[m].get(rel, 0) for m in all_months]
+    if len(series) < 4: continue
+    mu = statistics.mean(series)
+    sd = statistics.pstdev(series) or 1
+    for m, v in zip(all_months, series):
+        z = (v - mu) / sd
+        if z >= 2.5:
+            spikes.append({'month': m, 'relation': rel, 'count': v, 'mean': round(mu,1), 'zscore': round(z,2)})
+spikes.sort(key=lambda x: -x['zscore'])
+spikes = spikes[:20]
+
 stats = {
     'months': sorted({m for m in rel_per_month.keys()}),
     'rel_per_month': {m: dict(d) for m, d in rel_per_month.items()},
@@ -801,6 +850,8 @@ stats = {
     'confidence_by_relation': {r: dict(d) for r, d in conf_by_rel.items()},
     'reciprocity': recip_check,
     'low_confidence_sample': low_conf_sample,
+    'disappeared': disappeared,
+    'spikes': spikes,
 }
 (out_dir / 'stats.json').write_text(json.dumps(stats, ensure_ascii=False, indent=2), encoding='utf-8')
 

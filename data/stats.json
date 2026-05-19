@@ -40,7 +40,8 @@
     "1923-02",
     "1923-03",
     "1923-04",
-    "1923-05"
+    "1923-05",
+    "1923-06"
   ],
   "rel_per_month": {
     "1920-01": {
@@ -203,17 +204,31 @@
       "共谋": 1
     },
     "1923-05": {
-      "同席": 29,
-      "属于": 12,
-      "拜访": 63,
-      "致书": 38,
-      "赠": 19,
+      "同席": 37,
+      "属于": 14,
+      "拜访": 107,
+      "致书": 50,
+      "赠": 31,
       "位于": 12,
-      "商务": 26,
-      "亲属": 8,
-      "转交": 6,
-      "资助": 8,
+      "商务": 38,
+      "亲属": 12,
+      "转交": 7,
+      "资助": 10,
       "受赠": 1
+    },
+    "1923-06": {
+      "拜访": 42,
+      "致书": 15,
+      "赠": 16,
+      "同席": 18,
+      "转交": 2,
+      "资助": 2,
+      "位于": 1,
+      "商务": 5,
+      "同_as": 1,
+      "亲属": 1,
+      "属于": 1,
+      "治病": 1
     },
     "1920-07": {
       "亲属": 6,
@@ -821,21 +836,21 @@
       }
     },
     {
-      "id": "per_di_zhancheng",
-      "label": "翟展成",
-      "total": 7,
-      "monthly": {
-        "1920-01": 3,
-        "1923-04": 1,
-        "1922-08": 3
-      }
-    },
-    {
       "id": "per_que_hechu",
       "label": "阙鹤雏",
       "total": 7,
       "monthly": {
         "1920-03": 7
+      }
+    },
+    {
+      "id": "per_zhang_sean",
+      "label": "张嗇庵",
+      "total": 7,
+      "monthly": {
+        "1923-06": 2,
+        "1921-02": 1,
+        "1921-07": 4
       }
     },
     {
@@ -857,33 +872,33 @@
     }
   ],
   "confidence_breakdown": {
-    "EXTRACTED": 8404,
-    "INFERRED": 433,
+    "EXTRACTED": 8589,
+    "INFERRED": 437,
     "AMBIGUOUS": 9
   },
   "confidence_score_buckets": {
-    "≥0.9": 7171,
-    "0.7-0.9": 1542,
+    "≥0.9": 7349,
+    "0.7-0.9": 1553,
     "0.5-0.7": 117,
     "<0.5": 16
   },
   "confidence_by_relation": {
     "位于": {
       "EXTRACTED": 288,
-      "INFERRED": 131,
+      "INFERRED": 132,
       "AMBIGUOUS": 1
     },
     "属于": {
-      "EXTRACTED": 507,
-      "INFERRED": 116
+      "EXTRACTED": 509,
+      "INFERRED": 117
     },
     "致书": {
-      "EXTRACTED": 1364,
+      "EXTRACTED": 1391,
       "INFERRED": 20,
       "AMBIGUOUS": 2
     },
     "资助": {
-      "EXTRACTED": 243,
+      "EXTRACTED": 247,
       "INFERRED": 4
     },
     "受赠": {
@@ -892,37 +907,37 @@
       "AMBIGUOUS": 1
     },
     "商务": {
-      "EXTRACTED": 993,
+      "EXTRACTED": 1010,
       "INFERRED": 19
     },
     "同席": {
-      "EXTRACTED": 448,
+      "EXTRACTED": 461,
       "INFERRED": 6
     },
     "拜访": {
-      "EXTRACTED": 2964,
+      "EXTRACTED": 3050,
       "INFERRED": 60,
       "AMBIGUOUS": 3
     },
     "转交": {
-      "EXTRACTED": 236,
+      "EXTRACTED": 239,
       "INFERRED": 3
     },
     "赠": {
-      "EXTRACTED": 854,
+      "EXTRACTED": 882,
       "INFERRED": 11
     },
     "同_as": {
-      "INFERRED": 4,
+      "INFERRED": 5,
       "EXTRACTED": 12
     },
     "亲属": {
-      "EXTRACTED": 180,
-      "INFERRED": 43,
+      "EXTRACTED": 184,
+      "INFERRED": 44,
       "AMBIGUOUS": 2
     },
     "治病": {
-      "EXTRACTED": 55,
+      "EXTRACTED": 56,
       "INFERRED": 10
     },
     "师友": {
@@ -934,69 +949,69 @@
     {
       "forward": "赠",
       "backward": "受赠",
-      "forward_total": 607,
+      "forward_total": 621,
       "backward_total": 240,
-      "missing_reciprocal": 599,
+      "missing_reciprocal": 613,
       "samples": [
         {
-          "src": "per_chuqing",
-          "src_label": "楚青",
-          "tgt": "book_jinsongwei_zhi",
-          "tgt_label": "晋宋魏志"
+          "src": "per_liang_xing",
+          "src_label": "徐亮星",
+          "tgt": "per_zhang_xiaoruo",
+          "tgt_label": "张孝若"
+        },
+        {
+          "src": "per_yao_wenfu",
+          "src_label": "姚文敷",
+          "tgt": "txn_wenfu_zeng_wangzi",
+          "tgt_label": "文敷以王子吴鼎铭立幅赠六舟"
         },
         {
           "src": "per_xu_naichang",
           "src_label": "徐乃昌",
-          "tgt": "per_zou_shuqie",
-          "tgt_label": "邹树锲"
+          "tgt": "per_wang_peisun",
+          "tgt_label": "王培孙"
         },
         {
           "src": "per_xu_naichang",
           "src_label": "徐乃昌",
-          "tgt": "per_ding_zhongku",
-          "tgt_label": "丁仲枯"
+          "tgt": "per_liu_qianfu",
+          "tgt_label": "刘谦甫"
         },
         {
-          "src": "per_xu_naichang",
-          "src_label": "徐乃昌",
-          "tgt": "per_chen_qizhi",
-          "tgt_label": "陈器之"
+          "src": "per_liu_huizhi",
+          "src_label": "刘晦之",
+          "tgt": "per_xu_naichang",
+          "tgt_label": "徐乃昌"
         },
         {
-          "src": "per_zuo_ziyu",
-          "src_label": "左子虞",
+          "src": "per_tong_xinan",
+          "src_label": "童心安",
           "tgt": "per_xu_naichang",
           "tgt_label": "徐乃昌"
         },
         {
           "src": "per_xu_naichang",
           "src_label": "徐乃昌",
-          "tgt": "per_shen_yian",
-          "tgt_label": "沈乙庵"
+          "tgt": "per_li_conglong",
+          "tgt_label": "李从龙"
+        },
+        {
+          "src": "per_xu_xiaoxia",
+          "src_label": "徐晓霞",
+          "tgt": "per_xu_naichang",
+          "tgt_label": "徐乃昌"
         },
         {
           "src": "per_xu_naichang",
           "src_label": "徐乃昌",
-          "tgt": "per_jiang_mengpin",
-          "tgt_label": "蒋孟蘋"
+          "tgt": "org_shangwu_shuguan",
+          "tgt_label": "商务书馆"
         },
         {
-          "src": "per_hanxi",
-          "src_label": "汉溪",
-          "tgt": "per_li_zhongshuai",
-          "tgt_label": "李仲帅"
-        },
-        {
-          "src": "per_xu_naichang",
-          "src_label": "徐乃昌",
-          "tgt": "per_zong_weichuan",
-          "tgt_label": "宗渭川"
-        },
-        {
-          "src": "per_xu_naichang",
-          "src_label": "徐乃昌",
-          "tgt": "per_wang_xuecen",
-          "tgt_label": "王雪岑"
+          "src": "org_guxiangzhai",
+          "src_label": "古香斋",
+          "tgt": "per_chen_jiezhai",
+          "tgt_label": "陈簠斋"
         }
       ]
     }
@@ -1161,6 +1176,101 @@
       "score": 0.5,
       "evidence": "淑魄先派林福回沪",
       "date": "1923-05-03"
+    }
+  ],
+  "disappeared": [
+    {
+      "id": "per_zhang_xiai",
+      "label": "章希璦",
+      "last_seen": "1922-12-29",
+      "total_mentions": 17,
+      "months_absent": 6
+    },
+    {
+      "id": "per_song_qing",
+      "label": "金颂清",
+      "last_seen": "1920-01-18",
+      "total_mentions": 13,
+      "months_absent": 41
+    },
+    {
+      "id": "per_zhang_jusheng",
+      "label": "张菊生",
+      "last_seen": "1920-09-14",
+      "total_mentions": 11,
+      "months_absent": 33
+    }
+  ],
+  "spikes": [
+    {
+      "month": "1920-07",
+      "relation": "治病",
+      "count": 11,
+      "mean": 1.6,
+      "zscore": 3.98
+    },
+    {
+      "month": "1920-10",
+      "relation": "位于",
+      "count": 35,
+      "mean": 10.0,
+      "zscore": 3.92
+    },
+    {
+      "month": "1923-01",
+      "relation": "赠",
+      "count": 67,
+      "mean": 21.4,
+      "zscore": 3.46
+    },
+    {
+      "month": "1923-04",
+      "relation": "属于",
+      "count": 48,
+      "mean": 14.9,
+      "zscore": 3.32
+    },
+    {
+      "month": "1922-12",
+      "relation": "商务",
+      "count": 66,
+      "mean": 24.5,
+      "zscore": 3.0
+    },
+    {
+      "month": "1921-11",
+      "relation": "同_as",
+      "count": 2,
+      "mean": 0.4,
+      "zscore": 2.97
+    },
+    {
+      "month": "1920-10",
+      "relation": "师友",
+      "count": 3,
+      "mean": 0.6,
+      "zscore": 2.96
+    },
+    {
+      "month": "1923-01",
+      "relation": "致书",
+      "count": 84,
+      "mean": 33.7,
+      "zscore": 2.87
+    },
+    {
+      "month": "1922-02",
+      "relation": "治病",
+      "count": 8,
+      "mean": 1.6,
+      "zscore": 2.71
+    },
+    {
+      "month": "1921-12",
+      "relation": "受赠",
+      "count": 20,
+      "mean": 5.8,
+      "zscore": 2.61
     }
   ]
 }

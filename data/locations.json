@@ -714,26 +714,8 @@
           31.234,
           121.481
         ],
-        "count": 12,
+        "count": 14,
         "visits": [
-          {
-            "date": "1922-11-25",
-            "location_id": "loc_guxiangzhai",
-            "location_label": "古香斋",
-            "resolved_city": "上海",
-            "evidence": "至古香斋,晤敖之并焦乐山",
-            "relation": "拜访",
-            "source_file": "1922-12-10.md"
-          },
-          {
-            "date": "1922-12-14",
-            "location_id": "loc_guxiangzhai",
-            "location_label": "古香斋",
-            "resolved_city": "上海",
-            "evidence": "至古香斋，晤敖之",
-            "relation": "拜访",
-            "source_file": "1922-12-10.md"
-          },
           {
             "date": "1922-12-17",
             "location_id": "loc_guxiangzhai",
@@ -769,6 +751,24 @@
             "evidence": "至古香斋，晤高敖之",
             "relation": "拜访",
             "source_file": "1922-12-10.md"
+          },
+          {
+            "date": "1923-05-31",
+            "location_id": "loc_guxiang_zhai",
+            "location_label": "古香斋",
+            "resolved_city": "上海",
+            "evidence": "至古香斋，同敖之闲话",
+            "relation": "拜访",
+            "source_file": "1923-04-07.md"
+          },
+          {
+            "date": "1923-06-04",
+            "location_id": "loc_guxiangzhai",
+            "location_label": "古香斋",
+            "resolved_city": "上海",
+            "evidence": "至博远斋、古香斋闲话",
+            "relation": "拜访",
+            "source_file": "1922-12-10.md"
           }
         ]
       },
@@ -778,7 +778,7 @@
           31.234,
           121.481
         ],
-        "count": 1,
+        "count": 4,
         "visits": [
           {
             "date": "1920-08-14",
@@ -787,7 +787,34 @@
             "resolved_city": "上海",
             "evidence": "至博古斋柳荣邨处",
             "relation": "拜访",
-            "source_file": "1920-08-14.md"
+            "source_file": "1923-05-24.md"
+          },
+          {
+            "date": "1923-05-24",
+            "location_id": "loc_bogu_zhai",
+            "location_label": "博古斋",
+            "resolved_city": "上海",
+            "evidence": "至博古斋，购书二种，价十元",
+            "relation": "拜访",
+            "source_file": "1923-05-24.md"
+          },
+          {
+            "date": "1923-05-27",
+            "location_id": "loc_bogu_zhai",
+            "location_label": "博古斋",
+            "resolved_city": "上海",
+            "evidence": "至博古斋，又取《越咏》二卷",
+            "relation": "拜访",
+            "source_file": "1923-05-24.md"
+          },
+          {
+            "date": "1923-06-06",
+            "location_id": "loc_boguzhai",
+            "location_label": "博古斋",
+            "resolved_city": "上海",
+            "evidence": "至博古斋，取书二种",
+            "relation": "拜访",
+            "source_file": "1923-06-06.md"
           }
         ]
       },
@@ -917,17 +944,8 @@
           31.234,
           121.4824
         ],
-        "count": 22,
+        "count": 23,
         "visits": [
-          {
-            "date": "1922-06-14",
-            "location_id": "loc_doiyichu",
-            "location_label": "都益处",
-            "resolved_city": "上海",
-            "evidence": "午刻，赴都益处贞元会，李伯贞值会",
-            "relation": "拜访",
-            "source_file": "1922-06-04.md"
-          },
           {
             "date": "1922-11-27",
             "location_id": "loc_duyi",
@@ -970,6 +988,15 @@
             "location_label": "都益处",
             "resolved_city": "上海",
             "evidence": "午刻，赴都益处贞元会",
+            "relation": "拜访",
+            "source_file": "1920-01-03.md"
+          },
+          {
+            "date": "1923-06-03",
+            "location_id": "loc_duyichu",
+            "location_label": "都益处",
+            "resolved_city": "上海",
+            "evidence": "赴王子仲都益处贞元会",
             "relation": "拜访",
             "source_file": "1920-01-03.md"
           }
@@ -1531,35 +1558,8 @@
           31.234,
           121.481
         ],
-        "count": 9,
+        "count": 12,
         "visits": [
-          {
-            "date": "1923-01-25",
-            "location_id": "loc_laiqing_ge",
-            "location_label": "来青阁",
-            "resolved_city": "上海",
-            "evidence": "晚至来青阁，观《野客丛书》",
-            "relation": "拜访",
-            "source_file": "1920-02-05.md"
-          },
-          {
-            "date": "1923-02-01",
-            "location_id": "loc_laiqing_ge",
-            "location_label": "来青阁",
-            "resolved_city": "上海",
-            "evidence": "挈崇儿至来青阁",
-            "relation": "拜访",
-            "source_file": "1920-02-05.md"
-          },
-          {
-            "date": "1923-04-11",
-            "location_id": "loc_laiqing_ge",
-            "location_label": "来青阁",
-            "resolved_city": "上海",
-            "evidence": "至来青阁",
-            "relation": "拜访",
-            "source_file": "1920-02-05.md"
-          },
           {
             "date": "1923-04-18",
             "location_id": "loc_laiqing_ge",
@@ -1584,6 +1584,33 @@
             "location_label": "来青阁",
             "resolved_city": "上海",
             "evidence": "挈崇儿至来青阁",
+            "relation": "拜访",
+            "source_file": "1920-02-05.md"
+          },
+          {
+            "date": "1923-05-25",
+            "location_id": "loc_laiqing_ge",
+            "location_label": "来青阁",
+            "resolved_city": "上海",
+            "evidence": "至来青阁，购书二元",
+            "relation": "拜访",
+            "source_file": "1920-02-05.md"
+          },
+          {
+            "date": "1923-05-26",
+            "location_id": "loc_laiqing_ge",
+            "location_label": "来青阁",
+            "resolved_city": "上海",
+            "evidence": "晚，挈崇儿至来青阁，同乃乾、寿祺闲话",
+            "relation": "拜访",
+            "source_file": "1920-02-05.md"
+          },
+          {
+            "date": "1923-05-27",
+            "location_id": "loc_laiqing_ge",
+            "location_label": "来青阁",
+            "resolved_city": "上海",
+            "evidence": "至来青阁，取李姓《国朝文类》",
             "relation": "拜访",
             "source_file": "1920-02-05.md"
           }
@@ -3263,6 +3290,58 @@
       "label": "南园"
     },
     {
+      "id": "loc_bogu_zhai",
+      "label": "博古斋"
+    },
+    {
+      "id": "loc_xinyu_haihu_lun",
+      "label": "新裕海轮"
+    },
+    {
+      "id": "loc_nan_zhai",
+      "label": "南斋"
+    },
+    {
+      "id": "loc_huning_che",
+      "label": "沪宁车"
+    },
+    {
+      "id": "loc_yinjia",
+      "label": "殷家"
+    },
+    {
+      "id": "loc_jiuhuashan",
+      "label": "九华山"
+    },
+    {
+      "id": "loc_huguan",
+      "label": "沪馆"
+    },
+    {
+      "id": "loc_qiuyuan",
+      "label": "虬园"
+    },
+    {
+      "id": "loc_songyuan",
+      "label": "淞园"
+    },
+    {
+      "id": "loc_boguzhai",
+      "label": "博古斋"
+    },
+    {
+      "id": "loc_dajilun",
+      "label": "大吉轮"
+    },
+    {
+      "id": "loc_zhenhua_hotel",
+      "label": "振华旅馆"
+    },
+    {
+      "id": "loc_daqinglun",
+      "label": "大庆轮"
+    },
+    {
       "id": "loc_xinxiang",
       "label": "新乡"
     },
@@ -3567,10 +3646,6 @@
       "label": "鹿鸣旅馆"
     },
     {
-      "id": "loc_bogu_zhai",
-      "label": "博古斋"
-    },
-    {
       "id": "loc_da_shijie",
       "label": "大世界"
     },
@@ -3677,10 +3752,6 @@
     {
       "id": "loc_taiyanggong",
       "label": "太阳宫"
-    },
-    {
-      "id": "loc_huibinlou",
-      "label": "会宾楼"
     },
     {
       "id": "loc_shihao_julebu",
@@ -3889,10 +3960,6 @@
     {
       "id": "loc_dongya_xiayuan",
       "label": "东崖下院"
-    },
-    {
-      "id": "loc_jiuhuashan",
-      "label": "九华山"
     },
     {
       "id": "loc_zhiyuan_si",
@@ -4157,10 +4224,6 @@
     {
       "id": "loc_nicheng_qiao",
       "label": "泥城桥十号"
-    },
-    {
-      "id": "loc_qiuyuan",
-      "label": "虬园"
     },
     {
       "id": "loc_wusong_haibin",
@@ -4781,10 +4844,6 @@
     {
       "id": "loc_suzhou_su",
       "label": "宿县"
-    },
-    {
-      "id": "loc_zhenhua_lvguan",
-      "label": "振华旅馆"
     },
     {
       "id": "loc_chunxiaolou",
@@ -6114,7 +6173,7 @@
       "resolved_city": "上海",
       "evidence": "至博古斋柳荣邨处",
       "relation": "拜访",
-      "source_file": "1920-08-14.md"
+      "source_file": "1923-05-24.md"
     },
     {
       "date": "1920-08-15",
@@ -8311,6 +8370,132 @@
       "evidence": "游邑庙内园，观兰花会",
       "relation": "拜访",
       "source_file": "1923-05-06.md"
+    },
+    {
+      "date": "1923-05-24",
+      "location_id": "loc_bogu_zhai",
+      "location_label": "博古斋",
+      "resolved_city": "上海",
+      "evidence": "至博古斋，购书二种，价十元",
+      "relation": "拜访",
+      "source_file": "1923-05-24.md"
+    },
+    {
+      "date": "1923-05-24",
+      "location_id": "loc_chanyin_lu",
+      "location_label": "蟬隐庐",
+      "resolved_city": "上海",
+      "evidence": "至蟬隐庐，购书四元二角",
+      "relation": "拜访",
+      "source_file": "1923-01-17.md"
+    },
+    {
+      "date": "1923-05-24",
+      "location_id": "loc_xinyu_haihu_lun",
+      "location_label": "新裕海轮",
+      "resolved_city": null,
+      "evidence": "至新裕海轮，送王静庵北上入值南斋",
+      "relation": "拜访",
+      "source_file": "1923-05-24.md"
+    },
+    {
+      "date": "1923-05-25",
+      "location_id": "loc_huning_che",
+      "location_label": "沪宁车",
+      "resolved_city": null,
+      "evidence": "九时，至沪宁车，送杨芷姓北上入值南斋",
+      "relation": "拜访",
+      "source_file": "1923-05-25.md"
+    },
+    {
+      "date": "1923-05-25",
+      "location_id": "loc_laiqing_ge",
+      "location_label": "来青阁",
+      "resolved_city": "上海",
+      "evidence": "至来青阁，购书二元",
+      "relation": "拜访",
+      "source_file": "1920-02-05.md"
+    },
+    {
+      "date": "1923-05-26",
+      "location_id": "loc_laiqing_ge",
+      "location_label": "来青阁",
+      "resolved_city": "上海",
+      "evidence": "晚，挈崇儿至来青阁，同乃乾、寿祺闲话",
+      "relation": "拜访",
+      "source_file": "1920-02-05.md"
+    },
+    {
+      "date": "1923-05-27",
+      "location_id": "loc_bogu_zhai",
+      "location_label": "博古斋",
+      "resolved_city": "上海",
+      "evidence": "至博古斋，又取《越咏》二卷",
+      "relation": "拜访",
+      "source_file": "1923-05-24.md"
+    },
+    {
+      "date": "1923-05-27",
+      "location_id": "loc_laiqing_ge",
+      "location_label": "来青阁",
+      "resolved_city": "上海",
+      "evidence": "至来青阁，取李姓《国朝文类》",
+      "relation": "拜访",
+      "source_file": "1920-02-05.md"
+    },
+    {
+      "date": "1923-05-27",
+      "location_id": "loc_yinjia",
+      "location_label": "殷家",
+      "resolved_city": null,
+      "evidence": "晚，赴殷家请题主之宴",
+      "relation": "拜访",
+      "source_file": "1923-05-27.md"
+    },
+    {
+      "date": "1923-05-31",
+      "location_id": "loc_guxiang_zhai",
+      "location_label": "古香斋",
+      "resolved_city": "上海",
+      "evidence": "至古香斋，同敖之闲话",
+      "relation": "拜访",
+      "source_file": "1923-04-07.md"
+    },
+    {
+      "date": "1923-06-03",
+      "location_id": "loc_duyichu",
+      "location_label": "都益处",
+      "resolved_city": "上海",
+      "evidence": "赴王子仲都益处贞元会",
+      "relation": "拜访",
+      "source_file": "1920-01-03.md"
+    },
+    {
+      "date": "1923-06-04",
+      "location_id": "loc_guxiangzhai",
+      "location_label": "古香斋",
+      "resolved_city": "上海",
+      "evidence": "至博远斋、古香斋闲话",
+      "relation": "拜访",
+      "source_file": "1922-12-10.md"
+    },
+    {
+      "date": "1923-06-06",
+      "location_id": "loc_boguzhai",
+      "location_label": "博古斋",
+      "resolved_city": "上海",
+      "evidence": "至博古斋，取书二种",
+      "relation": "拜访",
+      "source_file": "1923-06-06.md"
+    },
+    {
+      "date": "1923-06-11",
+      "location_id": "loc_zhenhua_hotel",
+      "location_label": "振华旅馆",
+      "resolved_city": null,
+      "evidence": "至振华旅馆，拜南通各友",
+      "relation": "拜访",
+      "source_file": "1923-06-11.md"
     }
   ],
   "xu_ids": [
@@ -8319,7 +8504,7 @@
     "per_xu_naichang_self"
   ],
   "city_visit_counts": {
-    "上海": 154,
+    "上海": 164,
     "苏州": 25,
     "南通": 16,
     "镇江": 2,
