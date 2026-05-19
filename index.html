@@ -784,7 +784,7 @@
       <span v-if="sourcePopup.focusSurface" style="color:var(--muted);font-size:var(--fs-xs)">聚焦：<mark style="background:#ffeaa7;padding:0 4px">{{ sourcePopup.focusSurface }}</mark></span>
       <button @click="sourcePopup=null" style="margin-left:auto;background:0;border:0;font-size:22px;color:var(--muted);cursor:pointer">×</button>
     </div>
-    <div style="padding:16px 20px;font-size:clamp(14px,0.7vw+11px,16px);line-height:2.0" v-html="sourcePopup.html"></div>
+    <div style="padding:16px 20px;font-size:clamp(14px,0.7vw+11px,16px);line-height:2.0" v-html="sourcePopup.html" @click="onSidePanelClick"></div>
   </div>
 
   <!-- Profile drawer -->
@@ -1068,6 +1068,41 @@ createApp({
       }
     }
     window.__vueOpenSourcePopup = openSourcePopup;
+
+    function onSidePanelClick(e) {
+      // Allow profile drill-through from chips inside the side panel (e.g. edge endpoints)
+      const chip = e.target.closest('[data-eid]');
+      if (chip && chip.dataset.eid) openProfileById(chip.dataset.eid);
+      // Also support normal .ent spans (reader-style)
+      const ent = e.target.closest('.ent');
+      if (ent && ent.dataset.id) openProfileById(ent.dataset.id);
+    }
+
+    function openEdgeEvidence(d) {
+      // Render edge evidence into the side panel
+      const sourceLabel = (peopleData.value?.nodes || []).find(n => n.id === d.source)?.label || d.source || '';
+      const targetLabel = (peopleData.value?.nodes || []).find(n => n.id === d.target)?.label || d.target || '';
+      const html = `
+        <div style="font-size:var(--fs-sm);line-height:1.8">
+          <div style="margin-bottom:10px">
+            <span class="chip chip-per" style="cursor:pointer" data-eid="${d.source||''}">${sourceLabel}</span>
+            <strong style="color:var(--accent);margin:0 8px">${d.relation || '关系'}</strong>
+            <span class="chip chip-per" style="cursor:pointer" data-eid="${d.target||''}">${targetLabel}</span>
+          </div>
+          <div style="margin:14px 0">
+            <div style="color:var(--muted);font-size:var(--fs-xs);margin-bottom:4px">证据</div>
+            <div style="background:#fbf6e9;padding:10px 12px;border-left:3px solid var(--accent);font-family:'Noto Serif SC','Songti SC',serif">${d.evidence || '<span style="color:var(--muted)">(无证据文本)</span>'}</div>
+          </div>
+          <div style="display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:var(--fs-xs);color:var(--muted)">
+            <span>日期</span><span style="font-family:ui-monospace,monospace;color:var(--fg)">${d.date || '?'}</span>
+            <span>置信度</span><span style="color:var(--fg)">${d.confidence || '?'}</span>
+          </div>
+          ${d.date ? `<button onclick="window.__vueOpenSourcePopup && window.__vueOpenSourcePopup('${d.date}', 'side')" style="margin-top:14px;padding:6px 12px;background:var(--paper);border:1px solid var(--border);border-radius:2px;cursor:pointer;font-family:inherit;color:var(--accent)">查看当日原文 →</button>` : ''}
+        </div>
+      `;
+      sourcePopup.value = {date: `${sourceLabel} ${d.relation || ''} ${targetLabel}`, mode: 'side', html, _kind: 'edge'};
+    }
+    window.__vueOpenEdgeEvidence = openEdgeEvidence;
     // Inverted index: entity_id → [{date, surface}]
     let chunkIndex = null;
     function buildChunkIndex() {
@@ -1273,13 +1308,18 @@ createApp({
     watch(tab, pushHash);
     watch(readerDate, () => { if (tab.value === 'reader') pushHash(); });
 
-    watch([tab, txnData, peopleData, locData, booksData, statsData], ([t, tx, pp, lc, bk, st]) => {
+    watch([tab, txnData, peopleData, locData, booksData, statsData], ([t, tx, pp, lc, bk, st], prev) => {
       if (t === 'txn' && tx && !txnTable) nextTick(() => initTxn(tx));
       if (t === 'books' && bk && !booksTable) nextTick(() => initBooks(bk));
       if (t === 'people' && pp && !cyInstance) nextTick(() => initLazyGraph());
       if (t === 'geo' && lc && !leafletMap) nextTick(() => initGeo(lc));
       if (t === 'metro') nextTick(() => renderMetroOrCalendar());
       if (t === 'stats' && st) nextTick(() => renderStats());
+      // Clear contextual overlays on tab change so stale content doesn't linger
+      if (prev && prev[0] !== t) {
+        sourcePopup.value = null;
+        profile.value = null;
+      }
     });
 
     function onSearch() {
@@ -2613,7 +2653,7 @@ createApp({
       miscExpanded, toggleMiscGroup,
       drawerSnippetClick,
       hasWikiPage,
-      sourcePopup, openSourcePopup,
+      sourcePopup, openSourcePopup, onSidePanelClick,
       flyTo, resetGeoView,
       trajectoryIdx, trajectoryPlaying, trajectoryAutoPopup, trajectorySpeed,
       toggleTrajectory, updateTrajectoryFrame, stepTrajectory, restartTrajectoryTimer,
@@ -2868,7 +2908,7 @@ function renderPeople(nodes, edges, onTap, onDblTap, onRemove, focusId){
   });
   cyInstance.on('tap', 'edge', (evt) => {
     const d = evt.target.data();
-    alert(`${d.relation || '关系'}\n证据: ${d.evidence || '(无)'}\n日期: ${d.date || '?'}\n置信度: ${d.confidence || '?'}`);
+    if (window.__vueOpenEdgeEvidence) window.__vueOpenEdgeEvidence(d);
   });
   cyInstance.on('cxttap', 'node', (evt) => {
     if (onRemove) onRemove(evt.target.id());
