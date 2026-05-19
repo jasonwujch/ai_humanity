@@ -474,8 +474,11 @@
       <button @click="flyTo('南陵')">南陵 (祖籍)</button>
       <button @click="resetGeoView">全域</button>
       <button @click="toggleTrajectory">{{ trajectoryPlaying ? '⏸ 暂停' : '▶ 行迹动画' }}</button>
+      <button @click="stepTrajectory(-1)" title="上一行迹">⏪</button>
+      <button @click="stepTrajectory(1)" title="下一行迹">⏩</button>
       <button v-if="trajectoryIdx > 0 || trajectoryPlaying" @click="trajectoryIdx=0;updateTrajectoryFrame()">⏮</button>
-      <span v-if="trajectoryIdx >= 0 && locData?.visits?.[trajectoryIdx]" class="legend" style="font-family:ui-monospace,monospace;color:var(--accent);font-weight:600">{{ locData.visits[trajectoryIdx].date }}</span>
+      <label style="font-size:var(--fs-xs)"><input type="checkbox" v-model="trajectoryAutoPopup" /> 同步打开原文</label>
+      <span v-if="trajectoryIdx >= 0 && locData?.visits?.[trajectoryIdx]" class="legend" style="font-family:ui-monospace,monospace;color:var(--accent);font-weight:600">{{ locData.visits[trajectoryIdx].date }} · {{ locData.visits[trajectoryIdx].location_label }}</span>
       <span class="legend">{{ locData.visits.length }} 次行迹 · {{ locData.visits.length - Object.values(locData.unmapped_top).reduce((a,b)=>a+b,0) }} 已定位 · {{ Object.values(locData.unmapped_top).reduce((a,b)=>a+b,0) }} 未定位</span>
     </div>
     <div v-if="trajectoryIdx >= 0" style="margin-bottom:8px">
@@ -750,8 +753,8 @@
     </div>
   </div>
 
-  <!-- Source popup modal -->
-  <div v-if="sourcePopup" style="position:fixed;inset:0;background:rgba(31,26,20,.45);z-index:1100;display:flex;align-items:center;justify-content:center" @click="sourcePopup=null">
+  <!-- Source popup (modal or side) -->
+  <div v-if="sourcePopup && sourcePopup.mode !== 'side'" style="position:fixed;inset:0;background:rgba(31,26,20,.45);z-index:1100;display:flex;align-items:center;justify-content:center" @click="sourcePopup=null">
     <div @click.stop style="background:var(--paper);border:1px solid var(--border);border-left:3px double var(--accent);max-width:min(720px,92vw);max-height:80vh;overflow-y:auto;padding:24px 32px;border-radius:2px;font-family:'Noto Serif SC','Songti SC',serif">
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px;border-bottom:1px solid var(--border-soft);padding-bottom:8px">
         <h2 style="margin:0;color:var(--accent);font-size:var(--fs-h);padding-left:12px;border-left:4px solid var(--accent)">{{ sourcePopup.date }}</h2>
@@ -759,6 +762,13 @@
       </div>
       <div style="font-size:clamp(15px,0.9vw+12px,18px);line-height:2.1" v-html="sourcePopup.html"></div>
     </div>
+  </div>
+  <div v-if="sourcePopup && sourcePopup.mode === 'side'" style="position:fixed;top:108px;right:0;bottom:0;width:min(420px,92vw);background:var(--paper);border-left:3px double var(--accent);box-shadow:-8px 0 24px rgba(31,26,20,.12);z-index:990;overflow-y:auto;font-family:'Noto Serif SC','Songti SC',serif">
+    <div style="position:sticky;top:0;background:var(--paper);padding:14px 20px;border-bottom:1px solid var(--border);display:flex;align-items:baseline;gap:10px">
+      <h2 style="margin:0;color:var(--accent);font-size:var(--fs-h);padding-left:10px;border-left:4px solid var(--accent)">{{ sourcePopup.date }}</h2>
+      <button @click="sourcePopup=null" style="margin-left:auto;background:0;border:0;font-size:22px;color:var(--muted);cursor:pointer">×</button>
+    </div>
+    <div style="padding:16px 20px;font-size:clamp(14px,0.7vw+11px,16px);line-height:2.0" v-html="sourcePopup.html"></div>
   </div>
 
   <!-- Profile drawer -->
@@ -997,10 +1007,10 @@ createApp({
 
     const profile = ref(null);
     const sourcePopup = ref(null);
-    function openSourcePopup(date) {
+    function openSourcePopup(date, mode) {
       if (!chunksData.value || !chunksData.value[date]) return;
       const body = chunksData.value[date].body || '';
-      sourcePopup.value = {date, html: highlightSnippetRange(body, 0, body.length, date, new Set())};
+      sourcePopup.value = {date, mode: mode || 'modal', html: highlightSnippetRange(body, 0, body.length, date, new Set())};
     }
     window.__vueOpenSourcePopup = openSourcePopup;
     // Inverted index: entity_id → [{date, surface}]
@@ -1351,6 +1361,7 @@ createApp({
 
     const trajectoryIdx = ref(-1);
     const trajectoryPlaying = ref(false);
+    const trajectoryAutoPopup = ref(true);
     let trajectoryTimer = null;
     let trajectoryMarker = null;
     let trajectoryTrail = null;
@@ -1396,7 +1407,6 @@ createApp({
       } else {
         trajectoryMarker.setLatLng(here);
       }
-      // Trail of last 8 positions
       const recent = [];
       for (let k = Math.max(0, i - 7); k <= i; k++) {
         const c = coordFor(visits[k]);
@@ -1404,8 +1414,22 @@ createApp({
       }
       if (trajectoryTrail) leafletMap.removeLayer(trajectoryTrail);
       trajectoryTrail = L.polyline(recent, {color: '#9b2926', weight: 2, opacity: 0.6, dashArray: '4 4'}).addTo(leafletMap);
-      // Pan to position
       leafletMap.panTo(here, {animate: true, duration: 0.3});
+      // Auto-popup source for this date (side mode so map stays visible)
+      if (trajectoryAutoPopup.value && cur.date && window.__vueOpenSourcePopup) {
+        window.__vueOpenSourcePopup(cur.date, 'side');
+      }
+    }
+
+    function stepTrajectory(dir) {
+      if (!locData.value?.visits?.length) return;
+      const total = locData.value.visits.length;
+      if (trajectoryIdx.value < 0) {
+        trajectoryIdx.value = dir > 0 ? 0 : total - 1;
+      } else {
+        trajectoryIdx.value = Math.max(0, Math.min(total - 1, trajectoryIdx.value + dir));
+      }
+      updateTrajectoryFrame();
     }
 
     function flyTo(cityName) {
@@ -1523,15 +1547,24 @@ createApp({
 
     function initLazyGraph() {
       buildAdj();
-      // Seed with Xu — find by canonical or label
+      // Seed with Xu + auto-expand top 30 neighbours so users see meaningful graph immediately
       const xu = peopleData.value.nodes.find(n => n.canonical === '徐乃昌' || n.label === '徐乃昌');
+      const seed = new Set();
       if (xu) {
-        visibleIds.value = new Set([xu.id]);
+        seed.add(xu.id);
+        // Add top 30 Xu neighbours by their own degree
+        const xuNeighbours = (adj.get(xu.id) || []);
+        const sorted = xuNeighbours.map(({other}) => other).sort((a, b) => {
+          const da = (peopleData.value.nodes.find(x=>x.id===a)?.degree)||0;
+          const db = (peopleData.value.nodes.find(x=>x.id===b)?.degree)||0;
+          return db - da;
+        });
+        for (const id of sorted.slice(0, 30)) seed.add(id);
       } else if (peopleData.value.nodes.length) {
-        // Fallback: highest-degree node
         const top = [...peopleData.value.nodes].sort((a,b)=>(b.degree||0)-(a.degree||0))[0];
-        visibleIds.value = new Set([top.id]);
+        seed.add(top.id);
       }
+      visibleIds.value = seed;
       redrawGraph();
     }
 
@@ -2506,7 +2539,17 @@ function renderPeople(nodes, edges, onTap, onDblTap, onRemove, focusId){
     ...nodes.map(n => ({data:{id:n.id, label:n.label, degree:n.degree, aliases:(n.aliases||[]).join('、'), community:n.community ?? -1, commColor: commColor(n.community)}})),
     ...edges.map(e => ({data:{id:`${e.source}--${e.relation}--${e.target}`, source:e.source, target:e.target, relation:e.relation, confidence:e.confidence, evidence:e.evidence, date:e.date}})),
   ];
-  const layoutOpts = {name:'cose', animate:false, idealEdgeLength:100, nodeRepulsion:8000, randomize:false, fit:true, padding:30};
+  const layoutOpts = {
+    name:'cose', animate:false, randomize:false, fit:true, padding:60,
+    idealEdgeLength: 130,
+    nodeRepulsion: () => 50000,
+    nodeOverlap: 40,
+    gravity: 80,
+    numIter: 1500,
+    initialTemp: 200,
+    coolingFactor: 0.95,
+    componentSpacing: 80,
+  };
   if (cyInstance) {
     cyInstance.elements().remove();
     cyInstance.add(elements);
@@ -2585,10 +2628,19 @@ let cityMarkerLayer = null;
 let venueMarkerLayer = null;
 
 function initGeo(data){
-  leafletMap = L.map('geo-map', {preferCanvas: true}).setView([31.5, 119], 6);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap',
-    maxZoom: 18,
+  leafletMap = L.map('geo-map', {preferCanvas: true, zoomControl: true}).setView([31.5, 119], 6);
+  // CartoDB Positron (no API key) — clean light grayscale tiles
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
+    attribution: '© OpenStreetMap © CARTO',
+    maxZoom: 19,
+    subdomains: 'abcd',
+  }).addTo(leafletMap);
+  // Optional labels layer on top — very subtle
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png', {
+    attribution: '',
+    maxZoom: 19,
+    subdomains: 'abcd',
+    opacity: 0.75,
   }).addTo(leafletMap);
 
   const coords = data.coords || {};
