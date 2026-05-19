@@ -448,12 +448,25 @@
     </div>
     <div class="reader-grid">
       <div class="reader-side">
-        <template v-for="m in readerByMonth" :key="m.key">
-          <div class="month">{{ m.label }}</div>
-          <div v-for="d in m.days" :key="d.date" :class="['day', {active: d.date===readerDate}]" @click="readerDate = d.date">
-            <span>{{ d.date.slice(5) }}</span>
-            <span class="count">{{ d.count }}</span>
+        <template v-for="yg in readerBySeason" :key="yg.year">
+          <div class="month" style="display:flex;justify-content:space-between;align-items:center;cursor:pointer" @click="toggleSeason('y'+yg.year)">
+            <span>{{ yg.year }} 年</span>
+            <span style="color:var(--muted);font-weight:400">{{ yg.total }} {{ readerExpanded['y'+yg.year] === false ? '▸' : '▾' }}</span>
           </div>
+          <template v-if="readerExpanded['y'+yg.year] !== false">
+            <template v-for="s in yg.seasons" :key="yg.year+'-'+s.label">
+              <div style="padding:4px 10px;font-size:var(--fs-xs);color:var(--accent);cursor:pointer;display:flex;justify-content:space-between" @click="toggleSeason(yg.year+'-'+s.label)">
+                <span>　{{ s.label }} ({{ s.days.length }})</span>
+                <span>{{ readerExpanded[yg.year+'-'+s.label] === false ? '▸' : '▾' }}</span>
+              </div>
+              <template v-if="readerExpanded[yg.year+'-'+s.label] !== false">
+                <div v-for="d in s.days" :key="d.date" :class="['day', {active: d.date===readerDate}]" @click="readerDate = d.date" style="padding-left:20px">
+                  <span>{{ d.date.slice(5) }}</span>
+                  <span class="count">{{ d.count }}</span>
+                </div>
+              </template>
+            </template>
+          </template>
         </template>
       </div>
       <div class="reader-main" v-if="currentChunk">
@@ -1795,6 +1808,15 @@ createApp({
 
     // ── Reader ───────────────────────────────────────────────────────────
     const readerDates = computed(() => chunksData.value ? Object.keys(chunksData.value).sort() : []);
+    const SEASONS = [
+      {key:'spring', label:'春', months:[3,4,5]},
+      {key:'summer', label:'夏', months:[6,7,8]},
+      {key:'autumn', label:'秋', months:[9,10,11]},
+      {key:'winter', label:'冬', months:[12,1,2]},
+    ];
+    function seasonOf(month) {
+      return SEASONS.find(s => s.months.includes(month))?.label || '';
+    }
     const readerByMonth = computed(() => {
       const byMonth = {};
       for (const d of readerDates.value) {
@@ -1804,6 +1826,31 @@ createApp({
       }
       return Object.entries(byMonth).map(([key, days]) => ({key, label:key.replace('-','年')+'月', days}));
     });
+    const readerBySeason = computed(() => {
+      // year → season → [days]
+      const tree = {};
+      for (const d of readerDates.value) {
+        const y = parseInt(d.slice(0,4));
+        const mo = parseInt(d.slice(5,7));
+        const seasonKey = seasonOf(mo);
+        if (!tree[y]) tree[y] = {};
+        if (!tree[y][seasonKey]) tree[y][seasonKey] = [];
+        tree[y][seasonKey].push({date:d, count:(chunksData.value[d].entities||[]).length});
+      }
+      const out = [];
+      for (const y of Object.keys(tree).sort()) {
+        const seasons = [];
+        for (const s of SEASONS) {
+          if (tree[y][s.label]) seasons.push({label: s.label, days: tree[y][s.label]});
+        }
+        out.push({year: y, seasons, total: seasons.reduce((a,s)=>a+s.days.length, 0)});
+      }
+      return out;
+    });
+    const readerExpanded = ref({});
+    function toggleSeason(key) {
+      readerExpanded.value = {...readerExpanded.value, [key]: !readerExpanded.value[key]};
+    }
     const currentChunk = computed(() => {
       if (!chunksData.value || !readerDate.value) return null;
       return chunksData.value[readerDate.value] || null;
@@ -1916,7 +1963,8 @@ createApp({
       sortedEntityTypes, sortedRelationTypes, relationOptions, maxEntity, maxRelation,
       applyTxnFilter, applyBookFilter, kindOf,
       booksData, bookSearch, bookHasPerson,
-      chunksData, readerDate, readerDates, readerByMonth, currentChunk, highlightedBody, entitiesByType,
+      chunksData, readerDate, readerDates, readerByMonth, readerBySeason, readerExpanded, toggleSeason,
+      currentChunk, highlightedBody, entitiesByType,
       prevDay, nextDay, jumpDate,
       eventsData, eventSearch, eventRelation, eventMinMembers, eventRelations, filteredEvents,
       metroGran, metroSource, renderMetro,
