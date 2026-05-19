@@ -2558,7 +2558,7 @@ function renderPeople(nodes, edges, onTap, onDblTap, onRemove, focusId){
     componentSpacing: 80,
   };
   if (cyInstance) {
-    // ── Incremental: keep existing positions, only layout newcomers ──
+    // ── Incremental: keep existing positions, greedily place newcomers ──
     const targetIds = new Set(nodes.map(n => n.id));
     const targetEdgeIds = new Set(edgeData.map(e => e.data.id));
     const existingNodeIds = new Set();
@@ -2568,53 +2568,67 @@ function renderPeople(nodes, edges, onTap, onDblTap, onRemove, focusId){
     cyInstance.nodes().forEach(n => { if (!targetIds.has(n.id())) cyInstance.remove(n); });
     cyInstance.edges().forEach(e => { if (!targetEdgeIds.has(e.id())) cyInstance.remove(e); });
 
-    // Add newcomer nodes — pre-position near their best-connected visible neighbour
     const newNodes = nodeData.filter(nd => !existingNodeIds.has(nd.data.id));
-    for (const nd of newNodes) {
-      // Find a connected neighbour already on canvas to anchor near
-      let anchor = null;
+
+    // Helper: find an anchor (an existing node connected to this newcomer)
+    function findAnchor(newId) {
       for (const ed of edgeData) {
-        if (ed.data.source === nd.data.id && existingNodeIds.has(ed.data.target)) { anchor = ed.data.target; break; }
-        if (ed.data.target === nd.data.id && existingNodeIds.has(ed.data.source)) { anchor = ed.data.source; break; }
+        if (ed.data.source === newId && existingNodeIds.has(ed.data.target)) return ed.data.target;
+        if (ed.data.target === newId && existingNodeIds.has(ed.data.source)) return ed.data.source;
       }
-      let pos;
+      return null;
+    }
+    // Helper: collision check vs all current node positions
+    const MIN_DIST = 90;
+    function collides(pos) {
+      let hit = false;
+      cyInstance.nodes().forEach(n => {
+        if (hit) return;
+        const np = n.position();
+        const dx = np.x - pos.x, dy = np.y - pos.y;
+        if (dx*dx + dy*dy < MIN_DIST * MIN_DIST) hit = true;
+      });
+      return hit;
+    }
+
+    // Place newcomers
+    for (const nd of newNodes) {
+      const anchor = findAnchor(nd.data.id);
+      let pos = null;
       if (anchor) {
         const ap = cyInstance.getElementById(anchor).position();
-        const angle = Math.random() * Math.PI * 2;
-        const r = 100 + Math.random() * 60;
-        pos = {x: ap.x + Math.cos(angle) * r, y: ap.y + Math.sin(angle) * r};
+        // Spiral outward from anchor until non-overlapping
+        for (let attempt = 0; attempt < 60; attempt++) {
+          const angle = (attempt / 8) * (Math.PI * 2 / 8) + Math.random() * 0.3;
+          const r = 130 + Math.floor(attempt / 8) * 50;
+          const candidate = {x: ap.x + Math.cos(angle) * r, y: ap.y + Math.sin(angle) * r};
+          if (!collides(candidate)) { pos = candidate; break; }
+        }
+        if (!pos) {
+          pos = {x: ap.x + (Math.random() - 0.5) * 600, y: ap.y + (Math.random() - 0.5) * 600};
+        }
       } else {
-        // Place near canvas center
         const ext = cyInstance.extent();
-        pos = {x: (ext.x1 + ext.x2) / 2 + (Math.random() - 0.5) * 200, y: (ext.y1 + ext.y2) / 2 + (Math.random() - 0.5) * 200};
+        const cx = (ext.x1 + ext.x2) / 2, cy = (ext.y1 + ext.y2) / 2;
+        for (let attempt = 0; attempt < 40; attempt++) {
+          const candidate = {x: cx + (Math.random() - 0.5) * 800, y: cy + (Math.random() - 0.5) * 600};
+          if (!collides(candidate)) { pos = candidate; break; }
+        }
+        if (!pos) pos = {x: cx, y: cy};
       }
       cyInstance.add({group: 'nodes', data: nd.data, position: pos});
     }
-    // Add new edges
     for (const ed of edgeData) {
       if (!cyInstance.getElementById(ed.data.id).length) cyInstance.add({group: 'edges', data: ed.data});
-    }
-
-    // Run a light layout only on newcomers (or skip if zero new)
-    if (newNodes.length > 0) {
-      // Lock existing nodes so they don't move
-      const newIds = new Set(newNodes.map(nd => nd.data.id));
-      const lockedNodes = cyInstance.nodes().filter(n => !newIds.has(n.id()));
-      lockedNodes.lock();
-      const subLayout = cyInstance.elements().layout({
-        ...baseLayout,
-        fit: false,
-        animate: false,
-        numIter: 600,
-      });
-      subLayout.run();
-      lockedNodes.unlock();
     }
 
     if (focusId) {
       const node = cyInstance.getElementById(focusId);
       if (node && node.length) {
-        setTimeout(() => cyInstance.animate({center:{eles:node}, zoom: Math.max(1.0, cyInstance.zoom())}, {duration:300}), 50);
+        // Center on the clicked node without changing zoom
+        setTimeout(() => {
+          cyInstance.animate({center:{eles: node}}, {duration: 300});
+        }, 50);
       }
     }
     return;
