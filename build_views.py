@@ -752,8 +752,23 @@ for md_file in sorted(chunk_dir.glob('*.md')):
     while body_lines and (not body_lines[0].strip() or body_lines[0].startswith('# ')):
         body_lines.pop(0)
     body = '\n'.join(body_lines).strip()
+    # Parse frontmatter
+    lunar = None; pdf = None; pages = None
+    if text.startswith('---'):
+        fm_end = text.find('---', 3)
+        if fm_end != -1:
+            fm = text[3:fm_end]
+            for line in fm.split('\n'):
+                line = line.strip()
+                if line.startswith('lunar_date:'):
+                    lunar = line.split(':', 1)[1].strip()
+                elif line.startswith('source_pdf:'):
+                    pdf = line.split(':', 1)[1].strip()
+                elif line.startswith('source_pages:'):
+                    raw = line.split(':', 1)[1].strip()
+                    pages = raw.strip('[] ').replace(' ', '')
     date_key = md_file.stem  # YYYY-MM-DD
-    chunks[date_key] = {'body': body, 'entities': []}
+    chunks[date_key] = {'body': body, 'entities': [], 'lunar_date': lunar, 'source_pdf': pdf, 'source_pages': pages}
 
 # Attach entities per chunk via surface_forms[].chunk_id (which equals the date key)
 for n in src['nodes']:

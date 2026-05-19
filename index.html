@@ -481,8 +481,13 @@
         </template>
       </div>
       <div class="reader-main" v-if="currentChunk">
-        <h2>{{ readerDate }}</h2>
-        <div class="meta">{{ currentChunk.entities.length }} 实体</div>
+        <h2>{{ readerDate }}<span v-if="currentChunk.lunar_date" style="margin-left:14px;font-size:14px;color:var(--muted);font-weight:400">{{ currentChunk.lunar_date }}</span></h2>
+        <div class="meta">
+          {{ currentChunk.entities.length }} 实体
+          <span v-if="currentChunk.source_pdf" style="margin-left:10px">·</span>
+          <span v-if="currentChunk.source_pdf" :title="currentChunk.source_pdf">原书: {{ currentChunk.source_pdf.split('/').pop() }}</span>
+          <span v-if="currentChunk.source_pages" style="margin-left:6px;color:var(--accent)">页 {{ currentChunk.source_pages }}</span>
+        </div>
         <div v-html="highlightedBody"></div>
       </div>
       <div class="reader-main" v-else><div class="empty">选择日期</div></div>
