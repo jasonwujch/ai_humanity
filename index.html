@@ -177,13 +177,17 @@
 <div id="app">
   <header>
     <div>
-      <h1>徐乃昌日记 知识图谱 · <span style="color:var(--muted);font-weight:400;font-size:13px">alpha</span></h1>
+      <h1>{{ t('title') }} · <span style="color:var(--muted);font-weight:400;font-size:13px">{{ t('subtitle') }}</span></h1>
       <div class="sub" v-if="overview">
-        {{ overview.totals.nodes_deduped || overview.totals.nodes }} 节点 · {{ overview.totals.edges }} 关系 · {{ overview.date_range?.[0] }} ~ {{ overview.date_range?.[1] }} · {{ overview.totals.batches }} 批
+        {{ overview.totals.nodes_deduped || overview.totals.nodes }} {{ t('nodes_n') }} · {{ overview.totals.edges }} {{ t('edges_n') }} · {{ overview.date_range?.[0] }} ~ {{ overview.date_range?.[1] }} · {{ overview.totals.batches }} {{ t('batches_n') }}
       </div>
     </div>
+    <select v-model="locale" style="background:transparent;border:1px solid var(--border);border-radius:2px;font-size:11px;padding:3px 6px;color:var(--muted);font-family:inherit;cursor:pointer">
+      <option value="zh">中文</option>
+      <option value="en">EN</option>
+    </select>
     <div class="search">
-      <input v-model="globalQ" @input="onSearch" @focus="searchOpen=true" placeholder="全局搜索 (Ctrl+K)" />
+      <input v-model="globalQ" @input="onSearch" @focus="searchOpen=true" :placeholder="t('search_placeholder')" />
       <div class="search-results" :class="{open: searchOpen && (globalQ || '').trim()}">
         <div v-if="searchHits.length === 0 && textHits.length === 0" class="item" style="color:var(--muted)">无匹配</div>
         <template v-if="searchHits.length">
@@ -205,20 +209,20 @@
   </header>
 
   <div class="tabs">
-    <button :class="{active:tab==='overview'}" @click="tab='overview'">总览</button>
-    <button :class="{active:tab==='txn'}" @click="tab='txn'">账单</button>
-    <button :class="{active:tab==='books'}" @click="tab='books'">藏书</button>
-    <button :class="{active:tab==='events'}" @click="tab='events'">事件聚会</button>
-    <button :class="{active:tab==='metro'}" @click="tab='metro'">主题时间线</button>
-    <button :class="{active:tab==='people'}" @click="tab='people'">人物关系</button>
-    <button :class="{active:tab==='geo'}" @click="tab='geo'">作者行迹</button>
-    <button :class="{active:tab==='reader'}" @click="tab='reader'">日记阅读</button>
-    <button :class="{active:tab==='stats'}" @click="tab='stats'">统计</button>
-    <button :class="{active:tab==='index'}" @click="tab='index'">实体索引</button>
+    <button :class="{active:tab==='overview'}" @click="tab='overview'">{{ t('tab_overview') }}</button>
+    <button :class="{active:tab==='txn'}" @click="tab='txn'">{{ t('tab_txn') }}</button>
+    <button :class="{active:tab==='books'}" @click="tab='books'">{{ t('tab_books') }}</button>
+    <button :class="{active:tab==='events'}" @click="tab='events'">{{ t('tab_events') }}</button>
+    <button :class="{active:tab==='metro'}" @click="tab='metro'">{{ t('tab_metro') }}</button>
+    <button :class="{active:tab==='people'}" @click="tab='people'">{{ t('tab_people') }}</button>
+    <button :class="{active:tab==='geo'}" @click="tab='geo'">{{ t('tab_geo') }}</button>
+    <button :class="{active:tab==='reader'}" @click="tab='reader'">{{ t('tab_reader') }}</button>
+    <button :class="{active:tab==='stats'}" @click="tab='stats'">{{ t('tab_stats') }}</button>
+    <button :class="{active:tab==='index'}" @click="tab='index'">{{ t('tab_index') }}</button>
   </div>
 
   <div class="entity-legend">
-    <strong style="color:#444">实体配色：</strong>
+    <strong style="color:#444">{{ t('legend_palette') }}</strong>
     <span><i class="dot dot-per"></i>人</span>
     <span><i class="dot dot-org"></i>团体</span>
     <span><i class="dot dot-loc"></i>地</span>
@@ -535,6 +539,37 @@
 <script>
 const { createApp, ref, computed, onMounted, watch, nextTick } = Vue;
 
+const I18N = {
+  zh: {
+    title: '徐乃昌日记 知识图谱', subtitle: 'alpha',
+    nodes_n: '节点', edges_n: '关系', dates_range: '日期', batches_n: '批',
+    tab_overview: '总览', tab_txn: '账单', tab_books: '藏书', tab_events: '事件聚会',
+    tab_metro: '主题时间线', tab_people: '人物关系', tab_geo: '作者行迹',
+    tab_reader: '日记阅读', tab_stats: '统计', tab_index: '实体索引',
+    legend_palette: '实体配色：',
+    search_placeholder: '全局搜索 (Ctrl+K)', search_no_match: '无匹配',
+    search_entities: '实体', search_text: '日记原文',
+    reset_xu: '重置 (仅徐乃昌)', expand_top: '加载 top 20 hub',
+    add_person: '加入指定人物 (回车)', expand_n: '每次展开 N',
+    rel: '关系', conf: '置信度', all: '全部', extracted_only: '仅原文', extracted_inferred: '原文+推断',
+    hint_people: '单击节点 → 档案 · 双击节点 → 展开邻居 · 双击边 → 证据 · 右键节点 → 移除',
+  },
+  en: {
+    title: 'Xu Naichang Diary KG', subtitle: 'alpha',
+    nodes_n: 'nodes', edges_n: 'edges', dates_range: 'dates', batches_n: 'batches',
+    tab_overview: 'Overview', tab_txn: 'Ledger', tab_books: 'Books', tab_events: 'Events',
+    tab_metro: 'Timeline', tab_people: 'Network', tab_geo: 'Atlas',
+    tab_reader: 'Reader', tab_stats: 'Stats', tab_index: 'Index',
+    legend_palette: 'Entity palette:',
+    search_placeholder: 'Search (Ctrl+K)', search_no_match: 'No match',
+    search_entities: 'Entities', search_text: 'Diary text',
+    reset_xu: 'Reset (Xu only)', expand_top: 'Load top-20 hubs',
+    add_person: 'Add person (Enter)', expand_n: 'Expand N',
+    rel: 'Rel.', conf: 'Conf.', all: 'All', extracted_only: 'Extracted', extracted_inferred: 'Extracted+Inferred',
+    hint_people: 'click → profile · dblclick → expand · dblclick edge → evidence · rclick → remove',
+  },
+};
+
 const CITY_COORDS_FALLBACK = {};
 
 const ENTITY_KIND_MAP = {
@@ -557,6 +592,9 @@ let leafletMap = null;
 
 createApp({
   setup() {
+    const locale = ref(localStorage.getItem('locale') || 'zh');
+    const t = (k) => (I18N[locale.value] && I18N[locale.value][k]) || (I18N.zh[k]) || k;
+    watch(locale, (v) => localStorage.setItem('locale', v));
     const tab = ref('overview');
     const overview = ref(null);
     const peopleData = ref(null);
@@ -1346,6 +1384,7 @@ createApp({
       metroGran, metroSource, renderMetro,
       statsData, renderStats,
       miscData, miscOverviewGroups,
+      locale, t,
       profile, profileKind, profileKindLabel, openProfile, openProfileById, neighbourLabel,
     };
   }
