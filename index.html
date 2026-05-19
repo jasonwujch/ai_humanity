@@ -360,28 +360,36 @@
     </div>
   </div>
 
-  <!-- Metro timeline -->
+  <!-- Metro timeline + Calendar -->
   <div class="view" v-show="tab==='metro'">
     <div class="controls">
-      <label>颗粒度
-        <select v-model="metroGran" @change="renderMetro">
-          <option value="week">周</option>
-          <option value="month">月</option>
-          <option value="day">日</option>
+      <label>视图
+        <select v-model="metroView" @change="renderMetroOrCalendar">
+          <option value="timeline">地铁线</option>
+          <option value="month">日历 · 月</option>
+          <option value="week">日历 · 周</option>
+          <option value="day">日历 · 日</option>
         </select>
       </label>
       <label>包含
-        <select v-model="metroSource" @change="renderMetro">
+        <select v-model="metroSource" @change="renderMetroOrCalendar">
           <option value="edges">人物关系</option>
           <option value="events">事件聚会</option>
           <option value="both">全部</option>
         </select>
       </label>
-      <span class="legend">横轴=时间，每行=关系类型；点击站点查看证据。颗粒度越细，行越拥挤</span>
+      <template v-if="metroView !== 'timeline'">
+        <button @click="calShift(-1)">‹</button>
+        <span style="font-weight:600;min-width:140px;display:inline-block;text-align:center">{{ calLabel }}</span>
+        <button @click="calShift(1)">›</button>
+        <button @click="calToday">今</button>
+      </template>
+      <span class="legend">{{ metroView==='timeline' ? '横轴=时间，每行=关系类型' : '点击日格 → 跳到日记阅读' }}</span>
     </div>
-    <div class="metro-wrap" style="height:calc(100vh - 240px)">
+    <div v-show="metroView==='timeline'" class="metro-wrap" style="height:calc(100vh - 250px)">
       <svg id="metro-svg" class="metro-svg"></svg>
     </div>
+    <div v-show="metroView!=='timeline'" id="calendar-wrap" style="background:var(--paper);border:1px solid var(--border);border-radius:2px;padding:14px;height:calc(100vh - 250px);overflow:auto"></div>
     <div id="metro-tooltip" class="metro-tooltip"></div>
   </div>
 
@@ -646,6 +654,18 @@ createApp({
     const eventMinMembers = ref(2);
     const metroGran = ref('week');
     const metroSource = ref('both');
+    const metroView = ref('timeline');
+    const calAnchor = ref(null);  // ISO date string, anchor of current calendar view
+    const calLabel = computed(() => {
+      if (!calAnchor.value) return '';
+      const d = new Date(calAnchor.value + 'T00:00:00Z');
+      if (metroView.value === 'month') return `${d.getUTCFullYear()}年 ${d.getUTCMonth()+1}月`;
+      if (metroView.value === 'week') {
+        const wkStart = startOfWeek(d);
+        return `${wkStart.toISOString().slice(0,10)} 周`;
+      }
+      return calAnchor.value;
+    });
     const statsData = ref(null);
     const miscData = ref(null);
     const relationFilter = ref('');
@@ -781,7 +801,7 @@ createApp({
       if (t === 'books' && bk && !booksTable) nextTick(() => initBooks(bk));
       if (t === 'people' && pp && !cyInstance) nextTick(() => initLazyGraph());
       if (t === 'geo' && lc && !leafletMap) nextTick(() => initGeo(lc));
-      if (t === 'metro') nextTick(() => renderMetro());
+      if (t === 'metro') nextTick(() => renderMetroOrCalendar());
       if (t === 'stats' && st) nextTick(() => renderStats());
     });
 
@@ -1040,6 +1060,225 @@ createApp({
       }
       return ['疾病','灾害','官职'].filter(t => groups[t]).map(t => ({type: t, items: groups[t].sort((a,b)=>b.mentions-a.mentions)}));
     });
+
+    // ── Calendar / Metro dispatcher ──────────────────────────────────────
+    function startOfWeek(d) {
+      const dd = new Date(d.getTime());
+      const day = dd.getUTCDay();  // 0=Sun
+      dd.setUTCDate(dd.getUTCDate() - day);
+      return dd;
+    }
+    function eventsByDate() {
+      // Returns Map<date, [{relation, label, members, kind}]>
+      const m = new Map();
+      const push = (date, item) => { if (!date) return; if (!m.has(date)) m.set(date, []); m.get(date).push(item); };
+      if (metroSource.value !== 'events' && peopleData.value) {
+        for (const e of peopleData.value.edges) push(e.date, {relation:e.relation, label:e.evidence||'', kind:'edge'});
+      }
+      if (metroSource.value !== 'edges' && eventsData.value) {
+        for (const ev of eventsData.value) push(ev.date, {relation:ev.relation, label:ev.label, members:ev.members, kind:'event'});
+      }
+      return m;
+    }
+    const RELATION_COLOR_MAP = {
+      '拜访':'#1f3f8a','致书':'#2c6e3e','商务':'#a3296b','赠':'#a35c1a','受赠':'#5f3b8a',
+      '同席':'#0e6c75','资助':'#8b1f30','转交':'#6b2e8a','亲属':'#4a4943','治病':'#9b2926',
+      '位于':'#a35c1a','属于':'#4a4943','师友':'#2c6e3e','同_as':'#4a4943'
+    };
+    function calShift(dir) {
+      if (!calAnchor.value) return;
+      const d = new Date(calAnchor.value + 'T00:00:00Z');
+      if (metroView.value === 'month') d.setUTCMonth(d.getUTCMonth() + dir);
+      else if (metroView.value === 'week') d.setUTCDate(d.getUTCDate() + 7 * dir);
+      else d.setUTCDate(d.getUTCDate() + dir);
+      calAnchor.value = d.toISOString().slice(0,10);
+      renderMetroOrCalendar();
+    }
+    function calToday() {
+      const ds = readerDates.value;
+      if (ds.length) calAnchor.value = ds[Math.floor(ds.length/2)];
+      renderMetroOrCalendar();
+    }
+    function renderMetroOrCalendar() {
+      if (!calAnchor.value && readerDates.value.length) {
+        calAnchor.value = readerDates.value[0];
+      }
+      if (metroView.value === 'timeline') {
+        renderMetro();
+      } else {
+        renderCalendar();
+      }
+    }
+    function renderCalendar() {
+      const wrap = document.getElementById('calendar-wrap');
+      if (!wrap || !calAnchor.value) return;
+      wrap.innerHTML = '';
+      const anchor = new Date(calAnchor.value + 'T00:00:00Z');
+      const byDate = eventsByDate();
+      const view = metroView.value;
+      if (view === 'month') {
+        const y = anchor.getUTCFullYear(), mo = anchor.getUTCMonth();
+        const first = new Date(Date.UTC(y, mo, 1));
+        const startDow = first.getUTCDay();
+        const daysInMonth = new Date(Date.UTC(y, mo+1, 0)).getUTCDate();
+        // Header row
+        const head = document.createElement('div');
+        head.style.display = 'grid';
+        head.style.gridTemplateColumns = 'repeat(7,1fr)';
+        head.style.gap = '4px';
+        head.style.fontSize = 'var(--fs-xs)';
+        head.style.color = 'var(--muted)';
+        head.style.marginBottom = '4px';
+        ['日','一','二','三','四','五','六'].forEach(d => {
+          const c = document.createElement('div');
+          c.textContent = d;
+          c.style.padding = '4px 8px';
+          c.style.fontWeight = '600';
+          head.appendChild(c);
+        });
+        wrap.appendChild(head);
+        const grid = document.createElement('div');
+        grid.style.display = 'grid';
+        grid.style.gridTemplateColumns = 'repeat(7,1fr)';
+        grid.style.gap = '4px';
+        // Lead blanks
+        for (let i = 0; i < startDow; i++) {
+          const c = document.createElement('div');
+          c.style.minHeight = '90px';
+          c.style.background = '#f5efe4';
+          c.style.borderRadius = '2px';
+          c.style.opacity = '0.3';
+          grid.appendChild(c);
+        }
+        for (let d = 1; d <= daysInMonth; d++) {
+          const dateStr = `${y}-${String(mo+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+          const events = byDate.get(dateStr) || [];
+          const cell = document.createElement('div');
+          cell.style.minHeight = '90px';
+          cell.style.background = events.length ? 'var(--paper)' : '#fbf8ee';
+          cell.style.border = '1px solid var(--border-soft)';
+          cell.style.borderRadius = '2px';
+          cell.style.padding = '6px';
+          cell.style.cursor = 'pointer';
+          cell.style.overflow = 'hidden';
+          const dnum = document.createElement('div');
+          dnum.textContent = d;
+          dnum.style.fontWeight = '600';
+          dnum.style.fontSize = 'var(--fs-sm)';
+          dnum.style.color = events.length ? 'var(--fg)' : 'var(--muted)';
+          dnum.style.marginBottom = '4px';
+          cell.appendChild(dnum);
+          // Dots per relation
+          const counts = {};
+          for (const ev of events) counts[ev.relation] = (counts[ev.relation] || 0) + 1;
+          const dotsRow = document.createElement('div');
+          dotsRow.style.display = 'flex'; dotsRow.style.flexWrap = 'wrap'; dotsRow.style.gap = '3px';
+          for (const [rel, cnt] of Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,8)) {
+            const dot = document.createElement('span');
+            dot.style.background = RELATION_COLOR_MAP[rel] || '#888';
+            dot.style.color = '#fff';
+            dot.style.fontSize = '10px';
+            dot.style.padding = '0 5px';
+            dot.style.borderRadius = '8px';
+            dot.style.lineHeight = '1.6';
+            dot.title = `${rel} ${cnt}`;
+            dot.textContent = rel + (cnt > 1 ? ' ' + cnt : '');
+            dotsRow.appendChild(dot);
+          }
+          cell.appendChild(dotsRow);
+          cell.addEventListener('click', () => {
+            tab.value = 'reader';
+            readerDate.value = dateStr;
+          });
+          grid.appendChild(cell);
+        }
+        wrap.appendChild(grid);
+      } else if (view === 'week') {
+        const wkStart = startOfWeek(anchor);
+        const grid = document.createElement('div');
+        grid.style.display = 'grid';
+        grid.style.gridTemplateColumns = 'repeat(7,1fr)';
+        grid.style.gap = '6px';
+        for (let i = 0; i < 7; i++) {
+          const d = new Date(wkStart.getTime() + i * 86400000);
+          const dateStr = d.toISOString().slice(0,10);
+          const events = byDate.get(dateStr) || [];
+          const col = document.createElement('div');
+          col.style.background = 'var(--paper)';
+          col.style.border = '1px solid var(--border-soft)';
+          col.style.borderRadius = '2px';
+          col.style.padding = '8px';
+          col.style.minHeight = '320px';
+          col.style.cursor = 'pointer';
+          col.style.overflow = 'hidden';
+          const hd = document.createElement('div');
+          hd.textContent = `${d.getUTCMonth()+1}/${d.getUTCDate()} ${['日','一','二','三','四','五','六'][d.getUTCDay()]}`;
+          hd.style.fontWeight = '600';
+          hd.style.fontSize = 'var(--fs-sm)';
+          hd.style.marginBottom = '6px';
+          hd.style.borderBottom = '1px solid var(--border-soft)';
+          hd.style.paddingBottom = '4px';
+          col.appendChild(hd);
+          for (const ev of events.slice(0, 20)) {
+            const row = document.createElement('div');
+            row.style.fontSize = 'var(--fs-xs)';
+            row.style.padding = '3px 6px';
+            row.style.marginBottom = '3px';
+            row.style.borderLeft = `3px solid ${RELATION_COLOR_MAP[ev.relation] || '#888'}`;
+            row.style.background = '#fbf8ee';
+            row.style.borderRadius = '2px';
+            row.innerHTML = `<strong style="color:${RELATION_COLOR_MAP[ev.relation] || '#888'}">${ev.relation}</strong> ${(ev.label||'').slice(0,28)}`;
+            col.appendChild(row);
+          }
+          if (events.length > 20) {
+            const more = document.createElement('div');
+            more.style.fontSize = 'var(--fs-xs)';
+            more.style.color = 'var(--muted)';
+            more.textContent = `+${events.length-20} 更多`;
+            col.appendChild(more);
+          }
+          col.addEventListener('click', () => {
+            tab.value = 'reader';
+            readerDate.value = dateStr;
+          });
+          grid.appendChild(col);
+        }
+        wrap.appendChild(grid);
+      } else if (view === 'day') {
+        const dateStr = calAnchor.value;
+        const events = byDate.get(dateStr) || [];
+        const head = document.createElement('div');
+        head.style.display = 'flex';
+        head.style.justifyContent = 'space-between';
+        head.style.alignItems = 'baseline';
+        head.style.marginBottom = '10px';
+        head.innerHTML = `<h2 style="margin:0;color:var(--accent);font-size:var(--fs-h)">${dateStr}</h2><span class="legend">${events.length} 条记录</span>`;
+        wrap.appendChild(head);
+        if (events.length === 0) {
+          const empty = document.createElement('div');
+          empty.className = 'empty';
+          empty.textContent = '该日无事件记录';
+          wrap.appendChild(empty);
+        }
+        for (const ev of events) {
+          const row = document.createElement('div');
+          row.style.padding = '10px';
+          row.style.marginBottom = '6px';
+          row.style.background = '#fbf8ee';
+          row.style.borderLeft = `4px solid ${RELATION_COLOR_MAP[ev.relation] || '#888'}`;
+          row.style.borderRadius = '2px';
+          row.style.fontSize = 'var(--fs-sm)';
+          const memHtml = (ev.members||[]).slice(0,10).map(m => `<span class="chip chip-${ENTITY_KIND_MAP[m.type]?.kind||'per'}">${m.label||''}</span>`).join(' ');
+          row.innerHTML = `<strong style="color:${RELATION_COLOR_MAP[ev.relation] || '#888'};font-size:var(--fs-base)">${ev.relation}</strong>  <span>${ev.label||''}</span><div style="margin-top:6px">${memHtml}</div>`;
+          wrap.appendChild(row);
+        }
+        const goReader = document.createElement('div');
+        goReader.style.marginTop = '12px';
+        goReader.innerHTML = `<a class="link" style="color:var(--accent)">→ 跳到日记原文</a>`;
+        goReader.onclick = () => { tab.value = 'reader'; readerDate.value = dateStr; };
+        wrap.appendChild(goReader);
+      }
+    }
 
     // ── Stats ────────────────────────────────────────────────────────────
     function renderStats() {
@@ -1467,6 +1706,7 @@ createApp({
       prevDay, nextDay, jumpDate,
       eventsData, eventSearch, eventRelation, eventMinMembers, eventRelations, filteredEvents,
       metroGran, metroSource, renderMetro,
+      metroView, calAnchor, calLabel, calShift, calToday, renderMetroOrCalendar,
       statsData, renderStats,
       miscData, miscOverviewGroups,
       locale, t,
