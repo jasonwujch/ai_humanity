@@ -326,8 +326,8 @@
   <!-- Transactions -->
   <div class="view" v-show="tab==='txn'">
     <div class="controls">
-      <input v-model="txnSearch" @input="applyTxnFilter" placeholder="搜索 人名 / 交易 / 证据" style="width:240px" />
-      <label><input type="checkbox" v-model="txnHasPerson" @change="applyTxnFilter" /> 仅显示有相关人</label>
+      <input v-model="txnSearch" @input="applyTxnFilter" placeholder="搜索 人名 / 交易 / 证据" style="width:200px" />
+      <label><input type="checkbox" v-model="txnHasPerson" @change="applyTxnFilter" /> 有相关人</label>
       <label>方向
         <select v-model="txnDirection" @change="applyTxnFilter">
           <option value="">全部</option>
@@ -335,21 +335,18 @@
           <option value="in">入</option>
         </select>
       </label>
-      <span class="legend" v-if="txnData">共 {{ txnData.length }} 笔</span>
-    </div>
-    <div class="controls">
-      <label>日期范围
-        <input type="date" v-model="dateFrom" @change="applyTxnFilter" style="width:140px" />
-        <span>—</span>
-        <input type="date" v-model="dateTo" @change="applyTxnFilter" style="width:140px" />
+      <label>日期
+        <input type="date" v-model="dateFrom" @change="applyTxnFilter" :min="dataMinDate" :max="dataMaxDate" style="width:135px" />
+        <span style="color:var(--muted)">—</span>
+        <input type="date" v-model="dateTo" @change="applyTxnFilter" :min="dataMinDate" :max="dataMaxDate" style="width:135px" />
       </label>
-      <button @click="clearDateFilter">清空</button>
-      <span class="legend">快捷:</span>
-      <button v-for="y in dateYears" :key="y" @click="setYear(y)" style="padding:3px 8px;font-size:var(--fs-xs)">{{ y }}</button>
+      <button v-for="y in dateYears" :key="y" @click="setYear(y)" style="padding:4px 8px;font-size:var(--fs-xs)">{{ y }}</button>
       <select @change="setMonth($event.target.value)" :value="dateMonth" style="padding:5px 8px;font-size:var(--fs-xs)">
-        <option value="">月...</option>
+        <option value="">月</option>
         <option v-for="m in 12" :key="m" :value="dateYearSel + '-' + String(m).padStart(2,'0')">{{ m }}月</option>
       </select>
+      <button @click="clearDateFilter">清空</button>
+      <span class="legend" v-if="txnData">共 {{ txnData.length }} 笔</span>
     </div>
     <div id="txn-table"></div>
   </div>
@@ -357,19 +354,16 @@
   <!-- Books -->
   <div class="view" v-show="tab==='books'">
     <div class="controls">
-      <input v-model="bookSearch" @input="applyBookFilter" placeholder="搜索 书名 / 别名" style="width:240px" />
-      <label>仅显示有人物关联 <input type="checkbox" v-model="bookHasPerson" @change="applyBookFilter" /></label>
-      <span class="legend" v-if="booksData">{{ booksData.length }} 部 · {{ booksData.filter(b=>b.people.length>0).length }} 有人物关联</span>
-    </div>
-    <div class="controls">
-      <label>首次提及范围
-        <input type="date" v-model="dateFrom" @change="applyBookFilter" style="width:140px" />
-        <span>—</span>
-        <input type="date" v-model="dateTo" @change="applyBookFilter" style="width:140px" />
+      <input v-model="bookSearch" @input="applyBookFilter" placeholder="搜索 书名 / 别名" style="width:200px" />
+      <label><input type="checkbox" v-model="bookHasPerson" @change="applyBookFilter" /> 有人物关联</label>
+      <label>首次提及
+        <input type="date" v-model="dateFrom" @change="applyBookFilter" :min="dataMinDate" :max="dataMaxDate" style="width:135px" />
+        <span style="color:var(--muted)">—</span>
+        <input type="date" v-model="dateTo" @change="applyBookFilter" :min="dataMinDate" :max="dataMaxDate" style="width:135px" />
       </label>
+      <button v-for="y in dateYears" :key="y" @click="setYear(y, 'book')" style="padding:4px 8px;font-size:var(--fs-xs)">{{ y }}</button>
       <button @click="clearDateFilter">清空</button>
-      <span class="legend">快捷:</span>
-      <button v-for="y in dateYears" :key="y" @click="setYear(y, 'book')" style="padding:3px 8px;font-size:var(--fs-xs)">{{ y }}</button>
+      <span class="legend" v-if="booksData">{{ booksData.length }} 部 · {{ booksData.filter(b=>b.people.length>0).length }} 有人物关联</span>
     </div>
     <div id="books-table"></div>
   </div>
@@ -952,6 +946,8 @@ createApp({
       for (let y = y0; y <= y1; y++) out.push(y);
       return out;
     });
+    const dataMinDate = computed(() => overview.value?.date_range?.[0] || '1900-01-01');
+    const dataMaxDate = computed(() => overview.value?.date_range?.[1] || '2099-12-31');
     function clearDateFilter() {
       dateFrom.value = ''; dateTo.value = ''; dateMonth.value = '';
       applyTxnFilter(); applyBookFilter();
@@ -2636,7 +2632,7 @@ createApp({
       sortedEntityTypes, sortedRelationTypes, relationOptions, maxEntity, maxRelation,
       applyTxnFilter, applyBookFilter, kindOf,
       booksData, bookSearch, bookHasPerson,
-      dateFrom, dateTo, dateMonth, dateYearSel, dateYears,
+      dateFrom, dateTo, dateMonth, dateYearSel, dateYears, dataMinDate, dataMaxDate,
       clearDateFilter, setYear, setMonth,
       chunksData, readerDate, readerDates, readerByMonth, readerBySeason, readerExpanded, toggleSeason,
       currentChunk, highlightedBody, entitiesByType,
