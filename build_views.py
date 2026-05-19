@@ -348,6 +348,47 @@ for e in per_edges_deduped:
 for n in per_nodes_deduped:
     n['degree'] = deg.get(n['id'], 0)
 
+# ── Community detection (label propagation, pure-Python, weighted by edge count) ─
+adj_for_lp = defaultdict(Counter)  # node → {neighbour: weight}
+for e in per_edges_deduped:
+    adj_for_lp[e['source']][e['target']] += 1
+    adj_for_lp[e['target']][e['source']] += 1
+
+# Initialize each node with its own community
+labels = {n['id']: n['id'] for n in per_nodes_deduped}
+import random as _rand
+_rand.seed(0)
+node_ids = [n['id'] for n in per_nodes_deduped]
+for _iter in range(8):  # 8 passes empirically converges
+    _rand.shuffle(node_ids)
+    changed = 0
+    for nid in node_ids:
+        neighbours = adj_for_lp.get(nid)
+        if not neighbours: continue
+        # Vote by weighted neighbour labels
+        votes = Counter()
+        for nb, w in neighbours.items():
+            votes[labels[nb]] += w
+        if not votes: continue
+        top_label = votes.most_common(1)[0][0]
+        if labels[nid] != top_label:
+            labels[nid] = top_label
+            changed += 1
+    if changed == 0: break
+
+# Re-key labels to small integers, drop singletons
+label_count = Counter(labels.values())
+final_label_map = {}
+next_id = 0
+for lbl, cnt in label_count.most_common():
+    if cnt >= 3:
+        final_label_map[lbl] = next_id
+        next_id += 1
+for n in per_nodes_deduped:
+    raw = labels[n['id']]
+    n['community'] = final_label_map.get(raw, -1)
+print(f'communities: {next_id} clusters of ≥3 PER, {sum(1 for n in per_nodes_deduped if n["community"]==-1)} singletons')
+
 (out_dir / 'people_graph.json').write_text(
     json.dumps({'nodes': per_nodes_deduped, 'edges': per_edges_deduped}, ensure_ascii=False, indent=2),
     encoding='utf-8',
