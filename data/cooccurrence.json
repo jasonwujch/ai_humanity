@@ -267,18 +267,6 @@
    ]
   },
   {
-   "a": "per_wang_changlin",
-   "a_label": "王长林",
-   "b": "per_yu_shuyan",
-   "b_label": "余叔岩",
-   "count": 3,
-   "sample_dates": [
-    "1920-11-08",
-    "1920-11-09",
-    "1920-11-10"
-   ]
-  },
-  {
    "a": "per_chen_shaozhou",
    "a_label": "陈少舟",
    "b": "per_shaozhou_cheng",
@@ -931,30 +919,6 @@
      "1920-07-07",
      "1920-07-09",
      "1920-07-11"
-    ]
-   }
-  ],
-  "per_wang_changlin": [
-   {
-    "id": "per_yu_shuyan",
-    "label": "余叔岩",
-    "count": 3,
-    "dates": [
-     "1920-11-08",
-     "1920-11-09",
-     "1920-11-10"
-    ]
-   }
-  ],
-  "per_yu_shuyan": [
-   {
-    "id": "per_wang_changlin",
-    "label": "王长林",
-    "count": 3,
-    "dates": [
-     "1920-11-08",
-     "1920-11-09",
-     "1920-11-10"
     ]
    }
   ],

@@ -481,8 +481,8 @@
     "label": "陶拙存",
     "type": "人",
     "relation": "拜访",
-    "date": "1920-08-02",
-    "evidence": "赴陶拙存贞元会都益处之约"
+    "date": "1923-09-19",
+    "evidence": "都益处贞元会，并祝陶拙存生辰"
    },
    {
     "id": "per_liu_huizhi",
@@ -603,8 +603,8 @@
   "last_seen": "1920-01-06",
   "linked_people": [
    {
-    "id": "per_tui_lao",
-    "label": "退老",
+    "id": "per_zhang_tuigui",
+    "label": "张退簋",
     "type": "人",
     "relation": "治病",
     "date": "1923-04-29",
@@ -677,6 +677,22 @@
     "relation": "致书",
     "date": "1920-05-16",
     "evidence": "张贤清报告查放南陵振务情形书至"
+   },
+   {
+    "id": "per_ma_zhengying",
+    "label": "马正英",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-07-25",
+    "evidence": "南陵有无根册，请马正英查案"
+   },
+   {
+    "id": "per_fang_dezhai",
+    "label": "方德斋",
+    "type": "人",
+    "relation": "位于",
+    "date": "1923-08-06",
+    "evidence": "方德斋，已回南陵"
    },
    {
     "id": "per_yu_dang",
@@ -839,6 +855,14 @@
     "relation": "位于",
     "date": "1920-01-04",
     "evidence": "九江梅太夫人宁绸幃"
+   },
+   {
+    "id": "per_xu_jingren",
+    "label": "徐静仁",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-10-02",
+    "evidence": "许静仁去九江"
    }
   ]
  },
@@ -1217,6 +1241,14 @@
     "evidence": "淑婉挈绮女回沪"
    },
    {
+    "id": "per_chen_julinzhonglin",
+    "label": "陈菊人鍾麟",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-07-22",
+    "evidence": "陈菊人鍾麟,上海人"
+   },
+   {
     "id": "per_luo_zhenyu",
     "label": "罗振玉",
     "type": "人",
@@ -1249,8 +1281,8 @@
     "evidence": "翰怡、醉愚已回沪"
    },
    {
-    "id": "per_tui_lao",
-    "label": "退老",
+    "id": "per_zhang_tuigui",
+    "label": "张退簋",
     "type": "人",
     "relation": "拜访",
     "date": "1922-05-05",
@@ -1431,7 +1463,7 @@
     "evidence": "至蟬隐庐、忠厚书庄、博古斋"
    },
    {
-    "id": "per_li_zidong",
+    "id": "per_li_ziDong",
     "label": "李紫东",
     "type": "人",
     "relation": "属于",
@@ -1577,9 +1609,9 @@
     "id": "per_xu_naichang",
     "label": "徐乃昌",
     "type": "人",
-    "relation": "拜访",
-    "date": "1920-08-13",
-    "evidence": "至商务印书馆张菊生修理旧书"
+    "relation": "商务",
+    "date": "1923-07-11",
+    "evidence": "收商务印书馆癸亥上半年售书洋壹百〇壹元五角"
    },
    {
     "id": "per_zhang_juzi",
@@ -1675,6 +1707,14 @@
     "relation": "位于",
     "date": "1923-04-18",
     "evidence": "已寄芜湖陈希文"
+   },
+   {
+    "id": "per_zhao_jiaopu",
+    "label": "赵椒圃",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-07-25",
+    "evidence": "椒圃现办芜湖米厘"
    },
    {
     "id": "per_jing_xutang",
@@ -2004,6 +2044,14 @@
     "evidence": "付古书流通处书价十五元"
    },
    {
+    "id": "per_fu_yuanshu",
+    "label": "傅沅叔(增湘)",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-11-16",
+    "evidence": "至古书流通处，晤傅沅叔"
+   },
+   {
     "id": "per_wang_jing_an",
     "label": "王静庵",
     "type": "人",
@@ -2208,6 +2256,30 @@
   "last_seen": "1920-01-23",
   "linked_people": [
    {
+    "id": "per_liu_yisheng",
+    "label": "刘沂生",
+    "type": "人",
+    "relation": "位于",
+    "date": "1923-08-02",
+    "evidence": "扬州刘沂生"
+   },
+   {
+    "id": "per_wang_shuping",
+    "label": "汪书屏",
+    "type": "人",
+    "relation": "位于",
+    "date": "1923-09-09",
+    "evidence": "函谢扬州汪书屏、汪易三昆仲"
+   },
+   {
+    "id": "per_liao_keting",
+    "label": "廖可亭",
+    "type": "人",
+    "relation": "位于",
+    "date": "1923-11-17",
+    "evidence": "丁未年在扬州廖氏可亭"
+   },
+   {
     "id": "per_long_ming",
     "label": "隆明",
     "type": "人",
@@ -2358,7 +2430,7 @@
   "last_seen": "1920-01-26",
   "linked_people": [
    {
-    "id": "per_yuan_shuzhi",
+    "id": "per_tan_yuanshu",
     "label": "袁述之",
     "type": "人",
     "relation": "资助",
@@ -3135,6 +3207,14 @@
     "relation": "属于",
     "date": "1920-02-03",
     "evidence": "赴周梦坡晨风庐消寒十集"
+   },
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-09-14",
+    "evidence": "周梦坡约至晨风庐酒叙"
    }
   ]
  },
@@ -3242,8 +3322,8 @@
     "label": "徐乃昌",
     "type": "人",
     "relation": "拜访",
-    "date": "1920-08-16",
-    "evidence": "游邑庙内园"
+    "date": "1923-10-17",
+    "evidence": "至邑庙内园"
    }
   ]
  },
@@ -3274,6 +3354,14 @@
     "relation": "拜访",
     "date": "1923-05-16",
     "evidence": "至来青阁，同杨寿祺闲话"
+   },
+   {
+    "id": "per_chen_naiqian",
+    "label": "陈乃乾",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-11-17",
+    "evidence": "过来青阁,晤陈乃乾谭"
    },
    {
     "id": "per_zheng_hansheng",
@@ -3521,6 +3609,14 @@
   "first_seen": "1920-03-18",
   "last_seen": "1920-03-25",
   "linked_people": [
+   {
+    "id": "per_ma_erxi",
+    "label": "马尔熙",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-07-26",
+    "evidence": "马尔熙回宁"
+   },
    {
     "id": "per_lao_jiliu",
     "label": "劳吉六",
@@ -3774,20 +3870,20 @@
   "last_seen": "1920-04-02",
   "linked_people": [
    {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-10-05",
+    "evidence": "至仁济堂"
+   },
+   {
     "id": "per_jiean",
     "label": "介庵",
     "type": "人",
     "relation": "拜访",
     "date": "1920-11-02",
     "evidence": "至仁济堂，晤介庵乔梓"
-   },
-   {
-    "id": "per_xu_naichang",
-    "label": "徐乃昌",
-    "type": "人",
-    "relation": "拜访",
-    "date": "1921-01-20",
-    "evidence": "至仁济堂，晤戒安、宋廷、皋俞"
    }
   ]
  },
@@ -3904,12 +4000,28 @@
     "evidence": "至…来青阁"
    },
    {
+    "id": "per_chongr",
+    "label": "崇儿",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-07-16",
+    "evidence": "晚，率崇儿至来青阁"
+   },
+   {
     "id": "per_chen_naiqian",
     "label": "陈乃乾",
     "type": "人",
     "relation": "拜访",
-    "date": "1922-05-30",
-    "evidence": "至来青阁，晤陈乃乾、费景韩"
+    "date": "1923-07-20",
+    "evidence": "陈乃乾来，晚同至来青阁、蟬隐庐"
+   },
+   {
+    "id": "per_wang_xuecheng",
+    "label": "王雪澄",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-07-27",
+    "evidence": "晚至来青阁，晤王雪澄、陈乃乾"
    },
    {
     "id": "per_fei_jinghan",
@@ -3972,7 +4084,7 @@
     "evidence": "重要客则李仲帅也"
    },
    {
-    "id": "per_li_zidong",
+    "id": "per_li_ziDong",
     "label": "李紫东",
     "type": "人",
     "relation": "拜访",
@@ -4265,6 +4377,14 @@
     "relation": "拜访",
     "date": "1922-12-10",
     "evidence": "至…蟬隐庐"
+   },
+   {
+    "id": "per_chen_naiqian",
+    "label": "陈乃乾",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-07-20",
+    "evidence": "晚同至来青阁、蟬隐庐"
    },
    {
     "id": "per_zijing",
@@ -4615,6 +4735,30 @@
     "relation": "属于",
     "date": "1920-04-06",
     "evidence": "刘翰怡淞社四十四集"
+   },
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-09-25",
+    "evidence": "淞社同人在一江春公祝吴缶庐寿"
+   },
+   {
+    "id": "per_wu_fulu",
+    "label": "吴缶庐",
+    "type": "人",
+    "relation": "同席",
+    "date": "1923-09-25",
+    "evidence": "淞社同人在一江春公祝吴缶庐寿"
+   },
+   {
+    "id": "per_mengpo",
+    "label": "周梦坡",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-12-14",
+    "evidence": "淞社公祝梦坡"
    },
    {
     "id": "per_heng_jishen",
@@ -4969,6 +5113,14 @@
     "evidence": "吴元松，年十八岁，歙县人"
    },
    {
+    "id": "per_xu_shengyi",
+    "label": "徐胜一",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-08-19",
+    "evidence": "公由歙县路口见南陵工峰山清水秀"
+   },
+   {
     "id": "per_zhang_sijiao",
     "label": "张思教",
     "type": "人",
@@ -5027,6 +5179,14 @@
     "relation": "位于",
     "date": "1923-05-05",
     "evidence": "淑魄合肥来讯"
+   },
+   {
+    "id": "per_da_nv",
+    "label": "大女",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-08-30",
+    "evidence": "大女挈家源外孙由肥来"
    }
   ]
  },
@@ -5125,6 +5285,14 @@
     "relation": "拜访",
     "date": "1922-12-18",
     "evidence": "新世界"
+   },
+   {
+    "id": "per_chongr",
+    "label": "崇儿",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-07-22",
+    "evidence": "挈崇儿游新世界"
    },
    {
     "id": "per_fang_yushan",
@@ -5311,7 +5479,16 @@
   "mentions": 1,
   "first_seen": "1920-04-14",
   "last_seen": "1920-04-14",
-  "linked_people": []
+  "linked_people": [
+   {
+    "id": "per_liu_hanyi",
+    "label": "刘翰怡",
+    "type": "人",
+    "relation": "商务",
+    "date": "1923-10-27",
+    "evidence": "展转售于刘翰怡,价三百元"
+   }
+  ]
  },
  "loc_renji_tang": {
   "id": "loc_renji_tang",
@@ -5823,8 +6000,8 @@
     "label": "徐乃昌",
     "type": "人",
     "relation": "拜访",
-    "date": "1920-10-01",
-    "evidence": "游大世界"
+    "date": "1923-10-12",
+    "evidence": "晚约至大世界西餐"
    },
    {
     "id": "per_chen_xifu",
@@ -5899,8 +6076,8 @@
     "evidence": "江知源约在有斐馆便饭"
    },
    {
-    "id": "per_tui_lao",
-    "label": "退老",
+    "id": "per_zhang_tuigui",
+    "label": "张退簋",
     "type": "人",
     "relation": "同席",
     "date": "1920-05-26",
@@ -5923,7 +6100,7 @@
     "evidence": "章叔纯以汽车相迎，遂至有斐馆"
    },
    {
-    "id": "per_caichen",
+    "id": "per_cai_chen",
     "label": "寀臣",
     "type": "人",
     "relation": "拜访",
@@ -5966,8 +6143,8 @@
   "last_seen": "1920-05-23",
   "linked_people": [
    {
-    "id": "per_tui_lao",
-    "label": "退老",
+    "id": "per_zhang_tuigui",
+    "label": "张退簋",
     "type": "人",
     "relation": "同席",
     "date": "1920-05-26",
@@ -6317,8 +6494,8 @@
   "last_seen": "1920-05-27",
   "linked_people": [
    {
-    "id": "per_tui_lao",
-    "label": "退老",
+    "id": "per_zhang_tuigui",
+    "label": "张退簋",
     "type": "人",
     "relation": "同席",
     "date": "1920-05-27",
@@ -6517,8 +6694,8 @@
     "evidence": "王已劲总理改任坐办"
    },
    {
-    "id": "per_tui_lao",
-    "label": "退老",
+    "id": "per_zhang_tuigui",
+    "label": "张退簋",
     "type": "人",
     "relation": "属于",
     "date": "1920-06-02",
@@ -6866,9 +7043,9 @@
     "id": "per_xu_naichang",
     "label": "徐乃昌",
     "type": "人",
-    "relation": "拜访",
-    "date": "1921-01-23",
-    "evidence": "至盐业银行，询烟捐局借款情形"
+    "relation": "商务",
+    "date": "1923-09-26",
+    "evidence": "收盐业银行五千两周七厘，半年息"
    },
    {
     "id": "per_ni_yuanfu",
@@ -6997,7 +7174,24 @@
   "mentions": 1,
   "first_seen": "1922-12-11",
   "last_seen": "1922-12-11",
-  "linked_people": []
+  "linked_people": [
+   {
+    "id": "per_xiao_gufen",
+    "label": "萧谷芬",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-07-24",
+    "evidence": "泾县萧谷芬手"
+   },
+   {
+    "id": "per_wang_zhixiang",
+    "label": "王志襄",
+    "type": "人",
+    "relation": "位于",
+    "date": "1923-07-29",
+    "evidence": "王志襄达，泾县"
+   }
+  ]
  },
  "org_yuzhong_shanghai_shiwusuo": {
   "id": "org_yuzhong_shanghai_shiwusuo",
@@ -7179,7 +7373,16 @@
   "mentions": 2,
   "first_seen": "1922-12-14",
   "last_seen": "1922-12-17",
-  "linked_people": []
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-07-12",
+    "evidence": "至招商局,访李伟侯,不遇"
+   }
+  ]
  },
  "loc_huaian": {
   "id": "loc_huaian",
@@ -7206,6 +7409,14 @@
   "first_seen": "1922-12-16",
   "last_seen": "1922-12-19",
   "linked_people": [
+   {
+    "id": "per_miao_gengyun",
+    "label": "缪耕云",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-09-23",
+    "evidence": "代缪耕云堂售出通海实业公司三百四十一股"
+   },
    {
     "id": "per_shen_yanmou",
     "label": "沈燕谋",
@@ -7235,7 +7446,16 @@
   "mentions": 1,
   "first_seen": "1922-12-16",
   "last_seen": "1922-12-16",
-  "linked_people": []
+  "linked_people": [
+   {
+    "id": "per_zhu_ruixiang",
+    "label": "朱瑞祥",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-12-12",
+    "evidence": "杭州城站抱经堂朱瑞祥来"
+   }
+  ]
  },
  "loc_daxinlou": {
   "id": "loc_daxinlou",
@@ -8147,7 +8367,16 @@
   "mentions": 1,
   "first_seen": "1922-12-31",
   "last_seen": "1922-12-31",
-  "linked_people": []
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-09-17",
+    "evidence": "至中华书局，为杨云史取回诗匣插片"
+   }
+  ]
  },
  "org_jinggushe": {
   "id": "org_jinggushe",
@@ -8218,6 +8447,14 @@
   "first_seen": "1923-01-03",
   "last_seen": "1923-01-03",
   "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-09-13",
+    "evidence": "晚，赴倚虹楼西餐"
+   },
    {
     "id": "per_wu_diepin",
     "label": "吴蝶卿",
@@ -8295,6 +8532,14 @@
     "relation": "属于",
     "date": "1923-01-03",
     "evidence": "慈幼院会计余峙莲杨华"
+   },
+   {
+    "id": "per_li_conglong",
+    "label": "李从龙",
+    "type": "人",
+    "relation": "资助",
+    "date": "1923-10-30",
+    "evidence": "从龙书捐慈幼院一百元"
    }
   ]
  },
@@ -8406,6 +8651,22 @@
   "first_seen": "1923-01-09",
   "last_seen": "1923-01-09",
   "linked_people": [
+   {
+    "id": "per_huang_shouyuan",
+    "label": "黄寿垣",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-07-26",
+    "evidence": "在商务印书馆"
+   },
+   {
+    "id": "per_kong_guang",
+    "label": "孔光",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-07-26",
+    "evidence": "在商务印书馆"
+   },
    {
     "id": "per_xu_naichang",
     "label": "徐乃昌",
@@ -8531,6 +8792,126 @@
     "relation": "属于",
     "date": "1923-04-09",
     "evidence": "郑鸛鹄介诚...致勉词"
+   },
+   {
+    "id": "per_lu_gaoyu",
+    "label": "吕皋俞",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-09-29",
+    "evidence": "徽宁同乡会代表吕皋俞"
+   },
+   {
+    "id": "per_wang_wenzao",
+    "label": "王文藻",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-09-29",
+    "evidence": "徽宁同乡会代表...王文藻"
+   },
+   {
+    "id": "per_cheng_yongyan",
+    "label": "程永言",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-09-29",
+    "evidence": "徽宁同乡会代表...程永言"
+   },
+   {
+    "id": "per_wang_xixun",
+    "label": "汪擕荀",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-10-25",
+    "evidence": "当选者共八人,为汪 擕荀"
+   },
+   {
+    "id": "per_wu_diepin",
+    "label": "吴蝶卿",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-10-25",
+    "evidence": "吴蝶卿"
+   },
+   {
+    "id": "per_zhu_zhiren",
+    "label": "朱智仁",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-10-25",
+    "evidence": "朱智仁"
+   },
+   {
+    "id": "per_hu_xiangjun",
+    "label": "胡祥钧",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-10-25",
+    "evidence": "胡祥钧"
+   },
+   {
+    "id": "per_wang_lizhai",
+    "label": "汪礼斋",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-10-25",
+    "evidence": "汪礼斋"
+   },
+   {
+    "id": "per_xie_huaiqing",
+    "label": "谢淮卿",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-10-25",
+    "evidence": "谢淮卿等"
+   },
+   {
+    "id": "per_huang_wenru",
+    "label": "黄温如",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-10-25",
+    "evidence": "黄温如"
+   },
+   {
+    "id": "per_hu_shizhi",
+    "label": "胡市之",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-10-25",
+    "evidence": "胡市之"
+   },
+   {
+    "id": "per_huang_liansheng",
+    "label": "黄怜生",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-10-25",
+    "evidence": "黄怜生等四人为评议部书记"
+   },
+   {
+    "id": "per_wang_xiexun",
+    "label": "汪撷荀",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-10-30",
+    "evidence": "评议部审查毕,当选者共八人,为汪擷荀"
+   },
+   {
+    "id": "per_yu_jilong",
+    "label": "余季龙",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-10-30",
+    "evidence": "当选者共八人,为...余季龙"
+   },
+   {
+    "id": "per_hu_daizhi",
+    "label": "胡带之",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-10-30",
+    "evidence": "推定...胡带之"
    }
   ]
  },
@@ -8615,7 +8996,7 @@
     "evidence": "1923-01-23 鲍子丹处商函袁述之为舜臣子谋蒙藏银行练习生"
    },
    {
-    "id": "per_yuan_shuzhi",
+    "id": "per_tan_yuanshu",
     "label": "袁述之",
     "type": "人",
     "relation": "共谋",
@@ -8872,6 +9253,30 @@
     "relation": "位于",
     "date": "1923-05-22",
     "evidence": "至净土庵，祝丁莞苏之母太夫人七十寿"
+   },
+   {
+    "id": "per_zhunv",
+    "label": "珠女",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-09-23",
+    "evidence": "蕊珠、绮两女在净土庵延僧诵瑜伽焰口"
+   },
+   {
+    "id": "per_qinu",
+    "label": "绮女",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-09-23",
+    "evidence": "蕊珠、绮两女在净土庵延僧诵瑜伽焰口"
+   },
+   {
+    "id": "per_liu_congshi",
+    "label": "刘葱石",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-11-30",
+    "evidence": "刘葱石送筵烛,至庵行礼"
    },
    {
     "id": "per_lu_zhongying",
@@ -10104,6 +10509,38 @@
   "last_seen": "1923-03-12",
   "linked_people": [
    {
+    "id": "per_song_zhonggang",
+    "label": "宋仲刚",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-09-03",
+    "evidence": "宋仲刚、劳吉六、吴华卿、邹健吾回南通"
+   },
+   {
+    "id": "per_lao_jiliu",
+    "label": "劳吉六",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-09-03",
+    "evidence": "宋仲刚、劳吉六、吴华卿、邹健吾回南通"
+   },
+   {
+    "id": "per_wu_huaqing",
+    "label": "吴华卿",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-09-03",
+    "evidence": "宋仲刚、劳吉六、吴华卿、邹健吾回南通"
+   },
+   {
+    "id": "per_zou_jianwu",
+    "label": "邹健吾",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-09-03",
+    "evidence": "宋仲刚、劳吉六、吴华卿、邹健吾回南通"
+   },
+   {
     "id": "per_liang_xing",
     "label": "徐亮星",
     "type": "人",
@@ -10160,8 +10597,8 @@
     "evidence": "晤账房张浩如"
    },
    {
-    "id": "per_xi_ai",
-    "label": "希璦",
+    "id": "per_zhang_xiai",
+    "label": "章希璦",
     "type": "人",
     "relation": "拜访",
     "date": "1922-03-30",
@@ -11448,20 +11885,20 @@
     "evidence": "至古香斋，晤高敖之"
    },
    {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-09-12",
+    "evidence": "至古香斋，取碑帖、书札"
+   },
+   {
     "id": "per_chen_jiezhai",
     "label": "陈簠斋",
     "type": "人",
     "relation": "赠",
     "date": "1920-10-02",
     "evidence": "古香斋送陈簠斋甸器拓本全形"
-   },
-   {
-    "id": "per_xu_naichang",
-    "label": "徐乃昌",
-    "type": "人",
-    "relation": "商务",
-    "date": "1921-01-04",
-    "evidence": "付古香斋父戊爵价壹百元"
    },
    {
     "id": "per_gao_yangzhi",
@@ -11806,8 +12243,8 @@
     "evidence": "1922-09-18 振电分送 共谋"
    },
    {
-    "id": "per_feng_mengshuai",
-    "label": "冯梦帅",
+    "id": "per_feng_menghua",
+    "label": "冯梦华",
     "type": "人",
     "relation": "共谋",
     "date": null,
@@ -11932,8 +12369,8 @@
     "evidence": "1922-09-18 振电分送 共谋"
    },
    {
-    "id": "per_feng_mengshuai",
-    "label": "冯梦帅",
+    "id": "per_feng_menghua",
+    "label": "冯梦华",
     "type": "人",
     "relation": "共谋",
     "date": null,
@@ -12095,6 +12532,14 @@
     "relation": "属于",
     "date": "1923-04-12",
     "evidence": "淮安湖心寺住持慧之"
+   },
+   {
+    "id": "per_huizhi_fangzhang",
+    "label": "慧之方丈",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-10-16",
+    "evidence": "湖心寺慧之方丈"
    }
   ]
  },
@@ -12296,7 +12741,16 @@
   "mentions": 2,
   "first_seen": "1923-04-16",
   "last_seen": "1923-04-16",
-  "linked_people": []
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-08-25",
+    "evidence": "同舜臣游半淞园"
+   }
+  ]
  },
  "org_dazhonghua_chang": {
   "id": "org_dazhonghua_chang",
@@ -12557,7 +13011,7 @@
     "evidence": "至忠厚书庄，紫东外出"
    },
    {
-    "id": "per_li_zidong",
+    "id": "per_li_ziDong",
     "label": "李紫东",
     "type": "人",
     "relation": "拜访",
@@ -12854,8 +13308,8 @@
     "evidence": "寄尘六时往大豫公司"
    },
    {
-    "id": "per_tui_lao",
-    "label": "退老",
+    "id": "per_zhang_tuigui",
+    "label": "张退簋",
     "type": "人",
     "relation": "拜访",
     "date": "1923-04-26",
@@ -13494,7 +13948,16 @@
   "mentions": 1,
   "first_seen": "1923-05-09",
   "last_seen": "1923-05-09",
-  "linked_people": []
+  "linked_people": [
+   {
+    "id": "per_yang_yunshi",
+    "label": "杨云史",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-08-23",
+    "evidence": "云史今日返洛阳"
+   }
+  ]
  },
  "loc_huangxian": {
   "id": "loc_huangxian",
@@ -13564,9 +14027,9 @@
     "id": "per_xu_naichang",
     "label": "徐乃昌",
     "type": "人",
-    "relation": "同席",
-    "date": "1921-01-21",
-    "evidence": "晚，赴杨子勤大雅楼消寒四集"
+    "relation": "拜访",
+    "date": "1923-09-05",
+    "evidence": "晚,赴大雅楼酒叙之约"
    },
    {
     "id": "per_liu_housheng",
@@ -13642,9 +14105,9 @@
     "id": "per_xu_naichang",
     "label": "徐乃昌",
     "type": "人",
-    "relation": "拜访",
-    "date": "1921-04-11",
-    "evidence": "至博古斋、古书流通处"
+    "relation": "商务",
+    "date": "1923-10-31",
+    "evidence": "至博古斋,找还书价五元"
    }
   ]
  },
@@ -13711,6 +14174,14 @@
     "relation": "同席",
     "date": "1923-05-14",
     "evidence": "赴陶拙存都益处贞元会"
+   },
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-07-12",
+    "evidence": "赴都益处贞元会"
    }
   ]
  },
@@ -13795,7 +14266,32 @@
   "mentions": 1,
   "first_seen": "1923-05-16",
   "last_seen": "1923-05-16",
-  "linked_people": []
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "同席",
+    "date": "1923-11-04",
+    "evidence": "晚,至晋隆西餐"
+   },
+   {
+    "id": "per_wang_daoyu",
+    "label": "汪道余",
+    "type": "人",
+    "relation": "同席",
+    "date": null,
+    "evidence": "1923-11-06 同席 at 晋隆西餐"
+   },
+   {
+    "id": "per_xu_zhaoxiong",
+    "label": "徐兆熊",
+    "type": "人",
+    "relation": "同席",
+    "date": null,
+    "evidence": "1923-11-06 同席 at 晋隆西餐"
+   }
+  ]
  },
  "loc_gongde_lin": {
   "id": "loc_gongde_lin",
@@ -13824,6 +14320,14 @@
     "relation": "同席",
     "date": "1923-05-19",
     "evidence": "宣甫约功德林素餐"
+   },
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-10-17",
+    "evidence": "晚，至功德林素餐"
    }
   ]
  },
@@ -14824,6 +15328,22 @@
     "relation": "属于",
     "date": "1923-06-18",
     "evidence": "淮安湖心寺慧之方丈"
+   },
+   {
+    "id": "per_huizhi_fangwen",
+    "label": "慧之方文",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-07-19",
+    "evidence": "淮安湖心寺慧之方文"
+   },
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "赠",
+    "date": "1923-09-14",
+    "evidence": "为淮安湖心寺书护法殿扁等"
    }
   ]
  },
@@ -15287,7 +15807,16 @@
   "mentions": 1,
   "first_seen": "1923-06-26",
   "last_seen": "1923-06-26",
-  "linked_people": []
+  "linked_people": [
+   {
+    "id": "per_wang_dewen",
+    "label": "王德文",
+    "type": "人",
+    "relation": "位于",
+    "date": "1923-10-27",
+    "evidence": "王德文福建福清人"
+   }
+  ]
  },
  "org_beijing_xianbing": {
   "id": "org_beijing_xianbing",
@@ -15448,6 +15977,329 @@
   "mentions": 1,
   "first_seen": "1923-07-01",
   "last_seen": "1923-07-01",
+  "linked_people": []
+ },
+ "loc_zidong_zhonghou_shuzhuang": {
+  "id": "loc_zidong_zhonghou_shuzhuang",
+  "label": "紫东忠厚书庄",
+  "entity_type": "地",
+  "canonical": "紫东忠厚书庄",
+  "aliases": [
+   "紫东忠厚书庄"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-07-02",
+  "last_seen": "1923-07-02",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-07-02",
+    "evidence": "至紫东忠厚书庄,取《亚谷丛书》"
+   }
+  ]
+ },
+ "loc_da_ji_lun": {
+  "id": "loc_da_ji_lun",
+  "label": "大吉轮",
+  "entity_type": "地",
+  "canonical": "大吉轮",
+  "aliases": [
+   "大吉轮"
+  ],
+  "mentions": 2,
+  "first_seen": "1923-07-03",
+  "last_seen": "1923-07-04",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-07-03",
+    "evidence": "至大吉轮"
+   }
+  ]
+ },
+ "loc_xin_kal_dun": {
+  "id": "loc_xin_kal_dun",
+  "label": "新卡尔登",
+  "entity_type": "地",
+  "canonical": "新卡尔登",
+  "aliases": [
+   "新卡尔登"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-07-03",
+  "last_seen": "1923-07-03",
+  "linked_people": []
+ },
+ "loc_lai_qing_ge": {
+  "id": "loc_lai_qing_ge",
+  "label": "来青阁",
+  "entity_type": "地",
+  "canonical": "来青阁",
+  "aliases": [
+   "来青阁"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-07-03",
+  "last_seen": "1923-07-03",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-07-03",
+    "evidence": "至来青阁,购《奉贤县志》"
+   }
+  ]
+ },
+ "loc_da_ya_lou": {
+  "id": "loc_da_ya_lou",
+  "label": "大雅楼",
+  "entity_type": "地",
+  "canonical": "大雅楼",
+  "aliases": [
+   "大雅楼"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-07-04",
+  "last_seen": "1923-07-04",
+  "linked_people": []
+ },
+ "loc_hui_bin_lou": {
+  "id": "loc_hui_bin_lou",
+  "label": "会宾楼",
+  "entity_type": "地",
+  "canonical": "会宾楼",
+  "aliases": [
+   "会宾楼"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-07-06",
+  "last_seen": "1923-07-06",
+  "linked_people": []
+ },
+ "loc_yizhi_xiang": {
+  "id": "loc_yizhi_xiang",
+  "label": "一枝香",
+  "entity_type": "地",
+  "canonical": "一枝香",
+  "aliases": [
+   "一枝香"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-07-07",
+  "last_seen": "1923-07-07",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1921-12-13",
+    "evidence": "六时一枝香西酌"
+   }
+  ]
+ },
+ "ill_bing_xu": {
+  "id": "ill_bing_xu",
+  "label": "病",
+  "entity_type": "疾病",
+  "canonical": "病",
+  "aliases": [
+   "病"
+  ],
+  "mentions": 2,
+  "first_seen": "1923-07-07",
+  "last_seen": "1923-07-11",
+  "linked_people": []
+ },
+ "org_huaihai_yinhang": {
+  "id": "org_huaihai_yinhang",
+  "label": "淮海银行",
+  "entity_type": "团体",
+  "canonical": "淮海银行",
+  "aliases": [
+   "淮海银行"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-07-09",
+  "last_seen": "1923-07-09",
+  "linked_people": [
+   {
+    "id": "per_xu_shuliang",
+    "label": "徐叔良",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-07-09",
+    "evidence": "淮海银行徐叔良(绍智)代转"
+   },
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1921-01-23",
+    "evidence": "当取到淮海银行收据。沪字五十三号"
+   }
+  ]
+ },
+ "loc_ji_cheng_shu_ju": {
+  "id": "loc_ji_cheng_shu_ju",
+  "label": "集成书局",
+  "entity_type": "地",
+  "canonical": "集成书局",
+  "aliases": [
+   "集成书局"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-07-10",
+  "last_seen": "1923-07-10",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-07-10",
+    "evidence": "至集成书局,购书五元"
+   }
+  ]
+ },
+ "loc_xiaoling_wangcun": {
+  "id": "loc_xiaoling_wangcun",
+  "label": "晓岭王村",
+  "entity_type": "地",
+  "canonical": "晓岭王村",
+  "aliases": [
+   "晓岭王村"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-07-11",
+  "last_seen": "1923-07-11",
+  "linked_people": []
+ },
+ "loc_chunjiu_xiaoxue": {
+  "id": "loc_chunjiu_xiaoxue",
+  "label": "春穀高等小学",
+  "entity_type": "团体",
+  "canonical": "春穀高等小学",
+  "aliases": [
+   "春穀高等小学"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-07-11",
+  "last_seen": "1923-07-11",
+  "linked_people": [
+   {
+    "id": "per_wang_zhenhan",
+    "label": "王振汉",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-07-11",
+    "evidence": "南陵王振汉居上北乡晓岭王村春穀高等小学"
+   }
+  ]
+ },
+ "loc_xinda_xing": {
+  "id": "loc_xinda_xing",
+  "label": "新大兴旅社",
+  "entity_type": "地",
+  "canonical": "新大兴旅社",
+  "aliases": [
+   "新大兴旅社"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-07-11",
+  "last_seen": "1923-07-11",
+  "linked_people": []
+ },
+ "loc_anhui_gongxue": {
+  "id": "loc_anhui_gongxue",
+  "label": "安徽公学",
+  "entity_type": "团体",
+  "canonical": "安徽公学",
+  "aliases": [
+   "旅沪安徽公学"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-07-11",
+  "last_seen": "1923-07-11",
+  "linked_people": [
+   {
+    "id": "per_li_zhenya",
+    "label": "李振亚",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-07-11",
+    "evidence": "旅沪安徽公学李振亚旌德籍"
+   }
+  ]
+ },
+ "loc_bo_gu_zhai": {
+  "id": "loc_bo_gu_zhai",
+  "label": "博古斋",
+  "entity_type": "地",
+  "canonical": "博古斋",
+  "aliases": [
+   "博古斋"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-07-12",
+  "last_seen": "1923-07-12",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-07-12",
+    "evidence": "至博古斋,取明刻本《龙虎山志》"
+   }
+  ]
+ },
+ "loc_tongxing_lou": {
+  "id": "loc_tongxing_lou",
+  "label": "同兴楼",
+  "entity_type": "地",
+  "canonical": "同兴楼",
+  "aliases": [
+   "同兴楼"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-07-12",
+  "last_seen": "1923-07-12",
+  "linked_people": []
+ },
+ "loc_huiyun_yuan": {
+  "id": "loc_huiyun_yuan",
+  "label": "惠云院",
+  "entity_type": "地",
+  "canonical": "惠云院",
+  "aliases": [
+   "惠云院"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-07-13",
+  "last_seen": "1923-07-13",
+  "linked_people": []
+ },
+ "loc_tongxiang_xiu": {
+  "id": "loc_tongxiang_xiu",
+  "label": "秀州桐乡县",
+  "entity_type": "地",
+  "canonical": "秀州桐乡县",
+  "aliases": [
+   "宋秀州桐乡县"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-07-13",
+  "last_seen": "1923-07-13",
   "linked_people": []
  },
  "loc_xilingyinshe": {
@@ -15672,6 +16524,2495 @@
    }
   ]
  },
+ "loc_jiang_mengping_jia": {
+  "id": "loc_jiang_mengping_jia",
+  "label": "蒋孟蘋家",
+  "entity_type": "地",
+  "canonical": "蒋孟蘋家",
+  "aliases": [
+   "蒋孟蘋家"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-07-15",
+  "last_seen": "1923-07-15",
+  "linked_people": [
+   {
+    "id": "per_jiang_mengpin",
+    "label": "蒋孟蘋",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-07-15",
+    "evidence": "至蒋孟蘋家闲话"
+   }
+  ]
+ },
+ "loc_huating": {
+  "id": "loc_huating",
+  "label": "华亭",
+  "entity_type": "地",
+  "canonical": "华亭",
+  "aliases": [
+   "华亭"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-07-18",
+  "last_seen": "1923-07-18",
+  "linked_people": [
+   {
+    "id": "per_gu_dong",
+    "label": "顾董",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-07-18",
+    "evidence": "华亭顾董"
+   }
+  ]
+ },
+ "loc_kaerdeng": {
+  "id": "loc_kaerdeng",
+  "label": "卡尔登",
+  "entity_type": "地",
+  "canonical": "卡尔登",
+  "aliases": [
+   "卡尔登"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-07-18",
+  "last_seen": "1923-07-18",
+  "linked_people": []
+ },
+ "loc_chongningsi": {
+  "id": "loc_chongningsi",
+  "label": "重宁寺",
+  "entity_type": "地",
+  "canonical": "重宁寺",
+  "aliases": [
+   "重宁寺"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-07-20",
+  "last_seen": "1923-07-20",
+  "linked_people": [
+   {
+    "id": "per_zhang_yushan",
+    "label": "张玉山",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-07-20",
+    "evidence": "托重宁寺玉山交"
+   },
+   {
+    "id": "per_baojing_heshang",
+    "label": "宝茎和尚",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-10-04",
+    "evidence": "重宁寺宝茎和尚"
+   },
+   {
+    "id": "per_yushan_heshang",
+    "label": "雨山和尚",
+    "type": "人",
+    "relation": "属于",
+    "date": "1922-11-19",
+    "evidence": "崇宁寺退院雨山和尚"
+   }
+  ]
+ },
+ "loc_weiguzhushe": {
+  "id": "loc_weiguzhushe",
+  "label": "味古精舍",
+  "entity_type": "地",
+  "canonical": "味古精舍",
+  "aliases": [
+   "味古精舍"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-07-22",
+  "last_seen": "1923-07-22",
+  "linked_people": []
+ },
+ "org_xinchang_meishushe": {
+  "id": "org_xinchang_meishushe",
+  "label": "新昌美术社",
+  "entity_type": "团体",
+  "canonical": "新昌美术社",
+  "aliases": [
+   "新昌美术社"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-07-23",
+  "last_seen": "1923-07-23",
+  "linked_people": []
+ },
+ "loc_wuxing": {
+  "id": "loc_wuxing",
+  "label": "吴兴",
+  "entity_type": "地",
+  "canonical": "吴兴",
+  "aliases": [
+   "吴兴"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-07-23",
+  "last_seen": "1923-07-23",
+  "linked_people": [
+   {
+    "id": "per_zhang_ery",
+    "label": "张萼如",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-07-23",
+    "evidence": "张萼孙廷华,吴兴人"
+   }
+  ]
+ },
+ "loc_jichengshu_ju": {
+  "id": "loc_jichengshu_ju",
+  "label": "集成书局",
+  "entity_type": "地",
+  "canonical": "集成书局",
+  "aliases": [
+   "集成书局"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-07-24",
+  "last_seen": "1923-07-24",
+  "linked_people": []
+ },
+ "loc_tangcun": {
+  "id": "loc_tangcun",
+  "label": "汤村",
+  "entity_type": "地",
+  "canonical": "汤村",
+  "aliases": [
+   "汤村"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-07-25",
+  "last_seen": "1923-07-25",
+  "linked_people": []
+ },
+ "loc_meixian": {
+  "id": "loc_meixian",
+  "label": "广东梅县",
+  "entity_type": "地",
+  "canonical": "广东梅县",
+  "aliases": [
+   "广东梅县"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-07-26",
+  "last_seen": "1923-07-26",
+  "linked_people": [
+   {
+    "id": "per_huang_shouyuan",
+    "label": "黄寿垣",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-07-26",
+    "evidence": "黄寿垣、孔光，广东梅县"
+   },
+   {
+    "id": "per_kong_guang",
+    "label": "孔光",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-07-26",
+    "evidence": "黄寿垣、孔光，广东梅县"
+   }
+  ]
+ },
+ "org_shengyuehan_daxue": {
+  "id": "org_shengyuehan_daxue",
+  "label": "圣约翰大学",
+  "entity_type": "团体",
+  "canonical": "圣约翰大学",
+  "aliases": [
+   "圣约翰大学"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-07-26",
+  "last_seen": "1923-07-26",
+  "linked_people": [
+   {
+    "id": "per_huang_shouyuan",
+    "label": "黄寿垣",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-07-26",
+    "evidence": "圣约翰大学"
+   }
+  ]
+ },
+ "loc_xinghualou": {
+  "id": "loc_xinghualou",
+  "label": "杏花楼",
+  "entity_type": "地",
+  "canonical": "杏花楼",
+  "aliases": [
+   "杏花楼"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-07-26",
+  "last_seen": "1923-07-26",
+  "linked_people": [
+   {
+    "id": "per_pan_lanshi",
+    "label": "潘兰史",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1921-02-11",
+    "evidence": "赴潘兰史杏花楼之约"
+   }
+  ]
+ },
+ "org_shenzhou_guoguang": {
+  "id": "org_shenzhou_guoguang",
+  "label": "神州国光社",
+  "entity_type": "团体",
+  "canonical": "神州国光社",
+  "aliases": [
+   "神州国光社"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-07-28",
+  "last_seen": "1923-07-28",
+  "linked_people": []
+ },
+ "loc_xinchang_meishu": {
+  "id": "loc_xinchang_meishu",
+  "label": "新昌美术馆",
+  "entity_type": "地",
+  "canonical": "新昌美术馆",
+  "aliases": [
+   "新昌美术馆"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-07-29",
+  "last_seen": "1923-07-29",
+  "linked_people": []
+ },
+ "loc_da_shijie": {
+  "id": "loc_da_shijie",
+  "label": "大世界",
+  "entity_type": "地",
+  "canonical": "大世界",
+  "aliases": [
+   "大世界"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-07-29",
+  "last_seen": "1923-07-29",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1920-08-15",
+    "evidence": "同淑婉挈儿女辈游大世界"
+   }
+  ]
+ },
+ "loc_gushu_liutong": {
+  "id": "loc_gushu_liutong",
+  "label": "古书流通处",
+  "entity_type": "地",
+  "canonical": "古书流通处",
+  "aliases": [
+   "古书流通处"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-07-30",
+  "last_seen": "1923-07-30",
+  "linked_people": []
+ },
+ "loc_ruiyangwan": {
+  "id": "loc_ruiyangwan",
+  "label": "瑞阳丸",
+  "entity_type": "地",
+  "canonical": "瑞阳丸",
+  "aliases": [
+   "瑞阳丸"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-07-31",
+  "last_seen": "1923-07-31",
+  "linked_people": []
+ },
+ "loc_luo": {
+  "id": "loc_luo",
+  "label": "洛",
+  "entity_type": "地",
+  "canonical": "洛阳",
+  "aliases": [
+   "洛"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-08-03",
+  "last_seen": "1923-08-03",
+  "linked_people": []
+ },
+ "loc_yingshan": {
+  "id": "loc_yingshan",
+  "label": "英山",
+  "entity_type": "地",
+  "canonical": "英山",
+  "aliases": [
+   "英山"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-08-08",
+  "last_seen": "1923-08-08",
+  "linked_people": [
+   {
+    "id": "per_li_songsheng",
+    "label": "李崧生",
+    "type": "人",
+    "relation": "位于",
+    "date": "1923-08-08",
+    "evidence": "崧生，英山人"
+   }
+  ]
+ },
+ "loc_xinshengjie": {
+  "id": "loc_xinshengjie",
+  "label": "新胜街",
+  "entity_type": "地",
+  "canonical": "新胜街",
+  "aliases": [
+   "新胜街"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-08-09",
+  "last_seen": "1923-08-09",
+  "linked_people": []
+ },
+ "loc_qingpu": {
+  "id": "loc_qingpu",
+  "label": "青浦县",
+  "entity_type": "地",
+  "canonical": "青浦县",
+  "aliases": [
+   "青浦县"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-08-10",
+  "last_seen": "1923-08-10",
+  "linked_people": []
+ },
+ "org_dongfang_xuehui": {
+  "id": "org_dongfang_xuehui",
+  "label": "东方学会",
+  "entity_type": "团体",
+  "canonical": "东方学会",
+  "aliases": [
+   "东方学会"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-08-10",
+  "last_seen": "1923-08-10",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-08-10",
+    "evidence": "并列为发起人"
+   },
+   {
+    "id": "per_luo_shuyan",
+    "label": "罗叔言",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-08-10",
+    "evidence": "罗叔言寄来东方学会简章"
+   }
+  ]
+ },
+ "org_xinchang_meishuguan": {
+  "id": "org_xinchang_meishuguan",
+  "label": "新昌美术馆",
+  "entity_type": "团体",
+  "canonical": "新昌美术馆",
+  "aliases": [
+   "新昌美术馆"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-08-13",
+  "last_seen": "1923-08-13",
+  "linked_people": [
+   {
+    "id": "per_shen_junsheng",
+    "label": "沈骏声",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-08-13",
+    "evidence": "新昌美术馆沈骏声来"
+   }
+  ]
+ },
+ "org_nanyang_zhongxue_lib": {
+  "id": "org_nanyang_zhongxue_lib",
+  "label": "南洋中学图书馆",
+  "entity_type": "团体",
+  "canonical": "南洋中学图书馆",
+  "aliases": [
+   "南洋中学图书馆"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-08-17",
+  "last_seen": "1923-08-17",
+  "linked_people": []
+ },
+ "ofc_guancha": {
+  "id": "ofc_guancha",
+  "label": "观察",
+  "entity_type": "官职",
+  "canonical": "观察",
+  "aliases": [
+   "观察"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-08-17",
+  "last_seen": "1923-08-17",
+  "linked_people": []
+ },
+ "org_water_cement_factory": {
+  "id": "org_water_cement_factory",
+  "label": "水泥公司",
+  "entity_type": "团体",
+  "canonical": "水泥公司",
+  "aliases": [
+   "水泥公司"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-08-19",
+  "last_seen": "1923-08-19",
+  "linked_people": []
+ },
+ "org_suzhou_library": {
+  "id": "org_suzhou_library",
+  "label": "苏州图书馆",
+  "entity_type": "团体",
+  "canonical": "苏州图书馆",
+  "aliases": [
+   "苏州图书馆"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-08-19",
+  "last_seen": "1923-08-19",
+  "linked_people": [
+   {
+    "id": "per_peng_qingpeng",
+    "label": "彭清鹏",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-08-19",
+    "evidence": "主任彭清鹏"
+   },
+   {
+    "id": "per_wang_guoxiang",
+    "label": "汪国庠",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-08-19",
+    "evidence": "主任彭清鹏、汪国庠"
+   },
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "致书",
+    "date": "1923-08-19",
+    "evidence": "苏州图书馆函索刻书"
+   }
+  ]
+ },
+ "loc_dagongshan": {
+  "id": "loc_dagongshan",
+  "label": "大工山",
+  "entity_type": "地",
+  "canonical": "大工山",
+  "aliases": [
+   "大工山"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-08-19",
+  "last_seen": "1923-08-19",
+  "linked_people": []
+ },
+ "loc_tangcun_xudajia": {
+  "id": "loc_tangcun_xudajia",
+  "label": "汤村徐大家宅",
+  "entity_type": "地",
+  "canonical": "汤村徐大家宅",
+  "aliases": [
+   "汤村徐大家宅"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-08-19",
+  "last_seen": "1923-08-19",
+  "linked_people": []
+ },
+ "loc_gongfengshan": {
+  "id": "loc_gongfengshan",
+  "label": "工峰山",
+  "entity_type": "地",
+  "canonical": "工峰山",
+  "aliases": [
+   "工峰山"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-08-19",
+  "last_seen": "1923-08-19",
+  "linked_people": []
+ },
+ "loc_longquan_qiao": {
+  "id": "loc_longquan_qiao",
+  "label": "龙泉桥",
+  "entity_type": "地",
+  "canonical": "龙泉桥",
+  "aliases": [
+   "龙泉桥"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-08-19",
+  "last_seen": "1923-08-19",
+  "linked_people": []
+ },
+ "org_xushi_zongci": {
+  "id": "org_xushi_zongci",
+  "label": "徐氏宗祠",
+  "entity_type": "团体",
+  "canonical": "徐氏宗祠",
+  "aliases": [
+   "徐氏宗祠"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-08-19",
+  "last_seen": "1923-08-19",
+  "linked_people": []
+ },
+ "loc_tongling": {
+  "id": "loc_tongling",
+  "label": "铜陵",
+  "entity_type": "地",
+  "canonical": "铜陵",
+  "aliases": [
+   "铜陵"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-08-19",
+  "last_seen": "1923-08-19",
+  "linked_people": []
+ },
+ "loc_tianyou_tang": {
+  "id": "loc_tianyou_tang",
+  "label": "天游堂",
+  "entity_type": "地",
+  "canonical": "天游堂",
+  "aliases": [
+   "天游堂"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-08-20",
+  "last_seen": "1923-08-20",
+  "linked_people": []
+ },
+ "org_jiangzhe_mibinghui": {
+  "id": "org_jiangzhe_mibinghui",
+  "label": "江浙弭兵会",
+  "entity_type": "团体",
+  "canonical": "江浙弭兵会",
+  "aliases": [
+   "江浙弭兵会"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-08-20",
+  "last_seen": "1923-08-20",
+  "linked_people": []
+ },
+ "loc_fuxing_yuan": {
+  "id": "loc_fuxing_yuan",
+  "label": "复兴园",
+  "entity_type": "地",
+  "canonical": "复兴园",
+  "aliases": [
+   "复兴园"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-08-21",
+  "last_seen": "1923-08-21",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-08-21",
+    "evidence": "至复兴园"
+   }
+  ]
+ },
+ "org_ningxing_kuangwu": {
+  "id": "org_ningxing_kuangwu",
+  "label": "宁兴矿务",
+  "entity_type": "团体",
+  "canonical": "宁兴矿务",
+  "aliases": [
+   "宁兴矿务"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-08-21",
+  "last_seen": "1923-08-21",
+  "linked_people": [
+   {
+    "id": "per_cheng_liang",
+    "label": "鲍承良",
+    "type": "人",
+    "relation": "属于",
+    "date": "1920-09-16",
+    "evidence": "鲍承良来,谈宁兴矿务情形"
+   },
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1920-11-15",
+    "evidence": "赴宁兴矿务公司股东会"
+   }
+  ]
+ },
+ "loc_dangui_diyitai": {
+  "id": "loc_dangui_diyitai",
+  "label": "丹桂第一台",
+  "entity_type": "地",
+  "canonical": "丹桂第一台",
+  "aliases": [
+   "丹桂第一台"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-08-22",
+  "last_seen": "1923-08-22",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-10-06",
+    "evidence": "散后，至丹桂第一台，观程艳秋新排《鸳鸯冢》剧"
+   },
+   {
+    "id": "per_qinu",
+    "label": "绮女",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1920-09-26",
+    "evidence": "绮女请观丹桂第一台新排《捣霜仙子》剧"
+   },
+   {
+    "id": "per_chongr",
+    "label": "崇儿",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1921-09-16",
+    "evidence": "挈绮女、崇儿至丹桂第一台观戏剧"
+   }
+  ]
+ },
+ "org_puyi_xiyisuo": {
+  "id": "org_puyi_xiyisuo",
+  "label": "普益习艺所",
+  "entity_type": "团体",
+  "canonical": "普益习艺所",
+  "aliases": [
+   "普益习艺所"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-08-25",
+  "last_seen": "1923-08-25",
+  "linked_people": []
+ },
+ "loc_xin_shijie": {
+  "id": "loc_xin_shijie",
+  "label": "新世界",
+  "entity_type": "地",
+  "canonical": "新世界",
+  "aliases": [
+   "新世界"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-08-26",
+  "last_seen": "1923-08-26",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-08-26",
+    "evidence": "同舜臣游新世界"
+   }
+  ]
+ },
+ "org_wusong_shuiwusuo": {
+  "id": "org_wusong_shuiwusuo",
+  "label": "吴淞税务所",
+  "entity_type": "团体",
+  "canonical": "吴淞税务所",
+  "aliases": [
+   "吴淞税务所"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-08-27",
+  "last_seen": "1923-08-27",
+  "linked_people": []
+ },
+ "org_wuhu_jiaotonghang": {
+  "id": "org_wuhu_jiaotonghang",
+  "label": "芜湖交通行",
+  "entity_type": "团体",
+  "canonical": "芜湖交通行",
+  "aliases": [
+   "芜湖交通行"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-08-27",
+  "last_seen": "1923-08-27",
+  "linked_people": []
+ },
+ "ofc_jiaoyubu_cizhang": {
+  "id": "ofc_jiaoyubu_cizhang",
+  "label": "教育部次长",
+  "entity_type": "官职",
+  "canonical": "教育部次长",
+  "aliases": [
+   "教育部次长"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-08-28",
+  "last_seen": "1923-08-28",
+  "linked_people": [
+   {
+    "id": "per_chen_baoquan",
+    "label": "陈宝泉",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-08-28",
+    "evidence": "教育部次长陈宝泉"
+   }
+  ]
+ },
+ "ill_liu_congshi": {
+  "id": "ill_liu_congshi",
+  "label": "刘葱石疾",
+  "entity_type": "疾病",
+  "canonical": "刘葱石之疾",
+  "aliases": [
+   "视刘葱石疾"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-08-29",
+  "last_seen": "1923-08-29",
+  "linked_people": [
+   {
+    "id": "per_liu_congshi",
+    "label": "刘葱石",
+    "type": "人",
+    "relation": "治病",
+    "date": "1923-08-29",
+    "evidence": "视刘葱石疾"
+   }
+  ]
+ },
+ "loc_weiduoliya_yingxiyuan": {
+  "id": "loc_weiduoliya_yingxiyuan",
+  "label": "维多利亚影戏园",
+  "entity_type": "地",
+  "canonical": "维多利亚影戏园",
+  "aliases": [
+   "维多利亚影戏园"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-08-29",
+  "last_seen": "1923-08-29",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-08-29",
+    "evidence": "至维多利亚影戏园，观《三文钱》剧"
+   }
+  ]
+ },
+ "org_yuzhong_hu_shiwusuo": {
+  "id": "org_yuzhong_hu_shiwusuo",
+  "label": "裕中沪事物所",
+  "entity_type": "团体",
+  "canonical": "裕中沪事物所",
+  "aliases": [
+   "裕中沪事物所"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-08-31",
+  "last_seen": "1923-08-31",
+  "linked_people": []
+ },
+ "loc_jiankangfu_mingdao": {
+  "id": "loc_jiankangfu_mingdao",
+  "label": "建康府明道书院",
+  "entity_type": "地",
+  "canonical": "建康府明道书院",
+  "aliases": [
+   "建康府明道书院"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-05",
+  "last_seen": "1923-09-05",
+  "linked_people": []
+ },
+ "org_anhui_lvhu_gongxue": {
+  "id": "org_anhui_lvhu_gongxue",
+  "label": "安徽旅沪公学",
+  "entity_type": "团体",
+  "canonical": "安徽旅沪公学",
+  "aliases": [
+   "安徽旅沪公学"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-05",
+  "last_seen": "1923-09-05",
+  "linked_people": []
+ },
+ "loc_dangui_yitai": {
+  "id": "loc_dangui_yitai",
+  "label": "丹桂第一台",
+  "entity_type": "地",
+  "canonical": "丹桂第一台",
+  "aliases": [
+   "丹桂第一台"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-07",
+  "last_seen": "1923-09-07",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-09-07",
+    "evidence": "晚,同淑婉挈崇儿观丹桂第一台剧"
+   }
+  ]
+ },
+ "loc_changshu": {
+  "id": "loc_changshu",
+  "label": "常熟",
+  "entity_type": "地",
+  "canonical": "常熟",
+  "aliases": [
+   "常熟"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-09",
+  "last_seen": "1923-09-09",
+  "linked_people": [
+   {
+    "id": "per_zhou_youshao",
+    "label": "周幼韶",
+    "type": "人",
+    "relation": "位于",
+    "date": "1922-03-19",
+    "evidence": "常熟周幼韶"
+   }
+  ]
+ },
+ "loc_shiergui": {
+  "id": "loc_shiergui",
+  "label": "十二圩",
+  "entity_type": "地",
+  "canonical": "十二圩",
+  "aliases": [
+   "十二圩"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-09",
+  "last_seen": "1923-09-09",
+  "linked_people": [
+   {
+    "id": "per_chen_zhuozhai",
+    "label": "陈倬斋",
+    "type": "人",
+    "relation": "位于",
+    "date": "1923-09-09",
+    "evidence": "函谢十二圩陈倬斋"
+   }
+  ]
+ },
+ "loc_yizhixiang_xicanting": {
+  "id": "loc_yizhixiang_xicanting",
+  "label": "一枝香西餐",
+  "entity_type": "地",
+  "canonical": "一枝香西餐",
+  "aliases": [
+   "一枝香西餐"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-10",
+  "last_seen": "1923-09-10",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-09-10",
+    "evidence": "约张和声、陈耀远、光谱...一枝香西餐"
+   }
+  ]
+ },
+ "loc_anqing_yangjiatang_zhaozhongci": {
+  "id": "loc_anqing_yangjiatang_zhaozhongci",
+  "label": "安庆杨家塘昭忠祠",
+  "entity_type": "地",
+  "canonical": "安庆杨家塘昭忠祠",
+  "aliases": [
+   "安庆杨家塘昭忠祠"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-10",
+  "last_seen": "1923-09-10",
+  "linked_people": [
+   {
+    "id": "per_zhang_hesheng",
+    "label": "张和声",
+    "type": "人",
+    "relation": "位于",
+    "date": "1923-09-10",
+    "evidence": "和声住安庆杨家塘昭忠祠"
+   }
+  ]
+ },
+ "loc_tang_cun": {
+  "id": "loc_tang_cun",
+  "label": "汤村",
+  "entity_type": "地",
+  "canonical": "汤村",
+  "aliases": [
+   "汤村"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-13",
+  "last_seen": "1923-09-13",
+  "linked_people": []
+ },
+ "loc_shi_dang_lao_ci": {
+  "id": "loc_shi_dang_lao_ci",
+  "label": "石荡老祠",
+  "entity_type": "地",
+  "canonical": "石荡老祠",
+  "aliases": [
+   "石荡老祠"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-13",
+  "last_seen": "1923-09-13",
+  "linked_people": []
+ },
+ "loc_fendian_shangzhaichong": {
+  "id": "loc_fendian_shangzhaichong",
+  "label": "粉店(即上宅冲)",
+  "entity_type": "地",
+  "canonical": "粉店/上宅冲",
+  "aliases": [
+   "粉店(即上宅冲)"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-13",
+  "last_seen": "1923-09-13",
+  "linked_people": []
+ },
+ "loc_beijing_guanyinsi_qingyunge": {
+  "id": "loc_beijing_guanyinsi_qingyunge",
+  "label": "北京观音寺青云阁",
+  "entity_type": "地",
+  "canonical": "北京观音寺青云阁",
+  "aliases": [
+   "北京观音寺青云阁"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-13",
+  "last_seen": "1923-09-13",
+  "linked_people": []
+ },
+ "org_fujin_shushe": {
+  "id": "org_fujin_shushe",
+  "label": "富晋书社",
+  "entity_type": "团体",
+  "canonical": "富晋书社",
+  "aliases": [
+   "富晋书社"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-13",
+  "last_seen": "1923-09-13",
+  "linked_people": [
+   {
+    "id": "per_wang_fujin",
+    "label": "王富晋",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-09-13",
+    "evidence": "富晋书社王富晋"
+   }
+  ]
+ },
+ "loc_jixian": {
+  "id": "loc_jixian",
+  "label": "直隶冀县",
+  "entity_type": "地",
+  "canonical": "直隶冀县",
+  "aliases": [
+   "直隶冀县"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-13",
+  "last_seen": "1923-09-13",
+  "linked_people": [
+   {
+    "id": "per_wang_fujin",
+    "label": "王富晋",
+    "type": "人",
+    "relation": "位于",
+    "date": "1923-09-13",
+    "evidence": "浩廷，直隶冀县人"
+   }
+  ]
+ },
+ "org_guangsheng_youchang": {
+  "id": "org_guangsheng_youchang",
+  "label": "广生油厂",
+  "entity_type": "团体",
+  "canonical": "广生油厂",
+  "aliases": [
+   "广生油厂"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-14",
+  "last_seen": "1923-09-14",
+  "linked_people": [
+   {
+    "id": "per_shi_jinzhi",
+    "label": "施进之",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-09-14",
+    "evidence": "广生油厂施进之"
+   },
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1922-07-05",
+    "evidence": "至广生油厂，拜主任高云翰"
+   },
+   {
+    "id": "per_gao_yunhan",
+    "label": "高云汉",
+    "type": "人",
+    "relation": "属于",
+    "date": "1922-07-05",
+    "evidence": "至广生油厂，拜主任高云翰"
+   },
+   {
+    "id": "per_wang_rongqing",
+    "label": "王荣卿",
+    "type": "人",
+    "relation": "属于",
+    "date": "1922-08-07",
+    "evidence": "广生油厂王荣卿煦"
+   }
+  ]
+ },
+ "loc_qingan_fang_3": {
+  "id": "loc_qingan_fang_3",
+  "label": "庆安坊三号",
+  "entity_type": "地",
+  "canonical": "庆安坊三号",
+  "aliases": [
+   "庆安坊三号"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-14",
+  "last_seen": "1923-09-14",
+  "linked_people": [
+   {
+    "id": "per_wu_liansheng",
+    "label": "吴联笙",
+    "type": "人",
+    "relation": "位于",
+    "date": "1923-09-14",
+    "evidence": "坐有吴联笙。住庆安坊三号"
+   }
+  ]
+ },
+ "org_beijing_shijie_zongjiao_datonghui": {
+  "id": "org_beijing_shijie_zongjiao_datonghui",
+  "label": "北京世界宗教大同会",
+  "entity_type": "团体",
+  "canonical": "北京世界宗教大同会",
+  "aliases": [
+   "北京世界宗教大同会"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-14",
+  "last_seen": "1923-09-14",
+  "linked_people": []
+ },
+ "loc_yongan_huayuan": {
+  "id": "loc_yongan_huayuan",
+  "label": "永安花园",
+  "entity_type": "地",
+  "canonical": "永安花园",
+  "aliases": [
+   "永安花园"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-15",
+  "last_seen": "1923-09-15",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-09-15",
+    "evidence": "晚，游永安花园"
+   }
+  ]
+ },
+ "org_zhongguo_xieji_rizai_yizhenhui": {
+  "id": "org_zhongguo_xieji_rizai_yizhenhui",
+  "label": "中国协济日灾义振会",
+  "entity_type": "团体",
+  "canonical": "中国协济日灾义振会",
+  "aliases": [
+   "中国协济日灾义振会"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-15",
+  "last_seen": "1923-09-15",
+  "linked_people": [
+   {
+    "id": "per_zhu_peizhen",
+    "label": "朱佩珍",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-09-15",
+    "evidence": "中国协济日灾义振会会长朱佩珍"
+   },
+   {
+    "id": "per_sheng_bingji",
+    "label": "盛炳纪",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-09-15",
+    "evidence": "中国协济日灾义振会会长朱佩珍、盛炳纪、王震"
+   },
+   {
+    "id": "per_wang_zhen",
+    "label": "王震",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-09-15",
+    "evidence": "中国协济日灾义振会会长朱佩珍、盛炳纪、王震"
+   }
+  ]
+ },
+ "dis_rizai": {
+  "id": "dis_rizai",
+  "label": "日灾",
+  "entity_type": "灾害",
+  "canonical": "日本地震灾害",
+  "aliases": [
+   "日灾"
+  ],
+  "mentions": 2,
+  "first_seen": "1923-09-15",
+  "last_seen": "1923-09-16",
+  "linked_people": []
+ },
+ "org_dasheng_changdonghui": {
+  "id": "org_dasheng_changdonghui",
+  "label": "大生一二三厂董事联合会",
+  "entity_type": "团体",
+  "canonical": "大生一、二、三厂董事联合会",
+  "aliases": [
+   "大生一、二、三厂董事联合会"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-16",
+  "last_seen": "1923-09-16",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-09-16",
+    "evidence": "午后二时，大生一、二、三厂董事联合会"
+   }
+  ]
+ },
+ "loc_ouzhou": {
+  "id": "loc_ouzhou",
+  "label": "欧洲",
+  "entity_type": "地",
+  "canonical": "欧洲",
+  "aliases": [
+   "欧洲"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-17",
+  "last_seen": "1923-09-17",
+  "linked_people": []
+ },
+ "loc_jianggan": {
+  "id": "loc_jianggan",
+  "label": "江干",
+  "entity_type": "地",
+  "canonical": "江干",
+  "aliases": [
+   "江干"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-17",
+  "last_seen": "1923-09-17",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-09-17",
+    "evidence": "午刻二时，至江干送别"
+   }
+  ]
+ },
+ "loc_lu_shunxing_mujiang": {
+  "id": "loc_lu_shunxing_mujiang",
+  "label": "庐顺兴木匠住处",
+  "entity_type": "地",
+  "canonical": "庐顺兴木匠住处",
+  "aliases": [
+   "庐顺兴木匠住处"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-18",
+  "last_seen": "1923-09-18",
+  "linked_people": [
+   {
+    "id": "per_yao_wenfu",
+    "label": "姚文敷",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-09-18",
+    "evidence": "访姚文敷。文敷询庐顺兴木匠住处"
+   }
+  ]
+ },
+ "loc_huangboshan_wanfu_si": {
+  "id": "loc_huangboshan_wanfu_si",
+  "label": "黄檗山万福禅寺",
+  "entity_type": "地",
+  "canonical": "黄檗山万福禅寺",
+  "aliases": [
+   "万福寺",
+   "黄檗山万福禅寺"
+  ],
+  "mentions": 2,
+  "first_seen": "1923-09-18",
+  "last_seen": "1923-09-21",
+  "linked_people": [
+   {
+    "id": "per_xueshen_heshang",
+    "label": "学真和尚",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-09-18",
+    "evidence": "学真和尚募建黄檗山万福禅寺"
+   }
+  ]
+ },
+ "org_zhongguo_xiejixhui": {
+  "id": "org_zhongguo_xiejixhui",
+  "label": "中国协济日灾义振会",
+  "entity_type": "团体",
+  "canonical": "中国协济日灾义振会",
+  "aliases": [
+   "中国协济日灾义振会"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-20",
+  "last_seen": "1923-09-20",
+  "linked_people": []
+ },
+ "loc_julaida_lu_314": {
+  "id": "loc_julaida_lu_314",
+  "label": "法界巨籁达路三百十四号",
+  "entity_type": "地",
+  "canonical": "法界巨籁达路三百十四号(孙履安家)",
+  "aliases": [
+   "法界巨籁达路三百十四号"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-20",
+  "last_seen": "1923-09-20",
+  "linked_people": [
+   {
+    "id": "per_wu_liansheng",
+    "label": "吴联笙",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-09-20",
+    "evidence": "吴联笙约至孙履安家法界巨籁达路三百十四号"
+   },
+   {
+    "id": "per_sun_lvan",
+    "label": "孙履安",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-09-20",
+    "evidence": "孙履安家法界巨籁达路三百十四号"
+   }
+  ]
+ },
+ "org_jiuhuatang": {
+  "id": "org_jiuhuatang",
+  "label": "九华堂",
+  "entity_type": "团体",
+  "canonical": "九华堂",
+  "aliases": [
+   "九华堂"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-21",
+  "last_seen": "1923-09-21",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "商务",
+    "date": "1920-09-25",
+    "evidence": "付九华堂十二元"
+   }
+  ]
+ },
+ "org_zhenjiang_dazhao_dianqi": {
+  "id": "org_zhenjiang_dazhao_dianqi",
+  "label": "镇江大照电气公司",
+  "entity_type": "团体",
+  "canonical": "镇江大照电气公司",
+  "aliases": [
+   "镇江大照电气公司"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-22",
+  "last_seen": "1923-09-22",
+  "linked_people": []
+ },
+ "loc_yijiangchun": {
+  "id": "loc_yijiangchun",
+  "label": "一江春",
+  "entity_type": "地",
+  "canonical": "一江春",
+  "aliases": [
+   "一江春"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-25",
+  "last_seen": "1923-09-25",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1921-12-15",
+    "evidence": "赴周梦坡一江春西餐之约"
+   }
+  ]
+ },
+ "loc_dangui_first_stage": {
+  "id": "loc_dangui_first_stage",
+  "label": "丹桂第一台",
+  "entity_type": "地",
+  "canonical": "丹桂第一台",
+  "aliases": [
+   "丹桂第一台"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-25",
+  "last_seen": "1923-09-25",
+  "linked_people": []
+ },
+ "org_nantong_yanshanghui": {
+  "id": "org_nantong_yanshanghui",
+  "label": "南通盐商会",
+  "entity_type": "团体",
+  "canonical": "南通盐商会",
+  "aliases": [
+   "南通盐商会"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-26",
+  "last_seen": "1923-09-26",
+  "linked_people": []
+ },
+ "loc_baobentang": {
+  "id": "loc_baobentang",
+  "label": "报本堂",
+  "entity_type": "地",
+  "canonical": "报本堂",
+  "aliases": [
+   "报本堂"
+  ],
+  "mentions": 2,
+  "first_seen": "1923-09-26",
+  "last_seen": "1923-10-02",
+  "linked_people": []
+ },
+ "ofc_liangjiang_zongdu": {
+  "id": "ofc_liangjiang_zongdu",
+  "label": "两江总督",
+  "entity_type": "官职",
+  "canonical": "两江总督",
+  "aliases": [
+   "两江总督"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-26",
+  "last_seen": "1923-09-26",
+  "linked_people": [
+   {
+    "id": "per_zhang_xun",
+    "label": "张勋",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-09-26",
+    "evidence": "前署两江总督"
+   }
+  ]
+ },
+ "loc_dadong_lushe": {
+  "id": "loc_dadong_lushe",
+  "label": "大东旅社",
+  "entity_type": "地",
+  "canonical": "大东旅社",
+  "aliases": [
+   "大东旅社"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-26",
+  "last_seen": "1923-09-26",
+  "linked_people": []
+ },
+ "org_yanwushu": {
+  "id": "org_yanwushu",
+  "label": "盐务署",
+  "entity_type": "团体",
+  "canonical": "盐务署",
+  "aliases": [
+   "盐务署"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-28",
+  "last_seen": "1923-09-28",
+  "linked_people": []
+ },
+ "ofc_zongwu_sankezhang": {
+  "id": "ofc_zongwu_sankezhang",
+  "label": "总务三科科长",
+  "entity_type": "官职",
+  "canonical": "盐务署总务三科科长",
+  "aliases": [
+   "总务三科科长"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-28",
+  "last_seen": "1923-09-28",
+  "linked_people": [
+   {
+    "id": "per_wang_qiwo",
+    "label": "汪启我",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-09-28",
+    "evidence": "启我新得盐务署总务三科科长"
+   }
+  ]
+ },
+ "org_lianhua_zonghui": {
+  "id": "org_lianhua_zonghui",
+  "label": "联华总会",
+  "entity_type": "团体",
+  "canonical": "联华总会",
+  "aliases": [
+   "联华总会"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-29",
+  "last_seen": "1923-09-29",
+  "linked_people": []
+ },
+ "org_zhejiang_yihui": {
+  "id": "org_zhejiang_yihui",
+  "label": "省议会",
+  "entity_type": "团体",
+  "canonical": "浙江省议会",
+  "aliases": [
+   "省议会"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-29",
+  "last_seen": "1923-09-29",
+  "linked_people": [
+   {
+    "id": "per_zhu_xingwu",
+    "label": "祝星吾",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-09-29",
+    "evidence": "省议会副议长"
+   }
+  ]
+ },
+ "ofc_fu_yizhang": {
+  "id": "ofc_fu_yizhang",
+  "label": "副议长",
+  "entity_type": "官职",
+  "canonical": "省议会副议长",
+  "aliases": [
+   "副议长"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-29",
+  "last_seen": "1923-09-29",
+  "linked_people": [
+   {
+    "id": "per_zhu_xingwu",
+    "label": "祝星吾",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-09-29",
+    "evidence": "祝星吾、省议会副议长"
+   }
+  ]
+ },
+ "org_hangzhou_shanghui": {
+  "id": "org_hangzhou_shanghui",
+  "label": "杭商会",
+  "entity_type": "团体",
+  "canonical": "杭州商会",
+  "aliases": [
+   "杭商会"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-29",
+  "last_seen": "1923-09-29",
+  "linked_people": [
+   {
+    "id": "per_jin_runquan",
+    "label": "金润泉",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-09-29",
+    "evidence": "金润泉，百顺，杭商会长"
+   }
+  ]
+ },
+ "org_st_johns": {
+  "id": "org_st_johns",
+  "label": "圣约翰大学",
+  "entity_type": "团体",
+  "canonical": "圣约翰大学",
+  "aliases": [
+   "圣约翰大学"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-29",
+  "last_seen": "1923-09-29",
+  "linked_people": [
+   {
+    "id": "per_huang_yankai",
+    "label": "黄延凯",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-09-29",
+    "evidence": "黄延凯、圣约翰大学"
+   }
+  ]
+ },
+ "loc_yang": {
+  "id": "loc_yang",
+  "label": "扬",
+  "entity_type": "地",
+  "canonical": "扬州",
+  "aliases": [
+   "扬"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-29",
+  "last_seen": "1923-09-29",
+  "linked_people": [
+   {
+    "id": "per_yin_runsheng",
+    "label": "尹润生",
+    "type": "人",
+    "relation": "位于",
+    "date": "1921-05-05",
+    "evidence": "尹润生来谭，匆匆回扬"
+   },
+   {
+    "id": "per_liu_qianfu",
+    "label": "刘谦甫",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1922-02-04",
+    "evidence": "刘谦甫、李元之晚车回扬"
+   },
+   {
+    "id": "per_li_yuanzhi",
+    "label": "李元之",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1922-02-04",
+    "evidence": "刘谦甫、李元之晚车回扬"
+   }
+  ]
+ },
+ "loc_guangdong": {
+  "id": "loc_guangdong",
+  "label": "广东",
+  "entity_type": "地",
+  "canonical": "广东",
+  "aliases": [
+   "广东"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-29",
+  "last_seen": "1923-09-29",
+  "linked_people": []
+ },
+ "loc_hangxian": {
+  "id": "loc_hangxian",
+  "label": "杭县",
+  "entity_type": "地",
+  "canonical": "杭县",
+  "aliases": [
+   "杭县"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-29",
+  "last_seen": "1923-09-29",
+  "linked_people": []
+ },
+ "loc_qimen": {
+  "id": "loc_qimen",
+  "label": "祁门",
+  "entity_type": "地",
+  "canonical": "祁门",
+  "aliases": [
+   "祁门"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-09-29",
+  "last_seen": "1923-09-29",
+  "linked_people": []
+ },
+ "loc_bangbu": {
+  "id": "loc_bangbu",
+  "label": "蚌",
+  "entity_type": "地",
+  "canonical": "蚌埠",
+  "aliases": [
+   "蚌",
+   "蚌埠"
+  ],
+  "mentions": 2,
+  "first_seen": "1923-09-29",
+  "last_seen": "1923-10-02",
+  "linked_people": [
+   {
+    "id": "per_lu_gaoyu",
+    "label": "吕皋俞",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-10-02",
+    "evidence": "吕皋俞去蚌埠"
+   }
+  ]
+ },
+ "loc_xixi_qiuxuean": {
+  "id": "loc_xixi_qiuxuean",
+  "label": "西溪秋雪庵",
+  "entity_type": "地",
+  "canonical": "西溪秋雪庵",
+  "aliases": [
+   "杭州西溪秋雪庵"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-01",
+  "last_seen": "1923-10-01",
+  "linked_people": []
+ },
+ "loc_pingjili_lu": {
+  "id": "loc_pingjili_lu",
+  "label": "平济利路鸣和里",
+  "entity_type": "地",
+  "canonical": "平济利路鸣和里",
+  "aliases": [
+   "平济利路鸣和里"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-02",
+  "last_seen": "1923-10-02",
+  "linked_people": []
+ },
+ "loc_wushan": {
+  "id": "loc_wushan",
+  "label": "杭州吴山",
+  "entity_type": "地",
+  "canonical": "杭州吴山",
+  "aliases": [
+   "杭州吴山"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-03",
+  "last_seen": "1923-10-03",
+  "linked_people": []
+ },
+ "loc_chaotiangong": {
+  "id": "loc_chaotiangong",
+  "label": "江宁朝天宫",
+  "entity_type": "地",
+  "canonical": "江宁朝天宫",
+  "aliases": [
+   "江宁朝天宫"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-03",
+  "last_seen": "1923-10-03",
+  "linked_people": []
+ },
+ "loc_huayuemiao": {
+  "id": "loc_huayuemiao",
+  "label": "陕西华岳庙",
+  "entity_type": "地",
+  "canonical": "陕西华岳庙",
+  "aliases": [
+   "陕西华岳庙"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-03",
+  "last_seen": "1923-10-03",
+  "linked_people": []
+ },
+ "loc_changchunguan": {
+  "id": "loc_changchunguan",
+  "label": "京师长春观",
+  "entity_type": "地",
+  "canonical": "京师长春观",
+  "aliases": [
+   "京师长春观"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-03",
+  "last_seen": "1923-10-03",
+  "linked_people": []
+ },
+ "loc_jiazhou": {
+  "id": "loc_jiazhou",
+  "label": "葭州",
+  "entity_type": "地",
+  "canonical": "葭州",
+  "aliases": [
+   "葭州"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-03",
+  "last_seen": "1923-10-03",
+  "linked_people": []
+ },
+ "loc_huiguan": {
+  "id": "loc_huiguan",
+  "label": "会馆",
+  "entity_type": "团体",
+  "canonical": "会馆",
+  "aliases": [
+   "会馆"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-05",
+  "last_seen": "1923-10-05",
+  "linked_people": []
+ },
+ "loc_haimen_ting": {
+  "id": "loc_haimen_ting",
+  "label": "海门厅",
+  "entity_type": "地",
+  "canonical": "海门厅",
+  "aliases": [
+   "海门厅"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-05",
+  "last_seen": "1923-10-05",
+  "linked_people": []
+ },
+ "dis_dizhen_beijing": {
+  "id": "dis_dizhen_beijing",
+  "label": "北京地震",
+  "entity_type": "灾害",
+  "canonical": "北京地震",
+  "aliases": [
+   "北京六点十分，地微震"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-05",
+  "last_seen": "1923-10-05",
+  "linked_people": []
+ },
+ "ofc_zongtong": {
+  "id": "ofc_zongtong",
+  "label": "总统",
+  "entity_type": "官职",
+  "canonical": "总统",
+  "aliases": [
+   "总统"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-05",
+  "last_seen": "1923-10-05",
+  "linked_people": []
+ },
+ "org_nanjing_dianhua": {
+  "id": "org_nanjing_dianhua",
+  "label": "南京电话局材料处",
+  "entity_type": "团体",
+  "canonical": "南京电话局材料处",
+  "aliases": [
+   "南京电话局"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-06",
+  "last_seen": "1923-10-06",
+  "linked_people": [
+   {
+    "id": "per_he_jibin",
+    "label": "何季彬",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-10-06",
+    "evidence": "何在南京电话局材料处"
+   }
+  ]
+ },
+ "loc_shoushengan": {
+  "id": "loc_shoushengan",
+  "label": "寿圣庵",
+  "entity_type": "地",
+  "canonical": "寿圣庵",
+  "aliases": [
+   "寿圣庵"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-07",
+  "last_seen": "1923-10-07",
+  "linked_people": []
+ },
+ "loc_duyi_chu": {
+  "id": "loc_duyi_chu",
+  "label": "都益处",
+  "entity_type": "地",
+  "canonical": "都益处",
+  "aliases": [
+   "都益处"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-08",
+  "last_seen": "1923-10-08",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-10-08",
+    "evidence": "午刻，都益处贞元会，公祝陈抱初生日"
+   },
+   {
+    "id": "per_liu_hanyi",
+    "label": "刘翰怡",
+    "type": "人",
+    "relation": "同席",
+    "date": "1921-03-26",
+    "evidence": "晚，赴刘翰怡之约"
+   },
+   {
+    "id": "per_zhang_wucen",
+    "label": "张午岑",
+    "type": "人",
+    "relation": "同席",
+    "date": "1921-03-28",
+    "evidence": "又赴张午岑之约"
+   },
+   {
+    "id": "per_wang_ganqing",
+    "label": "汪甘卿",
+    "type": "人",
+    "relation": "同席",
+    "date": "1921-03-30",
+    "evidence": "亚洲学术研究会汪甘卿同年约都益处酒叙"
+   }
+  ]
+ },
+ "org_zhenyuanhui": {
+  "id": "org_zhenyuanhui",
+  "label": "贞元会",
+  "entity_type": "团体",
+  "canonical": "贞元会",
+  "aliases": [
+   "贞元会"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-08",
+  "last_seen": "1923-10-08",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-10-08",
+    "evidence": "都益处贞元会，公祝陈抱初生日"
+   },
+   {
+    "id": "per_tao_zhecun",
+    "label": "陶拙存",
+    "type": "人",
+    "relation": "属于",
+    "date": "1921-01-06",
+    "evidence": "陶拙存值会"
+   },
+   {
+    "id": "per_li_bozhen",
+    "label": "李伯贞",
+    "type": "人",
+    "relation": "属于",
+    "date": "1921-03-18",
+    "evidence": "贞元会，李伯贞值会"
+   },
+   {
+    "id": "per_yu_shoucheng",
+    "label": "俞寿丞",
+    "type": "人",
+    "relation": "属于",
+    "date": "1921-06-14",
+    "evidence": "贞元会，俞寿丞值会"
+   },
+   {
+    "id": "per_heng_jishen",
+    "label": "恒季申",
+    "type": "人",
+    "relation": "属于",
+    "date": "1921-11-28",
+    "evidence": "又赴都益处贞元会，恒季申值会"
+   },
+   {
+    "id": "per_wang_shuyong",
+    "label": "王叔用",
+    "type": "人",
+    "relation": "属于",
+    "date": "1921-12-17",
+    "evidence": "王叔用值会"
+   }
+  ]
+ },
+ "loc_qiantang": {
+  "id": "loc_qiantang",
+  "label": "钱唐",
+  "entity_type": "地",
+  "canonical": "钱唐",
+  "aliases": [
+   "钱唐"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-09",
+  "last_seen": "1923-10-09",
+  "linked_people": []
+ },
+ "org_tangshan_daxue": {
+  "id": "org_tangshan_daxue",
+  "label": "唐山大学",
+  "entity_type": "团体",
+  "canonical": "唐山大学",
+  "aliases": [
+   "唐山大学"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-09",
+  "last_seen": "1923-10-09",
+  "linked_people": []
+ },
+ "org_nanyang_daxue": {
+  "id": "org_nanyang_daxue",
+  "label": "上海南洋大学",
+  "entity_type": "团体",
+  "canonical": "上海南洋大学",
+  "aliases": [
+   "上海南洋大学"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-09",
+  "last_seen": "1923-10-09",
+  "linked_people": []
+ },
+ "org_neibu_jingwu": {
+  "id": "org_neibu_jingwu",
+  "label": "内部警务学校",
+  "entity_type": "团体",
+  "canonical": "内部警务学校",
+  "aliases": [
+   "内部警务学校"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-09",
+  "last_seen": "1923-10-09",
+  "linked_people": []
+ },
+ "loc_dongxiang": {
+  "id": "loc_dongxiang",
+  "label": "东乡",
+  "entity_type": "地",
+  "canonical": "东乡",
+  "aliases": [
+   "东乡(八甲，上东乡浮桥)"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-10",
+  "last_seen": "1923-10-10",
+  "linked_people": []
+ },
+ "loc_fayunsi": {
+  "id": "loc_fayunsi",
+  "label": "法云寺",
+  "entity_type": "地",
+  "canonical": "法云寺",
+  "aliases": [
+   "南京法云寺"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-10",
+  "last_seen": "1923-10-10",
+  "linked_people": []
+ },
+ "org_fojiao_ciyouyuan": {
+  "id": "org_fojiao_ciyouyuan",
+  "label": "佛教慈幼院",
+  "entity_type": "团体",
+  "canonical": "佛教慈幼院",
+  "aliases": [
+   "佛教慈幼院"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-10",
+  "last_seen": "1923-10-10",
+  "linked_people": []
+ },
+ "org_sifa_bu": {
+  "id": "org_sifa_bu",
+  "label": "司法部秘书厅",
+  "entity_type": "团体",
+  "canonical": "司法部秘书厅",
+  "aliases": [
+   "司法部秘书厅"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-13",
+  "last_seen": "1923-10-13",
+  "linked_people": []
+ },
+ "org_wenrui_lou": {
+  "id": "org_wenrui_lou",
+  "label": "文瑞楼",
+  "entity_type": "团体",
+  "canonical": "文瑞楼",
+  "aliases": [
+   "文瑞楼"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-14",
+  "last_seen": "1923-10-14",
+  "linked_people": [
+   {
+    "id": "per_di_chuqing",
+    "label": "狄楚青",
+    "type": "人",
+    "relation": "商务",
+    "date": "1923-10-14",
+    "evidence": "狄楚青假文瑞楼刻本《高青邱全集》"
+   }
+  ]
+ },
+ "org_fojiao_ciyou_yuan": {
+  "id": "org_fojiao_ciyou_yuan",
+  "label": "佛教慈幼院",
+  "entity_type": "团体",
+  "canonical": "佛教慈幼院",
+  "aliases": [
+   "佛教慈幼院",
+   "慈幼院"
+  ],
+  "mentions": 4,
+  "first_seen": "1923-10-14",
+  "last_seen": "1923-10-21",
+  "linked_people": [
+   {
+    "id": "per_yinguang_fashi",
+    "label": "印光法师",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-10-14",
+    "evidence": "推印光法师、冯梦帅为正会长"
+   },
+   {
+    "id": "per_feng_menghua",
+    "label": "冯梦华",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-10-14",
+    "evidence": "推印光法师、冯梦帅为正会长"
+   },
+   {
+    "id": "per_wei_meisu",
+    "label": "魏梅苏",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-10-14",
+    "evidence": "魏梅苏、王一亭及余为副会长"
+   },
+   {
+    "id": "per_wang_yiting",
+    "label": "王一亭",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-10-14",
+    "evidence": "魏梅苏、王一亭及余为副会长"
+   },
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-10-14",
+    "evidence": "魏梅苏、王一亭及余为副会长"
+   },
+   {
+    "id": "per_wang_younong",
+    "label": "汪幼农",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-10-19",
+    "evidence": "由会长指定王幼农为总务科主任"
+   },
+   {
+    "id": "per_ye_baigao",
+    "label": "叶柏皋",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-10-19",
+    "evidence": "叶柏皋为文谱科主任"
+   },
+   {
+    "id": "per_wei_fuqing",
+    "label": "韦傅卿",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-10-19",
+    "evidence": "韦傅卿为会计科主任"
+   },
+   {
+    "id": "per_pang_zhongya",
+    "label": "庞仲雅",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-10-23",
+    "evidence": "佛教慈幼院增设会计主任，推庞仲雅"
+   },
+   {
+    "id": "per_li_conglong",
+    "label": "李从龙",
+    "type": "人",
+    "relation": "资助",
+    "date": "1923-10-24",
+    "evidence": "捐洋壹百元，入慈幼院筹备会为发起人"
+   },
+   {
+    "id": "per_wu_yisheng",
+    "label": "吴怡生",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-11-13",
+    "evidence": "函吴怡生...为佛教慈幼院赞助人"
+   },
+   {
+    "id": "per_pu_qiucheng",
+    "label": "濮秋澄",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-11-13",
+    "evidence": "函...濮秋澄...为佛教慈幼院赞助人"
+   },
+   {
+    "id": "per_di_zhancheng",
+    "label": "翟展成",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-11-13",
+    "evidence": "函...翟展成...为佛教慈幼院赞助人"
+   },
+   {
+    "id": "per_chen_xifu",
+    "label": "陈西甫",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-11-13",
+    "evidence": "函...陈西甫为佛教慈幼院赞助人"
+   },
+   {
+    "id": "per_li_baoban",
+    "label": "李葆般",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-11-13",
+    "evidence": "邀约李葆般赞助"
+   }
+  ]
+ },
+ "loc_gedeng_lu": {
+  "id": "loc_gedeng_lu",
+  "label": "戈登路",
+  "entity_type": "地",
+  "canonical": "戈登路",
+  "aliases": [
+   "戈登路"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-14",
+  "last_seen": "1923-10-14",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-10-14",
+    "evidence": "至戈登路，祝刘葱石寿"
+   },
+   {
+    "id": "per_zhang_anshuai",
+    "label": "张安帅",
+    "type": "人",
+    "relation": "位于",
+    "date": "1921-11-05",
+    "evidence": "张安帅、戈登路一号"
+   }
+  ]
+ },
+ "org_jiaxing_dianhua_gongsi": {
+  "id": "org_jiaxing_dianhua_gongsi",
+  "label": "嘉兴电话公司",
+  "entity_type": "团体",
+  "canonical": "嘉兴电话公司",
+  "aliases": [
+   "嘉兴电话公司"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-15",
+  "last_seen": "1923-10-15",
+  "linked_people": []
+ },
+ "org_wu_jiaotong": {
+  "id": "org_wu_jiaotong",
+  "label": "芜交通",
+  "entity_type": "团体",
+  "canonical": "芜交通",
+  "aliases": [
+   "芜交通"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-15",
+  "last_seen": "1923-10-15",
+  "linked_people": []
+ },
+ "loc_nanjing_fayun_si": {
+  "id": "loc_nanjing_fayun_si",
+  "label": "南京法云寺",
+  "entity_type": "地",
+  "canonical": "南京法云寺",
+  "aliases": [
+   "南京法云寺"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-15",
+  "last_seen": "1923-10-15",
+  "linked_people": []
+ },
+ "loc_taiping_si": {
+  "id": "loc_taiping_si",
+  "label": "太平寺",
+  "entity_type": "地",
+  "canonical": "太平寺",
+  "aliases": [
+   "太平寺"
+  ],
+  "mentions": 2,
+  "first_seen": "1923-10-17",
+  "last_seen": "1923-10-19",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-10-17",
+    "evidence": "至太平寺，谒印光法师"
+   },
+   {
+    "id": "per_yinguang_fashi",
+    "label": "印光法师",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-10-19",
+    "evidence": "印光法师、真达和尚、太平寺"
+   },
+   {
+    "id": "per_zhenda_heshang",
+    "label": "真达和尚",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-10-19",
+    "evidence": "印光法师、真达和尚、太平寺"
+   }
+  ]
+ },
+ "loc_gushu_liutong_chu": {
+  "id": "loc_gushu_liutong_chu",
+  "label": "古书流通处",
+  "entity_type": "地",
+  "canonical": "古书流通处",
+  "aliases": [
+   "古书流通处"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-17",
+  "last_seen": "1923-10-17",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-10-17",
+    "evidence": "至古书流通处，取书三种"
+   }
+  ]
+ },
+ "org_shanghai_zongshanghui": {
+  "id": "org_shanghai_zongshanghui",
+  "label": "上海总商会商品陈列所",
+  "entity_type": "团体",
+  "canonical": "上海总商会商品陈列所",
+  "aliases": [
+   "上海总商会商品陈列所"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-17",
+  "last_seen": "1923-10-17",
+  "linked_people": []
+ },
+ "loc_chunxiao_lou": {
+  "id": "loc_chunxiao_lou",
+  "label": "春宵楼(倚翠家)",
+  "entity_type": "地",
+  "canonical": "春宵楼",
+  "aliases": [
+   "春宵楼"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-17",
+  "last_seen": "1923-10-17",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1920-12-09",
+    "evidence": "晚，赴梦坡春宵楼之约"
+   }
+  ]
+ },
+ "loc_haige_lu": {
+  "id": "loc_haige_lu",
+  "label": "海格路",
+  "entity_type": "地",
+  "canonical": "海格路",
+  "aliases": [
+   "海格路"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-19",
+  "last_seen": "1923-10-19",
+  "linked_people": []
+ },
+ "loc_xin_kaerdeng": {
+  "id": "loc_xin_kaerdeng",
+  "label": "新卡尔登",
+  "entity_type": "地",
+  "canonical": "新卡尔登",
+  "aliases": [
+   "新卡尔登"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-20",
+  "last_seen": "1923-10-20",
+  "linked_people": []
+ },
+ "loc_baoying": {
+  "id": "loc_baoying",
+  "label": "宝应",
+  "entity_type": "地",
+  "canonical": "宝应",
+  "aliases": [
+   "宝应"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-21",
+  "last_seen": "1923-10-21",
+  "linked_people": []
+ },
  "loc_tongxinglou": {
   "id": "loc_tongxinglou",
   "label": "同兴楼",
@@ -15709,7 +19050,7 @@
     "evidence": "鲍子丹...约同兴楼便酌"
    },
    {
-    "id": "per_yuan_shuzhi",
+    "id": "per_tan_yuanshu",
     "label": "袁述之",
     "type": "人",
     "relation": "同席",
@@ -16200,6 +19541,2282 @@
   "last_seen": "1920-07-02",
   "linked_people": []
  },
+ "org_nong_shang_bank": {
+  "id": "org_nong_shang_bank",
+  "label": "农商银行",
+  "entity_type": "团体",
+  "canonical": "农商银行",
+  "aliases": [
+   "农商银行"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-23",
+  "last_seen": "1923-10-23",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-10-23",
+    "evidence": "至农商银行，晤陈卓甫"
+   }
+  ]
+ },
+ "org_xinchang_yinshuju": {
+  "id": "org_xinchang_yinshuju",
+  "label": "新昌印书居",
+  "entity_type": "团体",
+  "canonical": "新昌印书居",
+  "aliases": [
+   "新昌印书居"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-23",
+  "last_seen": "1923-10-23",
+  "linked_people": []
+ },
+ "org_yizhixiang_qiusheng_she": {
+  "id": "org_yizhixiang_qiusheng_she",
+  "label": "一枝香秋声社",
+  "entity_type": "团体",
+  "canonical": "一枝香秋声社",
+  "aliases": [
+   "一枝香秋声社"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-23",
+  "last_seen": "1923-10-23",
+  "linked_people": []
+ },
+ "ofc_daoyin": {
+  "id": "ofc_daoyin",
+  "label": "道尹",
+  "entity_type": "官职",
+  "canonical": "道尹",
+  "aliases": [
+   "道尹"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-23",
+  "last_seen": "1923-10-23",
+  "linked_people": [
+   {
+    "id": "per_li_weiyuan",
+    "label": "李维源",
+    "type": "人",
+    "relation": "属于",
+    "date": "1921-10-06",
+    "evidence": "李松圃道尹名维源，现振务处总办"
+   }
+  ]
+ },
+ "loc_dangui_diyi_tai": {
+  "id": "loc_dangui_diyi_tai",
+  "label": "丹桂第一台",
+  "entity_type": "地",
+  "canonical": "丹桂第一台",
+  "aliases": [
+   "丹桂第一台"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-24",
+  "last_seen": "1923-10-24",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-10-24",
+    "evidence": "晚至丹桂第一台"
+   }
+  ]
+ },
+ "org_shenzhou_bao": {
+  "id": "org_shenzhou_bao",
+  "label": "神州报",
+  "entity_type": "团体",
+  "canonical": "《神州报》",
+  "aliases": [
+   "《神州报》"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-25",
+  "last_seen": "1923-10-25",
+  "linked_people": [
+   {
+    "id": "per_yu_gumin",
+    "label": "余穀民",
+    "type": "人",
+    "relation": "属于",
+    "date": "1922-09-21",
+    "evidence": "《神州报》馆余穀民洵"
+   }
+  ]
+ },
+ "loc_wenjiegong_ci": {
+  "id": "loc_wenjiegong_ci",
+  "label": "文节公祠",
+  "entity_type": "地",
+  "canonical": "文节公祠",
+  "aliases": [
+   "文节公祠"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-26",
+  "last_seen": "1923-10-26",
+  "linked_people": []
+ },
+ "loc_shucheng": {
+  "id": "loc_shucheng",
+  "label": "舒城",
+  "entity_type": "地",
+  "canonical": "舒城",
+  "aliases": [
+   "舒城"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-26",
+  "last_seen": "1923-10-26",
+  "linked_people": []
+ },
+ "loc_wumalu": {
+  "id": "loc_wumalu",
+  "label": "五马路",
+  "entity_type": "地",
+  "canonical": "五马路",
+  "aliases": [
+   "五马路"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-26",
+  "last_seen": "1923-10-26",
+  "linked_people": []
+ },
+ "org_zheng_fulan_tang": {
+  "id": "org_zheng_fulan_tang",
+  "label": "郑福兰堂",
+  "entity_type": "团体",
+  "canonical": "郑福兰堂",
+  "aliases": [
+   "郑福兰堂"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-26",
+  "last_seen": "1923-10-26",
+  "linked_people": []
+ },
+ "loc_han": {
+  "id": "loc_han",
+  "label": "汉",
+  "entity_type": "地",
+  "canonical": "汉口",
+  "aliases": [
+   "汉"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-26",
+  "last_seen": "1923-10-26",
+  "linked_people": []
+ },
+ "loc_bian": {
+  "id": "loc_bian",
+  "label": "汴",
+  "entity_type": "地",
+  "canonical": "开封",
+  "aliases": [
+   "汴"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-26",
+  "last_seen": "1923-10-26",
+  "linked_people": []
+ },
+ "org_caiting_disijiu_qu": {
+  "id": "org_caiting_disijiu_qu",
+  "label": "财厅第九区毒品查禁",
+  "entity_type": "团体",
+  "canonical": "财厅第九区毒品查禁",
+  "aliases": [
+   "财厅委第九区毒品查禁"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-26",
+  "last_seen": "1923-10-26",
+  "linked_people": [
+   {
+    "id": "per_ma_lansheng",
+    "label": "马兰生",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-10-26",
+    "evidence": "马兰生在汴已由财厅委第九区毒品查禁襄办员"
+   }
+  ]
+ },
+ "org_yongchang_fu_yan_hao": {
+  "id": "org_yongchang_fu_yan_hao",
+  "label": "永昌福盐号",
+  "entity_type": "团体",
+  "canonical": "永昌福盐号",
+  "aliases": [
+   "永昌福盐号"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-26",
+  "last_seen": "1923-10-26",
+  "linked_people": [
+   {
+    "id": "per_qinu",
+    "label": "绮女",
+    "type": "人",
+    "relation": "商务",
+    "date": "1923-10-26",
+    "evidence": "绮女鄂票辛亥春纲租与永昌福盐号扬平"
+   }
+  ]
+ },
+ "org_deyu_zhuang": {
+  "id": "org_deyu_zhuang",
+  "label": "德余庄",
+  "entity_type": "团体",
+  "canonical": "德余庄",
+  "aliases": [
+   "德余庄"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-26",
+  "last_seen": "1923-10-26",
+  "linked_people": []
+ },
+ "org_fojiao_jingye_she": {
+  "id": "org_fojiao_jingye_she",
+  "label": "佛教净业社",
+  "entity_type": "团体",
+  "canonical": "佛教净业社",
+  "aliases": [
+   "佛教净业社"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-28",
+  "last_seen": "1923-10-28",
+  "linked_people": [
+   {
+    "id": "per_jin_huai",
+    "label": "金淮",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-10-28",
+    "evidence": "佛教净业社金淮、沈辉、罗天泽、沈辉、关炯"
+   },
+   {
+    "id": "per_shen_hui",
+    "label": "沈辉",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-10-28",
+    "evidence": "佛教净业社金淮、沈辉"
+   },
+   {
+    "id": "per_luo_tianze",
+    "label": "罗天泽",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-10-28",
+    "evidence": "罗天泽"
+   },
+   {
+    "id": "per_guan_jiong",
+    "label": "关炯",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-10-28",
+    "evidence": "关炯"
+   }
+  ]
+ },
+ "ofc_sifabu_mishu": {
+  "id": "ofc_sifabu_mishu",
+  "label": "司法部秘书",
+  "entity_type": "官职",
+  "canonical": "司法部秘书",
+  "aliases": [
+   "司法部秘书"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-29",
+  "last_seen": "1923-10-29",
+  "linked_people": []
+ },
+ "loc_beijing_nanheyuan": {
+  "id": "loc_beijing_nanheyuan",
+  "label": "北京南河沿大纯公寓",
+  "entity_type": "地",
+  "canonical": "北京南河沿大纯公寓",
+  "aliases": [
+   "北京南河沿大纯公寓"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-29",
+  "last_seen": "1923-10-29",
+  "linked_people": []
+ },
+ "loc_changshu_dadongmen": {
+  "id": "loc_changshu_dadongmen",
+  "label": "常熟大东门内醉尉街",
+  "entity_type": "地",
+  "canonical": "常熟大东门内醉尉街",
+  "aliases": [
+   "常熟大东门内醉尉街"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-29",
+  "last_seen": "1923-10-29",
+  "linked_people": []
+ },
+ "org_huibin_lou": {
+  "id": "org_huibin_lou",
+  "label": "会宾楼",
+  "entity_type": "团体",
+  "canonical": "会宾楼",
+  "aliases": [
+   "会宾楼"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-10-31",
+  "last_seen": "1923-10-31",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "同席",
+    "date": "1923-10-31",
+    "evidence": "晚,三弟夫人邀至会宾楼便餐"
+   }
+  ]
+ },
+ "loc_henan_fu": {
+  "id": "loc_henan_fu",
+  "label": "河南府",
+  "entity_type": "地",
+  "canonical": "河南府",
+  "aliases": [
+   "河南府"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-01",
+  "last_seen": "1923-11-01",
+  "linked_people": []
+ },
+ "org_zhongguo_yinhang": {
+  "id": "org_zhongguo_yinhang",
+  "label": "中国银行",
+  "entity_type": "团体",
+  "canonical": "中国银行",
+  "aliases": [
+   "中国银行"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-01",
+  "last_seen": "1923-11-01",
+  "linked_people": [
+   {
+    "id": "per_li_conglong",
+    "label": "李从龙",
+    "type": "人",
+    "relation": "商务",
+    "date": "1922-04-21",
+    "evidence": "代附中国银行新股一百元"
+   }
+  ]
+ },
+ "org_xiezhi_richen_yizhen_hui": {
+  "id": "org_xiezhi_richen_yizhen_hui",
+  "label": "中国协济日灾义振会",
+  "entity_type": "团体",
+  "canonical": "中国协济日灾义振会",
+  "aliases": [
+   "中国协济日灾义振会"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-01",
+  "last_seen": "1923-11-01",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "转交",
+    "date": "1923-11-01",
+    "evidence": "交戈先生转送会中。填前募宝经堂淑记捐一百元"
+   }
+  ]
+ },
+ "loc_danguidiyi_tai": {
+  "id": "loc_danguidiyi_tai",
+  "label": "丹桂第一台",
+  "entity_type": "地",
+  "canonical": "丹桂第一台",
+  "aliases": [
+   "丹桂第一台"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-01",
+  "last_seen": "1923-11-01",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-11-01",
+    "evidence": "晚至丹桂第一台,观程艳秋《风流棒》剧"
+   }
+  ]
+ },
+ "org_anhui_yizhen_hui": {
+  "id": "org_anhui_yizhen_hui",
+  "label": "安徽义振会",
+  "entity_type": "团体",
+  "canonical": "安徽义振会",
+  "aliases": [
+   "安徽义振会"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-05",
+  "last_seen": "1923-11-05",
+  "linked_people": [
+   {
+    "id": "per_di_zhancheng",
+    "label": "翟展成",
+    "type": "人",
+    "relation": "转交",
+    "date": "1922-05-09",
+    "evidence": "翟展成寄来繁昌、南陵两县收到安徽义振会平渠各壹千元印收"
+   },
+   {
+    "id": "per_qiu_weiqing",
+    "label": "邱渭卿",
+    "type": "人",
+    "relation": "资助",
+    "date": "1922-09-08",
+    "evidence": "邱渭卿捐一万元"
+   },
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "致书",
+    "date": "1922-10-02",
+    "evidence": "当钞稿送安徽义振会"
+   }
+  ]
+ },
+ "org_zhongguo_daxue": {
+  "id": "org_zhongguo_daxue",
+  "label": "中国大学",
+  "entity_type": "团体",
+  "canonical": "中国大学",
+  "aliases": [
+   "中国大学"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-05",
+  "last_seen": "1923-11-05",
+  "linked_people": [
+   {
+    "id": "per_wang_daoyu",
+    "label": "汪道余",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-11-05",
+    "evidence": "汪道余、觉非,北京中国大学学员"
+   },
+   {
+    "id": "per_xu_zhaoxiong",
+    "label": "徐兆熊",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-11-05",
+    "evidence": "徐兆熊悟空,北京中国大学预科毕业"
+   }
+  ]
+ },
+ "loc_gongxian_shikusi": {
+  "id": "loc_gongxian_shikusi",
+  "label": "河南巩县石窟寺",
+  "entity_type": "地",
+  "canonical": "河南巩县石窟寺",
+  "aliases": [
+   "河南巩县石窟寺"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-05",
+  "last_seen": "1923-11-05",
+  "linked_people": []
+ },
+ "org_nantong_zhongguo_bank": {
+  "id": "org_nantong_zhongguo_bank",
+  "label": "南通中国银行",
+  "entity_type": "团体",
+  "canonical": "南通中国银行",
+  "aliases": [
+   "南通中国银行"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-07",
+  "last_seen": "1923-11-07",
+  "linked_people": []
+ },
+ "loc_henan_gongxian_shikusi": {
+  "id": "loc_henan_gongxian_shikusi",
+  "label": "河南巩县石窟寺",
+  "entity_type": "地",
+  "canonical": "河南巩县石窟寺",
+  "aliases": [
+   "河南巩县石窟寺"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-07",
+  "last_seen": "1923-11-07",
+  "linked_people": []
+ },
+ "loc_jingtuan": {
+  "id": "loc_jingtuan",
+  "label": "净土庵",
+  "entity_type": "地",
+  "canonical": "净土庵",
+  "aliases": [
+   "净土庵"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-08",
+  "last_seen": "1923-11-08",
+  "linked_people": []
+ },
+ "loc_dongtai_chacheng_xiang": {
+  "id": "loc_dongtai_chacheng_xiang",
+  "label": "东台茶城巷口",
+  "entity_type": "地",
+  "canonical": "东台茶城巷口",
+  "aliases": [
+   "东台茶城巷口"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-08",
+  "last_seen": "1923-11-08",
+  "linked_people": [
+   {
+    "id": "per_zhang_taifuren",
+    "label": "张太夫人",
+    "type": "人",
+    "relation": "位于",
+    "date": "1923-11-08",
+    "evidence": "托转东台茶城巷口，祝张太夫人"
+   }
+  ]
+ },
+ "ill_zujji": {
+  "id": "ill_zujji",
+  "label": "足疾",
+  "entity_type": "疾病",
+  "canonical": "足疾",
+  "aliases": [
+   "足疾"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-08",
+  "last_seen": "1923-11-08",
+  "linked_people": [
+   {
+    "id": "per_liu_congshi",
+    "label": "刘葱石",
+    "type": "人",
+    "relation": "治病",
+    "date": "1923-11-08",
+    "evidence": "刘葱石、陈新甫先后惠治足疾膏药"
+   },
+   {
+    "id": "per_chen_xinfu",
+    "label": "陈新甫",
+    "type": "人",
+    "relation": "治病",
+    "date": "1923-11-08",
+    "evidence": "刘葱石、陈新甫先后惠治足疾膏药"
+   }
+  ]
+ },
+ "org_wanchang_dian": {
+  "id": "org_wanchang_dian",
+  "label": "万昌典",
+  "entity_type": "团体",
+  "canonical": "万昌典",
+  "aliases": [
+   "万昌典"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-09",
+  "last_seen": "1923-11-09",
+  "linked_people": [
+   {
+    "id": "per_jianzhi",
+    "label": "健之",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-11-09",
+    "evidence": "今同健之、子木至万昌典"
+   },
+   {
+    "id": "per_zimu",
+    "label": "子木",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-11-09",
+    "evidence": "今同健之、子木至万昌典"
+   },
+   {
+    "id": "per_zhong_jun",
+    "label": "钟君",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-11-09",
+    "evidence": "晤收租人钟君"
+   }
+  ]
+ },
+ "org_wan_zhen_hui": {
+  "id": "org_wan_zhen_hui",
+  "label": "皖振会",
+  "entity_type": "团体",
+  "canonical": "皖振会",
+  "aliases": [
+   "皖振会"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-09",
+  "last_seen": "1923-11-09",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-11-23",
+    "evidence": "为皖振会送祭文、祭筵"
+   }
+  ]
+ },
+ "org_shi_guan": {
+  "id": "org_shi_guan",
+  "label": "史馆",
+  "entity_type": "团体",
+  "canonical": "史馆",
+  "aliases": [
+   "史馆"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-12",
+  "last_seen": "1923-11-12",
+  "linked_people": []
+ },
+ "loc_gongshan_dian": {
+  "id": "loc_gongshan_dian",
+  "label": "工山殿",
+  "entity_type": "地",
+  "canonical": "工山殿",
+  "aliases": [
+   "工山殿"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-12",
+  "last_seen": "1923-11-12",
+  "linked_people": []
+ },
+ "org_anhui_yizhenhui": {
+  "id": "org_anhui_yizhenhui",
+  "label": "安徽义振会",
+  "entity_type": "团体",
+  "canonical": "安徽义振会",
+  "aliases": [
+   "安徽义振会"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-17",
+  "last_seen": "1923-11-17",
+  "linked_people": [
+   {
+    "id": "per_xue_jingcan",
+    "label": "削景参",
+    "type": "人",
+    "relation": "资助",
+    "date": "1923-12-11",
+    "evidence": "商借振款三千元...抬头安徽义振会"
+   },
+   {
+    "id": "per_shi_ziying",
+    "label": "施子英",
+    "type": "人",
+    "relation": "属于",
+    "date": "1921-01-15",
+    "evidence": "施子英安徽义振会晤王阶平"
+   },
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1921-12-15",
+    "evidence": "至安徽义振会"
+   }
+  ]
+ },
+ "org_hexiang_gongsi": {
+  "id": "org_hexiang_gongsi",
+  "label": "合祥公司",
+  "entity_type": "团体",
+  "canonical": "合祥公司",
+  "aliases": [
+   "合祥公司"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-17",
+  "last_seen": "1923-11-17",
+  "linked_people": []
+ },
+ "ofc_shangshu": {
+  "id": "ofc_shangshu",
+  "label": "尚书",
+  "entity_type": "官职",
+  "canonical": "尚书",
+  "aliases": [
+   "尚书"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-17",
+  "last_seen": "1923-11-17",
+  "linked_people": []
+ },
+ "org_shanghai_cement": {
+  "id": "org_shanghai_cement",
+  "label": "上海水泥公司",
+  "entity_type": "团体",
+  "canonical": "上海水泥公司",
+  "aliases": [
+   "上海水泥公司"
+  ],
+  "mentions": 2,
+  "first_seen": "1923-11-18",
+  "last_seen": "1923-11-24",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-11-18",
+    "evidence": "当选为候补监察人"
+   },
+   {
+    "id": "per_zhu_baosan",
+    "label": "朱葆三",
+    "type": "人",
+    "relation": "属于",
+    "date": "1921-02-20",
+    "evidence": "原董事九人：朱葆三、谢仲笙、杜家坤"
+   },
+   {
+    "id": "per_xie_zhongsheng",
+    "label": "谢仲笙",
+    "type": "人",
+    "relation": "属于",
+    "date": "1921-02-20",
+    "evidence": "原董事九人：朱葆三、谢仲笙、杜家坤"
+   },
+   {
+    "id": "per_du_jiakun",
+    "label": "杜家坤",
+    "type": "人",
+    "relation": "属于",
+    "date": "1921-02-20",
+    "evidence": "原董事九人...杜家坤"
+   },
+   {
+    "id": "per_li_yijing",
+    "label": "李翼敬",
+    "type": "人",
+    "relation": "属于",
+    "date": "1921-02-20",
+    "evidence": "原董事九人...李翼敬"
+   },
+   {
+    "id": "per_bo_ke",
+    "label": "李拔可",
+    "type": "人",
+    "relation": "属于",
+    "date": "1921-02-20",
+    "evidence": "原董事...李拔可"
+   },
+   {
+    "id": "per_han_yungen",
+    "label": "韩芸根",
+    "type": "人",
+    "relation": "属于",
+    "date": "1921-02-20",
+    "evidence": "原韩芸根，后为总经理改补"
+   },
+   {
+    "id": "per_zhang_xiaoliang",
+    "label": "张效良",
+    "type": "人",
+    "relation": "属于",
+    "date": "1921-02-20",
+    "evidence": "原董事...张效良"
+   },
+   {
+    "id": "per_liu_hongsheng",
+    "label": "刘鸿生",
+    "type": "人",
+    "relation": "属于",
+    "date": "1921-02-20",
+    "evidence": "原董事...刘鸿生"
+   },
+   {
+    "id": "per_liu_jisheng",
+    "label": "刘吉生",
+    "type": "人",
+    "relation": "属于",
+    "date": "1921-02-20",
+    "evidence": "原董事...刘吉生"
+   },
+   {
+    "id": "per_wu_jichen",
+    "label": "吴寄尘",
+    "type": "人",
+    "relation": "属于",
+    "date": "1921-02-20",
+    "evidence": "原董事...吴寄尘"
+   },
+   {
+    "id": "per_liu_baoyu",
+    "label": "刘宝余",
+    "type": "人",
+    "relation": "属于",
+    "date": "1921-02-20",
+    "evidence": "原刘宝余，后为经理改补"
+   },
+   {
+    "id": "per_zhang_tuian",
+    "label": "张退庵",
+    "type": "人",
+    "relation": "属于",
+    "date": "1921-02-20",
+    "evidence": "现添举张退庵、张嗇庵"
+   },
+   {
+    "id": "per_zhang_sean",
+    "label": "张嗇庵",
+    "type": "人",
+    "relation": "属于",
+    "date": "1921-02-20",
+    "evidence": "现添举张退庵、张嗇庵"
+   },
+   {
+    "id": "per_yang_kuihou",
+    "label": "杨奎侯",
+    "type": "人",
+    "relation": "属于",
+    "date": "1921-02-20",
+    "evidence": "原监察二人：杨奎侯、赵文焕"
+   },
+   {
+    "id": "per_zhao_wenhuan",
+    "label": "赵文焕",
+    "type": "人",
+    "relation": "属于",
+    "date": "1921-02-20",
+    "evidence": "原监察二人：杨奎侯、赵文焕"
+   },
+   {
+    "id": "per_zhou_fujiu",
+    "label": "周扶九",
+    "type": "人",
+    "relation": "属于",
+    "date": "1921-02-20",
+    "evidence": "现添举周扶九"
+   }
+  ]
+ },
+ "org_zhengxingguan": {
+  "id": "org_zhengxingguan",
+  "label": "正兴馆",
+  "entity_type": "团体",
+  "canonical": "正兴馆",
+  "aliases": [
+   "正兴馆"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-18",
+  "last_seen": "1923-11-18",
+  "linked_people": []
+ },
+ "org_chongningsi": {
+  "id": "org_chongningsi",
+  "label": "重宁寺",
+  "entity_type": "团体",
+  "canonical": "重宁寺",
+  "aliases": [
+   "重宁寺"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-19",
+  "last_seen": "1923-11-19",
+  "linked_people": [
+   {
+    "id": "per_zhenglian_mian",
+    "label": "正廉密安",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-11-19",
+    "evidence": "重宁寺住持僧正廉"
+   }
+  ]
+ },
+ "org_wenchenglongji": {
+  "id": "org_wenchenglongji",
+  "label": "文成隆记",
+  "entity_type": "团体",
+  "canonical": "文成隆记",
+  "aliases": [
+   "文成隆记"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-19",
+  "last_seen": "1923-11-19",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "商务",
+    "date": "1923-11-19",
+    "evidence": "购文成隆记连史...共六件"
+   }
+  ]
+ },
+ "org_xiangxingren": {
+  "id": "org_xiangxingren",
+  "label": "祥兴仁",
+  "entity_type": "团体",
+  "canonical": "祥兴仁",
+  "aliases": [
+   "祥兴仁"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-19",
+  "last_seen": "1923-11-19",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "商务",
+    "date": "1923-11-19",
+    "evidence": "祥兴仁加魁,每件十二两"
+   }
+  ]
+ },
+ "loc_aiwenyi_lu": {
+  "id": "loc_aiwenyi_lu",
+  "label": "爱文义路",
+  "entity_type": "地",
+  "canonical": "爱文义路",
+  "aliases": [
+   "爱文义路"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-19",
+  "last_seen": "1923-11-19",
+  "linked_people": []
+ },
+ "loc_nanyang_lu": {
+  "id": "loc_nanyang_lu",
+  "label": "南洋路",
+  "entity_type": "地",
+  "canonical": "南洋路",
+  "aliases": [
+   "南洋路"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-19",
+  "last_seen": "1923-11-19",
+  "linked_people": []
+ },
+ "loc_jisifei_er_lu": {
+  "id": "loc_jisifei_er_lu",
+  "label": "极司菲而路",
+  "entity_type": "地",
+  "canonical": "极司菲而路",
+  "aliases": [
+   "极司菲而路"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-19",
+  "last_seen": "1923-11-19",
+  "linked_people": []
+ },
+ "loc_mibu": {
+  "id": "loc_mibu",
+  "label": "米埠",
+  "entity_type": "地",
+  "canonical": "米埠",
+  "aliases": [
+   "米埠"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-20",
+  "last_seen": "1923-11-20",
+  "linked_people": []
+ },
+ "org_jiawang_gongsi": {
+  "id": "org_jiawang_gongsi",
+  "label": "贾汪公司",
+  "entity_type": "团体",
+  "canonical": "贾汪公司",
+  "aliases": [
+   "贾汪公司"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-20",
+  "last_seen": "1923-11-20",
+  "linked_people": [
+   {
+    "id": "per_bao_zidan",
+    "label": "鲍子丹",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-11-20",
+    "evidence": "贾汪公司鲍子丹为袁太夫人追悼会"
+   },
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "商务",
+    "date": "1923-11-30",
+    "evidence": "存贾汪公司三千元,立折据,八厘息"
+   }
+  ]
+ },
+ "loc_xinzha_lu": {
+  "id": "loc_xinzha_lu",
+  "label": "新闸路大德里廿九号",
+  "entity_type": "地",
+  "canonical": "新闸路大德里廿九号",
+  "aliases": [
+   "新闸路大德里廿九号"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-21",
+  "last_seen": "1923-11-21",
+  "linked_people": []
+ },
+ "org_xinbanzhai": {
+  "id": "org_xinbanzhai",
+  "label": "新半斋",
+  "entity_type": "团体",
+  "canonical": "新半斋",
+  "aliases": [
+   "新半斋"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-21",
+  "last_seen": "1923-11-21",
+  "linked_people": []
+ },
+ "loc_yimiao_shichang": {
+  "id": "loc_yimiao_shichang",
+  "label": "邑庙市场",
+  "entity_type": "地",
+  "canonical": "邑庙市场",
+  "aliases": [
+   "邑庙市场"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-21",
+  "last_seen": "1923-11-21",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-11-21",
+    "evidence": "游古玩市场、邑庙市场"
+   }
+  ]
+ },
+ "org_huxinsi": {
+  "id": "org_huxinsi",
+  "label": "湖心寺",
+  "entity_type": "团体",
+  "canonical": "湖心寺",
+  "aliases": [
+   "湖心寺"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-22",
+  "last_seen": "1923-11-22",
+  "linked_people": [
+   {
+    "id": "per_huizhi",
+    "label": "慧之",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-11-22",
+    "evidence": "为湖心寺僧慧之"
+   }
+  ]
+ },
+ "loc_jiangning_gongsuo": {
+  "id": "loc_jiangning_gongsuo",
+  "label": "江宁公所",
+  "entity_type": "地",
+  "canonical": "江宁公所",
+  "aliases": [
+   "江宁公所"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-23",
+  "last_seen": "1923-11-23",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1922-11-23",
+    "evidence": "削授堂女夫三十阴寿，往江宁公所祭之"
+   }
+  ]
+ },
+ "org_zang_boyong_yiyuan": {
+  "id": "org_zang_boyong_yiyuan",
+  "label": "臧伯庸医院",
+  "entity_type": "团体",
+  "canonical": "臧伯庸医院",
+  "aliases": [
+   "伯庸医院",
+   "臧伯庸医院"
+  ],
+  "mentions": 2,
+  "first_seen": "1923-11-24",
+  "last_seen": "1923-11-27",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-11-24",
+    "evidence": "至臧伯庸医院医足痛"
+   },
+   {
+    "id": "per_zang_boyong",
+    "label": "臧伯庸",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-11-24",
+    "evidence": "至臧伯庸医院"
+   }
+  ]
+ },
+ "ill_zutong": {
+  "id": "ill_zutong",
+  "label": "足痛/足疾",
+  "entity_type": "疾病",
+  "canonical": "足疾",
+  "aliases": [
+   "足不良于行",
+   "足疾",
+   "足痛"
+  ],
+  "mentions": 3,
+  "first_seen": "1923-11-24",
+  "last_seen": "1923-11-28",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "治病",
+    "date": "1923-12-18",
+    "evidence": "至闵采臣处医足痛"
+   }
+  ]
+ },
+ "org_fojiao_ciyou_hui": {
+  "id": "org_fojiao_ciyou_hui",
+  "label": "佛教慈幼会",
+  "entity_type": "团体",
+  "canonical": "佛教慈幼会",
+  "aliases": [
+   "佛教慈幼会"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-24",
+  "last_seen": "1923-11-24",
+  "linked_people": []
+ },
+ "org_jiangsu_gongshu": {
+  "id": "org_jiangsu_gongshu",
+  "label": "江苏省公署",
+  "entity_type": "团体",
+  "canonical": "江苏省公署",
+  "aliases": [
+   "江苏省公署"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-24",
+  "last_seen": "1923-11-24",
+  "linked_people": [
+   {
+    "id": "per_jiang_xiaolou",
+    "label": "江筱楼",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-11-24",
+    "evidence": "现充江苏省公署秘书"
+   }
+  ]
+ },
+ "ofc_mishu": {
+  "id": "ofc_mishu",
+  "label": "秘书",
+  "entity_type": "官职",
+  "canonical": "秘书",
+  "aliases": [
+   "秘书"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-24",
+  "last_seen": "1923-11-24",
+  "linked_people": []
+ },
+ "ofc_houbu_jiancharen": {
+  "id": "ofc_houbu_jiancharen",
+  "label": "候补监察人",
+  "entity_type": "官职",
+  "canonical": "候补监察人",
+  "aliases": [
+   "候补监察人"
+  ],
+  "mentions": 2,
+  "first_seen": "1923-11-18",
+  "last_seen": "1923-11-24",
+  "linked_people": []
+ },
+ "org_chunxiaolou": {
+  "id": "org_chunxiaolou",
+  "label": "春宵楼",
+  "entity_type": "团体",
+  "canonical": "春宵楼",
+  "aliases": [
+   "春宵楼"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-28",
+  "last_seen": "1923-11-28",
+  "linked_people": []
+ },
+ "org_taolechun": {
+  "id": "org_taolechun",
+  "label": "陶乐春",
+  "entity_type": "团体",
+  "canonical": "陶乐春",
+  "aliases": [
+   "陶乐春"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-28",
+  "last_seen": "1923-11-28",
+  "linked_people": []
+ },
+ "org_huining_sigongtang": {
+  "id": "org_huining_sigongtang",
+  "label": "徽宁思恭堂",
+  "entity_type": "团体",
+  "canonical": "徽宁思恭堂",
+  "aliases": [
+   "徽宁思恭堂"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-28",
+  "last_seen": "1923-11-28",
+  "linked_people": []
+ },
+ "org_minxing_cishan_tang": {
+  "id": "org_minxing_cishan_tang",
+  "label": "闵行慈善堂",
+  "entity_type": "团体",
+  "canonical": "闵行慈善堂",
+  "aliases": [
+   "闵行慈善堂"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-28",
+  "last_seen": "1923-11-28",
+  "linked_people": []
+ },
+ "org_xin_kaerdeng": {
+  "id": "org_xin_kaerdeng",
+  "label": "新卡尔登西餐",
+  "entity_type": "团体",
+  "canonical": "新卡尔登",
+  "aliases": [
+   "新卡尔登西餐"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-29",
+  "last_seen": "1923-11-29",
+  "linked_people": []
+ },
+ "org_chouedchang": {
+  "id": "org_chouedchang",
+  "label": "仇德昌号",
+  "entity_type": "团体",
+  "canonical": "仇德昌号",
+  "aliases": [
+   "仇德昌号"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-30",
+  "last_seen": "1923-11-30",
+  "linked_people": []
+ },
+ "loc_huogang": {
+  "id": "loc_huogang",
+  "label": "获港",
+  "entity_type": "地",
+  "canonical": "获港",
+  "aliases": [
+   "获港"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-30",
+  "last_seen": "1923-11-30",
+  "linked_people": []
+ },
+ "loc_gongshan_he_gongci": {
+  "id": "loc_gongshan_he_gongci",
+  "label": "工山坊何公祠",
+  "entity_type": "地",
+  "canonical": "工山坊何公祠",
+  "aliases": [
+   "工山坊何公祠"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-30",
+  "last_seen": "1923-11-30",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "资助",
+    "date": "1923-11-30",
+    "evidence": "何公祠拟捐五十元"
+   }
+  ]
+ },
+ "loc_minglun_tang": {
+  "id": "loc_minglun_tang",
+  "label": "明伦堂",
+  "entity_type": "地",
+  "canonical": "明伦堂",
+  "aliases": [
+   "明伦堂"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-30",
+  "last_seen": "1923-11-30",
+  "linked_people": []
+ },
+ "loc_dagongshan_longwang_miao": {
+  "id": "loc_dagongshan_longwang_miao",
+  "label": "大工山龙王庙",
+  "entity_type": "地",
+  "canonical": "大工山龙王庙",
+  "aliases": [
+   "大工山龙王庙"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-30",
+  "last_seen": "1923-11-30",
+  "linked_people": []
+ },
+ "loc_longjing": {
+  "id": "loc_longjing",
+  "label": "龙井",
+  "entity_type": "地",
+  "canonical": "龙井",
+  "aliases": [
+   "龙井"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-11-30",
+  "last_seen": "1923-11-30",
+  "linked_people": []
+ },
+ "ill_zuji": {
+  "id": "ill_zuji",
+  "label": "足疾",
+  "entity_type": "疾病",
+  "canonical": "足疾",
+  "aliases": [
+   "足疾"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-12-01",
+  "last_seen": "1923-12-01",
+  "linked_people": []
+ },
+ "ill_chigenpao": {
+  "id": "ill_chigenpao",
+  "label": "齿根泡",
+  "entity_type": "疾病",
+  "canonical": "齿根泡",
+  "aliases": [
+   "齿根泡"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-12-01",
+  "last_seen": "1923-12-01",
+  "linked_people": []
+ },
+ "loc_nanjing_pingshi": {
+  "id": "loc_nanjing_pingshi",
+  "label": "南京评事街千章巷",
+  "entity_type": "地",
+  "canonical": "南京评事街千章巷",
+  "aliases": [
+   "南京评事街千章巷"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-12-03",
+  "last_seen": "1923-12-03",
+  "linked_people": []
+ },
+ "org_shanghai_daxue": {
+  "id": "org_shanghai_daxue",
+  "label": "上海大学",
+  "entity_type": "团体",
+  "canonical": "上海大学",
+  "aliases": [
+   "上海大学"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-12-05",
+  "last_seen": "1923-12-05",
+  "linked_people": []
+ },
+ "loc_zhang_boyong_yiyuan": {
+  "id": "loc_zhang_boyong_yiyuan",
+  "label": "张伯庸医院",
+  "entity_type": "地",
+  "canonical": "张伯庸医院",
+  "aliases": [
+   "伯庸医院",
+   "张伯庸医院"
+  ],
+  "mentions": 2,
+  "first_seen": "1923-12-05",
+  "last_seen": "1923-12-08",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1923-12-05",
+    "evidence": "至张伯庸医院,以针治之"
+   }
+  ]
+ },
+ "org_han_shunxing": {
+  "id": "org_han_shunxing",
+  "label": "韩顺兴",
+  "entity_type": "团体",
+  "canonical": "韩顺兴",
+  "aliases": [
+   "韩顺兴"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-12-06",
+  "last_seen": "1923-12-06",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "商务",
+    "date": "1923-12-06",
+    "evidence": "购韩顺兴洋椅、洋镜箱价四十二元"
+   }
+  ]
+ },
+ "loc_lingnanlou": {
+  "id": "loc_lingnanlou",
+  "label": "岭南楼",
+  "entity_type": "地",
+  "canonical": "岭南楼",
+  "aliases": [
+   "岭南楼"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-12-07",
+  "last_seen": "1923-12-07",
+  "linked_people": []
+ },
+ "org_ciyouyuan": {
+  "id": "org_ciyouyuan",
+  "label": "慈幼院",
+  "entity_type": "团体",
+  "canonical": "慈幼院",
+  "aliases": [
+   "慈幼院"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-12-08",
+  "last_seen": "1923-12-08",
+  "linked_people": []
+ },
+ "org_anhui_guankuang": {
+  "id": "org_anhui_guankuang",
+  "label": "督办安徽全省官矿事宜办公处",
+  "entity_type": "团体",
+  "canonical": "督办安徽全省官矿事宜办公处",
+  "aliases": [
+   "督办安徽全省官矿事宜办公处"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-12-08",
+  "last_seen": "1923-12-08",
+  "linked_people": []
+ },
+ "org_wan_tongxianghui": {
+  "id": "org_wan_tongxianghui",
+  "label": "皖同乡会",
+  "entity_type": "团体",
+  "canonical": "皖同乡会",
+  "aliases": [
+   "安徽同乡会",
+   "皖同乡会"
+  ],
+  "mentions": 2,
+  "first_seen": "1923-12-10",
+  "last_seen": "1923-12-12",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-12-10",
+    "evidence": "理事。...徐积余、程霖生、李少穆..."
+   },
+   {
+    "id": "per_li_zhongxuan",
+    "label": "李仲轩",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-12-10",
+    "evidence": "理事。李仲轩、许静仁、汪幼农、徐积余"
+   },
+   {
+    "id": "per_bo_liewu",
+    "label": "柏烈武",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-12-10",
+    "evidence": "正评议长；柏烈武"
+   },
+   {
+    "id": "per_wang_longting",
+    "label": "王龙庭",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-12-10",
+    "evidence": "王龙庭候补。副评议长"
+   },
+   {
+    "id": "per_xu_bolong",
+    "label": "许伯龙",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-12-10",
+    "evidence": "副评议长；许伯龙、张已振"
+   },
+   {
+    "id": "per_zhang_yizhen",
+    "label": "张已振",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-12-10",
+    "evidence": "副评议长；许伯龙、张已振"
+   },
+   {
+    "id": "per_xu_jingren",
+    "label": "徐静仁",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-12-10",
+    "evidence": "理事。李仲轩、许静仁"
+   },
+   {
+    "id": "per_wang_younong",
+    "label": "汪幼农",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-12-10",
+    "evidence": "理事。...汪幼农"
+   },
+   {
+    "id": "per_cheng_linsheng",
+    "label": "程霖生",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-12-10",
+    "evidence": "...程霖生"
+   },
+   {
+    "id": "per_li_shaomu",
+    "label": "李少穆",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-12-10",
+    "evidence": "...李少穆"
+   },
+   {
+    "id": "per_li_tunan",
+    "label": "李图南",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-12-10",
+    "evidence": "...李图南"
+   },
+   {
+    "id": "per_xia_yufeng",
+    "label": "夏玉峰",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-12-10",
+    "evidence": "...夏玉峰"
+   },
+   {
+    "id": "per_chang_fanhou",
+    "label": "常藩侯",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-12-10",
+    "evidence": "...常藩侯"
+   },
+   {
+    "id": "per_chen_shaozhou",
+    "label": "陈少舟",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-12-10",
+    "evidence": "...陈少舟"
+   },
+   {
+    "id": "per_wang_buxun",
+    "label": "汪捕荀",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-12-10",
+    "evidence": "...汪 捕荀"
+   },
+   {
+    "id": "per_guan_yunnong",
+    "label": "关云农",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-12-10",
+    "evidence": "...关芸农"
+   },
+   {
+    "id": "per_yu_luqing",
+    "label": "余鲁卿",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-12-10",
+    "evidence": "...余鲁卿"
+   },
+   {
+    "id": "per_lu_wenbin",
+    "label": "路文彬",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-12-10",
+    "evidence": "...路文彬"
+   }
+  ]
+ },
+ "ill_zu_ji": {
+  "id": "ill_zu_ji",
+  "label": "足疾",
+  "entity_type": "疾病",
+  "canonical": "足疾",
+  "aliases": [
+   "足疾"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-12-11",
+  "last_seen": "1923-12-11",
+  "linked_people": []
+ },
+ "loc_hangzhou_chengzhan": {
+  "id": "loc_hangzhou_chengzhan",
+  "label": "杭州城站",
+  "entity_type": "地",
+  "canonical": "杭州城站",
+  "aliases": [
+   "杭州城站"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-12-12",
+  "last_seen": "1923-12-12",
+  "linked_people": []
+ },
+ "loc_xiashan": {
+  "id": "loc_xiashan",
+  "label": "峡山",
+  "entity_type": "地",
+  "canonical": "峡山",
+  "aliases": [
+   "峡山"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-12-12",
+  "last_seen": "1923-12-12",
+  "linked_people": []
+ },
+ "loc_qingyuan_xian": {
+  "id": "loc_qingyuan_xian",
+  "label": "清远县",
+  "entity_type": "地",
+  "canonical": "清远县",
+  "aliases": [
+   "广东清远县"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-12-12",
+  "last_seen": "1923-12-12",
+  "linked_people": []
+ },
+ "org_anhui_gongxue": {
+  "id": "org_anhui_gongxue",
+  "label": "安徽公学",
+  "entity_type": "团体",
+  "canonical": "安徽公学",
+  "aliases": [
+   "公学",
+   "安徽公学"
+  ],
+  "mentions": 2,
+  "first_seen": "1923-12-12",
+  "last_seen": "1923-12-12",
+  "linked_people": []
+ },
+ "loc_yue": {
+  "id": "loc_yue",
+  "label": "粤",
+  "entity_type": "地",
+  "canonical": "广东",
+  "aliases": [
+   "粤"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-12-12",
+  "last_seen": "1923-12-12",
+  "linked_people": []
+ },
+ "loc_yongnian_li": {
+  "id": "loc_yongnian_li",
+  "label": "永年里",
+  "entity_type": "地",
+  "canonical": "永年里",
+  "aliases": [
+   "永年里"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-12-12",
+  "last_seen": "1923-12-12",
+  "linked_people": []
+ },
+ "loc_kunshan_baita": {
+  "id": "loc_kunshan_baita",
+  "label": "昆山白塔港",
+  "entity_type": "地",
+  "canonical": "昆山白塔港",
+  "aliases": [
+   "昆山白塔港"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-12-12",
+  "last_seen": "1923-12-12",
+  "linked_people": []
+ },
+ "ill_tui_shang": {
+  "id": "ill_tui_shang",
+  "label": "腿伤",
+  "entity_type": "疾病",
+  "canonical": "腿伤",
+  "aliases": [
+   "腿伤"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-12-12",
+  "last_seen": "1923-12-12",
+  "linked_people": []
+ },
+ "org_jinlong_xican": {
+  "id": "org_jinlong_xican",
+  "label": "晋隆西餐",
+  "entity_type": "团体",
+  "canonical": "晋隆西餐",
+  "aliases": [
+   "晋隆西餐"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-12-14",
+  "last_seen": "1923-12-14",
+  "linked_people": []
+ },
+ "ill_bi_tong": {
+  "id": "ill_bi_tong",
+  "label": "臂痛",
+  "entity_type": "疾病",
+  "canonical": "臂痛",
+  "aliases": [
+   "臂痛"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-12-14",
+  "last_seen": "1923-12-14",
+  "linked_people": []
+ },
+ "loc_gusu_beichan": {
+  "id": "loc_gusu_beichan",
+  "label": "姑苏北禅寺",
+  "entity_type": "地",
+  "canonical": "姑苏北禅寺",
+  "aliases": [
+   "姑苏北禅寺"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-12-15",
+  "last_seen": "1923-12-15",
+  "linked_people": [
+   {
+    "id": "per_dayu",
+    "label": "大昱",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-12-15",
+    "evidence": "姑苏北禅寺大昱募刻"
+   }
+  ]
+ },
+ "org_lingxue_hui": {
+  "id": "org_lingxue_hui",
+  "label": "灵学会",
+  "entity_type": "团体",
+  "canonical": "灵学会",
+  "aliases": [
+   "灵学会"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-12-15",
+  "last_seen": "1923-12-15",
+  "linked_people": []
+ },
+ "loc_daya_chunhe": {
+  "id": "loc_daya_chunhe",
+  "label": "大雅春和楼",
+  "entity_type": "地",
+  "canonical": "大雅春和楼",
+  "aliases": [
+   "大雅春和楼"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-12-16",
+  "last_seen": "1923-12-16",
+  "linked_people": []
+ },
+ "org_yongtian_shang": {
+  "id": "org_yongtian_shang",
+  "label": "永田商店",
+  "entity_type": "团体",
+  "canonical": "永田商店",
+  "aliases": [
+   "永田商店"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-12-16",
+  "last_seen": "1923-12-16",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "商务",
+    "date": "1923-12-16",
+    "evidence": "购东洋美浓纸五百张,价洋玖元。备印《玉台新咏》"
+   }
+  ]
+ },
+ "org_cihuyuan": {
+  "id": "org_cihuyuan",
+  "label": "慈幼院",
+  "entity_type": "团体",
+  "canonical": "慈幼院",
+  "aliases": [
+   "慈幼院"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-12-18",
+  "last_seen": "1923-12-18",
+  "linked_people": [
+   {
+    "id": "per_liu_jingqing",
+    "label": "刘镜清",
+    "type": "人",
+    "relation": "资助",
+    "date": "1923-12-18",
+    "evidence": "镜清允捐助，未定数目"
+   }
+  ]
+ },
+ "org_huaqi_bank": {
+  "id": "org_huaqi_bank",
+  "label": "花旗银行",
+  "entity_type": "团体",
+  "canonical": "花旗银行",
+  "aliases": [
+   "花旗银行"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-12-20",
+  "last_seen": "1923-12-20",
+  "linked_people": [
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "商务",
+    "date": "1923-12-20",
+    "evidence": "至花旗银行，存九八。元，叁千两到期"
+   }
+  ]
+ },
+ "org_yanken_dongshihui": {
+  "id": "org_yanken_dongshihui",
+  "label": "盐垦董事会",
+  "entity_type": "团体",
+  "canonical": "盐垦董事会",
+  "aliases": [
+   "盐垦董事会",
+   "盐垦董会"
+  ],
+  "mentions": 2,
+  "first_seen": "1923-12-19",
+  "last_seen": "1923-12-21",
+  "linked_people": []
+ },
+ "org_dagang_gongsi": {
+  "id": "org_dagang_gongsi",
+  "label": "大纲公司",
+  "entity_type": "团体",
+  "canonical": "大纲公司",
+  "aliases": [
+   "大纲公司"
+  ],
+  "mentions": 2,
+  "first_seen": "1923-12-21",
+  "last_seen": "1923-12-22",
+  "linked_people": [
+   {
+    "id": "per_huang_lisheng",
+    "label": "黄励生",
+    "type": "人",
+    "relation": "属于",
+    "date": "1920-07-06",
+    "evidence": "住大纲公司，晤黄励生、垦经理"
+   },
+   {
+    "id": "per_xu_yibai",
+    "label": "徐一白",
+    "type": "人",
+    "relation": "属于",
+    "date": "1920-07-06",
+    "evidence": "徐一白、垦副经理"
+   },
+   {
+    "id": "per_luo_ziyu",
+    "label": "罗子余",
+    "type": "人",
+    "relation": "属于",
+    "date": "1920-07-06",
+    "evidence": "罗子余、盐经理"
+   },
+   {
+    "id": "per_chen_youbi",
+    "label": "陈友篦",
+    "type": "人",
+    "relation": "属于",
+    "date": "1920-07-06",
+    "evidence": "陈友篦、总账"
+   },
+   {
+    "id": "per_sun_huichun",
+    "label": "孙惠春",
+    "type": "人",
+    "relation": "属于",
+    "date": "1920-07-06",
+    "evidence": "孙惠春、稽查代理"
+   },
+   {
+    "id": "per_liu_mingqing",
+    "label": "刘铭卿",
+    "type": "人",
+    "relation": "属于",
+    "date": "1920-07-06",
+    "evidence": "刘铭卿、垦务稽核"
+   },
+   {
+    "id": "per_cai_ziqing",
+    "label": "蔡梓青",
+    "type": "人",
+    "relation": "属于",
+    "date": "1920-07-06",
+    "evidence": "蔡梓青、盐务监重"
+   },
+   {
+    "id": "per_jiang_airen",
+    "label": "江蔼人",
+    "type": "人",
+    "relation": "属于",
+    "date": "1920-07-06",
+    "evidence": "江蔼人，工程主任"
+   },
+   {
+    "id": "per_huang_shaoying",
+    "label": "黄少英",
+    "type": "人",
+    "relation": "属于",
+    "date": "1920-07-07",
+    "evidence": "黄少英、世杰，典经理"
+   },
+   {
+    "id": "per_zhu_junwang",
+    "label": "朱钧望",
+    "type": "人",
+    "relation": "属于",
+    "date": "1920-07-07",
+    "evidence": "朱钧望监副经理。自洋岸来"
+   },
+   {
+    "id": "per_zhang_buqu",
+    "label": "张步衢",
+    "type": "人",
+    "relation": "属于",
+    "date": "1920-07-10",
+    "evidence": "在垦务处晤总稽查张步衢"
+   },
+   {
+    "id": "per_shen_fanchen",
+    "label": "沈藩臣",
+    "type": "人",
+    "relation": "属于",
+    "date": "1920-07-10",
+    "evidence": "沈藩臣、垦务主任"
+   },
+   {
+    "id": "per_shen_nanping",
+    "label": "沈南屏",
+    "type": "人",
+    "relation": "属于",
+    "date": "1920-07-10",
+    "evidence": "沈南屏。工程主任"
+   },
+   {
+    "id": "per_ganqing",
+    "label": "甘卿",
+    "type": "人",
+    "relation": "拜访",
+    "date": "1920-07-12",
+    "evidence": "同幹卿至大纲公司通讯处，晤周云巢"
+   },
+   {
+    "id": "per_zhou_yunchao",
+    "label": "周云巢",
+    "type": "人",
+    "relation": "属于",
+    "date": "1920-07-12",
+    "evidence": "至大纲公司通讯处，晤周云巢"
+   }
+  ]
+ },
+ "org_tonghai_kenmu": {
+  "id": "org_tonghai_kenmu",
+  "label": "通海垦牧公司",
+  "entity_type": "团体",
+  "canonical": "通海垦牧公司",
+  "aliases": [
+   "通海垦牧公司"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-12-19",
+  "last_seen": "1923-12-19",
+  "linked_people": []
+ },
+ "loc_xiangruizhai": {
+  "id": "loc_xiangruizhai",
+  "label": "祥瑞斋钟表店",
+  "entity_type": "地",
+  "canonical": "祥瑞斋钟表店",
+  "aliases": [
+   "祥瑞斋钟表店"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-12-19",
+  "last_seen": "1923-12-19",
+  "linked_people": []
+ },
+ "loc_yingzhou": {
+  "id": "loc_yingzhou",
+  "label": "颍州",
+  "entity_type": "地",
+  "canonical": "颍州",
+  "aliases": [
+   "颍州"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-12-19",
+  "last_seen": "1923-12-19",
+  "linked_people": []
+ },
+ "org_xulu_anhui_gongxue": {
+  "id": "org_xulu_anhui_gongxue",
+  "label": "旅沪安徽公学",
+  "entity_type": "团体",
+  "canonical": "旅沪安徽公学",
+  "aliases": [
+   "旅沪安徽公学"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-12-21",
+  "last_seen": "1923-12-21",
+  "linked_people": [
+   {
+    "id": "per_li_zhenya",
+    "label": "李振亚",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-12-21",
+    "evidence": "旅沪安徽公学校长李振亚"
+   },
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-12-21",
+    "evidence": "积余先生热心教育,望重粉榆,谨敦请为本校校董"
+   }
+  ]
+ },
+ "loc_shier_yu": {
+  "id": "loc_shier_yu",
+  "label": "十二圩",
+  "entity_type": "地",
+  "canonical": "十二圩",
+  "aliases": [
+   "十二圩"
+  ],
+  "mentions": 2,
+  "first_seen": "1923-12-21",
+  "last_seen": "1923-12-23",
+  "linked_people": [
+   {
+    "id": "per_zidan",
+    "label": "子丹弟",
+    "type": "人",
+    "relation": "资助",
+    "date": "1923-12-23",
+    "evidence": "加认十二圩掩埋费壹百元"
+   }
+  ]
+ },
+ "org_xuining_huiguan": {
+  "id": "org_xuining_huiguan",
+  "label": "徽宁旅沪同乡会",
+  "entity_type": "团体",
+  "canonical": "徽宁旅沪同乡会",
+  "aliases": [
+   "徽宁旅沪同乡会"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-12-22",
+  "last_seen": "1923-12-22",
+  "linked_people": [
+   {
+    "id": "per_yu_luqing",
+    "label": "余鲁卿",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-12-22",
+    "evidence": "理事长余鲁卿"
+   },
+   {
+    "id": "per_xu_naichang",
+    "label": "徐乃昌",
+    "type": "人",
+    "relation": "属于",
+    "date": "1923-12-22",
+    "evidence": "兹由本会公举为会董……肃此敬奉积余先生钧鉴"
+   }
+  ]
+ },
+ "org_beijing_shangwu": {
+  "id": "org_beijing_shangwu",
+  "label": "北京商务书馆",
+  "entity_type": "团体",
+  "canonical": "北京商务书馆",
+  "aliases": [
+   "北京商务书馆"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-12-22",
+  "last_seen": "1923-12-22",
+  "linked_people": []
+ },
+ "org_wuhu_shachang": {
+  "id": "org_wuhu_shachang",
+  "label": "芜湖纱厂",
+  "entity_type": "团体",
+  "canonical": "芜湖纱厂",
+  "aliases": [
+   "芜湖纱厂"
+  ],
+  "mentions": 1,
+  "first_seen": "1923-12-23",
+  "last_seen": "1923-12-23",
+  "linked_people": []
+ },
  "loc_dingxi": {
   "id": "loc_dingxi",
   "label": "丁溪",
@@ -16365,142 +21982,6 @@
   "first_seen": "1920-07-06",
   "last_seen": "1920-07-06",
   "linked_people": []
- },
- "org_dagang_gongsi": {
-  "id": "org_dagang_gongsi",
-  "label": "大纲公司",
-  "entity_type": "团体",
-  "canonical": "大纲公司",
-  "aliases": [
-   "大纲",
-   "大纲公司",
-   "大纲公司通讯处"
-  ],
-  "mentions": 3,
-  "first_seen": "1920-07-06",
-  "last_seen": "1920-07-12",
-  "linked_people": [
-   {
-    "id": "per_huang_lisheng",
-    "label": "黄励生",
-    "type": "人",
-    "relation": "属于",
-    "date": "1920-07-06",
-    "evidence": "住大纲公司，晤黄励生、垦经理"
-   },
-   {
-    "id": "per_xu_yibai",
-    "label": "徐一白",
-    "type": "人",
-    "relation": "属于",
-    "date": "1920-07-06",
-    "evidence": "徐一白、垦副经理"
-   },
-   {
-    "id": "per_luo_ziyu",
-    "label": "罗子余",
-    "type": "人",
-    "relation": "属于",
-    "date": "1920-07-06",
-    "evidence": "罗子余、盐经理"
-   },
-   {
-    "id": "per_chen_youbi",
-    "label": "陈友篦",
-    "type": "人",
-    "relation": "属于",
-    "date": "1920-07-06",
-    "evidence": "陈友篦、总账"
-   },
-   {
-    "id": "per_sun_huichun",
-    "label": "孙惠春",
-    "type": "人",
-    "relation": "属于",
-    "date": "1920-07-06",
-    "evidence": "孙惠春、稽查代理"
-   },
-   {
-    "id": "per_liu_mingqing",
-    "label": "刘铭卿",
-    "type": "人",
-    "relation": "属于",
-    "date": "1920-07-06",
-    "evidence": "刘铭卿、垦务稽核"
-   },
-   {
-    "id": "per_cai_ziqing",
-    "label": "蔡梓青",
-    "type": "人",
-    "relation": "属于",
-    "date": "1920-07-06",
-    "evidence": "蔡梓青、盐务监重"
-   },
-   {
-    "id": "per_jiang_airen",
-    "label": "江蔼人",
-    "type": "人",
-    "relation": "属于",
-    "date": "1920-07-06",
-    "evidence": "江蔼人，工程主任"
-   },
-   {
-    "id": "per_huang_shaoying",
-    "label": "黄少英",
-    "type": "人",
-    "relation": "属于",
-    "date": "1920-07-07",
-    "evidence": "黄少英、世杰，典经理"
-   },
-   {
-    "id": "per_zhu_junwang",
-    "label": "朱钧望",
-    "type": "人",
-    "relation": "属于",
-    "date": "1920-07-07",
-    "evidence": "朱钧望监副经理。自洋岸来"
-   },
-   {
-    "id": "per_zhang_buqu",
-    "label": "张步衢",
-    "type": "人",
-    "relation": "属于",
-    "date": "1920-07-10",
-    "evidence": "在垦务处晤总稽查张步衢"
-   },
-   {
-    "id": "per_shen_fanchen",
-    "label": "沈藩臣",
-    "type": "人",
-    "relation": "属于",
-    "date": "1920-07-10",
-    "evidence": "沈藩臣、垦务主任"
-   },
-   {
-    "id": "per_shen_nanping",
-    "label": "沈南屏",
-    "type": "人",
-    "relation": "属于",
-    "date": "1920-07-10",
-    "evidence": "沈南屏。工程主任"
-   },
-   {
-    "id": "per_ganqing",
-    "label": "甘卿",
-    "type": "人",
-    "relation": "拜访",
-    "date": "1920-07-12",
-    "evidence": "同幹卿至大纲公司通讯处，晤周云巢"
-   },
-   {
-    "id": "per_zhou_yunchao",
-    "label": "周云巢",
-    "type": "人",
-    "relation": "属于",
-    "date": "1920-07-12",
-    "evidence": "至大纲公司通讯处，晤周云巢"
-   }
-  ]
  },
  "loc_sheyanghe": {
   "id": "loc_sheyanghe",
@@ -17443,28 +22924,6 @@
    }
   ]
  },
- "loc_da_shijie": {
-  "id": "loc_da_shijie",
-  "label": "大世界",
-  "entity_type": "地",
-  "canonical": "大世界",
-  "aliases": [
-   "大世界"
-  ],
-  "mentions": 1,
-  "first_seen": "1920-08-15",
-  "last_seen": "1920-08-15",
-  "linked_people": [
-   {
-    "id": "per_xu_naichang",
-    "label": "徐乃昌",
-    "type": "人",
-    "relation": "拜访",
-    "date": "1920-08-15",
-    "evidence": "同淑婉挈儿女辈游大世界"
-   }
-  ]
- },
  "org_nanling_xiuzhiju": {
   "id": "org_nanling_xiuzhiju",
   "label": "南陵筹备修志局",
@@ -17579,90 +23038,6 @@
   "first_seen": "1920-08-20",
   "last_seen": "1920-08-20",
   "linked_people": []
- },
- "org_zhenyuanhui": {
-  "id": "org_zhenyuanhui",
-  "label": "贞元会",
-  "entity_type": "团体",
-  "canonical": "贞元会",
-  "aliases": [
-   "贞元会"
-  ],
-  "mentions": 1,
-  "first_seen": "1920-08-21",
-  "last_seen": "1920-08-21",
-  "linked_people": [
-   {
-    "id": "per_xu_naichang",
-    "label": "徐乃昌",
-    "type": "人",
-    "relation": "属于",
-    "date": "1921-01-06",
-    "evidence": "至都益处贞元会，陶拙存值会"
-   },
-   {
-    "id": "per_tao_zhecun",
-    "label": "陶拙存",
-    "type": "人",
-    "relation": "属于",
-    "date": "1921-01-06",
-    "evidence": "陶拙存值会"
-   },
-   {
-    "id": "per_li_bozhen",
-    "label": "李伯贞",
-    "type": "人",
-    "relation": "属于",
-    "date": "1921-03-18",
-    "evidence": "贞元会，李伯贞值会"
-   },
-   {
-    "id": "per_yu_shoucheng",
-    "label": "俞寿丞",
-    "type": "人",
-    "relation": "属于",
-    "date": "1921-06-14",
-    "evidence": "贞元会，俞寿丞值会"
-   },
-   {
-    "id": "per_heng_jishen",
-    "label": "恒季申",
-    "type": "人",
-    "relation": "属于",
-    "date": "1921-11-28",
-    "evidence": "又赴都益处贞元会，恒季申值会"
-   },
-   {
-    "id": "per_wang_shuyong",
-    "label": "王叔用",
-    "type": "人",
-    "relation": "属于",
-    "date": "1921-12-17",
-    "evidence": "王叔用值会"
-   }
-  ]
- },
- "loc_xin_shijie": {
-  "id": "loc_xin_shijie",
-  "label": "新世界",
-  "entity_type": "地",
-  "canonical": "新世界",
-  "aliases": [
-   "新世界"
-  ],
-  "mentions": 1,
-  "first_seen": "1920-08-22",
-  "last_seen": "1920-08-22",
-  "linked_people": [
-   {
-    "id": "per_xu_naichang",
-    "label": "徐乃昌",
-    "type": "人",
-    "relation": "拜访",
-    "date": "1920-08-22",
-    "evidence": "晚，同汪书屏游新世界"
-   }
-  ]
  },
  "loc_hanfen_lou": {
   "id": "loc_hanfen_lou",
@@ -18341,36 +23716,6 @@
    }
   ]
  },
- "org_ningxing_kuangwu": {
-  "id": "org_ningxing_kuangwu",
-  "label": "宁兴矿务",
-  "entity_type": "团体",
-  "canonical": "宁兴矿务",
-  "aliases": [
-   "宁兴矿务"
-  ],
-  "mentions": 1,
-  "first_seen": "1920-09-16",
-  "last_seen": "1920-09-16",
-  "linked_people": [
-   {
-    "id": "per_cheng_liang",
-    "label": "鲍承良",
-    "type": "人",
-    "relation": "属于",
-    "date": "1920-09-16",
-    "evidence": "鲍承良来,谈宁兴矿务情形"
-   },
-   {
-    "id": "per_xu_naichang",
-    "label": "徐乃昌",
-    "type": "人",
-    "relation": "拜访",
-    "date": "1920-11-15",
-    "evidence": "赴宁兴矿务公司股东会"
-   }
-  ]
- },
  "loc_jiangling": {
   "id": "loc_jiangling",
   "label": "江陵",
@@ -18747,58 +24092,6 @@
     "relation": "商务",
     "date": "1922-10-01",
     "evidence": "刘聚卿云议案所云与事实不符"
-   }
-  ]
- },
- "org_jiuhuatang": {
-  "id": "org_jiuhuatang",
-  "label": "九华堂",
-  "entity_type": "团体",
-  "canonical": "九华堂",
-  "aliases": [
-   "九华堂"
-  ],
-  "mentions": 1,
-  "first_seen": "1920-09-25",
-  "last_seen": "1920-09-25",
-  "linked_people": [
-   {
-    "id": "per_xu_naichang",
-    "label": "徐乃昌",
-    "type": "人",
-    "relation": "商务",
-    "date": "1920-09-25",
-    "evidence": "付九华堂十二元"
-   }
-  ]
- },
- "loc_dangui_diyitai": {
-  "id": "loc_dangui_diyitai",
-  "label": "丹桂第一台",
-  "entity_type": "地",
-  "canonical": "丹桂第一台",
-  "aliases": [
-   "丹桂第一台"
-  ],
-  "mentions": 1,
-  "first_seen": "1920-09-26",
-  "last_seen": "1920-09-26",
-  "linked_people": [
-   {
-    "id": "per_qinu",
-    "label": "绮女",
-    "type": "人",
-    "relation": "拜访",
-    "date": "1920-09-26",
-    "evidence": "绮女请观丹桂第一台新排《捣霜仙子》剧"
-   },
-   {
-    "id": "per_chongr",
-    "label": "崇儿",
-    "type": "人",
-    "relation": "拜访",
-    "date": "1921-09-16",
-    "evidence": "挈绮女、崇儿至丹桂第一台观戏剧"
    }
   ]
  },
@@ -19588,8 +24881,8 @@
     "evidence": "刘芍林叔岳献石级八十一级"
    },
    {
-    "id": "per_wang_jun_shaoxing",
-    "label": "绍兴王君",
+    "id": "per_wang_jun",
+    "label": "王君",
     "type": "人",
     "relation": "资助",
     "date": "1920-10-10",
@@ -20394,19 +25687,6 @@
   "last_seen": "1920-10-19",
   "linked_people": []
  },
- "loc_tangcun": {
-  "id": "loc_tangcun",
-  "label": "汤村",
-  "entity_type": "地",
-  "canonical": "汤村",
-  "aliases": [
-   "汤村"
-  ],
-  "mentions": 2,
-  "first_seen": "1920-10-20",
-  "last_seen": "1920-10-21",
-  "linked_people": []
- },
  "loc_aoguanwu": {
   "id": "loc_aoguanwu",
   "label": "鳌官屋",
@@ -20446,19 +25726,6 @@
   "last_seen": "1920-10-20",
   "linked_people": []
  },
- "loc_dagongshan": {
-  "id": "loc_dagongshan",
-  "label": "大工山",
-  "entity_type": "地",
-  "canonical": "大工山",
-  "aliases": [
-   "大工山"
-  ],
-  "mentions": 1,
-  "first_seen": "1920-10-21",
-  "last_seen": "1920-10-21",
-  "linked_people": []
- },
  "loc_longchian": {
   "id": "loc_longchian",
   "label": "龙池庵",
@@ -20479,19 +25746,6 @@
   "canonical": "三山",
   "aliases": [
    "三山"
-  ],
-  "mentions": 1,
-  "first_seen": "1920-10-21",
-  "last_seen": "1920-10-21",
-  "linked_people": []
- },
- "loc_longjing": {
-  "id": "loc_longjing",
-  "label": "龙井",
-  "entity_type": "地",
-  "canonical": "龙井",
-  "aliases": [
-   "龙井"
   ],
   "mentions": 1,
   "first_seen": "1920-10-21",
@@ -20921,44 +26175,6 @@
   "last_seen": "1920-11-03",
   "linked_people": []
  },
- "loc_yang": {
-  "id": "loc_yang",
-  "label": "扬",
-  "entity_type": "地",
-  "canonical": "扬(州?)",
-  "aliases": [
-   "扬"
-  ],
-  "mentions": 1,
-  "first_seen": "1920-11-03",
-  "last_seen": "1920-11-03",
-  "linked_people": [
-   {
-    "id": "per_yin_runsheng",
-    "label": "尹润生",
-    "type": "人",
-    "relation": "位于",
-    "date": "1921-05-05",
-    "evidence": "尹润生来谭，匆匆回扬"
-   },
-   {
-    "id": "per_liu_qianfu",
-    "label": "刘谦甫",
-    "type": "人",
-    "relation": "拜访",
-    "date": "1922-02-04",
-    "evidence": "刘谦甫、李元之晚车回扬"
-   },
-   {
-    "id": "per_li_yuanzhi",
-    "label": "李元之",
-    "type": "人",
-    "relation": "拜访",
-    "date": "1922-02-04",
-    "evidence": "刘谦甫、李元之晚车回扬"
-   }
-  ]
- },
  "loc_dangtu_kuangshan": {
   "id": "loc_dangtu_kuangshan",
   "label": "当涂矿山",
@@ -20984,28 +26200,6 @@
   "first_seen": "1920-11-05",
   "last_seen": "1920-11-05",
   "linked_people": []
- },
- "ofc_daoyin": {
-  "id": "ofc_daoyin",
-  "label": "道尹",
-  "entity_type": "官职",
-  "canonical": "道尹",
-  "aliases": [
-   "道尹"
-  ],
-  "mentions": 1,
-  "first_seen": "1920-11-05",
-  "last_seen": "1920-11-05",
-  "linked_people": [
-   {
-    "id": "per_li_weiyuan",
-    "label": "李维源",
-    "type": "人",
-    "relation": "属于",
-    "date": "1921-10-06",
-    "evidence": "李松圃道尹名维源，现振务处总办"
-   }
-  ]
  },
  "loc_tangyin": {
   "id": "loc_tangyin",
@@ -21170,19 +26364,6 @@
    }
   ]
  },
- "loc_wuxing": {
-  "id": "loc_wuxing",
-  "label": "吴兴",
-  "entity_type": "地",
-  "canonical": "吴兴",
-  "aliases": [
-   "吴兴"
-  ],
-  "mentions": 1,
-  "first_seen": "1920-11-11",
-  "last_seen": "1920-11-11",
-  "linked_people": []
- },
  "loc_qinghe": {
   "id": "loc_qinghe",
   "label": "清河",
@@ -21278,28 +26459,6 @@
   "first_seen": "1920-11-15",
   "last_seen": "1920-11-15",
   "linked_people": []
- },
- "org_wenchenglongji": {
-  "id": "org_wenchenglongji",
-  "label": "文成隆记",
-  "entity_type": "团体",
-  "canonical": "文成隆记",
-  "aliases": [
-   "文成隆记"
-  ],
-  "mentions": 1,
-  "first_seen": "1920-11-18",
-  "last_seen": "1920-11-18",
-  "linked_people": [
-   {
-    "id": "per_xu_naichang",
-    "label": "徐乃昌",
-    "type": "人",
-    "relation": "商务",
-    "date": "1920-11-18",
-    "evidence": "至文成隆记购连史纸"
-   }
-  ]
  },
  "loc_xujiangqiao": {
   "id": "loc_xujiangqiao",
@@ -21436,19 +26595,6 @@
    }
   ]
  },
- "ofc_shangshu": {
-  "id": "ofc_shangshu",
-  "label": "尚书",
-  "entity_type": "官职",
-  "canonical": "尚书",
-  "aliases": [
-   "尚书"
-  ],
-  "mentions": 1,
-  "first_seen": "1920-12-05",
-  "last_seen": "1920-12-05",
-  "linked_people": []
- },
  "org_nantong_shiye_gongsi": {
   "id": "org_nantong_shiye_gongsi",
   "label": "南通实业公司",
@@ -21517,28 +26663,6 @@
    }
   ]
  },
- "loc_chunxiao_lou": {
-  "id": "loc_chunxiao_lou",
-  "label": "春宵楼",
-  "entity_type": "地",
-  "canonical": "春宵楼",
-  "aliases": [
-   "春宵楼"
-  ],
-  "mentions": 1,
-  "first_seen": "1920-12-09",
-  "last_seen": "1920-12-09",
-  "linked_people": [
-   {
-    "id": "per_xu_naichang",
-    "label": "徐乃昌",
-    "type": "人",
-    "relation": "拜访",
-    "date": "1920-12-09",
-    "evidence": "晚，赴梦坡春宵楼之约"
-   }
-  ]
- },
  "loc_aiduoya_lu": {
   "id": "loc_aiduoya_lu",
   "label": "爱多亚路一百十一号",
@@ -21586,28 +26710,6 @@
   "first_seen": "1920-12-13",
   "last_seen": "1920-12-13",
   "linked_people": []
- },
- "loc_changshu": {
-  "id": "loc_changshu",
-  "label": "常熟",
-  "entity_type": "地",
-  "canonical": "常熟",
-  "aliases": [
-   "常熟"
-  ],
-  "mentions": 1,
-  "first_seen": "1920-12-15",
-  "last_seen": "1920-12-15",
-  "linked_people": [
-   {
-    "id": "per_zhou_youshao",
-    "label": "周幼韶",
-    "type": "人",
-    "relation": "位于",
-    "date": "1922-03-19",
-    "evidence": "常熟周幼韶"
-   }
-  ]
  },
  "org_cishanhui": {
   "id": "org_cishanhui",
@@ -21723,19 +26825,6 @@
   "last_seen": "1920-12-21",
   "linked_people": []
  },
- "loc_gushu_liutong_chu": {
-  "id": "loc_gushu_liutong_chu",
-  "label": "古书流通处",
-  "entity_type": "地",
-  "canonical": "古书流通处",
-  "aliases": [
-   "古书流通处"
-  ],
-  "mentions": 1,
-  "first_seen": "1920-12-23",
-  "last_seen": "1920-12-23",
-  "linked_people": []
- },
  "loc_youyu_xingzhai": {
   "id": "loc_youyu_xingzhai",
   "label": "有余兴斋",
@@ -21796,44 +26885,6 @@
   "first_seen": "1920-12-25",
   "last_seen": "1920-12-29",
   "linked_people": []
- },
- "loc_duyi_chu": {
-  "id": "loc_duyi_chu",
-  "label": "都益处",
-  "entity_type": "地",
-  "canonical": "都益处",
-  "aliases": [
-   "都益处"
-  ],
-  "mentions": 1,
-  "first_seen": "1920-12-27",
-  "last_seen": "1920-12-27",
-  "linked_people": [
-   {
-    "id": "per_liu_hanyi",
-    "label": "刘翰怡",
-    "type": "人",
-    "relation": "同席",
-    "date": "1921-03-26",
-    "evidence": "晚，赴刘翰怡之约"
-   },
-   {
-    "id": "per_zhang_wucen",
-    "label": "张午岑",
-    "type": "人",
-    "relation": "同席",
-    "date": "1921-03-28",
-    "evidence": "又赴张午岑之约"
-   },
-   {
-    "id": "per_wang_ganqing",
-    "label": "汪甘卿",
-    "type": "人",
-    "relation": "同席",
-    "date": "1921-03-30",
-    "evidence": "亚洲学术研究会汪甘卿同年约都益处酒叙"
-   }
-  ]
  },
  "org_xinghua_chuancai_guan": {
   "id": "org_xinghua_chuancai_guan",
@@ -21984,28 +27035,6 @@
     "relation": "拜访",
     "date": "1921-01-07",
     "evidence": "陆维鋪约至出口公会便酌"
-   }
-  ]
- },
- "loc_dangui_yitai": {
-  "id": "loc_dangui_yitai",
-  "label": "丹桂弟一台",
-  "entity_type": "地",
-  "canonical": "丹桂弟一台",
-  "aliases": [
-   "丹桂弟一台"
-  ],
-  "mentions": 1,
-  "first_seen": "1921-01-09",
-  "last_seen": "1921-01-09",
-  "linked_people": [
-   {
-    "id": "per_xu_naichang",
-    "label": "徐乃昌",
-    "type": "人",
-    "relation": "拜访",
-    "date": "1921-01-09",
-    "evidence": "至丹桂弟一台，观王灵珠《游园惊梦》剧"
    }
   ]
  },
@@ -22318,36 +27347,6 @@
   "last_seen": "1921-01-15",
   "linked_people": []
  },
- "org_anhui_yizhenhui": {
-  "id": "org_anhui_yizhenhui",
-  "label": "安徽义振会",
-  "entity_type": "团体",
-  "canonical": "安徽义振会",
-  "aliases": [
-   "安徽义振会"
-  ],
-  "mentions": 2,
-  "first_seen": "1921-01-15",
-  "last_seen": "1921-01-16",
-  "linked_people": [
-   {
-    "id": "per_shi_ziying",
-    "label": "施子英",
-    "type": "人",
-    "relation": "属于",
-    "date": "1921-01-15",
-    "evidence": "施子英安徽义振会晤王阶平"
-   },
-   {
-    "id": "per_xu_naichang",
-    "label": "徐乃昌",
-    "type": "人",
-    "relation": "拜访",
-    "date": "1921-12-15",
-    "evidence": "至安徽义振会"
-   }
-  ]
- },
  "org_jiangzhewan_zhenhui": {
   "id": "org_jiangzhewan_zhenhui",
   "label": "江浙皖振会",
@@ -22427,19 +27426,6 @@
   "last_seen": "1921-01-17",
   "linked_people": []
  },
- "loc_yingzhou": {
-  "id": "loc_yingzhou",
-  "label": "颍州",
-  "entity_type": "地",
-  "canonical": "颍州",
-  "aliases": [
-   "颍州"
-  ],
-  "mentions": 1,
-  "first_seen": "1921-01-17",
-  "last_seen": "1921-01-17",
-  "linked_people": []
- },
  "loc_woyang": {
   "id": "loc_woyang",
   "label": "涡阳",
@@ -22478,29 +27464,6 @@
   "first_seen": "1921-01-18",
   "last_seen": "1921-01-18",
   "linked_people": []
- },
- "org_huaihai_yinhang": {
-  "id": "org_huaihai_yinhang",
-  "label": "淮海银行",
-  "entity_type": "团体",
-  "canonical": "淮海银行",
-  "aliases": [
-   "淮海行",
-   "淮海银行"
-  ],
-  "mentions": 2,
-  "first_seen": "1921-01-23",
-  "last_seen": "1921-01-24",
-  "linked_people": [
-   {
-    "id": "per_xu_naichang",
-    "label": "徐乃昌",
-    "type": "人",
-    "relation": "拜访",
-    "date": "1921-01-23",
-    "evidence": "当取到淮海银行收据。沪字五十三号"
-   }
-  ]
  },
  "org_yanjuan_ju": {
   "id": "org_yanjuan_ju",
@@ -22547,45 +27510,6 @@
     "relation": "致书",
     "date": "1922-02-04",
     "evidence": "覆南陵修志馆书。收三次拓碑九种"
-   }
-  ]
- },
- "org_anhui_yizhen_hui": {
-  "id": "org_anhui_yizhen_hui",
-  "label": "安徽义振会",
-  "entity_type": "团体",
-  "canonical": "安徽义振会",
-  "aliases": [
-   "安徽义振会",
-   "振会"
-  ],
-  "mentions": 3,
-  "first_seen": "1921-01-25",
-  "last_seen": "1921-01-26",
-  "linked_people": [
-   {
-    "id": "per_di_zhancheng",
-    "label": "翟展成",
-    "type": "人",
-    "relation": "转交",
-    "date": "1922-05-09",
-    "evidence": "翟展成寄来繁昌、南陵两县收到安徽义振会平渠各壹千元印收"
-   },
-   {
-    "id": "per_qiu_weiqing",
-    "label": "邱渭卿",
-    "type": "人",
-    "relation": "资助",
-    "date": "1922-09-08",
-    "evidence": "邱渭卿捐一万元"
-   },
-   {
-    "id": "per_xu_naichang",
-    "label": "徐乃昌",
-    "type": "人",
-    "relation": "致书",
-    "date": "1922-10-02",
-    "evidence": "当钞稿送安徽义振会"
    }
   ]
  },
@@ -22636,28 +27560,6 @@
   "first_seen": "1921-01-26",
   "last_seen": "1921-01-26",
   "linked_people": []
- },
- "loc_xinghualou": {
-  "id": "loc_xinghualou",
-  "label": "杏花楼",
-  "entity_type": "地",
-  "canonical": "杏花楼",
-  "aliases": [
-   "杏花楼"
-  ],
-  "mentions": 1,
-  "first_seen": "1921-02-11",
-  "last_seen": "1921-02-11",
-  "linked_people": [
-   {
-    "id": "per_pan_lanshi",
-    "label": "潘兰史",
-    "type": "人",
-    "relation": "拜访",
-    "date": "1921-02-11",
-    "evidence": "赴潘兰史杏花楼之约"
-   }
-  ]
  },
  "org_kaibu_ju": {
   "id": "org_kaibu_ju",
@@ -22792,149 +27694,6 @@
     "relation": "拜访",
     "date": "1921-02-18",
     "evidence": "至溥益，晤李旭堂"
-   }
-  ]
- },
- "org_shanghai_cement": {
-  "id": "org_shanghai_cement",
-  "label": "上海水泥公司",
-  "entity_type": "团体",
-  "canonical": "上海水泥公司",
-  "aliases": [
-   "上海水泥公司",
-   "上海水泥股份公司"
-  ],
-  "mentions": 2,
-  "first_seen": "1921-02-19",
-  "last_seen": "1921-02-20",
-  "linked_people": [
-   {
-    "id": "per_zhu_baosan",
-    "label": "朱葆三",
-    "type": "人",
-    "relation": "属于",
-    "date": "1921-02-20",
-    "evidence": "原董事九人：朱葆三、谢仲笙、杜家坤"
-   },
-   {
-    "id": "per_xie_zhongsheng",
-    "label": "谢仲笙",
-    "type": "人",
-    "relation": "属于",
-    "date": "1921-02-20",
-    "evidence": "原董事九人：朱葆三、谢仲笙、杜家坤"
-   },
-   {
-    "id": "per_du_jiakun",
-    "label": "杜家坤",
-    "type": "人",
-    "relation": "属于",
-    "date": "1921-02-20",
-    "evidence": "原董事九人...杜家坤"
-   },
-   {
-    "id": "per_li_yijing",
-    "label": "李翼敬",
-    "type": "人",
-    "relation": "属于",
-    "date": "1921-02-20",
-    "evidence": "原董事九人...李翼敬"
-   },
-   {
-    "id": "per_bo_ke",
-    "label": "李拔可",
-    "type": "人",
-    "relation": "属于",
-    "date": "1921-02-20",
-    "evidence": "原董事...李拔可"
-   },
-   {
-    "id": "per_han_yungen",
-    "label": "韩芸根",
-    "type": "人",
-    "relation": "属于",
-    "date": "1921-02-20",
-    "evidence": "原韩芸根，后为总经理改补"
-   },
-   {
-    "id": "per_zhang_xiaoliang",
-    "label": "张效良",
-    "type": "人",
-    "relation": "属于",
-    "date": "1921-02-20",
-    "evidence": "原董事...张效良"
-   },
-   {
-    "id": "per_liu_hongsheng",
-    "label": "刘鸿生",
-    "type": "人",
-    "relation": "属于",
-    "date": "1921-02-20",
-    "evidence": "原董事...刘鸿生"
-   },
-   {
-    "id": "per_liu_jisheng",
-    "label": "刘吉生",
-    "type": "人",
-    "relation": "属于",
-    "date": "1921-02-20",
-    "evidence": "原董事...刘吉生"
-   },
-   {
-    "id": "per_wu_jichen",
-    "label": "吴寄尘",
-    "type": "人",
-    "relation": "属于",
-    "date": "1921-02-20",
-    "evidence": "原董事...吴寄尘"
-   },
-   {
-    "id": "per_liu_baoyu",
-    "label": "刘宝余",
-    "type": "人",
-    "relation": "属于",
-    "date": "1921-02-20",
-    "evidence": "原刘宝余，后为经理改补"
-   },
-   {
-    "id": "per_zhang_tuian",
-    "label": "张退庵",
-    "type": "人",
-    "relation": "属于",
-    "date": "1921-02-20",
-    "evidence": "现添举张退庵、张嗇庵"
-   },
-   {
-    "id": "per_zhang_sean",
-    "label": "张嗇庵",
-    "type": "人",
-    "relation": "属于",
-    "date": "1921-02-20",
-    "evidence": "现添举张退庵、张嗇庵"
-   },
-   {
-    "id": "per_yang_kuihou",
-    "label": "杨奎侯",
-    "type": "人",
-    "relation": "属于",
-    "date": "1921-02-20",
-    "evidence": "原监察二人：杨奎侯、赵文焕"
-   },
-   {
-    "id": "per_zhao_wenhuan",
-    "label": "赵文焕",
-    "type": "人",
-    "relation": "属于",
-    "date": "1921-02-20",
-    "evidence": "原监察二人：杨奎侯、赵文焕"
-   },
-   {
-    "id": "per_zhou_fujiu",
-    "label": "周扶九",
-    "type": "人",
-    "relation": "属于",
-    "date": "1921-02-20",
-    "evidence": "现添举周扶九"
    }
   ]
  },
@@ -23301,7 +28060,7 @@
   "last_seen": "1921-03-05",
   "linked_people": [
    {
-    "id": "per_yuan_shuzhi",
+    "id": "per_tan_yuanshu",
     "label": "袁述之",
     "type": "人",
     "relation": "同席",
@@ -26175,19 +30934,6 @@
    }
   ]
  },
- "loc_tongling": {
-  "id": "loc_tongling",
-  "label": "铜陵",
-  "entity_type": "地",
-  "canonical": "铜陵",
-  "aliases": [
-   "铜陵"
-  ],
-  "mentions": 1,
-  "first_seen": "1921-07-24",
-  "last_seen": "1921-07-24",
-  "linked_people": []
- },
  "loc_dasheng_shiwusuo": {
   "id": "loc_dasheng_shiwusuo",
   "label": "大生事务所",
@@ -26199,19 +30945,6 @@
   "mentions": 2,
   "first_seen": "1921-07-25",
   "last_seen": "1921-07-31",
-  "linked_people": []
- },
- "loc_dadong_lushe": {
-  "id": "loc_dadong_lushe",
-  "label": "大东旅社",
-  "entity_type": "地",
-  "canonical": "大东旅社",
-  "aliases": [
-   "大东旅社"
-  ],
-  "mentions": 1,
-  "first_seen": "1921-07-26",
-  "last_seen": "1921-07-26",
   "linked_people": []
  },
  "loc_mengyuan_lushe": {
@@ -26657,19 +31390,6 @@
    }
   ]
  },
- "ill_zuji": {
-  "id": "ill_zuji",
-  "label": "足疾",
-  "entity_type": "疾病",
-  "canonical": "足疾",
-  "aliases": [
-   "足疾"
-  ],
-  "mentions": 1,
-  "first_seen": "1921-08-15",
-  "last_seen": "1921-08-15",
-  "linked_people": []
- },
  "loc_huabei": {
   "id": "loc_huabei",
   "label": "皖北",
@@ -26751,19 +31471,6 @@
   "mentions": 1,
   "first_seen": "1921-08-24",
   "last_seen": "1921-08-24",
-  "linked_people": []
- },
- "loc_baobentang": {
-  "id": "loc_baobentang",
-  "label": "报本堂",
-  "entity_type": "地",
-  "canonical": "报本堂",
-  "aliases": [
-   "报本堂"
-  ],
-  "mentions": 1,
-  "first_seen": "1921-08-26",
-  "last_seen": "1921-08-26",
   "linked_people": []
  },
  "org_zhibuzuzhai": {
@@ -27979,44 +32686,6 @@
   "last_seen": "1921-10-22",
   "linked_people": []
  },
- "org_guangsheng_youchang": {
-  "id": "org_guangsheng_youchang",
-  "label": "广生油厂",
-  "entity_type": "团体",
-  "canonical": "广生油厂",
-  "aliases": [
-   "广生油厂"
-  ],
-  "mentions": 1,
-  "first_seen": "1921-10-23",
-  "last_seen": "1921-10-23",
-  "linked_people": [
-   {
-    "id": "per_xu_naichang",
-    "label": "徐乃昌",
-    "type": "人",
-    "relation": "拜访",
-    "date": "1922-07-05",
-    "evidence": "至广生油厂，拜主任高云翰"
-   },
-   {
-    "id": "per_gao_yunhan",
-    "label": "高云汉",
-    "type": "人",
-    "relation": "属于",
-    "date": "1922-07-05",
-    "evidence": "至广生油厂，拜主任高云翰"
-   },
-   {
-    "id": "per_wang_rongqing",
-    "label": "王荣卿",
-    "type": "人",
-    "relation": "属于",
-    "date": "1922-08-07",
-    "evidence": "广生油厂王荣卿煦"
-   }
-  ]
- },
  "org_yangzhou_yunshang_siangongsuo": {
   "id": "org_yangzhou_yunshang_siangongsuo",
   "label": "扬州运商四岸公所",
@@ -29149,28 +33818,6 @@
   "last_seen": "1921-11-04",
   "linked_people": []
  },
- "loc_gedeng_lu": {
-  "id": "loc_gedeng_lu",
-  "label": "戈登路一号",
-  "entity_type": "地",
-  "canonical": "戈登路一号",
-  "aliases": [
-   "戈登路一号"
-  ],
-  "mentions": 1,
-  "first_seen": "1921-11-05",
-  "last_seen": "1921-11-05",
-  "linked_people": [
-   {
-    "id": "per_zhang_anshuai",
-    "label": "张安帅",
-    "type": "人",
-    "relation": "位于",
-    "date": "1921-11-05",
-    "evidence": "张安帅、戈登路一号"
-   }
-  ]
- },
  "loc_songshou_li": {
   "id": "loc_songshou_li",
   "label": "松寿里",
@@ -29963,50 +34610,6 @@
    }
   ]
  },
- "loc_yizhi_xiang": {
-  "id": "loc_yizhi_xiang",
-  "label": "一枝香",
-  "entity_type": "地",
-  "canonical": "一枝香",
-  "aliases": [
-   "一枝香"
-  ],
-  "mentions": 1,
-  "first_seen": "1921-12-13",
-  "last_seen": "1921-12-13",
-  "linked_people": [
-   {
-    "id": "per_xu_naichang",
-    "label": "徐乃昌",
-    "type": "人",
-    "relation": "拜访",
-    "date": "1921-12-13",
-    "evidence": "六时一枝香西酌"
-   }
-  ]
- },
- "loc_yijiangchun": {
-  "id": "loc_yijiangchun",
-  "label": "一江春",
-  "entity_type": "地",
-  "canonical": "一江春",
-  "aliases": [
-   "一江春"
-  ],
-  "mentions": 1,
-  "first_seen": "1921-12-15",
-  "last_seen": "1921-12-15",
-  "linked_people": [
-   {
-    "id": "per_xu_naichang",
-    "label": "徐乃昌",
-    "type": "人",
-    "relation": "拜访",
-    "date": "1921-12-15",
-    "evidence": "赴周梦坡一江春西餐之约"
-   }
-  ]
- },
  "loc_weiguje_jingshe": {
   "id": "loc_weiguje_jingshe",
   "label": "味古精舍",
@@ -30036,19 +34639,6 @@
   "canonical": "金坛",
   "aliases": [
    "金坛"
-  ],
-  "mentions": 1,
-  "first_seen": "1921-12-17",
-  "last_seen": "1921-12-17",
-  "linked_people": []
- },
- "loc_baoying": {
-  "id": "loc_baoying",
-  "label": "宝应",
-  "entity_type": "地",
-  "canonical": "宝应",
-  "aliases": [
-   "宝应"
   ],
   "mentions": 1,
   "first_seen": "1921-12-17",
@@ -30584,17 +35174,6 @@
   "label": "丹桂第一台",
   "entity_type": "地",
   "canonical": "丹桂第一台",
-  "aliases": [],
-  "mentions": 0,
-  "first_seen": null,
-  "last_seen": null,
-  "linked_people": []
- },
- "org_xinchang_yinshuju": {
-  "id": "org_xinchang_yinshuju",
-  "label": "新昌印书局",
-  "entity_type": "团体",
-  "canonical": "新昌印书局",
   "aliases": [],
   "mentions": 0,
   "first_seen": null,
@@ -31786,28 +36365,6 @@
    }
   ]
  },
- "org_huaqi_bank": {
-  "id": "org_huaqi_bank",
-  "label": "花旗银行",
-  "entity_type": "团体",
-  "canonical": "花旗银行",
-  "aliases": [
-   "花旗银行"
-  ],
-  "mentions": 1,
-  "first_seen": "1922-03-24",
-  "last_seen": "1922-03-24",
-  "linked_people": [
-   {
-    "id": "per_xu_naichang",
-    "label": "徐乃昌",
-    "type": "人",
-    "relation": "商务",
-    "date": "1922-03-24",
-    "evidence": "分存汇丰、花旗各五千两"
-   }
-  ]
- },
  "loc_japan": {
   "id": "loc_japan",
   "label": "日本",
@@ -32380,19 +36937,6 @@
    }
   ]
  },
- "loc_dangui_diyi_tai": {
-  "id": "loc_dangui_diyi_tai",
-  "label": "丹桂第一台",
-  "entity_type": "地",
-  "canonical": "丹桂第一台",
-  "aliases": [
-   "丹桂第一台"
-  ],
-  "mentions": 1,
-  "first_seen": "1922-04-13",
-  "last_seen": "1922-04-13",
-  "linked_people": []
- },
  "org_xinwenbao_guan": {
   "id": "org_xinwenbao_guan",
   "label": "《新闻报》馆",
@@ -32532,28 +37076,6 @@
   "last_seen": "1922-04-21",
   "linked_people": []
  },
- "org_zhongguo_yinhang": {
-  "id": "org_zhongguo_yinhang",
-  "label": "中国银行",
-  "entity_type": "团体",
-  "canonical": "中国银行",
-  "aliases": [
-   "中国银行"
-  ],
-  "mentions": 1,
-  "first_seen": "1922-04-21",
-  "last_seen": "1922-04-21",
-  "linked_people": [
-   {
-    "id": "per_li_conglong",
-    "label": "李从龙",
-    "type": "人",
-    "relation": "商务",
-    "date": "1922-04-21",
-    "evidence": "代附中国银行新股一百元"
-   }
-  ]
- },
  "loc_chenjielao_chu": {
   "id": "loc_chenjielao_chu",
   "label": "陈戒老处",
@@ -32565,19 +37087,6 @@
   "mentions": 1,
   "first_seen": "1922-04-23",
   "last_seen": "1922-04-23",
-  "linked_people": []
- },
- "loc_qiantang": {
-  "id": "loc_qiantang",
-  "label": "钱唐",
-  "entity_type": "地",
-  "canonical": "钱塘",
-  "aliases": [
-   "钱唐"
-  ],
-  "mentions": 1,
-  "first_seen": "1922-04-24",
-  "last_seen": "1922-04-24",
   "linked_people": []
  },
  "org_dade_lun": {
@@ -34117,7 +38626,7 @@
   "linked_people": [
    {
     "id": "per_gong_diya",
-    "label": "龚耀宗",
+    "label": "龚涤亚",
     "type": "人",
     "relation": "属于",
     "date": "1922-07-05",
@@ -34838,19 +39347,6 @@
    }
   ]
  },
- "loc_han": {
-  "id": "loc_han",
-  "label": "汉",
-  "entity_type": "地",
-  "canonical": "汉(汉口)",
-  "aliases": [
-   "汉"
-  ],
-  "mentions": 1,
-  "first_seen": "1922-08-02",
-  "last_seen": "1922-08-02",
-  "linked_people": []
- },
  "org_hu_hui": {
   "id": "org_hu_hui",
   "label": "沪会",
@@ -35422,7 +39918,7 @@
   "linked_people": [
    {
     "id": "per_xu_fu",
-    "label": "徐复",
+    "label": "馥(第八女)",
     "type": "人",
     "relation": "属于",
     "date": "1922-08-21",
@@ -35815,19 +40311,6 @@
   "last_seen": "1922-09-05",
   "linked_people": []
  },
- "org_jiawang_gongsi": {
-  "id": "org_jiawang_gongsi",
-  "label": "贾汪公司",
-  "entity_type": "团体",
-  "canonical": "贾汪公司",
-  "aliases": [
-   "贾汪公司"
-  ],
-  "mentions": 1,
-  "first_seen": "1922-09-06",
-  "last_seen": "1922-09-06",
-  "linked_people": []
- },
  "loc_xuanguan": {
   "id": "loc_xuanguan",
   "label": "宣",
@@ -36058,28 +40541,6 @@
   "first_seen": "1922-09-14",
   "last_seen": "1922-09-14",
   "linked_people": []
- },
- "org_shenzhou_bao": {
-  "id": "org_shenzhou_bao",
-  "label": "《神州报》馆",
-  "entity_type": "团体",
-  "canonical": "神州报馆",
-  "aliases": [
-   "《神州报》馆"
-  ],
-  "mentions": 1,
-  "first_seen": "1922-09-21",
-  "last_seen": "1922-09-21",
-  "linked_people": [
-   {
-    "id": "per_yu_gumin",
-    "label": "余穀民",
-    "type": "人",
-    "relation": "属于",
-    "date": "1922-09-21",
-    "evidence": "《神州报》馆余穀民洵"
-   }
-  ]
  },
  "evt_nanling_water_disaster": {
   "id": "evt_nanling_water_disaster",
@@ -36368,19 +40829,6 @@
     "evidence": "答拜洪希甫，谭新建会馆落成"
    }
   ]
- },
- "loc_guangdong": {
-  "id": "loc_guangdong",
-  "label": "广东",
-  "entity_type": "地",
-  "canonical": "广东",
-  "aliases": [
-   "广东"
-  ],
-  "mentions": 1,
-  "first_seen": "1922-10-14",
-  "last_seen": "1922-10-14",
-  "linked_people": []
  },
  "org_yankenggongsi": {
   "id": "org_yankenggongsi",
@@ -37428,28 +41876,6 @@
    }
   ]
  },
- "loc_chongningsi": {
-  "id": "loc_chongningsi",
-  "label": "崇宁寺",
-  "entity_type": "地",
-  "canonical": "崇宁寺",
-  "aliases": [
-   "崇宁寺"
-  ],
-  "mentions": 1,
-  "first_seen": "1922-11-19",
-  "last_seen": "1922-11-19",
-  "linked_people": [
-   {
-    "id": "per_yushan_heshang",
-    "label": "雨山和尚",
-    "type": "人",
-    "relation": "属于",
-    "date": "1922-11-19",
-    "evidence": "崇宁寺退院雨山和尚"
-   }
-  ]
- },
  "loc_she": {
   "id": "loc_she",
   "label": "歙",
@@ -37485,19 +41911,6 @@
    }
   ]
  },
- "loc_xinzha_lu": {
-  "id": "loc_xinzha_lu",
-  "label": "新闸路大德里二九号",
-  "entity_type": "地",
-  "canonical": "新闸路大德里二九号",
-  "aliases": [
-   "新闸路大德里二九号"
-  ],
-  "mentions": 1,
-  "first_seen": "1922-11-21",
-  "last_seen": "1922-11-21",
-  "linked_people": []
- },
  "loc_dinghui_si": {
   "id": "loc_dinghui_si",
   "label": "定惠寺经楼",
@@ -37530,28 +41943,6 @@
     "relation": "拜访",
     "date": "1922-11-23",
     "evidence": "至同升公栈，唔陈鍼山"
-   }
-  ]
- },
- "loc_jiangning_gongsuo": {
-  "id": "loc_jiangning_gongsuo",
-  "label": "江宁公所",
-  "entity_type": "地",
-  "canonical": "江宁公所",
-  "aliases": [
-   "江宁公所"
-  ],
-  "mentions": 1,
-  "first_seen": "1922-11-23",
-  "last_seen": "1922-11-23",
-  "linked_people": [
-   {
-    "id": "per_xu_naichang",
-    "label": "徐乃昌",
-    "type": "人",
-    "relation": "拜访",
-    "date": "1922-11-23",
-    "evidence": "削授堂女夫三十阴寿，往江宁公所祭之"
    }
   ]
  },
@@ -37716,19 +42107,6 @@
   "canonical": "沈宅",
   "aliases": [
    "沈宅"
-  ],
-  "mentions": 1,
-  "first_seen": "1922-12-01",
-  "last_seen": "1922-12-01",
-  "linked_people": []
- },
- "loc_yue": {
-  "id": "loc_yue",
-  "label": "粤",
-  "entity_type": "地",
-  "canonical": "粤",
-  "aliases": [
-   "粤"
   ],
   "mentions": 1,
   "first_seen": "1922-12-01",

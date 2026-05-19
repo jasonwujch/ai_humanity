@@ -1256,14 +1256,168 @@ special2_html = render_special(
 )
 (specials_dir / 'drama-shanghai.html').write_text(special2_html, encoding='utf-8')
 
+# Topic 3: 全部灾害 (all disasters with timeline)
+all_disasters = []
+for n in src['nodes']:
+    if n.get('entity_type') != '灾害': continue
+    md = n.get('metadata') or {}
+    sfs = md.get('surface_forms') or []
+    dates = sorted({sf.get('date') for sf in sfs if sf.get('date')})
+    all_disasters.append({'id': n['id'], 'label': n.get('label'), 'dates': dates})
+all_disasters.sort(key=lambda x: x['dates'][0] if x['dates'] else '')
+s3_items = [f'<span class="dt">{esc(d["dates"][0] if d["dates"] else "?")}</span> <strong>{esc(d["label"])}</strong>' for d in all_disasters]
+
+special3_html = render_special(
+    '灾害编年',
+    f'日记中提及的全部 {len(all_disasters)} 条灾害条目按时间排列。涵盖水灾、旱灾、兵灾、地震、火警等。',
+    [{'title': f'灾害条目 ({len(all_disasters)})', 'items': s3_items}]
+)
+(specials_dir / 'disasters-all.html').write_text(special3_html, encoding='utf-8')
+
+# Topic 4: 藏书购入流水 (books w/ 商务/赠/受赠/资助 txns)
+book_txns = []
+for t in txns:
+    book_cps = [p for p in (t.get('people') or []) if p.get('type') == '书籍']
+    if book_cps:
+        book_txns.append((t, book_cps))
+book_txns.sort(key=lambda x: x[0].get('date',''))
+s4_items = []
+for t, bks in book_txns[:200]:
+    bk_chips = ' '.join(f'<span class="chip chip-book">{esc(b["label"])}</span>' for b in bks)
+    people_chips = ' '.join(f'<span class="chip chip-per">{esc(p["label"])}</span>' for p in t.get('people',[]) if p.get('type')=='人')
+    s4_items.append(f'<span class="dt">{esc(t.get("date",""))}</span> {bk_chips} {people_chips} <div class="evidence">{esc(t.get("evidence",""))}</div>')
+
+special4_html = render_special(
+    '藏书购入流水',
+    f'日记中涉及书籍的交易、赠予、受赠记录共 {len(book_txns)} 条。徐乃昌是著名藏书家，本页是其藏书来源最直接的一手记录。',
+    [{'title': f'书籍-交易流水 (前 200 / {len(book_txns)})', 'items': s4_items}]
+)
+(specials_dir / 'book-acquisitions.html').write_text(special4_html, encoding='utf-8')
+
+# Topic 5: 致书往来 (top 致书 pairs)
+zhi_shu_pairs = Counter()
+zhi_shu_evidence = {}
+for e in src['edges']:
+    if e.get('relation') != '致书': continue
+    s, t_id = e.get('source'), e.get('target')
+    sn, tn = nodes_by_id.get(s,{}), nodes_by_id.get(t_id,{})
+    if sn.get('entity_type') != '人' or tn.get('entity_type') != '人': continue
+    sp = redirect(s); tp = redirect(t_id)
+    if sp == tp: continue
+    pair_key = (sp, tp)
+    zhi_shu_pairs[pair_key] += 1
+    if pair_key not in zhi_shu_evidence:
+        zhi_shu_evidence[pair_key] = []
+    if len(zhi_shu_evidence[pair_key]) < 3:
+        zhi_shu_evidence[pair_key].append({
+            'date': e.get('source_location'),
+            'evidence': (e.get('metadata') or {}).get('evidence_text'),
+        })
+
+s5_items = []
+for (a, b), cnt in zhi_shu_pairs.most_common(60):
+    la = nodes_by_id.get(a,{}).get('label')
+    lb = nodes_by_id.get(b,{}).get('label')
+    ev_lines = ''.join(f'<div style="font-size:11px;color:#6b5d4c;margin-top:2px">{esc(e["date"])} · {esc(e["evidence"] or "")}</div>' for e in zhi_shu_evidence.get((a,b), []))
+    s5_items.append(f'<strong>{esc(la)}</strong> → <strong>{esc(lb)}</strong> · <span class="rel">{cnt} 通</span>{ev_lines}')
+
+special5_html = render_special(
+    '致书往来',
+    f'按致书次数排名的人物对。共 {len(zhi_shu_pairs)} 对收发关系，前 60 显示在此。揭示徐乃昌日常通信网络的核心。',
+    [{'title': f'Top 60 致书往来对', 'items': s5_items}]
+)
+(specials_dir / 'correspondence.html').write_text(special5_html, encoding='utf-8')
+
+# Topic 6: 治病记录 (疾病 + 治病 edges)
+illness_records = []
+for n in src['nodes']:
+    if n.get('entity_type') != '疾病': continue
+    md = n.get('metadata') or {}
+    sfs = md.get('surface_forms') or []
+    dates = sorted({sf.get('date') for sf in sfs if sf.get('date')})
+    # Find 治病 edges touching this illness
+    healers = []
+    for direction, e in edges_by_node.get(n['id'], []):
+        if e.get('relation') == '治病':
+            other_id = e['target'] if direction == 'out' else e['source']
+            other_n = nodes_by_id.get(other_id, {})
+            if other_n.get('entity_type') == '人':
+                healers.append({
+                    'id': redirect(other_id),
+                    'label': nodes_by_id.get(redirect(other_id), other_n).get('label'),
+                    'date': e.get('source_location'),
+                    'evidence': (e.get('metadata') or {}).get('evidence_text'),
+                })
+    illness_records.append({
+        'label': n.get('label'), 'dates': dates, 'healers': healers,
+    })
+illness_records.sort(key=lambda x: x['dates'][0] if x['dates'] else '')
+s6_items = []
+for ir in illness_records:
+    healer_str = ', '.join(f'<span class="chip chip-per">{esc(h["label"])}</span>' for h in ir['healers'][:6])
+    s6_items.append(f'<span class="dt">{esc(ir["dates"][0] if ir["dates"] else "?")}</span> <strong>{esc(ir["label"])}</strong> {healer_str}')
+
+special6_html = render_special(
+    '治病记录',
+    f'日记中提及的 {len(illness_records)} 例疾病条目及对应的医者关系。',
+    [{'title': '疾病条目 + 治病者', 'items': s6_items}]
+)
+(specials_dir / 'medical.html').write_text(special6_html, encoding='utf-8')
+
+# Topic 7: 同席聚会全集
+all_tongxi = [h for h in src['hyperedges'] if h.get('relation') == '同席']
+s7_items = []
+for h in sorted(all_tongxi, key=lambda x: x.get('label',''))[:120]:
+    members = []
+    for mid in (h.get('nodes') or []):
+        mn = nodes_by_id.get(mid, {})
+        if mn.get('entity_type') == '人':
+            pid = redirect(mid)
+            pname = nodes_by_id.get(pid, mn).get('label')
+            members.append(f'<span class="chip chip-per">{esc(pname)}</span>')
+    s7_items.append(f'<span class="dt">{esc(h.get("label",""))}</span> {" ".join(members)}')
+
+special7_html = render_special(
+    '同席聚会全集',
+    f'共记 {len(all_tongxi)} 次同席事件 (多人聚会), 前 120 显示。揭示徐乃昌的实际社交规模。',
+    [{'title': f'同席事件 (前 120 / {len(all_tongxi)})', 'items': s7_items}]
+)
+(specials_dir / 'gatherings.html').write_text(special7_html, encoding='utf-8')
+
+# Topic 8: 安徽同乡圈
+anhui_keywords = ['皖', '安徽', '南陵', '芜湖', '宣城', '泾县', '广德', '阜阳', '六安']
+anhui_persons = []
+for n in src['nodes']:
+    if n.get('entity_type') != '人': continue
+    md = n.get('metadata') or {}
+    canonical = md.get('canonical') or ''
+    # Heuristic: person canonical contains 安徽 county OR linked to 安徽 locations
+    if any(kw in canonical for kw in anhui_keywords):
+        if redirect(n['id']) == n['id']:
+            anhui_persons.append({'id': n['id'], 'label': n.get('label'), 'canonical': canonical})
+s8_items = [f'<strong>{esc(p["label"])}</strong> <span style="color:#888;font-size:11px">{esc(p["canonical"])}</span>' for p in anhui_persons]
+
+special8_html = render_special(
+    '安徽同乡圈',
+    f'徐乃昌祖籍南陵，日记中提及的 {len(anhui_persons)} 位与安徽相关人物 (canonical 含皖/安徽/县名)。',
+    [{'title': '安徽相关人物', 'items': s8_items}]
+)
+(specials_dir / 'anhui-network.html').write_text(special8_html, encoding='utf-8')
+
 # Index
 specials_idx = [
     f'<nav><a href="../index.html">← 返回总览</a></nav>',
     '<h1>专题策展</h1>',
-    '<div class="meta">数据驱动的主题页：把分散在日记里的条目按议题聚合。</div>',
+    '<div class="meta">数据驱动的主题页：从分散日记条目里按议题聚合。点击主题进入。</div>',
     '<ul>',
-    '<li><a href="wanbei-1921.html"><strong>1921 皖北赈灾</strong></a> — 灾害条目、赈务机构、资助交易</li>',
-    '<li><a href="drama-shanghai.html"><strong>戏楼社交</strong></a> — 福州路戏院的同席网络</li>',
+    '<li><a href="wanbei-1921.html"><strong>1921 皖北赈灾</strong></a> — 灾害+赈务机构+资助流水</li>',
+    '<li><a href="disasters-all.html"><strong>灾害编年</strong></a> — 全部灾害条目时间线</li>',
+    '<li><a href="book-acquisitions.html"><strong>藏书购入流水</strong></a> — 涉书的赠/受赠/购置交易</li>',
+    '<li><a href="correspondence.html"><strong>致书往来</strong></a> — top 60 通信对</li>',
+    '<li><a href="medical.html"><strong>治病记录</strong></a> — 疾病条目 + 医者</li>',
+    '<li><a href="gatherings.html"><strong>同席聚会全集</strong></a> — 多人聚会 hyperedges</li>',
+    '<li><a href="drama-shanghai.html"><strong>戏楼社交</strong></a> — 福州路戏院同席</li>',
+    '<li><a href="anhui-network.html"><strong>安徽同乡圈</strong></a> — 皖籍人物清单</li>',
     '</ul>',
 ]
 (specials_dir / 'index.html').write_text(
