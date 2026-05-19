@@ -506,6 +506,61 @@ for n in per_nodes_deduped:
 (out_dir / 'people_profiles.json').write_text(json.dumps(per_profile, ensure_ascii=False, indent=2), encoding='utf-8')
 
 
+# ── 7) chunks (raw diary text + per-chunk entity index) ─────────────────────
+chunk_dir = ROOT / 'data' / 'poc_200'
+chunks = {}
+for md_file in sorted(chunk_dir.glob('*.md')):
+    text = md_file.read_text(encoding='utf-8')
+    # Strip YAML frontmatter
+    body = text
+    if text.startswith('---'):
+        end = text.find('---', 3)
+        if end != -1:
+            body = text[end+3:].lstrip('\n')
+    # Strip leading # H1 line if any
+    body_lines = body.split('\n')
+    while body_lines and (not body_lines[0].strip() or body_lines[0].startswith('# ')):
+        body_lines.pop(0)
+    body = '\n'.join(body_lines).strip()
+    date_key = md_file.stem  # YYYY-MM-DD
+    chunks[date_key] = {'body': body, 'entities': []}
+
+# Attach entities per chunk via surface_forms[].chunk_id (which equals the date key)
+for n in src['nodes']:
+    md = n.get('metadata') or {}
+    et = n.get('entity_type')
+    surface_forms = md.get('surface_forms') or []
+    # Determine canonical id (redirect if PER)
+    canonical_id = redirect(n['id']) if et == '人' else n['id']
+    for sf in surface_forms:
+        cid = sf.get('chunk_id')
+        surface = sf.get('surface')
+        if not cid or not surface or cid not in chunks:
+            continue
+        chunks[cid]['entities'].append({
+            'id': canonical_id,
+            'surface': surface,
+            'label': n.get('label'),
+            'type': et,
+            'rule': sf.get('rule'),
+        })
+
+# Dedup entities per chunk by (surface, id)
+for cid, ch in chunks.items():
+    seen = set()
+    uniq = []
+    for ent in ch['entities']:
+        k = (ent['surface'], ent['id'])
+        if k in seen: continue
+        seen.add(k)
+        uniq.append(ent)
+    ch['entities'] = uniq
+
+# Drop empty chunks
+chunks_out = {k: v for k, v in chunks.items() if v['body']}
+(out_dir / 'chunks.json').write_text(json.dumps(chunks_out, ensure_ascii=False, indent=1), encoding='utf-8')
+
+print(f'wrote {len(chunks_out)} chunks (raw text + entity highlights)')
 print(f'wrote {len(txns)} txns, {len(per_nodes_deduped)} people (was {len(per_ids)}), {len(visits)} visits')
 print(f'mapped: {sum(mapped_cities.values())} / {len(visits)} → top cities: {list(mapped_cities.most_common(5))}')
 print(f'unmapped venues remaining: {len(unmapped)}; top: {list(unmapped.most_common(5))}')

@@ -92,6 +92,37 @@
   .drawer .edge-list .row .ev { color: #555 }
   .drawer .edge-list .row .dt { color: var(--muted); font-size: 11px; font-family: ui-monospace, monospace }
 
+  /* Reader */
+  .reader-grid { display: grid; grid-template-columns: 220px 1fr 280px; gap: 14px; height: calc(100vh - 200px) }
+  .reader-side { background: #fff; border: 1px solid var(--border); border-radius: 6px; overflow-y: auto; padding: 6px }
+  .reader-side .month { padding: 6px 8px; font-size: 11px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .05em; border-top: 1px solid #f3f4f6; margin-top: 4px }
+  .reader-side .day { padding: 5px 10px; cursor: pointer; border-radius: 4px; font-size: 13px; display: flex; justify-content: space-between; gap: 8px; font-family: ui-monospace, monospace }
+  .reader-side .day:hover { background: #f3f4f6 }
+  .reader-side .day.active { background: var(--accent-soft); color: var(--accent); font-weight: 600 }
+  .reader-side .day .count { color: var(--muted); font-size: 11px }
+  .reader-main { background: #fff; border: 1px solid var(--border); border-radius: 6px; padding: 28px 36px; overflow-y: auto; font-family: "Songti SC", "宋体", "SimSun", serif; font-size: 16px; line-height: 2.0; color: #222 }
+  .reader-main h2 { font-size: 18px; margin: 0 0 6px; color: var(--accent); font-family: -apple-system, sans-serif }
+  .reader-main .meta { font-size: 12px; color: var(--muted); margin-bottom: 24px; font-family: -apple-system, sans-serif }
+  .reader-main p { margin: 0 0 14px; text-indent: 2em }
+  .reader-main .ent { cursor: pointer; padding: 1px 3px; border-radius: 3px; transition: background .15s }
+  .reader-main .ent:hover { filter: brightness(0.95); text-decoration: underline; text-decoration-style: dotted }
+  .ent-per { background: #dbeafe; color: var(--per) }
+  .ent-org { background: #dcfce7; color: var(--org) }
+  .ent-loc { background: #fed7aa; color: var(--loc) }
+  .ent-book { background: #ede9fe; color: var(--book) }
+  .ent-txn { background: #fce7f3; color: var(--txn) }
+  .ent-evt { background: #cffafe; color: var(--evt) }
+  .ent-ill { background: #ffe4e6; color: var(--ill) }
+  .ent-dis { background: #f3e8ff; color: var(--dis) }
+  .ent-ofc { background: #f1f5f9; color: var(--ofc) }
+  .reader-aside { background: #fff; border: 1px solid var(--border); border-radius: 6px; padding: 14px; overflow-y: auto; font-size: 13px }
+  .reader-aside h3 { font-size: 11px; color: var(--muted); margin: 0 0 6px; text-transform: uppercase; letter-spacing: .05em }
+  .reader-aside h3:not(:first-child) { margin-top: 18px }
+  .reader-aside .item { padding: 3px 0; cursor: pointer }
+  .reader-aside .item:hover { color: var(--accent) }
+  .reader-controls { display: flex; gap: 8px; margin-bottom: 8px }
+  .reader-controls button { padding: 4px 10px; border: 1px solid #ccc; background: #fff; border-radius: 4px; cursor: pointer; font-size: 12px }
+
   /* Entity index */
   .index-grid { display: grid; grid-template-columns: 240px 1fr; gap: 16px }
   .index-side { background: #fff; border: 1px solid var(--border); border-radius: 6px; padding: 10px }
@@ -136,6 +167,7 @@
     <button :class="{active:tab==='books'}" @click="tab='books'">藏书</button>
     <button :class="{active:tab==='people'}" @click="tab='people'">人物关系</button>
     <button :class="{active:tab==='geo'}" @click="tab='geo'">作者行迹</button>
+    <button :class="{active:tab==='reader'}" @click="tab='reader'">日记阅读</button>
     <button :class="{active:tab==='index'}" @click="tab='index'">实体索引</button>
   </div>
 
@@ -250,6 +282,44 @@
     </div>
     <div id="geo-map"></div>
     <div class="legend" style="margin-top:6px">圆点大小 ∝ 拜访次数 · 颜色按时段 · 点击查看时间与证据</div>
+  </div>
+
+  <!-- Reader -->
+  <div class="view" v-show="tab==='reader'">
+    <div class="reader-controls">
+      <button @click="prevDay">‹ 上一日</button>
+      <button @click="nextDay">下一日 ›</button>
+      <input v-model="readerDate" @change="jumpDate" placeholder="跳转 YYYY-MM-DD" style="padding:4px 8px;border:1px solid #ccc;border-radius:4px;font-size:12px;width:140px;font-family:ui-monospace,monospace" />
+      <span class="legend">共 {{ readerDates.length }} 日</span>
+    </div>
+    <div class="reader-grid">
+      <div class="reader-side">
+        <template v-for="m in readerByMonth" :key="m.key">
+          <div class="month">{{ m.label }}</div>
+          <div v-for="d in m.days" :key="d.date" :class="['day', {active: d.date===readerDate}]" @click="readerDate = d.date">
+            <span>{{ d.date.slice(5) }}</span>
+            <span class="count">{{ d.count }}</span>
+          </div>
+        </template>
+      </div>
+      <div class="reader-main" v-if="currentChunk">
+        <h2>{{ readerDate }}</h2>
+        <div class="meta">{{ currentChunk.entities.length }} 实体</div>
+        <div v-html="highlightedBody"></div>
+      </div>
+      <div class="reader-main" v-else><div class="empty">选择日期</div></div>
+      <div class="reader-aside" v-if="currentChunk">
+        <h3>当日实体 ({{ currentChunk.entities.length }})</h3>
+        <div v-for="grp in entitiesByType" :key="grp.type">
+          <h3>{{ grp.label }} ({{ grp.items.length }})</h3>
+          <div v-for="e in grp.items" :key="e.id+e.surface" class="item" @click="openProfileById(e.id)">
+            <span class="chip" :class="'chip-'+kindOf(grp.type)">{{ e.surface }}</span>
+            <span v-if="e.label !== e.surface" style="color:var(--muted);font-size:11px"> → {{ e.label }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="reader-aside" v-else></div>
+    </div>
   </div>
 
   <!-- Entity index -->
@@ -372,6 +442,8 @@ createApp({
     const booksData = ref(null);
     const bookSearch = ref('');
     const bookHasPerson = ref(false);
+    const chunksData = ref(null);
+    const readerDate = ref(null);
     const relationFilter = ref('');
     const confFilter = ref('');
     const visibleNodeCount = ref(0);
@@ -417,16 +489,19 @@ createApp({
     });
 
     onMounted(async () => {
-      const [ov, tx, pp, lc, pr, bk] = await Promise.all([
+      const [ov, tx, pp, lc, pr, bk, ck] = await Promise.all([
         fetch('data/overview.json').then(r=>r.json()),
         fetch('data/transactions.json').then(r=>r.json()),
         fetch('data/people_graph.json').then(r=>r.json()),
         fetch('data/locations.json').then(r=>r.json()),
         fetch('data/people_profiles.json').then(r=>r.json()),
         fetch('data/books.json').then(r=>r.json()).catch(() => []),
+        fetch('data/chunks.json').then(r=>r.json()).catch(() => ({})),
       ]);
       overview.value = ov; txnData.value = tx; peopleData.value = pp; locData.value = lc; profiles.value = pr;
-      booksData.value = bk;
+      booksData.value = bk; chunksData.value = ck;
+      const dates = Object.keys(ck).sort();
+      if (dates.length && !readerDate.value) readerDate.value = dates[0];
 
       // Build searchable allNodes from people_graph + locations + transactions + (locations as entities)
       const nodes = [];
@@ -652,6 +727,118 @@ createApp({
       return ENTITY_KIND_MAP[entity_type]?.kind || 'per';
     }
 
+    // ── Reader ───────────────────────────────────────────────────────────
+    const readerDates = computed(() => chunksData.value ? Object.keys(chunksData.value).sort() : []);
+    const readerByMonth = computed(() => {
+      const byMonth = {};
+      for (const d of readerDates.value) {
+        const m = d.slice(0,7);
+        if (!byMonth[m]) byMonth[m] = [];
+        byMonth[m].push({date:d, count:(chunksData.value[d].entities||[]).length});
+      }
+      return Object.entries(byMonth).map(([key, days]) => ({key, label:key.replace('-','年')+'月', days}));
+    });
+    const currentChunk = computed(() => {
+      if (!chunksData.value || !readerDate.value) return null;
+      return chunksData.value[readerDate.value] || null;
+    });
+    const highlightedBody = computed(() => {
+      const ch = currentChunk.value;
+      if (!ch) return '';
+      // Sort entities by surface length descending so longer matches happen first
+      const ents = [...(ch.entities || [])].sort((a,b) => (b.surface||'').length - (a.surface||'').length);
+      // Build a char-array mask to prevent overlapping replacement
+      const body = ch.body;
+      const mask = new Array(body.length).fill(null);
+      for (const ent of ents) {
+        if (!ent.surface) continue;
+        const s = ent.surface;
+        let idx = 0;
+        while (idx <= body.length - s.length) {
+          const found = body.indexOf(s, idx);
+          if (found === -1) break;
+          // Check no overlap with existing mask
+          let clear = true;
+          for (let i = found; i < found + s.length; i++) {
+            if (mask[i] !== null) { clear = false; break; }
+          }
+          if (clear) {
+            for (let i = found; i < found + s.length; i++) mask[i] = (i === found ? ent : 'cont');
+          }
+          idx = found + s.length;
+        }
+      }
+      // Render with spans
+      let out = '';
+      let i = 0;
+      while (i < body.length) {
+        if (mask[i] && mask[i] !== 'cont') {
+          const ent = mask[i];
+          const s = ent.surface;
+          const kind = ENTITY_KIND_MAP[ent.type]?.kind || 'per';
+          const escaped = body.substring(i, i + s.length).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+          out += `<span class="ent ent-${kind}" data-id="${ent.id}" title="${ent.label||''} (${ent.type||''})">${escaped}</span>`;
+          i += s.length;
+        } else {
+          const c = body[i];
+          if (c === '\n') {
+            // Double newline → paragraph break, single → space
+            if (body[i+1] === '\n') { out += '</p><p>'; i += 2; continue; }
+            out += '<br>'; i++;
+          } else if (c === '<') { out += '&lt;'; i++; }
+          else if (c === '>') { out += '&gt;'; i++; }
+          else if (c === '&') { out += '&amp;'; i++; }
+          else { out += c; i++; }
+        }
+      }
+      return '<p>' + out + '</p>';
+    });
+    const entitiesByType = computed(() => {
+      const ch = currentChunk.value;
+      if (!ch) return [];
+      const buckets = {};
+      for (const e of ch.entities || []) {
+        if (!buckets[e.type]) buckets[e.type] = [];
+        buckets[e.type].push(e);
+      }
+      const order = ['人','地','团体','书籍','交易','事件','官职','疾病','灾害'];
+      return order
+        .filter(t => buckets[t]?.length)
+        .map(t => ({type: t, label: t, items: buckets[t]}));
+    });
+    function prevDay() {
+      const ds = readerDates.value;
+      const i = ds.indexOf(readerDate.value);
+      if (i > 0) readerDate.value = ds[i-1];
+    }
+    function nextDay() {
+      const ds = readerDates.value;
+      const i = ds.indexOf(readerDate.value);
+      if (i >= 0 && i < ds.length - 1) readerDate.value = ds[i+1];
+    }
+    function jumpDate() {
+      if (chunksData.value && chunksData.value[readerDate.value]) {
+        // scroll to active in sidebar
+        nextTick(() => {
+          const el = document.querySelector('.reader-side .day.active');
+          el?.scrollIntoView({block:'center'});
+        });
+      }
+    }
+    // Auto-attach click handler for entity spans in rendered HTML
+    watch(currentChunk, () => {
+      nextTick(() => {
+        const main = document.querySelector('.reader-main');
+        if (!main) return;
+        main.querySelectorAll('.ent').forEach(el => {
+          el.onclick = () => openProfileById(el.dataset.id);
+        });
+      });
+    });
+    watch(readerDate, () => nextTick(() => {
+      document.querySelector('.reader-main')?.scrollTo(0, 0);
+    }));
+
     return {
       tab, overview, peopleData, txnData, locData, profiles, allNodes,
       globalQ, searchOpen, searchHits, onSearch, selectHit,
@@ -663,6 +850,8 @@ createApp({
       sortedEntityTypes, sortedRelationTypes, relationOptions, maxEntity, maxRelation,
       applyTxnFilter, applyBookFilter, kindOf,
       booksData, bookSearch, bookHasPerson,
+      chunksData, readerDate, readerDates, readerByMonth, currentChunk, highlightedBody, entitiesByType,
+      prevDay, nextDay, jumpDate,
       profile, profileKind, profileKindLabel, openProfile, openProfileById, neighbourLabel,
     };
   }

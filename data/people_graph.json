@@ -7301,310 +7301,6 @@
       "degree": 2
     },
     {
-      "id": "per_bolao",
-      "label": "伯老",
-      "canonical": "伯老",
-      "aliases": [
-        "伯老"
-      ],
-      "merged_ids": [
-        "per_bolao"
-      ],
-      "degree": 1
-    },
-    {
-      "id": "per_xifu",
-      "label": "希甫",
-      "canonical": "希甫",
-      "aliases": [
-        "希甫"
-      ],
-      "merged_ids": [
-        "per_xifu"
-      ],
-      "degree": 3
-    },
-    {
-      "id": "per_seng_songqiao",
-      "label": "松乔",
-      "canonical": "松乔",
-      "aliases": [
-        "松乔"
-      ],
-      "merged_ids": [
-        "per_seng_songqiao"
-      ],
-      "degree": 0
-    },
-    {
-      "id": "per_seng_fancheng",
-      "label": "范成",
-      "canonical": "范成",
-      "aliases": [
-        "范成"
-      ],
-      "merged_ids": [
-        "per_seng_fancheng"
-      ],
-      "degree": 0
-    },
-    {
-      "id": "per_guan_peishan",
-      "label": "管佩珊",
-      "canonical": "管佩珊",
-      "aliases": [
-        "管佩珊君"
-      ],
-      "merged_ids": [
-        "per_guan_peishan"
-      ],
-      "degree": 0
-    },
-    {
-      "id": "per_mao_youren",
-      "label": "茅友仁",
-      "canonical": "茅友仁",
-      "aliases": [
-        "茅友仁"
-      ],
-      "merged_ids": [
-        "per_mao_youren"
-      ],
-      "degree": 1
-    },
-    {
-      "id": "per_li_jiaji",
-      "label": "李家骥",
-      "canonical": "李家骥",
-      "aliases": [
-        "李家骥"
-      ],
-      "merged_ids": [
-        "per_li_jiaji"
-      ],
-      "degree": 0
-    },
-    {
-      "id": "per_zhang_jingsheng",
-      "label": "张静生",
-      "canonical": "张静生",
-      "aliases": [
-        "张静生"
-      ],
-      "merged_ids": [
-        "per_zhang_jingsheng"
-      ],
-      "degree": 9
-    },
-    {
-      "id": "per_chen_yunshan",
-      "label": "陈韫山",
-      "canonical": "陈韫山",
-      "aliases": [
-        "陈韫山"
-      ],
-      "merged_ids": [
-        "per_chen_yunshan"
-      ],
-      "degree": 1
-    },
-    {
-      "id": "per_zhao_jinzhai_wei",
-      "label": "赵晋斋",
-      "canonical": "赵晋斋(魏)",
-      "aliases": [
-        "赵晋斋魏"
-      ],
-      "merged_ids": [
-        "per_zhao_jinzhai_wei"
-      ],
-      "degree": 0
-    },
-    {
-      "id": "per_gu_sishizhai",
-      "label": "顾思适斋",
-      "canonical": "顾千里(思适斋)",
-      "aliases": [
-        "顾思适斋",
-        "顾千里"
-      ],
-      "merged_ids": [
-        "per_gu_sishizhai"
-      ],
-      "degree": 0
-    },
-    {
-      "id": "per_zhang_guyu",
-      "label": "张古余",
-      "canonical": "张古余",
-      "aliases": [
-        "张古余"
-      ],
-      "merged_ids": [
-        "per_zhang_guyu"
-      ],
-      "degree": 0
-    },
-    {
-      "id": "per_xu_yanbo",
-      "label": "徐彦伯",
-      "canonical": "徐彦伯",
-      "aliases": [
-        "徐彦伯"
-      ],
-      "merged_ids": [
-        "per_xu_yanbo"
-      ],
-      "degree": 0
-    },
-    {
-      "id": "per_hu_fuzhi",
-      "label": "胡辅之",
-      "canonical": "胡辅之",
-      "aliases": [
-        "胡辅之"
-      ],
-      "merged_ids": [
-        "per_hu_fuzhi"
-      ],
-      "degree": 0
-    },
-    {
-      "id": "per_xu_laizhuang",
-      "label": "徐籟庄",
-      "canonical": "徐云巢(籟庄)",
-      "aliases": [
-        "徐籟庄",
-        "徐云巢"
-      ],
-      "merged_ids": [
-        "per_xu_laizhuang"
-      ],
-      "degree": 0
-    },
-    {
-      "id": "per_wang_yuexi",
-      "label": "王月希",
-      "canonical": "王月希",
-      "aliases": [
-        "王月希"
-      ],
-      "merged_ids": [
-        "per_wang_yuexi"
-      ],
-      "degree": 0
-    },
-    {
-      "id": "per_zilai",
-      "label": "紫来",
-      "canonical": "紫来",
-      "aliases": [
-        "紫来先生"
-      ],
-      "merged_ids": [
-        "per_zilai"
-      ],
-      "degree": 0
-    },
-    {
-      "id": "per_zhang_xibo",
-      "label": "张希伯",
-      "canonical": "张希伯",
-      "aliases": [
-        "张希伯"
-      ],
-      "merged_ids": [
-        "per_zhang_xibo"
-      ],
-      "degree": 2
-    },
-    {
-      "id": "per_gao_zhizhi",
-      "label": "高植志",
-      "canonical": "高植志",
-      "aliases": [
-        "高植志"
-      ],
-      "merged_ids": [
-        "per_gao_zhizhi"
-      ],
-      "degree": 0
-    },
-    {
-      "id": "per_xueruomu",
-      "label": "削若木",
-      "canonical": "削若木",
-      "aliases": [
-        "削若木"
-      ],
-      "merged_ids": [
-        "per_xueruomu",
-        "per_xue_ruomu",
-        "per_xiao_ruomu"
-      ],
-      "degree": 3
-    },
-    {
-      "id": "per_zhang_xun",
-      "label": "张勋",
-      "canonical": "张勋",
-      "aliases": [
-        "张勋"
-      ],
-      "merged_ids": [
-        "per_zhang_xun"
-      ],
-      "degree": 0
-    },
-    {
-      "id": "per_yang_shutang",
-      "label": "杨述堂",
-      "canonical": "杨述堂",
-      "aliases": [
-        "杨述堂"
-      ],
-      "merged_ids": [
-        "per_yang_shutang"
-      ],
-      "degree": 0
-    },
-    {
-      "id": "per_zhusheng",
-      "label": "铸生",
-      "canonical": "铸生",
-      "aliases": [
-        "铸生"
-      ],
-      "merged_ids": [
-        "per_zhusheng"
-      ],
-      "degree": 0
-    },
-    {
-      "id": "per_li_weiqiang",
-      "label": "李维强",
-      "canonical": "李维强",
-      "aliases": [
-        "李维强"
-      ],
-      "merged_ids": [
-        "per_li_weiqiang"
-      ],
-      "degree": 0
-    },
-    {
-      "id": "per_li_zixin",
-      "label": "李子馨",
-      "canonical": "李子馨",
-      "aliases": [
-        "李子馨"
-      ],
-      "merged_ids": [
-        "per_li_zixin"
-      ],
-      "degree": 2
-    },
-    {
       "id": "per_wen_gongda",
       "label": "文公达",
       "canonical": "文公达",
@@ -12981,6 +12677,18 @@
       "degree": 0
     },
     {
+      "id": "per_bolao",
+      "label": "伯老",
+      "canonical": "伯老",
+      "aliases": [
+        "伯老"
+      ],
+      "merged_ids": [
+        "per_bolao"
+      ],
+      "degree": 1
+    },
+    {
       "id": "per_zheng_lisan",
       "label": "郑立三",
       "canonical": "郑立三",
@@ -17981,6 +17689,18 @@
       "degree": 6
     },
     {
+      "id": "per_xifu",
+      "label": "希甫",
+      "canonical": "希甫",
+      "aliases": [
+        "希甫"
+      ],
+      "merged_ids": [
+        "per_xifu"
+      ],
+      "degree": 3
+    },
+    {
       "id": "per_yang_zhi",
       "label": "杨芷",
       "canonical": "杨芷",
@@ -18367,6 +18087,19 @@
         "per_wu_yuquan"
       ],
       "degree": 0
+    },
+    {
+      "id": "per_xue_ruomu",
+      "label": "削若木",
+      "canonical": "削若木",
+      "aliases": [
+        "削若木"
+      ],
+      "merged_ids": [
+        "per_xue_ruomu",
+        "per_xiao_ruomu"
+      ],
+      "degree": 3
     },
     {
       "id": "per_xue_jingcan",
@@ -19333,6 +19066,18 @@
         "per_zou_xuedong"
       ],
       "degree": 1
+    },
+    {
+      "id": "per_zhang_jingsheng",
+      "label": "张静生",
+      "canonical": "张静生",
+      "aliases": [
+        "张静生"
+      ],
+      "merged_ids": [
+        "per_zhang_jingsheng"
+      ],
+      "degree": 9
     },
     {
       "id": "per_zhang_yizhi",
@@ -23494,6 +23239,18 @@
       "degree": 2
     },
     {
+      "id": "per_chen_yunshan",
+      "label": "陈韫山",
+      "canonical": "陈韫山",
+      "aliases": [
+        "陈韫山"
+      ],
+      "merged_ids": [
+        "per_chen_yunshan"
+      ],
+      "degree": 1
+    },
+    {
       "id": "per_ruiyang",
       "label": "瑞阳",
       "canonical": "瑞阳",
@@ -27290,6 +27047,18 @@
       "degree": 1
     },
     {
+      "id": "per_zhang_xun",
+      "label": "张勋",
+      "canonical": "张勋(伯广)",
+      "aliases": [
+        "张勋伯广建"
+      ],
+      "merged_ids": [
+        "per_zhang_xun"
+      ],
+      "degree": 0
+    },
+    {
       "id": "per_zhou_keshen",
       "label": "周恪慎公",
       "canonical": "周恪慎公",
@@ -27844,6 +27613,18 @@
         "per_wang_bingnan"
       ],
       "degree": 0
+    },
+    {
+      "id": "per_zhang_xibo",
+      "label": "张希伯",
+      "canonical": "张希伯",
+      "aliases": [
+        "张希伯"
+      ],
+      "merged_ids": [
+        "per_zhang_xibo"
+      ],
+      "degree": 2
     },
     {
       "id": "per_li_yishan",
@@ -32272,6 +32053,18 @@
       "degree": 0
     },
     {
+      "id": "per_li_zixin",
+      "label": "李子馨",
+      "canonical": "李子馨(锡香)",
+      "aliases": [
+        "李子馨"
+      ],
+      "merged_ids": [
+        "per_li_zixin"
+      ],
+      "degree": 2
+    },
+    {
       "id": "per_gao_yunhan",
       "label": "高云汉",
       "canonical": "高云汉(源)",
@@ -34282,6 +34075,18 @@
         "per_shen_lianfang"
       ],
       "degree": 0
+    },
+    {
+      "id": "per_mao_youren",
+      "label": "茅友仁",
+      "canonical": "茅友仁",
+      "aliases": [
+        "茅友仁"
+      ],
+      "merged_ids": [
+        "per_mao_youren"
+      ],
+      "degree": 1
     },
     {
       "id": "per_minobe",
@@ -49209,7 +49014,7 @@
     },
     {
       "source": "per_xu_naichang",
-      "target": "per_xueruomu",
+      "target": "per_xue_ruomu",
       "relation": "拜访",
       "confidence": "EXTRACTED",
       "evidence": "访削若木，不遇",
@@ -49224,7 +49029,7 @@
       "date": "1921-10-18"
     },
     {
-      "source": "per_xueruomu",
+      "source": "per_xue_ruomu",
       "target": "per_xu_naichang",
       "relation": "拜访",
       "confidence": "EXTRACTED",
@@ -52889,7 +52694,7 @@
     },
     {
       "source": "per_xu_naichang",
-      "target": "per_xueruomu",
+      "target": "per_xue_ruomu",
       "relation": "致书",
       "confidence": "EXTRACTED",
       "evidence": "覆削若木、李从龙书",
