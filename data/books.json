@@ -14237,6 +14237,224 @@
     "source_file": "1923-06-20.md"
   },
   {
+    "id": "book_jinhua_cun_yincun",
+    "label": "槿花邨吟存诗",
+    "canonical": "《槿花邨吟存诗》",
+    "aliases": [
+      "《槿花邨吟存诗》"
+    ],
+    "first_seen": "1923-06-24",
+    "last_seen": "1923-06-24",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-06-24.md"
+  },
+  {
+    "id": "book_qiaochang_ci",
+    "label": "樵唱词",
+    "canonical": "《樵唱词》",
+    "aliases": [
+      "《樵唱词》"
+    ],
+    "first_seen": "1923-06-24",
+    "last_seen": "1923-06-24",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-06-24.md"
+  },
+  {
+    "id": "book_jingtian_buti_ge",
+    "label": "经天该步天歌",
+    "canonical": "《经天该步天歌》",
+    "aliases": [
+      "《经天该步天歌》"
+    ],
+    "first_seen": "1923-06-24",
+    "last_seen": "1923-06-24",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-06-24.md"
+  },
+  {
+    "id": "book_renshen_qieyao",
+    "label": "人身关切要书",
+    "canonical": "《人身关切要书》",
+    "aliases": [
+      "《人身关切要书》"
+    ],
+    "first_seen": "1923-06-26",
+    "last_seen": "1923-06-26",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-06-26.md"
+  },
+  {
+    "id": "book_yuanbao_jing",
+    "label": "元包经",
+    "canonical": "《元包经》",
+    "aliases": [
+      "《元包经》"
+    ],
+    "first_seen": "1923-06-27",
+    "last_seen": "1923-06-27",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-06-27.md"
+  },
+  {
+    "id": "book_chasheng_guan_ji",
+    "label": "茶声馆集",
+    "canonical": "《茶声馆集》",
+    "aliases": [
+      "《茶声馆集》"
+    ],
+    "first_seen": "1923-06-27",
+    "last_seen": "1923-06-27",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-06-27.md"
+  },
+  {
+    "id": "book_longmian_congshu",
+    "label": "龙眠丛书",
+    "canonical": "光氏《龙眠丛书》",
+    "aliases": [
+      "《龙眠丛书》"
+    ],
+    "first_seen": "1923-06-27",
+    "last_seen": "1923-06-27",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-06-27.md"
+  },
+  {
+    "id": "book_wenqiu_tang_shumu",
+    "label": "文求堂书目",
+    "canonical": "日本《文求堂书目》",
+    "aliases": [
+      "《文求堂书目》"
+    ],
+    "first_seen": "1923-06-27",
+    "last_seen": "1923-06-27",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-06-27.md"
+  },
+  {
+    "id": "book_zhuge_wuhou_zhuan",
+    "label": "诸葛武侯传",
+    "canonical": "《诸葛武侯传》",
+    "aliases": [
+      "《诸葛武侯传》"
+    ],
+    "first_seen": "1923-06-28",
+    "last_seen": "1923-06-28",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-06-28.md"
+  },
+  {
+    "id": "book_doushi_lianzhu",
+    "label": "窦氏联珠集",
+    "canonical": "《窦氏联珠集》",
+    "aliases": [
+      "《窦氏联珠集》"
+    ],
+    "first_seen": "1923-06-28",
+    "last_seen": "1923-06-28",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-06-28.md"
+  },
+  {
+    "id": "book_xu_guyi_congshu",
+    "label": "续古逸丛书",
+    "canonical": "《续古逸丛书》",
+    "aliases": [
+      "《续古逸丛书》"
+    ],
+    "first_seen": "1923-06-28",
+    "last_seen": "1923-06-28",
+    "mentions": 1,
+    "people": [
+      {
+        "id": "per_sha_jianhe",
+        "label": "沙健盒",
+        "relation": "商务",
+        "date": "1922-09-30",
+        "evidence": "托购《续古逸丛书》"
+      }
+    ],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {
+      "商务": 1
+    },
+    "source_file": "1923-06-28.md"
+  },
+  {
+    "id": "book_zhu_po_ci",
+    "label": "注坡词",
+    "canonical": "《注坡词》",
+    "aliases": [
+      "《注坡词》"
+    ],
+    "first_seen": "1923-06-29",
+    "last_seen": "1923-06-29",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-06-29.md"
+  },
+  {
+    "id": "book_dongpo_he_taoshi",
+    "label": "东坡和陶诗解",
+    "canonical": "《东坡和陶诗解》",
+    "aliases": [
+      "《东坡和陶诗解》"
+    ],
+    "first_seen": "1923-06-29",
+    "last_seen": "1923-06-29",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-06-29.md"
+  },
+  {
     "id": "book_yuanshi_gezhi",
     "label": "元氏各志",
     "canonical": "元氏各志",
@@ -25381,8 +25599,8 @@
         "evidence": "陈乃乾赠新刻《屈宋古音义》"
       },
       {
-        "id": "per_zhang_jian",
-        "label": "张謇",
+        "id": "se_lao",
+        "label": "嗇老",
         "relation": "受赠",
         "date": "1921-12-08",
         "evidence": "陈乃乾赠新刻《屈宋古音义》，转赠张嗇庵"
@@ -36077,32 +36295,6 @@
     "txns": [],
     "relation_counts": {},
     "source_file": "1922-09-28.md"
-  },
-  {
-    "id": "book_xu_guyi_congshu",
-    "label": "《续古逸丛书》",
-    "canonical": "《续古逸丛书》",
-    "aliases": [
-      "《续古逸丛书》"
-    ],
-    "first_seen": "1922-09-30",
-    "last_seen": "1922-09-30",
-    "mentions": 1,
-    "people": [
-      {
-        "id": "per_sha_jianhe",
-        "label": "沙健盒",
-        "relation": "商务",
-        "date": "1922-09-30",
-        "evidence": "托购《续古逸丛书》"
-      }
-    ],
-    "orgs": [],
-    "txns": [],
-    "relation_counts": {
-      "商务": 1
-    },
-    "source_file": "1922-09-30.md"
   },
   {
     "id": "book_wang_jinggong_shizhu",

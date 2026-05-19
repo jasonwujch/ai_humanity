@@ -640,6 +640,36 @@
     "date": "1923-06-20"
   },
   {
+    "source": "per_zhang_cha",
+    "source_label": "张詧(退翁)",
+    "target": "se_lao",
+    "target_label": "嗇老",
+    "kin_type": "兄",
+    "direction": null,
+    "evidence": "退翁/嗇翁兄弟通称(张詧/张謇)",
+    "date": "1923-06-21"
+  },
+  {
+    "source": "se_lao",
+    "source_label": "嗇老",
+    "target": "per_zhang_xiaoruo",
+    "target_label": "张孝若",
+    "kin_type": "父",
+    "direction": null,
+    "evidence": "孝若来城南",
+    "date": "1923-06-21"
+  },
+  {
+    "source": "per_fu_gong",
+    "source_label": "傅共",
+    "target": "per_fu_quan",
+    "target_label": "傅权",
+    "kin_type": "子",
+    "direction": null,
+    "evidence": "傅共为权子",
+    "date": "1923-06-29"
+  },
+  {
     "source": "per_tan_furen",
     "source_label": "谭夫人",
     "target": "per_zhou_fulao",
@@ -1700,10 +1730,10 @@
     "date": "1922-03-13"
   },
   {
-    "source": "per_zhang_jian",
-    "source_label": "张謇",
+    "source": "se_lao",
+    "source_label": "嗇老",
     "target": "per_zhang_cha",
-    "target_label": "张察",
+    "target_label": "张詧(退翁)",
     "kin_type": "兄",
     "direction": null,
     "evidence": "张奢、张察",

@@ -2390,7 +2390,19 @@ function initTxn(data){
       {title:'方向', field:'direction', width:70,
         formatter: c => { const v = c.getValue(); return v === 'out' ? '出' : v === 'in' ? '入' : ''; }},
       {title:'证据', field:'evidence', widthGrow:3},
-      {title:'出处', field:'source_file', width:140, formatter: c => `<a class="src-link" data-date="${(c.getValue()||'').replace('.md','')}" style="color:var(--accent);cursor:pointer;font-family:ui-monospace,monospace;font-size:var(--fs-xs)">${c.getValue()||''} ↗</a>`},
+      {title:'出处', field:'source_file', width:140,
+        formatter: c => {
+          const v = c.getValue() || '';
+          return `<span style="color:var(--accent);cursor:pointer;font-family:ui-monospace,monospace;font-size:var(--fs-xs);text-decoration:underline;text-decoration-style:dotted">${v} ↗</span>`;
+        },
+        cellClick: (e, cell) => {
+          const v = cell.getValue() || '';
+          const d = v.replace('.md', '');
+          if (d && window.__vueOpenSourcePopup) {
+            e.stopPropagation();
+            window.__vueOpenSourcePopup(d);
+          }
+        }},
     ],
   });
   document.getElementById('txn-table').addEventListener('click', (e) => {
@@ -2584,10 +2596,9 @@ function initGeo(data){
 
   function updateZoomLayers() {
     const z = leafletMap.getZoom();
-    if (z >= 11) {
+    if (z >= 10) {
       if (!leafletMap.hasLayer(venueMarkerLayer)) leafletMap.addLayer(venueMarkerLayer);
-      // City markers fade or hide
-      cityMarkerLayer.eachLayer(m => m.setStyle({opacity: 0.15, fillOpacity: 0.05}));
+      cityMarkerLayer.eachLayer(m => m.setStyle({opacity: 0.25, fillOpacity: 0.08}));
     } else {
       if (leafletMap.hasLayer(venueMarkerLayer)) leafletMap.removeLayer(venueMarkerLayer);
       cityMarkerLayer.eachLayer(m => m.setStyle({opacity: 1, fillOpacity: 0.4}));

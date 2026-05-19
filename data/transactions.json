@@ -9555,8 +9555,8 @@
     "evidence": "嗇公《徐集》(宣纸)、长生瓦、烟、茶",
     "people": [
       {
-        "id": "per_zhang_jian",
-        "label": "张謇",
+        "id": "se_lao",
+        "label": "嗇老",
         "type": "人",
         "relation": "受赠"
       }
@@ -9589,8 +9589,8 @@
     "evidence": "附嗇老寿分廿元",
     "people": [
       {
-        "id": "per_zhang_jian",
-        "label": "张謇",
+        "id": "se_lao",
+        "label": "嗇老",
         "type": "人",
         "relation": "受赠"
       }
@@ -12936,8 +12936,8 @@
     "evidence": "以《六朝墓志菁华》四集《常丑奴墓志》赠张嗇庵",
     "people": [
       {
-        "id": "per_zhang_jian",
-        "label": "张謇",
+        "id": "se_lao",
+        "label": "嗇老",
         "type": "人",
         "relation": "受赠"
       }
@@ -24965,6 +24965,151 @@
     "evidence": "寄许静仁之太夫人素华丝葛幃",
     "people": [],
     "amount": null,
+    "direction": null
+  },
+  {
+    "id": "txn_buy_3books_jun24",
+    "label": "购书三册",
+    "date": "1923-06-24",
+    "source_file": "1923-06-24.md",
+    "evidence": "购《槿花邨吟存诗》《樵唱词》二册，《经天该步天歌》一册",
+    "people": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人",
+        "relation": "商务"
+      }
+    ],
+    "amount": null,
+    "direction": null
+  },
+  {
+    "id": "txn_chuanzi_jun26",
+    "label": "川资廿五元",
+    "date": "1923-06-26",
+    "source_file": "1923-06-26.md",
+    "evidence": "约川资费用廿五元",
+    "people": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人",
+        "relation": "商务"
+      }
+    ],
+    "amount": "廿五元",
+    "direction": null
+  },
+  {
+    "id": "txn_donation_xuezhen_han",
+    "label": "翰怡捐四百元",
+    "date": "1923-06-27",
+    "source_file": "1923-06-27.md",
+    "evidence": "翰怡捐四百元",
+    "people": [],
+    "amount": "四百元",
+    "direction": null
+  },
+  {
+    "id": "txn_donation_xuezhen_lai",
+    "label": "莱臣捐二百元",
+    "date": "1923-06-27",
+    "source_file": "1923-06-27.md",
+    "evidence": "莱臣捐二百元",
+    "people": [],
+    "amount": "二百元",
+    "direction": null
+  },
+  {
+    "id": "txn_donation_xuezhen_wen",
+    "label": "文敷捐一百元",
+    "date": "1923-06-27",
+    "source_file": "1923-06-27.md",
+    "evidence": "文敷捐一百元",
+    "people": [],
+    "amount": "一百元",
+    "direction": null
+  },
+  {
+    "id": "txn_fund_shoupingfen_jun28",
+    "label": "寿屏分四元",
+    "date": "1923-06-28",
+    "source_file": "1923-06-28.md",
+    "evidence": "函俞寿丞并洋四元，附余尧衢六月七日七十双寿屏分",
+    "people": [],
+    "amount": "洋四元",
+    "direction": null
+  },
+  {
+    "id": "txn_gift_zhuge_dou_jun28",
+    "label": "翰怡赠书两种",
+    "date": "1923-06-28",
+    "source_file": "1923-06-28.md",
+    "evidence": "翰怡赠《诸葛武侯传》《窦氏联珠集》",
+    "people": [],
+    "amount": null,
+    "direction": null
+  },
+  {
+    "id": "txn_xuezhen_gift_jun30",
+    "label": "学真赠土产",
+    "date": "1923-06-30",
+    "source_file": "1923-06-30.md",
+    "evidence": "赠吉林参四支、蘑菇、杏仁、果脯",
+    "people": [],
+    "amount": null,
+    "direction": null
+  },
+  {
+    "id": "txn_baocheng_to_huifeng_jun30",
+    "label": "存银三千元至汇丰",
+    "date": "1923-06-30",
+    "source_file": "1923-06-30.md",
+    "evidence": "凑洋一百十六元，共三千元，改存汇丰分行",
+    "people": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人",
+        "relation": "商务"
+      }
+    ],
+    "amount": "三千元",
+    "direction": null
+  },
+  {
+    "id": "txn_dasheng_withdraw_jun30",
+    "label": "取大生五百元",
+    "date": "1923-06-30",
+    "source_file": "1923-06-30.md",
+    "evidence": "取大生洋五百元",
+    "people": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人",
+        "relation": "商务"
+      }
+    ],
+    "amount": "五百元",
+    "direction": null
+  },
+  {
+    "id": "txn_song_yuan_books_jul1",
+    "label": "购宋元本书样卅六种",
+    "date": "1923-07-01",
+    "source_file": "1923-07-01.md",
+    "evidence": "取宋元本书样卅六种，每种索洋三元，趸售九十元",
+    "people": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人",
+        "relation": "商务"
+      }
+    ],
+    "amount": "议定每种二元，共七十二元",
     "direction": null
   }
 ]

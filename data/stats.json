@@ -41,7 +41,8 @@
     "1923-03",
     "1923-04",
     "1923-05",
-    "1923-06"
+    "1923-06",
+    "1923-07"
   ],
   "rel_per_month": {
     "1920-01": {
@@ -217,19 +218,25 @@
       "受赠": 1
     },
     "1923-06": {
-      "拜访": 67,
-      "致书": 39,
-      "赠": 29,
-      "同席": 22,
-      "转交": 4,
-      "资助": 3,
-      "位于": 1,
-      "商务": 14,
+      "拜访": 107,
+      "致书": 49,
+      "赠": 32,
+      "同席": 35,
+      "转交": 5,
+      "资助": 7,
+      "位于": 5,
+      "商务": 18,
       "同_as": 1,
-      "亲属": 4,
-      "属于": 9,
+      "亲属": 7,
+      "属于": 14,
       "治病": 1,
-      "受赠": 3
+      "受赠": 3,
+      "共谋": 2
+    },
+    "1923-07": {
+      "拜访": 6,
+      "同席": 4,
+      "商务": 1
     },
     "1920-07": {
       "亲属": 6,
@@ -664,15 +671,15 @@
   },
   "top_persons": [
     {
-      "id": "per_zhang_jian",
-      "label": "张謇",
-      "total": 30,
+      "id": "se_lao",
+      "label": "嗇老",
+      "total": 28,
       "monthly": {
         "1920-04": 1,
         "1920-05": 1,
         "1920-06": 3,
         "1923-01": 3,
-        "1921-02": 3,
+        "1923-06": 1,
         "1921-06": 3,
         "1921-12": 6,
         "1922-06": 8,
@@ -682,11 +689,12 @@
     {
       "id": "per_bo_ke",
       "label": "李拔可",
-      "total": 19,
+      "total": 20,
       "monthly": {
         "1920-01": 2,
         "1920-04": 4,
         "1923-04": 2,
+        "1923-06": 1,
         "1920-07": 1,
         "1920-08": 4,
         "1920-09": 3,
@@ -874,33 +882,33 @@
     }
   ],
   "confidence_breakdown": {
-    "EXTRACTED": 8678,
-    "INFERRED": 438,
+    "EXTRACTED": 8772,
+    "INFERRED": 439,
     "AMBIGUOUS": 9
   },
   "confidence_score_buckets": {
-    "≥0.9": 7436,
-    "0.7-0.9": 1556,
+    "≥0.9": 7525,
+    "0.7-0.9": 1562,
     "0.5-0.7": 117,
     "<0.5": 16
   },
   "confidence_by_relation": {
     "位于": {
-      "EXTRACTED": 288,
+      "EXTRACTED": 292,
       "INFERRED": 132,
       "AMBIGUOUS": 1
     },
     "属于": {
-      "EXTRACTED": 516,
+      "EXTRACTED": 521,
       "INFERRED": 118
     },
     "致书": {
-      "EXTRACTED": 1415,
+      "EXTRACTED": 1425,
       "INFERRED": 20,
       "AMBIGUOUS": 2
     },
     "资助": {
-      "EXTRACTED": 248,
+      "EXTRACTED": 252,
       "INFERRED": 4
     },
     "受赠": {
@@ -909,24 +917,24 @@
       "AMBIGUOUS": 1
     },
     "商务": {
-      "EXTRACTED": 1019,
+      "EXTRACTED": 1024,
       "INFERRED": 19
     },
     "同席": {
-      "EXTRACTED": 463,
+      "EXTRACTED": 477,
       "INFERRED": 6
     },
     "拜访": {
-      "EXTRACTED": 3075,
+      "EXTRACTED": 3121,
       "INFERRED": 60,
       "AMBIGUOUS": 3
     },
     "转交": {
-      "EXTRACTED": 241,
+      "EXTRACTED": 242,
       "INFERRED": 3
     },
     "赠": {
-      "EXTRACTED": 895,
+      "EXTRACTED": 898,
       "INFERRED": 11
     },
     "同_as": {
@@ -934,8 +942,8 @@
       "EXTRACTED": 12
     },
     "亲属": {
-      "EXTRACTED": 187,
-      "INFERRED": 44,
+      "EXTRACTED": 189,
+      "INFERRED": 45,
       "AMBIGUOUS": 2
     },
     "治病": {
@@ -951,69 +959,69 @@
     {
       "forward": "赠",
       "backward": "受赠",
-      "forward_total": 626,
+      "forward_total": 628,
       "backward_total": 243,
-      "missing_reciprocal": 617,
+      "missing_reciprocal": 619,
       "samples": [
-        {
-          "src": "per_xu_naichang",
-          "src_label": "徐乃昌",
-          "tgt": "per_chen_jiean",
-          "tgt_label": "陈戒庵"
-        },
-        {
-          "src": "per_yuanshu",
-          "src_label": "沅叔",
-          "tgt": "per_xu_naichang",
-          "tgt_label": "徐乃昌"
-        },
-        {
-          "src": "per_xu_naichang",
-          "src_label": "徐乃昌",
-          "tgt": "per_shen_yian",
-          "tgt_label": "沈乙庵"
-        },
-        {
-          "src": "per_zhao_luzhan_wife",
-          "src_label": "赵鲁瞻夫人",
-          "tgt": "per_xu_naichang",
-          "tgt_label": "徐乃昌"
-        },
         {
           "src": "per_zeng_yumin",
           "src_label": "曾虞民",
-          "tgt": "book_wei_yangyin_zhi",
-          "tgt_label": "魏杨胤志"
+          "tgt": "book_piya",
+          "tgt_label": "《埤雅》"
         },
         {
-          "src": "per_xu_naichang",
-          "src_label": "徐乃昌",
-          "tgt": "per_ye_hongying",
-          "tgt_label": "叶鸿英"
+          "src": "org_tongming_dianqi",
+          "src_label": "通明电汽公司",
+          "tgt": "per_xu_naichang",
+          "tgt_label": "徐乃昌"
         },
         {
-          "src": "per_xu_naichang",
-          "src_label": "徐乃昌",
-          "tgt": "per_zhang_fanlian",
-          "tgt_label": "张范廉"
+          "src": "per_huang_lisheng",
+          "src_label": "黄励生",
+          "tgt": "txn_li_sheng_gift_helan",
+          "tgt_label": "励生赠荷兰水五加皮"
         },
         {
-          "src": "per_zhu_xiangfu",
-          "src_label": "朱象甫",
+          "src": "per_gao_aozhi",
+          "src_label": "高敖之",
           "tgt": "per_xu_naichang",
           "tgt_label": "徐乃昌"
         },
         {
           "src": "per_xu_naichang",
           "src_label": "徐乃昌",
-          "tgt": "per_sha_jianan",
-          "tgt_label": "沙健庵"
+          "tgt": "per_xianfu",
+          "tgt_label": "献夫先生"
         },
         {
-          "src": "per_zou_shugao",
-          "src_label": "邹树鎬",
-          "tgt": "per_xu_naichang",
-          "tgt_label": "徐乃昌"
+          "src": "per_mengpo",
+          "src_label": "周梦坡",
+          "tgt": "book_jinwen_taben",
+          "tgt_label": "金文拓本卅种"
+        },
+        {
+          "src": "per_liang_xing",
+          "src_label": "徐亮星",
+          "tgt": "per_zhang_xiaoruo",
+          "tgt_label": "张孝若"
+        },
+        {
+          "src": "per_xu_naichang",
+          "src_label": "徐乃昌",
+          "tgt": "per_chen_xingnan",
+          "tgt_label": "陈星南"
+        },
+        {
+          "src": "per_xu_naichang",
+          "src_label": "徐乃昌",
+          "tgt": "per_cheng_liang",
+          "tgt_label": "鲍承良"
+        },
+        {
+          "src": "per_xu_naichang",
+          "src_label": "徐乃昌",
+          "tgt": "per_tongyu_taifuren",
+          "tgt_label": "筒渔太夫人"
         }
       ]
     }
@@ -1186,14 +1194,14 @@
       "label": "章希璦",
       "last_seen": "1922-12-29",
       "total_mentions": 17,
-      "months_absent": 6
+      "months_absent": 7
     },
     {
       "id": "per_song_qing",
       "label": "金颂清",
       "last_seen": "1920-01-18",
       "total_mentions": 13,
-      "months_absent": 41
+      "months_absent": 42
     }
   ],
   "spikes": [
@@ -1201,71 +1209,71 @@
       "month": "1920-07",
       "relation": "治病",
       "count": 11,
-      "mean": 1.6,
-      "zscore": 3.98
+      "mean": 1.5,
+      "zscore": 4.02
     },
     {
       "month": "1920-10",
       "relation": "位于",
       "count": 35,
-      "mean": 10.0,
-      "zscore": 3.92
+      "mean": 9.9,
+      "zscore": 3.94
     },
     {
       "month": "1923-01",
       "relation": "赠",
       "count": 67,
-      "mean": 21.7,
-      "zscore": 3.43
+      "mean": 21.2,
+      "zscore": 3.39
     },
     {
       "month": "1923-04",
       "relation": "属于",
       "count": 48,
-      "mean": 15.1,
-      "zscore": 3.36
+      "mean": 14.9,
+      "zscore": 3.35
     },
     {
       "month": "1922-12",
       "relation": "商务",
       "count": 66,
-      "mean": 24.7,
-      "zscore": 3.03
+      "mean": 24.3,
+      "zscore": 3.01
     },
     {
       "month": "1921-11",
       "relation": "同_as",
       "count": 2,
       "mean": 0.4,
-      "zscore": 2.97
+      "zscore": 3.0
     },
     {
       "month": "1920-10",
       "relation": "师友",
       "count": 3,
       "mean": 0.6,
-      "zscore": 2.96
+      "zscore": 2.99
     },
     {
       "month": "1923-01",
       "relation": "致书",
       "count": 84,
-      "mean": 34.3,
-      "zscore": 2.88
+      "mean": 33.7,
+      "zscore": 2.8
     },
     {
       "month": "1922-02",
       "relation": "治病",
       "count": 8,
-      "mean": 1.6,
-      "zscore": 2.71
+      "mean": 1.5,
+      "zscore": 2.74
     },
     {
       "month": "1921-12",
       "relation": "受赠",
       "count": 20,
-      "mean": 5.9,
-      "zscore": 2.62
+      "mean": 5.7,
+      "zscore": 2.64
     }
   ]
 }

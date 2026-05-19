@@ -437,6 +437,274 @@
     "城南街": [
       31.3,
       120.59
+    ],
+    "拙政园": [
+      31.3245,
+      120.6285
+    ],
+    "留园": [
+      31.3273,
+      120.587
+    ],
+    "网师园": [
+      31.2965,
+      120.6315
+    ],
+    "沧浪亭": [
+      31.2975,
+      120.623
+    ],
+    "狮子林": [
+      31.3245,
+      120.631
+    ],
+    "寒山寺": [
+      31.3092,
+      120.5715
+    ],
+    "虎丘": [
+      31.3338,
+      120.581
+    ],
+    "观前街": [
+      31.3145,
+      120.6228
+    ],
+    "玄妙观": [
+      31.3145,
+      120.6228
+    ],
+    "木渎": [
+      31.2735,
+      120.5215
+    ],
+    "甪直": [
+      31.2675,
+      120.79
+    ],
+    "玄武湖": [
+      32.0772,
+      118.7975
+    ],
+    "秦淮河": [
+      32.026,
+      118.782
+    ],
+    "夫子庙": [
+      32.026,
+      118.782
+    ],
+    "鸡鸣寺": [
+      32.068,
+      118.796
+    ],
+    "中山陵": [
+      32.0594,
+      118.848
+    ],
+    "明孝陵": [
+      32.054,
+      118.838
+    ],
+    "紫金山": [
+      32.067,
+      118.84
+    ],
+    "莫愁湖": [
+      32.0345,
+      118.748
+    ],
+    "西湖": [
+      30.254,
+      120.134
+    ],
+    "灵隐寺": [
+      30.2418,
+      120.0985
+    ],
+    "岳庙": [
+      30.2495,
+      120.139
+    ],
+    "断桥": [
+      30.257,
+      120.145
+    ],
+    "雷峰塔": [
+      30.231,
+      120.1485
+    ],
+    "虎跑": [
+      30.207,
+      120.1325
+    ],
+    "飞来峰": [
+      30.241,
+      120.0995
+    ],
+    "六和塔": [
+      30.1985,
+      120.1278
+    ],
+    "九溪": [
+      30.199,
+      120.118
+    ],
+    "金山寺": [
+      32.216,
+      119.408
+    ],
+    "焦山": [
+      32.2378,
+      119.4798
+    ],
+    "北固山": [
+      32.2155,
+      119.4525
+    ],
+    "甘露寺": [
+      32.216,
+      119.453
+    ],
+    "瘦西湖": [
+      32.408,
+      119.4115
+    ],
+    "大明寺": [
+      32.4178,
+      119.408
+    ],
+    "平山堂": [
+      32.417,
+      119.408
+    ],
+    "何园": [
+      32.3905,
+      119.4275
+    ],
+    "个园": [
+      32.404,
+      119.4395
+    ],
+    "惠山": [
+      31.5878,
+      120.2535
+    ],
+    "寄畅园": [
+      31.5872,
+      120.253
+    ],
+    "蠡园": [
+      31.517,
+      120.264
+    ],
+    "鼋头渚": [
+      31.5145,
+      120.2225
+    ],
+    "太湖": [
+      31.254,
+      120.003
+    ],
+    "濠河": [
+      31.982,
+      120.8975
+    ],
+    "狼山": [
+      32.012,
+      120.8895
+    ],
+    "军山": [
+      32.0145,
+      120.8775
+    ],
+    "剑山": [
+      32.024,
+      120.8845
+    ],
+    "南湖": [
+      30.743,
+      120.762
+    ],
+    "烟雨楼": [
+      30.743,
+      120.762
+    ],
+    "太湖石": [
+      30.894,
+      120.0875
+    ],
+    "飞英塔": [
+      30.893,
+      120.0888
+    ],
+    "兰亭": [
+      30.0035,
+      120.494
+    ],
+    "鉴湖": [
+      30.007,
+      120.5645
+    ],
+    "禹陵": [
+      29.9978,
+      120.6105
+    ],
+    "天一阁": [
+      29.8773,
+      121.5495
+    ],
+    "阿育王寺": [
+      29.8628,
+      121.7415
+    ],
+    "天童寺": [
+      29.806,
+      121.7855
+    ],
+    "颐和园": [
+      39.9999,
+      116.2755
+    ],
+    "圆明园": [
+      40.008,
+      116.2987
+    ],
+    "紫禁城": [
+      39.9163,
+      116.3972
+    ],
+    "天坛": [
+      39.8823,
+      116.4068
+    ],
+    "故宫": [
+      39.9163,
+      116.3972
+    ],
+    "琉璃厂": [
+      39.9018,
+      116.3902
+    ],
+    "荣宝斋": [
+      39.9019,
+      116.3895
+    ],
+    "黄鹤楼": [
+      30.546,
+      114.3045
+    ],
+    "古玩市场": [
+      31.234,
+      121.481
+    ],
+    "翰墨林": [
+      31.234,
+      121.481
+    ],
+    "新昌美术馆": [
+      31.234,
+      121.481
     ]
   },
   "venue_dots": {
@@ -714,17 +982,8 @@
           31.234,
           121.481
         ],
-        "count": 14,
+        "count": 15,
         "visits": [
-          {
-            "date": "1922-12-17",
-            "location_id": "loc_guxiangzhai",
-            "location_label": "古香斋",
-            "resolved_city": "上海",
-            "evidence": "遇于古香斋",
-            "relation": "拜访",
-            "source_file": "1922-12-10.md"
-          },
           {
             "date": "1923-04-07",
             "location_id": "loc_guxiang_zhai",
@@ -769,6 +1028,15 @@
             "evidence": "至博远斋、古香斋闲话",
             "relation": "拜访",
             "source_file": "1922-12-10.md"
+          },
+          {
+            "date": "1923-07-01",
+            "location_id": "loc_guxiang_zhai",
+            "location_label": "古香斋",
+            "resolved_city": "上海",
+            "evidence": "至古香斋，同高敖之谭",
+            "relation": "拜访",
+            "source_file": "1923-04-07.md"
           }
         ]
       },
@@ -1558,17 +1826,8 @@
           31.234,
           121.481
         ],
-        "count": 12,
+        "count": 13,
         "visits": [
-          {
-            "date": "1923-04-18",
-            "location_id": "loc_laiqing_ge",
-            "location_label": "来青阁",
-            "resolved_city": "上海",
-            "evidence": "至来青阁，见桃花纸《康熙字典》",
-            "relation": "拜访",
-            "source_file": "1920-02-05.md"
-          },
           {
             "date": "1923-04-19",
             "location_id": "loc_laiqing_ge",
@@ -1611,6 +1870,15 @@
             "location_label": "来青阁",
             "resolved_city": "上海",
             "evidence": "至来青阁，取李姓《国朝文类》",
+            "relation": "拜访",
+            "source_file": "1920-02-05.md"
+          },
+          {
+            "date": "1923-06-27",
+            "location_id": "loc_laiqing_ge",
+            "location_label": "来青阁",
+            "resolved_city": "上海",
+            "evidence": "晚，至来青阁",
             "relation": "拜访",
             "source_file": "1920-02-05.md"
           }
@@ -1748,6 +2016,34 @@
         ]
       },
       {
+        "label": "翰墨林",
+        "coord": [
+          31.234,
+          121.481
+        ],
+        "count": 2,
+        "visits": [
+          {
+            "date": "1922-08-21",
+            "location_id": "loc_hanmolin",
+            "location_label": "翰墨林",
+            "resolved_city": null,
+            "evidence": "至翰墨林",
+            "relation": "拜访",
+            "source_file": "1923-04-26.md"
+          },
+          {
+            "date": "1923-04-26",
+            "location_id": "loc_hanmolin",
+            "location_label": "翰墨林",
+            "resolved_city": null,
+            "evidence": "同拔可至翰墨林，访李晓夫",
+            "relation": "拜访",
+            "source_file": "1923-04-26.md"
+          }
+        ]
+      },
+      {
         "label": "功德林",
         "coord": [
           31.2342,
@@ -1805,6 +2101,34 @@
         ]
       },
       {
+        "label": "古玩市场",
+        "coord": [
+          31.234,
+          121.481
+        ],
+        "count": 2,
+        "visits": [
+          {
+            "date": "1922-12-10",
+            "location_id": "loc_guwan_shichang",
+            "location_label": "古玩市场",
+            "resolved_city": null,
+            "evidence": "至…古玩市场",
+            "relation": "拜访",
+            "source_file": "1922-12-10.md"
+          },
+          {
+            "date": "1923-01-31",
+            "location_id": "loc_guwan_shichang",
+            "location_label": "古玩市场",
+            "resolved_city": null,
+            "evidence": "至古玩市场",
+            "relation": "拜访",
+            "source_file": "1922-12-10.md"
+          }
+        ]
+      },
+      {
         "label": "六三花园",
         "coord": [
           31.234,
@@ -1820,6 +2144,53 @@
             "evidence": "陪同游六三花园",
             "relation": "拜访",
             "source_file": "1922-12-10.md"
+          }
+        ]
+      },
+      {
+        "label": "新昌美术馆",
+        "coord": [
+          31.234,
+          121.481
+        ],
+        "count": 2,
+        "visits": [
+          {
+            "date": "1923-02-27",
+            "location_id": "loc_xinchang_meishuguan",
+            "location_label": "新昌美术馆",
+            "resolved_city": null,
+            "evidence": "同至新昌美术馆,交《法华经》",
+            "relation": "拜访",
+            "source_file": "1923-02-27.md"
+          },
+          {
+            "date": "1923-04-13",
+            "location_id": "loc_xinchang_meishuguan",
+            "location_label": "新昌美术馆",
+            "resolved_city": null,
+            "evidence": "至新昌美术馆,观印《法华经》",
+            "relation": "拜访",
+            "source_file": "1923-02-27.md"
+          }
+        ]
+      },
+      {
+        "label": "留园",
+        "coord": [
+          31.3273,
+          120.587
+        ],
+        "count": 1,
+        "visits": [
+          {
+            "date": "1923-03-09",
+            "location_id": "loc_liuyuan",
+            "location_label": "留园",
+            "resolved_city": null,
+            "evidence": "午前，游留园并戒幢寺西园",
+            "relation": "拜访",
+            "source_file": "1923-03-09.md"
           }
         ]
       }
@@ -2007,6 +2378,25 @@
             "evidence": "至大生，寄尘外出",
             "relation": "拜访",
             "source_file": "1923-06-20.md"
+          }
+        ]
+      },
+      {
+        "label": "狼山",
+        "coord": [
+          32.012,
+          120.8895
+        ],
+        "count": 1,
+        "visits": [
+          {
+            "date": "1923-04-27",
+            "location_id": "loc_langshan",
+            "location_label": "狼山",
+            "resolved_city": "南通",
+            "evidence": "十时，至狼山，礼大势至菩萨",
+            "relation": "拜访",
+            "source_file": "1920-06-02.md"
           }
         ]
       }
@@ -3370,6 +3760,78 @@
       "label": "石埭"
     },
     {
+      "id": "loc_chengxi_bieye",
+      "label": "城西别业"
+    },
+    {
+      "id": "loc_zhejiang",
+      "label": "浙江"
+    },
+    {
+      "id": "loc_lincheng",
+      "label": "临城"
+    },
+    {
+      "id": "loc_shufang",
+      "label": "书坊"
+    },
+    {
+      "id": "loc_funing",
+      "label": "阜宁"
+    },
+    {
+      "id": "loc_sichuan",
+      "label": "四川"
+    },
+    {
+      "id": "loc_nanjing_ning",
+      "label": "宁(南京)"
+    },
+    {
+      "id": "loc_taixing",
+      "label": "泰兴"
+    },
+    {
+      "id": "loc_shanghai_hu",
+      "label": "上海(沪)"
+    },
+    {
+      "id": "loc_huangpan_wanfu",
+      "label": "黄槃山万福禅寺"
+    },
+    {
+      "id": "loc_fuqing",
+      "label": "福清县"
+    },
+    {
+      "id": "loc_zijincheng",
+      "label": "紫禁城"
+    },
+    {
+      "id": "loc_derixin",
+      "label": "德日新藏书处"
+    },
+    {
+      "id": "loc_jingyixuan",
+      "label": "静宜轩"
+    },
+    {
+      "id": "loc_yangxin_dian",
+      "label": "养心殿"
+    },
+    {
+      "id": "loc_chuxiu_gong",
+      "label": "储秀宫"
+    },
+    {
+      "id": "loc_xicheng_taiping",
+      "label": "西城太平湖旧醇王府"
+    },
+    {
+      "id": "loc_yihong_lou",
+      "label": "倚虹楼"
+    },
+    {
       "id": "loc_xinxiang",
       "label": "新乡"
     },
@@ -3806,10 +4268,6 @@
       "label": "六合"
     },
     {
-      "id": "loc_sichuan",
-      "label": "四川"
-    },
-    {
       "id": "loc_jiangxi",
       "label": "赣"
     },
@@ -4082,10 +4540,6 @@
       "label": "倚陶轩"
     },
     {
-      "id": "loc_zhejiang",
-      "label": "浙江"
-    },
-    {
       "id": "loc_zhili",
       "label": "直隶"
     },
@@ -4356,10 +4810,6 @@
     {
       "id": "loc_huizhong",
       "label": "惠中"
-    },
-    {
-      "id": "loc_taixing",
-      "label": "泰兴"
     },
     {
       "id": "loc_shaanxi",
@@ -4728,10 +5178,6 @@
     {
       "id": "loc_xin_lushe",
       "label": "新旅社"
-    },
-    {
-      "id": "loc_yihong_lou",
-      "label": "倚虹楼"
     },
     {
       "id": "loc_nanjing_gulinsi",
@@ -8530,6 +8976,69 @@
       "evidence": "又至万济典，晤吴蝶卿",
       "relation": "拜访",
       "source_file": "1923-06-20.md"
+    },
+    {
+      "date": "1923-06-21",
+      "location_id": "loc_tianshenggang",
+      "location_label": "天生港",
+      "resolved_city": "上海",
+      "evidence": "十时抵天生港，遂寓有斐馆",
+      "relation": "拜访",
+      "source_file": "1920-06-06.md"
+    },
+    {
+      "date": "1923-06-22",
+      "location_id": "loc_chengxi_bieye",
+      "location_label": "城西别业",
+      "resolved_city": null,
+      "evidence": "十时，至城西别业，刘一山家",
+      "relation": "拜访",
+      "source_file": "1923-06-22.md"
+    },
+    {
+      "date": "1923-06-23",
+      "location_id": "loc_tangzha",
+      "location_label": "唐闸",
+      "resolved_city": "南通",
+      "evidence": "退老来邀，同至唐闸",
+      "relation": "拜访",
+      "source_file": "1923-04-26.md"
+    },
+    {
+      "date": "1923-06-24",
+      "location_id": "loc_shufang",
+      "location_label": "书坊",
+      "resolved_city": null,
+      "evidence": "至书坊，购《槿花邨吟存诗》",
+      "relation": "拜访",
+      "source_file": "1923-06-24.md"
+    },
+    {
+      "date": "1923-06-26",
+      "location_id": "loc_shanghai_hu",
+      "location_label": "上海(沪)",
+      "resolved_city": null,
+      "evidence": "十二时到沪，雇包车回寓",
+      "relation": "拜访",
+      "source_file": "1923-06-26.md"
+    },
+    {
+      "date": "1923-06-27",
+      "location_id": "loc_laiqing_ge",
+      "location_label": "来青阁",
+      "resolved_city": "上海",
+      "evidence": "晚，至来青阁",
+      "relation": "拜访",
+      "source_file": "1920-02-05.md"
+    },
+    {
+      "date": "1923-07-01",
+      "location_id": "loc_guxiang_zhai",
+      "location_label": "古香斋",
+      "resolved_city": "上海",
+      "evidence": "至古香斋，同高敖之谭",
+      "relation": "拜访",
+      "source_file": "1923-04-07.md"
     }
   ],
   "xu_ids": [
@@ -8538,9 +9047,9 @@
     "per_xu_naichang_self"
   ],
   "city_visit_counts": {
-    "上海": 164,
+    "上海": 167,
     "苏州": 25,
-    "南通": 17,
+    "南通": 18,
     "镇江": 2,
     "松江": 1,
     "北京": 1,
