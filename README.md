@@ -39,6 +39,42 @@ python -m http.server 8000   # serve
 
 Vue 3 · Cytoscape.js · Tabulator · Leaflet (all CDN, no build step).
 
+## Known issue: solar-date off-by-one in chunk filenames
+
+The diary was written by lunar calendar (民国 convention). The OCR/chunking
+pipeline (`chunk_entries.py`, upstream of this SPA) converted lunar dates to
+solar (Gregorian) and used the solar date as the chunk filename. In a subset
+of chunks the conversion is off by approximately one lunar year — e.g. a
+chunk labeled `1920-02-04.md` whose frontmatter `lunar_date: 庚申年十二月廿七日`
+should map to solar **1921-02-04**, not 1920-02-04.
+
+### Current mitigation (browser-side, lossless)
+
+`web/index.html` parses each chunk's `lunar_date` frontmatter on load using
+`lunar-javascript` and computes the correct solar date. The map
+`solarCorrection[origKey] → correctedSolar` is applied at display time via
+`resolveSolar(iso)` and `fmtDate(iso)`. Affected dates render with a
+`⚠ 阳历修正` badge in the reader header.
+
+Chunk **keys** (filenames, JSON keys) are NOT mutated so existing graph IDs
+keep working.
+
+### Required full fix (post-graphify completion)
+
+When all batch extractions finish, the canonical fix is:
+
+1. Patch `chunk_entries.py` so lunar→solar uses an authoritative library
+   (e.g. `lunar_python` in Python) instead of whatever heuristic produced
+   the off-by-one.
+2. Re-chunk: regenerate all `data/poc_200/YYYY-MM-DD.md` filenames with
+   correct solar dates.
+3. Re-run graphify v2.5 on the corrected chunks so all `source_location`
+   fields on edges/txns/visits use correct solar.
+4. Re-run `web/build_views.py`.
+5. Remove `solarCorrection` / `resolveSolar` patch from FE — no longer needed.
+
+Until then, treat **`lunar_date` as ground truth**; solar is derived.
+
 ## License
 
 MIT for code. Diary content is public-domain historical material.

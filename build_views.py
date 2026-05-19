@@ -3,6 +3,21 @@ Aggregates raw per-batch JSONs from data/poc_200/graphify-out/ into per-view
 JSON files in web/data/ for the static SPA. No merge_and_dedup needed.
 
 Includes view-time dedup (canonical-keyed PER coalescing) without touching raw data.
+
+────────────────────────────────────────────────────────────────────────────
+KNOWN-ISSUE: chunk solar-date off-by-one (see web/README.md for full notes)
+────────────────────────────────────────────────────────────────────────────
+The diary was written by lunar calendar. chunk_entries.py (upstream of this
+script) converted lunar→solar incorrectly for some entries, so chunk filenames
+and the `source_location` on edges/txns/visits can be off by ~1 lunar year.
+
+Mitigation lives in the SPA (web/index.html):
+  parseLunarString(chunks[date].lunar_date) → correct solar
+  display via resolveSolar() / fmtDate(), badge as 阳历修正
+
+Full fix requires: patch chunk_entries.py lunar→solar logic, re-chunk
+all .md files, re-run graphify, re-run this script.
+TODO once all graphify batches done.
 """
 import json
 import re
