@@ -504,15 +504,21 @@
 
   <!-- Reader -->
   <div class="view" v-show="tab==='reader'">
-    <div class="reader-controls">
+    <div class="reader-controls" style="flex-wrap:wrap;gap:8px">
       <button @click="prevDay">‹ 上一日</button>
       <button @click="nextDay">下一日 ›</button>
-      <input v-model="readerDate" @change="jumpDate" placeholder="跳转 YYYY-MM-DD" style="padding:4px 8px;border:1px solid #ccc;border-radius:4px;font-size:12px;width:140px;font-family:ui-monospace,monospace" />
-      <span class="legend">共 {{ readerDates.length }} 日</span>
+      <input v-model="readerDate" @change="jumpDate" placeholder="跳转 YYYY-MM-DD" style="padding:4px 8px;border:1px solid var(--border);border-radius:2px;font-size:12px;width:140px;font-family:ui-monospace,monospace" />
+      <input v-model="readerQ" placeholder="搜索 关键词" style="padding:5px 10px;border:1px solid var(--border);border-radius:2px;font-size:var(--fs-sm);width:160px" />
+      <input type="date" v-model="readerDateFrom" :min="dataMinDate" :max="dataMaxDate" style="padding:4px 8px;border:1px solid var(--border);border-radius:2px;font-size:12px;width:135px" />
+      <span style="color:var(--muted)">—</span>
+      <input type="date" v-model="readerDateTo" :min="dataMinDate" :max="dataMaxDate" style="padding:4px 8px;border:1px solid var(--border);border-radius:2px;font-size:12px;width:135px" />
+      <button v-for="y in dateYears" :key="y" @click="readerDateFrom = y + '-01-01'; readerDateTo = y + '-12-31'" style="padding:3px 8px;font-size:var(--fs-xs)">{{ y }}</button>
+      <button @click="readerQ=''; readerDateFrom=''; readerDateTo=''">清空</button>
+      <span class="legend">{{ filteredReaderDates.length }} / {{ readerDates.length }} 日</span>
     </div>
     <div class="reader-grid">
       <div class="reader-side">
-        <template v-for="yg in readerBySeason" :key="yg.year">
+        <template v-for="yg in filteredReaderBySeason" :key="yg.year">
           <div class="month" style="display:flex;justify-content:space-between;align-items:center;cursor:pointer" @click="toggleSeason('y'+yg.year)">
             <span>{{ yg.year }} 年</span>
             <span style="color:var(--muted);font-weight:400">{{ yg.total }} {{ readerExpanded['y'+yg.year] === false ? '▸' : '▾' }}</span>
@@ -1026,6 +1032,9 @@ createApp({
     const bookHasPerson = ref(false);
     const chunksData = ref(null);
     const readerDate = ref(null);
+    const readerQ = ref('');
+    const readerDateFrom = ref('');
+    const readerDateTo = ref('');
     const eventsData = ref(null);
     const eventSearch = ref('');
     const eventRelation = ref('');
@@ -1072,37 +1081,44 @@ createApp({
 
     const profile = ref(null);
     const sourcePopup = ref(null);
+    // Wrap each occurrence of `surface` inside text nodes of an HTML string with a <mark>.
+    // Walks the DOM so attribute values are never touched (avoids attr-leak bug).
+    function wrapSurfaceInText(html, surface, style) {
+      if (!surface) return html;
+      const wrap = document.createElement('div');
+      wrap.innerHTML = html;
+      const walker = document.createTreeWalker(wrap, NodeFilter.SHOW_TEXT, null);
+      const matches = [];
+      let n;
+      while (n = walker.nextNode()) {
+        if (n.nodeValue && n.nodeValue.includes(surface)) matches.push(n);
+      }
+      const markStyle = style || 'background:#ffeaa7;color:#1f1a14;padding:1px 3px;border-radius:2px;box-shadow:0 0 0 1px #f59e0b';
+      for (const node of matches) {
+        const text = node.nodeValue;
+        const parts = text.split(surface);
+        if (parts.length < 2) continue;
+        const frag = document.createDocumentFragment();
+        parts.forEach((part, i) => {
+          if (part) frag.appendChild(document.createTextNode(part));
+          if (i < parts.length - 1) {
+            const m = document.createElement('mark');
+            m.style.cssText = markStyle;
+            m.textContent = surface;
+            frag.appendChild(m);
+          }
+        });
+        node.parentNode.replaceChild(frag, node);
+      }
+      return wrap.innerHTML;
+    }
+
     function openSourcePopup(date, mode, focusSurface) {
       if (!chunksData.value || !chunksData.value[date]) return;
       const body = chunksData.value[date].body || '';
       let html = highlightSnippetRange(body, 0, body.length, date, new Set());
-      // Wrap focus surface only in TEXT nodes (skip tag attributes) via DOMParser
       if (focusSurface && focusSurface.length) {
-        const wrap = document.createElement('div');
-        wrap.innerHTML = html;
-        const walker = document.createTreeWalker(wrap, NodeFilter.SHOW_TEXT, null);
-        const matches = [];
-        let n;
-        while (n = walker.nextNode()) {
-          if (n.nodeValue && n.nodeValue.includes(focusSurface)) matches.push(n);
-        }
-        for (const node of matches) {
-          const text = node.nodeValue;
-          const parts = text.split(focusSurface);
-          if (parts.length < 2) continue;
-          const frag = document.createDocumentFragment();
-          parts.forEach((part, i) => {
-            if (part) frag.appendChild(document.createTextNode(part));
-            if (i < parts.length - 1) {
-              const m = document.createElement('mark');
-              m.style.cssText = 'background:#ffeaa7;color:#1f1a14;padding:1px 3px;border-radius:2px;box-shadow:0 0 0 1px #f59e0b';
-              m.textContent = focusSurface;
-              frag.appendChild(m);
-            }
-          });
-          node.parentNode.replaceChild(frag, node);
-        }
-        html = wrap.innerHTML;
+        html = wrapSurfaceInText(html, focusSurface);
       }
       sourcePopup.value = {date, mode: mode || 'modal', focusSurface, html};
       // Scroll side-panel to the highlighted mark after Vue re-renders
@@ -1398,10 +1414,8 @@ createApp({
           if (idx === -1) continue;
           const start = Math.max(0, idx - 18);
           const end = Math.min(body.length, idx + q.length + 50);
-          // Highlight + wrap query in <mark> on top
           let snippet = highlightSnippetRange(body, start, end, date, new Set());
-          // Plus visual mark for query string (only first occurrence)
-          snippet = snippet.replace(q, `<mark style="background:#ffeaa7;color:#1f1a14;padding:0 2px">${q}</mark>`);
+          snippet = wrapSurfaceInText(snippet, q);
           th.push({date, snippet});
           if (th.length >= 30) break;
         }
@@ -2530,6 +2544,19 @@ createApp({
 
     // ── Reader ───────────────────────────────────────────────────────────
     const readerDates = computed(() => chunksData.value ? Object.keys(chunksData.value).sort() : []);
+    const filteredReaderDates = computed(() => {
+      if (!chunksData.value) return [];
+      const q = readerQ.value.trim();
+      const df = readerDateFrom.value;
+      const dt = readerDateTo.value;
+      return readerDates.value.filter(d => {
+        if (df && d < df) return false;
+        if (dt && d > dt) return false;
+        if (!q) return true;
+        const body = chunksData.value[d].body || '';
+        return body.includes(q);
+      });
+    });
     const SEASONS = [
       {key:'spring', label:'春', months:[3,4,5]},
       {key:'summer', label:'夏', months:[6,7,8]},
@@ -2548,16 +2575,17 @@ createApp({
       }
       return Object.entries(byMonth).map(([key, days]) => ({key, label:key.replace('-','年')+'月', days}));
     });
-    const readerBySeason = computed(() => {
-      // year → season → [days]
+    const readerBySeason = computed(() => buildSeasonTree(readerDates.value));
+    const filteredReaderBySeason = computed(() => buildSeasonTree(filteredReaderDates.value));
+    function buildSeasonTree(dates) {
       const tree = {};
-      for (const d of readerDates.value) {
+      for (const d of dates) {
         const y = parseInt(d.slice(0,4));
         const mo = parseInt(d.slice(5,7));
         const seasonKey = seasonOf(mo);
         if (!tree[y]) tree[y] = {};
         if (!tree[y][seasonKey]) tree[y][seasonKey] = [];
-        tree[y][seasonKey].push({date:d, count:(chunksData.value[d].entities||[]).length});
+        tree[y][seasonKey].push({date:d, count:(chunksData.value?.[d]?.entities || []).length});
       }
       const out = [];
       for (const y of Object.keys(tree).sort()) {
@@ -2568,7 +2596,7 @@ createApp({
         out.push({year: y, seasons, total: seasons.reduce((a,s)=>a+s.days.length, 0)});
       }
       return out;
-    });
+    }
     const readerExpanded = ref({});
     function toggleSeason(key) {
       readerExpanded.value = {...readerExpanded.value, [key]: !readerExpanded.value[key]};
@@ -2626,7 +2654,12 @@ createApp({
           else { out += c; i++; }
         }
       }
-      return '<p>' + out + '</p>';
+      let result = '<p>' + out + '</p>';
+      // Reader keyword highlight on top of entity colors
+      if (readerQ.value && readerQ.value.trim().length >= 1) {
+        result = wrapSurfaceInText(result, readerQ.value.trim());
+      }
+      return result;
     });
     const entitiesByType = computed(() => {
       const ch = currentChunk.value;
@@ -2688,6 +2721,7 @@ createApp({
       dateFrom, dateTo, dateMonth, dateYearSel, dateYears, dataMinDate, dataMaxDate,
       clearDateFilter, setYear, setMonth,
       chunksData, readerDate, readerDates, readerByMonth, readerBySeason, readerExpanded, toggleSeason,
+      readerQ, readerDateFrom, readerDateTo, filteredReaderDates, filteredReaderBySeason,
       currentChunk, highlightedBody, entitiesByType,
       prevDay, nextDay, jumpDate,
       eventsData, eventSearch, eventRelation, eventMinMembers, eventRelations, filteredEvents,
