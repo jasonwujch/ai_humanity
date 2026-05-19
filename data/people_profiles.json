@@ -391,8 +391,8 @@
         "other": "per_xu_naichang",
         "direction": "in",
         "relation": "赠",
-        "evidence": "刘子鹤侄吉期，送喜联、烛",
-        "date": "1920-10-03"
+        "evidence": "送刘子鹤之侄支六喜联、喜烛",
+        "date": "1923-02-25"
       },
       {
         "other": "per_xiao_linduyu",
@@ -627,8 +627,15 @@
         "other": "per_xu_naichang",
         "direction": "in",
         "relation": "拜访",
-        "evidence": "至洪希甫恒记茶栈，略坐谭",
-        "date": "1920-08-27"
+        "evidence": "拜洪希甫、李少穆、汪禹丞,不晤",
+        "date": "1923-03-06"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "拜访",
+        "evidence": "洪希甫、李少穆来谭",
+        "date": "1923-03-06"
       },
       {
         "other": "per_xu_naichang",
@@ -650,13 +657,6 @@
         "relation": "拜访",
         "evidence": "晨约梓大木号黄兰如来，同至洪希甫处",
         "date": "1920-11-04"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "拜访",
-        "evidence": "洪希甫…来",
-        "date": "1920-11-27"
       },
       {
         "other": "per_chen_shaozhou",
@@ -719,6 +719,13 @@
       {
         "other": "per_xu_naichang",
         "direction": "out",
+        "relation": "拜访",
+        "evidence": "吴树人亦来谭",
+        "date": "1923-03-04"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
         "relation": "致书",
         "evidence": "吴树人之屏。来书，云日前仁济善堂董事会提议约为堂董",
         "date": "1920-08-26"
@@ -729,13 +736,6 @@
         "relation": "拜访",
         "evidence": "场中晤吴树人",
         "date": "1920-08-29"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "拜访",
-        "evidence": "昨吴树人来，不晤。今来谭",
-        "date": "1921-08-10"
       }
     ],
     "txns": []
@@ -910,6 +910,13 @@
         "date": "1923-01-24"
       },
       {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "拜访",
+        "evidence": "拜余寿老、陈少舟谭",
+        "date": "1923-03-05"
+      },
+      {
         "other": "per_xu_jiyu",
         "direction": "in",
         "relation": "拜访",
@@ -922,13 +929,6 @@
         "relation": "致书",
         "evidence": "函陈少舟并洋六十五元",
         "date": "1920-11-15"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "拜访",
-        "evidence": "至陈少舟处，云去鄂",
-        "date": "1921-01-26"
       },
       {
         "other": "per_xu_naichang",
@@ -1288,12 +1288,12 @@
       "per_yu_shoulao",
       "per_shoulao"
     ],
-    "degree": 26,
+    "degree": 27,
     "relations": {
       "转交": 7,
       "拜访": 6,
+      "同席": 5,
       "致书": 5,
-      "同席": 4,
       "商务": 2,
       "赠": 2
     },
@@ -1301,7 +1301,7 @@
       {
         "id": "per_xu_naichang",
         "label": "徐乃昌",
-        "count": 8
+        "count": 9
       },
       {
         "id": "per_chen_shaozhou",
@@ -1459,6 +1459,20 @@
         "date": "1922-12-30"
       },
       {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "同席",
+        "evidence": "晚,赴余寿老酒叙之约",
+        "date": "1923-03-01"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "拜访",
+        "evidence": "余寿老、刘慧之、吕皋俞先后来谭",
+        "date": "1923-03-05"
+      },
+      {
         "other": "per_zhang_buqu",
         "direction": "out",
         "relation": "转交",
@@ -1485,13 +1499,6 @@
         "relation": "致书",
         "evidence": "旋得复书",
         "date": "1920-08-29"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "拜访",
-        "evidence": "余寿老来,谭湾沚田事",
-        "date": "1920-09-09"
       },
       {
         "other": "per_bao_zidan",
@@ -3148,6 +3155,13 @@
         "date": "1923-01-12"
       },
       {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "赠",
+        "evidence": "赠过录黄莞圃校《西溪丛语》",
+        "date": "1923-03-22"
+      },
+      {
         "other": "per_hu_shoutang",
         "direction": "in",
         "relation": "致书",
@@ -3174,13 +3188,6 @@
         "relation": "转交",
         "evidence": "陈乃乾代向王培孙假《龙眠风雅》六十四卷",
         "date": "1921-04-08"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "赠",
-        "evidence": "今乃乾赠新阳赵氏伯琛《峭帆楼丛书》",
-        "date": "1921-04-25"
       },
       {
         "other": "per_xu_naichang",
@@ -3783,16 +3790,16 @@
       "per_xu_naichang_self",
       "per_jiyu"
     ],
-    "degree": 1907,
+    "degree": 1946,
     "relations": {
-      "拜访": 700,
-      "致书": 405,
-      "赠": 357,
-      "同席": 156,
-      "商务": 97,
-      "转交": 91,
-      "资助": 49,
-      "亲属": 28,
+      "拜访": 716,
+      "致书": 413,
+      "赠": 363,
+      "同席": 160,
+      "商务": 98,
+      "转交": 93,
+      "资助": 50,
+      "亲属": 29,
       "受赠": 13,
       "师友": 5,
       "治病": 3,
@@ -3836,8 +3843,18 @@
         "count": 10
       },
       {
+        "id": "per_zhang_tuilao",
+        "label": "张退老",
+        "count": 10
+      },
+      {
         "id": "per_li_shenyan",
         "label": "李审言",
+        "count": 9
+      },
+      {
+        "id": "per_yu_shoulao",
+        "label": "余寿老",
         "count": 9
       },
       {
@@ -3871,8 +3888,8 @@
         "count": 8
       },
       {
-        "id": "per_yu_shoulao",
-        "label": "余寿老",
+        "id": "per_liu_hanyi",
+        "label": "刘翰怡",
         "count": 8
       },
       {
@@ -3889,16 +3906,6 @@
         "id": "per_jiang_mengpin",
         "label": "蒋孟蘋",
         "count": 8
-      },
-      {
-        "id": "per_tuilao",
-        "label": "退老",
-        "count": 8
-      },
-      {
-        "id": "per_zijing",
-        "label": "罗子经",
-        "count": 7
       }
     ],
     "sample_edges": [
@@ -5366,15 +5373,16 @@
     "merged_ids": [
       "per_zuo_yisou"
     ],
-    "degree": 1,
+    "degree": 2,
     "relations": {
-      "拜访": 1
+      "拜访": 1,
+      "同席": 1
     },
     "top_neighbours": [
       {
         "id": "per_xu_naichang",
         "label": "徐乃昌",
-        "count": 1
+        "count": 2
       }
     ],
     "sample_edges": [
@@ -5384,6 +5392,13 @@
         "relation": "拜访",
         "evidence": "拜左逸叟,久谭",
         "date": "1920-01-16"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "同席",
+        "evidence": "左逸叟约六时都益处酒叙，以出游辞",
+        "date": "1923-03-24"
       }
     ],
     "txns": []
@@ -7040,19 +7055,27 @@
     "merged_ids": [
       "per_tong_xinan"
     ],
-    "degree": 4,
+    "degree": 5,
     "relations": {
       "赠": 2,
-      "致书": 2
+      "致书": 2,
+      "拜访": 1
     },
     "top_neighbours": [
       {
         "id": "per_xu_naichang",
         "label": "徐乃昌",
-        "count": 4
+        "count": 5
       }
     ],
     "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "拜访",
+        "evidence": "童心安来,未晤",
+        "date": "1923-03-03"
+      },
       {
         "other": "per_xu_naichang",
         "direction": "in",
@@ -7633,20 +7656,20 @@
       "per_liu_hanyi",
       "per_hanyi"
     ],
-    "degree": 11,
+    "degree": 12,
     "relations": {
       "致书": 4,
       "赠": 2,
+      "转交": 2,
       "拜访": 2,
       "同席": 1,
-      "商务": 1,
-      "转交": 1
+      "商务": 1
     },
     "top_neighbours": [
       {
         "id": "per_xu_naichang",
         "label": "徐乃昌",
-        "count": 7
+        "count": 8
       },
       {
         "id": "per_zhang_yishan",
@@ -7685,6 +7708,20 @@
         "date": "1920-04-23"
       },
       {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "转交",
+        "evidence": "陈乃乾来，交翰怡假《玉台新咏》",
+        "date": "1923-03-23"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "赠",
+        "evidence": "并赠周中孚《郑堂读书记》七十一卷、章学诚《章氏遗书》",
+        "date": "1923-03-23"
+      },
+      {
         "other": "per_zhang_yishan",
         "direction": "in",
         "relation": "拜访",
@@ -7696,13 +7733,6 @@
         "direction": "in",
         "relation": "拜访",
         "evidence": "访王静庵、郑太夷、沈乙庵、沈醉愚、刘翰怡",
-        "date": "1920-09-28"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "赠",
-        "evidence": "醉愚检翰怡新刻各书...相贻",
         "date": "1920-09-28"
       },
       {
@@ -7917,6 +7947,13 @@
         "date": "1923-01-19"
       },
       {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "拜访",
+        "evidence": "陈戒庵、陈乃乾来谭",
+        "date": "1923-02-21"
+      },
+      {
         "other": "per_huochu",
         "direction": "out",
         "relation": "拜访",
@@ -7929,13 +7966,6 @@
         "relation": "拜访",
         "evidence": "同访霍初、揖唐，均不遇",
         "date": "1920-08-06"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "拜访",
-        "evidence": "至陈介庵处，略谭",
-        "date": "1921-08-29"
       },
       {
         "other": "per_xu_naichang",
@@ -8003,15 +8033,16 @@
     "merged_ids": [
       "per_hu_puan"
     ],
-    "degree": 1,
+    "degree": 3,
     "relations": {
+      "拜访": 2,
       "致书": 1
     },
     "top_neighbours": [
       {
         "id": "per_xu_naichang",
         "label": "徐乃昌",
-        "count": 1
+        "count": 3
       }
     ],
     "sample_edges": [
@@ -8021,6 +8052,20 @@
         "relation": "致书",
         "evidence": "致胡朴安书",
         "date": "1923-01-10"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "拜访",
+        "evidence": "许俊人同胡朴庵来",
+        "date": "1923-02-24"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "拜访",
+        "evidence": "拜胡朴庵、刘锡之、刘葱石、张仲昭、吕皋俞,不遇",
+        "date": "1923-03-01"
       }
     ],
     "txns": []
@@ -8086,6 +8131,13 @@
         "date": "1920-01-27"
       },
       {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "致书",
+        "evidence": "覆汪甘卿同年书",
+        "date": "1923-02-25"
+      },
+      {
         "other": "per_xu_jiyu",
         "direction": "in",
         "relation": "致书",
@@ -8119,13 +8171,6 @@
         "relation": "同席",
         "evidence": "约甘卿、月川至教门馆便酌",
         "date": "1921-03-27"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "致书",
-        "evidence": "覆汪甘卿书。柳荣村印《从古堂款识学》",
-        "date": "1921-10-18"
       },
       {
         "other": "per_xu_naichang",
@@ -8512,17 +8557,17 @@
     "merged_ids": [
       "per_li_zhonglao"
     ],
-    "degree": 3,
+    "degree": 4,
     "relations": {
+      "致书": 2,
       "拜访": 1,
-      "赠": 1,
-      "致书": 1
+      "赠": 1
     },
     "top_neighbours": [
       {
         "id": "per_xu_naichang",
         "label": "徐乃昌",
-        "count": 3
+        "count": 4
       }
     ],
     "sample_edges": [
@@ -8532,6 +8577,13 @@
         "relation": "拜访",
         "evidence": "至李仲老家，畅叙",
         "date": "1920-01-28"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "致书",
+        "evidence": "李仲老函约,谭安徽事",
+        "date": "1923-02-28"
       },
       {
         "other": "per_xu_naichang",
@@ -9471,6 +9523,13 @@
         "date": "1922-12-12"
       },
       {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "商务",
+        "evidence": "前购缪子受崇明二厂股份四千两",
+        "date": "1923-03-18"
+      },
+      {
         "other": "per_miao_zibin",
         "direction": "out",
         "relation": "同席",
@@ -9556,13 +9615,6 @@
       },
       {
         "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "商务",
-        "evidence": "向缪子受索《益都金石记》《凤台县志》",
-        "date": "1921-07-30"
-      },
-      {
-        "other": "per_xu_naichang",
         "direction": "out",
         "relation": "商务",
         "evidence": "昨寄来大生二厂股份四千两",
@@ -9643,12 +9695,12 @@
     "merged_ids": [
       "per_kang_gengsheng"
     ],
-    "degree": 10,
+    "degree": 11,
     "relations": {
+      "同席": 3,
       "拜访": 2,
       "致书": 2,
       "赠": 2,
-      "同席": 2,
       "转交": 1,
       "师友": 1
     },
@@ -9656,7 +9708,7 @@
       {
         "id": "per_xu_naichang",
         "label": "徐乃昌",
-        "count": 5
+        "count": 6
       },
       {
         "id": "per_xu_jiyu",
@@ -9676,6 +9728,13 @@
         "relation": "拜访",
         "evidence": "康更生同年来",
         "date": "1923-02-19"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "同席",
+        "evidence": "康更生同年约六时酒叙，以出游辞",
+        "date": "1923-03-22"
       },
       {
         "other": "per_xu_jiyu",
@@ -9792,8 +9851,8 @@
     "relations": {
       "赠": 2,
       "商务": 1,
-      "拜访": 1,
-      "致书": 1
+      "致书": 1,
+      "拜访": 1
     },
     "top_neighbours": [
       {
@@ -9820,6 +9879,13 @@
       {
         "other": "per_xu_naichang",
         "direction": "in",
+        "relation": "致书",
+        "evidence": "致丁仲枯书。芜湖附印《劝戒录》一千四百部",
+        "date": "1923-03-19"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
         "relation": "拜访",
         "evidence": "至丁仲枯、古香斋、博远斋",
         "date": "1921-05-18"
@@ -9830,13 +9896,6 @@
         "relation": "赠",
         "evidence": "赠丁仲枯宣纸印《徐公文集》",
         "date": "1922-03-11"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "致书",
-        "evidence": "援预约例属函丁仲枯,当作书与之",
-        "date": "1922-05-11"
       }
     ],
     "txns": [
@@ -9860,14 +9919,14 @@
     "merged_ids": [
       "per_chen_shaowu"
     ],
-    "degree": 11,
+    "degree": 12,
     "relations": {
-      "致书": 3,
+      "致书": 4,
       "商务": 2,
       "赠": 2,
       "拜访": 2,
-      "亲属": 1,
-      "转交": 1
+      "转交": 1,
+      "亲属": 1
     },
     "top_neighbours": [
       {
@@ -9878,6 +9937,11 @@
       {
         "id": "per_chen_lihan",
         "label": "陈立炎",
+        "count": 1
+      },
+      {
+        "id": "per_wu_jichen",
+        "label": "吴寄尘",
         "count": 1
       },
       {
@@ -9920,6 +9984,27 @@
       },
       {
         "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "致书",
+        "evidence": "陈邵吾来函，附致吴寄尘函并存大有晋洋三千元折券",
+        "date": "1923-03-17"
+      },
+      {
+        "other": "per_wu_jichen",
+        "direction": "out",
+        "relation": "致书",
+        "evidence": "附致吴寄尘函",
+        "date": "1923-03-17"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "转交",
+        "evidence": "代陈劭甫购《正谊堂丛书》两箱",
+        "date": "1923-03-18"
+      },
+      {
+        "other": "per_xu_naichang",
         "direction": "in",
         "relation": "拜访",
         "evidence": "至陈劭吾、夏玉峰处，略谭",
@@ -9949,23 +10034,9 @@
       {
         "other": "per_xu_naichang",
         "direction": "out",
-        "relation": "致书",
-        "evidence": "陈劭吾来函",
-        "date": "1922-02-21"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
         "relation": "商务",
         "evidence": "寄大有晋存券息折三千元，拟附纱厂股分式千两",
         "date": "1922-02-21"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "转交",
-        "evidence": "交陈劭吾致寄尘函",
-        "date": "1922-03-14"
       },
       {
         "other": "per_xu_naichang",
@@ -12011,18 +12082,18 @@
         "date": "1922-12-22"
       },
       {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "拜访",
+        "evidence": "又访李伯老,亦不晤",
+        "date": "1923-03-06"
+      },
+      {
         "other": "per_xia_fuyi",
         "direction": "out",
         "relation": "拜访",
         "evidence": "答拜辅宜、寄尘",
         "date": "1920-07-26"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "拜访",
-        "evidence": "至李伯老、余寿老、鲍子丹处，均略谭",
-        "date": "1920-08-13"
       },
       {
         "other": "per_hanxi",
@@ -14896,10 +14967,10 @@
     "merged_ids": [
       "per_jiang_xiatang"
     ],
-    "degree": 9,
+    "degree": 11,
     "relations": {
+      "致书": 4,
       "同席": 3,
-      "致书": 2,
       "拜访": 2,
       "赠": 1,
       "治病": 1
@@ -14908,7 +14979,7 @@
       {
         "id": "per_xu_naichang",
         "label": "徐乃昌",
-        "count": 4
+        "count": 6
       },
       {
         "id": "per_zhang_cha",
@@ -14927,6 +14998,20 @@
       }
     ],
     "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "致书",
+        "evidence": "蒋暇堂初六日来书",
+        "date": "1923-02-27"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "致书",
+        "evidence": "覆蒋暇堂书",
+        "date": "1923-03-02"
+      },
       {
         "other": "per_zhang_cha",
         "direction": "in",
@@ -15088,22 +15173,22 @@
         "other": "per_xu_naichang",
         "direction": "in",
         "relation": "拜访",
-        "evidence": "答拜王静庵",
-        "date": "1920-08-25"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "赠",
-        "evidence": "以《甸斋吉金续录》分贻王静庵",
-        "date": "1920-09-06"
+        "evidence": "答拜王静庵,未晤",
+        "date": "1923-02-26"
       },
       {
         "other": "per_xu_naichang",
         "direction": "in",
         "relation": "致书",
-        "evidence": "以旧藏殷虚书契骨甲拓本集册乞王静庵题",
-        "date": "1920-09-07"
+        "evidence": "函王静庵，赠旧藏殷墟书契拓本三百廿四片",
+        "date": "1923-03-23"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "赠",
+        "evidence": "赠旧藏殷墟书契拓本三百廿四片",
+        "date": "1923-03-23"
       },
       {
         "other": "per_xu_naichang",
@@ -16715,7 +16800,7 @@
         "count": 1
       },
       {
-        "id": "per_chong_er",
+        "id": "per_chongr",
         "label": "崇儿",
         "count": 1
       }
@@ -16729,7 +16814,7 @@
         "date": "1921-08-05"
       },
       {
-        "other": "per_chong_er",
+        "other": "per_chongr",
         "direction": "out",
         "relation": "拜访",
         "evidence": "同定君挈崇儿游大世界",
@@ -17173,8 +17258,9 @@
     "merged_ids": [
       "per_wu_cangshi"
     ],
-    "degree": 2,
+    "degree": 4,
     "relations": {
+      "拜访": 2,
       "转交": 1,
       "赠": 1
     },
@@ -17182,10 +17268,24 @@
       {
         "id": "per_xu_naichang",
         "label": "徐乃昌",
-        "count": 2
+        "count": 4
       }
     ],
     "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "拜访",
+        "evidence": "吴仓石来谭",
+        "date": "1923-02-22"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "拜访",
+        "evidence": "访吴仓石,未晤",
+        "date": "1923-03-02"
+      },
       {
         "other": "per_xu_naichang",
         "direction": "in",
@@ -17638,6 +17738,13 @@
         "date": "1923-01-28"
       },
       {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "拜访",
+        "evidence": "又拜陈戒庵、徐静仁、江幹卿,略谭",
+        "date": "1923-03-01"
+      },
+      {
         "other": "per_zhang_tuilao",
         "direction": "out",
         "relation": "同席",
@@ -17650,13 +17757,6 @@
         "relation": "同席",
         "evidence": "假徐静仁家公宴退、嗇两老",
         "date": "1920-09-18"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "拜访",
-        "evidence": "至徐静仁、朱幼鸿、刘慧之、陈介庵",
-        "date": "1921-01-23"
       },
       {
         "other": "per_zhang_xianqing",
@@ -19748,17 +19848,31 @@
       },
       {
         "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "致书",
+        "evidence": "陈一甫覆书",
+        "date": "1923-02-28"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "赠",
+        "evidence": "寄赠秦公敦拓本",
+        "date": "1923-02-28"
+      },
+      {
+        "other": "per_xu_naichang",
         "direction": "in",
         "relation": "致书",
-        "evidence": "覆陈一甫书",
-        "date": "1921-01-03"
+        "evidence": "致陈一甫书。谢赠秦公敦拓本",
+        "date": "1923-03-16"
       },
       {
         "other": "per_xu_naichang",
         "direction": "in",
         "relation": "赠",
-        "evidence": "赠李嗣香、陈一甫《徐公文集》",
-        "date": "1921-10-28"
+        "evidence": "并赠魏叔大林钟、师奎父鼎全形拓本",
+        "date": "1923-03-16"
       },
       {
         "other": "per_xu_naichang",
@@ -19766,13 +19880,6 @@
         "relation": "商务",
         "evidence": "至津为陈一甫让去",
         "date": "1921-11-04"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "赠",
-        "evidence": "陈一甫赠先德序宾公墓志铭",
-        "date": "1921-11-05"
       },
       {
         "other": "per_xu_naichang",
@@ -19794,13 +19901,6 @@
         "relation": "转交",
         "evidence": "托刘慧之转交",
         "date": "1921-11-12"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "致书",
-        "evidence": "陈一甫来书,吴渔山画轴前途由五百元",
-        "date": "1921-11-13"
       }
     ],
     "txns": []
@@ -20886,8 +20986,8 @@
         "count": 2
       },
       {
-        "id": "per_tuilao",
-        "label": "退老",
+        "id": "per_zhang_tuilao",
+        "label": "张退老",
         "count": 1
       },
       {
@@ -20905,7 +21005,7 @@
         "date": "1922-05-16"
       },
       {
-        "other": "per_tuilao",
+        "other": "per_zhang_tuilao",
         "direction": "in",
         "relation": "致书",
         "evidence": "退老属江知源商嗇老",
@@ -21905,12 +22005,12 @@
     "merged_ids": [
       "per_feng_guangjiu"
     ],
-    "degree": 6,
+    "degree": 7,
     "relations": {
+      "亲属": 2,
       "致书": 2,
       "拜访": 2,
-      "转交": 1,
-      "亲属": 1
+      "转交": 1
     },
     "top_neighbours": [
       {
@@ -21926,6 +22026,11 @@
       {
         "id": "per_feng_hui",
         "label": "冯徽",
+        "count": 1
+      },
+      {
+        "id": "per_feng_guangjiu_n",
+        "label": "冯光久之女公子",
         "count": 1
       }
     ],
@@ -21943,6 +22048,13 @@
         "relation": "亲属",
         "evidence": "询其兄冯徽",
         "date": "1922-12-24"
+      },
+      {
+        "other": "per_feng_guangjiu_n",
+        "direction": "in",
+        "relation": "亲属",
+        "evidence": "冯光久之女公子回通",
+        "date": "1923-03-22"
       },
       {
         "other": "per_xu_naichang",
@@ -22264,8 +22376,8 @@
         "count": 5
       },
       {
-        "id": "per_tuilao",
-        "label": "退老",
+        "id": "per_zhang_tuilao",
+        "label": "张退老",
         "count": 1
       },
       {
@@ -22304,7 +22416,7 @@
         "date": "1920-11-29"
       },
       {
-        "other": "per_tuilao",
+        "other": "per_zhang_tuilao",
         "direction": "out",
         "relation": "致书",
         "evidence": "带沙健庵复退老函",
@@ -22339,11 +22451,17 @@
       "per_zhang_jingxuan",
       "per_jingxuan"
     ],
-    "degree": 1,
+    "degree": 2,
     "relations": {
+      "亲属": 1,
       "拜访": 1
     },
     "top_neighbours": [
+      {
+        "id": "per_yequan",
+        "label": "章也泉",
+        "count": 1
+      },
       {
         "id": "per_wu_jichen",
         "label": "吴寄尘",
@@ -22351,6 +22469,13 @@
       }
     ],
     "sample_edges": [
+      {
+        "other": "per_yequan",
+        "direction": "out",
+        "relation": "亲属",
+        "evidence": "章静轩尊人也泉",
+        "date": "1923-02-25"
+      },
       {
         "other": "per_wu_jichen",
         "direction": "in",
@@ -23748,18 +23873,18 @@
     "merged_ids": [
       "per_xia_yufeng"
     ],
-    "degree": 10,
+    "degree": 11,
     "relations": {
       "转交": 4,
       "拜访": 3,
-      "同席": 2,
+      "同席": 3,
       "致书": 1
     },
     "top_neighbours": [
       {
         "id": "per_xu_naichang",
         "label": "徐乃昌",
-        "count": 5
+        "count": 6
       },
       {
         "id": "per_chen_shaozhou",
@@ -23815,6 +23940,13 @@
         "relation": "转交",
         "evidence": "二千元垫交夏玉峰汇芜",
         "date": "1922-12-31"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "同席",
+        "evidence": "夏玉峰约惠中旅馆酒叙",
+        "date": "1923-02-24"
       },
       {
         "other": "per_wu_zhongping",
@@ -23905,40 +24037,6 @@
         "relation": "同_as",
         "evidence": "秦贤炳事同丁铭礼公函许省长",
         "date": "1922-12-10"
-      }
-    ],
-    "txns": []
-  },
-  "per_xu_shengzhang": {
-    "id": "per_xu_shengzhang",
-    "label": "许省长",
-    "canonical": "许省长",
-    "aliases": [
-      "许省长",
-      "省长"
-    ],
-    "merged_ids": [
-      "per_xu_shengzhang",
-      "per_xu_sheng_zhang"
-    ],
-    "degree": 1,
-    "relations": {
-      "致书": 1
-    },
-    "top_neighbours": [
-      {
-        "id": "per_xu_naichang",
-        "label": "徐乃昌",
-        "count": 1
-      }
-    ],
-    "sample_edges": [
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "致书",
-        "evidence": "接许省长蒸电",
-        "date": "1922-12-11"
       }
     ],
     "txns": []
@@ -24208,15 +24306,16 @@
     "merged_ids": [
       "per_jiang_yiyuan"
     ],
-    "degree": 2,
+    "degree": 3,
     "relations": {
-      "拜访": 2
+      "拜访": 2,
+      "赠": 1
     },
     "top_neighbours": [
       {
         "id": "per_xu_naichang",
         "label": "徐乃昌",
-        "count": 2
+        "count": 3
       }
     ],
     "sample_edges": [
@@ -24226,6 +24325,13 @@
         "relation": "拜访",
         "evidence": "江易园来",
         "date": "1922-12-11"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "赠",
+        "evidence": "交阅江慎修先生著《爱物现报录》并年谱",
+        "date": "1923-03-03"
       },
       {
         "other": "per_xu_naichang",
@@ -24476,18 +24582,18 @@
         "date": "1923-01-22"
       },
       {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "同席",
+        "evidence": "朱研涛晚约淞社同人弟五十五集。酒叙,辞",
+        "date": "1923-02-22"
+      },
+      {
         "other": "per_xu_jiyu",
         "direction": "in",
         "relation": "致书",
         "evidence": "同朱研涛租西票...复书并寄",
         "date": "1920-11-20"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "同席",
-        "evidence": "朱砚涛约倚虹楼西酌，却之",
-        "date": "1921-04-29"
       },
       {
         "other": "per_xu_naichang",
@@ -25348,17 +25454,24 @@
       },
       {
         "other": "per_xu_naichang",
-        "direction": "out",
+        "direction": "in",
         "relation": "拜访",
-        "evidence": "杨寿祺来",
-        "date": "1922-01-18"
+        "evidence": "同访杨寿祺,取书两种,付洋拾元",
+        "date": "1923-02-22"
       },
       {
         "other": "per_xu_naichang",
         "direction": "in",
         "relation": "商务",
-        "evidence": "至来青阁杨寿祺家购书，十五元",
-        "date": "1922-03-20"
+        "evidence": "取书两种,付洋拾元",
+        "date": "1923-02-22"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "拜访",
+        "evidence": "杨寿祺来",
+        "date": "1922-01-18"
       },
       {
         "other": "per_feng_shi",
@@ -25366,13 +25479,6 @@
         "relation": "商务",
         "evidence": "陈乃乾同杨寿祺购定宁波冯氏书，约二千七百元",
         "date": "1922-04-17"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "拜访",
-        "evidence": "晤杨寿祺，留午饭",
-        "date": "1922-11-30"
       }
     ],
     "txns": []
@@ -27091,18 +27197,26 @@
     "merged_ids": [
       "per_cao_xinyi"
     ],
-    "degree": 1,
+    "degree": 2,
     "relations": {
+      "商务": 1,
       "拜访": 1
     },
     "top_neighbours": [
       {
         "id": "per_xu_naichang",
         "label": "徐乃昌",
-        "count": 1
+        "count": 2
       }
     ],
     "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "商务",
+        "evidence": "复以假曹信义料半纸十五刀，印《三妇人集》。还洋四十五元",
+        "date": "1923-03-25"
+      },
       {
         "other": "per_xu_naichang",
         "direction": "in",
@@ -27190,11 +27304,11 @@
       "per_ji_chen",
       "per_wu_jichen"
     ],
-    "degree": 22,
+    "degree": 23,
     "relations": {
       "拜访": 8,
+      "致书": 4,
       "转交": 4,
-      "致书": 3,
       "赠": 2,
       "资助": 2,
       "商务": 2,
@@ -27205,6 +27319,11 @@
         "id": "per_xu_naichang",
         "label": "徐乃昌",
         "count": 9
+      },
+      {
+        "id": "per_chen_shaowu",
+        "label": "陈劭吾",
+        "count": 1
       },
       {
         "id": "per_jiang_ganqing",
@@ -27293,6 +27412,20 @@
         "relation": "赠",
         "evidence": "赠狄楚青、吴寄尘、柳芝庭、赵叔雍《玉台新咏》",
         "date": "1923-01-11"
+      },
+      {
+        "other": "per_chen_shaowu",
+        "direction": "in",
+        "relation": "致书",
+        "evidence": "附致吴寄尘函",
+        "date": "1923-03-17"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "转交",
+        "evidence": "今交林福送寄尘",
+        "date": "1923-03-17"
       },
       {
         "other": "per_jiang_ganqing",
@@ -27384,13 +27517,6 @@
         "relation": "转交",
         "evidence": "将稿交来...转交寄尘",
         "date": "1921-07-19"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "转交",
-        "evidence": "文一件交吴寄尘收存",
-        "date": "1921-09-24"
       },
       {
         "other": "per_pan_boju",
@@ -30496,8 +30622,8 @@
         "other": "per_xu_naichang",
         "direction": "out",
         "relation": "亲属",
-        "evidence": "崇、佑两儿随侍",
-        "date": "1920-09-04"
+        "evidence": "晨送崇、佑两儿入学",
+        "date": "1923-03-22"
       },
       {
         "other": "per_bo_ke",
@@ -31496,9 +31622,11 @@
     "merged_ids": [
       "per_li_yuanzhi"
     ],
-    "degree": 3,
+    "degree": 5,
     "relations": {
       "资助": 1,
+      "拜访": 1,
+      "亲属": 1,
       "师友": 1,
       "同席": 1
     },
@@ -31506,10 +31634,15 @@
       {
         "id": "per_xu_naichang",
         "label": "徐乃昌",
-        "count": 2
+        "count": 3
       },
       {
-        "id": "per_chong_er",
+        "id": "per_li_zuwang",
+        "label": "李祖望",
+        "count": 1
+      },
+      {
+        "id": "per_chongr",
         "label": "崇儿",
         "count": 1
       }
@@ -31523,7 +31656,21 @@
         "date": "1923-01-27"
       },
       {
-        "other": "per_chong_er",
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "拜访",
+        "evidence": "李元之先生晚十时由扬来",
+        "date": "1923-03-21"
+      },
+      {
+        "other": "per_li_zuwang",
+        "direction": "in",
+        "relation": "亲属",
+        "evidence": "假读李元之祖宾嶠先生祖望",
+        "date": "1923-03-25"
+      },
+      {
+        "other": "per_chongr",
         "direction": "out",
         "relation": "师友",
         "evidence": "请代邀课崇儿读",
@@ -31631,8 +31778,8 @@
         "other": "per_xu_naichang",
         "direction": "in",
         "relation": "拜访",
-        "evidence": "至葱石、审言处，略谭",
-        "date": "1920-08-21"
+        "evidence": "拜...刘葱石...不遇",
+        "date": "1923-03-01"
       },
       {
         "other": "per_xu_naichang",
@@ -32264,116 +32411,6 @@
     "sample_edges": [],
     "txns": []
   },
-  "per_chong_er": {
-    "id": "per_chong_er",
-    "label": "崇儿",
-    "canonical": "崇儿",
-    "aliases": [
-      "崇儿"
-    ],
-    "merged_ids": [
-      "per_chong_er"
-    ],
-    "degree": 8,
-    "relations": {
-      "亲属": 2,
-      "师友": 2,
-      "拜访": 2,
-      "致书": 1,
-      "赠": 1
-    },
-    "top_neighbours": [
-      {
-        "id": "per_xu_naichang",
-        "label": "徐乃昌",
-        "count": 3
-      },
-      {
-        "id": "per_xinlian",
-        "label": "心莲",
-        "count": 1
-      },
-      {
-        "id": "per_haolao",
-        "label": "蒿老",
-        "count": 1
-      },
-      {
-        "id": "per_song_songru",
-        "label": "宋松如",
-        "count": 1
-      },
-      {
-        "id": "per_li_yuanzhi",
-        "label": "李元之",
-        "count": 1
-      },
-      {
-        "id": "per_dingjun",
-        "label": "定君",
-        "count": 1
-      }
-    ],
-    "sample_edges": [
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "亲属",
-        "evidence": "晚挈崇儿至来青阁",
-        "date": "1923-02-01"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "致书",
-        "evidence": "致书崇、佑两儿",
-        "date": "1920-10-06"
-      },
-      {
-        "other": "per_xinlian",
-        "direction": "in",
-        "relation": "师友",
-        "evidence": "崇儿师",
-        "date": "1920-10-11"
-      },
-      {
-        "other": "per_haolao",
-        "direction": "in",
-        "relation": "赠",
-        "evidence": "蒿老为崇儿书福寿字成",
-        "date": "1921-04-28"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "亲属",
-        "evidence": "崇儿(徐乃昌之子)",
-        "date": "1921-04-28"
-      },
-      {
-        "other": "per_song_songru",
-        "direction": "out",
-        "relation": "拜访",
-        "evidence": "宋松如吉期，命崇儿贺喜",
-        "date": "1921-05-01"
-      },
-      {
-        "other": "per_li_yuanzhi",
-        "direction": "in",
-        "relation": "师友",
-        "evidence": "请代邀课崇儿读",
-        "date": "1921-10-25"
-      },
-      {
-        "other": "per_dingjun",
-        "direction": "in",
-        "relation": "拜访",
-        "evidence": "同定君挈崇儿游大世界",
-        "date": "1922-01-01"
-      }
-    ],
-    "txns": []
-  },
   "per_kang_hai": {
     "id": "per_kang_hai",
     "label": "康海",
@@ -32576,16 +32613,17 @@
     "merged_ids": [
       "per_sheng_yizhai"
     ],
-    "degree": 3,
+    "degree": 4,
     "relations": {
       "致书": 2,
+      "转交": 1,
       "赠": 1
     },
     "top_neighbours": [
       {
         "id": "per_xu_naichang",
         "label": "徐乃昌",
-        "count": 3
+        "count": 4
       }
     ],
     "sample_edges": [
@@ -32595,6 +32633,13 @@
         "relation": "致书",
         "evidence": "覆盛彝斋书",
         "date": "1923-02-19"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "转交",
+        "evidence": "邱渭卿扁尚未做，做成再通知派人来送，转致盛彝斋",
+        "date": "1923-03-23"
       },
       {
         "other": "per_xu_naichang",
@@ -32687,12 +32732,12 @@
     "merged_ids": [
       "per_song_zhonggang"
     ],
-    "degree": 7,
+    "degree": 8,
     "relations": {
-      "拜访": 2,
+      "拜访": 3,
       "致书": 1,
-      "转交": 1,
       "赠": 1,
+      "转交": 1,
       "同席": 1,
       "亲属": 1
     },
@@ -32700,7 +32745,7 @@
       {
         "id": "per_xu_naichang",
         "label": "徐乃昌",
-        "count": 5
+        "count": 6
       },
       {
         "id": "per_zhang_cha",
@@ -32723,6 +32768,20 @@
       },
       {
         "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "拜访",
+        "evidence": "宋仲刚来，请书\"砥山堂\"\"石粹庐\"两匾额，未晤",
+        "date": "1923-03-15"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "赠",
+        "evidence": "为宋仲刚书两匾额，亦转交",
+        "date": "1923-03-22"
+      },
+      {
+        "other": "per_xu_naichang",
         "direction": "in",
         "relation": "转交",
         "evidence": "托大生转寄资生厂宋仲刚素绸幢",
@@ -32741,13 +32800,6 @@
         "relation": "拜访",
         "evidence": "并至仲刚宅中小坐",
         "date": "1922-07-04"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "赠",
-        "evidence": "送宋仲刚茶叶、糟鱼",
-        "date": "1922-08-01"
       },
       {
         "other": "per_xu_naichang",
@@ -32860,6 +32912,2345 @@
         "relation": "受赠"
       }
     ]
+  },
+  "per_wang_keqin": {
+    "id": "per_wang_keqin",
+    "label": "王克琴",
+    "canonical": "王克琴",
+    "aliases": [
+      "王克琴"
+    ],
+    "merged_ids": [
+      "per_wang_keqin"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_zhang_wenyan": {
+    "id": "per_zhang_wenyan",
+    "label": "张文艳",
+    "canonical": "张文艳",
+    "aliases": [
+      "张文艳"
+    ],
+    "merged_ids": [
+      "per_zhang_wenyan"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_qian_yunzhi": {
+    "id": "per_qian_yunzhi",
+    "label": "钱允治",
+    "canonical": "钱允治",
+    "aliases": [
+      "钱允治"
+    ],
+    "merged_ids": [
+      "per_qian_yunzhi"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_qi_xuebiao": {
+    "id": "per_qi_xuebiao",
+    "label": "戚学标",
+    "canonical": "戚学标",
+    "aliases": [
+      "戚学标"
+    ],
+    "merged_ids": [
+      "per_qi_xuebiao"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_wang_maolin": {
+    "id": "per_wang_maolin",
+    "label": "汪懋麟",
+    "canonical": "汪懋麟",
+    "aliases": [
+      "汪懋麟"
+    ],
+    "merged_ids": [
+      "per_wang_maolin"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_gu_kuang": {
+    "id": "per_gu_kuang",
+    "label": "顾况",
+    "canonical": "顾况",
+    "aliases": [
+      "顾况"
+    ],
+    "merged_ids": [
+      "per_gu_kuang"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_lu_licheng": {
+    "id": "per_lu_licheng",
+    "label": "顾履成",
+    "canonical": "顾履成",
+    "aliases": [
+      "履成"
+    ],
+    "merged_ids": [
+      "per_lu_licheng"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_yang_yonggui": {
+    "id": "per_yang_yonggui",
+    "label": "杨永贵",
+    "canonical": "杨永贵",
+    "aliases": [
+      "杨永贵"
+    ],
+    "merged_ids": [
+      "per_yang_yonggui"
+    ],
+    "degree": 2,
+    "relations": {
+      "拜访": 1,
+      "赠": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 2
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "拜访",
+        "evidence": "杨永贵自海门来",
+        "date": "1923-02-23"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "赠",
+        "evidence": "送咸鱼、肘",
+        "date": "1923-02-23"
+      }
+    ],
+    "txns": []
+  },
+  "per_miao_gengyun": {
+    "id": "per_miao_gengyun",
+    "label": "缪耕云",
+    "canonical": "缪耕云",
+    "aliases": [
+      "缪耕云"
+    ],
+    "merged_ids": [
+      "per_miao_gengyun"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_xu_junren": {
+    "id": "per_xu_junren",
+    "label": "许俊人",
+    "canonical": "许俊人",
+    "aliases": [
+      "许俊人"
+    ],
+    "merged_ids": [
+      "per_xu_junren"
+    ],
+    "degree": 2,
+    "relations": {
+      "拜访": 1,
+      "致书": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 2
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "拜访",
+        "evidence": "许俊人同胡朴庵来",
+        "date": "1923-02-24"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "致书",
+        "evidence": "电许俊人省长。请于内务圩工以及水利局堤工",
+        "date": "1922-09-14"
+      }
+    ],
+    "txns": []
+  },
+  "per_yequan": {
+    "id": "per_yequan",
+    "label": "章也泉",
+    "canonical": "章也泉",
+    "aliases": [
+      "也泉"
+    ],
+    "merged_ids": [
+      "per_yequan"
+    ],
+    "degree": 2,
+    "relations": {
+      "赠": 1,
+      "亲属": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 1
+      },
+      {
+        "id": "per_zhang_jingxuan",
+        "label": "章静轩",
+        "count": 1
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "赠",
+        "evidence": "送章静轩尊人也泉蓝花缎幃",
+        "date": "1923-02-25"
+      },
+      {
+        "other": "per_zhang_jingxuan",
+        "direction": "in",
+        "relation": "亲属",
+        "evidence": "章静轩尊人也泉",
+        "date": "1923-02-25"
+      }
+    ],
+    "txns": []
+  },
+  "per_hu_boxuan": {
+    "id": "per_hu_boxuan",
+    "label": "胡伯宣",
+    "canonical": "胡伯宣",
+    "aliases": [
+      "胡伯宣",
+      "伯宣"
+    ],
+    "merged_ids": [
+      "per_hu_boxuan"
+    ],
+    "degree": 2,
+    "relations": {
+      "致书": 1,
+      "拜访": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 2
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "致书",
+        "evidence": "致胡伯宣书",
+        "date": "1923-02-25"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "拜访",
+        "evidence": "刘鸿夫、丁幼兰、胡伯宣、梁公约",
+        "date": "1922-06-20"
+      }
+    ],
+    "txns": []
+  },
+  "per_xu_bingli": {
+    "id": "per_xu_bingli",
+    "label": "徐并立",
+    "canonical": "徐并立",
+    "aliases": [
+      "徐并立"
+    ],
+    "merged_ids": [
+      "per_xu_bingli"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_liu_yiyou": {
+    "id": "per_liu_yiyou",
+    "label": "刘贻佑",
+    "canonical": "刘贻佑",
+    "aliases": [
+      "刘贻佑"
+    ],
+    "merged_ids": [
+      "per_liu_yiyou"
+    ],
+    "degree": 1,
+    "relations": {
+      "拜访": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 1
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "拜访",
+        "evidence": "刘贻佑来,为南洋公学入学志愿书",
+        "date": "1923-02-26"
+      }
+    ],
+    "txns": []
+  },
+  "per_shen_junsheng": {
+    "id": "per_shen_junsheng",
+    "label": "沈骏声",
+    "canonical": "沈骏声",
+    "aliases": [
+      "沈骏声"
+    ],
+    "merged_ids": [
+      "per_shen_junsheng"
+    ],
+    "degree": 2,
+    "relations": {
+      "拜访": 2
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 2
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "拜访",
+        "evidence": "沈骏声君来,商定领印《法华经》",
+        "date": "1923-02-26"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "拜访",
+        "evidence": "同至新昌印书局，晤沈骏声",
+        "date": "1922-01-13"
+      }
+    ],
+    "txns": []
+  },
+  "per_chongr": {
+    "id": "per_chongr",
+    "label": "崇儿",
+    "canonical": "崇儿",
+    "aliases": [
+      "崇儿"
+    ],
+    "merged_ids": [
+      "per_chong_er",
+      "per_chongr"
+    ],
+    "degree": 8,
+    "relations": {
+      "亲属": 2,
+      "师友": 2,
+      "拜访": 2,
+      "致书": 1,
+      "赠": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 3
+      },
+      {
+        "id": "per_xinlian",
+        "label": "心莲",
+        "count": 1
+      },
+      {
+        "id": "per_haolao",
+        "label": "蒿老",
+        "count": 1
+      },
+      {
+        "id": "per_song_songru",
+        "label": "宋松如",
+        "count": 1
+      },
+      {
+        "id": "per_li_yuanzhi",
+        "label": "李元之",
+        "count": 1
+      },
+      {
+        "id": "per_dingjun",
+        "label": "定君",
+        "count": 1
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "亲属",
+        "evidence": "晚挈崇儿至来青阁",
+        "date": "1923-02-01"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "致书",
+        "evidence": "致书崇、佑两儿",
+        "date": "1920-10-06"
+      },
+      {
+        "other": "per_xinlian",
+        "direction": "in",
+        "relation": "师友",
+        "evidence": "崇儿师",
+        "date": "1920-10-11"
+      },
+      {
+        "other": "per_haolao",
+        "direction": "in",
+        "relation": "赠",
+        "evidence": "蒿老为崇儿书福寿字成",
+        "date": "1921-04-28"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "亲属",
+        "evidence": "崇儿(徐乃昌之子)",
+        "date": "1921-04-28"
+      },
+      {
+        "other": "per_song_songru",
+        "direction": "out",
+        "relation": "拜访",
+        "evidence": "宋松如吉期，命崇儿贺喜",
+        "date": "1921-05-01"
+      },
+      {
+        "other": "per_li_yuanzhi",
+        "direction": "in",
+        "relation": "师友",
+        "evidence": "请代邀课崇儿读",
+        "date": "1921-10-25"
+      },
+      {
+        "other": "per_dingjun",
+        "direction": "in",
+        "relation": "拜访",
+        "evidence": "同定君挈崇儿游大世界",
+        "date": "1922-01-01"
+      }
+    ],
+    "txns": []
+  },
+  "per_chen_shuyi": {
+    "id": "per_chen_shuyi",
+    "label": "陈叔伊",
+    "canonical": "陈叔伊",
+    "aliases": [
+      "陈叔伊"
+    ],
+    "merged_ids": [
+      "per_chen_shuyi"
+    ],
+    "degree": 1,
+    "relations": {
+      "拜访": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 1
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "拜访",
+        "evidence": "答拜陈叔伊,不晤",
+        "date": "1923-02-28"
+      }
+    ],
+    "txns": []
+  },
+  "per_liu_xizhi": {
+    "id": "per_liu_xizhi",
+    "label": "刘锡之",
+    "canonical": "刘锡之",
+    "aliases": [
+      "刘锡之"
+    ],
+    "merged_ids": [
+      "per_liu_xizhi"
+    ],
+    "degree": 1,
+    "relations": {
+      "拜访": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 1
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "拜访",
+        "evidence": "拜...刘锡之...不遇",
+        "date": "1923-03-01"
+      }
+    ],
+    "txns": []
+  },
+  "per_zhang_zhongzhao": {
+    "id": "per_zhang_zhongzhao",
+    "label": "张仲昭",
+    "canonical": "张仲昭",
+    "aliases": [
+      "张仲昭"
+    ],
+    "merged_ids": [
+      "per_zhang_zhongzhao"
+    ],
+    "degree": 6,
+    "relations": {
+      "拜访": 3,
+      "致书": 2,
+      "转交": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 4
+      },
+      {
+        "id": "per_zhang_jingsheng",
+        "label": "张静生",
+        "count": 1
+      },
+      {
+        "id": "per_ding_angong",
+        "label": "丁闇公",
+        "count": 1
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "拜访",
+        "evidence": "拜...张仲昭...不遇",
+        "date": "1923-03-01"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "拜访",
+        "evidence": "张仲昭来,谭张、李两家改婚期",
+        "date": "1923-03-03"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "致书",
+        "evidence": "张仲昭函告,李、张两家婚期",
+        "date": "1923-03-06"
+      },
+      {
+        "other": "per_zhang_jingsheng",
+        "direction": "out",
+        "relation": "拜访",
+        "evidence": "同张仲昭为张静生之公子...作冰人，行聘礼",
+        "date": "1921-07-14"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "致书",
+        "evidence": "致张仲昭书。闇公书请转寄",
+        "date": "1922-09-20"
+      },
+      {
+        "other": "per_ding_angong",
+        "direction": "in",
+        "relation": "转交",
+        "evidence": "致张仲昭书。闇公书请转寄",
+        "date": "1922-09-20"
+      }
+    ],
+    "txns": []
+  },
+  "per_jiang_ganqing": {
+    "id": "per_jiang_ganqing",
+    "label": "江幹卿",
+    "canonical": "江幹卿",
+    "aliases": [
+      "江幹卿",
+      "幹卿"
+    ],
+    "merged_ids": [
+      "per_jiang_ganqing",
+      "per_gan_qing"
+    ],
+    "degree": 13,
+    "relations": {
+      "拜访": 4,
+      "致书": 3,
+      "资助": 2,
+      "赠": 2,
+      "同席": 2
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 7
+      },
+      {
+        "id": "per_shu_yongzhi",
+        "label": "舒咏芝",
+        "count": 1
+      },
+      {
+        "id": "per_wu_jichen",
+        "label": "吴寄尘",
+        "count": 1
+      },
+      {
+        "id": "per_tui_lao",
+        "label": "退老",
+        "count": 1
+      },
+      {
+        "id": "per_liang_xing",
+        "label": "徐亮星",
+        "count": 1
+      },
+      {
+        "id": "per_xu_jiyu",
+        "label": "徐积余",
+        "count": 1
+      },
+      {
+        "id": "per_wang_duzhai",
+        "label": "汪笃斋",
+        "count": 1
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "拜访",
+        "evidence": "又拜陈戒庵、徐静仁、江幹卿,略谭",
+        "date": "1923-03-01"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "拜访",
+        "evidence": "江幹卿来谭",
+        "date": "1920-06-13"
+      },
+      {
+        "other": "per_shu_yongzhi",
+        "direction": "in",
+        "relation": "致书",
+        "evidence": "舒咏芝来...拟同幹卿联姻，属作冰人",
+        "date": "1920-06-14"
+      },
+      {
+        "other": "per_wu_jichen",
+        "direction": "in",
+        "relation": "资助",
+        "evidence": "寄尘先代付调查大纲川资二百元，即交幹卿收存",
+        "date": "1920-06-21"
+      },
+      {
+        "other": "per_tui_lao",
+        "direction": "in",
+        "relation": "资助",
+        "evidence": "同幹卿各二百元，当婉辞谢",
+        "date": "1920-07-17"
+      },
+      {
+        "other": "per_liang_xing",
+        "direction": "out",
+        "relation": "拜访",
+        "evidence": "吴蝶卿、江幹卿、李拔可、徐子丹来谭",
+        "date": "1920-07-23"
+      },
+      {
+        "other": "per_xu_jiyu",
+        "direction": "in",
+        "relation": "拜访",
+        "evidence": "晨至江幹卿处谈话",
+        "date": "1920-11-11"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "赠",
+        "evidence": "同汪笃斋送江幹卿幃、烛，共六元八角",
+        "date": "1920-12-05"
+      },
+      {
+        "other": "per_wang_duzhai",
+        "direction": "in",
+        "relation": "赠",
+        "evidence": "同汪笃斋送江幹卿幃、烛，共六元八角",
+        "date": "1920-12-05"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "同席",
+        "evidence": "晚，江幹卿、汉珊约酒叙",
+        "date": "1920-12-06"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "同席",
+        "evidence": "晚，赴江幹卿一枝香之约",
+        "date": "1920-12-18"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "致书",
+        "evidence": "汪甘卿同年来书",
+        "date": "1921-06-15"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "致书",
+        "evidence": "复甘卿书",
+        "date": "1921-06-18"
+      }
+    ],
+    "txns": []
+  },
+  "per_shen_yanmou": {
+    "id": "per_shen_yanmou",
+    "label": "沈燕谋",
+    "canonical": "沈燕谋",
+    "aliases": [
+      "沈燕谋"
+    ],
+    "merged_ids": [
+      "per_shen_yanmou"
+    ],
+    "degree": 2,
+    "relations": {
+      "拜访": 1,
+      "致书": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 2
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "拜访",
+        "evidence": "至大生,晤沈燕谋",
+        "date": "1923-03-02"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "致书",
+        "evidence": "并告沈燕谋",
+        "date": "1920-06-12"
+      }
+    ],
+    "txns": []
+  },
+  "per_jiang_shenxiu": {
+    "id": "per_jiang_shenxiu",
+    "label": "江慎修",
+    "canonical": "江慎修",
+    "aliases": [
+      "江慎修先生"
+    ],
+    "merged_ids": [
+      "per_jiang_shenxiu"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_xu": {
+    "id": "per_xu",
+    "label": "许省长",
+    "canonical": "许省长",
+    "aliases": [
+      "许省长",
+      "省长",
+      "许"
+    ],
+    "merged_ids": [
+      "per_xu_shengzhang",
+      "per_xu",
+      "per_xu_sheng_zhang"
+    ],
+    "degree": 1,
+    "relations": {
+      "致书": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 1
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "致书",
+        "evidence": "接许省长蒸电",
+        "date": "1922-12-11"
+      }
+    ],
+    "txns": []
+  },
+  "per_lv": {
+    "id": "per_lv",
+    "label": "吕省长",
+    "canonical": "吕省长",
+    "aliases": [
+      "吕"
+    ],
+    "merged_ids": [
+      "per_lv"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_li": {
+    "id": "per_li",
+    "label": "李(意气之争)",
+    "canonical": "李",
+    "aliases": [
+      "李"
+    ],
+    "merged_ids": [
+      "per_li"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_guan_jianfan": {
+    "id": "per_guan_jianfan",
+    "label": "关建藩",
+    "canonical": "关建藩",
+    "aliases": [
+      "关建藩"
+    ],
+    "merged_ids": [
+      "per_guan_jianfan"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_li_shumei": {
+    "id": "per_li_shumei",
+    "label": "李淑梅",
+    "canonical": "李淑梅",
+    "aliases": [
+      "李淑梅"
+    ],
+    "merged_ids": [
+      "per_li_shumei"
+    ],
+    "degree": 1,
+    "relations": {
+      "拜访": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 1
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "拜访",
+        "evidence": "李淑梅庵同年侄。来,为东南大学募所刻各书",
+        "date": "1923-03-03"
+      }
+    ],
+    "txns": []
+  },
+  "per_zhao_younan": {
+    "id": "per_zhao_younan",
+    "label": "赵幼南",
+    "canonical": "赵幼南",
+    "aliases": [
+      "赵幼南"
+    ],
+    "merged_ids": [
+      "per_zhao_younan"
+    ],
+    "degree": 3,
+    "relations": {
+      "拜访": 2,
+      "致书": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 3
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "拜访",
+        "evidence": "至仁济堂，晤戒安、宋廷、幼南、知白",
+        "date": "1921-12-16"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "拜访",
+        "evidence": "陈乃乾、郑翰生、希云、赵幼南、刘公鲁暨冠英侄来贺",
+        "date": "1922-01-27"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "致书",
+        "evidence": "覆赵幼南书",
+        "date": "1922-08-15"
+      }
+    ],
+    "txns": []
+  },
+  "per_li_shaomu": {
+    "id": "per_li_shaomu",
+    "label": "李少穆",
+    "canonical": "李少穆",
+    "aliases": [
+      "李少穆"
+    ],
+    "merged_ids": [
+      "per_li_shaomu"
+    ],
+    "degree": 3,
+    "relations": {
+      "拜访": 2,
+      "致书": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 3
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "拜访",
+        "evidence": "李少穆、汪禹丞来",
+        "date": "1923-03-06"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "拜访",
+        "evidence": "拜洪希甫、李少穆、汪禹丞,不晤",
+        "date": "1923-03-06"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "致书",
+        "evidence": "晤谭,当复一书",
+        "date": "1921-09-26"
+      }
+    ],
+    "txns": []
+  },
+  "per_wang_yucheng": {
+    "id": "per_wang_yucheng",
+    "label": "汪禹丞",
+    "canonical": "汪禹丞",
+    "aliases": [
+      "汪禹丞"
+    ],
+    "merged_ids": [
+      "per_wang_yucheng"
+    ],
+    "degree": 2,
+    "relations": {
+      "拜访": 2
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 2
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "拜访",
+        "evidence": "李少穆、汪禹丞来",
+        "date": "1923-03-06"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "拜访",
+        "evidence": "拜洪希甫、李少穆、汪禹丞,不晤",
+        "date": "1923-03-06"
+      }
+    ],
+    "txns": []
+  },
+  "per_li_zhongshuai": {
+    "id": "per_li_zhongshuai",
+    "label": "李仲帅",
+    "canonical": "李仲帅",
+    "aliases": [
+      "李仲帅"
+    ],
+    "merged_ids": [
+      "per_li_zhongshuai"
+    ],
+    "degree": 6,
+    "relations": {
+      "拜访": 3,
+      "致书": 2,
+      "赠": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 2
+      },
+      {
+        "id": "per_hanxi",
+        "label": "汉溪",
+        "count": 2
+      },
+      {
+        "id": "per_chen_shaozhou",
+        "label": "陈少舟",
+        "count": 1
+      },
+      {
+        "id": "per_yu_shoulao",
+        "label": "余寿老",
+        "count": 1
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "拜访",
+        "evidence": "拜李仲帅,未晤(by 徐乃昌)",
+        "date": "1920-09-14"
+      },
+      {
+        "other": "per_chen_shaozhou",
+        "direction": "in",
+        "relation": "拜访",
+        "evidence": "至李仲帅、陈少舟处,略谭",
+        "date": "1921-03-10"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "拜访",
+        "evidence": "李仲帅、罗子经来谭",
+        "date": "1921-03-15"
+      },
+      {
+        "other": "per_yu_shoulao",
+        "direction": "in",
+        "relation": "致书",
+        "evidence": "覆李仲帅书",
+        "date": "1921-04-13"
+      },
+      {
+        "other": "per_hanxi",
+        "direction": "out",
+        "relation": "致书",
+        "evidence": "致军长电稿已交汉溪",
+        "date": "1921-04-13"
+      },
+      {
+        "other": "per_hanxi",
+        "direction": "in",
+        "relation": "赠",
+        "evidence": "汉溪赠仲帅寿言",
+        "date": "1921-06-24"
+      }
+    ],
+    "txns": []
+  },
+  "per_wang_piexun": {
+    "id": "per_wang_piexun",
+    "label": "汪撇荀",
+    "canonical": "汪撇荀",
+    "aliases": [
+      "汪撇荀"
+    ],
+    "merged_ids": [
+      "per_wang_piexun"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_wang_younong": {
+    "id": "per_wang_younong",
+    "label": "汪幼农",
+    "canonical": "汪幼农",
+    "aliases": [
+      "汪幼农",
+      "幼农"
+    ],
+    "merged_ids": [
+      "per_wang_younong",
+      "per_younong"
+    ],
+    "degree": 6,
+    "relations": {
+      "致书": 2,
+      "拜访": 1,
+      "赠": 1,
+      "转交": 1,
+      "同席": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 6
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "拜访",
+        "evidence": "汪幼农参谋长，庆辰，夥县",
+        "date": "1921-05-14"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "赠",
+        "evidence": "赠荣贯卿旅长、汪幼农参谋长百合",
+        "date": "1921-07-26"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "致书",
+        "evidence": "汪幼农来书，慈善副券皖振余款",
+        "date": "1921-10-12"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "致书",
+        "evidence": "覆汪幼农书",
+        "date": "1921-10-13"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "转交",
+        "evidence": "告幼农转致慈善券一万元游艺会",
+        "date": "1922-03-10"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "同席",
+        "evidence": "汪幼农约一枝香西餐，会议皖振戏资八千元",
+        "date": "1922-04-15"
+      }
+    ],
+    "txns": [
+      {
+        "date": "1922-07-15",
+        "label": "振务捐款共2,400元",
+        "evidence": "陈少舟捐壹千元",
+        "amount": null,
+        "direction": null,
+        "relation": "资助"
+      }
+    ]
+  },
+  "per_ma_lianjia": {
+    "id": "per_ma_lianjia",
+    "label": "马联甲",
+    "canonical": "马联甲",
+    "aliases": [
+      "马联甲"
+    ],
+    "merged_ids": [
+      "per_ma_lianjia"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_li_cishan": {
+    "id": "per_li_cishan",
+    "label": "李次山",
+    "canonical": "李次山",
+    "aliases": [
+      "李次山"
+    ],
+    "merged_ids": [
+      "per_li_cishan"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_yu_gumin_mother": {
+    "id": "per_yu_gumin_mother",
+    "label": "余穀民之太夫人",
+    "canonical": "余穀民之母",
+    "aliases": [
+      "余穀民之太夫人"
+    ],
+    "merged_ids": [
+      "per_yu_gumin_mother"
+    ],
+    "degree": 2,
+    "relations": {
+      "赠": 1,
+      "亲属": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 1
+      },
+      {
+        "id": "per_yu_gumin",
+        "label": "余穀民",
+        "count": 1
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "赠",
+        "evidence": "送余穀民之太夫人素宁绸挽幃",
+        "date": "1923-03-15"
+      },
+      {
+        "other": "per_yu_gumin",
+        "direction": "out",
+        "relation": "亲属",
+        "evidence": "余穀民之太夫人",
+        "date": "1923-03-15"
+      }
+    ],
+    "txns": []
+  },
+  "per_yu_gumin": {
+    "id": "per_yu_gumin",
+    "label": "余穀民",
+    "canonical": "余穀民",
+    "aliases": [
+      "余穀民"
+    ],
+    "merged_ids": [
+      "per_yu_gumin"
+    ],
+    "degree": 2,
+    "relations": {
+      "亲属": 1,
+      "转交": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_yu_gumin_mother",
+        "label": "余穀民之太夫人",
+        "count": 1
+      },
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 1
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_yu_gumin_mother",
+        "direction": "in",
+        "relation": "亲属",
+        "evidence": "余穀民之太夫人",
+        "date": "1923-03-15"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "转交",
+        "evidence": "余穀民洵。转许俊人省长覆电并报纸二分",
+        "date": "1922-09-21"
+      }
+    ],
+    "txns": []
+  },
+  "per_fan_weijun": {
+    "id": "per_fan_weijun",
+    "label": "范纬君",
+    "canonical": "范纬君",
+    "aliases": [
+      "范纬君"
+    ],
+    "merged_ids": [
+      "per_fan_weijun"
+    ],
+    "degree": 2,
+    "relations": {
+      "拜访": 1,
+      "赠": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 2
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "拜访",
+        "evidence": "康更生、范纬君来，均未晤",
+        "date": "1923-03-17"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "赠",
+        "evidence": "送范纬君之太夫人呢幢",
+        "date": "1922-12-02"
+      }
+    ],
+    "txns": []
+  },
+  "per_ren_xinzi": {
+    "id": "per_ren_xinzi",
+    "label": "任心自",
+    "canonical": "任心自",
+    "aliases": [
+      "任心自"
+    ],
+    "merged_ids": [
+      "per_ren_xinzi"
+    ],
+    "degree": 3,
+    "relations": {
+      "致书": 2,
+      "赠": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 3
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "致书",
+        "evidence": "任心自来书，赠黄涵之编《净业指南》四册",
+        "date": "1923-03-17"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "赠",
+        "evidence": "赠黄涵之编《净业指南》四册，又赠展成四册",
+        "date": "1923-03-17"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "致书",
+        "evidence": "致任心自书。告寄尘、寀臣为扬州各寺募款请续藏",
+        "date": "1923-03-19"
+      }
+    ],
+    "txns": []
+  },
+  "per_huang_hanzhi": {
+    "id": "per_huang_hanzhi",
+    "label": "黄涵之",
+    "canonical": "黄涵之",
+    "aliases": [
+      "黄涵之"
+    ],
+    "merged_ids": [
+      "per_huang_hanzhi"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_bao_zilai": {
+    "id": "per_bao_zilai",
+    "label": "鲍紫来",
+    "canonical": "鲍紫来",
+    "aliases": [
+      "鲍紫来"
+    ],
+    "merged_ids": [
+      "per_bao_zilai"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_han_ziyuan": {
+    "id": "per_han_ziyuan",
+    "label": "韩滋源",
+    "canonical": "韩滋源",
+    "aliases": [
+      "韩滋源"
+    ],
+    "merged_ids": [
+      "per_han_ziyuan"
+    ],
+    "degree": 2,
+    "relations": {
+      "致书": 1,
+      "拜访": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 2
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "致书",
+        "evidence": "致韩滋源书，北京琉璃厂翰文斋",
+        "date": "1923-03-19"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "拜访",
+        "evidence": "访韩滋源谭",
+        "date": "1922-01-16"
+      }
+    ],
+    "txns": []
+  },
+  "per_wu_yisheng": {
+    "id": "per_wu_yisheng",
+    "label": "吴怡生",
+    "canonical": "吴怡生",
+    "aliases": [
+      "吴怡生"
+    ],
+    "merged_ids": [
+      "per_wu_yisheng"
+    ],
+    "degree": 4,
+    "relations": {
+      "转交": 2,
+      "赠": 1,
+      "亲属": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 2
+      },
+      {
+        "id": "per_di_zhancheng",
+        "label": "翟展成",
+        "count": 1
+      },
+      {
+        "id": "per_wu_gaoshi",
+        "label": "吴高氏",
+        "count": 1
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_di_zhancheng",
+        "direction": "in",
+        "relation": "转交",
+        "evidence": "交展成代送",
+        "date": "1921-04-18"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "赠",
+        "evidence": "赠宣纸《徐骑省集》",
+        "date": "1921-08-04"
+      },
+      {
+        "other": "per_wu_gaoshi",
+        "direction": "out",
+        "relation": "亲属",
+        "evidence": "吴怡生之母吴高氏",
+        "date": "1921-11-17"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "转交",
+        "evidence": "以吴怡生之母太夫人匾额托陈西甫交吴",
+        "date": "1921-11-18"
+      }
+    ],
+    "txns": [
+      {
+        "date": "1921-02-22",
+        "label": "吴怡生太夫人高氏遗命捐振壹千元",
+        "evidence": "吴怡生之太夫人高氏遗命捐振壹千元",
+        "amount": "壹千元",
+        "direction": null,
+        "relation": "资助"
+      },
+      {
+        "date": "1921-04-18",
+        "label": "送旧素缎幢",
+        "evidence": "送吴怡生之太夫人旧素缎幢，交展成代送",
+        "amount": null,
+        "direction": "gift_via",
+        "relation": "受赠"
+      }
+    ]
+  },
+  "per_li_baoban": {
+    "id": "per_li_baoban",
+    "label": "李葆般",
+    "canonical": "李葆般",
+    "aliases": [
+      "李葆般"
+    ],
+    "merged_ids": [
+      "per_li_baoban"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_he_youmian": {
+    "id": "per_he_youmian",
+    "label": "何幼冕",
+    "canonical": "何幼冕",
+    "aliases": [
+      "何幼冕"
+    ],
+    "merged_ids": [
+      "per_he_youmian"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_you": {
+    "id": "per_you",
+    "label": "佑 (徐乃昌之子)",
+    "canonical": "佑",
+    "aliases": [
+      "佑"
+    ],
+    "merged_ids": [
+      "per_you",
+      "per_xu_you"
+    ],
+    "degree": 3,
+    "relations": {
+      "亲属": 2,
+      "师友": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 2
+      },
+      {
+        "id": "per_zheng_hansheng",
+        "label": "郑翰生",
+        "count": 1
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "亲属",
+        "evidence": "晨送崇、佑两儿入学",
+        "date": "1923-03-22"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "亲属",
+        "evidence": "挈崇、佑两儿至商务书馆",
+        "date": "1921-07-08"
+      },
+      {
+        "other": "per_zheng_hansheng",
+        "direction": "in",
+        "relation": "师友",
+        "evidence": "约郑翰生八月初一日到寓，授崇、佑两儿英文",
+        "date": "1922-09-17"
+      }
+    ],
+    "txns": []
+  },
+  "per_yushan_heshang": {
+    "id": "per_yushan_heshang",
+    "label": "雨山和尚",
+    "canonical": "雨山和尚",
+    "aliases": [
+      "雨山和尚"
+    ],
+    "merged_ids": [
+      "per_yushan_heshang"
+    ],
+    "degree": 1,
+    "relations": {
+      "拜访": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 1
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "拜访",
+        "evidence": "崇宁寺雨山和尚来",
+        "date": "1923-03-22"
+      }
+    ],
+    "txns": []
+  },
+  "per_qian_zunwang": {
+    "id": "per_qian_zunwang",
+    "label": "钱尊王",
+    "canonical": "钱尊王",
+    "aliases": [
+      "钱尊王"
+    ],
+    "merged_ids": [
+      "per_qian_zunwang"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_wu_meian": {
+    "id": "per_wu_meian",
+    "label": "吴枚庵",
+    "canonical": "吴枚庵",
+    "aliases": [
+      "吴枚庵"
+    ],
+    "merged_ids": [
+      "per_wu_meian"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_zhang_ery": {
+    "id": "per_zhang_ery",
+    "label": "张萼如",
+    "canonical": "张廷华 (字萼如)",
+    "aliases": [
+      "张萼如廷华"
+    ],
+    "merged_ids": [
+      "per_zhang_ery"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_feng_guangjiu_n": {
+    "id": "per_feng_guangjiu_n",
+    "label": "冯光久之女公子",
+    "canonical": "冯光久之女",
+    "aliases": [
+      "冯光久之女公子"
+    ],
+    "merged_ids": [
+      "per_feng_guangjiu_n"
+    ],
+    "degree": 1,
+    "relations": {
+      "亲属": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_feng_guangjiu",
+        "label": "冯光久",
+        "count": 1
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_feng_guangjiu",
+        "direction": "out",
+        "relation": "亲属",
+        "evidence": "冯光久之女公子回通",
+        "date": "1923-03-22"
+      }
+    ],
+    "txns": []
+  },
+  "per_lao_jiliu": {
+    "id": "per_lao_jiliu",
+    "label": "劳吉六",
+    "canonical": "劳吉六",
+    "aliases": [
+      "劳吉六",
+      "吉六"
+    ],
+    "merged_ids": [
+      "per_lao_jiliu",
+      "per_jiliu"
+    ],
+    "degree": 9,
+    "relations": {
+      "拜访": 3,
+      "赠": 2,
+      "致书": 2,
+      "亲属": 1,
+      "资助": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 7
+      },
+      {
+        "id": "per_zhengxiang",
+        "label": "正祥",
+        "count": 1
+      },
+      {
+        "id": "per_zhang_cha",
+        "label": "张察",
+        "count": 1
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "赠",
+        "evidence": "送分洋廿元并贺函，并托转致。未收",
+        "date": "1923-03-22"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "赠",
+        "evidence": "劳吉六甘肃寄赠《大般若波罗蜜多经》一卷",
+        "date": "1921-08-12"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "拜访",
+        "evidence": "劳吉六来",
+        "date": "1922-02-16"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "致书",
+        "evidence": "劳吉六来函",
+        "date": "1922-03-09"
+      },
+      {
+        "other": "per_zhengxiang",
+        "direction": "out",
+        "relation": "亲属",
+        "evidence": "为其子正祥在南通模范纱厂学习",
+        "date": "1922-03-09"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "资助",
+        "evidence": "又寄还，假洋十元",
+        "date": "1922-03-09"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "致书",
+        "evidence": "覆劳吉六书",
+        "date": "1922-03-13"
+      },
+      {
+        "other": "per_zhang_cha",
+        "direction": "out",
+        "relation": "拜访",
+        "evidence": "龚伯厚、劳吉六、章希璦来谭",
+        "date": "1922-06-27"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "拜访",
+        "evidence": "复至冯光久、劳吉六、刘烈卿谭",
+        "date": "1922-07-09"
+      }
+    ],
+    "txns": []
+  },
+  "per_xianronglu_gong": {
+    "id": "per_xianronglu_gong",
+    "label": "先荣禄公",
+    "canonical": "先荣禄公 (徐乃昌先人)",
+    "aliases": [
+      "先荣禄公"
+    ],
+    "merged_ids": [
+      "per_xianronglu_gong",
+      "per_xian_ronglu_gong"
+    ],
+    "degree": 1,
+    "relations": {
+      "亲属": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 1
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "亲属",
+        "evidence": "先荣禄公忌日",
+        "date": "1923-03-23"
+      }
+    ],
+    "txns": []
+  },
+  "per_yu_yaoqu": {
+    "id": "per_yu_yaoqu",
+    "label": "余尧衢",
+    "canonical": "余尧衢",
+    "aliases": [
+      "余尧衢"
+    ],
+    "merged_ids": [
+      "per_yu_yaoqu"
+    ],
+    "degree": 4,
+    "relations": {
+      "拜访": 2,
+      "赠": 1,
+      "同席": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 4
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "拜访",
+        "evidence": "余尧衢、刘健之来谭",
+        "date": "1923-03-23"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "拜访",
+        "evidence": "贺余尧衢夫人寿",
+        "date": "1922-02-07"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "赠",
+        "evidence": "并赠宣纸《徐公文集》",
+        "date": "1922-02-11"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "同席",
+        "evidence": "午刻，余尧衢约陶乐春酒叙",
+        "date": "1922-03-13"
+      }
+    ],
+    "txns": []
+  },
+  "per_liu_xunfu": {
+    "id": "per_liu_xunfu",
+    "label": "刘逊甫",
+    "canonical": "刘逊甫",
+    "aliases": [
+      "刘逊甫"
+    ],
+    "merged_ids": [
+      "per_liu_xunfu"
+    ],
+    "degree": 5,
+    "relations": {
+      "拜访": 2,
+      "赠": 1,
+      "亲属": 1,
+      "致书": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 4
+      },
+      {
+        "id": "per_mu_gong_zi",
+        "label": "木公子骏孙",
+        "count": 1
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "拜访",
+        "evidence": "刘逊甫来，未晤",
+        "date": "1923-03-23"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "拜访",
+        "evidence": "答拜逊甫，不遇",
+        "date": "1921-09-06"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "赠",
+        "evidence": "赠新印《法华三经》",
+        "date": "1922-02-20"
+      },
+      {
+        "other": "per_mu_gong_zi",
+        "direction": "in",
+        "relation": "亲属",
+        "evidence": "逊甫婿、木公子号骏孙",
+        "date": "1922-02-20"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "致书",
+        "evidence": "刘逊甫来函,为友购《佛学大辞典》",
+        "date": "1922-05-11"
+      }
+    ],
+    "txns": []
+  },
+  "per_zhou_zhongfu": {
+    "id": "per_zhou_zhongfu",
+    "label": "周中孚",
+    "canonical": "周中孚",
+    "aliases": [
+      "周中孚"
+    ],
+    "merged_ids": [
+      "per_zhou_zhongfu"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_zhang_xuecheng": {
+    "id": "per_zhang_xuecheng",
+    "label": "章学诚",
+    "canonical": "章学诚",
+    "aliases": [
+      "章学诚"
+    ],
+    "merged_ids": [
+      "per_zhang_xuecheng"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_mou_yue": {
+    "id": "per_mou_yue",
+    "label": "牟嶽",
+    "canonical": "牟嶽",
+    "aliases": [
+      "宋牟嶽"
+    ],
+    "merged_ids": [
+      "per_mou_yue"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_chen_minghai": {
+    "id": "per_chen_minghai",
+    "label": "陈铭海",
+    "canonical": "陈铭海",
+    "aliases": [
+      "陈铭海"
+    ],
+    "merged_ids": [
+      "per_chen_minghai"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_meng_lin": {
+    "id": "per_meng_lin",
+    "label": "梦麟",
+    "canonical": "梦麟",
+    "aliases": [
+      "梦麟"
+    ],
+    "merged_ids": [
+      "per_meng_lin"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_li_cuo": {
+    "id": "per_li_cuo",
+    "label": "李错",
+    "canonical": "李错",
+    "aliases": [
+      "李错"
+    ],
+    "merged_ids": [
+      "per_li_cuo"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_chang_hai": {
+    "id": "per_chang_hai",
+    "label": "长海",
+    "canonical": "长海",
+    "aliases": [
+      "长海"
+    ],
+    "merged_ids": [
+      "per_chang_hai"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_shen_qiquan": {
+    "id": "per_shen_qiquan",
+    "label": "沈淇泉",
+    "canonical": "沈淇泉",
+    "aliases": [
+      "沈淇泉"
+    ],
+    "merged_ids": [
+      "per_shen_qiquan"
+    ],
+    "degree": 3,
+    "relations": {
+      "赠": 1,
+      "亲属": 1,
+      "拜访": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "count": 2
+      },
+      {
+        "id": "per_shen_jitu",
+        "label": "沈季图",
+        "count": 1
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "赠",
+        "evidence": "沈淇泉子季图完姻，送分洋二元",
+        "date": "1923-03-24"
+      },
+      {
+        "other": "per_shen_jitu",
+        "direction": "in",
+        "relation": "亲属",
+        "evidence": "沈淇泉子季图",
+        "date": "1923-03-24"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "拜访",
+        "evidence": "祝沈淇泉六十寿",
+        "date": "1921-06-14"
+      }
+    ],
+    "txns": []
+  },
+  "per_shen_jitu": {
+    "id": "per_shen_jitu",
+    "label": "沈季图",
+    "canonical": "沈季图",
+    "aliases": [
+      "季图"
+    ],
+    "merged_ids": [
+      "per_shen_jitu"
+    ],
+    "degree": 1,
+    "relations": {
+      "亲属": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_shen_qiquan",
+        "label": "沈淇泉",
+        "count": 1
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_shen_qiquan",
+        "direction": "out",
+        "relation": "亲属",
+        "evidence": "沈淇泉子季图",
+        "date": "1923-03-24"
+      }
+    ],
+    "txns": []
+  },
+  "per_chen_daotan": {
+    "id": "per_chen_daotan",
+    "label": "陈道坦",
+    "canonical": "陈道坦",
+    "aliases": [
+      "陈道坦"
+    ],
+    "merged_ids": [
+      "per_chen_daotan"
+    ],
+    "degree": 0,
+    "relations": {},
+    "top_neighbours": [],
+    "sample_edges": [],
+    "txns": []
+  },
+  "per_li_zuwang": {
+    "id": "per_li_zuwang",
+    "label": "李祖望",
+    "canonical": "李祖望 (号宾嶠)",
+    "aliases": [
+      "宾嶠先生祖望"
+    ],
+    "merged_ids": [
+      "per_li_zuwang"
+    ],
+    "degree": 1,
+    "relations": {
+      "亲属": 1
+    },
+    "top_neighbours": [
+      {
+        "id": "per_li_yuanzhi",
+        "label": "李元之",
+        "count": 1
+      }
+    ],
+    "sample_edges": [
+      {
+        "other": "per_li_yuanzhi",
+        "direction": "out",
+        "relation": "亲属",
+        "evidence": "假读李元之祖宾嶠先生祖望",
+        "date": "1923-03-25"
+      }
+    ],
+    "txns": []
   },
   "per_jianfu": {
     "id": "per_jianfu",
@@ -33018,158 +35409,6 @@
         "relation": "赠",
         "evidence": "夏泽承赠券",
         "date": "1920-06-04"
-      }
-    ],
-    "txns": []
-  },
-  "per_jiang_ganqing": {
-    "id": "per_jiang_ganqing",
-    "label": "江幹卿",
-    "canonical": "江幹卿",
-    "aliases": [
-      "幹卿",
-      "江幹卿"
-    ],
-    "merged_ids": [
-      "per_jiang_ganqing",
-      "per_gan_qing"
-    ],
-    "degree": 13,
-    "relations": {
-      "拜访": 4,
-      "致书": 3,
-      "资助": 2,
-      "赠": 2,
-      "同席": 2
-    },
-    "top_neighbours": [
-      {
-        "id": "per_xu_naichang",
-        "label": "徐乃昌",
-        "count": 7
-      },
-      {
-        "id": "per_shu_yongzhi",
-        "label": "舒咏芝",
-        "count": 1
-      },
-      {
-        "id": "per_wu_jichen",
-        "label": "吴寄尘",
-        "count": 1
-      },
-      {
-        "id": "per_tui_lao",
-        "label": "退老",
-        "count": 1
-      },
-      {
-        "id": "per_liang_xing",
-        "label": "徐亮星",
-        "count": 1
-      },
-      {
-        "id": "per_xu_jiyu",
-        "label": "徐积余",
-        "count": 1
-      },
-      {
-        "id": "per_wang_duzhai",
-        "label": "汪笃斋",
-        "count": 1
-      }
-    ],
-    "sample_edges": [
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "拜访",
-        "evidence": "江幹卿来谭",
-        "date": "1920-06-13"
-      },
-      {
-        "other": "per_shu_yongzhi",
-        "direction": "in",
-        "relation": "致书",
-        "evidence": "舒咏芝来...拟同幹卿联姻，属作冰人",
-        "date": "1920-06-14"
-      },
-      {
-        "other": "per_wu_jichen",
-        "direction": "in",
-        "relation": "资助",
-        "evidence": "寄尘先代付调查大纲川资二百元，即交幹卿收存",
-        "date": "1920-06-21"
-      },
-      {
-        "other": "per_tui_lao",
-        "direction": "in",
-        "relation": "资助",
-        "evidence": "同幹卿各二百元，当婉辞谢",
-        "date": "1920-07-17"
-      },
-      {
-        "other": "per_liang_xing",
-        "direction": "out",
-        "relation": "拜访",
-        "evidence": "吴蝶卿、江幹卿、李拔可、徐子丹来谭",
-        "date": "1920-07-23"
-      },
-      {
-        "other": "per_xu_jiyu",
-        "direction": "in",
-        "relation": "拜访",
-        "evidence": "晨至江幹卿处谈话",
-        "date": "1920-11-11"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "赠",
-        "evidence": "同汪笃斋送江幹卿幃、烛，共六元八角",
-        "date": "1920-12-05"
-      },
-      {
-        "other": "per_wang_duzhai",
-        "direction": "in",
-        "relation": "赠",
-        "evidence": "同汪笃斋送江幹卿幃、烛，共六元八角",
-        "date": "1920-12-05"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "同席",
-        "evidence": "晚，江幹卿、汉珊约酒叙",
-        "date": "1920-12-06"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "同席",
-        "evidence": "晚，赴江幹卿一枝香之约",
-        "date": "1920-12-18"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "致书",
-        "evidence": "汪甘卿同年来书",
-        "date": "1921-06-15"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "致书",
-        "evidence": "复甘卿书",
-        "date": "1921-06-18"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "拜访",
-        "evidence": "又至江幹卿处谭",
-        "date": "1922-02-23"
       }
     ],
     "txns": []
@@ -33563,46 +35802,6 @@
     ],
     "txns": []
   },
-  "per_shen_yanmou": {
-    "id": "per_shen_yanmou",
-    "label": "沈燕谋",
-    "canonical": "沈燕谋",
-    "aliases": [
-      "沈燕谋"
-    ],
-    "merged_ids": [
-      "per_shen_yanmou"
-    ],
-    "degree": 2,
-    "relations": {
-      "拜访": 1,
-      "致书": 1
-    },
-    "top_neighbours": [
-      {
-        "id": "per_xu_naichang",
-        "label": "徐乃昌",
-        "count": 2
-      }
-    ],
-    "sample_edges": [
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "拜访",
-        "evidence": "至大生纱厂账房，晤沈燕谋",
-        "date": "1920-06-08"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "致书",
-        "evidence": "并告沈燕谋",
-        "date": "1920-06-12"
-      }
-    ],
-    "txns": []
-  },
   "per_xiyuan": {
     "id": "per_xiyuan",
     "label": "希媛",
@@ -33631,8 +35830,8 @@
         "count": 1
       },
       {
-        "id": "per_tuilao",
-        "label": "退老",
+        "id": "per_zhang_tuilao",
+        "label": "张退老",
         "count": 1
       }
     ],
@@ -33652,7 +35851,7 @@
         "date": "1921-08-16"
       },
       {
-        "other": "per_tuilao",
+        "other": "per_zhang_tuilao",
         "direction": "in",
         "relation": "转交",
         "evidence": "退老属希璦邀至城南别业",
@@ -34936,22 +37135,6 @@
         "date": "1920-06-19"
       }
     ],
-    "txns": []
-  },
-  "per_zhang_wenyan": {
-    "id": "per_zhang_wenyan",
-    "label": "张文艳",
-    "canonical": "张文艳",
-    "aliases": [
-      "张文艳"
-    ],
-    "merged_ids": [
-      "per_zhang_wenyan"
-    ],
-    "degree": 0,
-    "relations": {},
-    "top_neighbours": [],
-    "sample_edges": [],
     "txns": []
   },
   "per_xu_jingtingchang": {
@@ -39640,53 +41823,6 @@
     "sample_edges": [],
     "txns": []
   },
-  "per_zhao_younan": {
-    "id": "per_zhao_younan",
-    "label": "赵幼南",
-    "canonical": "赵幼南",
-    "aliases": [
-      "赵幼南"
-    ],
-    "merged_ids": [
-      "per_zhao_younan"
-    ],
-    "degree": 3,
-    "relations": {
-      "拜访": 2,
-      "致书": 1
-    },
-    "top_neighbours": [
-      {
-        "id": "per_xu_naichang",
-        "label": "徐乃昌",
-        "count": 3
-      }
-    ],
-    "sample_edges": [
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "拜访",
-        "evidence": "至仁济堂，晤戒安、宋廷、幼南、知白",
-        "date": "1921-12-16"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "拜访",
-        "evidence": "陈乃乾、郑翰生、希云、赵幼南、刘公鲁暨冠英侄来贺",
-        "date": "1922-01-27"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "致书",
-        "evidence": "覆赵幼南书",
-        "date": "1922-08-15"
-      }
-    ],
-    "txns": []
-  },
   "per_shenzhai": {
     "id": "per_shenzhai",
     "label": "慎斋",
@@ -41656,8 +43792,8 @@
         "count": 6
       },
       {
-        "id": "per_tuilao",
-        "label": "退老",
+        "id": "per_zhang_tuilao",
+        "label": "张退老",
         "count": 2
       },
       {
@@ -41682,7 +43818,7 @@
         "date": "1920-09-02"
       },
       {
-        "other": "per_tuilao",
+        "other": "per_zhang_tuilao",
         "direction": "out",
         "relation": "拜访",
         "evidence": "十二午后抵通，十三晨晤退老",
@@ -41724,7 +43860,7 @@
         "date": "1921-08-01"
       },
       {
-        "other": "per_tuilao",
+        "other": "per_zhang_tuilao",
         "direction": "out",
         "relation": "致书",
         "evidence": "嗇老、希璦均有电，促退老返通",
@@ -41805,59 +43941,6 @@
         "relation": "拜访",
         "evidence": "答拜傅尧生、弗生，不遇",
         "date": "1922-03-08"
-      }
-    ],
-    "txns": []
-  },
-  "per_you": {
-    "id": "per_you",
-    "label": "佑",
-    "canonical": "佑",
-    "aliases": [
-      "佑"
-    ],
-    "merged_ids": [
-      "per_you",
-      "per_xu_you"
-    ],
-    "degree": 3,
-    "relations": {
-      "亲属": 2,
-      "师友": 1
-    },
-    "top_neighbours": [
-      {
-        "id": "per_xu_naichang",
-        "label": "徐乃昌",
-        "count": 2
-      },
-      {
-        "id": "per_zheng_hansheng",
-        "label": "郑翰生",
-        "count": 1
-      }
-    ],
-    "sample_edges": [
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "亲属",
-        "evidence": "崇、佑两儿随侍",
-        "date": "1920-09-04"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "亲属",
-        "evidence": "挈崇、佑两儿至商务书馆",
-        "date": "1921-07-08"
-      },
-      {
-        "other": "per_zheng_hansheng",
-        "direction": "in",
-        "relation": "师友",
-        "evidence": "约郑翰生八月初一日到寓，授崇、佑两儿英文",
-        "date": "1922-09-17"
       }
     ],
     "txns": []
@@ -42625,53 +44708,6 @@
     "sample_edges": [],
     "txns": []
   },
-  "per_li_shaomu": {
-    "id": "per_li_shaomu",
-    "label": "李少穆",
-    "canonical": "李少穆",
-    "aliases": [
-      "李少穆"
-    ],
-    "merged_ids": [
-      "per_li_shaomu"
-    ],
-    "degree": 3,
-    "relations": {
-      "拜访": 2,
-      "致书": 1
-    },
-    "top_neighbours": [
-      {
-        "id": "per_xu_naichang",
-        "label": "徐乃昌",
-        "count": 3
-      }
-    ],
-    "sample_edges": [
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "拜访",
-        "evidence": "少穆至仁济堂,晤谭",
-        "date": "1921-09-26"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "致书",
-        "evidence": "晤谭,当复一书",
-        "date": "1921-09-26"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "拜访",
-        "evidence": "答拜张我华、李少穆，均不遇",
-        "date": "1921-09-27"
-      }
-    ],
-    "txns": []
-  },
   "per_liu_tizhi": {
     "id": "per_liu_tizhi",
     "label": "刘体智",
@@ -42782,91 +44818,6 @@
     "relations": {},
     "top_neighbours": [],
     "sample_edges": [],
-    "txns": []
-  },
-  "per_li_zhongshuai": {
-    "id": "per_li_zhongshuai",
-    "label": "李仲帅",
-    "canonical": "李仲帅",
-    "aliases": [
-      "李仲帅",
-      "李仲老"
-    ],
-    "merged_ids": [
-      "per_li_zhongshuai"
-    ],
-    "degree": 6,
-    "relations": {
-      "拜访": 3,
-      "致书": 2,
-      "赠": 1
-    },
-    "top_neighbours": [
-      {
-        "id": "per_xu_naichang",
-        "label": "徐乃昌",
-        "count": 2
-      },
-      {
-        "id": "per_hanxi",
-        "label": "汉溪",
-        "count": 2
-      },
-      {
-        "id": "per_chen_shaozhou",
-        "label": "陈少舟",
-        "count": 1
-      },
-      {
-        "id": "per_yu_shoulao",
-        "label": "余寿老",
-        "count": 1
-      }
-    ],
-    "sample_edges": [
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "拜访",
-        "evidence": "拜李仲帅,未晤(by 徐乃昌)",
-        "date": "1920-09-14"
-      },
-      {
-        "other": "per_chen_shaozhou",
-        "direction": "in",
-        "relation": "拜访",
-        "evidence": "至李仲帅、陈少舟处,略谭",
-        "date": "1921-03-10"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "拜访",
-        "evidence": "李仲帅、罗子经来谭",
-        "date": "1921-03-15"
-      },
-      {
-        "other": "per_yu_shoulao",
-        "direction": "in",
-        "relation": "致书",
-        "evidence": "覆李仲帅书",
-        "date": "1921-04-13"
-      },
-      {
-        "other": "per_hanxi",
-        "direction": "out",
-        "relation": "致书",
-        "evidence": "致军长电稿已交汉溪",
-        "date": "1921-04-13"
-      },
-      {
-        "other": "per_hanxi",
-        "direction": "in",
-        "relation": "赠",
-        "evidence": "汉溪赠仲帅寿言",
-        "date": "1921-06-24"
-      }
-    ],
     "txns": []
   },
   "per_yu_shoushuai": {
@@ -43037,23 +44988,33 @@
     "label": "张退老",
     "canonical": "张退老",
     "aliases": [
-      "张退老",
-      "退老"
+      "退老",
+      "退公",
+      "张退老"
     ],
     "merged_ids": [
+      "per_tuilao",
       "per_zhang_tuilao"
     ],
-    "degree": 4,
+    "degree": 22,
     "relations": {
-      "拜访": 1,
-      "同席": 1,
-      "致书": 1,
+      "致书": 7,
+      "拜访": 5,
+      "同席": 3,
+      "转交": 3,
+      "赠": 2,
+      "资助": 1,
       "亲属": 1
     },
     "top_neighbours": [
       {
         "id": "per_xu_naichang",
         "label": "徐乃昌",
+        "count": 10
+      },
+      {
+        "id": "per_xi_ai",
+        "label": "希璦",
         "count": 2
       },
       {
@@ -43062,12 +45023,73 @@
         "count": 1
       },
       {
+        "id": "per_xu_jiyu",
+        "label": "徐积余",
+        "count": 1
+      },
+      {
         "id": "per_zhang_lizu",
         "label": "张立祖",
+        "count": 1
+      },
+      {
+        "id": "per_wang_qiaosong",
+        "label": "王乔松",
+        "count": 1
+      },
+      {
+        "id": "per_selao",
+        "label": "嗇老",
+        "count": 1
+      },
+      {
+        "id": "per_xiyuan",
+        "label": "希媛",
+        "count": 1
+      },
+      {
+        "id": "per_deng_jun",
+        "label": "邓君",
+        "count": 1
+      },
+      {
+        "id": "per_jiang_zhiyuan",
+        "label": "江知源",
+        "count": 1
+      },
+      {
+        "id": "per_sha_jianan",
+        "label": "沙健庵",
+        "count": 1
+      },
+      {
+        "id": "per_jian_an",
+        "label": "健庵",
         "count": 1
       }
     ],
     "sample_edges": [
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "致书",
+        "evidence": "昨接退老书",
+        "date": "1923-02-24"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "资助",
+        "evidence": "奉退公命由庄汇解薪水一千八百元",
+        "date": "1923-02-27"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "致书",
+        "evidence": "覆张退老书",
+        "date": "1923-03-02"
+      },
       {
         "other": "per_xu_naichang",
         "direction": "in",
@@ -43083,11 +45105,11 @@
         "date": "1920-09-18"
       },
       {
-        "other": "per_xu_naichang",
+        "other": "per_xu_jiyu",
         "direction": "in",
-        "relation": "致书",
-        "evidence": "时作书告寄尘，转陈退老派人接洽",
-        "date": "1921-05-17"
+        "relation": "拜访",
+        "evidence": "向退老告别",
+        "date": "1920-11-11"
       },
       {
         "other": "per_zhang_lizu",
@@ -43095,6 +45117,111 @@
         "relation": "亲属",
         "evidence": "张退老之公子名立祖,字敬礼",
         "date": "1921-07-10"
+      },
+      {
+        "other": "per_xi_ai",
+        "direction": "in",
+        "relation": "拜访",
+        "evidence": "十二午后抵通，十三晨晤退老",
+        "date": "1921-07-18"
+      },
+      {
+        "other": "per_wang_qiaosong",
+        "direction": "in",
+        "relation": "转交",
+        "evidence": "将王乔松所评两造交退老阅过",
+        "date": "1921-07-18"
+      },
+      {
+        "other": "per_xi_ai",
+        "direction": "in",
+        "relation": "致书",
+        "evidence": "嗇老、希璦均有电，促退老返通",
+        "date": "1922-03-30"
+      },
+      {
+        "other": "per_selao",
+        "direction": "in",
+        "relation": "致书",
+        "evidence": "嗇老、希璦均有电，促退老返通",
+        "date": "1922-03-30"
+      },
+      {
+        "other": "per_xiyuan",
+        "direction": "out",
+        "relation": "转交",
+        "evidence": "退老属希璦邀至城南别业",
+        "date": "1922-04-27"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "赠",
+        "evidence": "赠退老荔支、花旗橘、九华茶、饼干",
+        "date": "1922-05-13"
+      },
+      {
+        "other": "per_deng_jun",
+        "direction": "out",
+        "relation": "拜访",
+        "evidence": "退老邀广东邓君望气",
+        "date": "1922-05-14"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "in",
+        "relation": "同席",
+        "evidence": "同退老至大生、海门三厂开股东会",
+        "date": "1922-05-14"
+      },
+      {
+        "other": "per_jiang_zhiyuan",
+        "direction": "out",
+        "relation": "致书",
+        "evidence": "退老属江知源商嗇老",
+        "date": "1922-05-17"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "赠",
+        "evidence": "退老赠咸鸭蛋二百五十枚",
+        "date": "1922-05-17"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "转交",
+        "evidence": "退老交寄大达内河轮船公司上下河各线行驶小轮概况",
+        "date": "1922-06-13"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "拜访",
+        "evidence": "退老适至天生港公宴毕，来谭",
+        "date": "1922-06-18"
+      },
+      {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "同席",
+        "evidence": "邀至大生厂午饭",
+        "date": "1922-08-01"
+      },
+      {
+        "other": "per_sha_jianan",
+        "direction": "in",
+        "relation": "致书",
+        "evidence": "带沙健庵复退老函",
+        "date": "1922-08-13"
+      },
+      {
+        "other": "per_jian_an",
+        "direction": "out",
+        "relation": "致书",
+        "evidence": "退老有电致健庵",
+        "date": "1922-10-19"
       }
     ],
     "txns": []
@@ -43146,8 +45273,8 @@
         "count": 1
       },
       {
-        "id": "per_tuilao",
-        "label": "退老",
+        "id": "per_zhang_tuilao",
+        "label": "张退老",
         "count": 1
       }
     ],
@@ -43188,7 +45315,7 @@
         "date": "1922-03-30"
       },
       {
-        "other": "per_tuilao",
+        "other": "per_zhang_tuilao",
         "direction": "out",
         "relation": "致书",
         "evidence": "嗇老、希璦均有电，促退老返通",
@@ -45292,7 +47419,7 @@
         "count": 2
       },
       {
-        "id": "per_chong_er",
+        "id": "per_chongr",
         "label": "崇儿",
         "count": 1
       }
@@ -45306,7 +47433,7 @@
         "date": "1920-10-11"
       },
       {
-        "other": "per_chong_er",
+        "other": "per_chongr",
         "direction": "out",
         "relation": "师友",
         "evidence": "崇儿师",
@@ -45572,88 +47699,6 @@
       }
     ],
     "txns": []
-  },
-  "per_wu_yisheng": {
-    "id": "per_wu_yisheng",
-    "label": "吴怡生",
-    "canonical": "吴怡生",
-    "aliases": [
-      "吴怡生"
-    ],
-    "merged_ids": [
-      "per_wu_yisheng"
-    ],
-    "degree": 4,
-    "relations": {
-      "转交": 2,
-      "赠": 1,
-      "亲属": 1
-    },
-    "top_neighbours": [
-      {
-        "id": "per_xu_naichang",
-        "label": "徐乃昌",
-        "count": 2
-      },
-      {
-        "id": "per_di_zhancheng",
-        "label": "翟展成",
-        "count": 1
-      },
-      {
-        "id": "per_wu_gaoshi",
-        "label": "吴高氏",
-        "count": 1
-      }
-    ],
-    "sample_edges": [
-      {
-        "other": "per_di_zhancheng",
-        "direction": "in",
-        "relation": "转交",
-        "evidence": "交展成代送",
-        "date": "1921-04-18"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "赠",
-        "evidence": "赠宣纸《徐骑省集》",
-        "date": "1921-08-04"
-      },
-      {
-        "other": "per_wu_gaoshi",
-        "direction": "out",
-        "relation": "亲属",
-        "evidence": "吴怡生之母吴高氏",
-        "date": "1921-11-17"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "转交",
-        "evidence": "以吴怡生之母太夫人匾额托陈西甫交吴",
-        "date": "1921-11-18"
-      }
-    ],
-    "txns": [
-      {
-        "date": "1921-02-22",
-        "label": "吴怡生太夫人高氏遗命捐振壹千元",
-        "evidence": "吴怡生之太夫人高氏遗命捐振壹千元",
-        "amount": "壹千元",
-        "direction": null,
-        "relation": "资助"
-      },
-      {
-        "date": "1921-04-18",
-        "label": "送旧素缎幢",
-        "evidence": "送吴怡生之太夫人旧素缎幢，交展成代送",
-        "amount": null,
-        "direction": "gift_via",
-        "relation": "受赠"
-      }
-    ]
   },
   "per_tu_fengting": {
     "id": "per_tu_fengting",
@@ -48181,8 +50226,8 @@
         "count": 1
       },
       {
-        "id": "per_tuilao",
-        "label": "退老",
+        "id": "per_zhang_tuilao",
+        "label": "张退老",
         "count": 1
       },
       {
@@ -48269,7 +50314,7 @@
         "date": "1920-11-11"
       },
       {
-        "other": "per_tuilao",
+        "other": "per_zhang_tuilao",
         "direction": "out",
         "relation": "拜访",
         "evidence": "向退老告别",
@@ -49274,206 +51319,6 @@
         "relation": "拜访",
         "evidence": "晤寄尘、劭直、知源",
         "date": "1922-08-26"
-      }
-    ],
-    "txns": []
-  },
-  "per_tuilao": {
-    "id": "per_tuilao",
-    "label": "退老",
-    "canonical": "退老",
-    "aliases": [
-      "退老"
-    ],
-    "merged_ids": [
-      "per_tuilao"
-    ],
-    "degree": 18,
-    "relations": {
-      "致书": 6,
-      "拜访": 5,
-      "转交": 3,
-      "赠": 2,
-      "同席": 2
-    },
-    "top_neighbours": [
-      {
-        "id": "per_xu_naichang",
-        "label": "徐乃昌",
-        "count": 8
-      },
-      {
-        "id": "per_xi_ai",
-        "label": "希璦",
-        "count": 2
-      },
-      {
-        "id": "per_xu_jiyu",
-        "label": "徐积余",
-        "count": 1
-      },
-      {
-        "id": "per_wang_qiaosong",
-        "label": "王乔松",
-        "count": 1
-      },
-      {
-        "id": "per_selao",
-        "label": "嗇老",
-        "count": 1
-      },
-      {
-        "id": "per_xiyuan",
-        "label": "希媛",
-        "count": 1
-      },
-      {
-        "id": "per_deng_jun",
-        "label": "邓君",
-        "count": 1
-      },
-      {
-        "id": "per_jiang_zhiyuan",
-        "label": "江知源",
-        "count": 1
-      },
-      {
-        "id": "per_sha_jianan",
-        "label": "沙健庵",
-        "count": 1
-      },
-      {
-        "id": "per_jian_an",
-        "label": "健庵",
-        "count": 1
-      }
-    ],
-    "sample_edges": [
-      {
-        "other": "per_xu_jiyu",
-        "direction": "in",
-        "relation": "拜访",
-        "evidence": "向退老告别",
-        "date": "1920-11-11"
-      },
-      {
-        "other": "per_xi_ai",
-        "direction": "in",
-        "relation": "拜访",
-        "evidence": "十二午后抵通，十三晨晤退老",
-        "date": "1921-07-18"
-      },
-      {
-        "other": "per_wang_qiaosong",
-        "direction": "in",
-        "relation": "转交",
-        "evidence": "将王乔松所评两造交退老阅过",
-        "date": "1921-07-18"
-      },
-      {
-        "other": "per_xi_ai",
-        "direction": "in",
-        "relation": "致书",
-        "evidence": "嗇老、希璦均有电，促退老返通",
-        "date": "1922-03-30"
-      },
-      {
-        "other": "per_selao",
-        "direction": "in",
-        "relation": "致书",
-        "evidence": "嗇老、希璦均有电，促退老返通",
-        "date": "1922-03-30"
-      },
-      {
-        "other": "per_xiyuan",
-        "direction": "out",
-        "relation": "转交",
-        "evidence": "退老属希璦邀至城南别业",
-        "date": "1922-04-27"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "致书",
-        "evidence": "退老来书,绍介俞汝权君国钧",
-        "date": "1922-05-12"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "赠",
-        "evidence": "赠退老荔支、花旗橘、九华茶、饼干",
-        "date": "1922-05-13"
-      },
-      {
-        "other": "per_deng_jun",
-        "direction": "out",
-        "relation": "拜访",
-        "evidence": "退老邀广东邓君望气",
-        "date": "1922-05-14"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "同席",
-        "evidence": "同退老至大生、海门三厂开股东会",
-        "date": "1922-05-14"
-      },
-      {
-        "other": "per_jiang_zhiyuan",
-        "direction": "out",
-        "relation": "致书",
-        "evidence": "退老属江知源商嗇老",
-        "date": "1922-05-17"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "赠",
-        "evidence": "退老赠咸鸭蛋二百五十枚",
-        "date": "1922-05-17"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "转交",
-        "evidence": "退老交寄大达内河轮船公司上下河各线行驶小轮概况",
-        "date": "1922-06-13"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "拜访",
-        "evidence": "退老适至天生港公宴毕，来谭",
-        "date": "1922-06-18"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "同席",
-        "evidence": "邀至大生厂午饭",
-        "date": "1922-08-01"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "拜访",
-        "evidence": "闻退老来闸，即诣谭",
-        "date": "1922-08-10"
-      },
-      {
-        "other": "per_sha_jianan",
-        "direction": "in",
-        "relation": "致书",
-        "evidence": "带沙健庵复退老函",
-        "date": "1922-08-13"
-      },
-      {
-        "other": "per_jian_an",
-        "direction": "out",
-        "relation": "致书",
-        "evidence": "退老有电致健庵",
-        "date": "1922-10-19"
       }
     ],
     "txns": []
@@ -51474,38 +53319,6 @@
         "relation": "亲属",
         "evidence": "孟纯孙之夫人周香谷女史",
         "date": "1920-12-12"
-      }
-    ],
-    "txns": []
-  },
-  "per_fan_weijun": {
-    "id": "per_fan_weijun",
-    "label": "范纬君",
-    "canonical": "范纬君",
-    "aliases": [
-      "范纬君"
-    ],
-    "merged_ids": [
-      "per_fan_weijun"
-    ],
-    "degree": 1,
-    "relations": {
-      "赠": 1
-    },
-    "top_neighbours": [
-      {
-        "id": "per_xu_naichang",
-        "label": "徐乃昌",
-        "count": 1
-      }
-    ],
-    "sample_edges": [
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "赠",
-        "evidence": "送范纬君之太夫人呢幢",
-        "date": "1922-12-02"
       }
     ],
     "txns": []
@@ -54175,22 +55988,6 @@
     "sample_edges": [],
     "txns": []
   },
-  "per_xian_ronglu_gong": {
-    "id": "per_xian_ronglu_gong",
-    "label": "先荣禄公",
-    "canonical": "先荣禄公",
-    "aliases": [
-      "先荣禄公"
-    ],
-    "merged_ids": [
-      "per_xian_ronglu_gong"
-    ],
-    "degree": 0,
-    "relations": {},
-    "top_neighbours": [],
-    "sample_edges": [],
-    "txns": []
-  },
   "per_zhu_chaowang": {
     "id": "per_zhu_chaowang",
     "label": "朱朝望",
@@ -55463,14 +57260,14 @@
     },
     "top_neighbours": [
       {
-        "id": "per_chong_er",
+        "id": "per_chongr",
         "label": "崇儿",
         "count": 1
       }
     ],
     "sample_edges": [
       {
-        "other": "per_chong_er",
+        "other": "per_chongr",
         "direction": "in",
         "relation": "拜访",
         "evidence": "宋松如吉期，命崇儿贺喜",
@@ -55733,7 +57530,7 @@
         "count": 1
       },
       {
-        "id": "per_chong_er",
+        "id": "per_chongr",
         "label": "崇儿",
         "count": 1
       },
@@ -55766,7 +57563,7 @@
         "date": "1921-04-28"
       },
       {
-        "other": "per_chong_er",
+        "other": "per_chongr",
         "direction": "out",
         "relation": "赠",
         "evidence": "蒿老为崇儿书福寿字成",
@@ -58129,22 +59926,6 @@
     "sample_edges": [],
     "txns": []
   },
-  "per_zhang_xuecheng": {
-    "id": "per_zhang_xuecheng",
-    "label": "章学诚",
-    "canonical": "章学诚",
-    "aliases": [
-      "章学诚"
-    ],
-    "merged_ids": [
-      "per_zhang_xuecheng"
-    ],
-    "degree": 0,
-    "relations": {},
-    "top_neighbours": [],
-    "sample_edges": [],
-    "txns": []
-  },
   "per_dong_guishan": {
     "id": "per_dong_guishan",
     "label": "董桂山",
@@ -59500,88 +61281,6 @@
       }
     ],
     "txns": []
-  },
-  "per_wang_younong": {
-    "id": "per_wang_younong",
-    "label": "汪幼农",
-    "canonical": "汪幼农",
-    "aliases": [
-      "汪幼农",
-      "幼农"
-    ],
-    "merged_ids": [
-      "per_wang_younong",
-      "per_younong"
-    ],
-    "degree": 6,
-    "relations": {
-      "致书": 2,
-      "拜访": 1,
-      "赠": 1,
-      "转交": 1,
-      "同席": 1
-    },
-    "top_neighbours": [
-      {
-        "id": "per_xu_naichang",
-        "label": "徐乃昌",
-        "count": 6
-      }
-    ],
-    "sample_edges": [
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "拜访",
-        "evidence": "汪幼农参谋长，庆辰，夥县",
-        "date": "1921-05-14"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "赠",
-        "evidence": "赠荣贯卿旅长、汪幼农参谋长百合",
-        "date": "1921-07-26"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "致书",
-        "evidence": "汪幼农来书，慈善副券皖振余款",
-        "date": "1921-10-12"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "致书",
-        "evidence": "覆汪幼农书",
-        "date": "1921-10-13"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "转交",
-        "evidence": "告幼农转致慈善券一万元游艺会",
-        "date": "1922-03-10"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "同席",
-        "evidence": "汪幼农约一枝香西餐，会议皖振戏资八千元",
-        "date": "1922-04-15"
-      }
-    ],
-    "txns": [
-      {
-        "date": "1922-07-15",
-        "label": "振务捐款共2,400元",
-        "evidence": "陈少舟捐壹千元",
-        "amount": null,
-        "direction": null,
-        "relation": "资助"
-      }
-    ]
   },
   "per_qingchen": {
     "id": "per_qingchen",
@@ -61652,46 +63351,6 @@
     ],
     "txns": []
   },
-  "per_shen_qiquan": {
-    "id": "per_shen_qiquan",
-    "label": "沈淇泉",
-    "canonical": "沈淇泉",
-    "aliases": [
-      "沈淇泉"
-    ],
-    "merged_ids": [
-      "per_shen_qiquan"
-    ],
-    "degree": 2,
-    "relations": {
-      "赠": 1,
-      "拜访": 1
-    },
-    "top_neighbours": [
-      {
-        "id": "per_xu_naichang",
-        "label": "徐乃昌",
-        "count": 2
-      }
-    ],
-    "sample_edges": [
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "赠",
-        "evidence": "送沈淇泉六十寿呢幢、烛券",
-        "date": "1921-06-13"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "拜访",
-        "evidence": "祝沈淇泉六十寿",
-        "date": "1921-06-14"
-      }
-    ],
-    "txns": []
-  },
   "per_wu_changlao": {
     "id": "per_wu_changlao",
     "label": "吴昌老",
@@ -63220,78 +64879,6 @@
     ],
     "txns": []
   },
-  "per_zhang_zhongzhao": {
-    "id": "per_zhang_zhongzhao",
-    "label": "张仲昭",
-    "canonical": "张仲昭",
-    "aliases": [
-      "张仲昭"
-    ],
-    "merged_ids": [
-      "per_zhang_zhongzhao"
-    ],
-    "degree": 5,
-    "relations": {
-      "拜访": 3,
-      "致书": 1,
-      "转交": 1
-    },
-    "top_neighbours": [
-      {
-        "id": "per_xu_naichang",
-        "label": "徐乃昌",
-        "count": 3
-      },
-      {
-        "id": "per_zhang_jingsheng",
-        "label": "张静生",
-        "count": 1
-      },
-      {
-        "id": "per_ding_angong",
-        "label": "丁闇公",
-        "count": 1
-      }
-    ],
-    "sample_edges": [
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "拜访",
-        "evidence": "并拜张仲昭,未晤",
-        "date": "1921-07-06"
-      },
-      {
-        "other": "per_zhang_jingsheng",
-        "direction": "out",
-        "relation": "拜访",
-        "evidence": "同张仲昭为张静生之公子...作冰人，行聘礼",
-        "date": "1921-07-14"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "拜访",
-        "evidence": "张仲照来谭",
-        "date": "1922-09-04"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "致书",
-        "evidence": "致张仲昭书。闇公书请转寄",
-        "date": "1922-09-20"
-      },
-      {
-        "other": "per_ding_angong",
-        "direction": "in",
-        "relation": "转交",
-        "evidence": "致张仲昭书。闇公书请转寄",
-        "date": "1922-09-20"
-      }
-    ],
-    "txns": []
-  },
   "per_shoutang": {
     "id": "per_shoutang",
     "label": "瘦唐",
@@ -63573,8 +65160,8 @@
         "count": 1
       },
       {
-        "id": "per_tuilao",
-        "label": "退老",
+        "id": "per_zhang_tuilao",
+        "label": "张退老",
         "count": 1
       }
     ],
@@ -63587,7 +65174,7 @@
         "date": "1921-07-11"
       },
       {
-        "other": "per_tuilao",
+        "other": "per_zhang_tuilao",
         "direction": "out",
         "relation": "转交",
         "evidence": "将王乔松所评两造交退老阅过",
@@ -65663,103 +67250,6 @@
     "sample_edges": [],
     "txns": []
   },
-  "per_lao_jiliu": {
-    "id": "per_lao_jiliu",
-    "label": "劳吉六",
-    "canonical": "劳吉六",
-    "aliases": [
-      "劳吉六",
-      "吉六"
-    ],
-    "merged_ids": [
-      "per_lao_jiliu",
-      "per_jiliu"
-    ],
-    "degree": 8,
-    "relations": {
-      "拜访": 3,
-      "致书": 2,
-      "赠": 1,
-      "亲属": 1,
-      "资助": 1
-    },
-    "top_neighbours": [
-      {
-        "id": "per_xu_naichang",
-        "label": "徐乃昌",
-        "count": 6
-      },
-      {
-        "id": "per_zhengxiang",
-        "label": "正祥",
-        "count": 1
-      },
-      {
-        "id": "per_zhang_cha",
-        "label": "张察",
-        "count": 1
-      }
-    ],
-    "sample_edges": [
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "赠",
-        "evidence": "劳吉六甘肃寄赠《大般若波罗蜜多经》一卷",
-        "date": "1921-08-12"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "拜访",
-        "evidence": "劳吉六来",
-        "date": "1922-02-16"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "致书",
-        "evidence": "劳吉六来函",
-        "date": "1922-03-09"
-      },
-      {
-        "other": "per_zhengxiang",
-        "direction": "out",
-        "relation": "亲属",
-        "evidence": "为其子正祥在南通模范纱厂学习",
-        "date": "1922-03-09"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "资助",
-        "evidence": "又寄还，假洋十元",
-        "date": "1922-03-09"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "致书",
-        "evidence": "覆劳吉六书",
-        "date": "1922-03-13"
-      },
-      {
-        "other": "per_zhang_cha",
-        "direction": "out",
-        "relation": "拜访",
-        "evidence": "龚伯厚、劳吉六、章希璦来谭",
-        "date": "1922-06-27"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "拜访",
-        "evidence": "复至冯光久、劳吉六、刘烈卿谭",
-        "date": "1922-07-09"
-      }
-    ],
-    "txns": []
-  },
   "per_yan_jiuneng": {
     "id": "per_yan_jiuneng",
     "label": "严九能",
@@ -67067,38 +68557,6 @@
     "sample_edges": [],
     "txns": []
   },
-  "per_xu_junren": {
-    "id": "per_xu_junren",
-    "label": "许俊人",
-    "canonical": "许俊人",
-    "aliases": [
-      "许俊人"
-    ],
-    "merged_ids": [
-      "per_xu_junren"
-    ],
-    "degree": 1,
-    "relations": {
-      "致书": 1
-    },
-    "top_neighbours": [
-      {
-        "id": "per_xu_naichang",
-        "label": "徐乃昌",
-        "count": 1
-      }
-    ],
-    "sample_edges": [
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "致书",
-        "evidence": "电许俊人省长。请于内务圩工以及水利局堤工",
-        "date": "1922-09-14"
-      }
-    ],
-    "txns": []
-  },
   "per_ning_junyuan": {
     "id": "per_ning_junyuan",
     "label": "宁隽元",
@@ -67274,75 +68732,6 @@
     "relations": {},
     "top_neighbours": [],
     "sample_edges": [],
-    "txns": []
-  },
-  "per_liu_xunfu": {
-    "id": "per_liu_xunfu",
-    "label": "刘逊甫",
-    "canonical": "刘逊甫",
-    "aliases": [
-      "刘逊甫",
-      "逊甫"
-    ],
-    "merged_ids": [
-      "per_liu_xunfu"
-    ],
-    "degree": 5,
-    "relations": {
-      "拜访": 2,
-      "赠": 1,
-      "亲属": 1,
-      "致书": 1
-    },
-    "top_neighbours": [
-      {
-        "id": "per_xu_naichang",
-        "label": "徐乃昌",
-        "count": 4
-      },
-      {
-        "id": "per_mu_gong_zi",
-        "label": "木公子骏孙",
-        "count": 1
-      }
-    ],
-    "sample_edges": [
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "拜访",
-        "evidence": "刘逊甫、吴蝶卿来谭",
-        "date": "1921-09-06"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "拜访",
-        "evidence": "答拜逊甫，不遇",
-        "date": "1921-09-06"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "赠",
-        "evidence": "赠新印《法华三经》",
-        "date": "1922-02-20"
-      },
-      {
-        "other": "per_mu_gong_zi",
-        "direction": "in",
-        "relation": "亲属",
-        "evidence": "逊甫婿、木公子号骏孙",
-        "date": "1922-02-20"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "致书",
-        "evidence": "刘逊甫来函,为友购《佛学大辞典》",
-        "date": "1922-05-11"
-      }
-    ],
     "txns": []
   },
   "per_fan_minqian": {
@@ -72482,6 +73871,13 @@
         "date": "1920-04-06"
       },
       {
+        "other": "per_xu_naichang",
+        "direction": "out",
+        "relation": "拜访",
+        "evidence": "翟展成来，未晤",
+        "date": "1923-03-24"
+      },
+      {
         "other": "per_liang_xing",
         "direction": "in",
         "relation": "致书",
@@ -72564,13 +73960,6 @@
         "relation": "致书",
         "evidence": "出示翟展成绍介书",
         "date": "1921-10-02"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "拜访",
-        "evidence": "翟展成同年由芜来谭",
-        "date": "1922-02-07"
       }
     ],
     "txns": [
@@ -73498,22 +74887,6 @@
     "sample_edges": [],
     "txns": []
   },
-  "per_li_cishan": {
-    "id": "per_li_cishan",
-    "label": "李次山",
-    "canonical": "李次山",
-    "aliases": [
-      "李次山"
-    ],
-    "merged_ids": [
-      "per_li_cishan"
-    ],
-    "degree": 0,
-    "relations": {},
-    "top_neighbours": [],
-    "sample_edges": [],
-    "txns": []
-  },
   "per_li_family_lizhuzhu": {
     "id": "per_li_family_lizhuzhu",
     "label": "黎家",
@@ -73845,36 +75218,6 @@
     ],
     "txns": []
   },
-  "per_han_ziyuan": {
-    "id": "per_han_ziyuan",
-    "label": "韩滋源",
-    "canonical": "韩滋源",
-    "aliases": [],
-    "merged_ids": [
-      "per_han_ziyuan"
-    ],
-    "degree": 1,
-    "relations": {
-      "拜访": 1
-    },
-    "top_neighbours": [
-      {
-        "id": "per_xu_naichang",
-        "label": "徐乃昌",
-        "count": 1
-      }
-    ],
-    "sample_edges": [
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "拜访",
-        "evidence": "访韩滋源谭",
-        "date": "1922-01-16"
-      }
-    ],
-    "txns": []
-  },
   "per_lin_wei": {
     "id": "per_lin_wei",
     "label": "林蔚",
@@ -74117,6 +75460,7 @@
       "柏执卿"
     ],
     "merged_ids": [
+      "per_bai_liewu",
       "per_bo_liewu"
     ],
     "degree": 3,
@@ -74441,36 +75785,6 @@
         "relation": "赠",
         "evidence": "赠王邦模、胡子贵礼四色",
         "date": "1922-01-21"
-      }
-    ],
-    "txns": []
-  },
-  "per_shen_junsheng": {
-    "id": "per_shen_junsheng",
-    "label": "沈骏声",
-    "canonical": "沈骏声",
-    "aliases": [],
-    "merged_ids": [
-      "per_shen_junsheng"
-    ],
-    "degree": 1,
-    "relations": {
-      "拜访": 1
-    },
-    "top_neighbours": [
-      {
-        "id": "per_xu_naichang",
-        "label": "徐乃昌",
-        "count": 1
-      }
-    ],
-    "sample_edges": [
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "拜访",
-        "evidence": "同至新昌印书局，晤沈骏声",
-        "date": "1922-01-13"
       }
     ],
     "txns": []
@@ -75100,22 +76414,6 @@
     "sample_edges": [],
     "txns": []
   },
-  "per_miao_gengyun": {
-    "id": "per_miao_gengyun",
-    "label": "缪耕云",
-    "canonical": "缪耕云",
-    "aliases": [
-      "缪耕云"
-    ],
-    "merged_ids": [
-      "per_miao_gengyun"
-    ],
-    "degree": 0,
-    "relations": {},
-    "top_neighbours": [],
-    "sample_edges": [],
-    "txns": []
-  },
   "per_chen_boyan": {
     "id": "per_chen_boyan",
     "label": "陈伯严",
@@ -75190,7 +76488,7 @@
       },
       {
         "id": "per_you",
-        "label": "佑",
+        "label": "佑 (徐乃昌之子)",
         "count": 1
       },
       {
@@ -75816,54 +77114,6 @@
     ],
     "txns": []
   },
-  "per_yu_yaoqu": {
-    "id": "per_yu_yaoqu",
-    "label": "余尧衢",
-    "canonical": "余尧衢",
-    "aliases": [
-      "余尧衢"
-    ],
-    "merged_ids": [
-      "per_yu_yaoqu"
-    ],
-    "degree": 3,
-    "relations": {
-      "拜访": 1,
-      "赠": 1,
-      "同席": 1
-    },
-    "top_neighbours": [
-      {
-        "id": "per_xu_naichang",
-        "label": "徐乃昌",
-        "count": 3
-      }
-    ],
-    "sample_edges": [
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "拜访",
-        "evidence": "贺余尧衢夫人寿",
-        "date": "1922-02-07"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "赠",
-        "evidence": "并赠宣纸《徐公文集》",
-        "date": "1922-02-11"
-      },
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "同席",
-        "evidence": "午刻，余尧衢约陶乐春酒叙",
-        "date": "1922-03-13"
-      }
-    ],
-    "txns": []
-  },
   "per_yuan": {
     "id": "per_yuan",
     "label": "袁",
@@ -75985,22 +77235,6 @@
     ],
     "merged_ids": [
       "per_sun_yuanfang"
-    ],
-    "degree": 0,
-    "relations": {},
-    "top_neighbours": [],
-    "sample_edges": [],
-    "txns": []
-  },
-  "per_guan_jianfan": {
-    "id": "per_guan_jianfan",
-    "label": "关建藩",
-    "canonical": "关建藩(号云龙)",
-    "aliases": [
-      "关建藩"
-    ],
-    "merged_ids": [
-      "per_guan_jianfan"
     ],
     "degree": 0,
     "relations": {},
@@ -80401,8 +81635,8 @@
       "寀臣"
     ],
     "merged_ids": [
-      "per_caichen",
-      "per_cai_chen"
+      "per_cai_chen",
+      "per_caichen"
     ],
     "degree": 0,
     "relations": {},
@@ -81229,14 +82463,14 @@
     },
     "top_neighbours": [
       {
-        "id": "per_tuilao",
-        "label": "退老",
+        "id": "per_zhang_tuilao",
+        "label": "张退老",
         "count": 1
       }
     ],
     "sample_edges": [
       {
-        "other": "per_tuilao",
+        "other": "per_zhang_tuilao",
         "direction": "in",
         "relation": "拜访",
         "evidence": "退老邀广东邓君望气",
@@ -82228,70 +83462,6 @@
         "direction": "in",
         "relation": "拜访",
         "evidence": "拜黄伯雨、马隽卿、吴心国、江筱楼",
-        "date": "1922-06-20"
-      }
-    ],
-    "txns": []
-  },
-  "per_hu_boxuan": {
-    "id": "per_hu_boxuan",
-    "label": "胡伯宣",
-    "canonical": "胡伯宣",
-    "aliases": [
-      "胡伯宣"
-    ],
-    "merged_ids": [
-      "per_hu_boxuan"
-    ],
-    "degree": 1,
-    "relations": {
-      "拜访": 1
-    },
-    "top_neighbours": [
-      {
-        "id": "per_xu_naichang",
-        "label": "徐乃昌",
-        "count": 1
-      }
-    ],
-    "sample_edges": [
-      {
-        "other": "per_xu_naichang",
-        "direction": "in",
-        "relation": "拜访",
-        "evidence": "刘鸿夫、丁幼兰、胡伯宣、梁公约",
-        "date": "1922-06-20"
-      }
-    ],
-    "txns": []
-  },
-  "per_yang_yonggui": {
-    "id": "per_yang_yonggui",
-    "label": "杨永贵",
-    "canonical": "杨永贵",
-    "aliases": [
-      "杨永贵"
-    ],
-    "merged_ids": [
-      "per_yang_yonggui"
-    ],
-    "degree": 1,
-    "relations": {
-      "拜访": 1
-    },
-    "top_neighbours": [
-      {
-        "id": "per_xu_naichang",
-        "label": "徐乃昌",
-        "count": 1
-      }
-    ],
-    "sample_edges": [
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "拜访",
-        "evidence": "杨永贵在海门水警供差，祝嗇老寿，来见",
         "date": "1922-06-20"
       }
     ],
@@ -85288,8 +86458,8 @@
         "count": 1
       },
       {
-        "id": "per_tuilao",
-        "label": "退老",
+        "id": "per_zhang_tuilao",
+        "label": "张退老",
         "count": 1
       }
     ],
@@ -85302,7 +86472,7 @@
         "date": "1922-08-24"
       },
       {
-        "other": "per_tuilao",
+        "other": "per_zhang_tuilao",
         "direction": "in",
         "relation": "致书",
         "evidence": "退老有电致健庵",
@@ -86376,38 +87546,6 @@
     "relations": {},
     "top_neighbours": [],
     "sample_edges": [],
-    "txns": []
-  },
-  "per_yu_gumin": {
-    "id": "per_yu_gumin",
-    "label": "余穀民",
-    "canonical": "余穀民（名洵）",
-    "aliases": [
-      "余穀民洵"
-    ],
-    "merged_ids": [
-      "per_yu_gumin"
-    ],
-    "degree": 1,
-    "relations": {
-      "转交": 1
-    },
-    "top_neighbours": [
-      {
-        "id": "per_xu_naichang",
-        "label": "徐乃昌",
-        "count": 1
-      }
-    ],
-    "sample_edges": [
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "转交",
-        "evidence": "余穀民洵。转许俊人省长覆电并报纸二分",
-        "date": "1922-09-21"
-      }
-    ],
     "txns": []
   },
   "per_sha_jianhe": {
@@ -88516,39 +89654,6 @@
     "relations": {},
     "top_neighbours": [],
     "sample_edges": [],
-    "txns": []
-  },
-  "per_yushan_heshang": {
-    "id": "per_yushan_heshang",
-    "label": "雨山和尚",
-    "canonical": "雨山和尚",
-    "aliases": [
-      "雨山和尚",
-      "雨山"
-    ],
-    "merged_ids": [
-      "per_yushan_heshang"
-    ],
-    "degree": 1,
-    "relations": {
-      "拜访": 1
-    },
-    "top_neighbours": [
-      {
-        "id": "per_xu_naichang",
-        "label": "徐乃昌",
-        "count": 1
-      }
-    ],
-    "sample_edges": [
-      {
-        "other": "per_xu_naichang",
-        "direction": "out",
-        "relation": "拜访",
-        "evidence": "崇宁寺退院雨山和尚来募水陆道场",
-        "date": "1922-11-19"
-      }
-    ],
     "txns": []
   },
   "per_hou_furen": {

@@ -10485,7 +10485,7 @@
     "people": [
       {
         "id": "book_fahuajing",
-        "label": "《法华经》零叶",
+        "label": "法华经",
         "type": "书籍",
         "relation": "商务"
       }
@@ -15070,16 +15070,6 @@
     "evidence": "一汇丰银行五千两",
     "people": [],
     "amount": "五千两/四厘息",
-    "direction": null
-  },
-  {
-    "id": "txn_huaqi_5000",
-    "label": "花旗存银5000两壹年期",
-    "date": "1922-03-24",
-    "source_file": "1922-03-24.md",
-    "evidence": "一花旗银行五千两",
-    "people": [],
-    "amount": "五千两+息壹百两/五厘半",
     "direction": null
   },
   {
@@ -22212,5 +22202,419 @@
     "people": [],
     "amount": "210元",
     "direction": "received"
+  },
+  {
+    "id": "txn_laiqingge_books_22",
+    "label": "来青阁取书两种",
+    "date": "1923-02-22",
+    "source_file": "1923-02-22.md",
+    "evidence": "取书两种",
+    "people": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人",
+        "relation": "商务"
+      }
+    ],
+    "amount": "码洋四元",
+    "direction": null
+  },
+  {
+    "id": "txn_yangshouqi_books",
+    "label": "杨寿祺处取书十元",
+    "date": "1923-02-22",
+    "source_file": "1923-02-22.md",
+    "evidence": "取书两种,付洋拾元",
+    "people": [],
+    "amount": "拾元",
+    "direction": null
+  },
+  {
+    "id": "txn_yangyonggui_gift",
+    "label": "杨永贵赠咸鱼肘",
+    "date": "1923-02-23",
+    "source_file": "1923-02-23.md",
+    "evidence": "送咸鱼、肘",
+    "people": [],
+    "amount": null,
+    "direction": null
+  },
+  {
+    "id": "txn_tongming_xinshui",
+    "label": "通明电汽赠薪二百十元",
+    "date": "1923-02-24",
+    "source_file": "1923-02-24.md",
+    "evidence": "通明电汽公司所赠薪水二百十元",
+    "people": [],
+    "amount": "二百十元",
+    "direction": null
+  },
+  {
+    "id": "txn_miao_dasheng_gufen",
+    "label": "缪耕云大生股本四千两",
+    "date": "1923-02-24",
+    "source_file": "1923-02-24.md",
+    "evidence": "缪耕云堂大生、崇明纺织分厂股本四千两",
+    "people": [],
+    "amount": "四千两",
+    "direction": null
+  },
+  {
+    "id": "txn_zhang_xilian",
+    "label": "送刘子鹤侄喜联烛",
+    "date": "1923-02-25",
+    "source_file": "1923-02-25.md",
+    "evidence": "送刘子鹤之侄支六喜联、喜烛",
+    "people": [],
+    "amount": null,
+    "direction": null
+  },
+  {
+    "id": "txn_zhang_lanhua_zhang",
+    "label": "送章也泉蓝花缎幃",
+    "date": "1923-02-25",
+    "source_file": "1923-02-25.md",
+    "evidence": "送章静轩尊人也泉蓝花缎幃",
+    "people": [],
+    "amount": null,
+    "direction": null
+  },
+  {
+    "id": "txn_fahuajing_dingyang",
+    "label": "法华经付定洋壹百元",
+    "date": "1923-02-27",
+    "source_file": "1923-02-27.md",
+    "evidence": "交《法华经》,并付定洋壹百元",
+    "people": [],
+    "amount": "壹百元",
+    "direction": null
+  },
+  {
+    "id": "txn_xinshui_1800",
+    "label": "蒋暇堂汇薪水一千八百元",
+    "date": "1923-02-27",
+    "source_file": "1923-02-27.md",
+    "evidence": "奉退公命由庄汇解薪水一千八百元",
+    "people": [],
+    "amount": "一千八百元",
+    "direction": null
+  },
+  {
+    "id": "txn_chen_yifu_tuoben",
+    "label": "陈一甫赠秦公敦拓本",
+    "date": "1923-02-28",
+    "source_file": "1923-02-28.md",
+    "evidence": "寄赠秦公敦拓本",
+    "people": [],
+    "amount": null,
+    "direction": null
+  },
+  {
+    "id": "txn_tao_zilin_zhaji",
+    "label": "陶子麟寄玉台新咏札记",
+    "date": "1923-02-28",
+    "source_file": "1923-02-28.md",
+    "evidence": "陶子麟寄来《玉台新咏札记》写本",
+    "people": [],
+    "amount": null,
+    "direction": null
+  },
+  {
+    "id": "txn_huihuan_1800",
+    "label": "蒋汇益康一千八百元",
+    "date": "1923-03-02",
+    "source_file": "1923-03-02.md",
+    "evidence": "蒋由源通庄汇上海益康庄一千八百元",
+    "people": [],
+    "amount": "一千八百元",
+    "direction": null
+  },
+  {
+    "id": "txn_dazangjing_buy",
+    "label": "购大藏经一百五拾四元",
+    "date": "1923-03-03",
+    "source_file": "1923-03-03.md",
+    "evidence": "购频伽精舍校刊《大藏经》,价洋壹百五拾四元",
+    "people": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人",
+        "relation": "商务"
+      }
+    ],
+    "amount": "壹百五拾四元",
+    "direction": null
+  },
+  {
+    "id": "txn_juanyang_huiguan",
+    "label": "全皖会馆捐洋五百元",
+    "date": "1923-03-03",
+    "source_file": "1923-03-03.md",
+    "evidence": "全皖会馆募捐,捐洋五百元",
+    "people": [],
+    "amount": "五百元",
+    "direction": null
+  },
+  {
+    "id": "txn_dasheng_zhe_600",
+    "label": "大生付来往折六百元",
+    "date": "1923-03-05",
+    "source_file": "1923-03-05.md",
+    "evidence": "付来往折六百元。积记四百元,淑、绮各百元",
+    "people": [],
+    "amount": "六百元",
+    "direction": null
+  },
+  {
+    "id": "txn_wanwei_mother",
+    "label": "送素宁绸挽幃",
+    "date": "1923-03-15",
+    "source_file": "1923-03-15.md",
+    "evidence": "送余穀民之太夫人素宁绸挽幃",
+    "people": [],
+    "amount": null,
+    "direction": null
+  },
+  {
+    "id": "txn_zeng_taben_chen_yifu",
+    "label": "赠拓本予陈一甫",
+    "date": "1923-03-16",
+    "source_file": "1923-03-16.md",
+    "evidence": "并赠魏叔大林钟、师奎父鼎全形拓本",
+    "people": [],
+    "amount": null,
+    "direction": null
+  },
+  {
+    "id": "txn_dayoujin_3000",
+    "label": "大有晋洋三千元折券",
+    "date": "1923-03-17",
+    "source_file": "1923-03-17.md",
+    "evidence": "存大有晋洋三千元折券",
+    "people": [],
+    "amount": "洋三千元",
+    "direction": null
+  },
+  {
+    "id": "txn_zeng_jingye_4ce",
+    "label": "赠《净业指南》四册",
+    "date": "1923-03-17",
+    "source_file": "1923-03-17.md",
+    "evidence": "赠黄涵之编《净业指南》四册",
+    "people": [],
+    "amount": null,
+    "direction": null
+  },
+  {
+    "id": "txn_zeng_zhancheng_4ce",
+    "label": "赠展成四册",
+    "date": "1923-03-17",
+    "source_file": "1923-03-17.md",
+    "evidence": "又赠展成四册",
+    "people": [],
+    "amount": null,
+    "direction": null
+  },
+  {
+    "id": "txn_dabei_jing_46yuan",
+    "label": "《大悲心陀罗尼经》价四十六元",
+    "date": "1923-03-17",
+    "source_file": "1923-03-17.md",
+    "evidence": "《大悲心陀罗尼经》附印百部，价四十六元",
+    "people": [],
+    "amount": "四十六元",
+    "direction": null
+  },
+  {
+    "id": "txn_dasheng_zhe_500",
+    "label": "付大生折五百元",
+    "date": "1923-03-18",
+    "source_file": "1923-03-18.md",
+    "evidence": "付大生来往折五百元",
+    "people": [],
+    "amount": "五百元",
+    "direction": null
+  },
+  {
+    "id": "txn_chongming_gufen_4000",
+    "label": "崇明二厂股份四千两",
+    "date": "1923-03-18",
+    "source_file": "1923-03-18.md",
+    "evidence": "前购缪子受崇明二厂股份四千两",
+    "people": [],
+    "amount": "四千两",
+    "direction": null
+  },
+  {
+    "id": "txn_tongyin_400",
+    "label": "铜印题册价洋四百元",
+    "date": "1923-03-18",
+    "source_file": "1923-03-18.md",
+    "evidence": "苏文忠读书堂记铜印并题册，价洋四百元",
+    "people": [],
+    "amount": "洋四百元",
+    "direction": null
+  },
+  {
+    "id": "txn_zhengyitang_35y",
+    "label": "代购《正谊堂丛书》卅五元",
+    "date": "1923-03-18",
+    "source_file": "1923-03-18.md",
+    "evidence": "代陈劭甫购《正谊堂丛书》两箱，计二百本",
+    "people": [],
+    "amount": "卅五元",
+    "direction": null
+  },
+  {
+    "id": "txn_canben_96yuan",
+    "label": "宋元明残本书叶价玖拾六元",
+    "date": "1923-03-19",
+    "source_file": "1923-03-19.md",
+    "evidence": "宋元明残本书叶价玖拾六元",
+    "people": [],
+    "amount": "玖拾六元",
+    "direction": null
+  },
+  {
+    "id": "txn_quanjie_lu_1400bu",
+    "label": "附印《劝戒录》一千四百部",
+    "date": "1923-03-19",
+    "source_file": "1923-03-19.md",
+    "evidence": "芜湖附印《劝戒录》一千四百部",
+    "people": [],
+    "amount": null,
+    "direction": null
+  },
+  {
+    "id": "txn_dao_4133",
+    "label": "上年收稻四千一百卅三石廿五斤",
+    "date": "1923-03-20",
+    "source_file": "1923-03-20.md",
+    "evidence": "计收稻四千一百卅三石廿五斤",
+    "people": [],
+    "amount": "四千一百卅三石廿五斤",
+    "direction": null
+  },
+  {
+    "id": "txn_zhejia_208",
+    "label": "折价二百〇八元",
+    "date": "1923-03-20",
+    "source_file": "1923-03-20.md",
+    "evidence": "又折价二百〇八元",
+    "people": [],
+    "amount": "二百〇八元",
+    "direction": null
+  },
+  {
+    "id": "txn_shuji_662",
+    "label": "淑记收稻六百六十二石四十五斤",
+    "date": "1923-03-20",
+    "source_file": "1923-03-20.md",
+    "evidence": "外淑记收稻六百六十二石四十五斤",
+    "people": [],
+    "amount": "六百六十二石四十五斤",
+    "direction": null
+  },
+  {
+    "id": "txn_shouchu_2850",
+    "label": "上年售出二千八百五十石",
+    "date": "1923-03-20",
+    "source_file": "1923-03-20.md",
+    "evidence": "上年售出二千八百五十石",
+    "people": [],
+    "amount": "二千八百五十石",
+    "direction": null
+  },
+  {
+    "id": "txn_shuxiu_40",
+    "label": "李先生束脩月支四十元",
+    "date": "1923-03-22",
+    "source_file": "1923-03-22.md",
+    "evidence": "李先生束脩月支四十元",
+    "people": [],
+    "amount": "月四十元",
+    "direction": null
+  },
+  {
+    "id": "txn_lao_shou_20",
+    "label": "送分洋廿元贺劳吉六寿",
+    "date": "1923-03-22",
+    "source_file": "1923-03-22.md",
+    "evidence": "送分洋廿元并贺函",
+    "people": [],
+    "amount": "廿元",
+    "direction": null
+  },
+  {
+    "id": "txn_daoja_1000",
+    "label": "寄千元来济用",
+    "date": "1923-03-23",
+    "source_file": "1923-03-23.md",
+    "evidence": "寄千元来济用",
+    "people": [],
+    "amount": "千元",
+    "direction": null
+  },
+  {
+    "id": "txn_zeng_yinxu_324",
+    "label": "赠殷墟书契拓本三百廿四片",
+    "date": "1923-03-23",
+    "source_file": "1923-03-23.md",
+    "evidence": "赠旧藏殷墟书契拓本三百廿四片",
+    "people": [],
+    "amount": null,
+    "direction": null
+  },
+  {
+    "id": "txn_shen_hexi_2",
+    "label": "送分洋二元贺沈完姻",
+    "date": "1923-03-24",
+    "source_file": "1923-03-24.md",
+    "evidence": "送分洋二元",
+    "people": [],
+    "amount": "二元",
+    "direction": null
+  },
+  {
+    "id": "txn_taizhou_2y",
+    "label": "《泰州志》价洋二元",
+    "date": "1923-03-24",
+    "source_file": "1923-03-24.md",
+    "evidence": "价洋二元",
+    "people": [],
+    "amount": "洋二元",
+    "direction": null
+  },
+  {
+    "id": "txn_huaqi_5000",
+    "label": "存花旗银行五千两到期",
+    "date": "1923-03-24",
+    "source_file": "1923-03-24.md",
+    "evidence": "存花旗银行五千两，马淑记户",
+    "people": [],
+    "amount": "五千两 + 息二百七十五两",
+    "direction": null
+  },
+  {
+    "id": "txn_zeng_caoshi",
+    "label": "赠新印《曹氏吉金图》四部",
+    "date": "1923-03-25",
+    "source_file": "1923-03-25.md",
+    "evidence": "赠新印《曹氏吉金图》四部",
+    "people": [],
+    "amount": null,
+    "direction": null
+  },
+  {
+    "id": "txn_liaobanzhi_15dao",
+    "label": "假料半纸十五刀印《三妇人集》",
+    "date": "1923-03-25",
+    "source_file": "1923-03-25.md",
+    "evidence": "假曹信义料半纸十五刀，印《三妇人集》。还洋四十五元",
+    "people": [],
+    "amount": "洋四十五元 (每刀三元)",
+    "direction": null
   }
 ]

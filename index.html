@@ -213,6 +213,7 @@
     <button :class="{active:tab==='people'}" @click="tab='people'">人物关系</button>
     <button :class="{active:tab==='geo'}" @click="tab='geo'">作者行迹</button>
     <button :class="{active:tab==='reader'}" @click="tab='reader'">日记阅读</button>
+    <button :class="{active:tab==='stats'}" @click="tab='stats'">统计</button>
     <button :class="{active:tab==='index'}" @click="tab='index'">实体索引</button>
   </div>
 
@@ -425,6 +426,23 @@
     </div>
   </div>
 
+  <!-- Stats -->
+  <div class="view" v-show="tab==='stats'">
+    <div v-if="!statsData" class="empty">加载中…</div>
+    <template v-else>
+      <div style="background:var(--paper);border:1px solid var(--border);padding:18px;border-radius:2px;margin-bottom:18px">
+        <h3 style="margin:0 0 12px;font-size:14px">月度关系活动</h3>
+        <div style="overflow-x:auto"><svg id="stats-rel-svg" style="display:block"></svg></div>
+        <div class="legend" style="margin-top:6px">每月各关系类型的边/事件数。鼠标悬停查看明细。</div>
+      </div>
+      <div style="background:var(--paper);border:1px solid var(--border);padding:18px;border-radius:2px">
+        <h3 style="margin:0 0 12px;font-size:14px">Top 20 人物 月度提及曲线</h3>
+        <div style="overflow-x:auto"><svg id="stats-per-svg" style="display:block"></svg></div>
+        <div class="legend" style="margin-top:6px">每月在日记中的提及次数。点击曲线名跳到该人档案。</div>
+      </div>
+    </template>
+  </div>
+
   <!-- Entity index -->
   <div class="view" v-show="tab==='index'">
     <div class="index-grid">
@@ -554,6 +572,7 @@ createApp({
     const eventMinMembers = ref(2);
     const metroGran = ref('week');
     const metroSource = ref('both');
+    const statsData = ref(null);
     const relationFilter = ref('');
     const confFilter = ref('');
     const visibleNodeCount = ref(0);
@@ -599,7 +618,7 @@ createApp({
     });
 
     onMounted(async () => {
-      const [ov, tx, pp, lc, pr, bk, ck, ev] = await Promise.all([
+      const [ov, tx, pp, lc, pr, bk, ck, ev, st] = await Promise.all([
         fetch('data/overview.json').then(r=>r.json()),
         fetch('data/transactions.json').then(r=>r.json()),
         fetch('data/people_graph.json').then(r=>r.json()),
@@ -608,9 +627,10 @@ createApp({
         fetch('data/books.json').then(r=>r.json()).catch(() => []),
         fetch('data/chunks.json').then(r=>r.json()).catch(() => ({})),
         fetch('data/events.json').then(r=>r.json()).catch(() => []),
+        fetch('data/stats.json').then(r=>r.json()).catch(() => null),
       ]);
       overview.value = ov; txnData.value = tx; peopleData.value = pp; locData.value = lc; profiles.value = pr;
-      booksData.value = bk; chunksData.value = ck; eventsData.value = ev;
+      booksData.value = bk; chunksData.value = ck; eventsData.value = ev; statsData.value = st;
       const dates = Object.keys(ck).sort();
       if (dates.length && !readerDate.value) readerDate.value = dates[0];
 
@@ -646,6 +666,7 @@ createApp({
       if (t === 'people' && pp && !cyInstance) nextTick(() => initLazyGraph());
       if (t === 'geo' && lc && !leafletMap) nextTick(() => initGeo(lc));
       if (t === 'metro') nextTick(() => renderMetro());
+      if (t === 'stats' && st) nextTick(() => renderStats());
     });
 
     function onSearch() {
@@ -861,6 +882,159 @@ createApp({
 
     function kindOf(entity_type) {
       return ENTITY_KIND_MAP[entity_type]?.kind || 'per';
+    }
+
+    // ── Stats ────────────────────────────────────────────────────────────
+    function renderStats() {
+      if (!statsData.value) return;
+      const RELATION_COLORS = {
+        '拜访':'#1f3f8a','致书':'#2c6e3e','商务':'#a3296b','赠':'#a35c1a','受赠':'#5f3b8a',
+        '同席':'#0e6c75','资助':'#8b1f30','转交':'#6b2e8a','亲属':'#4a4943','治病':'#9b2926',
+        '位于':'#a35c1a','属于':'#4a4943','师友':'#2c6e3e','同_as':'#4a4943'
+      };
+      const months = statsData.value.months;
+      const W = Math.max(900, months.length * 30);
+      // — Stacked bar: month × relation —
+      {
+        const svg = document.getElementById('stats-rel-svg');
+        svg.innerHTML = '';
+        const padL = 40, padR = 20, padT = 14, padB = 36;
+        const H = 340;
+        svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+        svg.setAttribute('width', W); svg.setAttribute('height', H);
+        const innerW = W - padL - padR, innerH = H - padT - padB;
+        const monthTotals = months.map(m => Object.values(statsData.value.rel_per_month[m] || {}).reduce((a,b)=>a+b,0));
+        const maxY = Math.max(1, ...monthTotals);
+        const barW = innerW / months.length * 0.8;
+        // Y axis ticks
+        for (let k = 0; k <= 4; k++) {
+          const v = Math.round(maxY * k / 4);
+          const y = padT + innerH - (innerH * k / 4);
+          const lbl = document.createElementNS('http://www.w3.org/2000/svg','text');
+          lbl.setAttribute('x', padL - 4); lbl.setAttribute('y', y + 3);
+          lbl.setAttribute('text-anchor','end');
+          lbl.setAttribute('class','axis-label');
+          lbl.setAttribute('fill','#64748b');
+          lbl.setAttribute('font-size','10');
+          lbl.textContent = v;
+          svg.appendChild(lbl);
+          const grid = document.createElementNS('http://www.w3.org/2000/svg','line');
+          grid.setAttribute('x1', padL); grid.setAttribute('x2', W - padR);
+          grid.setAttribute('y1', y); grid.setAttribute('y2', y);
+          grid.setAttribute('stroke','#ece3d0'); grid.setAttribute('stroke-width','1');
+          svg.appendChild(grid);
+        }
+        months.forEach((m, i) => {
+          const x = padL + (i + 0.1) * innerW / months.length;
+          const rels = statsData.value.rel_per_month[m] || {};
+          let yCursor = padT + innerH;
+          for (const [rel, cnt] of Object.entries(rels).sort((a,b)=>b[1]-a[1])) {
+            const h = (cnt / maxY) * innerH;
+            const rect = document.createElementNS('http://www.w3.org/2000/svg','rect');
+            rect.setAttribute('x', x); rect.setAttribute('y', yCursor - h);
+            rect.setAttribute('width', barW); rect.setAttribute('height', h);
+            rect.setAttribute('fill', RELATION_COLORS[rel] || '#64748b');
+            rect.setAttribute('opacity', '0.85');
+            const title = document.createElementNS('http://www.w3.org/2000/svg','title');
+            title.textContent = `${m} · ${rel}: ${cnt}`;
+            rect.appendChild(title);
+            svg.appendChild(rect);
+            yCursor -= h;
+          }
+          if (m.endsWith('-01') || m.endsWith('-07')) {
+            const lbl = document.createElementNS('http://www.w3.org/2000/svg','text');
+            lbl.setAttribute('x', x + barW / 2); lbl.setAttribute('y', H - padB + 14);
+            lbl.setAttribute('text-anchor','middle');
+            lbl.setAttribute('font-size','10'); lbl.setAttribute('fill','#64748b');
+            lbl.textContent = m;
+            svg.appendChild(lbl);
+          }
+        });
+        // Legend
+        const relsAll = [...new Set(months.flatMap(m => Object.keys(statsData.value.rel_per_month[m] || {})))].sort();
+        relsAll.slice(0, 10).forEach((rel, i) => {
+          const g = document.createElementNS('http://www.w3.org/2000/svg','g');
+          const lx = padL + i * 90, ly = padT - 6;
+          const dot = document.createElementNS('http://www.w3.org/2000/svg','rect');
+          dot.setAttribute('x', lx); dot.setAttribute('y', ly - 8);
+          dot.setAttribute('width', 8); dot.setAttribute('height', 8);
+          dot.setAttribute('fill', RELATION_COLORS[rel] || '#64748b');
+          g.appendChild(dot);
+          const lbl = document.createElementNS('http://www.w3.org/2000/svg','text');
+          lbl.setAttribute('x', lx + 12); lbl.setAttribute('y', ly);
+          lbl.setAttribute('font-size','10'); lbl.setAttribute('fill','#4a4943');
+          lbl.textContent = rel;
+          g.appendChild(lbl);
+          svg.appendChild(g);
+        });
+      }
+      // — Top persons line chart —
+      {
+        const svg = document.getElementById('stats-per-svg');
+        svg.innerHTML = '';
+        const padL = 60, padR = 140, padT = 14, padB = 36;
+        const H = 380;
+        svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+        svg.setAttribute('width', W); svg.setAttribute('height', H);
+        const innerW = W - padL - padR, innerH = H - padT - padB;
+        const tops = statsData.value.top_persons;
+        const allCounts = tops.flatMap(p => Object.values(p.monthly));
+        const maxY = Math.max(1, ...allCounts);
+        for (let k = 0; k <= 4; k++) {
+          const v = Math.round(maxY * k / 4);
+          const y = padT + innerH - (innerH * k / 4);
+          const lbl = document.createElementNS('http://www.w3.org/2000/svg','text');
+          lbl.setAttribute('x', padL - 4); lbl.setAttribute('y', y + 3);
+          lbl.setAttribute('text-anchor','end');
+          lbl.setAttribute('font-size','10'); lbl.setAttribute('fill','#64748b');
+          lbl.textContent = v;
+          svg.appendChild(lbl);
+          const grid = document.createElementNS('http://www.w3.org/2000/svg','line');
+          grid.setAttribute('x1', padL); grid.setAttribute('x2', W - padR);
+          grid.setAttribute('y1', y); grid.setAttribute('y2', y);
+          grid.setAttribute('stroke','#ece3d0'); grid.setAttribute('stroke-width','1');
+          svg.appendChild(grid);
+        }
+        const palette = ['#1f3f8a','#2c6e3e','#a35c1a','#5f3b8a','#a3296b','#0e6c75','#8b1f30','#6b2e8a','#4a4943','#9b2926','#1d4ed8','#16a34a','#d97706','#7c3aed','#db2777','#0891b2','#be123c','#9333ea','#475569','#dc2626'];
+        tops.forEach((p, idx) => {
+          const color = palette[idx % palette.length];
+          let prev = null;
+          months.forEach((m, i) => {
+            const x = padL + (i + 0.5) * innerW / months.length;
+            const v = p.monthly[m] || 0;
+            const y = padT + innerH - (v / maxY) * innerH;
+            if (prev) {
+              const line = document.createElementNS('http://www.w3.org/2000/svg','line');
+              line.setAttribute('x1', prev[0]); line.setAttribute('y1', prev[1]);
+              line.setAttribute('x2', x); line.setAttribute('y2', y);
+              line.setAttribute('stroke', color); line.setAttribute('stroke-width','1.6');
+              line.setAttribute('opacity','0.7');
+              svg.appendChild(line);
+            }
+            prev = [x, y];
+          });
+          // Label at end
+          const lbl = document.createElementNS('http://www.w3.org/2000/svg','text');
+          lbl.setAttribute('x', W - padR + 8);
+          lbl.setAttribute('y', padT + 16 + idx * 16);
+          lbl.setAttribute('font-size','11'); lbl.setAttribute('fill', color);
+          lbl.setAttribute('cursor','pointer'); lbl.style.cursor = 'pointer';
+          lbl.textContent = `${p.label} (${p.total})`;
+          lbl.addEventListener('click', () => openProfileById(p.id));
+          svg.appendChild(lbl);
+        });
+        months.forEach((m, i) => {
+          if (m.endsWith('-01') || m.endsWith('-07')) {
+            const x = padL + (i + 0.5) * innerW / months.length;
+            const lbl = document.createElementNS('http://www.w3.org/2000/svg','text');
+            lbl.setAttribute('x', x); lbl.setAttribute('y', H - padB + 14);
+            lbl.setAttribute('text-anchor','middle');
+            lbl.setAttribute('font-size','10'); lbl.setAttribute('fill','#64748b');
+            lbl.textContent = m;
+            svg.appendChild(lbl);
+          }
+        });
+      }
     }
 
     // ── Metro timeline ───────────────────────────────────────────────────
@@ -1136,6 +1310,7 @@ createApp({
       prevDay, nextDay, jumpDate,
       eventsData, eventSearch, eventRelation, eventMinMembers, eventRelations, filteredEvents,
       metroGran, metroSource, renderMetro,
+      statsData, renderStats,
       profile, profileKind, profileKindLabel, openProfile, openProfileById, neighbourLabel,
     };
   }

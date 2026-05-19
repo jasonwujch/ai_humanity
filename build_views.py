@@ -506,7 +506,47 @@ for n in per_nodes_deduped:
 (out_dir / 'people_profiles.json').write_text(json.dumps(per_profile, ensure_ascii=False, indent=2), encoding='utf-8')
 
 
-# ── 7) hyperedges (multi-party events) ──────────────────────────────────────
+# ── 7) stats (precomputed aggregations) ─────────────────────────────────────
+from collections import defaultdict as _dd
+rel_per_month = _dd(lambda: _dd(int))   # month → relation → count
+for e in src['edges']:
+    d = (e.get('source_location') or '')
+    if not d or len(d) < 7:
+        continue
+    m = d[:7]
+    rel_per_month[m][e.get('relation') or '?'] += 1
+for h in src['hyperedges']:
+    label = h.get('label') or ''
+    m_match = re.search(r'(19\d{2}-\d{2})', label)
+    if not m_match:
+        continue
+    m = m_match.group(1)
+    rel_per_month[m][h.get('relation') or '?'] += 1
+
+person_per_month = _dd(lambda: _dd(int))  # person primary id → month → mentions
+for n in src['nodes']:
+    if n.get('entity_type') != '人':
+        continue
+    pid = redirect(n['id'])
+    md = n.get('metadata') or {}
+    for sf in (md.get('surface_forms') or []):
+        d = sf.get('date') or sf.get('chunk_id') or ''
+        if not d or len(d) < 7:
+            continue
+        person_per_month[pid][d[:7]] += 1
+
+top_persons = sorted(person_per_month.keys(), key=lambda p: -sum(person_per_month[p].values()))[:20]
+person_labels = {pid: nodes_by_id.get(pid, {}).get('label', pid) for pid in top_persons}
+
+stats = {
+    'months': sorted({m for m in rel_per_month.keys()}),
+    'rel_per_month': {m: dict(d) for m, d in rel_per_month.items()},
+    'top_persons': [{'id': p, 'label': person_labels[p], 'total': sum(person_per_month[p].values()), 'monthly': dict(person_per_month[p])} for p in top_persons],
+}
+(out_dir / 'stats.json').write_text(json.dumps(stats, ensure_ascii=False, indent=2), encoding='utf-8')
+
+
+# ── 8) hyperedges (multi-party events) ──────────────────────────────────────
 events_out = []
 for h in src['hyperedges']:
     members = []

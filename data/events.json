@@ -2873,7 +2873,7 @@
         "type": "人"
       },
       {
-        "id": "per_chong_er",
+        "id": "per_chongr",
         "label": "崇儿",
         "type": "人"
       }
@@ -5015,7 +5015,7 @@
       },
       {
         "id": "per_you",
-        "label": "佑",
+        "label": "佑 (徐乃昌之子)",
         "type": "人"
       }
     ]
@@ -5549,7 +5549,7 @@
         "type": "人"
       },
       {
-        "id": "per_chong_er",
+        "id": "per_chongr",
         "label": "崇儿",
         "type": "人"
       },
@@ -10487,7 +10487,7 @@
     "members": [
       {
         "id": "org_dayou_jin",
-        "label": "大有晋公司",
+        "label": "大有晋",
         "type": "团体"
       },
       {
@@ -11454,7 +11454,7 @@
       },
       {
         "id": "per_you",
-        "label": "佑",
+        "label": "佑 (徐乃昌之子)",
         "type": "人"
       }
     ]
@@ -16329,8 +16329,8 @@
     "source_file": "1922-04-01.md",
     "members": [
       {
-        "id": "per_tuilao",
-        "label": "退老",
+        "id": "per_zhang_tuilao",
+        "label": "张退老",
         "type": "人"
       },
       {
@@ -16407,8 +16407,8 @@
     "source_file": "1922-04-03.md",
     "members": [
       {
-        "id": "per_tuilao",
-        "label": "退老",
+        "id": "per_zhang_tuilao",
+        "label": "张退老",
         "type": "人"
       },
       {
@@ -16864,8 +16864,8 @@
     "source_file": "1922-04-28.md",
     "members": [
       {
-        "id": "per_tuilao",
-        "label": "退老",
+        "id": "per_zhang_tuilao",
+        "label": "张退老",
         "type": "人"
       },
       {
@@ -17271,8 +17271,8 @@
         "type": "人"
       },
       {
-        "id": "per_tuilao",
-        "label": "退老",
+        "id": "per_zhang_tuilao",
+        "label": "张退老",
         "type": "人"
       }
     ]
@@ -17328,8 +17328,8 @@
         "type": "人"
       },
       {
-        "id": "per_tuilao",
-        "label": "退老",
+        "id": "per_zhang_tuilao",
+        "label": "张退老",
         "type": "人"
       }
     ]
@@ -17850,8 +17850,8 @@
     "source_file": "1922-06-22.md",
     "members": [
       {
-        "id": "per_tuilao",
-        "label": "退老",
+        "id": "per_zhang_tuilao",
+        "label": "张退老",
         "type": "人"
       },
       {
@@ -19039,7 +19039,7 @@
         "type": "人"
       },
       {
-        "id": "per_chong_er",
+        "id": "per_chongr",
         "label": "崇儿",
         "type": "人"
       },
@@ -19090,7 +19090,7 @@
         "type": "人"
       },
       {
-        "id": "per_chong_er",
+        "id": "per_chongr",
         "label": "崇儿",
         "type": "人"
       },
@@ -19265,8 +19265,8 @@
         "type": "人"
       },
       {
-        "id": "per_tuilao",
-        "label": "退老",
+        "id": "per_zhang_tuilao",
+        "label": "张退老",
         "type": "人"
       },
       {
@@ -19291,8 +19291,8 @@
     "source_file": "1922-08-08.md",
     "members": [
       {
-        "id": "per_tuilao",
-        "label": "退老",
+        "id": "per_zhang_tuilao",
+        "label": "张退老",
         "type": "人"
       },
       {
@@ -20580,8 +20580,8 @@
     "source_file": "1922-10-19.md",
     "members": [
       {
-        "id": "per_tuilao",
-        "label": "退老",
+        "id": "per_zhang_tuilao",
+        "label": "张退老",
         "type": "人"
       },
       {
@@ -22128,6 +22128,129 @@
         "id": "org_mengzang_yinhang",
         "label": "蒙藏银行",
         "type": "团体"
+      }
+    ]
+  },
+  {
+    "id": "hyper_lvhu_wansreni_meeting_1923_02_26",
+    "label": "1923-02-26 旅沪皖人集商皖事",
+    "relation": "同席",
+    "confidence": "EXTRACTED",
+    "confidence_score": 0.85,
+    "date": "1923-02-26",
+    "source_file": "1923-03-15.md",
+    "members": [
+      {
+        "id": "per_li_zhongshuai",
+        "label": "李仲帅",
+        "type": "人"
+      },
+      {
+        "id": "per_bo_liewu",
+        "label": "柏烈武",
+        "type": "人"
+      },
+      {
+        "id": "per_xu_junren",
+        "label": "许俊人",
+        "type": "人"
+      },
+      {
+        "id": "per_wang_piexun",
+        "label": "汪撇荀",
+        "type": "人"
+      },
+      {
+        "id": "per_guan_jianfan",
+        "label": "关建藩",
+        "type": "人"
+      },
+      {
+        "id": "per_wang_younong",
+        "label": "汪幼农",
+        "type": "人"
+      },
+      {
+        "id": "per_hong_xifu",
+        "label": "洪希甫",
+        "type": "人"
+      }
+    ]
+  },
+  {
+    "id": "hyp_quanwan_luocheng_19230303",
+    "label": "1923-03-03 全皖会馆落成团拜",
+    "relation": "同席",
+    "confidence": "EXTRACTED",
+    "confidence_score": 0.85,
+    "date": "1923-03-03",
+    "source_file": "1923-03-03.md",
+    "members": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人"
+      },
+      {
+        "id": "per_yu_shoulao",
+        "label": "余寿老",
+        "type": "人"
+      },
+      {
+        "id": "per_hong_xifu",
+        "label": "洪希甫",
+        "type": "人"
+      },
+      {
+        "id": "per_li_zhonglao",
+        "label": "李仲老",
+        "type": "人"
+      }
+    ]
+  },
+  {
+    "id": "hyp_renjitang_19230305",
+    "label": "1923-03-05 仁济堂会商振务",
+    "relation": "同席",
+    "confidence": "EXTRACTED",
+    "confidence_score": 0.9,
+    "date": "1923-03-05",
+    "source_file": "1923-03-05.md",
+    "members": [
+      {
+        "id": "per_xu_naichang",
+        "label": "徐乃昌",
+        "type": "人"
+      },
+      {
+        "id": "per_chen_jiean",
+        "label": "陈戒庵",
+        "type": "人"
+      },
+      {
+        "id": "per_chen_shaozhou",
+        "label": "陈少舟",
+        "type": "人"
+      },
+      {
+        "id": "per_lu_gaoyu",
+        "label": "吕皋俞",
+        "type": "人"
+      },
+      {
+        "id": "per_lu_songting",
+        "label": "吕宋廷",
+        "type": "人"
+      },
+      {
+        "id": "per_wu_shuren",
+        "label": "吴树人",
+        "type": "人"
+      },
+      {
+        "id": "per_zhao_younan",
+        "label": "赵幼南",
+        "type": "人"
       }
     ]
   }
