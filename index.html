@@ -10,6 +10,7 @@
   }
 </script>
 <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lunar-javascript@1.6.13/lunar.js"></script>
 <script src="https://unpkg.com/cytoscape@3/dist/cytoscape.min.js"></script>
 <script src="https://unpkg.com/tabulator-tables@5/dist/js/tabulator.min.js"></script>
 <link href="https://unpkg.com/tabulator-tables@5/dist/css/tabulator.min.css" rel="stylesheet">
@@ -213,6 +214,10 @@
     </div>
     <a href="specials/index.html" target="_blank" style="font-size:var(--fs-xs);color:var(--accent);text-decoration:none;border:1px solid var(--border);padding:4px 10px;border-radius:2px;background:var(--paper)">专题 ↗</a>
     <a href="wiki/index.html" target="_blank" style="font-size:var(--fs-xs);color:var(--accent);text-decoration:none;border:1px solid var(--border);padding:4px 10px;border-radius:2px;background:var(--paper)">Wiki ↗</a>
+    <select v-model="calendarMode" style="background:transparent;border:1px solid var(--border);border-radius:2px;font-size:11px;padding:3px 6px;color:var(--muted);font-family:inherit;cursor:pointer" title="日历显示">
+      <option value="solar">阳历</option>
+      <option value="lunar">阴历</option>
+    </select>
     <select v-model="locale" style="background:transparent;border:1px solid var(--border);border-radius:2px;font-size:11px;padding:3px 6px;color:var(--muted);font-family:inherit;cursor:pointer">
       <option value="zh">中文</option>
       <option value="en">EN</option>
@@ -388,7 +393,7 @@
         <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px">
           <div>
             <span class="chip chip-evt">{{ e.relation }}</span>
-            <span style="font-family:ui-monospace,monospace;color:#888;font-size:12px;margin-left:6px">{{ e.date || '?' }}</span>
+            <span style="font-family:ui-monospace,monospace;color:#888;font-size:12px;margin-left:6px">{{ fmtDate(e.date) || '?' }}</span>
             <strong style="margin-left:8px">{{ e.label }}</strong>
           </div>
           <span class="legend">{{ e.members.length }} 参与 · 置信 {{ e.confidence_score }}</span>
@@ -520,7 +525,7 @@
               </div>
               <template v-if="readerExpanded[yg.year+'-'+s.label] !== false">
                 <div v-for="d in s.days" :key="d.date" :class="['day', {active: d.date===readerDate}]" @click="readerDate = d.date" style="padding-left:20px">
-                  <span>{{ d.date.slice(5) }}</span>
+                  <span>{{ calendarMode === 'solar' ? d.date.slice(5) : fmtDate(d.date).split('·').slice(1).join('·') }}</span>
                   <span class="count">{{ d.count }}</span>
                 </div>
               </template>
@@ -529,7 +534,14 @@
         </template>
       </div>
       <div class="reader-main" v-if="currentChunk">
-        <h2>{{ readerDate }}<span v-if="currentChunk.lunar_date" style="margin-left:14px;font-size:14px;color:var(--muted);font-weight:400">{{ currentChunk.lunar_date }}</span></h2>
+        <h2>
+          <span v-if="calendarMode === 'solar'">{{ readerDate }}</span>
+          <span v-else>{{ currentChunk.lunar_date || fmtDate(readerDate) }}</span>
+          <span style="margin-left:14px;font-size:14px;color:var(--muted);font-weight:400">
+            <span v-if="calendarMode === 'solar' && currentChunk.lunar_date">{{ currentChunk.lunar_date }}</span>
+            <span v-else>{{ readerDate }}</span>
+          </span>
+        </h2>
         <div class="meta">
           {{ currentChunk.entities.length }} 实体
           <span v-if="currentChunk.source_pdf" style="margin-left:10px">·</span>
@@ -629,7 +641,7 @@
             <span style="font-family:ui-monospace,monospace;color:var(--accent);font-weight:600">{{ e.score }}</span>
             <div>
               <strong>{{ e.source_label }}</strong> <span style="color:var(--accent);font-weight:600">{{ e.relation }}</span> <strong>{{ e.target_label }}</strong>
-              <div style="color:var(--muted);font-size:var(--fs-xs);margin-top:2px">{{ e.evidence }} <span v-if="e.date">· {{ e.date }}</span></div>
+              <div style="color:var(--muted);font-size:var(--fs-xs);margin-top:2px">{{ e.evidence }} <span v-if="e.date">· {{ fmtDate(e.date) }}</span></div>
             </div>
           </div>
         </div>
@@ -689,7 +701,7 @@
           <span class="chip chip-per" style="cursor:pointer" @click="openProfileById(e.source)">{{ e.source_label }}</span>
           <span style="text-align:center;color:var(--accent);font-weight:600">{{ e.kin_type || '亲属' }}</span>
           <span class="chip chip-per" style="cursor:pointer" @click="openProfileById(e.target)">{{ e.target_label }}</span>
-          <span style="color:var(--muted);font-family:ui-monospace,monospace;font-size:var(--fs-xs)">{{ e.date }}</span>
+          <span style="color:var(--muted);font-family:ui-monospace,monospace;font-size:var(--fs-xs)">{{ fmtDate(e.date) }}</span>
           <span style="color:var(--muted);font-size:var(--fs-xs)">{{ e.evidence }}</span>
         </div>
         <div v-if="filteredKin.length > 400" style="text-align:center;color:var(--muted);padding:10px;font-size:var(--fs-xs)">仅显示前 400 / {{ filteredKin.length }}</div>
@@ -732,7 +744,7 @@
         <strong style="color:var(--muted)">边证据：</strong>
         <div v-for="(e,i) in pathResult.edges" :key="i" style="padding:6px 0;border-top:1px solid var(--border-soft)">
           <span style="color:var(--accent);font-weight:600">{{ pathResult.nodes[i].label }} {{ e.relation }} {{ pathResult.nodes[i+1].label }}</span>
-          <span v-if="e.date" style="color:var(--muted);font-family:ui-monospace,monospace;margin-left:8px">{{ e.date }}</span>
+          <span v-if="e.date" style="color:var(--muted);font-family:ui-monospace,monospace;margin-left:8px">{{ fmtDate(e.date) }}</span>
           <div style="color:var(--muted);margin-top:2px">{{ e.evidence || '(无证据文本)' }}</div>
         </div>
       </div>
@@ -766,7 +778,7 @@
   <div v-if="sourcePopup && sourcePopup.mode !== 'side'" style="position:fixed;inset:0;background:rgba(31,26,20,.45);z-index:1100;display:flex;align-items:center;justify-content:center" @click="sourcePopup=null">
     <div @click.stop style="background:var(--paper);border:1px solid var(--border);border-left:3px double var(--accent);max-width:min(720px,92vw);max-height:80vh;overflow-y:auto;padding:24px 32px;border-radius:2px;font-family:'Noto Serif SC','Songti SC',serif">
       <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px;border-bottom:1px solid var(--border-soft);padding-bottom:8px">
-        <h2 style="margin:0;color:var(--accent);font-size:var(--fs-h);padding-left:12px;border-left:4px solid var(--accent)">{{ sourcePopup.date }}</h2>
+        <h2 style="margin:0;color:var(--accent);font-size:var(--fs-h);padding-left:12px;border-left:4px solid var(--accent)">{{ fmtDate(sourcePopup.date) || sourcePopup.date }}</h2>
         <button @click="sourcePopup=null" style="background:0;border:0;font-size:22px;color:var(--muted);cursor:pointer">×</button>
       </div>
       <div style="font-size:clamp(15px,0.9vw+12px,18px);line-height:2.1" v-html="sourcePopup.html"></div>
@@ -774,7 +786,7 @@
   </div>
   <div v-if="sourcePopup && sourcePopup.mode === 'side'" id="source-side-panel" style="position:fixed;top:108px;right:0;bottom:0;width:min(420px,92vw);background:var(--paper);border-left:3px double var(--accent);box-shadow:-8px 0 24px rgba(31,26,20,.12);z-index:990;overflow-y:auto;font-family:'Noto Serif SC','Songti SC',serif">
     <div style="position:sticky;top:0;background:var(--paper);padding:14px 20px;border-bottom:1px solid var(--border);display:flex;align-items:baseline;gap:10px">
-      <h2 style="margin:0;color:var(--accent);font-size:var(--fs-h);padding-left:10px;border-left:4px solid var(--accent)">{{ sourcePopup.date }}</h2>
+      <h2 style="margin:0;color:var(--accent);font-size:var(--fs-h);padding-left:10px;border-left:4px solid var(--accent)">{{ fmtDate(sourcePopup.date) || sourcePopup.date }}</h2>
       <span v-if="sourcePopup.focusSurface" style="color:var(--muted);font-size:var(--fs-xs)">聚焦：<mark style="background:#ffeaa7;padding:0 4px">{{ sourcePopup.focusSurface }}</mark></span>
       <button @click="sourcePopup=null" style="margin-left:auto;background:0;border:0;font-size:22px;color:var(--muted);cursor:pointer">×</button>
     </div>
@@ -831,14 +843,14 @@
       <h3 v-if="profile.txns?.length">相关交易 ({{ profile.txns.length }})</h3>
       <div class="edge-list" v-if="profile.txns?.length">
         <div class="row" v-for="(t,i) in profile.txns" :key="i">
-          <span class="dt">{{ t.date }}</span> <span class="rel">{{ t.relation || '' }}</span> {{ t.label }}<br>
+          <span class="dt">{{ fmtDate(t.date) }}</span> <span class="rel">{{ t.relation || '' }}</span> {{ t.label }}<br>
           <span class="ev">{{ t.evidence }}</span>
         </div>
       </div>
       <h3 v-if="profile.sample_edges?.length">关系证据 ({{ profile.sample_edges.length }})</h3>
       <div class="edge-list" v-if="profile.sample_edges?.length">
         <div class="row" v-for="(e,i) in profile.sample_edges" :key="i">
-          <span class="dt">{{ e.date || '?' }}</span>
+          <span class="dt">{{ fmtDate(e.date) || '?' }}</span>
           <span class="rel">{{ e.relation }}</span>
           <span class="neigh" @click="openProfileById(e.other)">{{ neighbourLabel(e.other) }}</span>
           <div class="ev">{{ e.evidence }}</div>
@@ -847,7 +859,7 @@
       <h3 v-if="profile._source_mentions?.length">日记原文 ({{ profile._source_mentions.length }})</h3>
       <div v-if="profile._source_mentions?.length" class="edge-list">
         <div class="row" v-for="(s,i) in profile._source_mentions" :key="i" style="cursor:pointer" @click="drawerSnippetClick($event, s.date)">
-          <span class="dt">{{ s.date }}</span>
+          <span class="dt">{{ fmtDate(s.date) }}</span>
           <div class="ev" style="margin-top:2px;line-height:1.9;font-family:'Noto Serif SC','Songti SC',serif" v-html="s.snippet"></div>
         </div>
       </div>
@@ -918,6 +930,47 @@ createApp({
     const locale = ref(localStorage.getItem('locale') || 'zh');
     const t = (k) => (I18N[locale.value] && I18N[locale.value][k]) || (I18N.zh[k]) || k;
     watch(locale, (v) => localStorage.setItem('locale', v));
+
+    const calendarMode = ref(localStorage.getItem('calendarMode') || 'solar');
+    watch(calendarMode, (v) => { localStorage.setItem('calendarMode', v); reRenderAll(); });
+    // Global formatter — returns a display string for an ISO YYYY-MM-DD date
+    function fmtDate(iso, opts = {}) {
+      if (!iso) return '';
+      const m = String(iso).match(/^(\d{4})-(\d{2})-(\d{2})/);
+      if (!m) return iso;
+      if (calendarMode.value === 'solar' || !window.Solar) return iso;
+      try {
+        const s = window.Solar.fromYmd(+m[1], +m[2], +m[3]);
+        const l = s.getLunar();
+        // Compact form: 庚申·冬·廿四
+        const yz = l.getYearInGanZhi();
+        const mo = l.getMonthInChinese();  // 正/二/.../十一/腊
+        const dy = l.getDayInChinese();    // 初一/初二/.../廿四/三十
+        return `${yz}·${mo}月${dy}`;
+      } catch (e) { return iso; }
+    }
+    window.__fmtDate = fmtDate;
+    function fmtRange(iso) {
+      // For 'YYYY-MM' month strings
+      if (!iso) return '';
+      const m = String(iso).match(/^(\d{4})-(\d{2})$/);
+      if (!m) return fmtDate(iso);
+      if (calendarMode.value === 'solar' || !window.Solar) return iso;
+      try {
+        const s = window.Solar.fromYmd(+m[1], +m[2], 1);
+        const l = s.getLunar();
+        return `${l.getYearInGanZhi()}·${l.getMonthInChinese()}月`;
+      } catch (e) { return iso; }
+    }
+
+    function reRenderAll() {
+      // Force Tabulator tables to redraw formatters + cytoscape edges relabel
+      if (txnTable) txnTable.redraw(true);
+      if (booksTable) booksTable.redraw(true);
+      // Re-run metro/calendar/stats if they're current
+      if (tab.value === 'metro') nextTick(() => renderMetroOrCalendar());
+      if (tab.value === 'stats' && statsData.value) nextTick(() => renderStats());
+    }
     const tab = ref('overview');
     const overview = ref(null);
     const peopleData = ref(null);
@@ -2645,6 +2698,7 @@ createApp({
       coocData,
       kinData, kinSearch, kinTypeFilter, kinTypes, filteredKin,
       locale, t,
+      calendarMode, fmtDate, fmtRange,
       pathFromQ, pathToQ, pathResult, pathError, runPath, swapPath, pickPath, pathQuickPicks,
       miscExpanded, toggleMiscGroup,
       drawerSnippetClick,
@@ -2673,8 +2727,10 @@ function initBooks(data){
       {title:'别名', field:'aliases', widthGrow:2,
         formatter: c => (c.getValue()||[]).slice(0,4).join('、')},
       {title:'提及次数', field:'mentions', sorter:'number', width:90, hozAlign:'right'},
-      {title:'首次', field:'first_seen', width:110},
-      {title:'最近', field:'last_seen', width:110},
+      {title:'首次', field:'first_seen', width:150,
+        formatter: c => window.__fmtDate ? window.__fmtDate(c.getValue() || '') : (c.getValue() || '')},
+      {title:'最近', field:'last_seen', width:150,
+        formatter: c => window.__fmtDate ? window.__fmtDate(c.getValue() || '') : (c.getValue() || '')},
       {title:'相关人', field:'people', widthGrow:3,
         formatter: c => (c.getValue()||[]).slice(0,8).map(p =>
           `<span class="chip chip-per" data-id="${p.id||''}" title="${p.relation||''}">${p.label||''}</span>`
@@ -2707,7 +2763,11 @@ function initTxn(data){
     paginationSizeSelector: [25, 50, 100, 200],
     paginationCounter: 'rows',
     columns:[
-      {title:'日期', field:'date', sorter:'string', width:110, headerFilter:'input'},
+      {title:'日期', field:'date', sorter:'string', width:160, headerFilter:'input',
+        formatter: c => {
+          const iso = c.getValue() || '';
+          return window.__fmtDate ? window.__fmtDate(iso) : iso;
+        }},
       {title:'交易', field:'label', widthGrow:2, headerFilter:'input'},
       {title:'相关人', field:'people', widthGrow:2,
         formatter: c => (c.getValue()||[]).map(p => {
