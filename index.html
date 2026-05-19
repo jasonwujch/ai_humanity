@@ -66,6 +66,7 @@
   .tabs button.active { color: var(--accent); border-bottom: 2px solid var(--accent); font-weight: 600 }
   .view { padding: var(--container-pad) }
   #people-graph, #geo-map { height: calc(100vh - 240px); min-height: 540px; border: 1px solid var(--border); background: var(--paper); border-radius: 2px }
+  #geo-map .leaflet-tile-pane { filter: grayscale(1) contrast(1.05) brightness(1.02) }
   @media (max-width: 900px) {
     .breakdown { grid-template-columns: 1fr !important }
     .reader-grid { grid-template-columns: 1fr !important; grid-template-rows: 200px 1fr 200px }
@@ -1414,7 +1415,15 @@ createApp({
       }
       if (trajectoryTrail) leafletMap.removeLayer(trajectoryTrail);
       trajectoryTrail = L.polyline(recent, {color: '#9b2926', weight: 2, opacity: 0.6, dashArray: '4 4'}).addTo(leafletMap);
-      leafletMap.panTo(here, {animate: true, duration: 0.3});
+      // Zoom level: venue-level if we have venue coord, city-level otherwise
+      const hasVenueCoord = venueCoords[cur.location_label] ? true : false;
+      const targetZoom = hasVenueCoord ? 15 : 12;
+      const currentZoom = leafletMap.getZoom();
+      if (currentZoom < targetZoom - 1 || currentZoom > targetZoom + 1) {
+        leafletMap.flyTo(here, targetZoom, {duration: 0.6});
+      } else {
+        leafletMap.panTo(here, {animate: true, duration: 0.3});
+      }
       // Auto-popup source for this date (side mode so map stays visible)
       if (trajectoryAutoPopup.value && cur.date && window.__vueOpenSourcePopup) {
         window.__vueOpenSourcePopup(cur.date, 'side');
@@ -2679,8 +2688,8 @@ let venueMarkerLayer = null;
 
 function initGeo(data){
   leafletMap = L.map('geo-map', {preferCanvas: true, zoomControl: true}).setView([31.5, 119], 6);
-  // 高德地图 灰白底 + 中文标签 (style=7 grayscale, no API key needed for low-volume use)
-  L.tileLayer('https://wprd0{s}.is.autonavi.com/appmaptile?style=7&x={x}&y={y}&z={z}', {
+  // 高德地图 + CSS grayscale (Chinese labels, neutral background via filter)
+  L.tileLayer('https://wprd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&style=7&x={x}&y={y}&z={z}', {
     attribution: '© 高德地图',
     maxZoom: 18,
     subdomains: '1234',
