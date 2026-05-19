@@ -18132,13 +18132,6 @@
     "rule": null
    },
    {
-    "id": "loc_luoyang",
-    "surface": "洛阳",
-    "label": "洛阳",
-    "type": "地",
-    "rule": null
-   },
-   {
     "id": "book_wenxian_bei",
     "surface": "温县各碑",
     "label": "温县各碑",
@@ -18409,13 +18402,6 @@
     "rule": null
    },
    {
-    "id": "per_selao",
-    "surface": "嗇老",
-    "label": "嗇老",
-    "type": "人",
-    "rule": null
-   },
-   {
     "id": "loc_weigujingshe",
     "surface": "味古精舍",
     "label": "味古精舍",
@@ -18438,13 +18424,6 @@
     "id": "per_zhang_tuilao",
     "surface": "张退老",
     "label": "张退老",
-    "type": "人",
-    "rule": null
-   },
-   {
-    "id": "per_selao",
-    "surface": "嗇老",
-    "label": "嗇老",
     "type": "人",
     "rule": null
    },
@@ -18583,13 +18562,6 @@
     "label": "张退老",
     "type": "人",
     "rule": "R5"
-   },
-   {
-    "id": "per_selao",
-    "surface": "嗇老",
-    "label": "嗇老",
-    "type": "人",
-    "rule": null
    },
    {
     "id": "ill_tuilao_bing",
@@ -21648,13 +21620,6 @@
     "id": "per_xinghe_zuzu",
     "surface": "兴和族祖",
     "label": "兴和族祖",
-    "type": "人",
-    "rule": "R8"
-   },
-   {
-    "id": "per_rongting",
-    "surface": "荣廷",
-    "label": "荣廷",
     "type": "人",
     "rule": "R8"
    },
@@ -25298,13 +25263,6 @@
   "body": "洪希甫来，交慎昌电机价单。\n\n张祝秋来，送鸭两对、面筋一篓，随约至大世界西酌。途中晤罗叔蕴，知咋商陆维鋪振务，尚满意。\n\n赵月川子继昌耀廷。贷款，赠洋四元。\n\n良士覆书来，赠常熟瞿氏忠贤遗像。心如亦赠一册。",
   "entities": [
    {
-    "id": "per_lu_weibu",
-    "surface": "陆维鋪",
-    "label": "陆维鋪",
-    "type": "人",
-    "rule": "R1"
-   },
-   {
     "id": "per_jichang_yaoting",
     "surface": "继昌耀廷",
     "label": "继昌耀廷",
@@ -25599,13 +25557,6 @@
   "body": "(12月22日，长至日) 朱研涛招集潘兰史、杨芷姓、周梦坡、恒季申、恒瑾叔、陶拙存、童心庵、胡朴庵为消寒会，是日与会。\n\n昨王似儁寄两鬲、一甁拓本。今复书，贻穀钟、禄康两钟、周赤刀全形拓本。\n\n至寄尘处，交倪伯高原号铁庵。名条，并换削淑记、崇记、佑记存折。削折交还削夫人。\n\n昨，翰怡贻《四部丛刊》中明刻《吴越春秋》《越绝书》《华阳国志》《放翁诗集》四种。",
   "entities": [
    {
-    "id": "per_yang_zhixing",
-    "surface": "杨芷姓",
-    "label": "杨芷姓",
-    "type": "人",
-    "rule": null
-   },
-   {
     "id": "evt_xiaohan_hui_1",
     "surface": "消寒会",
     "label": "消寒会",
@@ -25713,13 +25664,6 @@
     "surface": "十一月初九期大照本年还款二千六百两",
     "label": "大照本年还款",
     "type": "交易",
-    "rule": null
-   },
-   {
-    "id": "per_yin_lvqiao",
-    "surface": "殷侣樵",
-    "label": "殷侣樵",
-    "type": "人",
     "rule": null
    },
    {
@@ -26167,13 +26111,6 @@
     "label": "寿老",
     "type": "人",
     "rule": "R5"
-   },
-   {
-    "id": "per_liu_weizhi",
-    "surface": "刘畏之",
-    "label": "刘畏之",
-    "type": "人",
-    "rule": "R1"
    },
    {
     "id": "per_shaozhou",
@@ -27642,13 +27579,6 @@
     "rule": "R1"
    },
    {
-    "id": "loc_dayalou",
-    "surface": "大雅楼",
-    "label": "大雅楼",
-    "type": "地",
-    "rule": "R1"
-   },
-   {
     "id": "evt_xiaohan_si_ji",
     "surface": "消寒四集",
     "label": "消寒四集",
@@ -28875,13 +28805,6 @@
     "rule": "R1"
    },
    {
-    "id": "org_commercial_press",
-    "surface": "商务书馆",
-    "label": "商务书馆",
-    "type": "团体",
-    "rule": "R1"
-   },
-   {
     "id": "org_xileng_yinshe",
     "surface": "西泠印社",
     "label": "西泠印社",
@@ -28927,15 +28850,7 @@
  },
  "1921-02-26": {
   "body": "贞元会，梦坡值会，座设兴华川菜馆，与会者邹紫东、王雪澄、张让三、恒季申、恒瑾叔、恒眉卿、陶拙存、朱峻夫、李凤池、李伯贞、庞芝符。\n\n答拜江幹卿。\n\n至博古斋、古书流通处、来青阁、蜚英书局。\n\n至有余兴斋，适甘卿同年由苏来，畅谭。",
-  "entities": [
-   {
-    "id": "org_bogu_zhai",
-    "surface": "博古斋",
-    "label": "博古斋",
-    "type": "团体",
-    "rule": "R1"
-   }
-  ]
+  "entities": []
  },
  "1921-02-27": {
   "body": "甘卿来谭。\n\n午后，挈崇儿游半淞园。\n\n周坦约兴华川菜馆，却之。",
@@ -30737,13 +30652,6 @@
   "body": "清明节。昨宋廷函寄淞地图，随转寄尘。\n\n以杭连纸印《闺秀词》、朱拓益延寿瓦祝恒瑾叔五十寿。\n\n以杭连纸蓝印《徐骑省集》赠李紫东。",
   "entities": [
    {
-    "id": "book_guixiu_ci",
-    "surface": "《闺秀词》",
-    "label": "《闺秀词》",
-    "type": "书籍",
-    "rule": "R0"
-   },
-   {
     "id": "per_zhu_hengjin",
     "surface": "祝恒瑾叔",
     "label": "祝恒瑾",
@@ -31437,13 +31345,6 @@
   "body": "绮女晚由宁回。\n\n薄暮，游邑庙内园。\n\n邓百村、朱稷丞来谭。\n\n昨，宗子戴来，赠其先德湘文先生《颐情馆诗集》、覆刻长垣本华山碑。",
   "entities": [
    {
-    "id": "loc_yi_miao_neiyuan",
-    "surface": "邑庙内园",
-    "label": "邑庙内园",
-    "type": "地",
-    "rule": "R0"
-   },
-   {
     "id": "per_zong_xiangwen",
     "surface": "湘文先生",
     "label": "宗湘文",
@@ -31598,13 +31499,6 @@
     "surface": "收浙路十一期换回短期金融债票七十九元。外收现十元",
     "label": "收浙路十一期换回短期金融债票七十九元",
     "type": "交易",
-    "rule": "R0"
-   },
-   {
-    "id": "per_luo_yuanjue",
-    "surface": "南海罗原觉",
-    "label": "罗原觉",
-    "type": "人",
     "rule": "R0"
    },
    {
@@ -32210,13 +32104,6 @@
     "surface": "宋松如吉期",
     "label": "宋松如吉期",
     "type": "事件",
-    "rule": null
-   },
-   {
-    "id": "loc_xian",
-    "surface": "西安市城土地什字五十二号",
-    "label": "西安市城土地什字五十二号",
-    "type": "地",
     "rule": null
    },
    {
@@ -34585,13 +34472,6 @@
     "rule": "R1"
    },
    {
-    "id": "per_he_shisun",
-    "surface": "何诗孙",
-    "label": "何诗孙",
-    "type": "人",
-    "rule": "R1"
-   },
-   {
     "id": "txn_zhou_birthday_gift",
     "surface": "赠花缎幃、烛",
     "label": "赠周梦坡夫人花缎幃烛",
@@ -34664,13 +34544,6 @@
  "1921-06-04": {
   "body": "贺何诗孙八十寿。\n\n至南通实业公司，晤张孝若，略谭，吴淞乡董俞葆邨君约至消闲别墅酒叙。\n\n接扬州许篆香电，告今日太夫人去世。晚，派刘仆送奠敬壹百元、缎幃一轴、往生钱三万六千张、锡箔十二块、喧函一通。\n\n郭履真、品翰昆仲来，不晤。收大生董事费二百元。",
   "entities": [
-   {
-    "id": "per_he_shisun",
-    "surface": "何诗孙",
-    "label": "何诗孙",
-    "type": "人",
-    "rule": "R3"
-   },
    {
     "id": "per_yu_bucun",
     "surface": "俞葆邨",
@@ -35290,13 +35163,6 @@
     "id": "book_xiaotanluan_guixiu_ci",
     "surface": "《小檀栾室闺秀词》",
     "label": "小檀栾室闺秀词",
-    "type": "书籍",
-    "rule": "R1"
-   },
-   {
-    "id": "book_huailin_zazu",
-    "surface": "《怀邻杂俎》",
-    "label": "怀邻杂俎",
     "type": "书籍",
     "rule": "R1"
    },
@@ -39852,13 +39718,6 @@
     "rule": "R1"
    },
    {
-    "id": "per_lu_gaoyu",
-    "surface": "吕皋俞",
-    "label": "吕皋俞",
-    "type": "人",
-    "rule": "R1"
-   },
-   {
     "id": "loc_chongming",
     "surface": "崇明分厂",
     "label": "崇明",
@@ -39911,13 +39770,6 @@
     "label": "张学安",
     "type": "人",
     "rule": "R1"
-   },
-   {
-    "id": "org_yifeng_tang",
-    "surface": "艺风堂",
-    "label": "艺风堂",
-    "type": "团体",
-    "rule": "R1"
    }
   ]
  },
@@ -39929,13 +39781,6 @@
     "surface": "仁济堂安徽义振会",
     "label": "安徽义振会",
     "type": "团体",
-    "rule": "R3"
-   },
-   {
-    "id": "per_lu_gaoyu",
-    "surface": "吕皋俞",
-    "label": "吕皋俞",
-    "type": "人",
     "rule": "R3"
    },
    {
@@ -40098,13 +39943,6 @@
   "body": "至仁济堂，皋俞、宋廷、少舟、树人先后到，并晤慎斋、维鋪，商振务。辅宜复书，因覆选，不克来。\n\n至忠厚书庄，取《鮀琦亭全集》，价六元。\n\n江汉珊、王饶生、刘烈卿来，不遇。\n\n希媛来书，退老赴常乐避暑，初九日回通。喜礼同爵之送去，退老有谦词。陶生凤章派至振兴纱庄练习，秋节后到庄。\n\n王灏渠来书，回省后将矿事协商情形陈述，均赞同，俟全部定局再来磋商进行方针。至前次手续，实业厅已分呈部署。\n\n舜臣来书，望雨甚急，日内无雨，稻受大伤。又徐立孝体荣将四\n\n房公荒田地硬行出售，春间要开塘。大约公值只数十元之谱。省议员初八日覆选，南陵初选当选人全售票，得价每票七百元，现有人反对此举。到南通考中学学生九人，取入堂者六人。稻价预售新稻每石二元二角。",
   "entities": [
    {
-    "id": "per_lu_gaoyu",
-    "surface": "皋俞",
-    "label": "吕皋俞",
-    "type": "人",
-    "rule": "R4"
-   },
-   {
     "id": "book_jieqi_tingji",
     "surface": "《鮀琦亭全集》",
     "label": "《桔琦亭集》",
@@ -40208,7 +40046,7 @@
     "rule": "R1"
    },
    {
-    "id": "per_lianxi",
+    "id": "per_lian_xi",
     "surface": "莲溪年丈",
     "label": "莲溪年丈",
     "type": "人",
@@ -46166,13 +46004,6 @@
     "rule": "R0"
    },
    {
-    "id": "txn_dayalou_jiu",
-    "surface": "大雅楼酒叙,共用十九元",
-    "label": "大雅楼酒叙 十九元",
-    "type": "交易",
-    "rule": "R0"
-   },
-   {
     "id": "per_yao_ziliang",
     "surface": "姚子梁",
     "label": "姚子梁",
@@ -47619,13 +47450,6 @@
     "rule": "literal"
    },
    {
-    "id": "per_fang_xuanfu",
-    "surface": "方宣甫",
-    "label": "方宣甫",
-    "type": "人",
-    "rule": "literal"
-   },
-   {
     "id": "per_zhu_jiangcun",
     "surface": "朱彊邨",
     "label": "朱彊邨",
@@ -47844,13 +47668,6 @@
  "1921-12-12": {
   "body": "许范远来，交阅上海储材善会征信录。\n\n为方宣甫七十寿书诗屏，并送寿联。\n\n函刘翰怡，交还前假元刻明修本《金陵新志》，并商让湖州图书馆售书目中书十一种。\n\n至仁济堂，晤戒安、宋廷、幼南、刘慧之。\n\n至怡和余，同傅沅叔谭，出示新得钱氏述古堂钞《吊代录》、席玉照影宋钞《东家杂记》，极佳，价四百元。又残宋本《分类杜诗》三册、《通鉴纲目》三册，宋本宋印，亦佳。\n\n覆刘葱石书。论贵池振务。\n\n覆李从龙书。汇洋式百式拾元中行，已交到。\n\n覆汪甘卿书。",
   "entities": [
-   {
-    "id": "per_fang_xuanfu",
-    "surface": "方宣甫",
-    "label": "方宣甫",
-    "type": "人",
-    "rule": "R3"
-   },
    {
     "id": "per_xu_fanyuan",
     "surface": "许范远",
@@ -49579,13 +49396,6 @@
   "body": "五十五岁生辰。\n\n陈乃乾、郑翰生、希云、赵幼南、刘公鲁暨冠英侄来贺。\n\n午刻,赴周湘云酒叙,观彝器书画,师趁鼎陈列楼中,形制极佳。又药地头陀画山水轴,亦佳。坐中罗叔言、王雪岑、王聘三、朱古微、王静庵、赵叔孺。\n\n答拜陈伯严,不遇。\n\n游大世界,晚西餐,观大舞台《狸猫换太子》第五本剧。\n\n吴舜臣汇来稻价一千三百元。",
   "entities": [
    {
-    "id": "per_zheng_hansheng",
-    "surface": "郑翰生",
-    "label": "郑翰生",
-    "type": "人",
-    "rule": "R1"
-   },
-   {
     "id": "per_xiyun",
     "surface": "希云",
     "label": "希云",
@@ -51018,13 +50828,6 @@
     "rule": "R1"
    },
    {
-    "id": "book_peilin",
-    "surface": "《佩鳞》",
-    "label": "《佩鳞》",
-    "type": "书籍",
-    "rule": "R1"
-   },
-   {
     "id": "per_zhou_chao",
     "surface": "海虞周潮书",
     "label": "周潮",
@@ -51378,13 +51181,6 @@
  "1922-02-23": {
   "body": "以万玉堂本《佩鱗》校泽存堂本，尽一日校毕。\n\n至冯蒿老、陈戒老处谭。又至江幹卿处谭。\n\n覆汪甘卿同年书。\n\n吕宋廷来谭。\n\n商务印书馆罗品洁来，商寄售书登《图书杂志》，系拔可嘱托也。",
   "entities": [
-   {
-    "id": "book_peilin",
-    "surface": "《佩鱗》",
-    "label": "《佩鳞》",
-    "type": "书籍",
-    "rule": "R3"
-   },
    {
     "id": "book_zecun_tang",
     "surface": "泽存堂本",
@@ -53406,13 +53202,6 @@
     "rule": null
    },
    {
-    "id": "per_sun_yuanru",
-    "surface": "孙渊如",
-    "label": "孙渊如",
-    "type": "人",
-    "rule": null
-   },
-   {
     "id": "per_sheng_qinchuan",
     "surface": "盛秦川",
     "label": "盛秦川",
@@ -54016,13 +53805,6 @@
     "id": "loc_nanchang",
     "surface": "南昌",
     "label": "南昌",
-    "type": "地",
-    "rule": "R1"
-   },
-   {
-    "id": "loc_huangxian",
-    "surface": "黄县",
-    "label": "黄县",
     "type": "地",
     "rule": "R1"
    },
@@ -57335,7 +57117,7 @@
   "body": "至古书流通处、来青阁、忠厚书庄。\n\n拜余寿老、阮公槐、沈培老谭。\n\n午刻，赴都益处贞元会，李伯贞值会。又赴余寿老之约，晤阮公槐。\n\n晚，陈卓甫约一品香。散后，同游新世界，并送阮公槐至沪宁车站，乘车去皖，赴财厅任。\n\n购美大公司喜缎幢两轴，送张石铭母夫人，又沈子林。",
   "entities": [
    {
-    "id": "per_ruan_gonghuai",
+    "id": "per_ruan_gonghui",
     "surface": "阮公槐",
     "label": "阮公槐",
     "type": "人",
@@ -61643,24 +61425,10 @@
     "rule": "R1"
    },
    {
-    "id": "per_wei_bingrong",
-    "surface": "魏炳荣",
-    "label": "魏炳荣",
-    "type": "人",
-    "rule": "R1"
-   },
-   {
     "id": "book_jingtu_chenzhong",
     "surface": "《净土晨钟》",
     "label": "《净土晨钟》",
     "type": "书籍",
-    "rule": "R1"
-   },
-   {
-    "id": "org_guangyi_shuju",
-    "surface": "广益书局",
-    "label": "广益书局",
-    "type": "团体",
     "rule": "R1"
    },
    {
@@ -64173,13 +63941,6 @@
     "id": "per_ding_guiqin",
     "surface": "丁桂芩",
     "label": "丁桂芩",
-    "type": "人",
-    "rule": "R0"
-   },
-   {
-    "id": "per_you_xiyin",
-    "surface": "尤惜阴",
-    "label": "尤惜阴",
     "type": "人",
     "rule": "R0"
    },
@@ -79284,79 +79045,1652 @@
  },
  "1923-05-05": {
   "body": "覆杨云史书。\n\n致陶子麟书，寄《玉台新咏札记》《徐公文集校记》写样，并告蒋孟蘋刻书，为之绍介。\n\n付商务印书馆《闺秀词》白纸六部、每九元。竹纸四部。每六元。\n\n至余寿老处，谭地检厅有文致同乡会，寿老送由希甫交余核办。晚，赴希甫都益处之约，知希甫已送同乡会筹备处矣。至文内何事，\n\n寿老云并未拆阅，希甫亦未阅也。\n\n至敦裕里伍渭英家，赴大丰公司谈话会，公推发起人，集股一百五十万，除纱厂六十万，净九十万。余亦列十七人之一。\n\n前日，淑魄合肥来讯，大女事无办法，拟回沪。今来讯，十四日午后，李大太太、张老太太、张二姑太太、曹先生等面议还款止利，由账房出票，分二年还清，须迟数日料理清楚，再定期回。\n\n吴舜臣汇来稻洋壹千元。宝丰庄。\n\n舜臣讯寄其子名条，吴元松，年十八岁，歙县人。又函告荣廷于初十日病故。县知事催上忙，云财政会议每月解省八千元。\n\n覆孙悔庵书。孙名承荣，讯由西门斜桥步一团二连周逊伯交，询《警世浮鼓》，广益书局魏炳荣印。",
-  "entities": []
+  "entities": [
+   {
+    "id": "org_commercial_press",
+    "surface": "商务印书馆",
+    "label": "商务印书馆",
+    "type": "团体",
+    "rule": null
+   },
+   {
+    "id": "book_guixiu_ci",
+    "surface": "《闺秀词》",
+    "label": "《闺秀词》",
+    "type": "书籍",
+    "rule": null
+   },
+   {
+    "id": "txn_guixiu_ci_baipaper",
+    "surface": "《闺秀词》白纸六部、每九元",
+    "label": "付商务印书馆《闺秀词》白纸六部",
+    "type": "交易",
+    "rule": null
+   },
+   {
+    "id": "txn_guixiu_ci_zhupaper",
+    "surface": "竹纸四部。每六元",
+    "label": "付商务印书馆《闺秀词》竹纸四部",
+    "type": "交易",
+    "rule": null
+   },
+   {
+    "id": "loc_dunyuli",
+    "surface": "敦裕里",
+    "label": "敦裕里",
+    "type": "地",
+    "rule": null
+   },
+   {
+    "id": "per_li_dataitai",
+    "surface": "李大太太",
+    "label": "李大太太",
+    "type": "人",
+    "rule": "R8"
+   },
+   {
+    "id": "per_zhang_laotaitai",
+    "surface": "张老太太",
+    "label": "张老太太",
+    "type": "人",
+    "rule": "R8"
+   },
+   {
+    "id": "per_zhang_ergutaitai",
+    "surface": "张二姑太太",
+    "label": "张二姑太太",
+    "type": "人",
+    "rule": "R8"
+   },
+   {
+    "id": "per_cao_xiansheng",
+    "surface": "曹先生",
+    "label": "曹先生",
+    "type": "人",
+    "rule": "R8"
+   },
+   {
+    "id": "org_baofeng_zhuang",
+    "surface": "宝丰庄",
+    "label": "宝丰庄",
+    "type": "团体",
+    "rule": null
+   },
+   {
+    "id": "txn_wu_remit_1000",
+    "surface": "吴舜臣汇来稻洋壹千元",
+    "label": "吴舜臣汇来稻洋壹千元",
+    "type": "交易",
+    "rule": null
+   },
+   {
+    "id": "per_rongting",
+    "surface": "荣廷",
+    "label": "荣廷",
+    "type": "人",
+    "rule": "R8"
+   },
+   {
+    "id": "per_sun_huian",
+    "surface": "孙悔庵",
+    "label": "孙悔庵",
+    "type": "人",
+    "rule": "R2"
+   },
+   {
+    "id": "per_sun_huian",
+    "surface": "孙承荣",
+    "label": "孙悔庵",
+    "type": "人",
+    "rule": "R2"
+   },
+   {
+    "id": "per_zhou_xunbo",
+    "surface": "周逊伯",
+    "label": "周逊伯",
+    "type": "人",
+    "rule": "R3"
+   },
+   {
+    "id": "book_jingshi_fugu",
+    "surface": "《警世浮鼓》",
+    "label": "《警世浮鼓》",
+    "type": "书籍",
+    "rule": null
+   },
+   {
+    "id": "org_guangyi_shuju",
+    "surface": "广益书局",
+    "label": "广益书局",
+    "type": "团体",
+    "rule": null
+   },
+   {
+    "id": "per_wei_bingrong",
+    "surface": "魏炳荣",
+    "label": "魏炳荣",
+    "type": "人",
+    "rule": "R3"
+   }
+  ]
  },
  "1923-05-06": {
   "body": "将南陵稻洋壹千元送存大生，登来往折。寄尘又将去年寿分二百元退回，亦登折。\n\n覆江易园书，附印江慎修《爱物戕物现报录》一百本，计洋五元五角。尤惜阴代理，尤住杨树浦兰路穆公正花行。\n\n吕皋俞之母孙太夫人七十寿征诗，书七律寿之。\n\n傅升至镇江，取大照公司官余利一千五百捌拾两、又翩带耕堂四百十五两回。官八厘，余二厘。礼征赠焦山鄒惠鼎拓本、绘万年青草，松泉绘，廿八日，一千五百八十两，七二四六二五。化洋二千一百八十元四角三分。\n\n游邑庙内园，观兰花会。",
-  "entities": []
+  "entities": [
+   {
+    "id": "txn_nanling_deposit",
+    "surface": "将南陵稻洋壹千元送存大生",
+    "label": "南陵稻洋壹千元送存大生",
+    "type": "交易",
+    "rule": null
+   },
+   {
+    "id": "txn_shoufen_refund",
+    "surface": "寄尘又将去年寿分二百元退回",
+    "label": "寄尘寿分二百元退回",
+    "type": "交易",
+    "rule": null
+   },
+   {
+    "id": "book_aiwu_qiangwu",
+    "surface": "《爱物戕物现报录》",
+    "label": "《爱物戕物现报录》",
+    "type": "书籍",
+    "rule": null
+   },
+   {
+    "id": "txn_aiwu_print",
+    "surface": "附印江慎修《爱物戕物现报录》一百本，计洋五元五角",
+    "label": "印《爱物戕物现报录》一百本",
+    "type": "交易",
+    "rule": null
+   },
+   {
+    "id": "per_you_xiyin",
+    "surface": "尤惜阴",
+    "label": "尤惜阴",
+    "type": "人",
+    "rule": "R3"
+   },
+   {
+    "id": "per_you_xiyin",
+    "surface": "尤",
+    "label": "尤惜阴",
+    "type": "人",
+    "rule": "R4"
+   },
+   {
+    "id": "loc_yangshupu_lanlu",
+    "surface": "杨树浦兰路",
+    "label": "杨树浦兰路",
+    "type": "地",
+    "rule": null
+   },
+   {
+    "id": "org_mugongzheng_huahang",
+    "surface": "穆公正花行",
+    "label": "穆公正花行",
+    "type": "团体",
+    "rule": null
+   },
+   {
+    "id": "per_lu_gaoyu",
+    "surface": "吕皋俞",
+    "label": "吕皋俞",
+    "type": "人",
+    "rule": "R3"
+   },
+   {
+    "id": "per_fusheng",
+    "surface": "傅升",
+    "label": "傅升",
+    "type": "人",
+    "rule": "R3"
+   },
+   {
+    "id": "txn_dazhao_profit",
+    "surface": "取大照公司官余利一千五百捌拾两、又翩带耕堂四百十五两回",
+    "label": "取大照公司官余利",
+    "type": "交易",
+    "rule": null
+   },
+   {
+    "id": "loc_jiaoshan",
+    "surface": "焦山",
+    "label": "焦山",
+    "type": "地",
+    "rule": null
+   },
+   {
+    "id": "per_zou_huiding",
+    "surface": "鄒惠鼎",
+    "label": "鄒惠鼎",
+    "type": "人",
+    "rule": "R8"
+   },
+   {
+    "id": "per_songquan",
+    "surface": "松泉",
+    "label": "松泉",
+    "type": "人",
+    "rule": "R8"
+   },
+   {
+    "id": "book_jiaoshan_zou_tuoben",
+    "surface": "焦山鄒惠鼎拓本",
+    "label": "焦山鄒惠鼎拓本",
+    "type": "书籍",
+    "rule": null
+   },
+   {
+    "id": "loc_yi_miao_neiyuan",
+    "surface": "邑庙内园",
+    "label": "邑庙内园",
+    "type": "地",
+    "rule": null
+   }
+  ]
  },
  "1923-05-07": {
   "body": "购泰生永赛连十一件，每件十一元六角，共一百廿七元六角，又力二角。计恒升松九件、乾元松二件。\n\n覆吴舜臣书。告元松名条寄李耆卿。祠扁用余名(科甲)。商送荣廷奠分。徐公祠乞振、乞修理费原讯寄商。\n\n送筒渔太夫人缎幃公份四元。\n\n吕宋廷假《昆新合志》。\n\n致南京交通行李耆卿。寄吴元松名条，为芜交通行为练习生。\n\n致陈石庐书。请将联、扇送嗇老，书已面同嗇老言之，嗇老托觅《争坐位帖》，必报命，或托孝若交。\n\n致杨云史书。寄朱古微、何诗孙书联。\n\n致朱峻夫书。峻夫代友购《徐公文集》，照预约价。\n\n陶琳书菊畴。来见。刘健之来，未遇。\n\n张萼如廷华。来，不晤。二月六日来，请编《南陵风俗志》。\n\n访丁仲枯谭，座中晤江易园乔梓，以陈倬斋函询十二圩义冢枯骨焚化入塔一事，请上海净业居士讨论，仲枯主上说易园议，拜地藏经诵名号七日，或扶itz，或拈闻，请菩萨临坛示谕。后仲枯赞同，实则不负责也。余意宁募资推广购地耳。陈西甫代吴怡生购《劝戒录类编》一千四百部。书夏玉峰函交仲枯，并书送夏检收付款。仲枯赠《佛教感应篇》《死后之审判》《素食主义》各十本。\n\n至忠厚书庄购书，言明价洋九十元：附赠残元本《汉书艺文志考证》。元刻本《韵府群玉》廿卷，元统甲戌春梅溪书院刊本，内配卷十三、四共两卷，非一本也。《经学五种》，藤花榭本。此书罕见：《元九经三传沿革例》《六经奥论》《七经小传》《礼经会元》《太平经国之书》。《礼经释例》十三卷凌廷堪。《述学》二卷。汪中，均文选楼本。\n\n访刘葱石，告大女事十四日午后可有结束之望。\n\n晚，赴刘翰怡家酒叙，翰怡赠新刻蜀大字本《史记》，可与葱石刻百衲本并峙也。",
-  "entities": []
+  "entities": [
+   {
+    "id": "per_rongting",
+    "surface": "荣廷",
+    "label": "荣廷",
+    "type": "人",
+    "rule": "R8"
+   },
+   {
+    "id": "txn_saiilan_purchase",
+    "surface": "购泰生永赛连十一件，每件十一元六角，共一百廿七元六角",
+    "label": "购泰生永赛连十一件",
+    "type": "交易",
+    "rule": null
+   },
+   {
+    "id": "loc_xu_gong_ci",
+    "surface": "徐公祠",
+    "label": "徐公祠",
+    "type": "地",
+    "rule": null
+   },
+   {
+    "id": "per_tongyu_taifuren",
+    "surface": "筒渔太夫人",
+    "label": "筒渔太夫人",
+    "type": "人",
+    "rule": "R8"
+   },
+   {
+    "id": "txn_tongyu_offering",
+    "surface": "送筒渔太夫人缎幃公份四元",
+    "label": "送筒渔太夫人缎幃公份四元",
+    "type": "交易",
+    "rule": null
+   },
+   {
+    "id": "per_lu_songting",
+    "surface": "吕宋廷",
+    "label": "吕宋廷",
+    "type": "人",
+    "rule": "R3"
+   },
+   {
+    "id": "book_kunxin_hezhi",
+    "surface": "《昆新合志》",
+    "label": "《昆新合志》",
+    "type": "书籍",
+    "rule": null
+   },
+   {
+    "id": "per_selao",
+    "surface": "嗇老",
+    "label": "嗇老",
+    "type": "人",
+    "rule": "R5"
+   },
+   {
+    "id": "book_zheng_zuowei_tie",
+    "surface": "《争坐位帖》",
+    "label": "《争坐位帖》",
+    "type": "书籍",
+    "rule": null
+   },
+   {
+    "id": "per_he_shisun",
+    "surface": "何诗孙",
+    "label": "何诗孙",
+    "type": "人",
+    "rule": "R3"
+   },
+   {
+    "id": "per_tao_lin",
+    "surface": "陶琳",
+    "label": "陶琳",
+    "type": "人",
+    "rule": "R2"
+   },
+   {
+    "id": "per_tao_lin",
+    "surface": "菊畴",
+    "label": "陶琳",
+    "type": "人",
+    "rule": "R2"
+   },
+   {
+    "id": "per_zhang_eru",
+    "surface": "张萼如",
+    "label": "张萼如",
+    "type": "人",
+    "rule": "R2"
+   },
+   {
+    "id": "per_zhang_eru",
+    "surface": "廷华",
+    "label": "张萼如",
+    "type": "人",
+    "rule": "R2"
+   },
+   {
+    "id": "book_nanling_fengsuzhi",
+    "surface": "《南陵风俗志》",
+    "label": "《南陵风俗志》",
+    "type": "书籍",
+    "rule": null
+   },
+   {
+    "id": "loc_shierxu",
+    "surface": "十二圩",
+    "label": "十二圩",
+    "type": "地",
+    "rule": null
+   },
+   {
+    "id": "book_quanjie_lu_leibian",
+    "surface": "《劝戒录类编》",
+    "label": "《劝戒录类编》",
+    "type": "书籍",
+    "rule": null
+   },
+   {
+    "id": "txn_quanjie_purchase",
+    "surface": "陈西甫代吴怡生购《劝戒录类编》一千四百部",
+    "label": "代吴怡生购《劝戒录类编》一千四百部",
+    "type": "交易",
+    "rule": null
+   },
+   {
+    "id": "book_fojiao_ganying",
+    "surface": "《佛教感应篇》",
+    "label": "《佛教感应篇》",
+    "type": "书籍",
+    "rule": null
+   },
+   {
+    "id": "book_sihou_shenpan",
+    "surface": "《死后之审判》",
+    "label": "《死后之审判》",
+    "type": "书籍",
+    "rule": null
+   },
+   {
+    "id": "book_sushi_zhuyi",
+    "surface": "《素食主义》",
+    "label": "《素食主义》",
+    "type": "书籍",
+    "rule": null
+   },
+   {
+    "id": "txn_zhongku_gift_books",
+    "surface": "仲枯赠《佛教感应篇》《死后之审判》《素食主义》各十本",
+    "label": "仲枯赠三种佛书各十本",
+    "type": "交易",
+    "rule": null
+   },
+   {
+    "id": "txn_zhonghou_book_purchase",
+    "surface": "至忠厚书庄购书，言明价洋九十元",
+    "label": "忠厚书庄购书九十元",
+    "type": "交易",
+    "rule": null
+   },
+   {
+    "id": "book_hanshu_yiwenzhi",
+    "surface": "《汉书艺文志考证》",
+    "label": "《汉书艺文志考证》",
+    "type": "书籍",
+    "rule": null
+   },
+   {
+    "id": "book_yunfu_qunyu",
+    "surface": "《韵府群玉》",
+    "label": "《韵府群玉》",
+    "type": "书籍",
+    "rule": null
+   },
+   {
+    "id": "book_jingxue_wuzhong",
+    "surface": "《经学五种》",
+    "label": "《经学五种》",
+    "type": "书籍",
+    "rule": null
+   },
+   {
+    "id": "book_li_jing_shi_li",
+    "surface": "《礼经释例》",
+    "label": "《礼经释例》",
+    "type": "书籍",
+    "rule": null
+   },
+   {
+    "id": "book_shu_xue",
+    "surface": "《述学》",
+    "label": "《述学》",
+    "type": "书籍",
+    "rule": null
+   },
+   {
+    "id": "per_wang_zhong",
+    "surface": "汪中",
+    "label": "汪中",
+    "type": "人",
+    "rule": "R3"
+   },
+   {
+    "id": "txn_hanyi_gift_shiji",
+    "surface": "翰怡赠新刻蜀大字本《史记》",
+    "label": "翰怡赠新刻蜀大字本《史记》",
+    "type": "交易",
+    "rule": null
+   }
+  ]
  },
  "1923-05-08": {
   "body": "至惠中旅馆，访周立之，适子丹弟亦至，遂邀立之至都益处午饭，并约刘畏之、实之、慧之昆仲、周美权作陪。\n\n函刘慧之，赠《两京遗编》本《盐铁论》十卷。\n\n杨芷姓奉命南书房行走，今来告别。\n\n至健之处谭。\n\n葱石女十周岁，给洋十元。\n\n张萼孙来，交编成《南陵风俗志》。\n\n吴蝶卿来谭。\n\n沈慈护来谭。\n\n访李木公谭，十九日已接李次岩十五日来书，大女债务本拟偿还，愈还愈多，据云一万五六千元，现徐姻伯母来商止利，分年还本，委曲求全，将来不知如何了局也。\n\n晚，赴美权酒叙之约。",
-  "entities": []
+  "entities": [
+   {
+    "id": "per_zhang_eru",
+    "surface": "张萼孙",
+    "label": "张萼如",
+    "type": "人",
+    "rule": "R5"
+   },
+   {
+    "id": "book_nanling_fengsuzhi",
+    "surface": "《南陵风俗志》",
+    "label": "《南陵风俗志》",
+    "type": "书籍",
+    "rule": null
+   },
+   {
+    "id": "per_zhou_lizhi",
+    "surface": "周立之",
+    "label": "周立之",
+    "type": "人",
+    "rule": "R3"
+   },
+   {
+    "id": "per_zhou_lizhi",
+    "surface": "立之",
+    "label": "周立之",
+    "type": "人",
+    "rule": "R4"
+   },
+   {
+    "id": "per_liu_weizhi",
+    "surface": "刘畏之",
+    "label": "刘畏之",
+    "type": "人",
+    "rule": "R3"
+   },
+   {
+    "id": "book_liangjing_yibian_yantielun",
+    "surface": "《两京遗编》本《盐铁论》十卷",
+    "label": "《两京遗编》本《盐铁论》",
+    "type": "书籍",
+    "rule": null
+   },
+   {
+    "id": "txn_huizhi_gift_yantielun",
+    "surface": "函刘慧之，赠《两京遗编》本《盐铁论》十卷",
+    "label": "赠《两京遗编》本《盐铁论》十卷",
+    "type": "交易",
+    "rule": null
+   },
+   {
+    "id": "per_yang_zhixing",
+    "surface": "杨芷姓",
+    "label": "杨芷姓",
+    "type": "人",
+    "rule": "R3"
+   },
+   {
+    "id": "loc_nanshufang",
+    "surface": "南书房",
+    "label": "南书房",
+    "type": "地",
+    "rule": null
+   },
+   {
+    "id": "txn_congshi_daughter_gift",
+    "surface": "葱石女十周岁，给洋十元",
+    "label": "葱石女十周岁，给洋十元",
+    "type": "交易",
+    "rule": null
+   },
+   {
+    "id": "per_li_ciyan",
+    "surface": "李次岩",
+    "label": "李次岩",
+    "type": "人",
+    "rule": "R3"
+   },
+   {
+    "id": "per_xu_yinbomu",
+    "surface": "徐姻伯母",
+    "label": "徐姻伯母",
+    "type": "人",
+    "rule": "R6"
+   }
+  ]
  },
  "1923-05-09": {
   "body": "淑婉挈绮女回沪。\n\n大女债务。去年一万二千二百八十元，又利洋二千九百七十元。去年收洋二千七百元，作一千元还利，余又他用。现拟停利还本，分二年清。次岩十四日先还，十五日交账，十八日交欠据五十六扣。去年定月费、节费一千五百元，先生修金一千元。\n\n午刻，赴刘畏之、实之都益处之约。\n\n拜杨芷姓、王静庵谭。答拜吴蝶卿、高敖之，未遇。\n\n为陶琳书致函阮公槐、方玉山，并送川资十元。廿七日来，退川资。\n\n函陈西甫、翟展成，寄赠《死后之鬼判》《佛教感应篇》《素食主义》。\n\n《魏三体石经》旧出一石，刘健之据孙渊如考魏石在西安，至洛阳所出，乃宋重刻本，极有理。黄县丁氏藏，今归建德周氏。今洛阳又出一石，周出洋六千元，与丁藏一石连。归吴子玉，静庵、慧之均得有拓本，价廿元。此石又碎为两段，另一段未见石两面刻。",
-  "entities": []
+  "entities": [
+   {
+    "id": "per_tao_lin",
+    "surface": "陶琳",
+    "label": "陶琳",
+    "type": "人",
+    "rule": "R3"
+   },
+   {
+    "id": "book_fojiao_ganying",
+    "surface": "《佛教感应篇》",
+    "label": "《佛教感应篇》",
+    "type": "书籍",
+    "rule": null
+   },
+   {
+    "id": "book_sushi_zhuyi",
+    "surface": "《素食主义》",
+    "label": "《素食主义》",
+    "type": "书籍",
+    "rule": null
+   },
+   {
+    "id": "per_liu_weizhi",
+    "surface": "刘畏之",
+    "label": "刘畏之",
+    "type": "人",
+    "rule": "R3"
+   },
+   {
+    "id": "per_yang_zhixing",
+    "surface": "杨芷姓",
+    "label": "杨芷姓",
+    "type": "人",
+    "rule": "R3"
+   },
+   {
+    "id": "per_li_ciyan",
+    "surface": "次岩",
+    "label": "李次岩",
+    "type": "人",
+    "rule": "R4"
+   },
+   {
+    "id": "txn_dadau_debt",
+    "surface": "大女债务。去年一万二千二百八十元，又利洋二千九百七十元",
+    "label": "大女债务及还款方案",
+    "type": "交易",
+    "rule": null
+   },
+   {
+    "id": "per_ruan_gonghui",
+    "surface": "阮公槐",
+    "label": "阮公槐",
+    "type": "人",
+    "rule": "R3"
+   },
+   {
+    "id": "txn_taolin_chuanzi",
+    "surface": "为陶琳书致函阮公槐、方玉山，并送川资十元",
+    "label": "为陶琳送川资十元",
+    "type": "交易",
+    "rule": null
+   },
+   {
+    "id": "book_sihou_guipan",
+    "surface": "《死后之鬼判》",
+    "label": "《死后之鬼判》",
+    "type": "书籍",
+    "rule": null
+   },
+   {
+    "id": "book_wei_santi_shijing",
+    "surface": "《魏三体石经》",
+    "label": "《魏三体石经》",
+    "type": "书籍",
+    "rule": null
+   },
+   {
+    "id": "per_sun_yuanru",
+    "surface": "孙渊如",
+    "label": "孙渊如",
+    "type": "人",
+    "rule": "R3"
+   },
+   {
+    "id": "loc_xian",
+    "surface": "西安",
+    "label": "西安",
+    "type": "地",
+    "rule": null
+   },
+   {
+    "id": "loc_luoyang",
+    "surface": "洛阳",
+    "label": "洛阳",
+    "type": "地",
+    "rule": null
+   },
+   {
+    "id": "loc_huangxian",
+    "surface": "黄县",
+    "label": "黄县",
+    "type": "地",
+    "rule": null
+   },
+   {
+    "id": "loc_jiande",
+    "surface": "建德",
+    "label": "建德",
+    "type": "地",
+    "rule": null
+   },
+   {
+    "id": "per_ding_shi",
+    "surface": "丁氏",
+    "label": "丁氏",
+    "type": "人",
+    "rule": "R8"
+   },
+   {
+    "id": "per_zhou_shi",
+    "surface": "周氏",
+    "label": "周氏",
+    "type": "人",
+    "rule": "R8"
+   },
+   {
+    "id": "per_zhou_shi",
+    "surface": "周",
+    "label": "周氏",
+    "type": "人",
+    "rule": "R4"
+   },
+   {
+    "id": "per_wu_ziyu",
+    "surface": "吴子玉",
+    "label": "吴子玉",
+    "type": "人",
+    "rule": "R3"
+   },
+   {
+    "id": "txn_weishijing_purchase",
+    "surface": "周出洋六千元，与丁藏一石连",
+    "label": "周出洋六千元购石",
+    "type": "交易",
+    "rule": null
+   },
+   {
+    "id": "txn_weishijing_tuoben",
+    "surface": "静庵、慧之均得有拓本，价廿元",
+    "label": "静庵、慧之均得有拓本，价廿元",
+    "type": "交易",
+    "rule": null
+   }
+  ]
  },
  "1923-05-10": {
   "body": "访周立之谭。\n\n访任心白，商陈倬斋函询十二圩义冢焚化，不以为然。晤李拔可，略谭。\n\n以《礼塔图》卷请赵叔雍题，揽镜图册请周美权题。初二日先后题还。\n\n午刻，赴刘健之大雅楼之约，座有杨芷姓、余尧衢、章一山。\n\n装潢莲溪画天赐福禄图、紫薇星轴、李某生财喜临门、张浦山山水、沈狮峰山水五轴，价廿元。\n\n陈乃乾来。\n\n晚，同乃乾至来青阁，取《文选楼丛书》残本，原买卅元，现须加价。又购书面纸一刀，洋三元。五月四日付讫，共卅三元。付卅元，另贴《定香亭》《小沧浪笔谈》。\n\n文选楼丛书。现配旧藏《雕菰楼集》《密梅花馆集》《历代帝王年表》，又新购李子东《礼经释例》《述学》，仍缺《孝经义疏》九卷、《诘经精舍文集》十四卷、《石经仪礼校勘记》四卷、《曾子注释》五卷、《恒言录》四卷、《挈经室诗录》五卷、《淮海英灵集》廿四卷、《列女传》八卷，共捌种。书目外尚有《诗书古训》《浙士解经录》《瀛洲笔谈》《四史疑年录》可配人。",
-  "entities": []
+  "entities": [
+   {
+    "id": "loc_shierxu",
+    "surface": "十二圩",
+    "label": "十二圩",
+    "type": "地",
+    "rule": null
+   },
+   {
+    "id": "book_li_jing_shi_li",
+    "surface": "《礼经释例》",
+    "label": "《礼经释例》",
+    "type": "书籍",
+    "rule": null
+   },
+   {
+    "id": "book_shu_xue",
+    "surface": "《述学》",
+    "label": "《述学》",
+    "type": "书籍",
+    "rule": null
+   },
+   {
+    "id": "per_zhou_lizhi",
+    "surface": "周立之",
+    "label": "周立之",
+    "type": "人",
+    "rule": "R3"
+   },
+   {
+    "id": "per_yang_zhixing",
+    "surface": "杨芷姓",
+    "label": "杨芷姓",
+    "type": "人",
+    "rule": "R3"
+   },
+   {
+    "id": "book_li_ta_tu",
+    "surface": "《礼塔图》卷",
+    "label": "《礼塔图》",
+    "type": "书籍",
+    "rule": null
+   },
+   {
+    "id": "book_lanjing_tuce",
+    "surface": "揽镜图册",
+    "label": "揽镜图册",
+    "type": "书籍",
+    "rule": null
+   },
+   {
+    "id": "loc_dayalou",
+    "surface": "大雅楼",
+    "label": "大雅楼",
+    "type": "地",
+    "rule": null
+   },
+   {
+    "id": "per_lian_xi",
+    "surface": "莲溪",
+    "label": "莲溪",
+    "type": "人",
+    "rule": "R8"
+   },
+   {
+    "id": "per_zhang_pushan",
+    "surface": "张浦山",
+    "label": "张浦山",
+    "type": "人",
+    "rule": "R3"
+   },
+   {
+    "id": "per_shen_shifeng",
+    "surface": "沈狮峰",
+    "label": "沈狮峰",
+    "type": "人",
+    "rule": "R3"
+   },
+   {
+    "id": "txn_zhuanghuang_wuzhou",
+    "surface": "装潢莲溪画天赐福禄图、紫薇星轴、李某生财喜临门、张浦山山水、沈狮峰山水五轴，价廿元",
+    "label": "装潢画轴五轴二十元",
+    "type": "交易",
+    "rule": null
+   },
+   {
+    "id": "book_wenxuanlou_congshu",
+    "surface": "《文选楼丛书》残本",
+    "label": "《文选楼丛书》",
+    "type": "书籍",
+    "rule": null
+   },
+   {
+    "id": "book_wenxuanlou_congshu",
+    "surface": "文选楼丛书",
+    "label": "《文选楼丛书》",
+    "type": "书籍",
+    "rule": null
+   },
+   {
+    "id": "txn_wenxuanlou_purchase",
+    "surface": "取《文选楼丛书》残本，原买卅元，现须加价。又购书面纸一刀，洋三元",
+    "label": "购《文选楼丛书》残本卅三元",
+    "type": "交易",
+    "rule": null
+   },
+   {
+    "id": "book_dingxiang_ting",
+    "surface": "《定香亭》",
+    "label": "《定香亭》",
+    "type": "书籍",
+    "rule": null
+   },
+   {
+    "id": "book_xiao_canglang",
+    "surface": "《小沧浪笔谈》",
+    "label": "《小沧浪笔谈》",
+    "type": "书籍",
+    "rule": null
+   }
+  ]
  },
  "1923-05-11": {
   "body": "函刘翰怡，乞题《勘书图》，并函沈醉愚。\n\n函杨芷姓，为儿子崇乞书楹帖。\n\n致吴舜臣书。李耆卿覆函，云稍缓安置吴元松，名条收到。\n\n余尧衢题《定林访碑图》卷成。\n\n李振唐、陈乃乾来谭，随答拜振唐。\n\n晚，赴余尧衢、吴蝶卿酒叙之约。\n\n送朱智仁七十寿联、烛。",
-  "entities": []
+  "entities": [
+   {
+    "id": "book_kanshu_tu",
+    "surface": "《勘书图》",
+    "label": "勘书图",
+    "type": "书籍",
+    "rule": "R1"
+   },
+   {
+    "id": "book_dinglin_fangbeitu",
+    "surface": "《定林访碑图》卷",
+    "label": "定林访碑图",
+    "type": "书籍",
+    "rule": "R1"
+   },
+   {
+    "id": "per_zhu_zhiren",
+    "surface": "朱智仁",
+    "label": "朱智仁",
+    "type": "人",
+    "rule": "R1"
+   },
+   {
+    "id": "evt_zhu_zhiren_70",
+    "surface": "朱智仁七十寿",
+    "label": "朱智仁七十寿",
+    "type": "事件",
+    "rule": "R1"
+   },
+   {
+    "id": "txn_zhu_zhiren_shoulian",
+    "surface": "送朱智仁七十寿联、烛",
+    "label": "送朱智仁七十寿联烛",
+    "type": "交易",
+    "rule": "R1"
+   }
+  ]
  },
  "1923-05-12": {
   "body": "祝吕皋俞母孙太夫人七十寿。\n\n访鲍子丹，商十二圩义冢捐资购地劝募，自认二百元，子丹认一百元。\n\n陆维鋪父母灵椽至苏石湖安葬，仁济堂同人在招商内河轮局马头公祭。\n\n至博古斋。\n\n晚，陈子言约会宾楼酒叙。\n\n徽宁同乡会函送会章五十分、徽求队人会名单五本、临时收据辰字元号至一百五十号。五本。\n\n刘慧之赠金文拓本四十四种，作函谢之，内有重分，亦缴还。",
-  "entities": []
+  "entities": [
+   {
+    "id": "per_lu_gaoyu",
+    "surface": "吕皋俞",
+    "label": "吕皋俞",
+    "type": "人",
+    "rule": "R1"
+   },
+   {
+    "id": "evt_sun_taifuren_70",
+    "surface": "吕皋俞母孙太夫人七十寿",
+    "label": "孙太夫人七十寿",
+    "type": "事件",
+    "rule": "R1"
+   },
+   {
+    "id": "loc_shi_er_yu",
+    "surface": "十二圩",
+    "label": "十二圩",
+    "type": "地",
+    "rule": "R1"
+   },
+   {
+    "id": "txn_yizhong_xu",
+    "surface": "自认二百元",
+    "label": "义冢捐资徐乃昌二百元",
+    "type": "交易",
+    "rule": "R1"
+   },
+   {
+    "id": "txn_yizhong_bao",
+    "surface": "子丹认一百元",
+    "label": "义冢捐资鲍子丹一百元",
+    "type": "交易",
+    "rule": "R1"
+   },
+   {
+    "id": "per_lu_weibu",
+    "surface": "陆维鋪",
+    "label": "陆维鋪",
+    "type": "人",
+    "rule": "R1"
+   },
+   {
+    "id": "loc_su_shihu",
+    "surface": "苏石湖",
+    "label": "苏石湖",
+    "type": "地",
+    "rule": "R1"
+   },
+   {
+    "id": "org_zhaoshang_neihe",
+    "surface": "招商内河轮局",
+    "label": "招商内河轮局",
+    "type": "团体",
+    "rule": "R1"
+   },
+   {
+    "id": "org_bogu_zhai",
+    "surface": "博古斋",
+    "label": "博古斋",
+    "type": "团体",
+    "rule": "R1"
+   },
+   {
+    "id": "per_chen_ziyan",
+    "surface": "陈子言",
+    "label": "陈子言",
+    "type": "人",
+    "rule": "R1"
+   },
+   {
+    "id": "loc_huibing_lou",
+    "surface": "会宾楼",
+    "label": "会宾楼",
+    "type": "地",
+    "rule": "R1"
+   },
+   {
+    "id": "book_jinwen_tuoben_44",
+    "surface": "金文拓本四十四种",
+    "label": "金文拓本四十四种",
+    "type": "书籍",
+    "rule": "R1"
+   },
+   {
+    "id": "txn_liuhuizhi_jinwen",
+    "surface": "刘慧之赠金文拓本四十四种",
+    "label": "刘慧之赠金文拓本四十四种",
+    "type": "交易",
+    "rule": "R1"
+   }
+  ]
  },
  "1923-05-13": {
   "body": "华实公司开发起会，函请寄尘代表。\n\n覆胡朴安书，定《国学周刊》一分。\n\n晚，约李元之、张萼孙、丁仲枯、郑翰生、沈骏生、邵刚仲、任心白、\n\n陈乃乾酒叙。",
-  "entities": []
+  "entities": [
+   {
+    "id": "org_huashi_gongsi",
+    "surface": "华实公司",
+    "label": "华实公司",
+    "type": "团体",
+    "rule": "R1"
+   },
+   {
+    "id": "per_hu_puan",
+    "surface": "胡朴安",
+    "label": "胡朴安",
+    "type": "人",
+    "rule": "R1"
+   },
+   {
+    "id": "book_guoxue_zhoukan",
+    "surface": "《国学周刊》",
+    "label": "国学周刊",
+    "type": "书籍",
+    "rule": "R1"
+   },
+   {
+    "id": "per_zhang_e_sun",
+    "surface": "张萼孙",
+    "label": "张萼孙",
+    "type": "人",
+    "rule": "R1"
+   },
+   {
+    "id": "per_zheng_hansheng",
+    "surface": "郑翰生",
+    "label": "郑翰生",
+    "type": "人",
+    "rule": "R1"
+   },
+   {
+    "id": "per_shao_gangzhong",
+    "surface": "邵刚仲",
+    "label": "邵刚仲",
+    "type": "人",
+    "rule": "R1"
+   }
+  ]
  },
  "1923-05-14": {
   "body": "陈子言来。\n\n午，赴陶拙存都益处贞元会。\n\n晚，约杨芷姓、王静龛、余尧衢、章一山、刘翰怡、陈子言、沈醉愚、沈慈护、刘健之大雅楼酒叙，用洋廿四元二角。\n\n至仁济堂，商拨宣城、望江振款各一千元，振款不敷，拟由陈少舟向实业银行暂行商借。\n\n答拜陈子言，并拜李审言。\n\n至博古斋，购书九种，价五十六元五角，减价，五十元：当付十元，卅日又付四十元。《衔蝉小录》八卷，孙苏意，嘉庆刻本，六元，清溪程秉钊手校补本。《玉句草堂词》三卷，郑汝，嘉庆八年刻本，一元。《焚香录》一卷，孟超然，嘉庆刻本，一元。《陶说》六卷，朱琰，乾隆甲午鲍廷博刻本，六元。《化书》一卷，明成化十三年刻本，十二元。《卜居秘髓》三卷，明周继类辑，书林近山叶贵刻本，八元。《瓯香馆集》十二卷，惲格，别下斋本，十六元，附补遗、附录。《遣睡杂言》八卷，黄凯钧，嘉庆刻本，六元。《识小编》二卷。董丰垣，乾隆癸未刻本，五角。",
-  "entities": []
+  "entities": [
+   {
+    "id": "loc_du_yi_chu",
+    "surface": "都益处",
+    "label": "都益处",
+    "type": "地",
+    "rule": "R1"
+   },
+   {
+    "id": "per_wang_jingkan",
+    "surface": "王静龛",
+    "label": "王静龛",
+    "type": "人",
+    "rule": "R1"
+   },
+   {
+    "id": "loc_daya_lou",
+    "surface": "大雅楼",
+    "label": "大雅楼",
+    "type": "地",
+    "rule": "R1"
+   },
+   {
+    "id": "txn_dayalou_jiu",
+    "surface": "大雅楼酒叙，用洋廿四元二角",
+    "label": "大雅楼酒叙廿四元二角",
+    "type": "交易",
+    "rule": "R1"
+   },
+   {
+    "id": "txn_zhenkuan_xuancheng_wangjiang",
+    "surface": "商拨宣城、望江振款各一千元",
+    "label": "拨宣城望江振款各一千元",
+    "type": "交易",
+    "rule": "R1"
+   },
+   {
+    "id": "txn_bogu_jiu_zhong",
+    "surface": "购书九种，价五十六元五角，减价，五十元",
+    "label": "博古斋购书九种五十元",
+    "type": "交易",
+    "rule": "R1"
+   },
+   {
+    "id": "book_xianchan_xiaolu",
+    "surface": "《衔蝉小录》八卷",
+    "label": "衔蝉小录",
+    "type": "书籍",
+    "rule": "R1"
+   },
+   {
+    "id": "book_yuju_caotang_ci",
+    "surface": "《玉句草堂词》三卷",
+    "label": "玉句草堂词",
+    "type": "书籍",
+    "rule": "R1"
+   },
+   {
+    "id": "book_fenxiang_lu",
+    "surface": "《焚香录》一卷",
+    "label": "焚香录",
+    "type": "书籍",
+    "rule": "R1"
+   },
+   {
+    "id": "book_tao_shuo",
+    "surface": "《陶说》六卷",
+    "label": "陶说",
+    "type": "书籍",
+    "rule": "R1"
+   },
+   {
+    "id": "book_hua_shu",
+    "surface": "《化书》一卷",
+    "label": "化书",
+    "type": "书籍",
+    "rule": "R1"
+   },
+   {
+    "id": "book_buju_misui",
+    "surface": "《卜居秘髓》三卷",
+    "label": "卜居秘髓",
+    "type": "书籍",
+    "rule": "R1"
+   },
+   {
+    "id": "book_ouxiang_ji",
+    "surface": "《瓯香馆集》十二卷",
+    "label": "瓯香馆集",
+    "type": "书籍",
+    "rule": "R1"
+   },
+   {
+    "id": "book_qiansui_zayan",
+    "surface": "《遣睡杂言》八卷",
+    "label": "遣睡杂言",
+    "type": "书籍",
+    "rule": "R1"
+   },
+   {
+    "id": "book_shixiao_bian",
+    "surface": "《识小编》二卷",
+    "label": "识小编",
+    "type": "书籍",
+    "rule": "R1"
+   }
+  ]
  },
  "1923-05-15": {
   "body": "又至博古斋取书三种：四月朔日付讫。《梦影词》三卷，陆煜，二元。《东山寓声乐府》二卷，朱和羲校录本，二元。《历代纪元部表》二卷。江永，乾隆间刻本，二元。\n\n陈乃乾约午刻一校香西酌。\n\n陈戒安来谭。赠陈子言《怀邻杂俎》。\n\n访陈希甫谭，廿八日徽会馆商界同乡开会，余、李未到，有工人三百余人至馆冲散。\n\n四月",
-  "entities": []
+  "entities": [
+   {
+    "id": "book_mengying_ci",
+    "surface": "《梦影词》三卷",
+    "label": "梦影词",
+    "type": "书籍",
+    "rule": "R1"
+   },
+   {
+    "id": "book_dongshan_yusheng",
+    "surface": "《东山寓声乐府》二卷",
+    "label": "东山寓声乐府",
+    "type": "书籍",
+    "rule": "R1"
+   },
+   {
+    "id": "book_lidai_jiyuan",
+    "surface": "《历代纪元部表》二卷",
+    "label": "历代纪元部表",
+    "type": "书籍",
+    "rule": "R1"
+   },
+   {
+    "id": "txn_bogu_sanzhong",
+    "surface": "又至博古斋取书三种",
+    "label": "博古斋取书三种",
+    "type": "交易",
+    "rule": "R1"
+   },
+   {
+    "id": "loc_yixiangzhuo",
+    "surface": "一校香西酌",
+    "label": "一校香西酌",
+    "type": "地",
+    "rule": "R8"
+   },
+   {
+    "id": "book_huailin_zazu",
+    "surface": "《怀邻杂俎》",
+    "label": "怀邻杂俎",
+    "type": "书籍",
+    "rule": "R1"
+   },
+   {
+    "id": "txn_zeng_huailinzazu",
+    "surface": "赠陈子言《怀邻杂俎》",
+    "label": "赠陈子言怀邻杂俎",
+    "type": "交易",
+    "rule": "R1"
+   },
+   {
+    "id": "org_hui_huiguan",
+    "surface": "徽会馆",
+    "label": "徽会馆",
+    "type": "团体",
+    "rule": "R1"
+   }
+  ]
  },
  "1923-05-16": {
   "body": "至先施、永安两公司，购幃料。又至大盛，购绸料。\n\n至博古斋，付书价六元。\n\n至集成书局购书，洋五元：初九日付讫。《琵琶亭诗》，唐英辑，乾隆十一年刻本。《说文引经异字》三卷，歙吴云蒸，道光五年刻本。《马吊谱》，片玉居主人编辑。《龙舒净土文》十二卷，王日休，乾隆徐遴照刻本。《彻悟禅师语录·无隐禅师略录》。嘉庆丁丑平江善庆庵本。\n\n至来青阁，同杨寿祺闲话。\n\n晚，淞社同人公餽杨芷姓太守、王静安学部入直南斋，于晋隆西餐。",
-  "entities": []
+  "entities": [
+   {
+    "id": "txn_weiliao_chouliao",
+    "surface": "购幃料。又至大盛，购绸料",
+    "label": "购幃料及绸料",
+    "type": "交易",
+    "rule": "R1"
+   },
+   {
+    "id": "txn_bogu_fubook",
+    "surface": "至博古斋，付书价六元",
+    "label": "博古斋付书价六元",
+    "type": "交易",
+    "rule": "R1"
+   },
+   {
+    "id": "txn_jicheng_wuyuan",
+    "surface": "至集成书局购书，洋五元",
+    "label": "集成书局购书五元",
+    "type": "交易",
+    "rule": "R1"
+   },
+   {
+    "id": "book_pipating_shi",
+    "surface": "《琵琶亭诗》",
+    "label": "琵琶亭诗",
+    "type": "书籍",
+    "rule": "R1"
+   },
+   {
+    "id": "book_shuowen_yinjing",
+    "surface": "《说文引经异字》三卷",
+    "label": "说文引经异字",
+    "type": "书籍",
+    "rule": "R1"
+   },
+   {
+    "id": "book_madiao_pu",
+    "surface": "《马吊谱》",
+    "label": "马吊谱",
+    "type": "书籍",
+    "rule": "R1"
+   },
+   {
+    "id": "book_longshu_jingtu",
+    "surface": "《龙舒净土文》十二卷",
+    "label": "龙舒净土文",
+    "type": "书籍",
+    "rule": "R1"
+   },
+   {
+    "id": "book_cheng_wu_yulu",
+    "surface": "《彻悟禅师语录·无隐禅师略录》",
+    "label": "彻悟禅师语录无隐禅师略录",
+    "type": "书籍",
+    "rule": "R1"
+   },
+   {
+    "id": "org_song_she",
+    "surface": "淞社",
+    "label": "淞社",
+    "type": "团体",
+    "rule": "R1"
+   },
+   {
+    "id": "loc_jinlong_xican",
+    "surface": "晋隆西餐",
+    "label": "晋隆西餐",
+    "type": "地",
+    "rule": "R1"
+   }
+  ]
  },
  "1923-05-17": {
   "body": "方宣府由津来。\n\n陈乃乾、沈骏声来。\n\n晚，阅黄退庵《醒醉杂言》毕。",
-  "entities": []
+  "entities": [
+   {
+    "id": "per_fang_xuanfu",
+    "surface": "方宣府",
+    "label": "方宣甫",
+    "type": "人",
+    "rule": "R5"
+   },
+   {
+    "id": "per_huang_tuian",
+    "surface": "黄退庵",
+    "label": "黄退庵",
+    "type": "人",
+    "rule": "R1"
+   },
+   {
+    "id": "book_xingzui_zayan",
+    "surface": "《醒醉杂言》",
+    "label": "醒醉杂言",
+    "type": "书籍",
+    "rule": "R1"
+   }
+  ]
  },
  "1923-05-18": {
   "body": "答拜方宣甫谭。王静盒来。\n\n拜孟蘋，不遇，向稚初借《绍兴十八年同年录》蓝印本。\n\n拜恒眉卿，谭缪子受售藏石拓本。\n\n余启龙纪棠。来，请为殷侣樵十六日题主。\n\n晚，吴蝶卿约功德林素餐。\n\n周必祥来，求售明万玉堂本《佩鱗》，索价六千元。初四日留书付价。\n\n晚八时，同江易园乔梓、吴蝶卿、方宣甫、李凤池至南园听谛闲法师讲《大乘止观》。谛师四月朔日起开讲。",
-  "entities": []
+  "entities": [
+   {
+    "id": "per_wang_jingkan",
+    "surface": "王静盒",
+    "label": "王静龛",
+    "type": "人",
+    "rule": "R8"
+   },
+   {
+    "id": "per_fang_xuanfu",
+    "surface": "方宣甫",
+    "label": "方宣甫",
+    "type": "人",
+    "rule": "R3"
+   },
+   {
+    "id": "per_zhi_chu",
+    "surface": "稚初",
+    "label": "稚初",
+    "type": "人",
+    "rule": "R8"
+   },
+   {
+    "id": "per_yu_qilong_jitang",
+    "surface": "余启龙纪棠",
+    "label": "余启龙纪棠",
+    "type": "人",
+    "rule": "R1"
+   },
+   {
+    "id": "per_yin_lvqiao",
+    "surface": "殷侣樵",
+    "label": "殷侣樵",
+    "type": "人",
+    "rule": "R1"
+   },
+   {
+    "id": "loc_gongde_lin",
+    "surface": "功德林",
+    "label": "功德林",
+    "type": "地",
+    "rule": "R1"
+   },
+   {
+    "id": "book_peilin",
+    "surface": "明万玉堂本《佩鱗》",
+    "label": "佩鱗",
+    "type": "书籍",
+    "rule": "R1"
+   },
+   {
+    "id": "txn_peilin",
+    "surface": "求售明万玉堂本《佩鱗》，索价六千元",
+    "label": "购佩鱗六千元",
+    "type": "交易",
+    "rule": "R1"
+   },
+   {
+    "id": "loc_nanyuan",
+    "surface": "南园",
+    "label": "南园",
+    "type": "地",
+    "rule": "R1"
+   },
+   {
+    "id": "per_di_xian_fashi",
+    "surface": "谛闲法师",
+    "label": "谛闲法师",
+    "type": "人",
+    "rule": "R1"
+   },
+   {
+    "id": "book_dacheng_zhiguan",
+    "surface": "《大乘止观》",
+    "label": "大乘止观",
+    "type": "书籍",
+    "rule": "R1"
+   }
+  ]
  },
  "1923-05-19": {
   "body": "午刻，宣甫约功德林素餐。\n\n至忠厚书庄，同李紫东闲话。\n\n途遇章静轩、吴寄尘，谭。\n\n刘翰怡赠书十种，又《荆园小语》五册，代刘慧之索取。复函谢之，敬使一元。并贻《焚香录》。翰怡有此书，退还。\n\n访叶柏皋谭。\n\n晚，赴刘葱石酒叙之约。",
-  "entities": []
+  "entities": [
+   {
+    "id": "book_fenxiang_lu",
+    "surface": "《焚香录》",
+    "label": "焚香录",
+    "type": "书籍",
+    "rule": "R3"
+   },
+   {
+    "id": "per_fang_xuanfu",
+    "surface": "宣甫",
+    "label": "方宣甫",
+    "type": "人",
+    "rule": "R4"
+   },
+   {
+    "id": "book_liu_zengbook_10",
+    "surface": "刘翰怡赠书十种",
+    "label": "刘翰怡赠书十种",
+    "type": "书籍",
+    "rule": "R1"
+   },
+   {
+    "id": "book_jingyuan_xiaoyu",
+    "surface": "《荆园小语》五册",
+    "label": "荆园小语",
+    "type": "书籍",
+    "rule": "R1"
+   },
+   {
+    "id": "txn_liu_zengbook",
+    "surface": "刘翰怡赠书十种，又《荆园小语》五册",
+    "label": "刘翰怡赠书十种及荆园小语五册",
+    "type": "交易",
+    "rule": "R1"
+   },
+   {
+    "id": "txn_jingshi_yiyuan",
+    "surface": "敬使一元",
+    "label": "敬使一元",
+    "type": "交易",
+    "rule": "R1"
+   },
+   {
+    "id": "per_ye_baigao",
+    "surface": "叶柏皋",
+    "label": "叶柏皋",
+    "type": "人",
+    "rule": "R1"
+   }
+  ]
  },
  "1923-05-20": {
   "body": "倪远甫为宋德宜追南通欠款。\n\n吕皋俞来，交徽宁同乡会章五十分，又入会名单两本，又征求队\n\n临时收据二本。辰字九十一号至一百五十号，净存元号至九十号，共三本。\n\n午刻，赴李振唐一枝香之约，又赴蒋孟蘋酒叙。罗原觉同坐。\n\n至来青阁，取回《分类字锦》。\n\n陈乃乾来，赠《珂雪词》二卷曹贞吉。原刻本。",
-  "entities": []
+  "entities": [
+   {
+    "id": "per_luo_yuanjue",
+    "surface": "罗原觉",
+    "label": "罗原觉",
+    "type": "人",
+    "rule": "R1"
+   },
+   {
+    "id": "book_kexue_ci",
+    "surface": "《珂雪词》二卷曹贞吉",
+    "label": "珂雪词",
+    "type": "书籍",
+    "rule": "R1"
+   },
+   {
+    "id": "per_cao_zhenji",
+    "surface": "曹贞吉",
+    "label": "曹贞吉",
+    "type": "人",
+    "rule": "R1"
+   },
+   {
+    "id": "txn_zeng_kexue",
+    "surface": "赠《珂雪词》二卷曹贞吉。原刻本",
+    "label": "陈乃乾赠珂雪词",
+    "type": "交易",
+    "rule": "R1"
+   }
+  ]
  },
  "1923-05-21": {
   "body": "束劭直娶子妇蒋氏，送红华丝葛幃并烛。\n\n蒋孟蘋嫁侄女，赋苏女。送红华丝葛幃。\n\n丁莞苏树健。之太夫人七十寿，送红花缎幃并烛。\n\n定君将宝成存银壹千五百两、息四十两提存永安公司壹千两，存一年，息七厘。余银化洋，凑洋八百元，存大生积记往来折。\n\n叶柏皋尔恺。来答拜。\n\n马兰生来函，象甫允位置，急切无法可想，资斧罄，假洋卅元。淑婉覆书，并将洋如数汇郑。",
-  "entities": []
+  "entities": [
+   {
+    "id": "per_ye_baigao",
+    "surface": "叶柏皋尔恺",
+    "label": "叶柏皋",
+    "type": "人",
+    "rule": "R3"
+   },
+   {
+    "id": "per_jiang_shi",
+    "surface": "蒋氏",
+    "label": "蒋氏",
+    "type": "人",
+    "rule": "R1"
+   },
+   {
+    "id": "txn_shu_zihun",
+    "surface": "送红华丝葛幃并烛",
+    "label": "送束劭直子婚红华丝葛幃并烛",
+    "type": "交易",
+    "rule": "R1"
+   },
+   {
+    "id": "txn_jiang_zhinv",
+    "surface": "送红华丝葛幃",
+    "label": "送蒋孟蘋侄女嫁红华丝葛幃",
+    "type": "交易",
+    "rule": "R1"
+   },
+   {
+    "id": "per_ding_wansu",
+    "surface": "丁莞苏树健",
+    "label": "丁莞苏",
+    "type": "人",
+    "rule": "R1"
+   },
+   {
+    "id": "evt_ding_mu_70",
+    "surface": "之太夫人七十寿",
+    "label": "丁莞苏母太夫人七十寿",
+    "type": "事件",
+    "rule": "R1"
+   },
+   {
+    "id": "txn_ding_mu_shou",
+    "surface": "送红花缎幃并烛",
+    "label": "送丁母七十寿红花缎幃并烛",
+    "type": "交易",
+    "rule": "R1"
+   },
+   {
+    "id": "org_baocheng",
+    "surface": "宝成",
+    "label": "宝成",
+    "type": "团体",
+    "rule": "R1"
+   },
+   {
+    "id": "org_dasheng_jiji",
+    "surface": "大生积记",
+    "label": "大生积记",
+    "type": "团体",
+    "rule": "R1"
+   },
+   {
+    "id": "txn_baocheng_yongan",
+    "surface": "宝成存银壹千五百两、息四十两提存永安公司壹千两",
+    "label": "宝成银壹千五百两提存永安壹千两",
+    "type": "交易",
+    "rule": "R1"
+   },
+   {
+    "id": "txn_dasheng_chunyang",
+    "surface": "凑洋八百元，存大生积记往来折",
+    "label": "凑洋八百元存大生积记",
+    "type": "交易",
+    "rule": "R1"
+   },
+   {
+    "id": "txn_jia_yang_30",
+    "surface": "假洋卅元。淑婉覆书，并将洋如数汇郑",
+    "label": "假洋卅元汇郑",
+    "type": "交易",
+    "rule": "R1"
+   }
+  ]
  },
  "1923-05-22": {
   "body": "至朱静安家，祝其尊人智仁先生七十寿。又至净土庵，祝丁莞苏之母太夫人七十寿。\n\n杨芷姓来辞行，十日至京。为崇儿书联已交来。\n\n束劭直来，未遇，留退老书。\n\n陈西甫来，亦不遇。\n\n李紫馨锡香。由通来，不晤，交泽生公司闸、港两处销折，并属书扁。",
-  "entities": []
+  "entities": [
+   {
+    "id": "per_zhu_zhiren",
+    "surface": "智仁先生",
+    "label": "朱智仁",
+    "type": "人",
+    "rule": "R5"
+   },
+   {
+    "id": "per_ding_wansu",
+    "surface": "丁莞苏",
+    "label": "丁莞苏",
+    "type": "人",
+    "rule": "R3"
+   },
+   {
+    "id": "per_zhu_jingan",
+    "surface": "朱静安",
+    "label": "朱静安",
+    "type": "人",
+    "rule": "R1"
+   },
+   {
+    "id": "org_zesheng_gongsi",
+    "surface": "泽生公司",
+    "label": "泽生公司",
+    "type": "团体",
+    "rule": "R1"
+   }
+  ]
  },
  "1923-05-23": {
   "body": "贺束、蒋两家喜。\n\n赠陈乃乾《茜云楼集》《青楼小名录》，报《珂雪词》之惠也。恒眉卿来，谭艺风堂售碑。\n\n罗原觉赠影印所藏宋拓唐云麾将军碑。\n\n陈西甫来，旋答拜，均未晤。\n\n闻孟蘋新得婺源所售梵夹本藏经六千卷，宋元明本价四千二百元。浙估经售，婺源人，家只收得七十元。",
-  "entities": []
+  "entities": [
+   {
+    "id": "book_kexue_ci",
+    "surface": "《珂雪词》",
+    "label": "珂雪词",
+    "type": "书籍",
+    "rule": "R3"
+   },
+   {
+    "id": "txn_zeng_xiyun_qinglou",
+    "surface": "赠陈乃乾《茜云楼集》《青楼小名录》",
+    "label": "赠陈乃乾茜云楼集青楼小名录",
+    "type": "交易",
+    "rule": "R1"
+   },
+   {
+    "id": "book_xiyun_louji",
+    "surface": "《茜云楼集》",
+    "label": "茜云楼集",
+    "type": "书籍",
+    "rule": "R1"
+   },
+   {
+    "id": "book_qinglou_xiaominglu",
+    "surface": "《青楼小名录》",
+    "label": "青楼小名录",
+    "type": "书籍",
+    "rule": "R1"
+   },
+   {
+    "id": "org_yifeng_tang",
+    "surface": "艺风堂",
+    "label": "艺风堂",
+    "type": "团体",
+    "rule": "R1"
+   },
+   {
+    "id": "book_tang_yunhui",
+    "surface": "宋拓唐云麾将军碑",
+    "label": "唐云麾将军碑",
+    "type": "书籍",
+    "rule": "R1"
+   },
+   {
+    "id": "txn_luo_zengyiyin",
+    "surface": "罗原觉赠影印所藏宋拓唐云麾将军碑",
+    "label": "罗原觉赠影印宋拓唐云麾将军碑",
+    "type": "交易",
+    "rule": "R1"
+   },
+   {
+    "id": "book_fanjia_zangjing",
+    "surface": "梵夹本藏经六千卷",
+    "label": "梵夹本藏经",
+    "type": "书籍",
+    "rule": "R1"
+   },
+   {
+    "id": "txn_jiang_zangjing",
+    "surface": "宋元明本价四千二百元",
+    "label": "蒋孟蘋得梵夹本藏经四千二百元",
+    "type": "交易",
+    "rule": "R1"
+   }
+  ]
  },
  "1923-05-24": {
   "body": "《时报》载吴佩孚电府院内务部，反对改拆三殿为议院，谓倡议无非冀遂中饱，丧此巨工，摧残古物，腾笑万国。\n\n请保存。\n\n未刻，余寿老之配倪夫人病故，候殓。\n\n至博古斋，购书二种，价十元：十二日付讫。《唐骆先生集》四卷，凌毓梢校集评点本，四元，缺五、六共二卷。八月廿五日退还冲账。《左传杜解补正》三卷。顾炎武，真意堂本，六元。\n\n至集成书局，取书一种：《具区志》十六卷。吴县翁湖，价八元。初十日退回。具区即太湖，缺卷八，共六叶。\n\n又购杨估书一种，价一元，付讫：《庶谱诗谱》十七卷。会稽董楷。\n\n至蟬隐庐，购书四元二角：初十日退还。《凤台县志》廿六卷。光绪十八年修。\n\n至振华旅馆，同劭直谭，并见其子剑南及新妇，送親仪八元。\n\n至泰安栈，答拜罗原觉。\n\n晚，至新裕海轮，送王静庵北上入值南斋。\n\n晚，任心白同潘君雄万来，字同曾。订约钞书。\n\n陈乃乾来。岑郊麟、靖恂。蒋德纯暇堂。来。",

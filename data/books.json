@@ -803,6 +803,147 @@
     "source_file": "1923-04-13.md"
   },
   {
+    "id": "book_nanling_fengsuzhi",
+    "label": "《南陵风俗志》",
+    "canonical": null,
+    "aliases": [
+      "《南陵风俗志》"
+    ],
+    "first_seen": "1923-05-07",
+    "last_seen": "1923-05-08",
+    "mentions": 2,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-07.md"
+  },
+  {
+    "id": "book_fojiao_ganying",
+    "label": "《佛教感应篇》",
+    "canonical": null,
+    "aliases": [
+      "《佛教感应篇》"
+    ],
+    "first_seen": "1923-05-07",
+    "last_seen": "1923-05-09",
+    "mentions": 2,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-07.md"
+  },
+  {
+    "id": "book_sushi_zhuyi",
+    "label": "《素食主义》",
+    "canonical": null,
+    "aliases": [
+      "《素食主义》"
+    ],
+    "first_seen": "1923-05-07",
+    "last_seen": "1923-05-09",
+    "mentions": 2,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-07.md"
+  },
+  {
+    "id": "book_li_jing_shi_li",
+    "label": "《礼经释例》",
+    "canonical": null,
+    "aliases": [
+      "《礼经释例》"
+    ],
+    "first_seen": "1923-05-07",
+    "last_seen": "1923-05-10",
+    "mentions": 2,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-07.md"
+  },
+  {
+    "id": "book_shu_xue",
+    "label": "《述学》",
+    "canonical": null,
+    "aliases": [
+      "《述学》"
+    ],
+    "first_seen": "1923-05-07",
+    "last_seen": "1923-05-10",
+    "mentions": 2,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-07.md"
+  },
+  {
+    "id": "book_wenxuanlou_congshu",
+    "label": "《文选楼丛书》",
+    "canonical": null,
+    "aliases": [
+      "《文选楼丛书》残本",
+      "文选楼丛书"
+    ],
+    "first_seen": "1923-05-10",
+    "last_seen": "1923-05-10",
+    "mentions": 2,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-10.md"
+  },
+  {
+    "id": "book_fenxiang_lu",
+    "label": "焚香录",
+    "canonical": "焚香录",
+    "aliases": [
+      "《焚香录》",
+      "《焚香录》一卷"
+    ],
+    "first_seen": "1923-05-14",
+    "last_seen": "1923-05-19",
+    "mentions": 2,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-14.md"
+  },
+  {
+    "id": "book_kexue_ci",
+    "label": "珂雪词",
+    "canonical": "珂雪词",
+    "aliases": [
+      "《珂雪词》",
+      "《珂雪词》二卷曹贞吉"
+    ],
+    "first_seen": "1923-05-20",
+    "last_seen": "1923-05-23",
+    "mentions": 2,
+    "people": [
+      {
+        "id": "per_cao_zhenji",
+        "label": "曹贞吉",
+        "relation": "属于",
+        "date": "1923-05-20",
+        "evidence": "《珂雪词》二卷曹贞吉"
+      }
+    ],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {
+      "属于": 1
+    },
+    "source_file": "1923-05-20.md"
+  },
+  {
     "id": "book_wang_rongfu_quanshu",
     "label": "汪容甫全书",
     "canonical": "汪容甫全书",
@@ -2191,23 +2332,6 @@
     "txns": [],
     "relation_counts": {},
     "source_file": "1922-02-02.md"
-  },
-  {
-    "id": "book_peilin",
-    "label": "《佩鳞》",
-    "canonical": "《佩鳞》",
-    "aliases": [
-      "《佩鱗》",
-      "《佩鳞》"
-    ],
-    "first_seen": "1922-02-18",
-    "last_seen": "1922-02-23",
-    "mentions": 2,
-    "people": [],
-    "orgs": [],
-    "txns": [],
-    "relation_counts": {},
-    "source_file": "1922-02-18.md"
   },
   {
     "id": "book_jiankang_zhi",
@@ -12216,6 +12340,804 @@
     "source_file": "1923-05-04.md"
   },
   {
+    "id": "book_guixiu_ci",
+    "label": "《闺秀词》",
+    "canonical": null,
+    "aliases": [
+      "《闺秀词》"
+    ],
+    "first_seen": "1923-05-05",
+    "last_seen": "1923-05-05",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-05.md"
+  },
+  {
+    "id": "book_jingshi_fugu",
+    "label": "《警世浮鼓》",
+    "canonical": null,
+    "aliases": [
+      "《警世浮鼓》"
+    ],
+    "first_seen": "1923-05-05",
+    "last_seen": "1923-05-05",
+    "mentions": 1,
+    "people": [],
+    "orgs": [
+      {
+        "id": "org_guangyi_shuju",
+        "label": "广益书局",
+        "relation": "商务",
+        "date": "1923-05-05",
+        "evidence": "《警世浮鼓》，广益书局魏炳荣印"
+      }
+    ],
+    "txns": [],
+    "relation_counts": {
+      "商务": 1
+    },
+    "source_file": "1923-05-05.md"
+  },
+  {
+    "id": "book_aiwu_qiangwu",
+    "label": "《爱物戕物现报录》",
+    "canonical": null,
+    "aliases": [
+      "《爱物戕物现报录》"
+    ],
+    "first_seen": "1923-05-06",
+    "last_seen": "1923-05-06",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-06.md"
+  },
+  {
+    "id": "book_jiaoshan_zou_tuoben",
+    "label": "焦山鄒惠鼎拓本",
+    "canonical": null,
+    "aliases": [
+      "焦山鄒惠鼎拓本"
+    ],
+    "first_seen": "1923-05-06",
+    "last_seen": "1923-05-06",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-06.md"
+  },
+  {
+    "id": "book_kunxin_hezhi",
+    "label": "《昆新合志》",
+    "canonical": null,
+    "aliases": [
+      "《昆新合志》"
+    ],
+    "first_seen": "1923-05-07",
+    "last_seen": "1923-05-07",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-07.md"
+  },
+  {
+    "id": "book_zheng_zuowei_tie",
+    "label": "《争坐位帖》",
+    "canonical": null,
+    "aliases": [
+      "《争坐位帖》"
+    ],
+    "first_seen": "1923-05-07",
+    "last_seen": "1923-05-07",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-07.md"
+  },
+  {
+    "id": "book_quanjie_lu_leibian",
+    "label": "《劝戒录类编》",
+    "canonical": null,
+    "aliases": [
+      "《劝戒录类编》"
+    ],
+    "first_seen": "1923-05-07",
+    "last_seen": "1923-05-07",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-07.md"
+  },
+  {
+    "id": "book_sihou_shenpan",
+    "label": "《死后之审判》",
+    "canonical": null,
+    "aliases": [
+      "《死后之审判》"
+    ],
+    "first_seen": "1923-05-07",
+    "last_seen": "1923-05-07",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-07.md"
+  },
+  {
+    "id": "book_hanshu_yiwenzhi",
+    "label": "《汉书艺文志考证》",
+    "canonical": null,
+    "aliases": [
+      "《汉书艺文志考证》"
+    ],
+    "first_seen": "1923-05-07",
+    "last_seen": "1923-05-07",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-07.md"
+  },
+  {
+    "id": "book_yunfu_qunyu",
+    "label": "《韵府群玉》",
+    "canonical": null,
+    "aliases": [
+      "《韵府群玉》"
+    ],
+    "first_seen": "1923-05-07",
+    "last_seen": "1923-05-07",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-07.md"
+  },
+  {
+    "id": "book_jingxue_wuzhong",
+    "label": "《经学五种》",
+    "canonical": null,
+    "aliases": [
+      "《经学五种》"
+    ],
+    "first_seen": "1923-05-07",
+    "last_seen": "1923-05-07",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-07.md"
+  },
+  {
+    "id": "book_liangjing_yibian_yantielun",
+    "label": "《两京遗编》本《盐铁论》",
+    "canonical": null,
+    "aliases": [
+      "《两京遗编》本《盐铁论》十卷"
+    ],
+    "first_seen": "1923-05-08",
+    "last_seen": "1923-05-08",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-08.md"
+  },
+  {
+    "id": "book_sihou_guipan",
+    "label": "《死后之鬼判》",
+    "canonical": null,
+    "aliases": [
+      "《死后之鬼判》"
+    ],
+    "first_seen": "1923-05-09",
+    "last_seen": "1923-05-09",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-09.md"
+  },
+  {
+    "id": "book_wei_santi_shijing",
+    "label": "《魏三体石经》",
+    "canonical": null,
+    "aliases": [
+      "《魏三体石经》"
+    ],
+    "first_seen": "1923-05-09",
+    "last_seen": "1923-05-09",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-09.md"
+  },
+  {
+    "id": "book_li_ta_tu",
+    "label": "《礼塔图》",
+    "canonical": null,
+    "aliases": [
+      "《礼塔图》卷"
+    ],
+    "first_seen": "1923-05-10",
+    "last_seen": "1923-05-10",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-10.md"
+  },
+  {
+    "id": "book_lanjing_tuce",
+    "label": "揽镜图册",
+    "canonical": null,
+    "aliases": [
+      "揽镜图册"
+    ],
+    "first_seen": "1923-05-10",
+    "last_seen": "1923-05-10",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-10.md"
+  },
+  {
+    "id": "book_dingxiang_ting",
+    "label": "《定香亭》",
+    "canonical": null,
+    "aliases": [
+      "《定香亭》"
+    ],
+    "first_seen": "1923-05-10",
+    "last_seen": "1923-05-10",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-10.md"
+  },
+  {
+    "id": "book_xiao_canglang",
+    "label": "《小沧浪笔谈》",
+    "canonical": null,
+    "aliases": [
+      "《小沧浪笔谈》"
+    ],
+    "first_seen": "1923-05-10",
+    "last_seen": "1923-05-10",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-10.md"
+  },
+  {
+    "id": "book_kanshu_tu",
+    "label": "勘书图",
+    "canonical": "勘书图",
+    "aliases": [
+      "《勘书图》"
+    ],
+    "first_seen": "1923-05-11",
+    "last_seen": "1923-05-11",
+    "mentions": 1,
+    "people": [
+      {
+        "id": "per_liu_hanyi",
+        "label": "刘翰怡",
+        "relation": "致书",
+        "date": "1923-05-11",
+        "evidence": "函刘翰怡，乞题《勘书图》"
+      }
+    ],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {
+      "致书": 1
+    },
+    "source_file": "1923-05-11.md"
+  },
+  {
+    "id": "book_dinglin_fangbeitu",
+    "label": "定林访碑图",
+    "canonical": "定林访碑图",
+    "aliases": [
+      "《定林访碑图》卷"
+    ],
+    "first_seen": "1923-05-11",
+    "last_seen": "1923-05-11",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-11.md"
+  },
+  {
+    "id": "book_jinwen_tuoben_44",
+    "label": "金文拓本四十四种",
+    "canonical": "金文拓本四十四种",
+    "aliases": [
+      "金文拓本四十四种"
+    ],
+    "first_seen": "1923-05-12",
+    "last_seen": "1923-05-12",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-12.md"
+  },
+  {
+    "id": "book_guoxue_zhoukan",
+    "label": "国学周刊",
+    "canonical": "国学周刊",
+    "aliases": [
+      "《国学周刊》"
+    ],
+    "first_seen": "1923-05-13",
+    "last_seen": "1923-05-13",
+    "mentions": 1,
+    "people": [
+      {
+        "id": "per_hu_puan",
+        "label": "胡朴安",
+        "relation": "属于",
+        "date": "1923-05-13",
+        "evidence": "覆胡朴安书，定《国学周刊》一分"
+      }
+    ],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {
+      "属于": 1
+    },
+    "source_file": "1923-05-13.md"
+  },
+  {
+    "id": "book_xianchan_xiaolu",
+    "label": "衔蝉小录",
+    "canonical": "衔蝉小录",
+    "aliases": [
+      "《衔蝉小录》八卷"
+    ],
+    "first_seen": "1923-05-14",
+    "last_seen": "1923-05-14",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-14.md"
+  },
+  {
+    "id": "book_yuju_caotang_ci",
+    "label": "玉句草堂词",
+    "canonical": "玉句草堂词",
+    "aliases": [
+      "《玉句草堂词》三卷"
+    ],
+    "first_seen": "1923-05-14",
+    "last_seen": "1923-05-14",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-14.md"
+  },
+  {
+    "id": "book_tao_shuo",
+    "label": "陶说",
+    "canonical": "陶说",
+    "aliases": [
+      "《陶说》六卷"
+    ],
+    "first_seen": "1923-05-14",
+    "last_seen": "1923-05-14",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-14.md"
+  },
+  {
+    "id": "book_hua_shu",
+    "label": "化书",
+    "canonical": "化书",
+    "aliases": [
+      "《化书》一卷"
+    ],
+    "first_seen": "1923-05-14",
+    "last_seen": "1923-05-14",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-14.md"
+  },
+  {
+    "id": "book_buju_misui",
+    "label": "卜居秘髓",
+    "canonical": "卜居秘髓",
+    "aliases": [
+      "《卜居秘髓》三卷"
+    ],
+    "first_seen": "1923-05-14",
+    "last_seen": "1923-05-14",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-14.md"
+  },
+  {
+    "id": "book_ouxiang_ji",
+    "label": "瓯香馆集",
+    "canonical": "瓯香馆集",
+    "aliases": [
+      "《瓯香馆集》十二卷"
+    ],
+    "first_seen": "1923-05-14",
+    "last_seen": "1923-05-14",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-14.md"
+  },
+  {
+    "id": "book_qiansui_zayan",
+    "label": "遣睡杂言",
+    "canonical": "遣睡杂言",
+    "aliases": [
+      "《遣睡杂言》八卷"
+    ],
+    "first_seen": "1923-05-14",
+    "last_seen": "1923-05-14",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-14.md"
+  },
+  {
+    "id": "book_shixiao_bian",
+    "label": "识小编",
+    "canonical": "识小编",
+    "aliases": [
+      "《识小编》二卷"
+    ],
+    "first_seen": "1923-05-14",
+    "last_seen": "1923-05-14",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-14.md"
+  },
+  {
+    "id": "book_mengying_ci",
+    "label": "梦影词",
+    "canonical": "梦影词",
+    "aliases": [
+      "《梦影词》三卷"
+    ],
+    "first_seen": "1923-05-15",
+    "last_seen": "1923-05-15",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-15.md"
+  },
+  {
+    "id": "book_dongshan_yusheng",
+    "label": "东山寓声乐府",
+    "canonical": "东山寓声乐府",
+    "aliases": [
+      "《东山寓声乐府》二卷"
+    ],
+    "first_seen": "1923-05-15",
+    "last_seen": "1923-05-15",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-15.md"
+  },
+  {
+    "id": "book_lidai_jiyuan",
+    "label": "历代纪元部表",
+    "canonical": "历代纪元部表",
+    "aliases": [
+      "《历代纪元部表》二卷"
+    ],
+    "first_seen": "1923-05-15",
+    "last_seen": "1923-05-15",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-15.md"
+  },
+  {
+    "id": "book_huailin_zazu",
+    "label": "怀邻杂俎",
+    "canonical": "怀邻杂俎",
+    "aliases": [
+      "《怀邻杂俎》"
+    ],
+    "first_seen": "1923-05-15",
+    "last_seen": "1923-05-15",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-15.md"
+  },
+  {
+    "id": "book_pipating_shi",
+    "label": "琵琶亭诗",
+    "canonical": "琵琶亭诗",
+    "aliases": [
+      "《琵琶亭诗》"
+    ],
+    "first_seen": "1923-05-16",
+    "last_seen": "1923-05-16",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-16.md"
+  },
+  {
+    "id": "book_shuowen_yinjing",
+    "label": "说文引经异字",
+    "canonical": "说文引经异字",
+    "aliases": [
+      "《说文引经异字》三卷"
+    ],
+    "first_seen": "1923-05-16",
+    "last_seen": "1923-05-16",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-16.md"
+  },
+  {
+    "id": "book_madiao_pu",
+    "label": "马吊谱",
+    "canonical": "马吊谱",
+    "aliases": [
+      "《马吊谱》"
+    ],
+    "first_seen": "1923-05-16",
+    "last_seen": "1923-05-16",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-16.md"
+  },
+  {
+    "id": "book_longshu_jingtu",
+    "label": "龙舒净土文",
+    "canonical": "龙舒净土文",
+    "aliases": [
+      "《龙舒净土文》十二卷"
+    ],
+    "first_seen": "1923-05-16",
+    "last_seen": "1923-05-16",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-16.md"
+  },
+  {
+    "id": "book_cheng_wu_yulu",
+    "label": "彻悟禅师语录无隐禅师略录",
+    "canonical": "彻悟禅师语录无隐禅师略录",
+    "aliases": [
+      "《彻悟禅师语录·无隐禅师略录》"
+    ],
+    "first_seen": "1923-05-16",
+    "last_seen": "1923-05-16",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-16.md"
+  },
+  {
+    "id": "book_xingzui_zayan",
+    "label": "醒醉杂言",
+    "canonical": "醒醉杂言",
+    "aliases": [
+      "《醒醉杂言》"
+    ],
+    "first_seen": "1923-05-17",
+    "last_seen": "1923-05-17",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-17.md"
+  },
+  {
+    "id": "book_peilin",
+    "label": "佩鱗",
+    "canonical": "佩鱗",
+    "aliases": [
+      "明万玉堂本《佩鱗》"
+    ],
+    "first_seen": "1923-05-18",
+    "last_seen": "1923-05-18",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-18.md"
+  },
+  {
+    "id": "book_dacheng_zhiguan",
+    "label": "大乘止观",
+    "canonical": "大乘止观",
+    "aliases": [
+      "《大乘止观》"
+    ],
+    "first_seen": "1923-05-18",
+    "last_seen": "1923-05-18",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-18.md"
+  },
+  {
+    "id": "book_liu_zengbook_10",
+    "label": "刘翰怡赠书十种",
+    "canonical": "刘翰怡赠书十种",
+    "aliases": [
+      "刘翰怡赠书十种"
+    ],
+    "first_seen": "1923-05-19",
+    "last_seen": "1923-05-19",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-19.md"
+  },
+  {
+    "id": "book_jingyuan_xiaoyu",
+    "label": "荆园小语",
+    "canonical": "荆园小语",
+    "aliases": [
+      "《荆园小语》五册"
+    ],
+    "first_seen": "1923-05-19",
+    "last_seen": "1923-05-19",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-19.md"
+  },
+  {
+    "id": "book_xiyun_louji",
+    "label": "茜云楼集",
+    "canonical": "茜云楼集",
+    "aliases": [
+      "《茜云楼集》"
+    ],
+    "first_seen": "1923-05-23",
+    "last_seen": "1923-05-23",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-23.md"
+  },
+  {
+    "id": "book_qinglou_xiaominglu",
+    "label": "青楼小名录",
+    "canonical": "青楼小名录",
+    "aliases": [
+      "《青楼小名录》"
+    ],
+    "first_seen": "1923-05-23",
+    "last_seen": "1923-05-23",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-23.md"
+  },
+  {
+    "id": "book_tang_yunhui",
+    "label": "唐云麾将军碑",
+    "canonical": "唐云麾将军碑",
+    "aliases": [
+      "宋拓唐云麾将军碑"
+    ],
+    "first_seen": "1923-05-23",
+    "last_seen": "1923-05-23",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-23.md"
+  },
+  {
+    "id": "book_fanjia_zangjing",
+    "label": "梵夹本藏经",
+    "canonical": "梵夹本藏经",
+    "aliases": [
+      "梵夹本藏经六千卷"
+    ],
+    "first_seen": "1923-05-23",
+    "last_seen": "1923-05-23",
+    "mentions": 1,
+    "people": [],
+    "orgs": [],
+    "txns": [],
+    "relation_counts": {},
+    "source_file": "1923-05-23.md"
+  },
+  {
     "id": "book_yuanshi_gezhi",
     "label": "元氏各志",
     "canonical": "元氏各志",
@@ -18374,22 +19296,6 @@
     "source_file": "1921-04-04.md"
   },
   {
-    "id": "book_guixiu_ci",
-    "label": "《闺秀词》",
-    "canonical": "《闺秀词》",
-    "aliases": [
-      "《闺秀词》"
-    ],
-    "first_seen": "1921-04-05",
-    "last_seen": "1921-04-05",
-    "mentions": 1,
-    "people": [],
-    "orgs": [],
-    "txns": [],
-    "relation_counts": {},
-    "source_file": "1921-04-05.md"
-  },
-  {
     "id": "book_xu_qisheng_ji",
     "label": "《徐骑省集》",
     "canonical": "《徐骑省集》",
@@ -21949,22 +22855,6 @@
     "canonical": "小檀栾室闺秀词",
     "aliases": [
       "《小檀栾室闺秀词》"
-    ],
-    "first_seen": "1921-06-09",
-    "last_seen": "1921-06-09",
-    "mentions": 1,
-    "people": [],
-    "orgs": [],
-    "txns": [],
-    "relation_counts": {},
-    "source_file": "1921-06-09.md"
-  },
-  {
-    "id": "book_huailin_zazu",
-    "label": "怀邻杂俎",
-    "canonical": "怀邻杂俎",
-    "aliases": [
-      "《怀邻杂俎》"
     ],
     "first_seen": "1921-06-09",
     "last_seen": "1921-06-09",
