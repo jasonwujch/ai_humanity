@@ -642,6 +642,16 @@
             </div>
           </div>
         </section>
+        <section v-if="statsData.honorific_shifts?.length" style="background:var(--paper);border:1px solid var(--border);padding:16px;border-radius:2px">
+          <h3 style="margin:0 0 10px;font-size:var(--fs-sm);padding-bottom:6px;border-bottom:1px solid var(--border-soft)">称呼演变 · 敬称升格 ({{ statsData.honorific_shifts.length }})</h3>
+          <div style="font-size:var(--fs-xs);color:var(--muted);margin-bottom:8px">作者对交往者由本名/字改用敬称（老/翁/丈/公/先生）——关系亲近或对方年长的标志。点击查看完整别名时间线。</div>
+          <div style="font-size:var(--fs-sm)">
+            <div v-for="(h,i) in statsData.honorific_shifts" :key="i" style="display:grid;grid-template-columns:1fr auto;gap:10px;padding:5px 0;border-bottom:1px solid var(--border-soft);cursor:pointer;align-items:baseline" @click="openProfileById(h.id)">
+              <span><span class="chip chip-per">{{ h.from }}</span> <span style="color:var(--muted)">→</span> <span class="chip" style="background:#fef3c7;color:#92400e">{{ h.to }}</span></span>
+              <span style="font-family:ui-monospace,monospace;font-size:var(--fs-xs);color:var(--muted)">{{ h.from_date }} → {{ h.to_date }}</span>
+            </div>
+          </div>
+        </section>
       </div>
     </template>
   </div>

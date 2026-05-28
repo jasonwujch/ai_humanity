@@ -85,6 +85,25 @@ VENUE_COORDS = {
     '惠中旅馆':[31.2360, 121.4790], '南京饭店':[31.2360, 121.4790],
     '六国饭店':[31.2360, 121.4790], '中央旅社':[31.2360, 121.4790],
     '中国饭店':[31.2360, 121.4790], '梅龙镇':[31.2330, 121.4760],
+    # 上海 — 福州路书肆/古玩/菜馆 (E2: top unmapped venues)
+    '聚丰园':[31.2342, 121.4822], '中国书店':[31.2340, 121.4815], '鸿宝斋':[31.2340, 121.4812],
+    '大东书局':[31.2342, 121.4815], '锦文堂':[31.2340, 121.4812], '汉文渊':[31.2340, 121.4812],
+    '九华堂':[31.2340, 121.4815], '博雅斋':[31.2340, 121.4812], '新昌美术馆':[31.2340, 121.4815],
+    '大东酒楼':[31.2342, 121.4815], '晋隆西餐':[31.2342, 121.4820], '福州路':[31.2340, 121.4840],
+    # 上海 — 城隍庙/南市市场
+    '邑庙市场':[31.2243, 121.4925], '古玩市场':[31.2243, 121.4925], '蓬莱市场':[31.2150, 121.4900],
+    '文庙公园':[31.2160, 121.4830],
+    # 上海 — 戏院 / 旅社
+    '新光戏院':[31.2370, 121.4830], '新光大戏院':[31.2370, 121.4830], '北京大戏院':[31.2333, 121.4790],
+    '北京戏院':[31.2333, 121.4790], '中央戏院':[31.2333, 121.4810], '金城戏院':[31.2400, 121.4800],
+    '南京大戏院':[31.2320, 121.4810], '大光明戏院':[31.2310, 121.4560], '新中央':[31.2330, 121.4790],
+    '大东旅社':[31.2360, 121.4790], '老惠中旅馆':[31.2360, 121.4790],
+    # 上海 — 园林寺庙
+    '法国公园':[31.2160, 121.4670], '兆丰花园':[31.2200, 121.4200], '兆丰公园':[31.2200, 121.4200],
+    '玉佛寺':[31.2460, 121.4450], '觉园':[31.2200, 121.4600],
+    # 苏州 / 杭州 / 北京 landmarks
+    '留园':[31.3250, 120.5970], '虎邱':[31.3470, 120.5730], '西泠印社':[30.2550, 120.1440],
+    '报国寺':[39.8862, 116.3550],
     # 上海 — 郊区
     '江湾':[31.2970, 121.4980], '徐家汇':[31.1930, 121.4370],
     # 苏州 — 园林古迹
@@ -352,6 +371,19 @@ def money2yuan(s):
         v = _cn_int(mf.group(1)); fen = v or 0; found = True
     if found:
         return round(yuan + jiao / 10 + fen / 100, 4)
+    # 银两 / 串钱(吊/贯) — approximate 1920s Shanghai conversion to 元 (rough; raw `amount`
+    # string is kept alongside amount_num so the native unit stays visible).
+    #   1 规银两 ≈ 1.4 元 ;  1 串 = 1 吊 = 1 贯 = 1000 文 ≈ 0.8 元
+    mt = re.search(r'([零〇一二两三四五六七八九十百千万\d]+)\s*两', s)
+    if mt:
+        v = _cn_int(mt.group(1))
+        if v is not None:
+            return round(v * 1.4, 2)
+    mc = re.search(r'([零〇一二两三四五六七八九十百千万\d]+)\s*[串吊贯]', s)
+    if mc:
+        v = _cn_int(mc.group(1))
+        if v is not None:
+            return round(v * 0.8, 2)
     # bare Chinese integer (e.g. "卅元" handled via 元 above; try whole-string)
     v = _cn_int(s.replace('元', '').replace('洋', '').strip())
     return float(v) if v is not None else None
@@ -749,7 +781,9 @@ for e in src['edges']:
 visits.sort(key=lambda v: v.get('date', '') or '')
 
 mapped_cities = Counter(v['resolved_city'] for v in visits if v['resolved_city'])
-unmapped = Counter(v['location_label'] for v in visits if not v['resolved_city'])
+# "unmapped" = no city AND not a placed venue (venue_dots cover VENUE_COORDS labels on the map).
+unmapped = Counter(v['location_label'] for v in visits
+                   if not v['resolved_city'] and v['location_label'] not in VENUE_COORDS)
 
 venues_by_city = defaultdict(list)
 for v in visits:
@@ -1124,6 +1158,31 @@ for rel in all_rels:
 spikes.sort(key=lambda x: -x['zscore'])
 spikes = spikes[:20]
 
+# ── 称呼演变 (honorific shift, e.g. 舜臣→舜老) — surfaces xlsx QA #3, discoverable in 统计 ──
+def _is_honorific(s):
+    return s.endswith(('老', '翁', '丈', '公', '叟', '伯')) or '先生' in s
+honorific_shifts = []
+for pid, pr in per_profile.items():
+    ae = pr.get('alias_evolution') or []
+    if len(ae) < 2:
+        continue
+    plain = [a for a in ae if not _is_honorific(a['surface'])]
+    honor = [a for a in ae if _is_honorific(a['surface'])]
+    if not plain or not honor:
+        continue
+    p0 = min(plain, key=lambda a: a.get('first') or '9999')
+    h0 = min(honor, key=lambda a: a.get('first') or '9999')
+    # honorific adopted strictly later; forms genuinely differ (not one a substring of the
+    # other — skips 程选公 vs 程选公(瑞铨)). Aliases are all the same person (same profile).
+    if ((h0.get('first') or '') > (p0.get('first') or '')
+            and h0['surface'] not in p0['surface'] and p0['surface'] not in h0['surface']):
+        honorific_shifts.append({
+            'id': pid, 'label': pr.get('label'),
+            'from': p0['surface'], 'from_date': p0.get('first'),
+            'to': h0['surface'], 'to_date': h0.get('first'), 'to_last': h0.get('last'),
+        })
+honorific_shifts.sort(key=lambda x: x.get('to_date') or '')
+
 stats = {
     'months': sorted({m for m in rel_per_month.keys()}),
     'rel_per_month': {m: dict(d) for m, d in rel_per_month.items()},
@@ -1135,8 +1194,10 @@ stats = {
     'low_confidence_sample': low_conf_sample,
     'disappeared': disappeared,
     'spikes': spikes,
+    'honorific_shifts': honorific_shifts,
 }
 (out_dir / 'stats.json').write_text(json.dumps(stats, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+print(f'  称呼演变 (honorific shifts): {len(honorific_shifts)}')
 
 
 # ── 8) hyperedges (multi-party events) ──────────────────────────────────────
@@ -1413,13 +1474,13 @@ PROJECT_RULES = [
     ('溥益纱厂实业', '实业', ['溥益纱厂']),
     ('当涂矿业', '实业', ['汉冶萍', '当涂矿', '繁昌矿', '宝兴铁矿']),
 ]
-shiye = []
-for proj, ptype, kws in PROJECT_RULES:
-    members = [n for n in src['nodes']
-               if any(k in (n.get('label') or '') for k in kws)]
-    if not members:
-        continue
-    member_ids = {n['id'] for n in members}
+
+def _shiye_record(proj, ptype, members, stock=False):
+    seen = set(); uniq = []
+    for n in members:
+        if n['id'] not in seen:
+            seen.add(n['id']); uniq.append(n)
+    members = uniq
     txn_items, persons, dates, pages, total = [], set(), [], set(), 0.0
     for n in members:
         d = n.get('captured_at')
@@ -1434,28 +1495,70 @@ for proj, ptype, kws in PROJECT_RULES:
             if av:
                 total += av
             txn_items.append({'label': n.get('label'), 'amount': amt, 'date': d})
-        # linked persons via any edge
         for direction, e in edges_by_node.get(n['id'], []):
             other = e['target'] if direction == 'out' else e['source']
             on = nodes_by_id.get(other, {})
             if on.get('entity_type') == '人':
                 persons.add(nodes_by_id.get(redirect(other), on).get('label'))
     dates = sorted(d for d in dates if d)
-    shiye.append({
+    return {
         'project': proj,
         'type': ptype,
         'member_count': len(members),
         'orgs': sorted({n.get('label') for n in members if n.get('entity_type') == '团体'}),
         'books': sorted({n.get('label') for n in members if n.get('entity_type') == '书籍'}),
-        'txns': txn_items,                              # 内容/花费 raw
-        'cost_arabic_sum': round(total, 2) if total else None,  # 花费 (partial, arabic only)
-        'agents': sorted(p for p in persons if p),      # 经办人
+        'txns': txn_items,
+        'cost_arabic_sum': round(total, 2) if total else None,
+        'agents': sorted(p for p in persons if p),
         'date_range': [dates[0], dates[-1]] if dates else None,
         'pages': sorted(pages),
-    })
+        'auto': ptype not in ('编纂', '著述') and proj not in [r[0] for r in PROJECT_RULES],
+        'has_stock': stock,
+    }
+
+shiye = []
+_manual_kws = [k for _, _, kws in PROJECT_RULES for k in kws]
+for proj, ptype, kws in PROJECT_RULES:
+    members = [n for n in src['nodes'] if any(k in (n.get('label') or '') for k in kws)]
+    if members:
+        shiye.append(_shiye_record(proj, ptype, members))
+
+# ── auto-detect enterprises: ORG by industry suffix + linked 股本/股票 txn (or活跃度) ──
+ENTERPRISE_SUFFIX = ('纱厂', '纺织', '公司', '银行', '银号', '钱庄', '铁矿', '煤矿', '矿务',
+                     '矿', '工厂', '实业', '轮船', '电气', '电灯', '水泥', '面粉', '制造', '工程', '盐垦')
+FINANCE_SUFFIX = ('银行', '银号', '钱庄')
+STOCK_KW = ('股本', '股分', '股份', '股东', '股票', '股息', '官利', '红利', '认股', '增资', '股利', '董事')
+org_groups = defaultdict(list)
+for n in src['nodes']:
+    lbl = n.get('label') or ''
+    if n.get('entity_type') == '团体' and any(s in lbl for s in ENTERPRISE_SUFFIX):
+        org_groups[lbl].append(n)
+auto = []
+for lbl, grp in org_groups.items():
+    if any(k in lbl for k in _manual_kws):     # already covered by a manual rule
+        continue
+    members = list(grp); has_stock = False; ntxn = 0; deg = 0
+    for n in grp:
+        for direction, e in edges_by_node.get(n['id'], []):
+            deg += 1
+            on = nodes_by_id.get(e['target'] if direction == 'out' else e['source'], {})
+            ev = (e.get('metadata') or {}).get('evidence_text', '') or ''
+            if any(k in ev for k in STOCK_KW):
+                has_stock = True
+            if on.get('entity_type') == '交易':
+                members.append(on); ntxn += 1
+                if any(k in (on.get('label') or '') for k in STOCK_KW):
+                    has_stock = True
+    if not (has_stock or ntxn >= 2 or deg >= 8):
+        continue
+    ptype = '金融' if any(s in lbl for s in FINANCE_SUFFIX) else '实业'
+    auto.append(_shiye_record(lbl, ptype, members, stock=has_stock))
+auto.sort(key=lambda s: (-(1 if s['has_stock'] else 0), -s['member_count']))
+shiye.extend(auto[:40])                          # cap to keep tab usable
 shiye.sort(key=lambda s: -s['member_count'])
 (out_dir / 'shiye.json').write_text(json.dumps(shiye, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
-print(f'wrote {len(shiye)} 事业 projects')
+print(f'wrote {len(shiye)} 事业 projects ({len(auto[:40])} auto-detected enterprises, '
+      f'{sum(1 for s in auto[:40] if s["has_stock"])} with 股本/股票)')
 
 # ── 10) co-occurrence matrix (implicit PER-PER relationships) ────────────────
 from itertools import combinations
