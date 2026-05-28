@@ -1,6 +1,20 @@
 {
  "hidden_pairs": [
   {
+   "a": "per_ding_doctor",
+   "a_label": "丁医师",
+   "b": "per_wang_yishi",
+   "b_label": "王医师",
+   "count": 10,
+   "sample_dates": [
+    "1937-03-28",
+    "1937-03-29",
+    "1937-03-30",
+    "1937-03-31",
+    "1937-04-01"
+   ]
+  },
+  {
    "a": "per_shisanhong",
    "a_label": "十三红",
    "b": "per_wang_baozhen",
@@ -27,114 +41,6 @@
    ]
   },
   {
-   "a": "per_shun_chen",
-   "a_label": "吴舜臣",
-   "b": "per_ye_shenzhai",
-   "b_label": "叶慎斋",
-   "count": 3,
-   "sample_dates": [
-    "1920-01-02",
-    "1920-01-04",
-    "1920-01-07"
-   ]
-  },
-  {
-   "a": "per_shun_chen",
-   "a_label": "吴舜臣",
-   "b": "per_yu_guisheng",
-   "b_label": "余桂笙",
-   "count": 3,
-   "sample_dates": [
-    "1920-01-02",
-    "1920-01-04",
-    "1920-01-07"
-   ]
-  },
-  {
-   "a": "per_song_qing",
-   "a_label": "金颂清",
-   "b": "per_yu_guisheng",
-   "b_label": "余桂笙",
-   "count": 3,
-   "sample_dates": [
-    "1920-01-02",
-    "1920-01-04",
-    "1920-01-07"
-   ]
-  },
-  {
-   "a": "per_chen_shaozhou",
-   "a_label": "陈少舟",
-   "b": "per_wu_shuren",
-   "b_label": "吴树人",
-   "count": 3,
-   "sample_dates": [
-    "1920-01-04",
-    "1920-01-06",
-    "1920-01-07"
-   ]
-  },
-  {
-   "a": "per_chen_shaozhou",
-   "a_label": "陈少舟",
-   "b": "per_ye_shenzhai",
-   "b_label": "叶慎斋",
-   "count": 3,
-   "sample_dates": [
-    "1920-01-04",
-    "1920-01-06",
-    "1920-01-07"
-   ]
-  },
-  {
-   "a": "per_chen_shaozhou",
-   "a_label": "陈少舟",
-   "b": "per_yu_guisheng",
-   "b_label": "余桂笙",
-   "count": 3,
-   "sample_dates": [
-    "1920-01-04",
-    "1920-01-06",
-    "1920-01-07"
-   ]
-  },
-  {
-   "a": "per_wu_shuren",
-   "a_label": "吴树人",
-   "b": "per_yu_guisheng",
-   "b_label": "余桂笙",
-   "count": 3,
-   "sample_dates": [
-    "1920-01-04",
-    "1920-01-06",
-    "1920-01-07"
-   ]
-  },
-  {
-   "a": "per_menglao",
-   "a_label": "梦老",
-   "b": "per_qiucheng",
-   "b_label": "秋澄",
-   "count": 3,
-   "sample_dates": [
-    "1920-01-10",
-    "1920-01-11",
-    "1920-01-12"
-   ]
-  },
-  {
-   "a": "per_bo_ke",
-   "a_label": "李拔可",
-   "b": "per_liu_hanyi",
-   "b_label": "刘翰怡",
-   "count": 3,
-   "sample_dates": [
-    "1920-01-25",
-    "1920-04-18",
-    "1920-04-23"
-   ]
-  },
-  {
    "a": "per_li_bolao",
    "a_label": "李伯行",
    "b": "per_xia_jun",
@@ -156,6 +62,18 @@
     "1920-03-26",
     "1920-03-27",
     "1920-03-28"
+   ]
+  },
+  {
+   "a": "per_bo_ke",
+   "a_label": "李拔可",
+   "b": "per_liu_hanyi",
+   "b_label": "刘翰怡",
+   "count": 3,
+   "sample_dates": [
+    "1920-04-18",
+    "1920-04-23",
+    "1921-01-25"
    ]
   },
   {
@@ -267,6 +185,102 @@
    ]
   },
   {
+   "a": "per_song_qing",
+   "a_label": "金颂清",
+   "b": "per_yu_guisheng",
+   "b_label": "余桂笙",
+   "count": 3,
+   "sample_dates": [
+    "1921-01-02",
+    "1921-01-04",
+    "1921-01-07"
+   ]
+  },
+  {
+   "a": "per_wu_shun",
+   "a_label": "吴舜臣",
+   "b": "per_ye_shenzhai",
+   "b_label": "叶慎斋",
+   "count": 3,
+   "sample_dates": [
+    "1921-01-02",
+    "1921-01-04",
+    "1921-01-07"
+   ]
+  },
+  {
+   "a": "per_wu_shun",
+   "a_label": "吴舜臣",
+   "b": "per_yu_guisheng",
+   "b_label": "余桂笙",
+   "count": 3,
+   "sample_dates": [
+    "1921-01-02",
+    "1921-01-04",
+    "1921-01-07"
+   ]
+  },
+  {
+   "a": "per_chen_shaozhou",
+   "a_label": "陈少舟",
+   "b": "per_wu_shuren",
+   "b_label": "吴树人",
+   "count": 3,
+   "sample_dates": [
+    "1921-01-04",
+    "1921-01-06",
+    "1921-01-07"
+   ]
+  },
+  {
+   "a": "per_chen_shaozhou",
+   "a_label": "陈少舟",
+   "b": "per_ye_shenzhai",
+   "b_label": "叶慎斋",
+   "count": 3,
+   "sample_dates": [
+    "1921-01-04",
+    "1921-01-06",
+    "1921-01-07"
+   ]
+  },
+  {
+   "a": "per_chen_shaozhou",
+   "a_label": "陈少舟",
+   "b": "per_yu_guisheng",
+   "b_label": "余桂笙",
+   "count": 3,
+   "sample_dates": [
+    "1921-01-04",
+    "1921-01-06",
+    "1921-01-07"
+   ]
+  },
+  {
+   "a": "per_wu_shuren",
+   "a_label": "吴树人",
+   "b": "per_yu_guisheng",
+   "b_label": "余桂笙",
+   "count": 3,
+   "sample_dates": [
+    "1921-01-04",
+    "1921-01-06",
+    "1921-01-07"
+   ]
+  },
+  {
+   "a": "per_menglao",
+   "a_label": "梦老",
+   "b": "per_qiucheng",
+   "b_label": "秋澄",
+   "count": 3,
+   "sample_dates": [
+    "1921-01-10",
+    "1921-01-11",
+    "1921-01-12"
+   ]
+  },
+  {
    "a": "per_chen_shaozhou",
    "a_label": "陈少舟",
    "b": "per_shaozhou_cheng",
@@ -361,9 +375,85 @@
     "1922-12-15",
     "1922-12-17"
    ]
+  },
+  {
+   "a": "per_shizhen",
+   "a_label": "世珍",
+   "b": "per_xibang",
+   "b_label": "兴邦",
+   "count": 3,
+   "sample_dates": [
+    "1924-07-30",
+    "1924-07-31",
+    "1924-08-06"
+   ]
+  },
+  {
+   "a": "per_liu_dazhang",
+   "a_label": "刘达章",
+   "b": "per_shen_junsheng",
+   "b_label": "沈骏声",
+   "count": 3,
+   "sample_dates": [
+    "1925-11-24",
+    "1925-11-26",
+    "1925-11-27"
+   ]
+  },
+  {
+   "a": "per_zang_zhexuan",
+   "a_label": "臧哲轩",
+   "b": "per_zhang_mian",
+   "b_label": "张密庵",
+   "count": 3,
+   "sample_dates": [
+    "1935-02-28",
+    "1935-03-02",
+    "1935-03-05"
+   ]
+  },
+  {
+   "a": "per_miao_zhen",
+   "a_label": "妙真法师",
+   "b": "per_yin_lao",
+   "b_label": "印光法师",
+   "count": 3,
+   "sample_dates": [
+    "1935-08-09",
+    "1935-08-10",
+    "1935-08-11"
+   ]
   }
  ],
  "hidden_by_person": {
+  "per_ding_doctor": [
+   {
+    "id": "per_wang_yishi",
+    "label": "王医师",
+    "count": 10,
+    "dates": [
+     "1937-03-28",
+     "1937-03-29",
+     "1937-03-30",
+     "1937-03-31",
+     "1937-04-01"
+    ]
+   }
+  ],
+  "per_wang_yishi": [
+   {
+    "id": "per_ding_doctor",
+    "label": "丁医师",
+    "count": 10,
+    "dates": [
+     "1937-03-28",
+     "1937-03-29",
+     "1937-03-30",
+     "1937-03-31",
+     "1937-04-01"
+    ]
+   }
+  ],
   "per_shisanhong": [
    {
     "id": "per_wang_baozhen",
@@ -496,216 +586,6 @@
     ]
    }
   ],
-  "per_shun_chen": [
-   {
-    "id": "per_ye_shenzhai",
-    "label": "叶慎斋",
-    "count": 3,
-    "dates": [
-     "1920-01-02",
-     "1920-01-04",
-     "1920-01-07"
-    ]
-   },
-   {
-    "id": "per_yu_guisheng",
-    "label": "余桂笙",
-    "count": 3,
-    "dates": [
-     "1920-01-02",
-     "1920-01-04",
-     "1920-01-07"
-    ]
-   }
-  ],
-  "per_ye_shenzhai": [
-   {
-    "id": "per_shun_chen",
-    "label": "吴舜臣",
-    "count": 3,
-    "dates": [
-     "1920-01-02",
-     "1920-01-04",
-     "1920-01-07"
-    ]
-   },
-   {
-    "id": "per_chen_shaozhou",
-    "label": "陈少舟",
-    "count": 3,
-    "dates": [
-     "1920-01-04",
-     "1920-01-06",
-     "1920-01-07"
-    ]
-   }
-  ],
-  "per_yu_guisheng": [
-   {
-    "id": "per_shun_chen",
-    "label": "吴舜臣",
-    "count": 3,
-    "dates": [
-     "1920-01-02",
-     "1920-01-04",
-     "1920-01-07"
-    ]
-   },
-   {
-    "id": "per_song_qing",
-    "label": "金颂清",
-    "count": 3,
-    "dates": [
-     "1920-01-02",
-     "1920-01-04",
-     "1920-01-07"
-    ]
-   },
-   {
-    "id": "per_chen_shaozhou",
-    "label": "陈少舟",
-    "count": 3,
-    "dates": [
-     "1920-01-04",
-     "1920-01-06",
-     "1920-01-07"
-    ]
-   },
-   {
-    "id": "per_wu_shuren",
-    "label": "吴树人",
-    "count": 3,
-    "dates": [
-     "1920-01-04",
-     "1920-01-06",
-     "1920-01-07"
-    ]
-   }
-  ],
-  "per_song_qing": [
-   {
-    "id": "per_yu_guisheng",
-    "label": "余桂笙",
-    "count": 3,
-    "dates": [
-     "1920-01-02",
-     "1920-01-04",
-     "1920-01-07"
-    ]
-   }
-  ],
-  "per_chen_shaozhou": [
-   {
-    "id": "per_wu_shuren",
-    "label": "吴树人",
-    "count": 3,
-    "dates": [
-     "1920-01-04",
-     "1920-01-06",
-     "1920-01-07"
-    ]
-   },
-   {
-    "id": "per_ye_shenzhai",
-    "label": "叶慎斋",
-    "count": 3,
-    "dates": [
-     "1920-01-04",
-     "1920-01-06",
-     "1920-01-07"
-    ]
-   },
-   {
-    "id": "per_yu_guisheng",
-    "label": "余桂笙",
-    "count": 3,
-    "dates": [
-     "1920-01-04",
-     "1920-01-06",
-     "1920-01-07"
-    ]
-   },
-   {
-    "id": "per_shaozhou_cheng",
-    "label": "程绍周",
-    "count": 3,
-    "dates": [
-     "1921-08-29",
-     "1921-08-30",
-     "1921-08-31"
-    ]
-   }
-  ],
-  "per_wu_shuren": [
-   {
-    "id": "per_chen_shaozhou",
-    "label": "陈少舟",
-    "count": 3,
-    "dates": [
-     "1920-01-04",
-     "1920-01-06",
-     "1920-01-07"
-    ]
-   },
-   {
-    "id": "per_yu_guisheng",
-    "label": "余桂笙",
-    "count": 3,
-    "dates": [
-     "1920-01-04",
-     "1920-01-06",
-     "1920-01-07"
-    ]
-   }
-  ],
-  "per_menglao": [
-   {
-    "id": "per_qiucheng",
-    "label": "秋澄",
-    "count": 3,
-    "dates": [
-     "1920-01-10",
-     "1920-01-11",
-     "1920-01-12"
-    ]
-   }
-  ],
-  "per_qiucheng": [
-   {
-    "id": "per_menglao",
-    "label": "梦老",
-    "count": 3,
-    "dates": [
-     "1920-01-10",
-     "1920-01-11",
-     "1920-01-12"
-    ]
-   }
-  ],
-  "per_bo_ke": [
-   {
-    "id": "per_liu_hanyi",
-    "label": "刘翰怡",
-    "count": 3,
-    "dates": [
-     "1920-01-25",
-     "1920-04-18",
-     "1920-04-23"
-    ]
-   }
-  ],
-  "per_liu_hanyi": [
-   {
-    "id": "per_bo_ke",
-    "label": "李拔可",
-    "count": 3,
-    "dates": [
-     "1920-01-25",
-     "1920-04-18",
-     "1920-04-23"
-    ]
-   }
-  ],
   "per_li_bolao": [
    {
     "id": "per_xia_jun",
@@ -751,6 +631,30 @@
      "1920-03-26",
      "1920-03-27",
      "1920-03-28"
+    ]
+   }
+  ],
+  "per_bo_ke": [
+   {
+    "id": "per_liu_hanyi",
+    "label": "刘翰怡",
+    "count": 3,
+    "dates": [
+     "1920-04-18",
+     "1920-04-23",
+     "1921-01-25"
+    ]
+   }
+  ],
+  "per_liu_hanyi": [
+   {
+    "id": "per_bo_ke",
+    "label": "李拔可",
+    "count": 3,
+    "dates": [
+     "1920-04-18",
+     "1920-04-23",
+     "1921-01-25"
     ]
    }
   ],
@@ -922,6 +826,192 @@
     ]
    }
   ],
+  "per_song_qing": [
+   {
+    "id": "per_yu_guisheng",
+    "label": "余桂笙",
+    "count": 3,
+    "dates": [
+     "1921-01-02",
+     "1921-01-04",
+     "1921-01-07"
+    ]
+   }
+  ],
+  "per_yu_guisheng": [
+   {
+    "id": "per_song_qing",
+    "label": "金颂清",
+    "count": 3,
+    "dates": [
+     "1921-01-02",
+     "1921-01-04",
+     "1921-01-07"
+    ]
+   },
+   {
+    "id": "per_wu_shun",
+    "label": "吴舜臣",
+    "count": 3,
+    "dates": [
+     "1921-01-02",
+     "1921-01-04",
+     "1921-01-07"
+    ]
+   },
+   {
+    "id": "per_chen_shaozhou",
+    "label": "陈少舟",
+    "count": 3,
+    "dates": [
+     "1921-01-04",
+     "1921-01-06",
+     "1921-01-07"
+    ]
+   },
+   {
+    "id": "per_wu_shuren",
+    "label": "吴树人",
+    "count": 3,
+    "dates": [
+     "1921-01-04",
+     "1921-01-06",
+     "1921-01-07"
+    ]
+   }
+  ],
+  "per_wu_shun": [
+   {
+    "id": "per_ye_shenzhai",
+    "label": "叶慎斋",
+    "count": 3,
+    "dates": [
+     "1921-01-02",
+     "1921-01-04",
+     "1921-01-07"
+    ]
+   },
+   {
+    "id": "per_yu_guisheng",
+    "label": "余桂笙",
+    "count": 3,
+    "dates": [
+     "1921-01-02",
+     "1921-01-04",
+     "1921-01-07"
+    ]
+   }
+  ],
+  "per_ye_shenzhai": [
+   {
+    "id": "per_wu_shun",
+    "label": "吴舜臣",
+    "count": 3,
+    "dates": [
+     "1921-01-02",
+     "1921-01-04",
+     "1921-01-07"
+    ]
+   },
+   {
+    "id": "per_chen_shaozhou",
+    "label": "陈少舟",
+    "count": 3,
+    "dates": [
+     "1921-01-04",
+     "1921-01-06",
+     "1921-01-07"
+    ]
+   }
+  ],
+  "per_chen_shaozhou": [
+   {
+    "id": "per_wu_shuren",
+    "label": "吴树人",
+    "count": 3,
+    "dates": [
+     "1921-01-04",
+     "1921-01-06",
+     "1921-01-07"
+    ]
+   },
+   {
+    "id": "per_ye_shenzhai",
+    "label": "叶慎斋",
+    "count": 3,
+    "dates": [
+     "1921-01-04",
+     "1921-01-06",
+     "1921-01-07"
+    ]
+   },
+   {
+    "id": "per_yu_guisheng",
+    "label": "余桂笙",
+    "count": 3,
+    "dates": [
+     "1921-01-04",
+     "1921-01-06",
+     "1921-01-07"
+    ]
+   },
+   {
+    "id": "per_shaozhou_cheng",
+    "label": "程绍周",
+    "count": 3,
+    "dates": [
+     "1921-08-29",
+     "1921-08-30",
+     "1921-08-31"
+    ]
+   }
+  ],
+  "per_wu_shuren": [
+   {
+    "id": "per_chen_shaozhou",
+    "label": "陈少舟",
+    "count": 3,
+    "dates": [
+     "1921-01-04",
+     "1921-01-06",
+     "1921-01-07"
+    ]
+   },
+   {
+    "id": "per_yu_guisheng",
+    "label": "余桂笙",
+    "count": 3,
+    "dates": [
+     "1921-01-04",
+     "1921-01-06",
+     "1921-01-07"
+    ]
+   }
+  ],
+  "per_menglao": [
+   {
+    "id": "per_qiucheng",
+    "label": "秋澄",
+    "count": 3,
+    "dates": [
+     "1921-01-10",
+     "1921-01-11",
+     "1921-01-12"
+    ]
+   }
+  ],
+  "per_qiucheng": [
+   {
+    "id": "per_menglao",
+    "label": "梦老",
+    "count": 3,
+    "dates": [
+     "1921-01-10",
+     "1921-01-11",
+     "1921-01-12"
+    ]
+   }
+  ],
   "per_shaozhou_cheng": [
    {
     "id": "per_chen_shaozhou",
@@ -1031,6 +1121,102 @@
      "1922-12-14",
      "1922-12-15",
      "1922-12-17"
+    ]
+   }
+  ],
+  "per_shizhen": [
+   {
+    "id": "per_xibang",
+    "label": "兴邦",
+    "count": 3,
+    "dates": [
+     "1924-07-30",
+     "1924-07-31",
+     "1924-08-06"
+    ]
+   }
+  ],
+  "per_xibang": [
+   {
+    "id": "per_shizhen",
+    "label": "世珍",
+    "count": 3,
+    "dates": [
+     "1924-07-30",
+     "1924-07-31",
+     "1924-08-06"
+    ]
+   }
+  ],
+  "per_liu_dazhang": [
+   {
+    "id": "per_shen_junsheng",
+    "label": "沈骏声",
+    "count": 3,
+    "dates": [
+     "1925-11-24",
+     "1925-11-26",
+     "1925-11-27"
+    ]
+   }
+  ],
+  "per_shen_junsheng": [
+   {
+    "id": "per_liu_dazhang",
+    "label": "刘达章",
+    "count": 3,
+    "dates": [
+     "1925-11-24",
+     "1925-11-26",
+     "1925-11-27"
+    ]
+   }
+  ],
+  "per_zang_zhexuan": [
+   {
+    "id": "per_zhang_mian",
+    "label": "张密庵",
+    "count": 3,
+    "dates": [
+     "1935-02-28",
+     "1935-03-02",
+     "1935-03-05"
+    ]
+   }
+  ],
+  "per_zhang_mian": [
+   {
+    "id": "per_zang_zhexuan",
+    "label": "臧哲轩",
+    "count": 3,
+    "dates": [
+     "1935-02-28",
+     "1935-03-02",
+     "1935-03-05"
+    ]
+   }
+  ],
+  "per_miao_zhen": [
+   {
+    "id": "per_yin_lao",
+    "label": "印光法师",
+    "count": 3,
+    "dates": [
+     "1935-08-09",
+     "1935-08-10",
+     "1935-08-11"
+    ]
+   }
+  ],
+  "per_yin_lao": [
+   {
+    "id": "per_miao_zhen",
+    "label": "妙真法师",
+    "count": 3,
+    "dates": [
+     "1935-08-09",
+     "1935-08-10",
+     "1935-08-11"
     ]
    }
   ]

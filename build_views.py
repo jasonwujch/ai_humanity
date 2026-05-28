@@ -5,19 +5,11 @@ JSON files in web/data/ for the static SPA. No merge_and_dedup needed.
 Includes view-time dedup (canonical-keyed PER coalescing) without touching raw data.
 
 ────────────────────────────────────────────────────────────────────────────
-KNOWN-ISSUE: chunk solar-date off-by-one (see web/README.md for full notes)
-────────────────────────────────────────────────────────────────────────────
-The diary was written by lunar calendar. chunk_entries.py (upstream of this
-script) converted lunar→solar incorrectly for some entries, so chunk filenames
-and the `source_location` on edges/txns/visits can be off by ~1 lunar year.
-
-Mitigation lives in the SPA (web/index.html):
-  parseLunarString(chunks[date].lunar_date) → correct solar
-  display via resolveSolar() / fmtDate(), badge as 阳历修正
-
-Full fix requires: patch chunk_entries.py lunar→solar logic, re-chunk
-all .md files, re-run graphify, re-run this script.
-TODO once all graphify batches done.
+CALENDAR: off-by-one-year FIXED at source 2026-05-28 (see fix_calendar.py).
+chunk_entries.py converter patched; 507 off-by-year entries corrected across
+md / chunks / graph batches. So captured_at / source_location are now correct.
+The SPA's parseLunarString→resolveSolar mitigation is now redundant (harmless;
+it re-derives the same correct solar date). Safe to remove later.
 """
 import json
 import re
@@ -191,7 +183,7 @@ def normalize_source(sf):
 batch_dir = ROOT / 'data' / 'poc_200' / 'graphify-out'
 all_nodes, all_edges, all_hyper = [], [], []
 seen_ids = set()
-batch_files = sorted(batch_dir.glob('.graphify_v25_b10_*.json'))
+batch_files = sorted(batch_dir.glob('.graphify_v25_*.json'))  # b10_ + b5_ retries + b20_ legacy
 for f in batch_files:
     try:
         d = json.loads(f.read_text(encoding='utf-8'))
@@ -212,6 +204,130 @@ out_dir = Path(__file__).parent / 'data'
 out_dir.mkdir(exist_ok=True)
 
 nodes_by_id = {n['id']: n for n in src['nodes']}
+
+# ── date → 原书页码 / pdf  (light frontmatter scan for column joins) ──────────
+date_to_meta = {}
+_poc_dir = ROOT / 'data' / 'poc_200'
+_re_pages = re.compile(r'^source_pages:\s*(.+)$', re.M)
+_re_pdf = re.compile(r'^source_pdf:\s*(.+)$', re.M)
+for _mf in _poc_dir.glob('*.md'):
+    _t = _mf.read_text(encoding='utf-8')[:400]
+    mp = _re_pages.search(_t); mpdf = _re_pdf.search(_t)
+    date_to_meta[_mf.stem] = {
+        'pages': mp.group(1).strip().strip('[]').replace(' ', '') if mp else None,
+        'pdf': mpdf.group(1).strip() if mpdf else None,
+    }
+
+
+def page_for(date):
+    return (date_to_meta.get(date or '') or {}).get('pages')
+
+
+# 性质 (income/expense) lexicon — derive from txn label/evidence verbs.
+INCOME_KW = ('售', '收', '汇', '得价', '卖', '进款', '收回', '租洋', '解到', '缴', '偿')
+EXPENSE_KW = ('购', '买', '付', '送', '赠', '馈', '捐', '助', '给', '裱', '价', '工价', '修', '雇')
+
+
+def txn_nature(label, evidence, direction):
+    s = (label or '') + (evidence or '')
+    inc = any(k in s for k in INCOME_KW)
+    exp = any(k in s for k in EXPENSE_KW)
+    if direction in ('收入', '来'):
+        return '收入'
+    if direction in ('支出', '去'):
+        return '支出'
+    if inc and not exp:
+        return '收入'
+    if exp and not inc:
+        return '支出'
+    return None  # ambiguous / unknown
+
+
+# 皖籍 heuristic (reused by 人事): canonical/label hints at Anhui origin.
+ANHUI_KW = ('皖', '安徽', '南陵', '芜湖', '宣城', '泾县', '广德', '阜阳', '六安', '宁国', '当涂', '繁昌')
+# High-confidence 皖籍 gazetteer — curated, extend as verified. Source flag distinguishes
+# these from keyword guesses. 徐乃昌 (祖籍南陵) + close 同乡 agents.
+ANHUI_GAZETTEER = {'徐乃昌', '徐积馀', '吴舜臣', '徐淑记'}
+
+# ── Chinese-numeral → number (价格 normalization, no re-extraction) ───────────
+_CN_DIGIT = {'零': 0, '〇': 0, '一': 1, '二': 2, '两': 2, '三': 3, '四': 4, '五': 5,
+             '六': 6, '七': 7, '八': 8, '九': 9}
+_CN_UNIT = {'十': 10, '百': 100, '千': 1000, '万': 10000, '亿': 100000000}
+
+
+def _cn_int(s):
+    """Parse a Chinese integer string (supports 十/百/千/万). Returns int or None."""
+    if not s:
+        return None
+    if re.fullmatch(r'\d+', s):
+        return int(s)
+    total = 0
+    section = 0
+    num = 0
+    for ch in s:
+        if ch in _CN_DIGIT:
+            num = _CN_DIGIT[ch]
+        elif ch in _CN_UNIT:
+            u = _CN_UNIT[ch]
+            if u >= 10000:
+                section = (section + (num or 0)) * u
+                total += section
+                section = 0
+            else:
+                if num == 0:
+                    num = 1
+                section += num * u
+            num = 0
+        else:
+            return None
+    return total + section + num
+
+
+def money2yuan(s):
+    """Parse a price token to yuan (float). Handles arabic (17 / 4.41) and
+    Chinese 元/角/分 (二元六角五分 → 2.65; 每石二元六角 → 2.6). Returns float or None."""
+    if not s:
+        return None
+    s = str(s)
+    m = re.search(r'(\d+(?:\.\d+)?)\s*元', s) or re.fullmatch(r'\s*(\d+(?:\.\d+)?)\s*', s)
+    if m:
+        return float(m.group(1))
+    yuan = jiao = fen = 0
+    found = False
+    my = re.search(r'([零〇一二两三四五六七八九十百千万]+)\s*元', s)
+    mj = re.search(r'([零〇一二两三四五六七八九]+)\s*角', s)
+    mf = re.search(r'([零〇一二两三四五六七八九]+)\s*分', s)
+    if my:
+        v = _cn_int(my.group(1)); yuan = v or 0; found = found or v is not None
+    if mj:
+        v = _cn_int(mj.group(1)); jiao = v or 0; found = True
+    if mf:
+        v = _cn_int(mf.group(1)); fen = v or 0; found = True
+    if found:
+        return round(yuan + jiao / 10 + fen / 100, 4)
+    # bare Chinese integer (e.g. "卅元" handled via 元 above; try whole-string)
+    v = _cn_int(s.replace('元', '').replace('洋', '').strip())
+    return float(v) if v is not None else None
+
+
+# ── Rice-trade parser (稻谷 数量 + 单价, no re-extraction) ────────────────────
+# Text is regular: 售稻二百石，每石二元六角 / 收稻650石57斤，售出400石.
+_RE_QTY = re.compile(r'([\d零〇一二两三四五六七八九十百千万]+)\s*石')
+_RE_UNITP = re.compile(r'每\s*石\s*([\d零〇一二两三四五六七八九十百千万元角分.]+)')
+
+
+def parse_rice(text):
+    """Return (qty_shi, unit_price_yuan) parsed from txn text, or (None, None)."""
+    if not text:
+        return (None, None)
+    qty = up = None
+    mq = _RE_QTY.search(text)
+    if mq:
+        qty = _cn_int(mq.group(1))
+    mu = _RE_UNITP.search(text)
+    if mu:
+        up = money2yuan(mu.group(1))
+    return (qty, up)
 
 
 # ── VIEW-TIME DEDUP (PER nodes by canonical) ─────────────────────────────────
@@ -329,16 +445,41 @@ for n in src['nodes']:
                 'type': mn.get('entity_type'),
                 'relation': h.get('relation'),
             })
-    txn_details = md.get('txn_details') or {}
+    txn_details = md.get('txn_details')
+    if not isinstance(txn_details, dict):
+        txn_details = {}
+    evidence = (md.get('surface_forms') or [{}])[0].get('surface', n.get('label', ''))
+    # 经办人: person counterparties linked by trade/funding/relay relations.
+    AGENT_RELS = {'商务', '资助', '转交', '赠', '受赠'}
+    agents = [cp['label'] for cp in counterparties
+              if cp.get('type') == '人' and cp.get('relation') in AGENT_RELS]
+    _txt = (n.get('label') or '') + ' ' + (evidence or '')
+    amount_num = money2yuan(txn_details.get('amount'))
+    qty_shi, unit_price_yuan = parse_rice(_txt)
+    if unit_price_yuan is None:  # sometimes unit price landed in the amount slot
+        if isinstance(txn_details.get('amount'), str) and '每石' in txn_details['amount']:
+            unit_price_yuan = money2yuan(txn_details['amount'])
+            amount_num = None
+    is_rice = ('稻' in _txt or '米' in _txt or '租' in _txt or '石' in _txt)
     txns.append({
         'id': n['id'],
         'label': n.get('label'),
         'date': n.get('captured_at'),
         'source_file': normalize_source(n.get('source_file')),
-        'evidence': (md.get('surface_forms') or [{}])[0].get('surface', n.get('label', '')),
+        'evidence': evidence,
         'people': counterparties,
+        'item': txn_details.get('item'),
+        'quantity': txn_details.get('quantity'),
         'amount': txn_details.get('amount'),
+        'amount_num': amount_num,                       # normalized 价格 (元)
         'direction': txn_details.get('direction'),
+        'nature': txn_nature(n.get('label'), evidence, txn_details.get('direction')),
+        'agent': agents[0] if agents else None,
+        'agents': agents,
+        'page': page_for(n.get('captured_at')),
+        'is_rice': is_rice,
+        'qty_shi': qty_shi,                             # 稻谷数量 (石)
+        'unit_price_yuan': unit_price_yuan,             # 稻谷单价 (元/石)
     })
 txns.sort(key=lambda t: t.get('date', '') or '')
 (out_dir / 'transactions.json').write_text(json.dumps(txns, ensure_ascii=False, indent=2), encoding='utf-8')
@@ -1036,6 +1177,130 @@ for e in src['edges']:
 
 (out_dir / 'kin.json').write_text(json.dumps(kin_edges_out, ensure_ascii=False, indent=2), encoding='utf-8')
 print(f'wrote {len(kin_edges_out)} kin edges')
+
+# ── 10) 人事 (personnel registry) ────────────────────────────────────────────
+# Per deduped PER: 团体归属 (属于), 是否皖籍 (heuristic), activity log (事由=evidence).
+# Covers xlsx 人事 columns: 人物 / 事由 / 身份(归属团体) / 是否皖籍 / 页码 / 日期.
+def is_anhui(*texts):
+    blob = ' '.join(t for t in texts if t)
+    return any(k in blob for k in ANHUI_KW)
+
+# org membership per primary PER (属于 edges, person→团体)
+orgs_by_per = defaultdict(list)
+for e in src['edges']:
+    if e.get('relation') != '属于':
+        continue
+    s = e.get('source'); t = e.get('target')
+    sn = nodes_by_id.get(s, {}); tn = nodes_by_id.get(t, {})
+    if sn.get('entity_type') == '人' and tn.get('entity_type') == '团体':
+        p = redirect(s)
+        lbl = tn.get('label')
+        if lbl and lbl not in orgs_by_per[p]:
+            orgs_by_per[p].append(lbl)
+
+renshi = []
+for pid, ref in primary_node_ref.items():
+    md = ref.get('metadata') or {}
+    aliases = primary_aliases.get(pid, [])
+    member_ids = set(primary_orig_ids.get(pid, [pid]))
+    acts = []
+    seen_act = set()
+    for mid in member_ids:
+        for direction, e in edges_by_node.get(mid, []):
+            other_id = e['target'] if direction == 'out' else e['source']
+            on = nodes_by_id.get(redirect(other_id) if nodes_by_id.get(other_id, {}).get('entity_type') == '人' else other_id, {})
+            emd = e.get('metadata') or {}
+            date = e.get('source_location')
+            evid = emd.get('evidence_text')
+            k = (date, e.get('relation'), evid)
+            if k in seen_act:
+                continue
+            seen_act.add(k)
+            acts.append({
+                'date': date,
+                'relation': e.get('relation'),
+                'matter': evid,                       # 事由
+                'counterpart': on.get('label'),
+                'page': page_for(date),
+            })
+    acts.sort(key=lambda a: a.get('date') or '')
+    orgs = orgs_by_per.get(pid, [])
+    renshi.append({
+        'id': pid,
+        'label': ref.get('label'),
+        'canonical': md.get('canonical'),
+        'aliases': aliases,
+        'orgs': orgs,                                  # 身份(归属团体)
+        'is_anhui': (ref.get('label') in ANHUI_GAZETTEER
+                     or (md.get('canonical') in ANHUI_GAZETTEER)
+                     or is_anhui(ref.get('label'), md.get('canonical'), *aliases, *orgs)),
+        'anhui_source': ('gazetteer' if (ref.get('label') in ANHUI_GAZETTEER or md.get('canonical') in ANHUI_GAZETTEER)
+                         else ('heuristic' if is_anhui(ref.get('label'), md.get('canonical'), *aliases, *orgs) else None)),
+        'interactions': len(acts),
+        'first_seen': acts[0]['date'] if acts else None,
+        'last_seen': acts[-1]['date'] if acts else None,
+        'activities': acts[-12:],                      # cap payload (UI shows last few; full text via reader)
+    })
+renshi.sort(key=lambda r: -r['interactions'])
+(out_dir / 'renshi.json').write_text(json.dumps(renshi, ensure_ascii=False, indent=2), encoding='utf-8')
+print(f'wrote {len(renshi)} 人事 records ({sum(1 for r in renshi if r["is_anhui"])} 皖籍 heuristic)')
+
+# ── 11) 事业 (career / enterprise — rule-based derivation) ────────────────────
+# No 事业 entity type in schema; cluster existing BOOK/ORG/TXN by keyword.
+# Covers xlsx 事业 columns: 项目 / 内容 / 经办人 / 花费 / 页码 / 日期.
+
+# project rules: (项目名, 类型, [label keywords])
+PROJECT_RULES = [
+    ('编《南陵志》', '编纂', ['南陵志', '修志局', '筹备修志局', '志局']),
+    ('闺阁诗著述', '著述', ['闺阁', '诗钞', '诗人征略', '闺秀', '香咳']),
+    ('大生纱厂实业', '实业', ['大生纱厂', '大生']),
+    ('裕中纱厂实业', '实业', ['裕中纱厂']),
+    ('溥益纱厂实业', '实业', ['溥益纱厂']),
+    ('当涂矿业', '实业', ['汉冶萍', '当涂矿', '繁昌矿', '宝兴铁矿']),
+]
+shiye = []
+for proj, ptype, kws in PROJECT_RULES:
+    members = [n for n in src['nodes']
+               if any(k in (n.get('label') or '') for k in kws)]
+    if not members:
+        continue
+    member_ids = {n['id'] for n in members}
+    txn_items, persons, dates, pages, total = [], set(), [], set(), 0.0
+    for n in members:
+        d = n.get('captured_at')
+        if d:
+            dates.append(d)
+            if page_for(d):
+                pages.add(page_for(d))
+        if n.get('entity_type') == '交易':
+            td = n.get('metadata') or {}
+            amt = (td.get('txn_details') or {}).get('amount') if isinstance(td.get('txn_details'), dict) else None
+            av = money2yuan(amt)
+            if av:
+                total += av
+            txn_items.append({'label': n.get('label'), 'amount': amt, 'date': d})
+        # linked persons via any edge
+        for direction, e in edges_by_node.get(n['id'], []):
+            other = e['target'] if direction == 'out' else e['source']
+            on = nodes_by_id.get(other, {})
+            if on.get('entity_type') == '人':
+                persons.add(nodes_by_id.get(redirect(other), on).get('label'))
+    dates = sorted(d for d in dates if d)
+    shiye.append({
+        'project': proj,
+        'type': ptype,
+        'member_count': len(members),
+        'orgs': sorted({n.get('label') for n in members if n.get('entity_type') == '团体'}),
+        'books': sorted({n.get('label') for n in members if n.get('entity_type') == '书籍'}),
+        'txns': txn_items,                              # 内容/花费 raw
+        'cost_arabic_sum': round(total, 2) if total else None,  # 花费 (partial, arabic only)
+        'agents': sorted(p for p in persons if p),      # 经办人
+        'date_range': [dates[0], dates[-1]] if dates else None,
+        'pages': sorted(pages),
+    })
+shiye.sort(key=lambda s: -s['member_count'])
+(out_dir / 'shiye.json').write_text(json.dumps(shiye, ensure_ascii=False, indent=2), encoding='utf-8')
+print(f'wrote {len(shiye)} 事业 projects')
 
 # ── 10) co-occurrence matrix (implicit PER-PER relationships) ────────────────
 from itertools import combinations

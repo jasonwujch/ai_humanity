@@ -247,6 +247,8 @@
   <div class="tabs">
     <button :class="{active:tab==='overview'}" @click="tab='overview'">{{ t('tab_overview') }}</button>
     <button :class="{active:tab==='txn'}" @click="tab='txn'">{{ t('tab_txn') }}</button>
+    <button :class="{active:tab==='renshi'}" @click="tab='renshi'">人事</button>
+    <button :class="{active:tab==='shiye'}" @click="tab='shiye'">事业</button>
     <button :class="{active:tab==='books'}" @click="tab='books'">{{ t('tab_books') }}</button>
     <button :class="{active:tab==='events'}" @click="tab='events'">{{ t('tab_events') }}</button>
     <button :class="{active:tab==='metro'}" @click="tab='metro'">{{ t('tab_metro') }}</button>
@@ -354,6 +356,45 @@
       <span class="legend" v-if="txnData">共 {{ txnData.length }} 笔</span>
     </div>
     <div id="txn-table"></div>
+  </div>
+
+  <!-- 人事 (personnel registry) -->
+  <div class="view" v-show="tab==='renshi'">
+    <div class="controls">
+      <input v-model="renshiSearch" @input="applyRenshiFilter" placeholder="搜索 人名 / 团体 / 事由" style="width:220px" />
+      <label><input type="checkbox" v-model="renshiAnhui" @change="applyRenshiFilter" /> 仅皖籍</label>
+      <label><input type="checkbox" v-model="renshiHasOrg" @change="applyRenshiFilter" /> 有团体归属</label>
+      <span class="legend" v-if="renshiData">{{ renshiData.length }} 人 · {{ renshiData.filter(r=>r.is_anhui).length }} 皖籍(推断)</span>
+    </div>
+    <div id="renshi-table"></div>
+  </div>
+
+  <!-- 事业 (career / enterprise, rule-derived) -->
+  <div class="view" v-show="tab==='shiye'">
+    <div class="controls">
+      <span class="legend">作者事业项目（规则聚合：编纂 / 著述 / 实业）。点击成员/经办人查看。</span>
+    </div>
+    <div style="padding:8px 4px">
+      <div v-for="p in (shiyeData||[])" :key="p.project" class="card" style="text-align:left;margin-bottom:14px;padding:14px 18px">
+        <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap">
+          <span style="font-size:var(--fs-lg);font-weight:600">{{ p.project }}</span>
+          <span class="chip" :style="{background: p.type==='实业'?'#a35c1a':p.type==='编纂'?'#2c6e3e':'#5f3b8a', color:'#fff'}">{{ p.type }}</span>
+          <span style="color:var(--muted);font-size:var(--fs-xs)">{{ p.date_range ? p.date_range[0]+' — '+p.date_range[1] : '' }} · {{ p.member_count }} 条目</span>
+          <span v-if="p.cost_arabic_sum" style="color:#b91c1c;font-size:var(--fs-xs)">花费≈{{ p.cost_arabic_sum }} 元</span>
+        </div>
+        <div v-if="p.orgs.length" style="margin-top:6px;font-size:var(--fs-sm)"><b>团体：</b>
+          <span v-for="o in p.orgs" :key="o" class="chip chip-org">{{ o }}</span></div>
+        <div v-if="p.books.length" style="margin-top:6px;font-size:var(--fs-sm)"><b>书籍：</b>
+          <span v-for="b in p.books" :key="b" class="chip chip-book">{{ b }}</span></div>
+        <div v-if="p.agents.length" style="margin-top:6px;font-size:var(--fs-sm)"><b>经办人：</b>
+          <span v-for="a in p.agents.slice(0,12)" :key="a" class="chip chip-per">{{ a }}</span>
+          <span v-if="p.agents.length>12" style="color:var(--muted)"> +{{ p.agents.length-12 }}</span></div>
+        <div v-if="p.txns.length" style="margin-top:6px;font-size:var(--fs-xs);color:var(--muted)"><b>交易({{ p.txns.length }})：</b>
+          <span v-for="(t,i) in p.txns.slice(0,8)" :key="i">{{ t.label }}<span v-if="t.amount">（{{ t.amount }}）</span>{{ i<Math.min(7,p.txns.length-1)?'、':'' }}</span>
+          <span v-if="p.txns.length>8"> …</span></div>
+        <div v-if="p.pages.length" style="margin-top:4px;font-size:var(--fs-xs);color:var(--muted)">原书页码：{{ p.pages.slice(0,15).join(' / ') }}</div>
+      </div>
+    </div>
   </div>
 
   <!-- Books -->
@@ -928,6 +969,7 @@ const ENTITY_KIND_MAP = {
 const KIND_COLORS = { per: '#1d4ed8', org: '#16a34a', loc: '#d97706', book: '#7c3aed', txn: '#db2777', evt: '#0891b2', ill: '#be123c', ofc: '#475569', dis: '#9333ea' };
 
 let txnTable = null;
+let renshiTable = null;
 let booksTable = null;
 let cyInstance = null;
 let leafletMap = null;
@@ -1148,6 +1190,11 @@ createApp({
     const miscData = ref(null);
     const coocData = ref(null);
     const kinData = ref(null);
+    const renshiData = ref(null);
+    const shiyeData = ref(null);
+    const renshiSearch = ref('');
+    const renshiAnhui = ref(false);
+    const renshiHasOrg = ref(false);
     const kinSearch = ref('');
     const kinTypeFilter = ref('');
     const pathFromQ = ref('');
@@ -1371,7 +1418,7 @@ createApp({
     });
 
     onMounted(async () => {
-      const [ov, tx, pp, lc, pr, bk, ck, ev, st, mi, co, kn] = await Promise.all([
+      const [ov, tx, pp, lc, pr, bk, ck, ev, st, mi, co, kn, rs, sy] = await Promise.all([
         fetch('data/overview.json').then(r=>r.json()),
         fetch('data/transactions.json').then(r=>r.json()),
         fetch('data/people_graph.json').then(r=>r.json()),
@@ -1384,9 +1431,12 @@ createApp({
         fetch('data/misc_entities.json').then(r=>r.json()).catch(() => ({})),
         fetch('data/cooccurrence.json').then(r=>r.json()).catch(() => null),
         fetch('data/kin.json').then(r=>r.json()).catch(() => []),
+        fetch('data/renshi.json').then(r=>r.json()).catch(() => []),
+        fetch('data/shiye.json').then(r=>r.json()).catch(() => []),
       ]);
       overview.value = ov; txnData.value = tx; peopleData.value = pp; locData.value = lc; profiles.value = pr;
       booksData.value = bk; chunksData.value = ck; eventsData.value = ev; statsData.value = st; miscData.value = mi; coocData.value = co; kinData.value = kn;
+      renshiData.value = rs; shiyeData.value = sy;
       // After chunks loaded, derive corrected solar dates from each chunk's lunar_date
       buildSolarCorrection();
       const dates = Object.keys(ck).sort();
@@ -1468,6 +1518,7 @@ createApp({
 
     watch([tab, txnData, peopleData, locData, booksData, statsData], ([t, tx, pp, lc, bk, st], prev) => {
       if (t === 'txn' && tx && !txnTable) nextTick(() => initTxn(tx));
+      if (t === 'renshi' && renshiData.value && !renshiTable) nextTick(() => initRenshi(renshiData.value));
       if (t === 'books' && bk && !booksTable) nextTick(() => initBooks(bk));
       if (t === 'people' && pp && !cyInstance) nextTick(() => initLazyGraph());
       if (t === 'geo' && lc && !leafletMap) nextTick(() => initGeo(lc));
@@ -1912,6 +1963,19 @@ createApp({
         if (dt && (row.date || '') > dt) return false;
         if (!q) return true;
         const blob = [row.label, row.evidence, (row.people||[]).map(p=>p.label).join(' ')].join(' ');
+        return blob.includes(q);
+      });
+    }
+
+    function applyRenshiFilter() {
+      if (!renshiTable) return;
+      const q = renshiSearch.value.trim();
+      renshiTable.setFilter((row) => {
+        if (renshiAnhui.value && !row.is_anhui) return false;
+        if (renshiHasOrg.value && (!row.orgs || row.orgs.length === 0)) return false;
+        if (!q) return true;
+        const blob = [row.label, row.canonical, (row.aliases||[]).join(' '), (row.orgs||[]).join(' '),
+                      (row.activities||[]).map(a=>a.matter).join(' ')].join(' ');
         return blob.includes(q);
       });
     }
@@ -2809,6 +2873,7 @@ createApp({
       tab, overview, peopleData, txnData, locData, profiles, allNodes,
       globalQ, searchOpen, searchHits, textHits, onSearch, selectHit, jumpToReader,
       txnSearch, txnHasPerson, txnDirection,
+      renshiData, shiyeData, renshiSearch, renshiAnhui, renshiHasOrg, applyRenshiFilter,
       relationFilter, confFilter,
       visibleNodeCount, visibleEdgeCount,
       expandN, addPersonQ, addByQuery, expandTopHubs, resetGraph, redrawGraph,
@@ -2901,16 +2966,24 @@ function initTxn(data){
           return window.__fmtDate ? window.__fmtDate(iso) : iso;
         }},
       {title:'交易', field:'label', widthGrow:2, headerFilter:'input'},
+      {title:'性质', field:'nature', width:74, headerFilter:'select',
+        headerFilterParams:{values:{'':'全部','收入':'收入','支出':'支出'}},
+        formatter: c => { const v=c.getValue(); return v==='收入'
+          ? '<span style="color:#15803d">收入</span>'
+          : v==='支出' ? '<span style="color:#b91c1c">支出</span>' : ''; }},
+      {title:'金额(元)', field:'amount_num', width:90, sorter:'number', hozAlign:'right',
+        formatter: c => { const v=c.getValue(); return v!=null ? v : (c.getRow().getData().amount||''); }},
+      {title:'稻量(石)', field:'qty_shi', width:84, sorter:'number', hozAlign:'right'},
+      {title:'单价(元/石)', field:'unit_price_yuan', width:96, sorter:'number', hozAlign:'right'},
+      {title:'经办人', field:'agent', width:100, headerFilter:'input'},
       {title:'相关人', field:'people', widthGrow:2,
         formatter: c => (c.getValue()||[]).map(p => {
           const kind = ({'人':'per','团体':'org','书籍':'book'})[p.type] || 'per';
           return `<span class="chip chip-${kind}" data-id="${p.id||''}" title="${p.relation||''}">${p.label||''}</span>`;
         }).join(' ')},
-      {title:'金额', field:'amount', width:80},
-      {title:'方向', field:'direction', width:70,
-        formatter: c => { const v = c.getValue(); return v === 'out' ? '出' : v === 'in' ? '入' : ''; }},
       {title:'证据', field:'evidence', widthGrow:3},
-      {title:'出处', field:'source_file', width:140,
+      {title:'页码', field:'page', width:70},
+      {title:'出处', field:'source_file', width:130,
         formatter: c => {
           const v = c.getValue() || '';
           return `<span style="color:var(--accent);cursor:pointer;font-family:ui-monospace,monospace;font-size:var(--fs-xs);text-decoration:underline;text-decoration-style:dotted">${v} ↗</span>`;
@@ -2936,6 +3009,33 @@ function initTxn(data){
       e.stopPropagation();
       window.__vueOpenSourcePopup(src.dataset.date);
     }
+  });
+}
+
+function initRenshi(data){
+  renshiTable = new Tabulator('#renshi-table', {
+    data, height:'calc(100vh - 290px)', layout:'fitColumns',
+    initialSort:[{column:'interactions', dir:'desc'}],
+    pagination:'local', paginationSize:50, paginationSizeSelector:[25,50,100,200], paginationCounter:'rows',
+    columns:[
+      {title:'人物', field:'label', width:130, headerFilter:'input',
+        formatter: c => `<span class="chip chip-per" data-id="${c.getRow().getData().id||''}">${c.getValue()||''}</span>`},
+      {title:'皖籍', field:'is_anhui', width:64, hozAlign:'center',
+        formatter: c => { const d=c.getRow().getData(); return c.getValue()
+          ? `<span title="${d.anhui_source||''}" style="color:${d.anhui_source==='gazetteer'?'#15803d':'#a35c1a'}">${d.anhui_source==='gazetteer'?'✓':'~'}</span>` : ''; }},
+      {title:'归属团体', field:'orgs', widthGrow:2,
+        formatter: c => (c.getValue()||[]).map(o=>`<span class="chip chip-org">${o}</span>`).join(' ')},
+      {title:'互动', field:'interactions', width:70, sorter:'number', hozAlign:'right'},
+      {title:'首见', field:'first_seen', width:150, formatter:c=>window.__fmtDate?window.__fmtDate(c.getValue()||''):(c.getValue()||'')},
+      {title:'末见', field:'last_seen', width:150, formatter:c=>window.__fmtDate?window.__fmtDate(c.getValue()||''):(c.getValue()||'')},
+      {title:'事由 (近期)', field:'activities', widthGrow:4,
+        formatter: c => (c.getValue()||[]).slice(-4).reverse().map(a =>
+          `<span title="${a.relation||''} ${a.date||''} 页${a.page||''}">${(a.matter||a.relation||'').slice(0,28)}</span>`).join(' ｜ ')},
+    ],
+  });
+  document.getElementById('renshi-table').addEventListener('click', (e) => {
+    const chip = e.target.closest('.chip');
+    if (chip && chip.dataset.id && window.__vueOpenProfile) window.__vueOpenProfile(chip.dataset.id);
   });
 }
 
