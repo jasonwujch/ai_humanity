@@ -335,13 +335,6 @@
     <div class="controls">
       <input v-model="txnSearch" @input="applyTxnFilter" placeholder="搜索 人名 / 交易 / 证据" style="width:200px" />
       <label><input type="checkbox" v-model="txnHasPerson" @change="applyTxnFilter" /> 有相关人</label>
-      <label>方向
-        <select v-model="txnDirection" @change="applyTxnFilter">
-          <option value="">全部</option>
-          <option value="out">出</option>
-          <option value="in">入</option>
-        </select>
-      </label>
       <label>日期
         <input type="date" v-model="dateFrom" @change="applyTxnFilter" :min="dataMinDate" :max="dataMaxDate" style="width:135px" />
         <span style="color:var(--muted)">—</span>
@@ -1125,7 +1118,6 @@ createApp({
 
     const txnSearch = ref('');
     const txnHasPerson = ref(false);
-    const txnDirection = ref('');
     const dateFrom = ref('');
     const dateTo = ref('');
     const dateMonth = ref('');
@@ -1958,7 +1950,6 @@ createApp({
       const df = dateFrom.value, dt = dateTo.value;
       txnTable.setFilter((row) => {
         if (txnHasPerson.value && (!row.people || row.people.length === 0)) return false;
-        if (txnDirection.value && row.direction !== txnDirection.value) return false;
         if (df && (row.date || '') < df) return false;
         if (dt && (row.date || '') > dt) return false;
         if (!q) return true;
@@ -1975,7 +1966,7 @@ createApp({
         if (renshiHasOrg.value && (!row.orgs || row.orgs.length === 0)) return false;
         if (!q) return true;
         const blob = [row.label, row.canonical, (row.aliases||[]).join(' '), (row.orgs||[]).join(' '),
-                      (row.activities||[]).map(a=>a.matter).join(' ')].join(' ');
+                      row.rel_summary||''].join(' ');
         return blob.includes(q);
       });
     }
@@ -2872,7 +2863,7 @@ createApp({
     return {
       tab, overview, peopleData, txnData, locData, profiles, allNodes,
       globalQ, searchOpen, searchHits, textHits, onSearch, selectHit, jumpToReader,
-      txnSearch, txnHasPerson, txnDirection,
+      txnSearch, txnHasPerson,
       renshiData, shiyeData, renshiSearch, renshiAnhui, renshiHasOrg, applyRenshiFilter,
       relationFilter, confFilter,
       visibleNodeCount, visibleEdgeCount,
@@ -3028,14 +3019,14 @@ function initRenshi(data){
       {title:'互动', field:'interactions', width:70, sorter:'number', hozAlign:'right'},
       {title:'首见', field:'first_seen', width:150, formatter:c=>window.__fmtDate?window.__fmtDate(c.getValue()||''):(c.getValue()||'')},
       {title:'末见', field:'last_seen', width:150, formatter:c=>window.__fmtDate?window.__fmtDate(c.getValue()||''):(c.getValue()||'')},
-      {title:'事由 (近期)', field:'activities', widthGrow:4,
-        formatter: c => (c.getValue()||[]).slice(-4).reverse().map(a =>
-          `<span title="${a.relation||''} ${a.date||''} 页${a.page||''}">${(a.matter||a.relation||'').slice(0,28)}</span>`).join(' ｜ ')},
+      {title:'事由概览', field:'rel_summary', widthGrow:4,
+        formatter: c => { const id=c.getRow().getData().id||''; const v=c.getValue()||'';
+          return `<span class="renshi-matter" data-id="${id}" style="cursor:pointer" title="点击查看完整事由 / 关系证据">${v}</span>`; }},
     ],
   });
   document.getElementById('renshi-table').addEventListener('click', (e) => {
-    const chip = e.target.closest('.chip');
-    if (chip && chip.dataset.id && window.__vueOpenProfile) window.__vueOpenProfile(chip.dataset.id);
+    const t = e.target.closest('[data-id]');
+    if (t && t.dataset.id && window.__vueOpenProfile) window.__vueOpenProfile(t.dataset.id);
   });
 }
 

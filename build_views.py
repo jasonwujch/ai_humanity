@@ -197,8 +197,24 @@ for f in batch_files:
     all_edges.extend(d.get('edges', []))
     all_hyper.extend(d.get('hyperedges', []))
 
+# Drop dangling edges/hyperedge-members whose endpoint was never defined as a node
+# (a subagent emitted an edge to an id it never produced). Views filter these at lookup
+# via nodes_by_id.get(id, {}), but counts would otherwise overstate the graph.
+_node_id_set = {n['id'] for n in all_nodes}
+_kept_edges = [e for e in all_edges if e.get('source') in _node_id_set and e.get('target') in _node_id_set]
+_dropped_edges = len(all_edges) - len(_kept_edges)
+_kept_hyper = []
+_dropped_hmembers = 0
+for h in all_hyper:
+    members = [m for m in h.get('nodes', []) if m in _node_id_set]
+    _dropped_hmembers += len(h.get('nodes', [])) - len(members)
+    if len(members) >= 2:
+        h2 = dict(h); h2['nodes'] = members; _kept_hyper.append(h2)
+all_edges, all_hyper = _kept_edges, _kept_hyper
+
 src = {'nodes': all_nodes, 'edges': all_edges, 'hyperedges': all_hyper}
-print(f'aggregated {len(batch_files)} batches → {len(all_nodes)} nodes, {len(all_edges)} edges')
+print(f'aggregated {len(batch_files)} batches → {len(all_nodes)} nodes, {len(all_edges)} edges '
+      f'(dropped {_dropped_edges} dangling edges, {_dropped_hmembers} dangling hyper-members)')
 
 out_dir = Path(__file__).parent / 'data'
 out_dir.mkdir(exist_ok=True)
@@ -244,10 +260,19 @@ def txn_nature(label, evidence, direction):
 
 
 # 皖籍 heuristic (reused by 人事): canonical/label hints at Anhui origin.
-ANHUI_KW = ('皖', '安徽', '南陵', '芜湖', '宣城', '泾县', '广德', '阜阳', '六安', '宁国', '当涂', '繁昌')
-# High-confidence 皖籍 gazetteer — curated, extend as verified. Source flag distinguishes
-# these from keyword guesses. 徐乃昌 (祖籍南陵) + close 同乡 agents.
-ANHUI_GAZETTEER = {'徐乃昌', '徐积馀', '吴舜臣', '徐淑记'}
+# 安徽 place-names — multi-char only (avoid ambiguous bare tokens like 太平/池 that collide
+# with non-Anhui usages). 徽州府六县 + 安庆/庐州/池州/凤阳 等府县.
+ANHUI_KW = ('皖', '安徽', '南陵', '芜湖', '宣城', '泾县', '广德', '阜阳', '六安', '宁国', '当涂',
+            '繁昌', '歙县', '徽州', '绩溪', '休宁', '黟县', '祁门', '桐城', '怀宁', '安庆', '合肥',
+            '庐江', '贵池', '池州', '寿县', '凤阳', '宿县', '亳州', '涡阳', '蒙城', '怀远', '灵璧',
+            '滁州', '和县', '含山', '巢县', '无为', '全椒', '来安', '天长', '旌德', '太湖县')
+# High-confidence 皖籍 gazetteer — curated, extend as verified. Source flag (✓) distinguishes
+# these from keyword guesses (~). 徐乃昌 字积馀, 祖籍南陵; 吴舜臣 = 南陵收租代理.
+# Added (2026-05-28) well-documented 安徽 literati present in corpus — verify before extending:
+#   黄宾虹(歙县) 胡朴安(泾县) 许承尧(歙县) 汪孟邹(绩溪) 程演生(怀宁) 刘世珩(贵池).
+# Removed '徐淑记': no matching node — 淑记 is a 存款账号/堂号 (evidence "为翦淑记存款"), not a person.
+ANHUI_GAZETTEER = {'徐乃昌', '徐积馀', '吴舜臣',
+                   '黄宾虹', '胡朴安', '许承尧', '汪孟邹', '程演生', '刘世珩'}
 
 # ── Chinese-numeral → number (价格 normalization, no re-extraction) ───────────
 _CN_DIGIT = {'零': 0, '〇': 0, '一': 1, '二': 2, '两': 2, '三': 3, '四': 4, '五': 5,
@@ -390,7 +415,7 @@ overview = {
 dates = sorted({n.get('captured_at', '') for n in src['nodes'] if n.get('captured_at', '').startswith('19')})
 if dates:
     overview['date_range'] = [dates[0], dates[-1]]
-(out_dir / 'overview.json').write_text(json.dumps(overview, ensure_ascii=False, indent=2), encoding='utf-8')
+(out_dir / 'overview.json').write_text(json.dumps(overview, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
 
 
 # ── 2) transactions table ────────────────────────────────────────────────────
@@ -411,7 +436,10 @@ for n in src['nodes']:
     md = n.get('metadata') or {}
     counterparties = []
     seen_cp = set()
+    cp_evidence_parts = []     # 商务/交易边的 evidence_text — 供 nature 判定 (购/售/估/当)
     for direction, e in edges_by_node.get(n['id'], []):
+        if e.get('relation') in ('商务', '资助', '转交') and (e.get('metadata') or {}).get('evidence_text'):
+            cp_evidence_parts.append(e['metadata']['evidence_text'])
         other_id = e['target'] if direction == 'out' else e['source']
         other_n = nodes_by_id.get(other_id, {})
         if other_n.get('entity_type') not in COUNTERPARTY_TYPES:
@@ -453,6 +481,7 @@ for n in src['nodes']:
     AGENT_RELS = {'商务', '资助', '转交', '赠', '受赠'}
     agents = [cp['label'] for cp in counterparties
               if cp.get('type') == '人' and cp.get('relation') in AGENT_RELS]
+    cp_evidence_blob = ' '.join(cp_evidence_parts)
     _txt = (n.get('label') or '') + ' ' + (evidence or '')
     amount_num = money2yuan(txn_details.get('amount'))
     qty_shi, unit_price_yuan = parse_rice(_txt)
@@ -460,7 +489,19 @@ for n in src['nodes']:
         if isinstance(txn_details.get('amount'), str) and '每石' in txn_details['amount']:
             unit_price_yuan = money2yuan(txn_details['amount'])
             amount_num = None
-    is_rice = ('稻' in _txt or '米' in _txt or '租' in _txt or '石' in _txt)
+    # 稻谷交易: 稻/谷 keyword, or a parsed 石-quantity (number+石 is the grain measure).
+    # Bare '石' rejected (book titles 石柱记/石印, names 石铭/葱石 — none carry a number+石).
+    # 租洋/房租 without 稻/谷/石量 excluded: those are money/property rent, not grain.
+    is_rice = ('稻' in _txt or '谷' in _txt or qty_shi is not None)
+    # nature: keyword scan first; fall back to the directional counterparty relation type
+    # (受赠=收到 → 收入; 赠/资助=给出 → 支出). Typed signal, independent of wording.
+    nature = txn_nature(n.get('label'), (evidence or '') + ' ' + cp_evidence_blob, txn_details.get('direction'))
+    if nature is None:
+        rels = {cp.get('relation') for cp in counterparties}
+        if '受赠' in rels:
+            nature = '收入'
+        elif '赠' in rels or '资助' in rels:
+            nature = '支出'
     txns.append({
         'id': n['id'],
         'label': n.get('label'),
@@ -473,16 +514,40 @@ for n in src['nodes']:
         'amount': txn_details.get('amount'),
         'amount_num': amount_num,                       # normalized 价格 (元)
         'direction': txn_details.get('direction'),
-        'nature': txn_nature(n.get('label'), evidence, txn_details.get('direction')),
+        'nature': nature,
         'agent': agents[0] if agents else None,
         'agents': agents,
+        'agent_source': 'edge' if agents else None,
         'page': page_for(n.get('captured_at')),
         'is_rice': is_rice,
         'qty_shi': qty_shi,                             # 稻谷数量 (石)
         'unit_price_yuan': unit_price_yuan,             # 稻谷单价 (元/石)
     })
+# ── 经办人 fallback (P4a): many rent/sale txns name the handling agent only in the
+# evidence text (代售/经手/汇 by 吴舜臣). Build a known-agent lexicon from the people who
+# already appear as structured agents (freq≥3, excluding the diarist 徐乃昌 — he is the
+# principal, not a handling agent), then scan unfilled txns' label+evidence for those names.
+DIARIST = '徐乃昌'
+_agent_freq = Counter(a for t in txns for a in (t.get('agents') or []) if a and a != DIARIST)
+KNOWN_AGENTS = sorted((name for name, c in _agent_freq.items() if c >= 3 and len(name) >= 2),
+                      key=len, reverse=True)   # longest-first so 吴舜臣 beats 舜臣
+_agent_evidence_fill = 0
+for t in txns:
+    if t.get('agent'):
+        continue
+    blob = (t.get('label') or '') + ' ' + (t.get('evidence') or '')
+    hit = next((name for name in KNOWN_AGENTS if name in blob), None)
+    if hit:
+        t['agent'] = hit
+        t['agents'] = [hit]
+        t['agent_source'] = 'evidence'
+        _agent_evidence_fill += 1
+
 txns.sort(key=lambda t: t.get('date', '') or '')
-(out_dir / 'transactions.json').write_text(json.dumps(txns, ensure_ascii=False, indent=2), encoding='utf-8')
+(out_dir / 'transactions.json').write_text(json.dumps(txns, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+print(f'  经办人: {sum(1 for t in txns if t.get("agent"))}/{len(txns)} filled '
+      f'(+{_agent_evidence_fill} via evidence, lexicon={len(KNOWN_AGENTS)} names); '
+      f'nature: {sum(1 for t in txns if t.get("nature"))}/{len(txns)}')
 
 
 # ── 3) people_graph (人 + 人 relations) — DEDUPED ────────────────────────────
@@ -586,7 +651,7 @@ for n in per_nodes_deduped:
 print(f'communities: {next_id} clusters of ≥3 PER, {sum(1 for n in per_nodes_deduped if n["community"]==-1)} singletons')
 
 (out_dir / 'people_graph.json').write_text(
-    json.dumps({'nodes': per_nodes_deduped, 'edges': per_edges_deduped}, ensure_ascii=False, indent=2),
+    json.dumps({'nodes': per_nodes_deduped, 'edges': per_edges_deduped}, ensure_ascii=False, separators=(',', ':')),
     encoding='utf-8',
 )
 
@@ -695,7 +760,7 @@ for city, items in venues_by_city.items():
     'xu_ids': sorted(xu_ids),
     'city_visit_counts': dict(mapped_cities.most_common()),
     'unmapped_top': dict(unmapped.most_common(40)),
-}, ensure_ascii=False, indent=2), encoding='utf-8')
+}, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
 
 
 # ── 5) books ─────────────────────────────────────────────────────────────────
@@ -761,7 +826,7 @@ for n in src['nodes']:
         'source_file': normalize_source(n.get('source_file')),
     })
 books.sort(key=lambda b: -b['mentions'])
-(out_dir / 'books.json').write_text(json.dumps(books, ensure_ascii=False, indent=2), encoding='utf-8')
+(out_dir / 'books.json').write_text(json.dumps(books, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
 
 
 # ── 6) per-person profile data ───────────────────────────────────────────────
@@ -848,7 +913,7 @@ for n in per_nodes_deduped:
         'alias_evolution': alias_evolution,
     }
 
-(out_dir / 'people_profiles.json').write_text(json.dumps(per_profile, ensure_ascii=False, indent=2), encoding='utf-8')
+(out_dir / 'people_profiles.json').write_text(json.dumps(per_profile, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
 
 
 # ── 7) misc entity profiles (疾病 / 灾害 / 官职 / 团体 / 地) ─────────────
@@ -896,7 +961,7 @@ for n in src['nodes']:
         'last_seen': dates[-1] if dates else None,
         'linked_people': linked[:30],
     }
-(out_dir / 'misc_entities.json').write_text(json.dumps(misc_profiles, ensure_ascii=False, indent=1), encoding='utf-8')
+(out_dir / 'misc_entities.json').write_text(json.dumps(misc_profiles, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
 
 
 # ── 8) stats (precomputed aggregations) ─────────────────────────────────────
@@ -1049,7 +1114,7 @@ stats = {
     'disappeared': disappeared,
     'spikes': spikes,
 }
-(out_dir / 'stats.json').write_text(json.dumps(stats, ensure_ascii=False, indent=2), encoding='utf-8')
+(out_dir / 'stats.json').write_text(json.dumps(stats, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
 
 
 # ── 8) hyperedges (multi-party events) ──────────────────────────────────────
@@ -1084,7 +1149,7 @@ for h in src['hyperedges']:
         'members': members,
     })
 events_out.sort(key=lambda e: e.get('date') or '')
-(out_dir / 'events.json').write_text(json.dumps(events_out, ensure_ascii=False, indent=2), encoding='utf-8')
+(out_dir / 'events.json').write_text(json.dumps(events_out, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
 
 # ── 8) chunks (raw diary text + per-chunk entity index) ─────────────────────
 chunk_dir = ROOT / 'data' / 'poc_200'
@@ -1153,7 +1218,7 @@ for cid, ch in chunks.items():
 
 # Drop empty chunks
 chunks_out = {k: v for k, v in chunks.items() if v['body']}
-(out_dir / 'chunks.json').write_text(json.dumps(chunks_out, ensure_ascii=False, indent=1), encoding='utf-8')
+(out_dir / 'chunks.json').write_text(json.dumps(chunks_out, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
 
 # ── 9c) kin (亲属) network ───────────────────────────────────────────────────
 kin_edges_out = []
@@ -1175,7 +1240,7 @@ for e in src['edges']:
         'date': e.get('source_location'),
     })
 
-(out_dir / 'kin.json').write_text(json.dumps(kin_edges_out, ensure_ascii=False, indent=2), encoding='utf-8')
+(out_dir / 'kin.json').write_text(json.dumps(kin_edges_out, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
 print(f'wrote {len(kin_edges_out)} kin edges')
 
 # ── 10) 人事 (personnel registry) ────────────────────────────────────────────
@@ -1224,6 +1289,12 @@ for pid, ref in primary_node_ref.items():
                 'page': page_for(date),
             })
     acts.sort(key=lambda a: a.get('date') or '')
+    rel_counts = {}
+    for a in acts:
+        r = a.get('relation')
+        if r:
+            rel_counts[r] = rel_counts.get(r, 0) + 1
+    rel_summary = '·'.join(f'{r}{c}' for r, c in sorted(rel_counts.items(), key=lambda kv: -kv[1])[:6])
     orgs = orgs_by_per.get(pid, [])
     renshi.append({
         'id': pid,
@@ -1239,10 +1310,10 @@ for pid, ref in primary_node_ref.items():
         'interactions': len(acts),
         'first_seen': acts[0]['date'] if acts else None,
         'last_seen': acts[-1]['date'] if acts else None,
-        'activities': acts[-12:],                      # cap payload (UI shows last few; full text via reader)
+        'rel_summary': rel_summary,                    # 事由概览(关系类型分布); 完整事由经办通过 profile drawer (sample_edges/原文)
     })
 renshi.sort(key=lambda r: -r['interactions'])
-(out_dir / 'renshi.json').write_text(json.dumps(renshi, ensure_ascii=False, indent=2), encoding='utf-8')
+(out_dir / 'renshi.json').write_text(json.dumps(renshi, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
 print(f'wrote {len(renshi)} 人事 records ({sum(1 for r in renshi if r["is_anhui"])} 皖籍 heuristic)')
 
 # ── 11) 事业 (career / enterprise — rule-based derivation) ────────────────────
@@ -1299,7 +1370,7 @@ for proj, ptype, kws in PROJECT_RULES:
         'pages': sorted(pages),
     })
 shiye.sort(key=lambda s: -s['member_count'])
-(out_dir / 'shiye.json').write_text(json.dumps(shiye, ensure_ascii=False, indent=2), encoding='utf-8')
+(out_dir / 'shiye.json').write_text(json.dumps(shiye, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
 print(f'wrote {len(shiye)} 事业 projects')
 
 # ── 10) co-occurrence matrix (implicit PER-PER relationships) ────────────────
@@ -1348,7 +1419,7 @@ for pid in hidden_by_person:
 (out_dir / 'cooccurrence.json').write_text(json.dumps({
     'hidden_pairs': hidden_pairs,
     'hidden_by_person': hidden_by_person,
-}, ensure_ascii=False, indent=1), encoding='utf-8')
+}, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
 print(f'wrote {len(hidden_pairs)} hidden co-occurrence pairs')
 
 # ── 9) wiki pages (top-N PER + top-N books + top-N events) ───────────────────
