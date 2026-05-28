@@ -1205,6 +1205,7 @@ createApp({
     const MAX_VISIBLE = 500;
     // Adjacency index: per id → array of {other, edge}
     let adj = null;
+    let nodeById = null;   // id → node (O(1) degree/label lookup; avoids find() in hot sorts)
 
     const indexCat = ref('人');
     const indexSearch = ref('');
@@ -1974,7 +1975,8 @@ createApp({
     function buildAdj() {
       if (adj) return;
       adj = new Map();
-      for (const n of peopleData.value.nodes) adj.set(n.id, []);
+      nodeById = new Map();
+      for (const n of peopleData.value.nodes) { adj.set(n.id, []); nodeById.set(n.id, n); }
       for (const e of peopleData.value.edges) {
         adj.get(e.source)?.push({other: e.target, edge: e});
         adj.get(e.target)?.push({other: e.source, edge: e});
@@ -1991,8 +1993,8 @@ createApp({
         // Add top 30 Xu neighbours by their own degree
         const xuNeighbours = (adj.get(xu.id) || []);
         const sorted = xuNeighbours.map(({other}) => other).sort((a, b) => {
-          const da = (peopleData.value.nodes.find(x=>x.id===a)?.degree)||0;
-          const db = (peopleData.value.nodes.find(x=>x.id===b)?.degree)||0;
+          const da = (nodeById.get(a)?.degree)||0;
+          const db = (nodeById.get(b)?.degree)||0;
           return db - da;
         });
         for (const id of sorted.slice(0, 30)) seed.add(id);
@@ -2010,8 +2012,8 @@ createApp({
       const neighbours = (adj.get(nodeId) || [])
         .filter(({edge}) => passFilter(edge))
         .sort((a, b) => {
-          const da = (peopleData.value.nodes.find(x=>x.id===a.other)?.degree)||0;
-          const db = (peopleData.value.nodes.find(x=>x.id===b.other)?.degree)||0;
+          const da = (nodeById.get(a.other)?.degree)||0;
+          const db = (nodeById.get(b.other)?.degree)||0;
           return db - da;
         });
       let added = 0;
