@@ -383,7 +383,7 @@
           <span v-for="a in p.agents.slice(0,12)" :key="a" class="chip chip-per">{{ a }}</span>
           <span v-if="p.agents.length>12" style="color:var(--muted)"> +{{ p.agents.length-12 }}</span></div>
         <div v-if="p.txns.length" style="margin-top:6px;font-size:var(--fs-xs);color:var(--muted)"><b>交易({{ p.txns.length }})：</b>
-          <span v-for="(t,i) in p.txns.slice(0,8)" :key="i">{{ t.label }}<span v-if="t.amount">（{{ t.amount }}）</span>{{ i<Math.min(7,p.txns.length-1)?'、':'' }}</span>
+          <span v-for="(t,i) in p.txns.slice(0,8)" :key="i">{{ t.label }}<span v-if="t.amount">（{{ t.amount }}）</span>{{ i<(p.txns.length>8?7:p.txns.length-1)?'、':'' }}</span>
           <span v-if="p.txns.length>8"> …</span></div>
         <div v-if="p.pages.length" style="margin-top:4px;font-size:var(--fs-xs);color:var(--muted)">原书页码：{{ p.pages.slice(0,15).join(' / ') }}</div>
       </div>
@@ -2863,6 +2863,7 @@ createApp({
     }));
 
     return {
+      Math, Object, Number, JSON, Array,   // expose globals for template exprs (prod runtime compiler doesn't always whitelist them)
       tab, overview, peopleData, txnData, locData, profiles, allNodes,
       globalQ, searchOpen, searchHits, textHits, onSearch, selectHit, jumpToReader,
       txnSearch, txnHasPerson,
