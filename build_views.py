@@ -274,6 +274,28 @@ ANHUI_KW = ('皖', '安徽', '南陵', '芜湖', '宣城', '泾县', '广德', '
 ANHUI_GAZETTEER = {'徐乃昌', '徐积馀', '吴舜臣',
                    '黄宾虹', '胡朴安', '许承尧', '汪孟邹', '程演生', '刘世珩'}
 
+# 安徽 place-names for 籍贯 classification (multi-char; 徽州六县 + 安庆/庐州/池州/凤阳/颍州 等府县).
+ANHUI_PLACES = {'安徽', '皖', '南陵', '芜湖', '宣城', '泾县', '广德', '六安', '宁国', '当涂',
+    '繁昌', '歙县', '徽州', '绩溪', '休宁', '黟县', '祁门', '桐城', '怀宁', '安庆', '合肥',
+    '庐江', '贵池', '池州', '寿县', '寿州', '凤阳', '宿县', '宿州', '亳州', '涡阳', '蒙城',
+    '怀远', '灵璧', '滁州', '和县', '含山', '巢县', '无为', '全椒', '来安', '天长', '旌德',
+    '婺源', '庐州', '颍州', '和州', '太平府', '阜阳', '太湖县'}
+# 同乡会/会馆 name fragments — membership is a strong 皖籍 signal (high confidence).
+TONGXIANG_KW = ('徽宁', '安徽同乡', '旅沪安徽', '南陵旅沪', '皖同乡', '安徽旅沪')
+# Recognized NON-安徽 籍贯 places — used to anchor 籍贯-statement mining (so "〈name〉，〈place〉人"
+# matches a real place, not noise like 主人/友人/作冰人) AND to record explicit non-Anhui origin.
+NONANHUI_PLACES = {
+    '湖北','湖南','江西','山东','河南','广东','广西','四川','浙江','江苏','福建','直隶','河北',
+    '山西','陕西','云南','贵州','甘肃','辽宁','吉林','奉天',
+    '绍兴','江都','丹徒','无锡','江宁','吴县','湘阴','海宁','温州','乐清','如皋','泰州','宜兴',
+    '盐城','金山','丹阳','常熟','武进','镇江','扬州','上海','苏州','杭州','宁波','嘉兴','湖州',
+    '嘉定','宝山','松江','太仓','昆山','青浦','南汇','川沙','上虞','余姚','慈溪','鄞县','山阴',
+    '会稽','钱塘','仁和','长洲','元和','江阴','常州','淮安','高邮','仪征','兴化','东台','南通',
+    '崇明','句容','溧阳','金坛','吴江','震泽','宝应','泰兴','靖江','南昌','九江','贵阳','长沙',
+    '武昌','汉阳','番禺','南海','顺德','嘉应','梅县','闽县','侯官','晋江','潮州','大兴','宛平',
+    '济南','潍县','胶州','即墨','诸城','曲阜','开封','洛阳','商丘','成都','华阳','遂宁'}
+KNOWN_PLACES = ANHUI_PLACES | NONANHUI_PLACES
+
 # ── Chinese-numeral → number (价格 normalization, no re-extraction) ───────────
 _CN_DIGIT = {'零': 0, '〇': 0, '一': 1, '二': 2, '两': 2, '三': 3, '四': 4, '五': 5,
              '六': 6, '七': 7, '八': 8, '九': 9}
@@ -1263,6 +1285,53 @@ for e in src['edges']:
         if lbl and lbl not in orgs_by_per[p]:
             orgs_by_per[p].append(lbl)
 
+# ── 籍贯 mining (no re-extraction): the diary states native place in bio intros like
+# "陈乃乾，号慎初，海宁人" / "李子瑾瑜，温州乐清人" / "李子廊…字无庸，湘阴人". Strategy: anchor on a
+# KNOWN place name (skips noise 主人/友人/作冰人), then attribute it to the person whose OWN alias
+# sits in the ~16-char window just before it. Explicit non-Anhui 籍贯 is authoritative (overrides keyword).
+alias_to_pid = {}
+_ambig = set()
+for _pid, _ref in primary_node_ref.items():
+    _md = _ref.get('metadata') or {}
+    for _s in {x for x in [_ref.get('label'), _md.get('canonical'), *primary_aliases.get(_pid, [])] if x and len(x) >= 2}:
+        if _s in alias_to_pid and alias_to_pid[_s] != _pid:
+            _ambig.add(_s)
+        else:
+            alias_to_pid[_s] = _pid
+for _s in _ambig:
+    alias_to_pid.pop(_s, None)
+
+_PLACE_ALT = '|'.join(sorted(KNOWN_PLACES, key=len, reverse=True))
+RX_PLACE = re.compile(r'(' + _PLACE_ALT + r')人')
+jiguan_by_pid = {}   # pid → stated 籍贯 place
+for _mf in sorted((ROOT / 'data' / 'poc_200').glob('*.md')):
+    _body = _mf.read_text(encoding='utf-8')
+    for m in RX_PLACE.finditer(_body):
+        win = _body[max(0, m.start() - 16):m.start()]
+        best, best_end = None, -1
+        for L in (4, 3, 2):
+            for i in range(len(win) - L + 1):
+                if win[i:i + L] in alias_to_pid and i + L > best_end:
+                    best, best_end = alias_to_pid[win[i:i + L]], i + L
+        if best is not None:
+            jiguan_by_pid[best] = m.group(1)   # nearest occurrence in this file wins
+
+def _place_is_anhui(pl):
+    return (pl in ANHUI_PLACES) or any(p in pl or pl in p for p in ANHUI_PLACES)
+
+def anhui_classify(pid, names, orgs):
+    """Tiered, highest-confidence first. Returns (is_anhui, source). A statement is
+    authoritative both ways (so an explicit non-Anhui 籍贯 overrides keyword guesses)."""
+    if pid in jiguan_by_pid:
+        return (_place_is_anhui(jiguan_by_pid[pid]), 'statement')
+    if any(any(k in o for k in TONGXIANG_KW) for o in orgs):
+        return (True, 'tongxianghui')
+    if any(n in ANHUI_GAZETTEER for n in names):
+        return (True, 'gazetteer')
+    if is_anhui(*names, *orgs):
+        return (True, 'keyword')
+    return (False, None)
+
 renshi = []
 for pid, ref in primary_node_ref.items():
     md = ref.get('metadata') or {}
@@ -1296,25 +1365,40 @@ for pid, ref in primary_node_ref.items():
             rel_counts[r] = rel_counts.get(r, 0) + 1
     rel_summary = '·'.join(f'{r}{c}' for r, c in sorted(rel_counts.items(), key=lambda kv: -kv[1])[:6])
     orgs = orgs_by_per.get(pid, [])
+    names = [n for n in [ref.get('label'), md.get('canonical'), *aliases] if n]
+    is_ah, ah_src = anhui_classify(pid, names, orgs)
     renshi.append({
         'id': pid,
         'label': ref.get('label'),
         'canonical': md.get('canonical'),
         'aliases': aliases,
         'orgs': orgs,                                  # 身份(归属团体)
-        'is_anhui': (ref.get('label') in ANHUI_GAZETTEER
-                     or (md.get('canonical') in ANHUI_GAZETTEER)
-                     or is_anhui(ref.get('label'), md.get('canonical'), *aliases, *orgs)),
-        'anhui_source': ('gazetteer' if (ref.get('label') in ANHUI_GAZETTEER or md.get('canonical') in ANHUI_GAZETTEER)
-                         else ('heuristic' if is_anhui(ref.get('label'), md.get('canonical'), *aliases, *orgs) else None)),
+        'is_anhui': is_ah,
+        'anhui_source': ah_src,                        # statement|tongxianghui|gazetteer|kinship|keyword
+        'jiguan': jiguan_by_pid.get(pid),              # explicit native place mined from diary (if any)
         'interactions': len(acts),
         'first_seen': acts[0]['date'] if acts else None,
         'last_seen': acts[-1]['date'] if acts else None,
         'rel_summary': rel_summary,                    # 事由概览(关系类型分布); 完整事由经办通过 profile drawer (sample_edges/原文)
     })
+
+# ── kinship propagation: a relative of a HIGH-confidence 皖籍 person is 皖籍 too.
+# One hop, from {statement,tongxianghui,gazetteer} only (not keyword) to avoid amplifying guesses.
+_by_id = {r['id']: r for r in renshi}
+_confident = {r['id'] for r in renshi if r['is_anhui'] and r['anhui_source'] in ('statement', 'tongxianghui', 'gazetteer')}
+for ke in kin_edges_out:
+    for me, other in ((ke['source'], ke['target']), (ke['target'], ke['source'])):
+        r = _by_id.get(me)
+        if r and not r['is_anhui'] and other in _confident:
+            r['is_anhui'] = True
+            r['anhui_source'] = 'kinship'
+
 renshi.sort(key=lambda r: -r['interactions'])
 (out_dir / 'renshi.json').write_text(json.dumps(renshi, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
-print(f'wrote {len(renshi)} 人事 records ({sum(1 for r in renshi if r["is_anhui"])} 皖籍 heuristic)')
+_src_counts = Counter(r['anhui_source'] for r in renshi if r['is_anhui'])
+_nonah = sum(1 for r in renshi if r.get('jiguan') and not _place_is_anhui(r['jiguan']))
+print(f'wrote {len(renshi)} 人事 records; 皖籍={sum(1 for r in renshi if r["is_anhui"])} by source {dict(_src_counts)} '
+      f'(籍贯 mined for {len(jiguan_by_pid)} persons; {_nonah} explicit non-皖)')
 
 # ── 11) 事业 (career / enterprise — rule-based derivation) ────────────────────
 # No 事业 entity type in schema; cluster existing BOOK/ORG/TXN by keyword.

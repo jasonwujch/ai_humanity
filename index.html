@@ -357,7 +357,7 @@
       <input v-model="renshiSearch" @input="applyRenshiFilter" placeholder="搜索 人名 / 团体 / 事由" style="width:220px" />
       <label><input type="checkbox" v-model="renshiAnhui" @change="applyRenshiFilter" /> 仅皖籍</label>
       <label><input type="checkbox" v-model="renshiHasOrg" @change="applyRenshiFilter" /> 有团体归属</label>
-      <span class="legend" v-if="renshiData">{{ renshiData.length }} 人 · {{ renshiData.filter(r=>r.is_anhui).length }} 皖籍(推断)</span>
+      <span class="legend" v-if="renshiData">{{ renshiData.length }} 人 · {{ renshiData.filter(r=>r.is_anhui).length }} 皖籍 (✓籍贯明载/同乡会/名录/亲属 · ~关键词推断)</span>
     </div>
     <div id="renshi-table"></div>
   </div>
@@ -1966,7 +1966,7 @@ createApp({
         if (renshiHasOrg.value && (!row.orgs || row.orgs.length === 0)) return false;
         if (!q) return true;
         const blob = [row.label, row.canonical, (row.aliases||[]).join(' '), (row.orgs||[]).join(' '),
-                      row.rel_summary||''].join(' ');
+                      row.jiguan||'', row.rel_summary||''].join(' ');
         return blob.includes(q);
       });
     }
@@ -3011,9 +3011,14 @@ function initRenshi(data){
     columns:[
       {title:'人物', field:'label', width:130, headerFilter:'input',
         formatter: c => `<span class="chip chip-per" data-id="${c.getRow().getData().id||''}">${c.getValue()||''}</span>`},
-      {title:'皖籍', field:'is_anhui', width:64, hozAlign:'center',
-        formatter: c => { const d=c.getRow().getData(); return c.getValue()
-          ? `<span title="${d.anhui_source||''}" style="color:${d.anhui_source==='gazetteer'?'#15803d':'#a35c1a'}">${d.anhui_source==='gazetteer'?'✓':'~'}</span>` : ''; }},
+      {title:'皖籍', field:'is_anhui', width:60, hozAlign:'center', headerFilter:'tickCross', headerFilterParams:{tristate:true},
+        formatter: c => { const d=c.getRow().getData(); if(!c.getValue()) return '';
+          const conf = d.anhui_source!=='keyword';   // statement/同乡会/gazetteer/kinship = high-conf
+          const lbl = {statement:'籍贯明载',tongxianghui:'同乡会',gazetteer:'名录',kinship:'亲属',keyword:'关键词推断'}[d.anhui_source]||d.anhui_source;
+          return `<span title="${lbl}${d.jiguan?(' · '+d.jiguan):''}" style="color:${conf?'#15803d':'#a35c1a'}">${conf?'✓':'~'}</span>`; }},
+      {title:'籍贯', field:'jiguan', width:78, headerFilter:'input',
+        formatter: c => { const v=c.getValue(); if(!v) return '';
+          const d=c.getRow().getData(); return `<span style="color:${d.is_anhui?'#15803d':'var(--muted)'}">${v}</span>`; }},
       {title:'归属团体', field:'orgs', widthGrow:2,
         formatter: c => (c.getValue()||[]).map(o=>`<span class="chip chip-org">${o}</span>`).join(' ')},
       {title:'互动', field:'interactions', width:70, sorter:'number', hozAlign:'right'},
