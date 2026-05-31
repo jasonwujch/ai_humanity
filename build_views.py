@@ -670,6 +670,7 @@ AGENT_ALIASES = sorted(
      and nodes_by_id.get(pid, {}).get('label') != DIARIST),
     key=lambda x: -len(x[0]))            # longest alias first → 吴舜臣 beats 舜臣
 _agent_evidence_fill = 0
+_agent_body_fill = 0
 for t in txns:
     if t.get('agent'):
         t['agent'] = canonicalize_person(t['agent'])
@@ -682,6 +683,24 @@ for t in txns:
         t['agents'] = [hit]
         t['agent_source'] = 'evidence'
         _agent_evidence_fill += 1
+        continue
+    # Tier-2 (S1b): the 经办人 of 南陵 rent/grain 账单 is often named elsewhere in
+    # the chunk body, not in the txn's own evidence span (the user's headline case:
+    # 1920-03-12 售稻二百石 handled by 舜臣). For estate/grain txns only, scan the
+    # source body for a known grain agent. Restricted scope avoids over-attribution.
+    _estate = (t.get('is_rice')
+               or any(k in blob for k in ('收租', '租洋', '房租', '佃', '业户', '田产',
+                                          '田亩', '湖田', '圩田', '完粮'))
+               or ('田' in blob and '田黄' not in blob))   # 田黄印 = seal stone, not farmland
+    if _estate:
+        body = _SRC_BODY.get(t.get('date') or '', '')
+        if body:
+            bhit = next((canon for alias, canon in AGENT_ALIASES if alias in body), None)
+            if bhit:
+                t['agent'] = bhit
+                t['agents'] = [bhit]
+                t['agent_source'] = 'body'
+                _agent_body_fill += 1
 
 for t in txns:
     t.pop('_agent_pids', None)
@@ -736,8 +755,8 @@ txns.sort(key=lambda t: t.get('date', '') or '')
 print(f'  稻谷单价: backfilled {_price_backfill} days, synthesized {_price_synth} '
       f'(source 每石 prices on {len(_rice_price_by_date)} days)')
 print(f'  经办人: {sum(1 for t in txns if t.get("agent"))}/{len(txns)} filled '
-      f'(+{_agent_evidence_fill} via evidence, alias-lexicon={len(AGENT_ALIASES)} '
-      f'for {len(FREQ_AGENT_PIDS)} persons); '
+      f'(+{_agent_evidence_fill} via evidence, +{_agent_body_fill} via body-scan, '
+      f'alias-lexicon={len(AGENT_ALIASES)} for {len(FREQ_AGENT_PIDS)} persons); '
       f'nature: {sum(1 for t in txns if t.get("nature"))}/{len(txns)}')
 
 
@@ -1619,7 +1638,9 @@ PROJECT_RULES = [
     ('赈务', '赈务', ['赈', '义振', '放赈', '急赈', '赈款', '赈灾', '极贫'], True),
     ('编《安徽通志》', '编纂', ['安徽通志', '通志局', '皖志局'], True),
     ('同乡会·会馆', '社团', ['同乡会', '徽宁会馆', '旅沪安徽', '南陵旅沪', '皖同乡', '安徽旅沪'], True),
-    ('家族事务', '家族', ['三太太', '大太太', '二太太', '族叔', '族长', '祠堂', '祭祖', '扫墓', '南陵原籍'], True),
+    ('家族事务', '家族', ['三太太', '大太太', '二太太', '族叔', '族长', '族祖', '族兄', '族弟',
+                         '族侄', '堂兄', '堂弟', '堂叔', '堂侄', '本家', '祠堂', '宗祠', '祖茔',
+                         '祭祖', '扫墓', '南陵原籍'], True),
 ]
 
 
