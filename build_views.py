@@ -448,6 +448,67 @@ def redirect(node_id):
     return per_redirect.get(node_id, node_id)
 
 
+# ── S1) canonical person resolution (surface/alias → canonical display label) ──
+# Root cause of "吴舜臣筛选不全": the 经办人 evidence-fill lexicon held only canonical
+# full names (吴舜臣), but rent/sale evidence text names the agent by short alias
+# (舜臣/舜老/舜). So `name in blob` missed them, AND when it did fill it wrote the
+# matched surface, not the canonical → filter split one person into several buckets.
+# Fix: map EVERY alias → its primary PER id, and always emit the canonical label.
+HONORIFIC_SUFFIX = ('先生', '观察', '太史', '中堂', '大人', '公', '老', '翁', '丈',
+                    '兄', '弟', '君', '氏', '丈人')
+
+
+def _strip_honorific(s):
+    s = (s or '').strip()
+    for suf in HONORIFIC_SUFFIX:
+        if len(s) > len(suf) and s.endswith(suf):
+            return s[:-len(suf)]
+    return s
+
+
+# alias/surface → primary PER id; ambiguous aliases (≥2 distinct primaries) dropped.
+_surface_to_primary = {}
+_surface_ambig = set()
+for _n in src['nodes']:
+    if _n.get('entity_type') != '人':
+        continue
+    _pid = redirect(_n['id'])
+    _md = _n.get('metadata') or {}
+    _forms = {_n.get('label'), _md.get('canonical')}
+    for _sf in (_md.get('surface_forms') or []):
+        _forms.add(_sf.get('surface'))
+    _variants = set()
+    for _s in _forms:
+        if _s:
+            _variants.add(_s.strip())
+            _variants.add(_strip_honorific(_s))
+    for _v in _variants:
+        if not _v or len(_v) < 2:
+            continue
+        if _v in _surface_to_primary and _surface_to_primary[_v] != _pid:
+            _surface_ambig.add(_v)
+        else:
+            _surface_to_primary[_v] = _pid
+for _v in _surface_ambig:
+    _surface_to_primary.pop(_v, None)
+
+# manual overrides for aliases the auto-seed can't link (surface → canonical label)
+CANON_OVERRIDE = {}
+
+
+def canonicalize_person(surface):
+    """Surface/alias string → canonical display label. Unchanged if unresolved."""
+    if not surface:
+        return surface
+    s = surface.strip()
+    if s in CANON_OVERRIDE:
+        return CANON_OVERRIDE[s]
+    pid = _surface_to_primary.get(s) or _surface_to_primary.get(_strip_honorific(s))
+    if pid:
+        return nodes_by_id.get(pid, {}).get('label') or s
+    return s
+
+
 # ── 1) overview ──────────────────────────────────────────────────────────────
 per_unique = len({per_redirect[i] for i in per_redirect})
 entity_type_counts = Counter(n.get('entity_type', '?') for n in src['nodes'])
@@ -533,8 +594,10 @@ for n in src['nodes']:
     evidence = (md.get('surface_forms') or [{}])[0].get('surface', n.get('label', ''))
     # 经办人: person counterparties linked by trade/funding/relay relations.
     AGENT_RELS = {'商务', '资助', '转交', '赠', '受赠'}
-    agents = [cp['label'] for cp in counterparties
-              if cp.get('type') == '人' and cp.get('relation') in AGENT_RELS]
+    _agent_cps = [cp for cp in counterparties
+                  if cp.get('type') == '人' and cp.get('relation') in AGENT_RELS]
+    agents = [canonicalize_person(cp['label']) for cp in _agent_cps]
+    agent_pids = [cp['id'] for cp in _agent_cps]
     cp_evidence_blob = ' '.join(cp_evidence_parts)
     _txt = (n.get('label') or '') + ' ' + (evidence or '')
     amount_num = money2yuan(txn_details.get('amount'))
@@ -572,35 +635,49 @@ for n in src['nodes']:
         'agent': agents[0] if agents else None,
         'agents': agents,
         'agent_source': 'edge' if agents else None,
+        '_agent_pids': agent_pids,
         'page': page_for(n.get('captured_at')),
         'is_rice': is_rice,
         'qty_shi': qty_shi,                             # 稻谷数量 (石)
         'unit_price_yuan': unit_price_yuan,             # 稻谷单价 (元/石)
     })
-# ── 经办人 fallback (P4a): many rent/sale txns name the handling agent only in the
-# evidence text (代售/经手/汇 by 吴舜臣). Build a known-agent lexicon from the people who
-# already appear as structured agents (freq≥3, excluding the diarist 徐乃昌 — he is the
-# principal, not a handling agent), then scan unfilled txns' label+evidence for those names.
+# ── 经办人 fallback (P4a + S1): many rent/sale txns name the handling agent only in the
+# evidence text (代售/经手/汇 by 舜臣). Build the scan lexicon as alias→canonical pairs
+# (NOT canonical-only), seeded from the persons who already appear as structured agents
+# (primary id freq≥3, excluding the diarist — he is principal, not a handling agent).
+# Scanning ALL aliases catches short forms like 舜臣/舜老; emitting the canonical label
+# unifies them so the 经办人 filter no longer splits one person across buckets.
 DIARIST = '徐乃昌'
-_agent_freq = Counter(a for t in txns for a in (t.get('agents') or []) if a and a != DIARIST)
-KNOWN_AGENTS = sorted((name for name, c in _agent_freq.items() if c >= 3 and len(name) >= 2),
-                      key=len, reverse=True)   # longest-first so 吴舜臣 beats 舜臣
+_agent_pid_freq = Counter(pid for t in txns for pid in (t.get('_agent_pids') or [])
+                          if nodes_by_id.get(pid, {}).get('label') != DIARIST)
+FREQ_AGENT_PIDS = {pid for pid, c in _agent_pid_freq.items() if c >= 3}
+AGENT_ALIASES = sorted(
+    ((alias, nodes_by_id.get(pid, {}).get('label') or alias)
+     for alias, pid in _surface_to_primary.items()
+     if pid in FREQ_AGENT_PIDS and len(alias) >= 2
+     and nodes_by_id.get(pid, {}).get('label') != DIARIST),
+    key=lambda x: -len(x[0]))            # longest alias first → 吴舜臣 beats 舜臣
 _agent_evidence_fill = 0
 for t in txns:
     if t.get('agent'):
+        t['agent'] = canonicalize_person(t['agent'])
+        t['agents'] = [canonicalize_person(a) for a in (t.get('agents') or [])]
         continue
     blob = (t.get('label') or '') + ' ' + (t.get('evidence') or '')
-    hit = next((name for name in KNOWN_AGENTS if name in blob), None)
+    hit = next((canon for alias, canon in AGENT_ALIASES if alias in blob), None)
     if hit:
         t['agent'] = hit
         t['agents'] = [hit]
         t['agent_source'] = 'evidence'
         _agent_evidence_fill += 1
 
+for t in txns:
+    t.pop('_agent_pids', None)
 txns.sort(key=lambda t: t.get('date', '') or '')
 (out_dir / 'transactions.json').write_text(json.dumps(txns, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
 print(f'  经办人: {sum(1 for t in txns if t.get("agent"))}/{len(txns)} filled '
-      f'(+{_agent_evidence_fill} via evidence, lexicon={len(KNOWN_AGENTS)} names); '
+      f'(+{_agent_evidence_fill} via evidence, alias-lexicon={len(AGENT_ALIASES)} '
+      f'for {len(FREQ_AGENT_PIDS)} persons); '
       f'nature: {sum(1 for t in txns if t.get("nature"))}/{len(txns)}')
 
 
