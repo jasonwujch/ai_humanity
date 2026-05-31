@@ -114,7 +114,7 @@
   ]
  },
  {
-  "concept": "垦务·万顷湖/万春湖",
+  "concept": "垦务·万顷湖/万春湖 (node)",
   "mode": "node",
   "keywords": [
    "万顷湖",
@@ -137,7 +137,20 @@
   ]
  },
  {
-  "concept": "编《安徽通志》",
+  "concept": "垦务·万顷湖/万春湖 (事业)",
+  "mode": "shiye",
+  "keywords": [
+   "万顷湖",
+   "万春湖"
+  ],
+  "source_chunks": 24,
+  "graph_covered": 24,
+  "coverage_pct": 100.0,
+  "missed_count": 0,
+  "missed_sample": []
+ },
+ {
+  "concept": "编《安徽通志》 (node)",
   "mode": "node",
   "keywords": [
    "安徽通志"
@@ -169,7 +182,19 @@
   ]
  },
  {
-  "concept": "同乡会·会馆",
+  "concept": "编《安徽通志》 (事业)",
+  "mode": "shiye",
+  "keywords": [
+   "安徽通志"
+  ],
+  "source_chunks": 67,
+  "graph_covered": 67,
+  "coverage_pct": 100.0,
+  "missed_count": 0,
+  "missed_sample": []
+ },
+ {
+  "concept": "同乡会·会馆 (node)",
   "mode": "node",
   "keywords": [
    "同乡会",
@@ -209,7 +234,29 @@
   ]
  },
  {
-  "concept": "赈务",
+  "concept": "同乡会·会馆 (事业)",
+  "mode": "shiye",
+  "keywords": [
+   "同乡会",
+   "徽宁会馆",
+   "旅沪"
+  ],
+  "source_chunks": 222,
+  "graph_covered": 215,
+  "coverage_pct": 96.8,
+  "missed_count": 7,
+  "missed_sample": [
+   "1921-08-03",
+   "1923-02-06",
+   "1923-03-03",
+   "1923-03-07",
+   "1932-11-04",
+   "1934-01-03",
+   "1935-01-22"
+  ]
+ },
+ {
+  "concept": "赈务 (node)",
   "mode": "node",
   "keywords": [
    "赈",
@@ -250,7 +297,22 @@
   ]
  },
  {
-  "concept": "家族·三太太/大太太",
+  "concept": "赈务 (事业)",
+  "mode": "shiye",
+  "keywords": [
+   "赈",
+   "义振",
+   "放赈",
+   "急赈"
+  ],
+  "source_chunks": 171,
+  "graph_covered": 171,
+  "coverage_pct": 100.0,
+  "missed_count": 0,
+  "missed_sample": []
+ },
+ {
+  "concept": "家族·三太太/大太太 (node)",
   "mode": "node",
   "keywords": [
    "三太太",
@@ -287,5 +349,23 @@
    "1924-12-20",
    "1925-04-19"
   ]
+ },
+ {
+  "concept": "家族事务 (事业)",
+  "mode": "shiye",
+  "keywords": [
+   "三太太",
+   "大太太",
+   "族叔",
+   "族长",
+   "祠堂",
+   "祭祖",
+   "扫墓"
+  ],
+  "source_chunks": 110,
+  "graph_covered": 110,
+  "coverage_pct": 100.0,
+  "missed_count": 0,
+  "missed_sample": []
  }
 ]

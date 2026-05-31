@@ -1543,16 +1543,50 @@ print(f'wrote {len(renshi)} 人事 records; 皖籍={sum(1 for r in renshi if r["
 # Covers xlsx 事业 columns: 项目 / 内容 / 经办人 / 花费 / 页码 / 日期.
 
 # project rules: (项目名, 类型, [label keywords])
+# (项目名, 类型, [label keywords], text_scan)
+# text_scan=True → also gather day-coverage from RAW CHUNK TEXT (Tier-2, no
+# re-extraction), so days the source mentions the topic but extraction surfaced
+# no matching entity still join the project. The 5 categories below come from
+# 图谱改进0531.xlsx 事业补充.
 PROJECT_RULES = [
-    ('编《南陵志》', '编纂', ['南陵志', '修志局', '筹备修志局', '志局']),
-    ('闺阁诗著述', '著述', ['闺阁', '诗钞', '诗人征略', '闺秀', '香咳']),
-    ('大生纱厂实业', '实业', ['大生纱厂', '大生']),
-    ('裕中纱厂实业', '实业', ['裕中纱厂']),
-    ('溥益纱厂实业', '实业', ['溥益纱厂']),
-    ('当涂矿业', '实业', ['汉冶萍', '当涂矿', '繁昌矿', '宝兴铁矿']),
+    ('编《南陵志》', '编纂', ['南陵志', '修志局', '筹备修志局', '志局'], False),
+    ('闺阁诗著述', '著述', ['闺阁', '诗钞', '诗人征略', '闺秀', '香咳'], False),
+    ('大生纱厂实业', '实业', ['大生纱厂', '大生'], False),
+    ('裕中纱厂实业', '实业', ['裕中纱厂'], False),
+    ('溥益纱厂实业', '实业', ['溥益纱厂'], False),
+    ('当涂矿业', '实业', ['汉冶萍', '当涂矿', '繁昌矿', '宝兴铁矿'], False),
+    ('垦务·万顷湖/万春湖', '垦务', ['万顷湖', '万春湖', '盐垦', '湖田', '圩田', '垦务'], True),
+    ('赈务', '赈务', ['赈', '义振', '放赈', '急赈', '赈款', '赈灾', '极贫'], True),
+    ('编《安徽通志》', '编纂', ['安徽通志', '通志局', '皖志局'], True),
+    ('同乡会·会馆', '社团', ['同乡会', '徽宁会馆', '旅沪安徽', '南陵旅沪', '皖同乡', '安徽旅沪'], True),
+    ('家族事务', '家族', ['三太太', '大太太', '二太太', '族叔', '族长', '祠堂', '祭祖', '扫墓', '南陵原籍'], True),
 ]
 
-def _shiye_record(proj, ptype, members, stock=False):
+
+# raw source bodies by date (lazy, shared) for Tier-2 membership / timelines
+_SRC_BODY = {}
+for _p in sorted((ROOT / 'data' / 'poc_200').glob('*.md')):
+    _m = re.search(r'(\d{4}-\d{2}-\d{2})', _p.stem)
+    if _m:
+        try:
+            _SRC_BODY[_m.group(1)] = _p.read_text(encoding='utf-8')
+        except Exception:
+            pass
+
+
+def _text_hits(kws):
+    """Tier-2: source chunk dates mentioning any kw → [{date, page, snippet}]."""
+    hits = []
+    for d, body in _SRC_BODY.items():
+        pos = min((body.find(k) for k in kws if k in body), default=-1)
+        if pos >= 0:
+            snip = body[max(0, pos - 8):pos + 32].replace('\n', ' ').strip()
+            hits.append({'date': d, 'page': page_for(d), 'snippet': snip})
+    hits.sort(key=lambda h: h['date'])
+    return hits
+
+
+def _shiye_record(proj, ptype, members, stock=False, text_hits=None):
     seen = set(); uniq = []
     for n in members:
         if n['id'] not in seen:
@@ -1577,7 +1611,14 @@ def _shiye_record(proj, ptype, members, stock=False):
             on = nodes_by_id.get(other, {})
             if on.get('entity_type') == '人':
                 persons.add(nodes_by_id.get(redirect(other), on).get('label'))
-    dates = sorted(d for d in dates if d)
+    # Tier-2 source dates fold into the project's day/page coverage + a timeline.
+    text_hits = text_hits or []
+    member_dates = set(d for d in dates if d)
+    for h in text_hits:
+        member_dates.add(h['date'])
+        if h['page']:
+            pages.add(h['page'])
+    dates = sorted(member_dates)
     return {
         'project': proj,
         'type': ptype,
@@ -1586,19 +1627,24 @@ def _shiye_record(proj, ptype, members, stock=False):
         'books': sorted({n.get('label') for n in members if n.get('entity_type') == '书籍'}),
         'txns': txn_items,
         'cost_arabic_sum': round(total, 2) if total else None,
-        'agents': sorted(p for p in persons if p),
+        'agents': sorted({canonicalize_person(p) for p in persons if p}),
         'date_range': [dates[0], dates[-1]] if dates else None,
         'pages': sorted(pages),
-        'auto': ptype not in ('编纂', '著述') and proj not in [r[0] for r in PROJECT_RULES],
+        'member_dates': dates,                       # all covered chunk dates (node ∪ source)
+        'source_chunk_count': len(text_hits),        # Tier-2 chunk hits
+        'timeline': text_hits[:300],                 # 事件脉络 (date/page/snippet)
+        'auto': ptype not in ('编纂', '著述', '垦务', '赈务', '社团', '家族')
+                and proj not in [r[0] for r in PROJECT_RULES],
         'has_stock': stock,
     }
 
 shiye = []
-_manual_kws = [k for _, _, kws in PROJECT_RULES for k in kws]
-for proj, ptype, kws in PROJECT_RULES:
+_manual_kws = [k for _, _, kws, _ in PROJECT_RULES for k in kws]
+for proj, ptype, kws, text_scan in PROJECT_RULES:
     members = [n for n in src['nodes'] if any(k in (n.get('label') or '') for k in kws)]
-    if members:
-        shiye.append(_shiye_record(proj, ptype, members))
+    text_hits = _text_hits(kws) if text_scan else None
+    if members or text_hits:
+        shiye.append(_shiye_record(proj, ptype, members, text_hits=text_hits))
 
 # ── auto-detect enterprises: ORG by industry suffix + linked 股本/股票 txn (or活跃度) ──
 ENTERPRISE_SUFFIX = ('纱厂', '纺织', '公司', '银行', '银号', '钱庄', '铁矿', '煤矿', '矿务',

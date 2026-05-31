@@ -33,11 +33,19 @@ AUDITS = [
     {'key': '每石·稻谷单价', 'kw': ['每石'], 'mode': 'price'},
     {'key': '吴舜臣·实体召回', 'kw': ['舜臣'], 'mode': 'node'},
     {'key': '吴舜臣·经办归属', 'kw': ['舜臣'], 'mode': 'agent', 'agent': '吴舜臣'},
-    {'key': '垦务·万顷湖/万春湖', 'kw': ['万顷湖', '万春湖'], 'mode': 'node'},
-    {'key': '编《安徽通志》', 'kw': ['安徽通志'], 'mode': 'node'},
-    {'key': '同乡会·会馆', 'kw': ['同乡会', '徽宁会馆', '旅沪'], 'mode': 'node'},
-    {'key': '赈务', 'kw': ['赈', '义振', '放赈', '急赈'], 'mode': 'node'},
-    {'key': '家族·三太太/大太太', 'kw': ['三太太', '大太太'], 'mode': 'node'},
+    # node = extraction surfaced the concept as an entity; shiye = the 事业 project
+    # covers that source day (node ∪ Tier-2 text) — the S3 acceptance metric.
+    {'key': '垦务·万顷湖/万春湖 (node)', 'kw': ['万顷湖', '万春湖'], 'mode': 'node'},
+    {'key': '垦务·万顷湖/万春湖 (事业)', 'kw': ['万顷湖', '万春湖'], 'mode': 'shiye', 'proj': '垦务·万顷湖/万春湖'},
+    {'key': '编《安徽通志》 (node)', 'kw': ['安徽通志'], 'mode': 'node'},
+    {'key': '编《安徽通志》 (事业)', 'kw': ['安徽通志'], 'mode': 'shiye', 'proj': '编《安徽通志》'},
+    {'key': '同乡会·会馆 (node)', 'kw': ['同乡会', '徽宁会馆', '旅沪'], 'mode': 'node'},
+    {'key': '同乡会·会馆 (事业)', 'kw': ['同乡会', '徽宁会馆', '旅沪'], 'mode': 'shiye', 'proj': '同乡会·会馆'},
+    {'key': '赈务 (node)', 'kw': ['赈', '义振', '放赈', '急赈'], 'mode': 'node'},
+    {'key': '赈务 (事业)', 'kw': ['赈', '义振', '放赈', '急赈'], 'mode': 'shiye', 'proj': '赈务'},
+    {'key': '家族·三太太/大太太 (node)', 'kw': ['三太太', '大太太'], 'mode': 'node'},
+    {'key': '家族事务 (事业)', 'kw': ['三太太', '大太太', '族叔', '族长', '祠堂', '祭祖', '扫墓'],
+     'mode': 'shiye', 'proj': '家族事务'},
 ]
 
 
@@ -89,6 +97,13 @@ for t in txns:
     if t.get('agent') and t.get('date'):
         agent_dates[t['agent']].add(t['date'])
 
+# ── 事业 project day-coverage (shiye.json member_dates) ───────────────────────
+_shiye_path = Path(__file__).parent / 'data' / 'shiye.json'
+shiye_dates = {}
+if _shiye_path.exists():
+    for r in json.loads(_shiye_path.read_text(encoding='utf-8')):
+        shiye_dates[r['project']] = set(r.get('member_dates') or [])
+
 
 def run():
     rows = []
@@ -98,6 +113,8 @@ def run():
             cov = price_dates & src_dates
         elif a['mode'] == 'agent':
             cov = agent_dates.get(a['agent'], set()) & src_dates
+        elif a['mode'] == 'shiye':
+            cov = shiye_dates.get(a['proj'], set()) & src_dates
         else:
             cov = node_dates_for(a['kw']) & src_dates
         missed = sorted(src_dates - cov)
