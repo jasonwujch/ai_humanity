@@ -2114,12 +2114,271 @@ special8_html = render_special(
 )
 (specials_dir / 'anhui-network.html').write_text(special8_html, encoding='utf-8')
 
+# ════════════════════════════════════════════════════════════════════════════
+# FIGURES (S5/S6) — standalone print-static paper figures. No re-extraction.
+# Data drawn from renshi (籍贯/亲属), shiye (事业 agents, S1-canonicalized), kin
+# edges, and per-person 地 edges. Mirrors 《王世杰日记》3.1 (关系) / 3.2 (行迹).
+# ════════════════════════════════════════════════════════════════════════════
+XU = next(iter(xu_ids), None)
+xu_primary = redirect(XU) if XU else None
+
+# 1-hop kin of 徐乃昌 = the "family" set (for ring 1 + family trajectory)
+family = {}
+for ke in kin_edges_out:
+    s, t = redirect(ke['source']), redirect(ke['target'])
+    if s == xu_primary and t != xu_primary:
+        family.setdefault(t, {'label': ke.get('target_label'), 'kin_type': ke.get('kin_type')})
+    elif t == xu_primary and s != xu_primary:
+        family.setdefault(s, {'label': ke.get('source_label'), 'kin_type': ke.get('kin_type')})
+
+# ── Figure 1: concentric relationship rings ──────────────────────────────────
+# ring 0 徐乃昌 · 1 亲属 · 2 南陵同乡 · 3 安徽同乡 · 4 其他 (high-interaction only)
+RING_LABELS = {0: '徐乃昌', 1: '亲属', 2: '南陵同乡', 3: '安徽同乡', 4: '其他'}
+RING_CAP = {1: 200, 2: 200, 3: 80, 4: 40}     # per-ring cap for figure legibility
+
+
+def _ring_of(r):
+    if r['id'] == xu_primary:
+        return 0
+    if r['id'] in family:
+        return 1
+    jg = r.get('jiguan') or ''
+    if '南陵' in jg or jg == '宛陵':
+        return 2
+    if r.get('is_anhui'):
+        return 3
+    return 4
+
+
+_ring_pool = defaultdict(list)
+for r in renshi:
+    if r['id'] == xu_primary:
+        continue
+    ring = _ring_of(r)
+    _ring_pool[ring].append({
+        'id': r['id'], 'label': r['label'], 'ring': ring,
+        'interactions': r.get('interactions') or 0,
+        'kin_type': family.get(r['id'], {}).get('kin_type'),
+        'jiguan': r.get('jiguan'),
+    })
+rings = []
+for ring, pool in _ring_pool.items():
+    pool.sort(key=lambda x: -x['interactions'])
+    rings.extend(pool[:RING_CAP.get(ring, 200)])
+ring_counts = {RING_LABELS[k]: len(_ring_pool[k]) for k in sorted(_ring_pool)}
+(out_dir / 'relationship_rings.json').write_text(
+    json.dumps(rings, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+
+# ── Figure 2: 事业 clusters (person ↔ project, overlap highlighted) ───────────
+TYPE_COLOR = {'编纂': '#6a51a3', '著述': '#9e6ebd', '实业': '#2171b5', '金融': '#08519c',
+              '垦务': '#238b45', '赈务': '#cb181d', '社团': '#d94801', '家族': '#8c510a'}
+clu_projects = []
+person_projects = defaultdict(list)
+for s in shiye:
+    ags = sorted({canonicalize_person(a) for a in (s.get('agents') or []) if a and a != '徐乃昌'})
+    if len(ags) < 2:
+        continue
+    ags = ags[:30]
+    clu_projects.append({'project': s['project'], 'type': s.get('type'),
+                         'persons': ags, 'member_count': s.get('member_count')})
+    for a in ags:
+        person_projects[a].append(s['project'])
+clu_projects = sorted(clu_projects, key=lambda c: -len(c['persons']))[:24]
+_kept = {c['project'] for c in clu_projects}
+overlap = {p: [pr for pr in prjs if pr in _kept]
+           for p, prjs in person_projects.items() if sum(pr in _kept for pr in prjs) >= 2}
+clusters = {'projects': clu_projects, 'overlap': overlap}
+(out_dir / 'shiye_clusters.json').write_text(
+    json.dumps(clusters, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+
+# ── Figure 3: 行迹 geo heatmap (徐乃昌 + family) ──────────────────────────────
+trajectory = []
+
+
+def _person_traj(label, kin_type, id_set):
+    cc, coords = Counter(), {}
+    for pid in id_set:
+        for direction, e in edges_by_node.get(pid, []):
+            if direction != 'out' or e.get('relation') not in ('拜访', '位于'):
+                continue
+            tn = nodes_by_id.get(e['target'], {})
+            if tn.get('entity_type') != '地':
+                continue
+            lbl = tn.get('label')
+            city = resolve_city(lbl)
+            coord = COORDS.get(city) if city else VENUE_COORDS.get(lbl)
+            if not coord:
+                continue
+            key = city or lbl
+            cc[key] += 1
+            coords[key] = coord
+    for k, c in cc.items():
+        trajectory.append({'person': label, 'kin_type': kin_type, 'place': k,
+                           'lat': coords[k][0], 'lng': coords[k][1], 'count': c})
+
+
+_person_traj('徐乃昌', None, set(primary_orig_ids.get(xu_primary, [])) | set(xu_ids))
+for _pid, _info in family.items():
+    _person_traj(_info.get('label') or _pid, _info.get('kin_type'),
+                 set(primary_orig_ids.get(_pid, [_pid])))
+(out_dir / 'trajectory.json').write_text(
+    json.dumps(trajectory, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+
+# ── emit the three standalone HTML figure pages ──────────────────────────────
+FIG_CSS = """
+*{box-sizing:border-box} body{margin:0;font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;
+background:#faf8f4;color:#2b2622} .wrap{max-width:1080px;margin:0 auto;padding:18px}
+nav a{color:#9b2926;text-decoration:none;margin-right:14px;font-size:13px}
+h1{font-size:21px;margin:10px 0 4px} .lede{color:#6b635a;font-size:13px;margin-bottom:14px;line-height:1.6}
+.legend{display:flex;flex-wrap:wrap;gap:12px;margin:10px 0;font-size:12px}
+.legend span{display:inline-flex;align-items:center;gap:5px}
+.dot{width:11px;height:11px;border-radius:50%;display:inline-block}
+.card{background:#fff;border:1px solid #e7e0d6;border-radius:8px;padding:8px}
+.foot{color:#a89f93;font-size:11px;margin-top:10px}
+"""
+
+_fig_nav = ('<nav><a href="../index.html">← 返回总览</a>'
+            '<a href="relationship-rings.html">关系同心圆</a>'
+            '<a href="shiye-clusters.html">事业聚合</a>'
+            '<a href="trajectory-heatmap.html">行迹热力图</a></nav>')
+
+
+def _fig_page(title, lede, body, head_extra=''):
+    return (f'<!doctype html><html lang="zh"><head><meta charset="utf-8">'
+            f'<meta name="viewport" content="width=device-width,initial-scale=1">'
+            f'<title>{esc(title)} · 徐乃昌日记 KG</title><style>{FIG_CSS}</style>{head_extra}'
+            f'</head><body><div class="wrap">{_fig_nav}<h1>{esc(title)}</h1>'
+            f'<div class="lede">{lede}</div>{body}'
+            f'<div class="foot">数据驱动 · 无重新抽取 · 由 build_views.py 生成</div></div></body></html>')
+
+
+# Figure 1 — concentric rings (SVG, computed client-side)
+RING_COLORS = ['#9b2926', '#c0392b', '#d98880', '#e8b9b3', '#cfcabf']
+_f1_body = f"""
+<div class="legend" id="lg"></div>
+<div class="card"><svg id="svg" viewBox="0 0 920 920" style="width:100%;height:auto"></svg></div>
+<script>
+const RINGS={json.dumps(rings,ensure_ascii=False)};
+const RLAB={json.dumps(RING_LABELS,ensure_ascii=False)};
+const COL={json.dumps(RING_COLORS)};
+const RAD=[0,150,260,360,440];
+const cx=460,cy=460;
+const svg=document.getElementById('svg');
+function el(t,a){{const e=document.createElementNS('http://www.w3.org/2000/svg',t);for(const k in a)e.setAttribute(k,a[k]);return e;}}
+// ring guide circles
+[1,2,3,4].forEach(r=>{{svg.appendChild(el('circle',{{cx,cy,r:RAD[r],fill:'none',stroke:'#e7e0d6','stroke-dasharray':'3 4'}}));
+ svg.appendChild(el('text',{{x:cx,y:cy-RAD[r]+14,fill:'#bbada0','font-size':11,'text-anchor':'middle'}})).textContent=RLAB[r];}});
+// center 徐乃昌
+svg.appendChild(el('circle',{{cx,cy,r:18,fill:COL[0]}}));
+const ct=el('text',{{x:cx,y:cy+34,fill:'#2b2622','font-size':13,'font-weight':700,'text-anchor':'middle'}});ct.textContent='徐乃昌';svg.appendChild(ct);
+// group by ring, place evenly
+const byR={{}};RINGS.forEach(p=>{{(byR[p.ring]=byR[p.ring]||[]).push(p);}});
+[1,2,3,4].forEach(r=>{{const arr=byR[r]||[];const n=arr.length;arr.forEach((p,i)=>{{
+ const ang=(i/Math.max(n,1))*2*Math.PI - Math.PI/2;
+ const x=cx+RAD[r]*Math.cos(ang), y=cy+RAD[r]*Math.sin(ang);
+ const rad=Math.max(3,Math.min(11,3+Math.sqrt(p.interactions)));
+ const c=el('circle',{{cx:x,cy:y,r:rad,fill:COL[r],opacity:0.85}});
+ c.appendChild(el('title',{{}}));c.lastChild.textContent=`${{p.label}} · 互动${{p.interactions}}`+(p.kin_type?` · ${{p.kin_type}}`:'')+(p.jiguan?` · ${{p.jiguan}}`:'');
+ svg.appendChild(c);
+ if(p.interactions>=(r<=2?6:18)){{const tx=el('text',{{x:x+(x>=cx?rad+2:-rad-2),y:y+3,'font-size':10,fill:'#5a5247','text-anchor':x>=cx?'start':'end'}});tx.textContent=p.label;svg.appendChild(tx);}}
+}});}});
+const lg=document.getElementById('lg');
+[0,1,2,3,4].forEach(r=>{{const s=document.createElement('span');s.innerHTML=`<span class="dot" style="background:${{COL[r]}}"></span>${{RLAB[r]}}`;lg.appendChild(s);}});
+</script>"""
+(specials_dir / 'relationship-rings.html').write_text(_fig_page(
+    '人物关系同心圆',
+    f'以徐乃昌为核心，按关系亲疏分层：亲属 → 南陵同乡 → 安徽同乡 → 其他。'
+    f'圈内 {sum(ring_counts.values())} 人 (亲属{ring_counts.get("亲属",0)}·南陵{ring_counts.get("南陵同乡",0)}'
+    f'·安徽{ring_counts.get("安徽同乡",0)}·其他{ring_counts.get("其他",0)})；点大小=互动次数。',
+    _f1_body), encoding='utf-8')
+
+# Figure 2 — 事业 clusters (Cytoscape)
+_f2_body = f"""
+<div class="legend" id="lg"></div>
+<div class="card"><div id="cy" style="height:680px"></div></div>
+<script src="https://unpkg.com/cytoscape@3/dist/cytoscape.min.js"></script>
+<script>
+const DATA={json.dumps(clusters,ensure_ascii=False)};
+const TC={json.dumps(TYPE_COLOR,ensure_ascii=False)};
+const els=[];const seen=new Set();
+DATA.projects.forEach(p=>{{
+ els.push({{data:{{id:'P:'+p.project,label:p.project,kind:'proj',color:TC[p.type]||'#777'}}}});
+ p.persons.forEach(a=>{{
+   const pid='A:'+a;
+   if(!seen.has(pid)){{seen.add(pid);const ov=DATA.overlap[a];
+     els.push({{data:{{id:pid,label:a,kind:ov?'overlap':'per',deg:ov?ov.length:1}}}});}}
+   els.push({{data:{{source:'P:'+p.project,target:pid}}}});
+ }});
+}});
+const cy=cytoscape({{container:document.getElementById('cy'),elements:els,
+ style:[
+  {{selector:'node[kind="proj"]',style:{{'shape':'round-rectangle','background-color':'data(color)','label':'data(label)','color':'#fff','font-size':11,'text-valign':'center','text-wrap':'wrap','text-max-width':90,'width':100,'height':34,'padding':'4px'}}}},
+  {{selector:'node[kind="per"]',style:{{'background-color':'#b9b2a6','label':'data(label)','font-size':9,'width':14,'height':14,'color':'#5a5247','text-valign':'bottom'}}}},
+  {{selector:'node[kind="overlap"]',style:{{'background-color':'#9b2926','label':'data(label)','font-size':11,'font-weight':'bold','width':'mapData(deg,2,5,20,40)','height':'mapData(deg,2,5,20,40)','color':'#9b2926','text-valign':'bottom','border-width':2,'border-color':'#fff'}}}},
+  {{selector:'edge',style:{{'width':1,'line-color':'#d8d0c4','curve-style':'bezier'}}}}
+ ],
+ layout:{{name:'cose',animate:false,nodeRepulsion:9000,idealEdgeLength:70,padding:30}}}});
+const lg=document.getElementById('lg');
+Object.entries(TC).forEach(([k,v])=>{{const s=document.createElement('span');s.innerHTML=`<span class="dot" style="background:${{v}}"></span>${{k}}`;lg.appendChild(s);}});
+const o=document.createElement('span');o.innerHTML='<span class="dot" style="background:#9b2926"></span>跨事业重叠人物 (≥2 项目)';lg.appendChild(o);
+</script>"""
+(specials_dir / 'shiye-clusters.html').write_text(_fig_page(
+    '事业聚合与重叠',
+    f'按事业聚合人物：{len(clu_projects)} 个项目、{len(overlap)} 位跨事业重叠人物 (红色加大)。'
+    f'重叠揭示同一群人横跨多项事业 (如修志 ↔ 赈灾)。',
+    _f2_body), encoding='utf-8')
+
+# Figure 3 — geo heatmap (Leaflet + heat)
+_f3_head = ('<link rel="stylesheet" href="https://unpkg.com/leaflet@1/dist/leaflet.css">'
+            '<script src="https://unpkg.com/leaflet@1/dist/leaflet.js"></script>'
+            '<script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>')
+_f3_body = f"""
+<div class="legend"><label><input type="checkbox" id="ckxu" checked> 徐乃昌</label>
+ <label><input type="checkbox" id="ckfam" checked> 家人 (代行祭祖/年节)</label>
+ <span style="color:#888">热度=停留/提及频次</span></div>
+<div class="card"><div id="map" style="height:660px;border-radius:6px"></div></div>
+<script>
+const TRAJ={json.dumps(trajectory,ensure_ascii=False)};
+const map=L.map('map',{{preferCanvas:true}}).setView([31.5,119],6);
+L.tileLayer('https://{{s}}.basemaps.cartocdn.com/light_all/{{z}}/{{x}}/{{y}}{{r}}.png',
+ {{attribution:'&copy; OpenStreetMap &copy; CARTO',subdomains:'abcd',maxZoom:12}}).addTo(map);
+let layer=null;
+function draw(){{
+ const xu=document.getElementById('ckxu').checked, fam=document.getElementById('ckfam').checked;
+ const pts=TRAJ.filter(t=>(t.kin_type==null?xu:fam)).map(t=>[t.lat,t.lng,t.count]);
+ if(layer)map.removeLayer(layer);
+ layer=L.heatLayer(pts,{{radius:26,blur:20,maxZoom:10,max:Math.max(...pts.map(p=>p[2]),1),
+   gradient:{{0.2:'#3a78b5',0.4:'#8bbf4f',0.6:'#f0c419',0.8:'#e8731a',1.0:'#9b2926'}}}}).addTo(map);
+ // city markers for top places
+ const agg={{}};TRAJ.forEach(t=>{{if((t.kin_type==null?xu:fam)){{const k=t.place;agg[k]=agg[k]||{{lat:t.lat,lng:t.lng,c:0}};agg[k].c+=t.count;}}}});
+ Object.entries(agg).sort((a,b)=>b[1].c-a[1].c).slice(0,12).forEach(([k,v])=>{{
+   L.marker([v.lat,v.lng],{{opacity:0}}).addTo(map).bindTooltip(`${{k}} (${{v.c}})`,{{permanent:true,direction:'top',className:'pl'}});}});
+}}
+document.getElementById('ckxu').onchange=draw;document.getElementById('ckfam').onchange=draw;
+draw();
+const b=L.latLngBounds(TRAJ.map(t=>[t.lat,t.lng]));if(TRAJ.length)map.fitBounds(b.pad(0.1));
+</script>
+<style>.pl{{background:rgba(255,255,255,.85);border:none;box-shadow:none;font-size:11px;color:#5a5247}}</style>"""
+(specials_dir / 'trajectory-heatmap.html').write_text(_fig_page(
+    '作者及家人行迹热力图',
+    f'徐乃昌本人及 {len(family)} 位家人的行迹热度 (静态，可截图入论文)。'
+    f'家人行迹纳入：徐未返乡时，妻/子女或代行清明祭祖、年节等以家庭为单位的活动。',
+    _f3_body, head_extra=_f3_head), encoding='utf-8')
+
+print(f'figures: rings {sum(ring_counts.values())} ppl {ring_counts} | '
+      f'clusters {len(clu_projects)} proj / {len(overlap)} overlap | '
+      f'trajectory {len(trajectory)} pts, family={len(family)}')
+
 # Index
 specials_idx = [
     f'<nav><a href="../index.html">← 返回总览</a></nav>',
     '<h1>专题策展</h1>',
     '<div class="meta">数据驱动的主题页：从分散日记条目里按议题聚合。点击主题进入。</div>',
     '<ul>',
+    '<li><a href="relationship-rings.html"><strong>人物关系同心圆</strong></a> — 亲疏分层 (亲属/南陵/安徽/其他)</li>',
+    '<li><a href="shiye-clusters.html"><strong>事业聚合与重叠</strong></a> — 人物×事业，跨事业重叠</li>',
+    '<li><a href="trajectory-heatmap.html"><strong>作者及家人行迹热力图</strong></a> — 静态地理热力 (论文用)</li>',
+    '<li><a href="recall-audit.html"><strong>召回审计</strong></a> — 原文全文检索 vs 图谱覆盖率 (无重新抽取)</li>',
     '<li><a href="wanbei-1921.html"><strong>1921 皖北赈灾</strong></a> — 灾害+赈务机构+资助流水</li>',
     '<li><a href="disasters-all.html"><strong>灾害编年</strong></a> — 全部灾害条目时间线</li>',
     '<li><a href="book-acquisitions.html"><strong>藏书购入流水</strong></a> — 涉书的赠/受赠/购置交易</li>',

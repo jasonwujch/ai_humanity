@@ -105,6 +105,42 @@ if _shiye_path.exists():
         shiye_dates[r['project']] = set(r.get('member_dates') or [])
 
 
+def _bar(pct):
+    p = pct or 0
+    col = '#238b45' if p >= 90 else ('#e8731a' if p >= 65 else '#cb181d')
+    return (f'<div style="background:#eee;border-radius:3px;width:120px;height:13px;display:inline-block;vertical-align:middle">'
+            f'<div style="background:{col};width:{p}%;height:13px;border-radius:3px"></div></div> {p}%')
+
+
+def _write_html(rows):
+    tr = []
+    for r in rows:
+        miss = '、'.join(r['missed_sample'][:8]) + ('…' if r['missed_count'] > 8 else '')
+        tr.append(
+            f'<tr><td>{r["concept"]}</td><td style="color:#888">{r["mode"]}</td>'
+            f'<td>{"·".join(r["keywords"])}</td><td style="text-align:right">{r["source_chunks"]}</td>'
+            f'<td style="text-align:right">{r["graph_covered"]}</td><td>{_bar(r["coverage_pct"])}</td>'
+            f'<td style="color:#999;font-size:11px">{miss}</td></tr>')
+    html = (
+        '<!doctype html><html lang="zh"><head><meta charset="utf-8">'
+        '<title>召回审计 · 徐乃昌日记 KG</title><style>'
+        "body{font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;background:#faf8f4;"
+        'color:#2b2622;max-width:1080px;margin:0 auto;padding:18px}'
+        'nav a{color:#9b2926;text-decoration:none;margin-right:14px;font-size:13px}'
+        'h1{font-size:21px;margin:10px 0 4px}.lede{color:#6b635a;font-size:13px;margin-bottom:14px;line-height:1.6}'
+        'table{border-collapse:collapse;width:100%;background:#fff;border:1px solid #e7e0d6}'
+        'th,td{padding:7px 9px;border-bottom:1px solid #eee;font-size:13px;text-align:left}'
+        'th{background:#f3efe8;font-size:12px}</style></head><body>'
+        '<nav><a href="../index.html">← 返回总览</a><a href="index.html">专题策展</a></nav>'
+        '<h1>召回审计 (recall audit)</h1>'
+        '<div class="lede">复刻用户的「检查方式」= 中华经典古籍库全文检索：对 6142 条原文 grep，'
+        '对比图谱/视图实际覆盖。node=抽取是否把概念落成实体；事业=该事业项目是否覆盖原文当日 (实体∪原文文本)；'
+        'price=当日稻谷单价是否落库；agent=经办归属。无重新抽取。</div>'
+        '<table><tr><th>概念</th><th>模式</th><th>关键词</th><th>原文条数</th><th>已覆盖</th>'
+        '<th>覆盖率</th><th>遗漏样例</th></tr>' + ''.join(tr) + '</table></body></html>')
+    (Path(__file__).parent / 'specials' / 'recall-audit.html').write_text(html, encoding='utf-8')
+
+
 def run():
     rows = []
     for a in AUDITS:
@@ -130,6 +166,7 @@ def run():
             'missed_sample': missed[:25],
         })
     OUT.write_text(json.dumps(rows, ensure_ascii=False, indent=1), encoding='utf-8')
+    _write_html(rows)
     print(f'{"concept":24} {"src":>5} {"cov":>5} {"pct":>6}  missed')
     print('-' * 60)
     for r in rows:
