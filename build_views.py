@@ -392,7 +392,7 @@ def money2yuan(s):
 # ── Rice-trade parser (稻谷 数量 + 单价, no re-extraction) ────────────────────
 # Text is regular: 售稻二百石，每石二元六角 / 收稻650石57斤，售出400石.
 _RE_QTY = re.compile(r'([\d零〇一二两三四五六七八九十百千万]+)\s*石')
-_RE_UNITP = re.compile(r'每\s*石\s*([\d零〇一二两三四五六七八九十百千万元角分.]+)')
+_RE_UNITP = re.compile(r'每\s*石\s*(?:约|计|售|作|值|得|价)?\s*([\d零〇一二两三四五六七八九十百千万元角分钱洋.]+)')
 
 
 def parse_rice(text):
@@ -507,6 +507,18 @@ def canonicalize_person(surface):
     if pid:
         return nodes_by_id.get(pid, {}).get('label') or s
     return s
+
+
+# raw source chunk bodies by date (shared, read once) — Tier-2 reconciliation
+# (rice 单价 backfill, 事业 source-text coverage/timelines). No re-extraction.
+_SRC_BODY = {}
+for _p in sorted((ROOT / 'data' / 'poc_200').glob('*.md')):
+    _m = re.search(r'(\d{4}-\d{2}-\d{2})', _p.stem)
+    if _m:
+        try:
+            _SRC_BODY[_m.group(1)] = _p.read_text(encoding='utf-8')
+        except Exception:
+            pass
 
 
 # ── 1) overview ──────────────────────────────────────────────────────────────
@@ -673,8 +685,56 @@ for t in txns:
 
 for t in txns:
     t.pop('_agent_pids', None)
+
+# ── S4: 稻谷单价 recall from source chunk text (no re-extraction) ──────────────
+# 每石<价> usually sits in the chunk body, not in the rice txn node's own label,
+# so parse_rice(node text) misses it (36/39 baseline misses were parser-gaps,
+# 3 had no txn node). Per date: take the source 每石 price, then (a) backfill any
+# rice txn on that day lacking unit_price, else (b) synthesize a rice price row.
+_rice_price_by_date = {}
+for _d, _body in _SRC_BODY.items():
+    _mu = _RE_UNITP.search(_body)
+    if _mu:
+        _up = money2yuan(_mu.group(1))
+        if _up:
+            _mq = _RE_QTY.search(_body)
+            _rice_price_by_date[_d] = (_up, _cn_int(_mq.group(1)) if _mq else None)
+_txns_by_date = defaultdict(list)
+for t in txns:
+    if t.get('date'):
+        _txns_by_date[t['date']].append(t)
+_price_backfill = _price_synth = 0
+for _d, (_up, _qs) in _rice_price_by_date.items():
+    _rice_here = [t for t in _txns_by_date.get(_d, []) if t.get('is_rice')]
+    _already = [t for t in _rice_here if t.get('unit_price_yuan') is not None]
+    if _already:
+        continue                                     # day's rice price already captured
+    if _rice_here:                                   # (a) backfill existing rice txn
+        for t in _rice_here:
+            t['unit_price_yuan'] = _up
+            if t.get('qty_shi') is None:
+                t['qty_shi'] = _qs
+            t['unit_price_source'] = 'source_text'
+        _price_backfill += 1
+    else:                                            # (b) synthesize a rice price record
+        _agent = next((canon for alias, canon in AGENT_ALIASES if alias in _SRC_BODY[_d]), None)
+        txns.append({
+            'id': f'rice_synth_{_d}', 'label': f'稻谷售价 每石{_up}元',
+            'date': _d, 'source_file': f'{_d}.md',
+            'evidence': (_RE_UNITP.search(_SRC_BODY[_d]).group(0) if _RE_UNITP.search(_SRC_BODY[_d]) else ''),
+            'people': [], 'item': '稻谷', 'quantity': (f'{_qs}石' if _qs else None),
+            'amount': None, 'amount_num': None, 'direction': None, 'nature': '收入',
+            'agent': _agent, 'agents': [_agent] if _agent else [],
+            'agent_source': 'evidence' if _agent else None,
+            'page': page_for(_d), 'is_rice': True, 'qty_shi': _qs,
+            'unit_price_yuan': _up, 'unit_price_source': 'synth',
+        })
+        _price_synth += 1
+
 txns.sort(key=lambda t: t.get('date', '') or '')
 (out_dir / 'transactions.json').write_text(json.dumps(txns, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+print(f'  稻谷单价: backfilled {_price_backfill} days, synthesized {_price_synth} '
+      f'(source 每石 prices on {len(_rice_price_by_date)} days)')
 print(f'  经办人: {sum(1 for t in txns if t.get("agent"))}/{len(txns)} filled '
       f'(+{_agent_evidence_fill} via evidence, alias-lexicon={len(AGENT_ALIASES)} '
       f'for {len(FREQ_AGENT_PIDS)} persons); '
@@ -1561,17 +1621,6 @@ PROJECT_RULES = [
     ('同乡会·会馆', '社团', ['同乡会', '徽宁会馆', '旅沪安徽', '南陵旅沪', '皖同乡', '安徽旅沪'], True),
     ('家族事务', '家族', ['三太太', '大太太', '二太太', '族叔', '族长', '祠堂', '祭祖', '扫墓', '南陵原籍'], True),
 ]
-
-
-# raw source bodies by date (lazy, shared) for Tier-2 membership / timelines
-_SRC_BODY = {}
-for _p in sorted((ROOT / 'data' / 'poc_200').glob('*.md')):
-    _m = re.search(r'(\d{4}-\d{2}-\d{2})', _p.stem)
-    if _m:
-        try:
-            _SRC_BODY[_m.group(1)] = _p.read_text(encoding='utf-8')
-        except Exception:
-            pass
 
 
 def _text_hits(kws):
