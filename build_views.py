@@ -2158,13 +2158,26 @@ RING_LABELS = {0: '徐乃昌', 1: '亲属', 2: '南陵同乡', 3: '安徽同乡'
 RING_CAP = {1: 200, 2: 200, 3: 80, 4: 40}     # per-ring cap for figure legibility
 
 
+# people connected to 南陵-area places (hometown circle) — widens the thin 南陵 tier
+# beyond the few with an explicit 籍贯 statement.
+_nanling_loc_ids = {nid for nid, n in locs.items() if resolve_city(n.get('label')) == '南陵'}
+_nanling_persons = set()
+for _e in src['edges']:
+    _s, _t = _e.get('source'), _e.get('target')
+    if _t in _nanling_loc_ids and nodes_by_id.get(_s, {}).get('entity_type') == '人':
+        _nanling_persons.add(redirect(_s))
+    if _s in _nanling_loc_ids and nodes_by_id.get(_t, {}).get('entity_type') == '人':
+        _nanling_persons.add(redirect(_t))
+_nanling_persons.discard(xu_primary)
+
+
 def _ring_of(r):
     if r['id'] == xu_primary:
         return 0
     if r['id'] in family:
         return 1
     jg = r.get('jiguan') or ''
-    if '南陵' in jg or jg == '宛陵':
+    if '南陵' in jg or jg == '宛陵' or r['id'] in _nanling_persons:
         return 2
     if r.get('is_anhui'):
         return 3
@@ -2192,7 +2205,8 @@ ring_counts = {RING_LABELS[k]: len(_ring_pool[k]) for k in sorted(_ring_pool)}
 
 # ── Figure 2: 事业 clusters (person ↔ project, overlap highlighted) ───────────
 TYPE_COLOR = {'编纂': '#6a51a3', '著述': '#9e6ebd', '实业': '#2171b5', '金融': '#08519c',
-              '垦务': '#238b45', '赈务': '#cb181d', '社团': '#d94801', '家族': '#8c510a'}
+              '垦务': '#238b45', '赈务': '#cb181d', '社团': '#d94801', '家族': '#8c510a',
+              '金石收藏': '#1b7837', '诗词文会': '#c51b7d'}
 clu_projects = []
 person_projects = defaultdict(list)
 for s in shiye:
@@ -2213,11 +2227,19 @@ clusters = {'projects': clu_projects, 'overlap': overlap}
     json.dumps(clusters, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
 
 # ── Figure 3: 行迹 geo heatmap (徐乃昌 + family) ──────────────────────────────
-trajectory = []
+# 第2波 feedback: weight by DISTINCT DAYS (天数), not mention count; 南陵/芜湖 must
+# show (family trips count). Aggregate per place; intensity = unique dates that 徐 OR
+# a family member was recorded there. Family-event days in 南陵 (祭祖/扫墓/分租/原籍)
+# are folded in so 妻女代行 trips register even without a 地 edge.
+_place_meta = {}   # place -> {lat,lng, xu_days:set, fam_days:set, persons:Counter}
 
 
-def _person_traj(label, kin_type, id_set):
-    cc, coords = Counter(), {}
+def _place_entry(key, coord):
+    return _place_meta.setdefault(key, {'lat': coord[0], 'lng': coord[1],
+                                        'xu_days': set(), 'fam_days': set(), 'persons': Counter()})
+
+
+def _collect_place_days(label, id_set, is_xu):
     for pid in id_set:
         for direction, e in edges_by_node.get(pid, []):
             if direction != 'out' or e.get('relation') not in ('拜访', '位于'):
@@ -2230,22 +2252,193 @@ def _person_traj(label, kin_type, id_set):
             coord = COORDS.get(city) if city else VENUE_COORDS.get(lbl)
             if not coord:
                 continue
-            key = city or lbl
-            cc[key] += 1
-            coords[key] = coord
-    for k, c in cc.items():
-        trajectory.append({'person': label, 'kin_type': kin_type, 'place': k,
-                           'lat': coords[k][0], 'lng': coords[k][1], 'count': c})
+            d = e.get('source_location') or tn.get('captured_at')
+            m = _place_entry(city or lbl, coord)
+            if d:
+                (m['xu_days'] if is_xu else m['fam_days']).add(d)
+            m['persons'][label] += 1
 
 
-_person_traj('徐乃昌', None, set(primary_orig_ids.get(xu_primary, [])) | set(xu_ids))
+_collect_place_days('徐乃昌', set(primary_orig_ids.get(xu_primary, [])) | set(xu_ids), True)
 for _pid, _info in family.items():
-    _person_traj(_info.get('label') or _pid, _info.get('kin_type'),
-                 set(primary_orig_ids.get(_pid, [_pid])))
+    _collect_place_days(_info.get('label') or _pid, set(primary_orig_ids.get(_pid, [_pid])), False)
+
+# Fold 家族事务 南陵 timeline days into 南陵 family-days (祭祖/扫墓/分租/原籍 — 妻女代行,
+# often no 地 edge). These are the days the user means by "南陵应该不止一次（包括妻女）".
+_NANLING = COORDS['南陵']
+_nl = _place_entry('南陵', _NANLING)
+for _s in shiye:
+    if _s.get('project') == '家族事务':
+        for _h in _s.get('timeline') or []:
+            # physical-hometown markers only (avoid bare 族/分租 that may happen elsewhere)
+            if any(k in (_h.get('snippet') or '') for k in ('南陵', '原籍', '祠堂', '祖茔', '扫墓', '祭祖', '回里', '返里', '归里')):
+                _nl['fam_days'].add(_h['date'])
+
+trajectory = []
+for k, m in _place_meta.items():
+    alld = m['xu_days'] | m['fam_days']
+    if not alld:
+        continue
+    trajectory.append({
+        'place': k, 'lat': m['lat'], 'lng': m['lng'],
+        'days': len(alld), 'days_xu': len(m['xu_days']), 'days_family': len(m['fam_days']),
+        'persons': [p for p, _ in m['persons'].most_common(8)],
+    })
+trajectory.sort(key=lambda t: -t['days'])
 (out_dir / 'trajectory.json').write_text(
     json.dumps(trajectory, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
 
-# ── emit the three standalone HTML figure pages ──────────────────────────────
+# ── Figure 0 data: 人物同现总图 (paper §3.1 fig4 style) ───────────────────────
+# ONE network summarizing the whole cast. Exclude the ego (徐乃昌, degree 7000+) so
+# modules around 吴舜臣(账单)/陈乃乾·李拔可(藏书)/赈灾 emerge instead of a star.
+# Edges = extracted person↔person relations (致书/同席/亲属/赠…) + 同席 hyperedge
+# co-attendance pairs (both restricted to non-ego). Diary is terse, so real
+# relations give a denser, cleaner network than raw same-day co-occurrence.
+from itertools import combinations as _combos
+_pair_w = Counter()
+for _e in per_edges_deduped:                          # deduped person↔person relations
+    _a, _b = _e.get('source'), _e.get('target')
+    if _a and _b and _a != _b and _a != xu_primary and _b != xu_primary:
+        _pair_w[tuple(sorted((_a, _b)))] += 1
+for _h in src.get('hyperedges', []):                  # 同席/共谋 co-attendance
+    _mem = sorted({redirect(m) for m in (_h.get('nodes') or [])
+                   if nodes_by_id.get(m, {}).get('entity_type') == '人'})
+    _mem = [m for m in _mem if m != xu_primary]
+    if 2 <= len(_mem) <= 14:
+        for _a, _b in _combos(_mem, 2):
+            _pair_w[(_a, _b)] += 1
+_wdeg = Counter()
+for (_a, _b), _w in _pair_w.items():
+    _wdeg[_a] += _w
+    _wdeg[_b] += _w
+OVERVIEW_TOPN = 240
+_top_ids = {i for i, _ in _wdeg.most_common(OVERVIEW_TOPN)}
+ov_edges = [{'s': a, 't': b, 'w': w} for (a, b), w in _pair_w.items()
+            if a in _top_ids and b in _top_ids]
+# detect modules ON the overview subgraph (existing global community is degenerate
+# here). Deterministic weighted label-propagation → colored clusters like paper fig4.
+_ov_adj = defaultdict(list)
+for _e in ov_edges:
+    _ov_adj[_e['s']].append((_e['t'], _e['w']))
+    _ov_adj[_e['t']].append((_e['s'], _e['w']))
+_lab = {i: i for i in _top_ids}
+for _it in range(12):
+    _changed = 0
+    for i in sorted(_top_ids):
+        if not _ov_adj[i]:
+            continue
+        _c = Counter()
+        for j, w in _ov_adj[i]:
+            _c[_lab[j]] += w
+        _mx = max(_c.values())
+        _best = min(L for L, cc in _c.items() if cc == _mx)   # deterministic tie-break
+        if _lab[i] != _best:
+            _lab[i] = _best
+            _changed += 1
+    if not _changed:
+        break
+_sizes = Counter(_lab.values())
+_renum = {L: idx for idx, (L, _) in enumerate(_sizes.most_common())}   # big modules first
+_comm_of = {i: (_renum[_lab[i]] if _sizes[_lab[i]] >= 3 else -1) for i in _top_ids}
+ov_nodes = [{'id': i, 'label': nodes_by_id.get(i, {}).get('label') or i,
+             'deg': _wdeg[i], 'community': _comm_of.get(i, -1)} for i in _top_ids]
+overview_graph = {'nodes': ov_nodes, 'edges': ov_edges, 'unique_total': per_unique,
+                  'shown': len(ov_nodes)}
+(out_dir / 'cooccurrence_overview.json').write_text(
+    json.dumps(overview_graph, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+
+# ── 第3波 ①: 事件性质五分类 (按天·可多标签, no re-extraction) ──────────────────
+# Keywords tuned for PRECISION (it's a published count): markers that signal the
+# event-nature itself, not incidental mentions. Notably 诗词文会 uses gathering/
+# composition markers (NOT bare 诗/词 — those match book titles 《…诗》 = 收藏); 遗民
+# excludes bare 宣统/德宗 (reign-years in land deeds/genealogies are not 遗民活动).
+NATURE_RULES = [
+    ('金石收藏', ['碑帖', '法帖', '字帖', '丛帖', '碑版', '拓本', '墨拓', '钟鼎', '彝器',
+                 '古泉', '古玩', '金石', '法书', '名画', '书画', '造像', '墓志', '古砚',
+                 '古印', '宋椠', '宋本', '元刊', '善本', '鉴藏', '鉴赏', '题跋', '收藏', '碑']),
+    ('诗词文会', ['和韵', '次韵', '叠韵', '分韵', '文酒', '赋诗', '社集', '联句', '诗钟',
+                 '征诗', '征题', '酬唱', '诗会', '词社', '吟社', '击钵', '雅会', '寿序',
+                 '挽联', '楹联', '题襟']),
+    ('遗民活动', ['遗老', '遗民', '逊清', '前清遗', '胜朝', '故国', '复辟', '宗社', '崇陵',
+                 '谒陵', '祭陵', '孤臣', '清室', '优待条件', '逊国', '旧君', '逊位诏']),
+    ('乡邦活动', ['同乡会', '会馆', '徽宁', '旅沪安徽', '南陵旅沪', '皖同乡', '修志', '南陵志',
+                 '安徽通志', '通志局', '赈', '义振', '放赈', '急赈', '赈款', '桑梓', '乡邦',
+                 '垦务', '万顷湖', '万春湖', '田产', '原籍', '祠堂', '祭祖', '扫墓', '族']),
+]
+nature_counts = Counter()
+nature_year = defaultdict(lambda: Counter())
+nature_samples = defaultdict(list)
+_nat_total = 0
+_nat_other = 0
+for _d in sorted(_SRC_BODY):
+    body = _SRC_BODY[_d]
+    _nat_total += 1
+    yr = _d[:4]
+    hit_cats = []
+    for cat, kws in NATURE_RULES:
+        kw = next((k for k in kws if k in body), None)
+        if kw:
+            hit_cats.append(cat)
+            nature_counts[cat] += 1
+            nature_year[yr][cat] += 1
+            if len(nature_samples[cat]) < 60:
+                pos = body.find(kw)
+                nature_samples[cat].append({
+                    'date': _d, 'page': page_for(_d), 'kw': kw,
+                    'snippet': body[max(0, pos - 8):pos + 24].replace('\n', ' ').strip()})
+    if not hit_cats:
+        _nat_other += 1
+        nature_counts['其它'] += 1
+        nature_year[yr]['其它'] += 1
+        if len(nature_samples['其它']) < 60:
+            nature_samples['其它'].append({'date': _d, 'page': page_for(_d), 'kw': '',
+                                          'snippet': body[:28].replace('\n', ' ').strip()})
+NATURE_ORDER = ['金石收藏', '诗词文会', '遗民活动', '乡邦活动', '其它']
+event_nature = {
+    'total_days': _nat_total,
+    'counts': {c: nature_counts[c] for c in NATURE_ORDER},
+    'note': '按天·可多标签：一天可同时计入多类，故各类之和大于总天数；其它=五类关键词均未命中。',
+    'by_year': {y: {c: nature_year[y][c] for c in NATURE_ORDER if nature_year[y][c]}
+                for y in sorted(nature_year)},
+    'samples': {c: nature_samples[c] for c in NATURE_ORDER},
+}
+(out_dir / 'event_nature.json').write_text(
+    json.dumps(event_nature, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+
+# people-circles from 金石收藏 / 诗词文会 days → feed the 事业 cluster ("古玩收藏的一群人")
+_nat_day_people = defaultdict(Counter)        # cat -> Counter(primary_pid -> #days)
+for _n in src['nodes']:
+    if _n.get('entity_type') != '人':
+        continue
+    _d = _n.get('captured_at')
+    if not _d:
+        continue
+    body = _SRC_BODY.get(_d, '')
+    _p = redirect(_n['id'])
+    if _p == xu_primary:
+        continue
+    for cat in ('金石收藏', '诗词文会'):
+        kws = dict(NATURE_RULES)[cat]
+        if any(k in body for k in kws):
+            _nat_day_people[cat][_p] += 1
+for cat in ('金石收藏', '诗词文会'):
+    ppl = sorted((nodes_by_id.get(pid, {}).get('label') for pid, c in _nat_day_people[cat].items() if c >= 4),
+                 key=lambda x: x or '')
+    ppl = [p for p in ppl if p][:30]
+    if len(ppl) >= 2:
+        clu_projects.append({'project': cat, 'type': '金融' if False else cat,
+                             'persons': ppl, 'member_count': len(ppl)})
+        for a in ppl:
+            person_projects[a].append(cat)
+# recompute overlap with the two new circles included
+_kept = {c['project'] for c in clu_projects}
+overlap = {p: [pr for pr in prjs if pr in _kept]
+           for p, prjs in person_projects.items() if sum(pr in _kept for pr in prjs) >= 2}
+clusters = {'projects': clu_projects, 'overlap': overlap}
+(out_dir / 'shiye_clusters.json').write_text(
+    json.dumps(clusters, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+
+# ── emit the standalone HTML figure pages ────────────────────────────────────
 FIG_CSS = """
 *{box-sizing:border-box} body{margin:0;font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;
 background:#faf8f4;color:#2b2622} .wrap{max-width:1080px;margin:0 auto;padding:18px}
@@ -2259,8 +2452,10 @@ h1{font-size:21px;margin:10px 0 4px} .lede{color:#6b635a;font-size:13px;margin-b
 """
 
 _fig_nav = ('<nav><a href="../index.html">← 返回总览</a>'
+            '<a href="people-overview.html">人物同现总图</a>'
             '<a href="relationship-rings.html">关系同心圆</a>'
             '<a href="shiye-clusters.html">事业聚合</a>'
+            '<a href="event-nature.html">事件性质</a>'
             '<a href="trajectory-heatmap.html">行迹热力图</a></nav>')
 
 
@@ -2272,6 +2467,74 @@ def _fig_page(title, lede, body, head_extra=''):
             f'<div class="lede">{lede}</div>{body}'
             f'<div class="foot">数据驱动 · 无重新抽取 · 由 build_views.py 生成</div></div></body></html>')
 
+
+# Figure 0 — 人物同现总图 (co-occurrence overview, Cytoscape, paper §3.1 fig4 style)
+_COMM_PALETTE = ['#9b2926', '#2171b5', '#238b45', '#6a51a3', '#d94801', '#1b7837',
+                 '#c51b7d', '#08519c', '#8c510a', '#525252', '#a6761d', '#386cb0']
+_f0_body = f"""
+<div class="legend">
+ <span>共 <b style="color:#9b2926;font-size:15px">{overview_graph['unique_total']}</b> 位 unique 人物（已按本名/字/号合并去重）</span>
+ <span style="color:#888">本图为同现最密集的 {overview_graph['shown']} 位核心人物；已隐去徐乃昌本人(与所有人相连)，让圈子结构显现</span>
+</div>
+<div class="card"><div id="cy" style="height:720px"></div></div>
+<script src="https://unpkg.com/cytoscape@3/dist/cytoscape.min.js"></script>
+<script>
+const G={json.dumps(overview_graph,ensure_ascii=False)};
+const PAL={json.dumps(_COMM_PALETTE)};
+const col=c=>c<0?'#bbb':PAL[((c%PAL.length)+PAL.length)%PAL.length];
+const els=[];
+G.nodes.forEach(n=>els.push({{data:{{id:n.id,label:n.label,deg:n.deg,c:col(n.community)}}}}));
+G.edges.forEach(e=>els.push({{data:{{source:e.s,target:e.t,w:e.w}}}}));
+const cy=cytoscape({{container:document.getElementById('cy'),elements:els,
+ style:[
+  {{selector:'node',style:{{'background-color':'data(c)','label':'data(label)','font-size':'mapData(deg,2,300,7,16)',
+    'width':'mapData(deg,2,300,8,52)','height':'mapData(deg,2,300,8,52)','color':'#33302b',
+    'text-valign':'center','text-halign':'center','text-margin-y':-2,'min-zoomed-font-size':8}}}},
+  {{selector:'edge',style:{{'width':'mapData(w,2,30,0.5,4)','line-color':'#d3ccc0','opacity':0.5,'curve-style':'haystack'}}}}
+ ],
+ layout:{{name:'cose',animate:false,nodeRepulsion:14000,idealEdgeLength:60,gravity:0.3,padding:24,componentSpacing:80}}}});
+cy.on('tap','node',e=>{{const id=e.target.id();
+ cy.elements().style('opacity',0.12);
+ e.target.style('opacity',1);e.target.connectedEdges().style('opacity',0.7);
+ e.target.neighborhood('node').style('opacity',1);}});
+cy.on('tap',e=>{{if(e.target===cy)cy.elements().style('opacity',1);}});
+</script>"""
+(specials_dir / 'people-overview.html').write_text(_fig_page(
+    '人物同现总图（一图概括所有人）',
+    f'仿《王世杰日记》图4：把全部 {overview_graph["unique_total"]} 位人物的“同现”关系汇成一张网络，'
+    f'同一天共同出现即连线，连接越密的人聚成模块（账单圈/藏书圈/赈灾圈…）。点击任一节点高亮其邻里。',
+    _f0_body), encoding='utf-8')
+
+# Figure: 事件性质五分类 (bars + per-category browse)
+_en_body = f"""
+<div id="bars" class="card" style="padding:14px"></div>
+<div style="margin-top:12px" class="card" id="browse"></div>
+<script>
+const EN={json.dumps(event_nature,ensure_ascii=False)};
+const ORDER=['金石收藏','诗词文会','遗民活动','乡邦活动','其它'];
+const CC={{'金石收藏':'#1b7837','诗词文会':'#c51b7d','遗民活动':'#6a51a3','乡邦活动':'#d94801','其它':'#9aa0a6'}};
+const mx=Math.max(...ORDER.map(c=>EN.counts[c]||0),1);
+document.getElementById('bars').innerHTML='<div style="font-size:12px;color:#888;margin-bottom:8px">共 '+EN.total_days+' 天日记。'+EN.note+'</div>'+
+ ORDER.map(c=>{{const v=EN.counts[c]||0;return `<div style="display:flex;align-items:center;gap:8px;margin:5px 0">
+  <div style="width:72px;font-size:13px">${{c}}</div>
+  <div style="flex:1;background:#f0ece4;border-radius:3px"><div style="width:${{100*v/mx}}%;background:${{CC[c]}};height:18px;border-radius:3px"></div></div>
+  <div style="width:90px;text-align:right;font-size:13px"><b>${{v}}</b> 天</div></div>`;}}).join('');
+let cur='金石收藏';
+function browse(){{
+ const s=EN.samples[cur]||[];
+ document.getElementById('browse').innerHTML=
+  '<div style="margin-bottom:8px">'+ORDER.map(c=>`<button data-c="${{c}}" style="margin-right:6px;padding:4px 10px;border:1px solid #ddd;border-radius:3px;cursor:pointer;background:${{c===cur?CC[c]:'#fff'}};color:${{c===cur?'#fff':'#333'}}">${{c}}</button>`).join('')+'</div>'+
+  '<table style="width:100%;border-collapse:collapse;font-size:12px"><tr style="color:#999"><th style="text-align:left">日期</th><th style="text-align:left">页</th><th style="text-align:left">命中</th><th style="text-align:left">原文片段</th></tr>'+
+  s.map(r=>`<tr><td style="padding:3px 6px 3px 0;white-space:nowrap">${{r.date}}</td><td style="color:#999">${{r.page||''}}</td><td style="color:${{CC[cur]}}">${{r.kw||''}}</td><td style="color:#5a5247">${{r.snippet}}</td></tr>`).join('')+'</table>';
+ document.querySelectorAll('#browse button').forEach(b=>b.onclick=()=>{{cur=b.dataset.c;browse();}});
+}}
+browse();
+</script>"""
+(specials_dir / 'event-nature.html').write_text(_fig_page(
+    '日记事件性质分类',
+    '按五类性质给每天日记打标签（金石收藏 / 诗词文会 / 遗民活动 / 乡邦活动 / 其它），并分别计数。'
+    '一天可同时归入多类（如某日既访碑帖又赋诗）。下方可逐类浏览命中条目与原文片段。无重新抽取。',
+    _en_body), encoding='utf-8')
 
 # Figure 1 — concentric rings (SVG, computed client-side)
 RING_COLORS = ['#9b2926', '#c0392b', '#d98880', '#e8b9b3', '#cfcabf']
@@ -2309,8 +2572,10 @@ const lg=document.getElementById('lg');
 (specials_dir / 'relationship-rings.html').write_text(_fig_page(
     '人物关系同心圆',
     f'以徐乃昌为核心，按关系亲疏分层：亲属 → 南陵同乡 → 安徽同乡 → 其他。'
-    f'圈内 {sum(ring_counts.values())} 人 (亲属{ring_counts.get("亲属",0)}·南陵{ring_counts.get("南陵同乡",0)}'
-    f'·安徽{ring_counts.get("安徽同乡",0)}·其他{ring_counts.get("其他",0)})；点大小=互动次数。',
+    f'全库分层人数：亲属 {ring_counts.get("亲属",0)}·南陵同乡 {ring_counts.get("南陵同乡",0)}'
+    f'·安徽同乡 {ring_counts.get("安徽同乡",0)}·其他 {ring_counts.get("其他",0)}。'
+    f'为清晰起见，外两层只画互动最多者（安徽 {RING_CAP[3]}、其他 {RING_CAP[4]}）；点大小=互动次数。'
+    f'“一图概括所有 {per_unique} 人”见 → 人物同现总图。',
     _f1_body), encoding='utf-8')
 
 # Figure 2 — 事业 clusters (Cytoscape)
@@ -2354,41 +2619,59 @@ _f3_head = ('<link rel="stylesheet" href="https://unpkg.com/leaflet@1/dist/leafl
             '<script src="https://unpkg.com/leaflet@1/dist/leaflet.js"></script>'
             '<script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>')
 _f3_body = f"""
-<div class="legend"><label><input type="checkbox" id="ckxu" checked> 徐乃昌</label>
- <label><input type="checkbox" id="ckfam" checked> 家人 (代行祭祖/年节)</label>
- <span style="color:#888">热度=停留/提及频次</span></div>
-<div class="card"><div id="map" style="height:660px;border-radius:6px"></div></div>
+<div class="legend"><label><input type="radio" name="who" id="rball" checked> 徐乃昌+家人(并集)</label>
+ <label><input type="radio" name="who" id="rbxu"> 仅徐乃昌</label>
+ <label><input type="radio" name="who" id="rbfam"> 仅家人</label>
+ <span style="color:#888">圈大小/热度 = 该地<b>不同天数</b>（非提及次数）</span></div>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+ <div class="card" style="flex:2;min-width:420px"><div id="map" style="height:560px;border-radius:6px"></div></div>
+ <div class="card" style="flex:1;min-width:230px">
+   <div style="font-size:12px;font-weight:700;margin-bottom:6px">高频地点（按天数）</div>
+   <table id="tbl" style="width:100%;border-collapse:collapse;font-size:12px"></table></div>
+</div>
 <script>
 const TRAJ={json.dumps(trajectory,ensure_ascii=False)};
 const map=L.map('map',{{preferCanvas:true}}).setView([31.5,119],6);
 L.tileLayer('https://{{s}}.basemaps.cartocdn.com/light_all/{{z}}/{{x}}/{{y}}{{r}}.png',
  {{attribution:'&copy; OpenStreetMap &copy; CARTO',subdomains:'abcd',maxZoom:12}}).addTo(map);
-let layer=null;
+function val(t){{const m=document.getElementById('rbxu').checked?'days_xu':
+  document.getElementById('rbfam').checked?'days_family':'days';return t[m]||0;}}
+let hlayer=null, dots=[];
 function draw(){{
- const xu=document.getElementById('ckxu').checked, fam=document.getElementById('ckfam').checked;
- const pts=TRAJ.filter(t=>(t.kin_type==null?xu:fam)).map(t=>[t.lat,t.lng,t.count]);
- if(layer)map.removeLayer(layer);
- layer=L.heatLayer(pts,{{radius:26,blur:20,maxZoom:10,max:Math.max(...pts.map(p=>p[2]),1),
-   gradient:{{0.2:'#3a78b5',0.4:'#8bbf4f',0.6:'#f0c419',0.8:'#e8731a',1.0:'#9b2926'}}}}).addTo(map);
- // city markers for top places
- const agg={{}};TRAJ.forEach(t=>{{if((t.kin_type==null?xu:fam)){{const k=t.place;agg[k]=agg[k]||{{lat:t.lat,lng:t.lng,c:0}};agg[k].c+=t.count;}}}});
- Object.entries(agg).sort((a,b)=>b[1].c-a[1].c).slice(0,12).forEach(([k,v])=>{{
-   L.marker([v.lat,v.lng],{{opacity:0}}).addTo(map).bindTooltip(`${{k}} (${{v.c}})`,{{permanent:true,direction:'top',className:'pl'}});}});
+ const rows=TRAJ.map(t=>({{...t,v:val(t)}})).filter(t=>t.v>0).sort((a,b)=>b.v-a.v);
+ const mx=Math.max(...rows.map(r=>r.v),1);
+ if(hlayer)map.removeLayer(hlayer);
+ hlayer=L.heatLayer(rows.map(r=>[r.lat,r.lng,r.v]),{{radius:24,blur:18,maxZoom:10,max:mx,
+   gradient:{{0.15:'#3a78b5',0.4:'#8bbf4f',0.6:'#f0c419',0.8:'#e8731a',1.0:'#9b2926'}}}}).addTo(map);
+ dots.forEach(d=>map.removeLayer(d));dots=[];
+ rows.slice(0,16).forEach(r=>{{
+   const rad=4+14*Math.sqrt(r.v/mx);
+   const c=L.circleMarker([r.lat,r.lng],{{radius:rad,color:'#9b2926',weight:1,fillColor:'#9b2926',fillOpacity:0.25}})
+     .addTo(map).bindTooltip(`${{r.place}} · ${{r.v}}天`,{{direction:'top'}});
+   dots.push(c);
+ }});
+ const tb=document.getElementById('tbl');tb.innerHTML='<tr style="color:#999"><th style="text-align:left">地点</th><th style="text-align:right">天数</th></tr>'+
+   rows.slice(0,18).map(r=>`<tr><td style="padding:2px 0;border-bottom:1px solid #f0ece4">${{r.place}}</td><td style="text-align:right;color:#9b2926">${{r.v}}</td></tr>`).join('');
 }}
-document.getElementById('ckxu').onchange=draw;document.getElementById('ckfam').onchange=draw;
+['rball','rbxu','rbfam'].forEach(id=>document.getElementById(id).onchange=draw);
 draw();
 const b=L.latLngBounds(TRAJ.map(t=>[t.lat,t.lng]));if(TRAJ.length)map.fitBounds(b.pad(0.1));
 </script>
 <style>.pl{{background:rgba(255,255,255,.85);border:none;box-shadow:none;font-size:11px;color:#5a5247}}</style>"""
+_nl_days = next((t['days'] for t in trajectory if t['place'] == '南陵'), 0)
+_wh_days = next((t['days'] for t in trajectory if t['place'] == '芜湖'), 0)
 (specials_dir / 'trajectory-heatmap.html').write_text(_fig_page(
     '作者及家人行迹热力图',
-    f'徐乃昌本人及 {len(family)} 位家人的行迹热度 (静态，可截图入论文)。'
-    f'家人行迹纳入：徐未返乡时，妻/子女或代行清明祭祖、年节等以家庭为单位的活动。',
+    f'徐乃昌本人及 {len(family)} 位家人的行迹，按<b>不同天数</b>计热度（非提及次数）。'
+    f'家人行迹纳入：徐未返乡时妻/子女代行清明祭祖、年节等。南陵 {_nl_days} 天、芜湖 {_wh_days} 天均已计入。静态图，可截图入论文。',
     _f3_body, head_extra=_f3_head), encoding='utf-8')
 
-print(f'figures: rings {sum(ring_counts.values())} ppl {ring_counts} | '
+print(f'figures: overview {overview_graph["shown"]}/{overview_graph["unique_total"]} ppl | '
+      f'rings {sum(ring_counts.values())} {ring_counts} | '
       f'clusters {len(clu_projects)} proj / {len(overlap)} overlap | '
-      f'trajectory {len(trajectory)} pts, family={len(family)}')
+      f'trajectory {len(trajectory)} places (南陵{_nl_days}天 芜湖{_wh_days}天) family={len(family)}')
+print(f'事件性质(按天·多标签): ' + ' '.join(f'{c}={event_nature["counts"][c]}' for c in NATURE_ORDER)
+      + f' / 共{event_nature["total_days"]}天')
 
 # Index
 specials_idx = [
@@ -2396,9 +2679,11 @@ specials_idx = [
     '<h1>专题策展</h1>',
     '<div class="meta">数据驱动的主题页：从分散日记条目里按议题聚合。点击主题进入。</div>',
     '<ul>',
+    '<li><a href="people-overview.html"><strong>人物同现总图</strong></a> — 一图概括全部人物 (论文图4 风格) + unique 人数</li>',
     '<li><a href="relationship-rings.html"><strong>人物关系同心圆</strong></a> — 亲疏分层 (亲属/南陵/安徽/其他)</li>',
-    '<li><a href="shiye-clusters.html"><strong>事业聚合与重叠</strong></a> — 人物×事业，跨事业重叠</li>',
-    '<li><a href="trajectory-heatmap.html"><strong>作者及家人行迹热力图</strong></a> — 静态地理热力 (论文用)</li>',
+    '<li><a href="shiye-clusters.html"><strong>事业聚合与重叠</strong></a> — 人物×事业 (含金石/诗词圈)，跨事业重叠</li>',
+    '<li><a href="event-nature.html"><strong>日记事件性质分类</strong></a> — 金石/诗词/遗民/乡邦/其它 按天计数</li>',
+    '<li><a href="trajectory-heatmap.html"><strong>作者及家人行迹热力图</strong></a> — 按天数计 · 静态地理热力 (论文用)</li>',
     '<li><a href="recall-audit.html"><strong>召回审计</strong></a> — 原文全文检索 vs 图谱覆盖率 (无重新抽取)</li>',
     '<li><a href="wanbei-1921.html"><strong>1921 皖北赈灾</strong></a> — 灾害+赈务机构+资助流水</li>',
     '<li><a href="disasters-all.html"><strong>灾害编年</strong></a> — 全部灾害条目时间线</li>',
