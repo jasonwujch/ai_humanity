@@ -335,6 +335,7 @@
     <div class="controls">
       <input v-model="txnSearch" @input="applyTxnFilter" placeholder="搜索 人名 / 交易 / 证据" style="width:200px" />
       <label><input type="checkbox" v-model="txnHasPerson" @change="applyTxnFilter" /> 有相关人</label>
+      <label title="仅显示售/卖稻交易（售稻信息列表）"><input type="checkbox" v-model="txnRiceSale" @change="applyTxnFilter" /> 仅售稻</label>
       <label>日期
         <input type="date" v-model="dateFrom" @change="applyTxnFilter" :min="dataMinDate" :max="dataMaxDate" style="width:135px" />
         <span style="color:var(--muted)">—</span>
@@ -346,6 +347,7 @@
         <option v-for="m in 12" :key="m" :value="dateYearSel + '-' + String(m).padStart(2,'0')">{{ m }}月</option>
       </select>
       <button @click="clearDateFilter">清空</button>
+      <button @click="exportTxnCsv" title="导出当前筛选结果为 CSV (Excel 可读)">导出CSV ⤓</button>
       <span class="legend" v-if="txnData">共 {{ txnData.length }} 笔</span>
     </div>
     <div id="txn-table"></div>
@@ -1128,6 +1130,7 @@ createApp({
 
     const txnSearch = ref('');
     const txnHasPerson = ref(false);
+    const txnRiceSale = ref(false);
     const dateFrom = ref('');
     const dateTo = ref('');
     const dateMonth = ref('');
@@ -1961,12 +1964,30 @@ createApp({
       const df = dateFrom.value, dt = dateTo.value;
       txnTable.setFilter((row) => {
         if (txnHasPerson.value && (!row.people || row.people.length === 0)) return false;
+        if (txnRiceSale.value && !row.is_rice_sale) return false;
         if (df && (row.date || '') < df) return false;
         if (dt && (row.date || '') > dt) return false;
         if (!q) return true;
         const blob = [row.label, row.evidence, (row.people||[]).map(p=>p.label).join(' ')].join(' ');
         return blob.includes(q);
       });
+    }
+
+    // 导出当前筛选结果为 CSV (新需求: 账单 → 售稻信息列表). UTF-8 BOM so Excel reads 中文.
+    function exportTxnCsv() {
+      const rows = txnTable ? txnTable.getData('active') : [];
+      const cols = [['日期','date'],['交易','label'],['性质','nature'],['金额(元)','amount_num'],
+        ['稻量(石)','qty_shi'],['单价(元/石)','unit_price_yuan'],['经办人','agent'],
+        ['页码','page'],['证据','evidence'],['出处','source_file']];
+      const esc = v => '"' + String(v==null?'':v).replace(/"/g,'""') + '"';
+      const lines = [cols.map(c=>esc(c[0])).join(',')];
+      for (const r of rows) lines.push(cols.map(c=>esc(r[c[1]])).join(','));
+      const blob = new Blob(['﻿'+lines.join('\r\n')], {type:'text/csv;charset=utf-8'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = (txnRiceSale.value ? '售稻信息列表' : '账单') + '.csv';
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(a.href), 1000);
     }
 
     function applyRenshiFilter() {
@@ -2876,7 +2897,7 @@ createApp({
       Math, Object, Number, JSON, Array,   // expose globals for template exprs (prod runtime compiler doesn't always whitelist them)
       tab, overview, peopleData, txnData, locData, profiles, allNodes,
       globalQ, searchOpen, searchHits, textHits, onSearch, selectHit, jumpToReader,
-      txnSearch, txnHasPerson,
+      txnSearch, txnHasPerson, txnRiceSale, exportTxnCsv,
       renshiData, shiyeData, renshiSearch, renshiAnhui, renshiHasOrg, applyRenshiFilter,
       relationFilter, confFilter,
       visibleNodeCount, visibleEdgeCount,

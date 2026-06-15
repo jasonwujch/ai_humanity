@@ -241,21 +241,87 @@ out_dir.mkdir(exist_ok=True)
 nodes_by_id = {n['id']: n for n in src['nodes']}
 
 # ── date → 原书页码 / pdf  (light frontmatter scan for column joins) ──────────
+# DEBUG-④ (图谱改进0605 "1922年起页码不对"): the published 徐乃昌日记 is paginated
+# continuously WITHIN each 册 (volume 1-4), but the OCR source was split into ~19 PDF
+# parts, each restarting page numbers at ~0/1. So frontmatter `source_pages` is
+# PART-LOCAL, not 原书页码. Only 册1's first part (上半部, which starts at book-page 1)
+# happens to align; every later part is un-offset — hence pages go wrong exactly from
+# 1922-02-01 (册1 下半部 resets to 0). Systematic fix (not a per-date patch): chain a
+# per-册 page offset = cumulative max page of the preceding parts in the same 册 (parts
+# ordered by their first date). 册1 上半部 keeps offset 0 → verified anchors 1920-03-12
+# →6, 1920-08-13→58 stay correct. No re-extraction; page_raw/vol kept for audit.
+# ASSUMPTION: 原书页码 restarts per 册 (standard for 多卷本; 中华经典古籍库 labels 第X册第Y页).
+# If the库 instead paginates continuously across all 册, set _PER_VOLUME_RESET = False.
+_PER_VOLUME_RESET = True
 date_to_meta = {}
 _poc_dir = ROOT / 'data' / 'poc_200'
 _re_pages = re.compile(r'^source_pages:\s*(.+)$', re.M)
 _re_pdf = re.compile(r'^source_pdf:\s*(.+)$', re.M)
+
+
+def _vol_of(pdf):
+    """册 number from pdf filename: 徐乃昌日记2第二部分.pdf → '2'. None if unknown."""
+    m = re.search(r'日记\s*([1-4])', pdf or '')
+    return m.group(1) if m else None
+
+
+def _parse_pagespan(s):
+    """'[220, 221]' / '183, 183' → (220, 221) ints, or (None, None)."""
+    nums = re.findall(r'\d+', s or '')
+    if not nums:
+        return (None, None)
+    return (int(nums[0]), int(nums[-1]))
+
+
 for _mf in _poc_dir.glob('*.md'):
+    if _mf.stem.startswith('_'):
+        continue
     _t = _mf.read_text(encoding='utf-8')[:400]
     mp = _re_pages.search(_t); mpdf = _re_pdf.search(_t)
-    date_to_meta[_mf.stem] = {
-        'pages': mp.group(1).strip().strip('[]').replace(' ', '') if mp else None,
-        'pdf': mpdf.group(1).strip() if mpdf else None,
-    }
+    _pdf = mpdf.group(1).strip() if mpdf else None
+    _lo, _hi = _parse_pagespan(mp.group(1) if mp else '')
+    date_to_meta[_mf.stem] = {'pdf': _pdf, 'vol': _vol_of(_pdf), 'p_lo': _lo, 'p_hi': _hi}
+
+# per-part stats: highest page + earliest date (for chronological ordering within a 册)
+_part_max = defaultdict(int)
+_part_mindate = {}
+for _d, _m in date_to_meta.items():
+    _pdf = _m['pdf']
+    if not _pdf:
+        continue
+    if _m['p_hi'] is not None:
+        _part_max[_pdf] = max(_part_max[_pdf], _m['p_hi'])
+    if _pdf not in _part_mindate or _d < _part_mindate[_pdf]:
+        _part_mindate[_pdf] = _d
+
+# chain offsets: parts grouped per 册 (or all together if not _PER_VOLUME_RESET),
+# ordered by first date; offset(part) = Σ max_page of earlier parts in the group.
+_part_offset = {}
+_groups = defaultdict(list)
+for _pdf in _part_max:
+    _groups[_vol_of(_pdf) if _PER_VOLUME_RESET else 'ALL'].append(_pdf)
+for _grp, _parts in _groups.items():
+    _parts.sort(key=lambda p: _part_mindate.get(p, ''))
+    _cum = 0
+    for _p in _parts:
+        _part_offset[_p] = _cum
+        _cum += _part_max[_p]
 
 
 def page_for(date):
-    return (date_to_meta.get(date or '') or {}).get('pages')
+    """原书页码 (per-册 offset-corrected). 'lo' or 'lo-hi' string, or None."""
+    m = date_to_meta.get(date or '')
+    if not m or m.get('p_lo') is None:
+        return None
+    off = _part_offset.get(m['pdf'], 0)
+    lo = m['p_lo'] + off
+    hi = (m['p_hi'] if m['p_hi'] is not None else m['p_lo']) + off
+    return f'{lo}' if lo == hi else f'{lo}-{hi}'
+
+
+print('  原书页码: per-册 offsets ' + ', '.join(
+    f'{_p.replace("徐乃昌日记", "").replace(".pdf", "")}+{_o}'
+    for _p, _o in sorted(_part_offset.items(), key=lambda kv: (_vol_of(kv[0]) or "", kv[1]))))
 
 
 # 性质 (income/expense) lexicon — derive from txn label/evidence verbs.
@@ -614,14 +680,29 @@ for n in src['nodes']:
     _txt = (n.get('label') or '') + ' ' + (evidence or '')
     amount_num = money2yuan(txn_details.get('amount'))
     qty_shi, unit_price_yuan = parse_rice(_txt)
-    if unit_price_yuan is None:  # sometimes unit price landed in the amount slot
-        if isinstance(txn_details.get('amount'), str) and '每石' in txn_details['amount']:
-            unit_price_yuan = money2yuan(txn_details['amount'])
-            amount_num = None
+    if unit_price_yuan is None:  # unit price sometimes landed in the amount slot, already
+        _amt = txn_details.get('amount')             # per-石 ("3.2元/石" 价洋三元二角 / 每石X)
+        if isinstance(_amt, str) and ('每石' in _amt or '/石' in _amt or '元/石' in _amt):
+            unit_price_yuan = money2yuan(_amt)
+            amount_num = None                         # it's a unit price, not a total
     # 稻谷交易: 稻/谷 keyword, or a parsed 石-quantity (number+石 is the grain measure).
     # Bare '石' rejected (book titles 石柱记/石印, names 石铭/葱石 — none carry a number+石).
     # 租洋/房租 without 稻/谷/石量 excluded: those are money/property rent, not grain.
     is_rice = ('稻' in _txt or '谷' in _txt or qty_shi is not None)
+    # DEBUG-① (图谱改进0605 "售稻单价计算错误", e.g. 1934-07-12 售稻一百石共二百九十元):
+    # when a rice row has 数量 + 总价 but no 每石 token of its own, derive 单价 = 总价÷石数
+    # from THIS row's own numbers. Without it, the day-level 每石 backfill below copies one
+    # deal's 每石 onto every rice row of the day, so multi-deal days (期稻@1.7 + 售稻@2.9)
+    # collapse to a single wrong price. Per-row compute prices each deal independently.
+    unit_price_source = 'parse' if unit_price_yuan is not None else None
+    _amt_str = txn_details.get('amount') if isinstance(txn_details.get('amount'), str) else ''
+    if (unit_price_yuan is None and is_rice and amount_num and qty_shi
+            and qty_shi >= 10                        # real grain lots are tens+ of 石; qty=1 = mis-parse
+            and not any(c in _amt_str for c in ('每', '石', '扯', '约', '/'))):  # amount already per-石, not a total
+        _up = round(amount_num / qty_shi, 2)
+        if 0.8 <= _up <= 8.0:                        # plausible 1920s-30s 稻谷单价 band (元/石)
+            unit_price_yuan = _up
+            unit_price_source = 'computed'
     # nature: keyword scan first; fall back to the directional counterparty relation type
     # (受赠=收到 → 收入; 赠/资助=给出 → 支出). Typed signal, independent of wording.
     nature = txn_nature(n.get('label'), (evidence or '') + ' ' + cp_evidence_blob, txn_details.get('direction'))
@@ -652,6 +733,7 @@ for n in src['nodes']:
         'is_rice': is_rice,
         'qty_shi': qty_shi,                             # 稻谷数量 (石)
         'unit_price_yuan': unit_price_yuan,             # 稻谷单价 (元/石)
+        'unit_price_source': unit_price_source,         # parse | computed | source_text | synth
     })
 # ── 经办人 fallback (P4a + S1): many rent/sale txns name the handling agent only in the
 # evidence text (代售/经手/汇 by 舜臣). Build the scan lexicon as alias→canonical pairs
@@ -669,11 +751,53 @@ AGENT_ALIASES = sorted(
      if pid in FREQ_AGENT_PIDS and len(alias) >= 2
      and nodes_by_id.get(pid, {}).get('label') != DIARIST),
     key=lambda x: -len(x[0]))            # longest alias first → 吴舜臣 beats 舜臣
+
+# DEBUG (图谱改进0615 "吴舜臣抓得不全"): the 经办人 of a 稻/租 row is whoever is named in
+# the 稻/租 SENTENCE — not an incidental name elsewhere that day. Old whole-body scan let
+# a social visit (鲍子丹) or a same-day counterparty (丁子盈) steal attribution from 舜臣
+# (user's anchor 1920-08-13: 复舜臣书…将稻全行售出 was tagged 鲍子丹). 吴舜臣 (舜臣/舜老) is
+# Xu's standing 南陵收租代理 → when he is in a rent sentence he IS the 经办人, overriding any
+# edge-linked 买主 or the diarist. Sentence-level (split on 。\n/) so 舜臣+稻 in one breath
+# bind even when separated by commas.
+# Precise rent/grain tokens. Bare 租/谷 excluded — they fire on 租界/房租/租屋(building rent),
+# 春谷(芜湖)/山谷/孔洪谷(names/places), 《上海租界问题》(book). Kept tokens are unambiguously
+# land-rent/grain: 稻* / 收租·交租·欠租 / 租稻·稻租 / 租息·租簿·经租·租洋 / 积谷·储谷 / 完粮·押板 /
+# 总账·总簿 (舜臣's rent accounts — user's 吴舜臣 table lists 总账 explicitly).
+_RENT_SENT_KW = ('收租', '交租', '欠租', '租稻', '稻租', '售稻', '卖稻', '收稻', '解稻',
+                 '租息', '租簿', '经租', '租洋', '完粮', '押板', '每石', '积谷', '储谷',
+                 '稻价', '稻款', '稻洋', '借稻', '期稻', '总账', '总簿')
+_SHUN = ('吴舜臣', '舜臣', '舜老')
+
+
+def _rent_agent_in_body(body):
+    """Canonical 收租经办人 for a rent/grain day. 吴舜臣 is Xu's STANDING 南陵收租代理 —
+    daily entries are short, so his presence anywhere in the entry means the rent business
+    is his (the report is often split "覆舜臣书。稻洋收到…" across sentences). Check him
+    whole-entry FIRST; only if absent fall back to another known agent named in a 稻/租
+    sentence (sentence-scoped so an incidental social-visit name isn't credited)."""
+    if not body:
+        return None
+    if any(a in body for a in _SHUN):
+        return '吴舜臣'
+    for sent in re.split(r'[。\n/]', body):
+        if any(k in sent for k in _RENT_SENT_KW):
+            for alias, canon in AGENT_ALIASES:
+                if alias in sent:
+                    return canon
+    return None
+
+
 _agent_evidence_fill = 0
 _agent_body_fill = 0
 for t in txns:
-    if t.get('agent'):
-        t['agent'] = canonicalize_person(t['agent'])
+    _cur = t.get('agent')
+    # DEBUG-③④ (图谱改进0605 "1925-03-30 经办人吴舜臣漏掉"): a 收租/稻 row whose only
+    # structured agent is the DIARIST (徐乃昌 = principal, not the handling 经办人) was kept
+    # as-is and never body-scanned, so the real 经办人 (覆吴舜臣书 → 吴舜臣) was lost. Treat
+    # diarist-only agency on estate/grain rows as "no handling agent" → fall through to the
+    # evidence/body scan below. Non-estate diarist rows (book purchases) keep 徐乃昌.
+    if _cur and _cur != DIARIST:
+        t['agent'] = canonicalize_person(_cur)
         t['agents'] = [canonicalize_person(a) for a in (t.get('agents') or [])]
         continue
     blob = (t.get('label') or '') + ' ' + (t.get('evidence') or '')
@@ -694,13 +818,27 @@ for t in txns:
                or ('田' in blob and '田黄' not in blob))   # 田黄印 = seal stone, not farmland
     if _estate:
         body = _SRC_BODY.get(t.get('date') or '', '')
-        if body:
-            bhit = next((canon for alias, canon in AGENT_ALIASES if alias in body), None)
-            if bhit:
-                t['agent'] = bhit
-                t['agents'] = [bhit]
-                t['agent_source'] = 'body'
-                _agent_body_fill += 1
+        bhit = _rent_agent_in_body(body)
+        if bhit:
+            t['agent'] = bhit
+            t['agents'] = [bhit]
+            t['agent_source'] = 'body'
+            _agent_body_fill += 1
+
+# DEBUG (0615) Fix-A: re-attribute rice rows whose 稻/租 sentence names 吴舜臣 but whose
+# agent came from an incidental edge/counterparty (买主) or the diarist. Overrides agent
+# only (original counterparty stays in `people`). Catches the 9 mis-attributed rice rows
+# incl. user anchors 1920-08-13 / 1936-09-21 / 1937-07-11. is_rice-scoped → safe.
+_rice_reattrib = 0
+for t in txns:
+    if not t.get('is_rice') or not t.get('date'):
+        continue
+    ra = _rent_agent_in_body(_SRC_BODY.get(t['date'], ''))
+    if ra and t.get('agent') != ra:
+        t['agent'] = ra
+        t['agents'] = [ra]
+        t['agent_source'] = 'rent_sentence'
+        _rice_reattrib += 1
 
 for t in txns:
     t.pop('_agent_pids', None)
@@ -710,14 +848,26 @@ for t in txns:
 # so parse_rice(node text) misses it (36/39 baseline misses were parser-gaps,
 # 3 had no txn node). Per date: take the source 每石 price, then (a) backfill any
 # rice txn on that day lacking unit_price, else (b) synthesize a rice price row.
+# DEBUG-① guard (图谱改进0605 "1921-09-29 单价误抓"): a 每石<价> is a RICE price only if
+# its immediate context isn't a per-石 price of PAPER/printing (印《玉历钞传》三千部, 每部
+# 十一石, 每石一元四角 = paper reams, not grain — produced the bogus rice_synth_1921-09-29).
+# Skip 每石 matches whose vicinity carries paper/print markers; take the first clean one.
+# Markers also cover freight/goods 每石 (退货每石四角 = shipping rate, not grain — 1921-11-24).
+_NONRICE_NEAR = ('纸', '令', '印', '部', '装订', '扣', '墨', '笔', '工价', '裱', '货', '运')
 _rice_price_by_date = {}
 for _d, _body in _SRC_BODY.items():
-    _mu = _RE_UNITP.search(_body)
-    if _mu:
-        _up = money2yuan(_mu.group(1))
-        if _up:
-            _mq = _RE_QTY.search(_body)
-            _rice_price_by_date[_d] = (_up, _cn_int(_mq.group(1)) if _mq else None)
+    _up = None
+    for _mu in _RE_UNITP.finditer(_body):
+        _ctx = _body[max(0, _mu.start() - 15): _mu.end() + 6]
+        if any(k in _ctx for k in _NONRICE_NEAR):
+            continue                                 # 每石 is paper/freight/printing, not 稻谷
+        _v = money2yuan(_mu.group(1))
+        if _v and 0.5 <= _v <= 8.0:                  # plausible 稻谷单价 band — rejects mis-parses
+            _up = _v
+            break
+    if _up:
+        _mq = _RE_QTY.search(_body)
+        _rice_price_by_date[_d] = (_up, _cn_int(_mq.group(1)) if _mq else None)
 _txns_by_date = defaultdict(list)
 for t in txns:
     if t.get('date'):
@@ -736,7 +886,8 @@ for _d, (_up, _qs) in _rice_price_by_date.items():
             t['unit_price_source'] = 'source_text'
         _price_backfill += 1
     else:                                            # (b) synthesize a rice price record
-        _agent = next((canon for alias, canon in AGENT_ALIASES if alias in _SRC_BODY[_d]), None)
+        _agent = (_rent_agent_in_body(_SRC_BODY[_d])      # rent-sentence 经办人 (0615 fix)
+                  or next((canon for alias, canon in AGENT_ALIASES if alias in _SRC_BODY[_d]), None))
         txns.append({
             'id': f'rice_synth_{_d}', 'label': f'稻谷售价 每石{_up}元',
             'date': _d, 'source_file': f'{_d}.md',
@@ -750,10 +901,51 @@ for _d, (_up, _qs) in _rice_price_by_date.items():
         })
         _price_synth += 1
 
+# DEBUG (0615) Fix-B: synthesize a 收租 账单 row for days where 吴舜臣 (舜臣/舜老) is named in
+# a 稻/租 sentence but no 吴舜臣 transaction node exists (correspondence-only rent reports:
+# 覆舜臣书。稻洋收到… / 舜臣来书…年成…). Closes the gap between 经办人=吴舜臣 (was 242) and his
+# true 收租 involvement. STRICT: 舜 must sit in the rent sentence itself (high precision).
+_shun_acct_days = set(t['date'] for t in txns if t.get('agent') == '吴舜臣' and t.get('date'))
+_shun_synth = 0
+for _d, _body in _SRC_BODY.items():
+    if _d in _shun_acct_days or not any(a in _body for a in _SHUN):
+        continue
+    _sents = re.split(r'[。\n/]', _body)
+    # evidence = the rent sentence (prefer one naming 舜); skip days with no rent content
+    _sent = next((s.strip() for s in _sents
+                  if any(k in s for k in _RENT_SENT_KW) and any(a in s for a in _SHUN)), None) \
+        or next((s.strip() for s in _sents if any(k in s for k in _RENT_SENT_KW)), None)
+    if not _sent:
+        continue
+    _item = '总账' if '总账' in _sent else ('卖稻' if ('卖稻' in _sent or '售稻' in _sent) else '稻租')
+    _nat = '收入' if any(k in _sent for k in ('收', '售', '卖', '汇', '解', '缴', '完')) else None
+    txns.append({
+        'id': f'shun_rent_{_d}', 'label': _sent[:40], 'date': _d, 'source_file': f'{_d}.md',
+        'evidence': _sent[:120], 'people': [], 'item': _item, 'quantity': None,
+        'amount': None, 'amount_num': None, 'direction': None, 'nature': _nat,
+        'agent': '吴舜臣', 'agents': ['吴舜臣'], 'agent_source': 'rent_sentence_synth',
+        'page': page_for(_d), 'is_rice': True, 'qty_shi': None,
+        'unit_price_yuan': None, 'unit_price_source': None,
+    })
+    _shun_synth += 1
+
+# 售稻 flag (新需求 0605/0615 "导出账单=》售稻信息列表"): rice rows that are SALES (售/卖),
+# i.e. disposal of grain for cash — distinct from 收稻/收租 (collecting rent in grain).
+# One pass so it also covers the rice_synth / shun_rent synthesized rows.
+_rice_sale_n = 0
+for t in txns:
+    _bl = (t.get('label') or '') + (t.get('evidence') or '')
+    t['is_rice_sale'] = bool(t.get('is_rice') and any(k in _bl for k in ('售', '卖')))
+    _rice_sale_n += t['is_rice_sale']
+
 txns.sort(key=lambda t: t.get('date', '') or '')
 (out_dir / 'transactions.json').write_text(json.dumps(txns, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+print(f'  售稻 sale rows: {_rice_sale_n}')
 print(f'  稻谷单价: backfilled {_price_backfill} days, synthesized {_price_synth} '
       f'(source 每石 prices on {len(_rice_price_by_date)} days)')
+print(f'  吴舜臣经办人: rice re-attributed {_rice_reattrib}, correspondence rows synthesized '
+      f'{_shun_synth} → {sum(1 for t in txns if t.get("agent") == "吴舜臣")} total rows '
+      f'on {len(set(t["date"] for t in txns if t.get("agent") == "吴舜臣"))} days')
 print(f'  经办人: {sum(1 for t in txns if t.get("agent"))}/{len(txns)} filled '
       f'(+{_agent_evidence_fill} via evidence, +{_agent_body_fill} via body-scan, '
       f'alias-lexicon={len(AGENT_ALIASES)} for {len(FREQ_AGENT_PIDS)} persons); '
@@ -2405,6 +2597,116 @@ event_nature = {
 (out_dir / 'event_nature.json').write_text(
     json.dumps(event_nature, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
 
+# ── 新需求 (0605/0615) top10 事件类型: ~11-category daily activity classifier ─────
+# Deterministic (no LLM, no re-extraction). Each of the 6134 day-entries gets every
+# matching activity label; rank categories by distinct days. Keyword sets tuned for
+# precision (it is a published figure). 购藏书籍 requires book-context tokens (not bare
+# 购, which also buys 碑/古玩); 通信 deliberately omitted — it is a medium, not an activity.
+ACTIVITY_RULES = [
+    ('收租稻务', ['收租', '租稻', '稻租', '售稻', '卖稻', '收稻', '每石', '佃户', '佃', '完粮',
+                 '押板', '稻洋', '田租', '租息', '租簿', '期稻', '稻价', '稻款', '租洋', '业户']),
+    ('金石碑帖', ['碑帖', '法帖', '字帖', '丛帖', '碑版', '拓本', '墨拓', '钟鼎', '彝器', '古泉',
+                 '古玩', '金石', '法书', '名画', '书画', '造像', '墓志', '古砚', '古印', '宋椠',
+                 '鉴藏', '鉴赏', '题跋', '拓片', '碑', '法帖']),
+    ('编纂著述', ['修志', '通志', '县志', '南陵志', '志稿', '志书', '志馆', '通志局', '编纂',
+                 '纂修', '校勘', '校刊', '刻书', '付印', '排印', '撰', '谱牒', '族谱', '家谱', '刊印']),
+    ('购藏书籍', ['取书', '书价', '书肆', '书店', '来青阁', '蟬隐庐', '收书', '买书', '售书',
+                 '书贾', '书目', '旧书', '宋本', '元刊', '善本', '刻本', '钞本', '抄本', '书估']),
+    ('赈务善举', ['赈', '义振', '放赈', '急赈', '工赈', '赈款', '水灾', '旱灾', '灾民', '捐助',
+                 '义振', '红十字', '育婴', '义学', '平籴', '施药', '善举', '募捐', '助振']),
+    ('家族事务', ['三太太', '大太太', '太太', '宗祠', '祠堂', '祭祖', '扫墓', '祖茔', '原籍',
+                 '分租', '分家', '丧', '葬', '殓', '弟妇', '家事', '族产', '族人', '修谱', '过继']),
+    ('社交宴游', ['招饮', '侑觞', '雅集', '社集', '祝寿', '寿筵', '答拜', '会饮', '酒叙', '宴',
+                 '小酌', '茶话', '饯', '谭', '晤', '过访', '叙谈']),
+    ('医药疾病', ['延医', '诊方', '服药', '病', '热度', '感冒', '春温', '疾', '痊愈', '去世',
+                 '卒', '逝', '疫', '咳', '痰', '医治', '配药', '抱恙']),
+    ('佛事宗教', ['佛经', '诵经', '念佛', '礼佛', '佛事', '佛像', '放生', '善书', '礼忏', '观音',
+                 '弥陀', '金刚经', '法师', '皈依', '功德', '菩萨', '诵经', '写经', '印经']),
+    # 斋/道人/寺 dropped: 斋=书斋/斋号(室名), 道人=人名(潜道人), 寺=访寺多为社交/游观 — over-count.
+    ('政治时局', ['党部', '知事', '县长', '附加税', '库券', '公债', '戒严', '土匪', '绑匪',
+                 '保卫团', '自卫团', '民团', '省署', '县署', '兵变', '军阀', '减租', '陈报']),
+    ('金融实业', ['银行', '钱庄', '支票', '存款', '保险箱', '股本', '股票', '股息', '汇兑',
+                 '实业公司', '矿', '票号', '洋行', '盐垦', '电灯公司', '碾米厂']),
+]
+activity_counts = Counter()
+activity_year = defaultdict(lambda: Counter())
+activity_samples = defaultdict(list)
+_day_cats = {}                                   # date -> set(cats) — reused by 吴舜臣 dossier
+for _d in sorted(_SRC_BODY):
+    body = _SRC_BODY[_d]
+    cats = set()
+    for cat, kws in ACTIVITY_RULES:
+        kw = next((k for k in kws if k in body), None)
+        if kw:
+            cats.add(cat)
+            activity_counts[cat] += 1
+            activity_year[_d[:4]][cat] += 1
+            if len(activity_samples[cat]) < 50:
+                pos = body.find(kw)
+                activity_samples[cat].append({
+                    'date': _d, 'page': page_for(_d), 'kw': kw,
+                    'snippet': body[max(0, pos - 8):pos + 26].replace('\n', ' ').strip()})
+    _day_cats[_d] = cats
+activity_ranked = activity_counts.most_common()
+activity_types = {
+    'total_days': len(_SRC_BODY),
+    'ranked': [{'cat': c, 'days': n, 'rank': i + 1} for i, (c, n) in enumerate(activity_ranked)],
+    'top10': [c for c, _ in activity_ranked[:10]],
+    'by_year': {y: dict(activity_year[y]) for y in sorted(activity_year)},
+    'samples': {c: activity_samples[c] for c, _ in activity_ranked},
+    'note': '按天·可多标签：一天可归入多类；排名按命中天数。确定性关键词分类，无 LLM、无重新抽取。',
+}
+(out_dir / 'activity_types.json').write_text(
+    json.dumps(activity_types, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+print('  top10 事件类型: ' + ' / '.join(f'{c}{n}' for c, n in activity_ranked[:10]))
+
+# ── 新需求 (0615) 吴舜臣 dossier: per-month activity timeline vs user ground truth ─
+# All 舜臣 (舜臣/舜老/吴舜臣) mention-days, classified by activity (_day_cats) with the
+# 舜-sentence as snippet, grouped by 年-月. Header compares against the user's manual
+# per-year 频次 count (图谱改进0615.xlsx 吴舜臣 sheet) so completeness is auditable.
+WU_TRUTH_BY_YEAR = {1920: 54, 1921: 62, 1922: 102, 1923: 60, 1924: 90, 1925: 60,
+                    1926: 69, 1927: 63, 1928: 71, 1929: 46, 1930: 55, 1931: 56,
+                    1932: 48, 1933: 39, 1934: 48, 1935: 21, 1936: 23, 1937: 33, 1938: 11}
+_wu_acct_days = defaultdict(set)
+_wu_acct_rows = Counter()
+for _t in txns:
+    if _t.get('agent') == '吴舜臣' and _t.get('date'):
+        _wu_acct_days[_t['date'][:4]].add(_t['date'])
+        _wu_acct_rows[_t['date'][:4]] += 1
+_wu_months = defaultdict(lambda: {'days': 0, 'cats': Counter(), 'snips': []})
+_wu_mention_days = defaultdict(int)
+for _d in sorted(_SRC_BODY):
+    body = _SRC_BODY[_d]
+    if not any(a in body for a in _SHUN):
+        continue
+    _wu_mention_days[_d[:4]] += 1
+    ym = _d[:7]
+    _m = _wu_months[ym]
+    _m['days'] += 1
+    for c in _day_cats.get(_d, ()):
+        _m['cats'][c] += 1
+    _sent = next((s.strip() for s in re.split(r'[。\n/]', body) if any(a in s for a in _SHUN)), '')
+    if _sent and len(_m['snips']) < 6:
+        _m['snips'].append({'date': _d, 'page': page_for(_d), 'text': _sent[:80]})
+wu_dossier = {
+    'by_year': [{'year': y, 'truth': WU_TRUTH_BY_YEAR.get(y, 0),
+                 'mention_days': _wu_mention_days.get(str(y), 0),
+                 'acct_days': len(_wu_acct_days.get(str(y), ())),
+                 'acct_rows': _wu_acct_rows.get(str(y), 0)} for y in range(1920, 1939)],
+    'months': [{'ym': ym, 'days': v['days'],
+                'cats': [c for c, _ in v['cats'].most_common()], 'snips': v['snips']}
+               for ym, v in sorted(_wu_months.items())],
+    'totals': {'truth': sum(WU_TRUTH_BY_YEAR.values()),
+               'mention_days': sum(_wu_mention_days.values()),
+               'acct_days': sum(len(s) for s in _wu_acct_days.values()),
+               'acct_rows': sum(_wu_acct_rows.values())},
+}
+(out_dir / 'wu_shunchen.json').write_text(
+    json.dumps(wu_dossier, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+print(f'  吴舜臣 dossier: {len(wu_dossier["months"])} months, mention-days '
+      f'{wu_dossier["totals"]["mention_days"]}, 账单 {wu_dossier["totals"]["acct_rows"]} '
+      f'rows (truth {wu_dossier["totals"]["truth"]})')
+
 # people-circles from 金石收藏 / 诗词文会 days → feed the 事业 cluster ("古玩收藏的一群人")
 _nat_day_people = defaultdict(Counter)        # cat -> Counter(primary_pid -> #days)
 for _n in src['nodes']:
@@ -2456,12 +2758,15 @@ _fig_nav = ('<nav><a href="../index.html">← 返回总览</a>'
             '<a href="relationship-rings.html">关系同心圆</a>'
             '<a href="shiye-clusters.html">事业聚合</a>'
             '<a href="event-nature.html">事件性质</a>'
-            '<a href="trajectory-heatmap.html">行迹热力图</a></nav>')
+            '<a href="trajectory-heatmap.html">行迹热力图</a>'
+            '<a href="event-types.html">事件类型Top10</a>'
+            '<a href="wu-shunchen.html">吴舜臣活动谱</a></nav>')
 
 
 def _fig_page(title, lede, body, head_extra=''):
     return (f'<!doctype html><html lang="zh"><head><meta charset="utf-8">'
             f'<meta name="viewport" content="width=device-width,initial-scale=1">'
+            f'<link rel="icon" href="../favicon.svg">'
             f'<title>{esc(title)} · 徐乃昌日记 KG</title><style>{FIG_CSS}</style>{head_extra}'
             f'</head><body><div class="wrap">{_fig_nav}<h1>{esc(title)}</h1>'
             f'<div class="lede">{lede}</div>{body}'
@@ -2535,6 +2840,74 @@ browse();
     '按五类性质给每天日记打标签（金石收藏 / 诗词文会 / 遗民活动 / 乡邦活动 / 其它），并分别计数。'
     '一天可同时归入多类（如某日既访碑帖又赋诗）。下方可逐类浏览命中条目与原文片段。无重新抽取。',
     _en_body), encoding='utf-8')
+
+# Figure — top10 事件类型 (deterministic activity classifier, 新需求 0605/0615)
+_AT_PALETTE = {'收租稻务': '#9b2926', '金石碑帖': '#1b7837', '编纂著述': '#2171b5',
+               '购藏书籍': '#6a51a3', '赈务善举': '#cb181d', '家族事务': '#8c510a',
+               '社交宴游': '#d94801', '医药疾病': '#c51b7d', '佛事宗教': '#386cb0',
+               '政治时局': '#525252', '金融实业': '#a6761d'}
+_et_body = f"""
+<div id="bars" class="card" style="padding:14px"></div>
+<div style="margin-top:12px" class="card" id="browse"></div>
+<script>
+const AT={json.dumps(activity_types,ensure_ascii=False)};
+const PAL={json.dumps(_AT_PALETTE,ensure_ascii=False)};
+const ranked=AT.ranked, mx=Math.max(...ranked.map(r=>r.days),1);
+document.getElementById('bars').innerHTML='<div style="font-size:12px;color:#888;margin-bottom:10px">共 '+AT.total_days+' 天日记。'+AT.note+' <b>加粗=top10</b>。</div>'+
+ ranked.map(r=>{{const c=r.cat,v=r.days,top=r.rank<=10,col=PAL[c]||'#9aa0a6';return `<div style="display:flex;align-items:center;gap:8px;margin:5px 0">
+  <div style="width:28px;text-align:right;color:#bbada0;font-size:12px">${{r.rank}}</div>
+  <div style="width:84px;font-size:13px;font-weight:${{top?700:400}}">${{c}}</div>
+  <div style="flex:1;background:#f0ece4;border-radius:3px"><div style="width:${{100*v/mx}}%;background:${{col}};height:18px;border-radius:3px;opacity:${{top?1:.5}}"></div></div>
+  <div style="width:70px;text-align:right;font-size:13px;font-weight:${{top?700:400}}">${{v}} 天</div></div>`;}}).join('');
+let cur=ranked[0].cat;
+function browse(){{
+ const s=AT.samples[cur]||[];
+ document.getElementById('browse').innerHTML=
+  '<div style="margin-bottom:8px;line-height:2">'+ranked.map(r=>`<button data-c="${{r.cat}}" style="margin:0 6px 4px 0;padding:4px 10px;border:1px solid #ddd;border-radius:3px;cursor:pointer;background:${{r.cat===cur?(PAL[r.cat]||'#666'):'#fff'}};color:${{r.cat===cur?'#fff':'#333'}}">${{r.cat}}</button>`).join('')+'</div>'+
+  '<table style="width:100%;border-collapse:collapse;font-size:12px"><tr style="color:#999"><th style="text-align:left">日期</th><th style="text-align:left">页</th><th style="text-align:left">命中</th><th style="text-align:left">原文片段</th></tr>'+
+  s.map(r=>`<tr><td style="padding:3px 6px 3px 0;white-space:nowrap">${{r.date}}</td><td style="color:#999">${{r.page||''}}</td><td style="color:${{PAL[cur]||'#666'}}">${{r.kw||''}}</td><td style="color:#5a5247">${{r.snippet}}</td></tr>`).join('')+'</table>';
+ document.querySelectorAll('#browse button').forEach(b=>b.onclick=()=>{{cur=b.dataset.c;browse();}});
+}}
+browse();
+</script>"""
+(specials_dir / 'event-types.html').write_text(_fig_page(
+    '徐乃昌生活事件类型 Top10',
+    f'把全部 {len(_SRC_BODY)} 天日记按 11 类活动打标签（确定性关键词，可多标签，无 LLM、无重新抽取），'
+    f'按命中天数排名。Top10：{" · ".join(activity_types["top10"])}。下方按类浏览命中原文。',
+    _et_body), encoding='utf-8')
+
+# Figure — 吴舜臣 dossier (per-month activity timeline vs ground truth, 新需求 0615)
+_wu_body = f"""
+<div class="card" id="yr" style="padding:14px"></div>
+<div style="margin-top:12px" class="card" id="grid" style="padding:10px"></div>
+<script>
+const WU={json.dumps(wu_dossier,ensure_ascii=False)};
+const PAL={json.dumps(_AT_PALETTE,ensure_ascii=False)};
+const T=WU.totals;
+let yr='<div style="font-size:12px;color:#888;margin-bottom:8px">三个口径：<b>你的频次</b>=人工检索全部提及（含修志/赈务/家事/病等非账目）；<b>提及天</b>=语料中出现舜臣/舜老的日数（无重抽上限）；<b>账单</b>=收租交易行（经办人=吴舜臣）。合计 你 '+T.truth+' · 提及天 '+T.mention_days+' · 账单 '+T.acct_rows+' 行/'+T.acct_days+' 天。</div>';
+yr+='<table style="width:100%;border-collapse:collapse;font-size:12px"><tr style="color:#999;text-align:right"><th style="text-align:left">年</th><th>你的频次</th><th>我·提及天</th><th>我·账单天</th><th>我·账单行</th><th>账单/提及</th></tr>';
+WU.by_year.forEach(r=>{{const pct=r.mention_days?Math.round(100*r.acct_days/r.mention_days):0;
+ yr+=`<tr style="text-align:right"><td style="text-align:left">${{r.year}}</td><td>${{r.truth}}</td><td>${{r.mention_days}}</td><td>${{r.acct_days}}</td><td><b>${{r.acct_rows}}</b></td><td style="color:#999">${{pct}}%</td></tr>`;}});
+yr+=`<tr style="text-align:right;border-top:2px solid #ddd;font-weight:700"><td style="text-align:left">合计</td><td>${{T.truth}}</td><td>${{T.mention_days}}</td><td>${{T.acct_days}}</td><td>${{T.acct_rows}}</td><td></td></tr></table>`;
+document.getElementById('yr').innerHTML=yr;
+// month grid
+let g='<div style="font-size:12px;color:#888;margin-bottom:8px">逐月：舜臣提及天数 + 该月活动类型标签（点击展开原文片段）。可与 0615 表逐月对照。</div>';
+WU.months.forEach((m,i)=>{{
+ const tags=m.cats.map(c=>`<span style="display:inline-block;background:${{(PAL[c]||'#999')}}22;color:${{PAL[c]||'#666'}};border:1px solid ${{PAL[c]||'#ccc'}};border-radius:10px;padding:1px 7px;font-size:11px;margin:1px 3px 1px 0">${{c}}</span>`).join('');
+ g+=`<div style="border-bottom:1px solid #f0ece4;padding:6px 0">
+   <div style="cursor:pointer" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'">
+   <b style="display:inline-block;width:72px">${{m.ym}}</b><span style="color:#9b2926">${{m.days}} 天</span>　${{tags}}</div>
+   <div style="display:none;margin:4px 0 4px 78px;font-size:12px;color:#5a5247">`+
+   m.snips.map(s=>`<div>${{s.date}} <span style="color:#bbb">p${{s.page||'?'}}</span>　${{s.text}}</div>`).join('')+`</div></div>`;
+}});
+document.getElementById('grid').innerHTML=g;
+</script>"""
+(specials_dir / 'wu-shunchen.html').write_text(_fig_page(
+    '吴舜臣 · 收租代理活动谱',
+    f'徐乃昌南陵收租代理吴舜臣（舜臣/舜老）的逐月活动谱：{wu_dossier["totals"]["mention_days"]} 个提及天，'
+    f'其中 {wu_dossier["totals"]["acct_rows"]} 条进入账单（经办人筛选，原 230 条）。'
+    f'与《图谱改进0615》人工检索（{wu_dossier["totals"]["truth"]} 次）逐年/逐月对照，差额为非账目活动（修志/赈务/家事/医病）。',
+    _wu_body), encoding='utf-8')
 
 # Figure 1 — concentric rings (SVG, computed client-side)
 RING_COLORS = ['#9b2926', '#c0392b', '#d98880', '#e8b9b3', '#cfcabf']
@@ -2683,6 +3056,8 @@ specials_idx = [
     '<li><a href="relationship-rings.html"><strong>人物关系同心圆</strong></a> — 亲疏分层 (亲属/南陵/安徽/其他)</li>',
     '<li><a href="shiye-clusters.html"><strong>事业聚合与重叠</strong></a> — 人物×事业 (含金石/诗词圈)，跨事业重叠</li>',
     '<li><a href="event-nature.html"><strong>日记事件性质分类</strong></a> — 金石/诗词/遗民/乡邦/其它 按天计数</li>',
+    '<li><a href="event-types.html"><strong>生活事件类型 Top10</strong></a> — 全 6134 天 11 类活动排名 (确定性，无 LLM)</li>',
+    '<li><a href="wu-shunchen.html"><strong>吴舜臣·收租代理活动谱</strong></a> — 逐月活动 + 与 0615 人工检索逐年对照</li>',
     '<li><a href="trajectory-heatmap.html"><strong>作者及家人行迹热力图</strong></a> — 按天数计 · 静态地理热力 (论文用)</li>',
     '<li><a href="recall-audit.html"><strong>召回审计</strong></a> — 原文全文检索 vs 图谱覆盖率 (无重新抽取)</li>',
     '<li><a href="wanbei-1921.html"><strong>1921 皖北赈灾</strong></a> — 灾害+赈务机构+资助流水</li>',
