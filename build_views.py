@@ -3141,9 +3141,9 @@ _org_body = f"""
 <script>
 const ORG={json.dumps(organizations,ensure_ascii=False)};
 const KC={json.dumps(_ORG_KIND_COLOR,ensure_ascii=False)};
-const top=ORG.orgs.slice(0,10), mx=Math.max(...top.map(o=>o.days),1);
+const tops=ORG.orgs.slice(0,10), mx=Math.max(...tops.map(o=>o.days),1);
 document.getElementById('bars').innerHTML='<div style="font-size:12px;color:#888;margin-bottom:10px">全库合并后共 '+ORG.total_orgs+' 个团体；下为出现天数最多的 Top10（已按本名/异写合并，如 商务印书馆/商务书馆/发行所）。点击查看主要人员与可回查长编。</div>'+
- top.map((o,i)=>{{const c=KC[o.kind]||'#888';return `<div data-i="${{i}}" class="obar" style="display:flex;align-items:center;gap:8px;margin:5px 0;cursor:pointer">
+ tops.map((o,i)=>{{const c=KC[o.kind]||'#888';return `<div data-i="${{i}}" class="obar" style="display:flex;align-items:center;gap:8px;margin:5px 0;cursor:pointer">
   <div style="width:24px;text-align:right;color:#bbada0;font-size:12px">${{i+1}}</div>
   <div style="width:128px;font-size:13px;font-weight:600">${{o.org}}</div>
   <div style="flex:1;background:#f0ece4;border-radius:3px"><div style="width:${{100*o.days/mx}}%;background:${{c}};height:18px;border-radius:3px"></div></div>
