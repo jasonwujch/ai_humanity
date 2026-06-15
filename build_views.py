@@ -240,33 +240,25 @@ out_dir.mkdir(exist_ok=True)
 
 nodes_by_id = {n['id']: n for n in src['nodes']}
 
-# ── date → 原书页码 / pdf  (light frontmatter scan for column joins) ──────────
-# DEBUG-④ (图谱改进0605 "1922年起页码不对"): the published 徐乃昌日记 is paginated
-# continuously WITHIN each 册 (volume 1-4), but the OCR source was split into ~19 PDF
-# parts, each restarting page numbers at ~0/1. So frontmatter `source_pages` is
-# PART-LOCAL, not 原书页码. Only 册1's first part (上半部, which starts at book-page 1)
-# happens to align; every later part is un-offset — hence pages go wrong exactly from
-# 1922-02-01 (册1 下半部 resets to 0). Systematic fix (not a per-date patch): chain a
-# per-册 page offset = cumulative max page of the preceding parts in the same 册 (parts
-# ordered by their first date). 册1 上半部 keeps offset 0 → verified anchors 1920-03-12
-# →6, 1920-08-13→58 stay correct. No re-extraction; page_raw/vol kept for audit.
-# ASSUMPTION: 原书页码 restarts per 册 (standard for 多卷本; 中华经典古籍库 labels 第X册第Y页).
-# If the库 instead paginates continuously across all 册, set _PER_VOLUME_RESET = False.
-_PER_VOLUME_RESET = True
+# ── date → 原书页码 / pdf ──────────────────────────────────────────────────────
+# DEBUG (图谱改进0615 "systematically fix 页码"): the 影印《徐乃昌日记》is paginated
+# CONTINUOUSLY across the whole book (~1→1819). The OCR was split into 19 PDF parts, each
+# STARTING at an arbitrary printed page (上半部→1, 4第一部分→1380, 4第六部分→1740; the 补漏/
+# 遗漏 supplements are NON-contiguous — pages gathered from scattered book locations). So
+# frontmatter `source_pages` is the PART-LOCAL pdf page index, NOT the 原书页码 — and no
+# single per-part offset works for the supplements. dots.ocr captured the true printed
+# number in each verso header ("N 徐乃昌日记"); build_page_map.py extracts those per page and
+# interpolates the rest → data/page_map.json {part:{pdf_idx:原书页码}}. page_for() just looks
+# it up (per-page, no offset assumptions). Verified anchors 1920-03-12→6, 1920-08-13→58.
+# Regenerate when raw_ocr changes:  python build_page_map.py
 date_to_meta = {}
 _poc_dir = ROOT / 'data' / 'poc_200'
 _re_pages = re.compile(r'^source_pages:\s*(.+)$', re.M)
 _re_pdf = re.compile(r'^source_pdf:\s*(.+)$', re.M)
 
 
-def _vol_of(pdf):
-    """册 number from pdf filename: 徐乃昌日记2第二部分.pdf → '2'. None if unknown."""
-    m = re.search(r'日记\s*([1-4])', pdf or '')
-    return m.group(1) if m else None
-
-
 def _parse_pagespan(s):
-    """'[220, 221]' / '183, 183' → (220, 221) ints, or (None, None)."""
+    """'[220, 221]' / '183, 183' → (220, 221) pdf-index ints, or (None, None)."""
     nums = re.findall(r'\d+', s or '')
     if not nums:
         return (None, None)
@@ -280,48 +272,41 @@ for _mf in _poc_dir.glob('*.md'):
     mp = _re_pages.search(_t); mpdf = _re_pdf.search(_t)
     _pdf = mpdf.group(1).strip() if mpdf else None
     _lo, _hi = _parse_pagespan(mp.group(1) if mp else '')
-    date_to_meta[_mf.stem] = {'pdf': _pdf, 'vol': _vol_of(_pdf), 'p_lo': _lo, 'p_hi': _hi}
+    date_to_meta[_mf.stem] = {'pdf': _pdf, 'p_lo': _lo, 'p_hi': _hi}
 
-# per-part stats: highest page + earliest date (for chronological ordering within a 册)
-_part_max = defaultdict(int)
-_part_mindate = {}
-for _d, _m in date_to_meta.items():
-    _pdf = _m['pdf']
-    if not _pdf:
-        continue
-    if _m['p_hi'] is not None:
-        _part_max[_pdf] = max(_part_max[_pdf], _m['p_hi'])
-    if _pdf not in _part_mindate or _d < _part_mindate[_pdf]:
-        _part_mindate[_pdf] = _d
+# per-page 原书页码 map built from OCR verso headers (build_page_map.py)
+_PAGE_MAP = {}
+_page_map_file = ROOT / 'data' / 'page_map.json'
+if _page_map_file.exists():
+    _PAGE_MAP = json.loads(_page_map_file.read_text(encoding='utf-8'))
+else:
+    print('  ⚠ data/page_map.json missing — run `python build_page_map.py`; 页码 will be blank')
 
-# chain offsets: parts grouped per 册 (or all together if not _PER_VOLUME_RESET),
-# ordered by first date; offset(part) = Σ max_page of earlier parts in the group.
-_part_offset = {}
-_groups = defaultdict(list)
-for _pdf in _part_max:
-    _groups[_vol_of(_pdf) if _PER_VOLUME_RESET else 'ALL'].append(_pdf)
-for _grp, _parts in _groups.items():
-    _parts.sort(key=lambda p: _part_mindate.get(p, ''))
-    _cum = 0
-    for _p in _parts:
-        _part_offset[_p] = _cum
-        _cum += _part_max[_p]
+
+def _printed_page(pdf, idx):
+    """part-local pdf index → 原书页码 via page_map. part key is the dir name (no .pdf)."""
+    if idx is None or not pdf:
+        return None
+    part = _PAGE_MAP.get(pdf) or _PAGE_MAP.get(pdf.replace('.pdf', ''))
+    return part.get(str(idx)) if part else None
 
 
 def page_for(date):
-    """原书页码 (per-册 offset-corrected). 'lo' or 'lo-hi' string, or None."""
+    """原书页码 (printed-book page, from OCR-header map). 'lo' or 'lo-hi' string, or None."""
     m = date_to_meta.get(date or '')
     if not m or m.get('p_lo') is None:
         return None
-    off = _part_offset.get(m['pdf'], 0)
-    lo = m['p_lo'] + off
-    hi = (m['p_hi'] if m['p_hi'] is not None else m['p_lo']) + off
-    return f'{lo}' if lo == hi else f'{lo}-{hi}'
+    lo = _printed_page(m['pdf'], m['p_lo'])
+    hi = _printed_page(m['pdf'], m['p_hi'] if m['p_hi'] is not None else m['p_lo'])
+    if lo is None:
+        return None
+    if hi is None or hi == lo:
+        return f'{lo}'
+    return f'{lo}-{hi}'
 
 
-print('  原书页码: per-册 offsets ' + ', '.join(
-    f'{_p.replace("徐乃昌日记", "").replace(".pdf", "")}+{_o}'
-    for _p, _o in sorted(_part_offset.items(), key=lambda kv: (_vol_of(kv[0]) or "", kv[1]))))
+print(f'  原书页码: page_map loaded ({sum(len(v) for v in _PAGE_MAP.values())} pages, '
+      f'{len(_PAGE_MAP)} parts) — continuous pagination from OCR headers')
 
 
 # 性质 (income/expense) lexicon — derive from txn label/evidence verbs.
