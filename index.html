@@ -589,7 +589,7 @@
           {{ currentChunk.entities.length }} 实体
           <span v-if="currentChunk.source_pdf" style="margin-left:10px">·</span>
           <span v-if="currentChunk.source_pdf" :title="currentChunk.source_pdf">原书: {{ currentChunk.source_pdf.split('/').pop() }}</span>
-          <span v-if="currentChunk.source_pages" style="margin-left:6px;color:var(--accent)">页 {{ currentChunk.source_pages }}</span>
+          <span v-if="currentChunk.page" style="margin-left:6px;color:var(--accent)">原书页 {{ currentChunk.page }}</span>
         </div>
         <div v-html="highlightedBody"></div>
       </div>

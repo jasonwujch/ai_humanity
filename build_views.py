@@ -1599,7 +1599,9 @@ for md_file in sorted(chunk_dir.glob('*.md')):
                     raw = line.split(':', 1)[1].strip()
                     pages = raw.strip('[] ').replace(' ', '')
     date_key = md_file.stem  # YYYY-MM-DD
-    chunks[date_key] = {'body': body, 'entities': [], 'lunar_date': lunar, 'source_pdf': pdf, 'source_pages': pages}
+    # 'page' = corrected 原书页码 (via page_map); 'source_pages' kept = raw part-local pdf index.
+    chunks[date_key] = {'body': body, 'entities': [], 'lunar_date': lunar, 'source_pdf': pdf,
+                        'source_pages': pages, 'page': page_for(date_key)}
 
 # Attach entities per chunk via surface_forms[].chunk_id (which equals the date key)
 for n in src['nodes']:
