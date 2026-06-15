@@ -340,9 +340,13 @@ ANHUI_KW = ('皖', '安徽', '南陵', '芜湖', '宣城', '泾县', '广德', '
 # these from keyword guesses (~). 徐乃昌 字积馀, 祖籍南陵; 吴舜臣 = 南陵收租代理.
 # Added (2026-05-28) well-documented 安徽 literati present in corpus — verify before extending:
 #   黄宾虹(歙县) 胡朴安(泾县) 许承尧(歙县) 汪孟邹(绩溪) 程演生(怀宁) 刘世珩(贵池).
+# Added (2026-06-16, 第5波 皖籍补全) high-interaction 皖人 whose 籍贯 the diary never states
+# (so statement-mining can't reach them) and who never sit in a 同乡会 sentence:
+#   刘晦之=刘体智(庐江, 善斋, 收藏家) 王揖唐(合肥) 刘秉璋裔. Verified, not guessed.
 # Removed '徐淑记': no matching node — 淑记 is a 存款账号/堂号 (evidence "为翦淑记存款"), not a person.
 ANHUI_GAZETTEER = {'徐乃昌', '徐积馀', '吴舜臣',
-                   '黄宾虹', '胡朴安', '许承尧', '汪孟邹', '程演生', '刘世珩'}
+                   '黄宾虹', '胡朴安', '许承尧', '汪孟邹', '程演生', '刘世珩',
+                   '刘晦之', '刘体智', '王揖唐'}
 
 # 安徽 place-names for 籍贯 classification (multi-char; 徽州六县 + 安庆/庐州/池州/凤阳/颍州 等府县).
 ANHUI_PLACES = {'安徽', '皖', '南陵', '芜湖', '宣城', '泾县', '广德', '六安', '宁国', '当涂',
@@ -351,7 +355,10 @@ ANHUI_PLACES = {'安徽', '皖', '南陵', '芜湖', '宣城', '泾县', '广德
     '怀远', '灵璧', '滁州', '和县', '含山', '巢县', '无为', '全椒', '来安', '天长', '旌德',
     '婺源', '庐州', '颍州', '和州', '太平府', '阜阳', '太湖县'}
 # 同乡会/会馆 name fragments — membership is a strong 皖籍 signal (high confidence).
-TONGXIANG_KW = ('徽宁', '安徽同乡', '旅沪安徽', '南陵旅沪', '皖同乡', '安徽旅沪')
+# Anhui-anchored only (generic 同乡会 alone matches 浙江/广东 societies → excluded).
+TONGXIANG_KW = ('徽宁', '安徽同乡', '旅沪安徽', '南陵旅沪', '皖同乡', '安徽旅沪',
+                '安徽会馆', '徽宁会馆', '新安会馆', '皖省同乡', '皖南同乡',
+                '徽州同乡', '宁国同乡', '芜湖同乡', '安徽旅沪同乡')
 # Recognized NON-安徽 籍贯 places — used to anchor 籍贯-statement mining (so "〈name〉，〈place〉人"
 # matches a real place, not noise like 主人/友人/作冰人) AND to record explicit non-Anhui origin.
 NONANHUI_PLACES = {
@@ -570,6 +577,21 @@ for _p in sorted((ROOT / 'data' / 'poc_200').glob('*.md')):
             _SRC_BODY[_m.group(1)] = _p.read_text(encoding='utf-8')
         except Exception:
             pass
+
+
+def _strip_fm(t):
+    """Drop the YAML frontmatter block (author:徐乃昌 / source_pdf:徐乃昌日记… pollute
+    person scans) and the markdown date heading, leaving the diary body only."""
+    if t.startswith('---'):
+        e = t.find('\n---', 3)
+        if e != -1:
+            t = t[e + 4:]
+    return re.sub(r'^\s*#[^\n]*\n', '', t.lstrip(), count=1)
+
+
+# frontmatter-stripped body (used by 同乡会 co-attendance tagging + 南陵县志 长编 +
+# any whole-entry person scan, so frontmatter 徐乃昌日记/author never false-matches).
+_BODY = {d: _strip_fm(t) for d, t in _SRC_BODY.items()}
 
 
 # ── 1) overview ──────────────────────────────────────────────────────────────
@@ -1712,6 +1734,37 @@ for _mf in sorted((ROOT / 'data' / 'poc_200').glob('*.md')):
         if best is not None:
             jiguan_by_pid[best] = m.group(1)   # nearest occurrence in this file wins
 
+# ── 同乡会 co-attendance → 皖籍 (event-based, no re-extraction) ─────────────────
+# 「参加各种皖省同乡会、徽宁同乡会、安徽旅沪同乡会等都是皖籍」(0616 第5波①). When a diary day names an
+# Anhui native-place society, the people listed AROUND that name are co-attendees → tagged
+# 皖籍 (source=tongxiang_event). Anchored to Anhui societies only (TONGXIANG_KW), so 浙江/广东
+# 同乡会 never leak. PROXIMITY (window around the society name, not whole entry): a roster sits
+# beside "徽宁同乡会公宴…座中…"; an incidental mention elsewhere in the day (a wedding, a letter
+# about a 同乡会 dispute) won't sweep in unrelated names. Authoritative non-Anhui 籍贯 still wins
+# (classifier tier 1 precedes this). Drop generic role-words that extraction left as "persons".
+_NONPERSON_ALIAS = {'冰人', '作冰人', '主人', '友人', '同乡', '督军', '张督军', '知事', '太守', '局长'}
+_alias_keys = [a for a in alias_to_pid if len(a) >= 2 and a not in _NONPERSON_ALIAS]
+_alias_rx = re.compile('|'.join(re.escape(a) for a in
+                                sorted(_alias_keys, key=len, reverse=True))) if _alias_keys else None
+_TX_RX = re.compile('|'.join(re.escape(k) for k in sorted(TONGXIANG_KW, key=len, reverse=True)))
+tongxiang_event_pids = set()
+tongxiang_event_days = []
+for _d, _b in _BODY.items():
+    if not _TX_RX.search(_b):
+        continue
+    # join short adjacent clauses around the society name into one roster sentence; tag persons
+    # named WITH the society (同一句), so a colophon/gift in the next sentence isn't swept in.
+    _parts = re.split(r'(?<=[。！？\n])|\s{2,}', _b)        # sentence-level (keep 、，inside a roster)
+    hit = False
+    for _s in _parts:
+        if _TX_RX.search(_s):
+            hit = True
+            if _alias_rx:
+                for _a in set(_alias_rx.findall(_s)):
+                    tongxiang_event_pids.add(alias_to_pid[_a])
+    if hit:
+        tongxiang_event_days.append(_d)
+
 def _place_is_anhui(pl):
     return (pl in ANHUI_PLACES) or any(p in pl or pl in p for p in ANHUI_PLACES)
 
@@ -1722,6 +1775,8 @@ def anhui_classify(pid, names, orgs):
         return (_place_is_anhui(jiguan_by_pid[pid]), 'statement')
     if any(any(k in o for k in TONGXIANG_KW) for o in orgs):
         return (True, 'tongxianghui')
+    if pid in tongxiang_event_pids:                    # co-attended an Anhui 同乡会
+        return (True, 'tongxiang_event')
     if any(n in ANHUI_GAZETTEER for n in names):
         return (True, 'gazetteer')
     if is_anhui(*names, *orgs):
@@ -1779,9 +1834,10 @@ for pid, ref in primary_node_ref.items():
     })
 
 # ── kinship propagation: a relative of a HIGH-confidence 皖籍 person is 皖籍 too.
-# One hop, from {statement,tongxianghui,gazetteer} only (not keyword) to avoid amplifying guesses.
+# One hop, from {statement,tongxianghui,tongxiang_event,gazetteer} only (not keyword) to avoid amplifying guesses.
 _by_id = {r['id']: r for r in renshi}
-_confident = {r['id'] for r in renshi if r['is_anhui'] and r['anhui_source'] in ('statement', 'tongxianghui', 'gazetteer')}
+_confident = {r['id'] for r in renshi if r['is_anhui']
+              and r['anhui_source'] in ('statement', 'tongxianghui', 'tongxiang_event', 'gazetteer')}
 for ke in kin_edges_out:
     for me, other in ((ke['source'], ke['target']), (ke['target'], ke['source'])):
         r = _by_id.get(me)
@@ -2294,23 +2350,30 @@ special7_html = render_special(
 )
 (specials_dir / 'gatherings.html').write_text(special7_html, encoding='utf-8')
 
-# Topic 8: 安徽同乡圈
-anhui_keywords = ['皖', '安徽', '南陵', '芜湖', '宣城', '泾县', '广德', '阜阳', '六安']
-anhui_persons = []
-for n in src['nodes']:
-    if n.get('entity_type') != '人': continue
-    md = n.get('metadata') or {}
-    canonical = md.get('canonical') or ''
-    # Heuristic: person canonical contains 安徽 county OR linked to 安徽 locations
-    if any(kw in canonical for kw in anhui_keywords):
-        if redirect(n['id']) == n['id']:
-            anhui_persons.append({'id': n['id'], 'label': n.get('label'), 'canonical': canonical})
-s8_items = [f'<strong>{esc(p["label"])}</strong> <span style="color:#888;font-size:11px">{esc(p["canonical"])}</span>' for p in anhui_persons]
-
+# Topic 8: 安徽同乡圈 — 单一真相源 = renshi 的 anhui_classify (0616 第5波① 补全后刷新)
+_AH_SRC_LABEL = {'statement': '籍贯陈述', 'tongxianghui': '同乡会会籍', 'tongxiang_event': '同乡会同席',
+                 'gazetteer': '考订名录', 'kinship': '亲属推断', 'keyword': '地名线索'}
+_AH_SRC_COLOR = {'statement': '#1b7837', 'tongxianghui': '#d94801', 'tongxiang_event': '#d94801',
+                 'gazetteer': '#6a51a3', 'kinship': '#a35c1a', 'keyword': '#8c8c8c'}
+anhui_persons = sorted((r for r in renshi if r.get('is_anhui')),
+                       key=lambda r: -(r.get('interactions') or 0))
+_ah_src_counts = Counter(r.get('anhui_source') for r in anhui_persons)
+s8_items = []
+for p in anhui_persons:
+    src_k = p.get('anhui_source') or 'keyword'
+    badge = (f'<span style="background:{_AH_SRC_COLOR.get(src_k, "#888")}22;color:{_AH_SRC_COLOR.get(src_k, "#888")};'
+             f'border:1px solid {_AH_SRC_COLOR.get(src_k, "#888")}55;border-radius:9px;padding:0 7px;font-size:11px">'
+             f'{_AH_SRC_LABEL.get(src_k, src_k)}</span>')
+    jg = f' <span style="color:#9b2926;font-size:11px">{esc(p["jiguan"])}</span>' if p.get('jiguan') else ''
+    s8_items.append(f'<strong>{esc(p["label"])}</strong>{jg} {badge} '
+                    f'<span style="color:#bbada0;font-size:11px">互动{p.get("interactions", 0)}</span>')
+_ah_breakdown = '、'.join(f'{_AH_SRC_LABEL.get(k, k)} {v}' for k, v in _ah_src_counts.most_common())
 special8_html = render_special(
-    '安徽同乡圈',
-    f'徐乃昌祖籍南陵，日记中提及的 {len(anhui_persons)} 位与安徽相关人物 (canonical 含皖/安徽/县名)。',
-    [{'title': '安徽相关人物', 'items': s8_items}]
+    '安徽同乡圈（皖籍人物清单）',
+    f'徐乃昌祖籍南陵。经分级判定（籍贯陈述 &gt; 同乡会会籍/同席 &gt; 考订名录 &gt; 亲属推断 &gt; 地名线索）'
+    f'共 {len(anhui_persons)} 位皖籍人物，按与徐互动次数排序。来源构成：{_ah_breakdown}。'
+    f'其中“同乡会同席”为本轮（0616）新增——凡与徐同赴皖省/徽宁/安徽旅沪同乡会者皆判为皖籍。无重新抽取。',
+    [{'title': f'皖籍人物（{len(anhui_persons)}）', 'items': s8_items}]
 )
 (specials_dir / 'anhui-network.html').write_text(special8_html, encoding='utf-8')
 
@@ -2349,6 +2412,25 @@ for _e in src['edges']:
         _nanling_persons.add(redirect(_t))
 _nanling_persons.discard(xu_primary)
 
+# ── 互动频次 with 徐乃昌 (0616 第5波④: 圆点大小按其与徐的互动频次) ──────────────────
+# Direct person↔徐 relations (致书/赠/同席/亲属…) + co-attendance hyperedges that include 徐.
+# This is closeness-to-ego, distinct from a person's TOTAL interactions (which also count
+# their ties to third parties). Drives the dot radius so the rings read as 亲疏 by 与徐互动.
+xu_freq = Counter()
+for _e in per_edges_deduped:
+    _a, _b = _e.get('source'), _e.get('target')
+    if _a == xu_primary and _b:
+        xu_freq[_b] += 1
+    elif _b == xu_primary and _a:
+        xu_freq[_a] += 1
+for _h in src.get('hyperedges', []):
+    _mem = {redirect(m) for m in (_h.get('nodes') or [])
+            if nodes_by_id.get(m, {}).get('entity_type') == '人'}
+    if xu_primary in _mem:
+        for _m in _mem:
+            if _m != xu_primary:
+                xu_freq[_m] += 1
+
 
 def _ring_of(r):
     if r['id'] == xu_primary:
@@ -2371,12 +2453,15 @@ for r in renshi:
     _ring_pool[ring].append({
         'id': r['id'], 'label': r['label'], 'ring': ring,
         'interactions': r.get('interactions') or 0,
+        'xu_freq': xu_freq.get(r['id'], 0),            # 与徐互动频次 → 圆点大小
         'kin_type': family.get(r['id'], {}).get('kin_type'),
         'jiguan': r.get('jiguan'),
+        'anhui_source': r.get('anhui_source'),
     })
 rings = []
 for ring, pool in _ring_pool.items():
-    pool.sort(key=lambda x: -x['interactions'])
+    # outer rings are capped for legibility — keep those CLOSEST to 徐 (by 与徐互动频次)
+    pool.sort(key=lambda x: (-x['xu_freq'], -x['interactions']))
     rings.extend(pool[:RING_CAP.get(ring, 200)])
 ring_counts = {RING_LABELS[k]: len(_ring_pool[k]) for k in sorted(_ring_pool)}
 (out_dir / 'relationship_rings.json').write_text(
@@ -2490,7 +2575,7 @@ _wdeg = Counter()
 for (_a, _b), _w in _pair_w.items():
     _wdeg[_a] += _w
     _wdeg[_b] += _w
-OVERVIEW_TOPN = 240
+OVERVIEW_TOPN = 100        # 0616 第5波③: 缩到最密切的 100 人 (was 240) → 圈层结构更清晰
 _top_ids = {i for i, _ in _wdeg.most_common(OVERVIEW_TOPN)}
 ov_edges = [{'s': a, 't': b, 'w': w} for (a, b), w in _pair_w.items()
             if a in _top_ids and b in _top_ids]
@@ -2521,8 +2606,43 @@ _renum = {L: idx for idx, (L, _) in enumerate(_sizes.most_common())}   # big mod
 _comm_of = {i: (_renum[_lab[i]] if _sizes[_lab[i]] >= 3 else -1) for i in _top_ids}
 ov_nodes = [{'id': i, 'label': nodes_by_id.get(i, {}).get('label') or i,
              'deg': _wdeg[i], 'community': _comm_of.get(i, -1)} for i in _top_ids]
+
+# ── auto-name each module (说明 cluster 逻辑, 0616 第5波③) ──────────────────────
+# A module = a set of people who co-appear with each other far more than with outsiders
+# (weighted label-propagation). Name it by theme if a known anchor-set hits, else by its
+# two highest-degree members. Legend lists name·size·代表人物 so the clustering is legible.
+def _lbl(i):
+    return nodes_by_id.get(i, {}).get('label') or i
+_THEME = [
+    ('藏书·刻书圈', {'陈乃乾', '金颂清', '李拔可', '缪荃孙', '刘翰怡', '张元济', '张菊生', '叶遐庵',
+                    '傅增湘', '傅沅叔(增湘)', '董康', '罗子经', '杨寿祺', '宗子戴', '王富晋'}),
+    ('实业·金融圈', {'吴寄尘', '刘晦之', '张孝若', '周美权', '陈一甫', '陈西甫', '聂云台', '徐静仁'}),
+    ('同乡·赈务圈', {'夏辅宜', '江彤侯', '王揖唐', '胡朴安', '程演生', '余寿平', '洪希甫', '江汉珊'}),
+    ('金石·遗老圈', {'郑文焯', '况周颐', '况夔笙', '朱祖谋', '周梦坡', '邹安', '邹寿祺', '狄楚青'}),
+    ('收租·南陵圈', {'吴舜臣', '舜臣', '牧子襄', '陈海汇', '盛彝斋', '杨芷青'}),
+    ('医药圈', {'鲍承良', '丁仲祜', '丁仲枯', '余伯陶', '杨赤城'}),
+]
+_comm_members = defaultdict(list)
+for i in _top_ids:
+    cm = _comm_of.get(i, -1)
+    if cm >= 0:
+        _comm_members[cm].append(i)
+ov_comms = []
+for cm, ids in _comm_members.items():
+    ids.sort(key=lambda i: -_wdeg[i])
+    labels = [_lbl(i) for i in ids]
+    lset = set(labels)
+    # theme only when ≥2 of its anchors sit in THIS module (else a lone 藏书 person would
+    # mislabel an实业 cluster); pick the theme with the strongest overlap → distinct per module.
+    _cand = [(len(anc & lset), nm) for nm, anc in _THEME if len(anc & lset) >= 2]
+    theme = max(_cand)[1] if _cand else None
+    base = f'{labels[0]}·{labels[1]}' if len(labels) >= 2 else labels[0]
+    name = f'{base}（{theme}）' if theme else f'{base} 等'
+    ov_comms.append({'community': cm, 'name': name, 'size': len(ids),
+                     'theme': theme, 'top': labels[:6]})
+ov_comms.sort(key=lambda c: -c['size'])
 overview_graph = {'nodes': ov_nodes, 'edges': ov_edges, 'unique_total': per_unique,
-                  'shown': len(ov_nodes)}
+                  'shown': len(ov_nodes), 'communities': ov_comms}
 (out_dir / 'cooccurrence_overview.json').write_text(
     json.dumps(overview_graph, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
 
@@ -2743,11 +2863,13 @@ h1{font-size:21px;margin:10px 0 4px} .lede{color:#6b635a;font-size:13px;margin-b
 _fig_nav = ('<nav><a href="../index.html">← 返回总览</a>'
             '<a href="people-overview.html">人物同现总图</a>'
             '<a href="relationship-rings.html">关系同心圆</a>'
+            '<a href="organizations.html">团体Top10</a>'
             '<a href="shiye-clusters.html">事业聚合</a>'
             '<a href="event-nature.html">事件性质</a>'
             '<a href="trajectory-heatmap.html">行迹热力图</a>'
             '<a href="event-types.html">事件类型Top10</a>'
-            '<a href="wu-shunchen.html">吴舜臣活动谱</a></nav>')
+            '<a href="wu-shunchen.html">吴舜臣活动谱</a>'
+            '<a href="nanling-gazetteer.html">南陵县志长编</a></nav>')
 
 
 def _fig_page(title, lede, body, head_extra=''):
@@ -2766,7 +2888,17 @@ _COMM_PALETTE = ['#9b2926', '#2171b5', '#238b45', '#6a51a3', '#d94801', '#1b7837
 _f0_body = f"""
 <div class="legend">
  <span>共 <b style="color:#9b2926;font-size:15px">{overview_graph['unique_total']}</b> 位 unique 人物（已按本名/字/号合并去重）</span>
- <span style="color:#888">本图为同现最密集的 {overview_graph['shown']} 位核心人物；已隐去徐乃昌本人(与所有人相连)，让圈子结构显现</span>
+ <span style="color:#888">本图为与徐乃昌最密切的 <b>{overview_graph['shown']}</b> 人；已隐去徐本人(与所有人相连)，让圈子结构显现</span>
+</div>
+<div class="card" style="padding:12px 14px">
+ <div style="font-size:13px;font-weight:700;margin-bottom:4px">圈子（cluster）怎么分出来的</div>
+ <div style="font-size:12px;color:#5a5247;line-height:1.7">
+  连线 = 两人“同现”（同一天同框 / 同席 / 直接往来）。算法对这 {overview_graph['shown']} 人做<b>加权标签传播</b>
+  （weighted label propagation，确定性、可复现）：每人反复改取“邻居里同现权重之和最大”的标签，直到稳定，
+  于是<b>彼此同现远多于与外人同现</b>的人自动聚成同一色块。下方每个色块即一个圈子，命中已知主题者直接命名，
+  其余以两位核心人物代称。点节点高亮其邻里。
+ </div>
+ <div id="cl" style="margin-top:8px"></div>
 </div>
 <div class="card"><div id="cy" style="height:720px"></div></div>
 <script src="https://unpkg.com/cytoscape@3/dist/cytoscape.min.js"></script>
@@ -2774,6 +2906,11 @@ _f0_body = f"""
 const G={json.dumps(overview_graph,ensure_ascii=False)};
 const PAL={json.dumps(_COMM_PALETTE)};
 const col=c=>c<0?'#bbb':PAL[((c%PAL.length)+PAL.length)%PAL.length];
+document.getElementById('cl').innerHTML=(G.communities||[]).map(m=>
+ `<div style="display:inline-block;vertical-align:top;margin:4px 10px 4px 0;max-width:220px">
+   <span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:${{col(m.community)}};margin-right:5px"></span>
+   <b style="font-size:12px">${{m.name}}</b> <span style="color:#bbada0;font-size:11px">${{m.size}}人</span>
+   <div style="font-size:11px;color:#888;margin-left:15px">${{m.top.join('、')}}</div></div>`).join('');
 const els=[];
 G.nodes.forEach(n=>els.push({{data:{{id:n.id,label:n.label,deg:n.deg,c:col(n.community)}}}}));
 G.edges.forEach(e=>els.push({{data:{{source:e.s,target:e.t,w:e.w}}}}));
@@ -2792,9 +2929,10 @@ cy.on('tap','node',e=>{{const id=e.target.id();
 cy.on('tap',e=>{{if(e.target===cy)cy.elements().style('opacity',1);}});
 </script>"""
 (specials_dir / 'people-overview.html').write_text(_fig_page(
-    '人物同现总图（一图概括所有人）',
-    f'仿《王世杰日记》图4：把全部 {overview_graph["unique_total"]} 位人物的“同现”关系汇成一张网络，'
-    f'同一天共同出现即连线，连接越密的人聚成模块（账单圈/藏书圈/赈灾圈…）。点击任一节点高亮其邻里。',
+    '人物同现总图（最密切的100人）',
+    f'仿《王世杰日记》图4。全库 {overview_graph["unique_total"]} 位人物中，取与徐乃昌同现最密的 '
+    f'{overview_graph["shown"]} 人成网：同框即连线，加权标签传播自动分出藏书·实业·同乡·金石·收租等圈子'
+    f'（共 {len(overview_graph["communities"])} 个，见上方图例与说明）。点击任一节点高亮其邻里。',
     _f0_body), encoding='utf-8')
 
 # Figure: 事件性质五分类 (bars + per-category browse)
@@ -2896,6 +3034,254 @@ document.getElementById('grid').innerHTML=g;
     f'与《图谱改进0615》人工检索（{wu_dossier["totals"]["truth"]} 次）逐年/逐月对照，差额为非账目活动（修志/赈务/家事/医病）。',
     _wu_body), encoding='utf-8')
 
+# ── Figure — Top10 团体 (organizations by recurrence) · 0616 第5波② ─────────────
+# 团体 nodes are alias-fragmented (商务印书馆/商务书馆/商务书馆发行所 = one entity; 大生/大盛/大生事务所;
+# 蟬隐庐/蝉隐庐). Two-layer merge: trad→simp char fold + curated ORG_CANON for the genuine
+# multi-form entities (validated by identical surface-date fingerprints in probe). Rank by
+# DISTINCT mention-days; each org → 主要人员 (top edge-linked persons) + 长编 (date/page/原文).
+ORG_CANON = {
+    '商务书馆': '商务印书馆', '商务书馆发行所': '商务印书馆', '商务印书馆发行所': '商务印书馆',
+    '大生': '大生纱厂', '大盛': '大生纱厂', '大生事务所': '大生纱厂', '大生一、二、三厂': '大生纱厂',
+    '大生纱厂二厂': '大生纱厂', '大生纱厂联合处': '大生纱厂', '大生沪账房': '大生纱厂',
+    '宝经堂': '抱经堂', '抱经堂书店': '抱经堂',
+    '徽宁会馆': '徽宁同乡会', '徽宁同乡会馆': '徽宁同乡会',
+    '魏梅苏慈幼院': '慈幼院',
+    '义振协会': '南陵义振协会', '南陵水灾义振协会': '南陵义振协会',
+    '中国(汇兑银行)': '中国银行',
+    '《安徽丛书》编纂处': '安徽丛书编印处', '安徽丛书编印处委员会': '安徽丛书编印处',
+    '影印宋板藏经会': '影印宋版藏经会',
+    '中国实业银行': '中国实业银行', '实业银行': '中国实业银行',
+}
+
+
+def canon_org(lbl):
+    lbl = (lbl or '').strip().replace('蟬', '蝉').replace('舘', '馆')
+    return ORG_CANON.get(lbl, lbl)
+
+
+def org_kind(c):
+    if any(k in c for k in ('书店', '书馆', '书局', '书社', '书庄', '书坊', '印书', '流通处',
+                            '印社', '隐庐', '古香斋', '来青阁', '博古斋', '鸿宝斋', '藏经', '富晋')):
+        return '书肆·出版'
+    if any(k in c for k in ('纱厂', '纺织', '公司', '银行', '银号', '钱庄', '矿', '水泥',
+                            '实业', '面粉', '电气', '电灯', '轮船', '盐垦')):
+        return '实业·金融'
+    if any(k in c for k in ('同乡会', '会馆')):
+        return '同乡会馆'
+    if any(k in c for k in ('义振', '赈', '慈幼', '济生', '仁济', '救', '善', '极贫', '医院', '医局')):
+        return '慈善公益'
+    if any(k in c for k in ('贞元会', '都益处', '聚丰园', '功德林', '小有天', '古益轩', '酒', '园', '楼')):
+        return '雅集·饭庄'
+    return '其他'
+
+
+_org_dates = defaultdict(set)
+_org_members = defaultdict(Counter)
+_org_evid = defaultdict(list)
+for _n in src['nodes']:
+    if _n.get('entity_type') != '团体':
+        continue
+    _c = canon_org(_n.get('label'))
+    for _sf in (_n.get('metadata') or {}).get('surface_forms') or []:
+        if _sf.get('date'):
+            _org_dates[_c].add(_sf['date'])
+for _e in src['edges']:
+    _s, _t = _e.get('source'), _e.get('target')
+    for _oid, _other in ((_s, _t), (_t, _s)):
+        if nodes_by_id.get(_oid, {}).get('entity_type') != '团体':
+            continue
+        _c = canon_org(nodes_by_id[_oid].get('label'))
+        _d = _e.get('source_location')
+        if _d:
+            _org_dates[_c].add(_d)
+        _on = nodes_by_id.get(redirect(_other) if nodes_by_id.get(_other, {}).get('entity_type') == '人' else _other, {})
+        if _on.get('entity_type') == '人' and _on.get('label'):
+            _org_members[_c][canonicalize_person(_on['label'])] += 1
+        _ev = (_e.get('metadata') or {}).get('evidence_text')
+        if _ev and _d:
+            _org_evid[_c].append((_d, _ev.replace('\n', ' ').strip()))
+
+_org_rank = sorted((c for c in _org_dates if c), key=lambda c: (-len(_org_dates[c]), c))
+organizations = {'total_orgs': len(_org_dates), 'orgs': []}
+for _c in _org_rank[:12]:
+    _dates = sorted(_org_dates[_c])
+    # fold 省称 into full name within this org (颂清⊂金颂清, 寄尘⊂吴寄尘, 子经⊂罗子经)
+    _raw = _org_members[_c]
+    _folded = {}
+    for _nm in sorted((n for n in _raw if n and n != '徐乃昌'), key=len, reverse=True):
+        _host = next((h for h in _folded if _nm in h), None)
+        if _host:
+            _folded[_host] += _raw[_nm]
+        else:
+            _folded[_nm] = _raw[_nm]
+    _mem = [{'name': nm, 'n': cnt} for nm, cnt in
+            sorted(_folded.items(), key=lambda kv: -kv[1])[:16]]
+    _seen, _tl = set(), []
+    for _d, _ev in sorted(_org_evid[_c]):
+        if _d in _seen:
+            continue
+        _seen.add(_d)
+        _tl.append({'date': _d, 'page': page_for(_d), 'snippet': _ev[:70]})
+    organizations['orgs'].append({
+        'org': _c, 'kind': org_kind(_c), 'days': len(_dates),
+        'span': [_dates[0], _dates[-1]] if _dates else None,
+        'members': _mem, 'member_total': len(_folded),
+        'timeline': _tl[:80],
+    })
+(out_dir / 'organizations.json').write_text(
+    json.dumps(organizations, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+print(f"wrote Top {len(organizations['orgs'])} 团体 (of {organizations['total_orgs']} merged orgs); "
+      f"#1 {organizations['orgs'][0]['org']} {organizations['orgs'][0]['days']}天")
+
+_ORG_KIND_COLOR = {'书肆·出版': '#6a51a3', '实业·金融': '#2171b5', '同乡会馆': '#d94801',
+                   '慈善公益': '#cb181d', '雅集·饭庄': '#1b7837', '其他': '#8c8c8c'}
+_org_body = f"""
+<div id="bars" class="card" style="padding:14px"></div>
+<div style="margin-top:12px" class="card" id="browse"></div>
+<script>
+const ORG={json.dumps(organizations,ensure_ascii=False)};
+const KC={json.dumps(_ORG_KIND_COLOR,ensure_ascii=False)};
+const top=ORG.orgs.slice(0,10), mx=Math.max(...top.map(o=>o.days),1);
+document.getElementById('bars').innerHTML='<div style="font-size:12px;color:#888;margin-bottom:10px">全库合并后共 '+ORG.total_orgs+' 个团体；下为出现天数最多的 Top10（已按本名/异写合并，如 商务印书馆/商务书馆/发行所）。点击查看主要人员与可回查长编。</div>'+
+ top.map((o,i)=>{{const c=KC[o.kind]||'#888';return `<div data-i="${{i}}" class="obar" style="display:flex;align-items:center;gap:8px;margin:5px 0;cursor:pointer">
+  <div style="width:24px;text-align:right;color:#bbada0;font-size:12px">${{i+1}}</div>
+  <div style="width:128px;font-size:13px;font-weight:600">${{o.org}}</div>
+  <div style="flex:1;background:#f0ece4;border-radius:3px"><div style="width:${{100*o.days/mx}}%;background:${{c}};height:18px;border-radius:3px"></div></div>
+  <div style="width:108px;text-align:right;font-size:12px"><b>${{o.days}}</b> 天 · <span style="color:${{c}}">${{o.kind}}</span></div></div>`;}}).join('');
+let cur=0;
+function browse(){{
+ const o=ORG.orgs[cur], c=KC[o.kind]||'#888';
+ document.getElementById('browse').innerHTML=
+  `<div style="font-size:15px;font-weight:700;margin-bottom:2px">${{cur+1}}. ${{o.org}} <span style="font-size:12px;font-weight:400;color:${{c}}">${{o.kind}}</span></div>`+
+  `<div style="font-size:12px;color:#888;margin-bottom:8px">出现 <b>${{o.days}}</b> 天 · ${{o.span?o.span[0]+' → '+o.span[1]:''}} · 关联 ${{o.member_total}} 人</div>`+
+  '<div style="margin-bottom:8px"><b style="font-size:12px;color:#666">主要人员：</b>'+
+   o.members.map(m=>`<span style="display:inline-block;background:#f3efe9;border:1px solid #e2dccf;border-radius:10px;padding:1px 8px;font-size:12px;margin:2px 3px">${{m.name}} <span style="color:#bbada0">${{m.n}}</span></span>`).join('')+'</div>'+
+  '<div style="font-size:12px;color:#666;margin:6px 0 4px"><b>事件长编</b>（可回查原书页码核对）：</div>'+
+  '<table style="width:100%;border-collapse:collapse;font-size:12px"><tr style="color:#999;text-align:left"><th>日期</th><th>页</th><th>原文片段</th></tr>'+
+   o.timeline.map(r=>`<tr><td style="padding:2px 6px 2px 0;white-space:nowrap">${{r.date}}</td><td style="color:#999;white-space:nowrap">${{r.page||''}}</td><td style="color:#5a5247">${{r.snippet}}</td></tr>`).join('')+'</table>';
+}}
+document.querySelectorAll('.obar').forEach(b=>b.onclick=()=>{{cur=+b.dataset.i;browse();}});
+browse();
+</script>"""
+(specials_dir / 'organizations.html').write_text(_fig_page(
+    '出现最多的团体 Top10',
+    f'把全库 {organizations["total_orgs"]} 个团体（书肆·实业·同乡会·慈善·饭庄…）按在日记中出现的天数排名，'
+    f'取前十。每个团体给出主要关联人员与可回查的事件长编（日期·原书页码·原文片段）。已按本名/异写合并，无重新抽取。',
+    _org_body), encoding='utf-8')
+
+# ── 南陵县志 · 史料长编 (0616 sheet2) ─────────────────────────────────────────
+# 徐乃昌任《南陵县志》总纂。抽出"修志"全过程的史料长编，PRECISION 关键 = 必须 南陵-specific：
+# gazetteer-PROCESS 词 (县志/修志/纂修/分纂/采访/访碑/拓碑/志书/局董…) ∧ 南陵 锚点 (南陵/宛陵/志局/
+# 修志局/筹备修志局 — 本日记里"志局"专指南陵, 安徽通志用"通志局" — 或 principals 牧子襄/陈海汇/方朗夫/
+# 盛彝斋/杨芷青/孙子彬, 含 OCR 异写 牧子襲/牧子壤)。OTHER-GAZ 守卫: 若仅含 安徽通志/泾县志… 而无硬南陵锚
+# 点则剔除 (用户提示"有其他县志参杂进来")。访碑/拓碑 仅在南陵锚点下计入 (它们也用于金石收藏)。
+# NOTE: 纂修/纂辑 dropped — they double as book-citation verbs ("蔡必达纂修本", "徐树穀纂辑")
+# and produced the only residual false positives. 礼聘 entries still caught via 修志局/总纂/县志.
+NL_PROC = ('县志', '修志', '总纂', '分纂', '修志局', '志稿', '局董', '分修',
+           '采访', '访碑', '拓碑', '志书')
+NL_ANCHOR = ('南陵', '宛陵', '南陵县', '南陵志', '修志局', '筹备修志局', '修志馆', '志局',
+             '牧子襄', '牧子襲', '牧子壤', '陈海汇', '方朗夫', '盛彝斋', '杨芷青', '孙子彬')
+NL_HARD = ('南陵', '宛陵', '南陵县', '南陵志', '牧子襄', '牧子襲', '牧子壤',
+           '陈海汇', '方朗夫', '盛彝斋', '杨芷青', '孙子彬')
+NL_OTHER = ('安徽通志', '通志局', '皖志局', '江南通志', '江苏通志', '浙江通志', '一统志',
+            '泾县志', '宣城县志', '太平府志')
+NL_PRINCIPALS = {'牧子襄': ('牧子襄', '牧子襲', '牧子壤'), '陈海汇': ('陈海汇',),
+                 '方朗夫': ('方朗夫',), '盛彝斋': ('盛彝斋', '彝斋'), '杨芷青': ('杨芷青',),
+                 '孙子彬': ('孙子彬',), '吴舜臣': ('吴舜臣', '舜臣', '舜老')}
+
+
+def _nl_phase(b):
+    if any(k in b for k in ('敦请', '婉辞', '束脩', '延纂', '辞纂', '请主修', '主修', '聘请', '总纂')):
+        return '礼聘·受任'
+    if any(k in b for k in ('排印', '校样', '付印', '石印', '印工', '刊样', '刻样', '排工', '付刊', '刊成')):
+        return '刊印·校样'
+    if any(k in b for k in ('运芜', '部数', '结欠', '带回', '函索', '清单', '县志部', '地图套', '归还我处')):
+        return '分发·结账'
+    if any(k in b for k in ('分纂', '采访', '访碑', '拓碑', '编辑', '分修', '志稿', '舆图', '艺文',
+                            '经籍', '金石志', '碑碣', '人物志', '舆地', '分门', '商订', '编《', '原本县志')):
+        return '纂修·采访'
+    return '志事往来'
+
+
+def _has(b, kws):
+    return any(k in b for k in kws)
+
+
+nl_entries = []
+_nl_principal_days = Counter()
+_nl_phase_days = Counter()
+for _d in sorted(_BODY):
+    _b = _BODY[_d]
+    if not _has(_b, NL_PROC):
+        continue
+    if not _has(_b, NL_ANCHOR):
+        continue
+    if _has(_b, NL_OTHER) and not _has(_b, NL_HARD):     # other-gazetteer leak → drop
+        continue
+    _kw = next((k for k in NL_PROC if k in _b), '')
+    _pos = _b.find(_kw)
+    _snip = _b[max(0, _pos - 14):_pos + 40].replace('\n', ' ').strip()
+    _princ = [nm for nm, al in NL_PRINCIPALS.items() if any(a in _b for a in al)]
+    for nm in _princ:
+        _nl_principal_days[nm] += 1
+    _ph = _nl_phase(_b)
+    _nl_phase_days[_ph] += 1
+    nl_entries.append({'date': _d, 'page': page_for(_d), 'kw': _kw, 'phase': _ph,
+                       'principals': _princ, 'snippet': _snip})
+
+_PHASE_ORDER = ['礼聘·受任', '纂修·采访', '刊印·校样', '分发·结账', '志事往来']
+nanling = {
+    'total_days': len(nl_entries),
+    'span': [nl_entries[0]['date'], nl_entries[-1]['date']] if nl_entries else None,
+    'by_year': dict(sorted(Counter(e['date'][:4] for e in nl_entries).items())),
+    'by_phase': [{'phase': p, 'days': _nl_phase_days.get(p, 0)} for p in _PHASE_ORDER],
+    'principals': [{'name': nm, 'days': c} for nm, c in _nl_principal_days.most_common()],
+    'entries': nl_entries,
+}
+(out_dir / 'nanling_gazetteer.json').write_text(
+    json.dumps(nanling, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+print(f"wrote 南陵县志 史料长编: {nanling['total_days']} 天 "
+      f"({nanling['span'][0] if nanling['span'] else '-'}→{nanling['span'][1] if nanling['span'] else '-'}), "
+      f"principals {[p['name'] for p in nanling['principals'][:4]]}")
+
+_NL_PHASE_COLOR = {'礼聘·受任': '#9b2926', '纂修·采访': '#1b7837', '刊印·校样': '#2171b5',
+                   '分发·结账': '#a35c1a', '志事往来': '#8c8c8c'}
+_nl_body = f"""
+<div class="card" style="padding:14px" id="hdr"></div>
+<div style="margin-top:12px" class="card" id="tl" style="padding:10px"></div>
+<script>
+const NL={json.dumps(nanling,ensure_ascii=False)};
+const PC={json.dumps(_NL_PHASE_COLOR,ensure_ascii=False)};
+const mxp=Math.max(...NL.by_phase.map(p=>p.days),1);
+let h=`<div style="font-size:12px;color:#888;margin-bottom:8px">徐乃昌任《南陵县志》总纂。共 <b style="color:#9b2926">${{NL.total_days}}</b> 天志事，${{NL.span?NL.span[0]+' → '+NL.span[1]:''}}。已按"修志词∧南陵锚点"精筛，剔除安徽通志/他县志杂入。</div>`;
+h+='<div style="display:flex;flex-wrap:wrap;gap:14px">';
+h+='<div style="flex:1;min-width:240px"><b style="font-size:12px;color:#666">分阶段</b>'+
+ NL.by_phase.map(p=>`<div style="display:flex;align-items:center;gap:6px;margin:3px 0"><div style="width:64px;font-size:12px">${{p.phase}}</div><div style="flex:1;background:#f0ece4;border-radius:3px"><div style="width:${{100*p.days/mxp}}%;height:14px;background:${{PC[p.phase]}};border-radius:3px"></div></div><div style="width:40px;text-align:right;font-size:12px">${{p.days}}天</div></div>`).join('')+'</div>';
+h+='<div style="flex:1;min-width:240px"><b style="font-size:12px;color:#666">主要纂修人员（命中天数）</b><div style="margin-top:4px">'+
+ NL.principals.map(p=>`<span style="display:inline-block;background:#f3efe9;border:1px solid #e2dccf;border-radius:10px;padding:1px 9px;font-size:12px;margin:2px 3px">${{p.name}} <span style="color:#bbada0">${{p.days}}</span></span>`).join('')+'</div></div>';
+h+='</div>';
+document.getElementById('hdr').innerHTML=h;
+// chronological 长编
+let cur='全部';
+function tl(){{
+ const es=NL.entries.filter(e=>cur==='全部'||e.phase===cur);
+ const phases=['全部'].concat(NL.by_phase.filter(p=>p.days).map(p=>p.phase));
+ document.getElementById('tl').innerHTML=
+  '<div style="margin-bottom:8px">'+phases.map(p=>`<button data-p="${{p}}" style="margin:0 6px 4px 0;padding:3px 10px;border:1px solid #ddd;border-radius:3px;cursor:pointer;background:${{p===cur?(PC[p]||'#666'):'#fff'}};color:${{p===cur?'#fff':'#333'}}">${{p}}</button>`).join('')+'</div>'+
+  `<div style="font-size:12px;color:#888;margin-bottom:6px">${{es.length}} 条 · 点击可对原书页码回查中华经典古籍库</div>`+
+  '<table style="width:100%;border-collapse:collapse;font-size:12px"><tr style="color:#999;text-align:left"><th>日期</th><th>页</th><th>阶段</th><th>命中</th><th>人物</th><th>原文片段</th></tr>'+
+  es.map(e=>`<tr style="border-top:1px solid #f3efe9"><td style="padding:3px 6px 3px 0;white-space:nowrap">${{e.date}}</td><td style="color:#999;white-space:nowrap">${{e.page||''}}</td><td style="color:${{PC[e.phase]||'#666'}};white-space:nowrap">${{e.phase}}</td><td style="color:#9b2926;white-space:nowrap">${{e.kw}}</td><td style="color:#7a6a55;white-space:nowrap">${{(e.principals||[]).join('、')}}</td><td style="color:#5a5247">${{e.snippet}}</td></tr>`).join('')+'</table>';
+ document.querySelectorAll('#tl button').forEach(b=>b.onclick=()=>{{cur=b.dataset.p;tl();}});
+}}
+tl();
+</script>"""
+(specials_dir / 'nanling-gazetteer.html').write_text(_fig_page(
+    '南陵县志 · 史料长编',
+    f'徐乃昌任《南陵县志》总纂（1920 礼聘 → 1924 刊成 → 1930 前后分发结账）。本页把修志全过程的 '
+    f'{nanling["total_days"]} 条史料按时间编为长编：每条给出原书页码、所处阶段、命中词、在场纂修人员与原文片段。'
+    f'已用"修志词 ∧ 南陵锚点"精筛，剔除安徽通志/他县县志的杂入（用户校样反馈）。',
+    _nl_body), encoding='utf-8')
+
 # Figure 1 — concentric rings (SVG, computed client-side)
 RING_COLORS = ['#9b2926', '#c0392b', '#d98880', '#e8b9b3', '#cfcabf']
 _f1_body = f"""
@@ -2920,11 +3306,12 @@ const byR={{}};RINGS.forEach(p=>{{(byR[p.ring]=byR[p.ring]||[]).push(p);}});
 [1,2,3,4].forEach(r=>{{const arr=byR[r]||[];const n=arr.length;arr.forEach((p,i)=>{{
  const ang=(i/Math.max(n,1))*2*Math.PI - Math.PI/2;
  const x=cx+RAD[r]*Math.cos(ang), y=cy+RAD[r]*Math.sin(ang);
- const rad=Math.max(3,Math.min(11,3+Math.sqrt(p.interactions)));
+ const f=p.xu_freq||0;
+ const rad=Math.max(3,Math.min(13,3+Math.sqrt(f)));
  const c=el('circle',{{cx:x,cy:y,r:rad,fill:COL[r],opacity:0.85}});
- c.appendChild(el('title',{{}}));c.lastChild.textContent=`${{p.label}} · 互动${{p.interactions}}`+(p.kin_type?` · ${{p.kin_type}}`:'')+(p.jiguan?` · ${{p.jiguan}}`:'');
+ c.appendChild(el('title',{{}}));c.lastChild.textContent=`${{p.label}} · 与徐互动${{f}}`+(p.kin_type?` · ${{p.kin_type}}`:'')+(p.jiguan?` · ${{p.jiguan}}`:'');
  svg.appendChild(c);
- if(p.interactions>=(r<=2?6:18)){{const tx=el('text',{{x:x+(x>=cx?rad+2:-rad-2),y:y+3,'font-size':10,fill:'#5a5247','text-anchor':x>=cx?'start':'end'}});tx.textContent=p.label;svg.appendChild(tx);}}
+ if(f>=(r<=2?4:10)){{const tx=el('text',{{x:x+(x>=cx?rad+2:-rad-2),y:y+3,'font-size':10,fill:'#5a5247','text-anchor':x>=cx?'start':'end'}});tx.textContent=p.label;svg.appendChild(tx);}}
 }});}});
 const lg=document.getElementById('lg');
 [0,1,2,3,4].forEach(r=>{{const s=document.createElement('span');s.innerHTML=`<span class="dot" style="background:${{COL[r]}}"></span>${{RLAB[r]}}`;lg.appendChild(s);}});
@@ -2934,7 +3321,10 @@ const lg=document.getElementById('lg');
     f'以徐乃昌为核心，按关系亲疏分层：亲属 → 南陵同乡 → 安徽同乡 → 其他。'
     f'全库分层人数：亲属 {ring_counts.get("亲属",0)}·南陵同乡 {ring_counts.get("南陵同乡",0)}'
     f'·安徽同乡 {ring_counts.get("安徽同乡",0)}·其他 {ring_counts.get("其他",0)}。'
-    f'为清晰起见，外两层只画互动最多者（安徽 {RING_CAP[3]}、其他 {RING_CAP[4]}）；点大小=互动次数。'
+    f'<b>点大小 = 其与徐乃昌的互动频次</b>（直接往来＋同席）；外两层只画与徐互动最多者'
+    f'（安徽 {RING_CAP[3]}、其他 {RING_CAP[4]}）。皖籍打标已补全（同乡会同席＋籍贯陈述＋亲属推断），'
+    f'故安徽圈较前充实；“其他”圈中仍多是徐在沪的江浙闽藏书友（陈乃乾·李拔可·张元济·刘翰怡等），'
+    f'确非皖人——这正说明徐的核心交游是<b>跨地域的书林</b>，而非纯乡谊。'
     f'“一图概括所有 {per_unique} 人”见 → 人物同现总图。',
     _f1_body), encoding='utf-8')
 
@@ -3040,7 +3430,9 @@ specials_idx = [
     '<div class="meta">数据驱动的主题页：从分散日记条目里按议题聚合。点击主题进入。</div>',
     '<ul>',
     '<li><a href="people-overview.html"><strong>人物同现总图</strong></a> — 一图概括全部人物 (论文图4 风格) + unique 人数</li>',
-    '<li><a href="relationship-rings.html"><strong>人物关系同心圆</strong></a> — 亲疏分层 (亲属/南陵/安徽/其他)</li>',
+    '<li><a href="relationship-rings.html"><strong>人物关系同心圆</strong></a> — 亲疏分层 (亲属/南陵/安徽/其他)，点大小=与徐互动频次</li>',
+    '<li><a href="organizations.html"><strong>出现最多的团体 Top10</strong></a> — 书肆/实业/同乡会/慈善，主要人员+事件长编</li>',
+    '<li><a href="nanling-gazetteer.html"><strong>南陵县志·史料长编</strong></a> — 徐乃昌总纂修志全程，精筛剔除他县志</li>',
     '<li><a href="shiye-clusters.html"><strong>事业聚合与重叠</strong></a> — 人物×事业 (含金石/诗词圈)，跨事业重叠</li>',
     '<li><a href="event-nature.html"><strong>日记事件性质分类</strong></a> — 金石/诗词/遗民/乡邦/其它 按天计数</li>',
     '<li><a href="event-types.html"><strong>生活事件类型 Top10</strong></a> — 全 6134 天 11 类活动排名 (确定性，无 LLM)</li>',
